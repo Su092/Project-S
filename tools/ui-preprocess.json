@@ -1,0 +1,432 @@
+{
+  "plate_dark": {
+    "mode": "material",
+    "size": 1024,
+    "sat": 0.0,
+    "src_sha256": "67a6c7d07cc63dce227d5519560685f0464d0c377e1f010ec3bfa6d9e6e11af1"
+  },
+  "plate_light": {
+    "mode": "material",
+    "size": 1024,
+    "sat": 0.0,
+    "src_sha256": "ccfd60c5ddaf8c8f59ebc300cf19b2dacd2d8dcb2d0c2026009808d31c143553"
+  },
+  "energy": {
+    "mode": "material",
+    "size": 512,
+    "sat": 0.0,
+    "src_sha256": "8cf3bc2d7d95060e7550eb4de4d45800bb9804f5962b2ee38b334f4c4dfc1637"
+  },
+  "icon_lock": {
+    "mode": "glyph",
+    "size": 256,
+    "trim": true,
+    "max_dev": [
+      0.7,
+      0.9
+    ],
+    "src_sha256": "c1a3664f733c7baefd303c2917464b77d3939f859cff8067969d13c4d394d03c"
+  },
+  "icon_check": {
+    "mode": "glyph",
+    "size": 256,
+    "trim": true,
+    "max_dev": [
+      0.7,
+      0.9
+    ],
+    "src_sha256": "28815e0363aa220fb117b032078d1d44335c3d0e9c595d03fcdd74d8dbb23d59"
+  },
+  "icon_arrow": {
+    "mode": "glyph",
+    "size": 256,
+    "trim": true,
+    "max_dev": [
+      0.7,
+      0.9
+    ],
+    "src_sha256": "8cc972f7538a32376fb97412c5832d297d27a43655136a5458fa43bd2afd726c"
+  },
+  "crosshair": {
+    "mode": "icon",
+    "size": [
+      128,
+      128
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.06,
+    "src_sha256": "6249df1fef0f89e269d554675b852b9176f37c3052267090072a500e66de39da"
+  },
+  "icon_bullet": {
+    "mode": "icon",
+    "size": [
+      128,
+      128
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.04,
+    "src_sha256": "594678ff9cfde48a8ec0f9d19e6b375e30931ad27edd9d927cfbb88325836010"
+  },
+  "icon_whole": {
+    "mode": "icon",
+    "size": [
+      128,
+      128
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.04,
+    "src_sha256": "3935a47d57e6acc6ca9136a9cb5ca9d860b9a2459eb76db1f981526adc703e58"
+  },
+  "icon_after": {
+    "mode": "icon",
+    "size": [
+      128,
+      128
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.04,
+    "src_sha256": "7da7140fa75bc640fce412ae1672acc54111fb9d3e75ac880b12e4377321859c"
+  },
+  "icon_gun": {
+    "mode": "icon",
+    "size": [
+      128,
+      128
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.04,
+    "src_sha256": "bbb060e1045bcb66d8254aceeb0465f145616e5d10c7b3483b6f4fb442dd1084"
+  },
+  "keycap": {
+    "mode": "icon",
+    "size": [
+      64,
+      64
+    ],
+    "trim": true,
+    "final": true,
+    "pad_ratio": 0.07,
+    "src_sha256": "5e846df0fa936f85fd219f2310f72ec321256a8ddf97778a2760f817431efd36"
+  },
+  "panel": {
+    "mode": "plate",
+    "edge": 512,
+    "final": true,
+    "src_sha256": "697ca6a64b7a6e37ea3e5730df2596ffa96a472743269e22a3239643d97f150f"
+  },
+  "card_frame": {
+    "mode": "plate",
+    "edge": 256,
+    "final": true,
+    "src_sha256": "c8cb3d73c7fd4b7fa489bfac2d8d6fd60b75d29bff3b1d9534b5914f48f03995"
+  },
+  "banner": {
+    "mode": "plate",
+    "edge": 512,
+    "final": true,
+    "src_sha256": "ec55050e97be7b903776e6270ea96e1d7c769213022c0ed14fc80b1ca4f4c9f3"
+  },
+  "bar_frame": {
+    "mode": "plate",
+    "edge": 512,
+    "final": true,
+    "src_sha256": "e637cac1b141b53b5a13c6fbec35e2f671a7ab7e16c13423f4eb007c6404c5c5"
+  },
+  "vignette": {
+    "mode": "mask",
+    "size": [
+      1024,
+      576
+    ],
+    "final": true,
+    "max_alpha": 255,
+    "src_sha256": "259e1204edbca49be78ceba2040c29e5d3ef0a5aee6be6f2489b40bd2f935c5c"
+  },
+  "card_inner": {
+    "mode": "material",
+    "size": 512,
+    "sat": 0.0,
+    "min_sigma": 1.5,
+    "src_sha256": "a645e46a6adcae9b93a05cb6a34bb860d15f78ecd8152fa30a3234ac3c377556"
+  },
+  "item_b_slug": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "7c671559621cc921929384aa6e2410bc2c2dbd2f0f48f1bb6aa33f79fe53341a"
+  },
+  "item_b_heavy": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "8a151d8254a13be24caff84b8aa6a70b5951f152c2f121b80b85614d20c635e7"
+  },
+  "item_b_pellet": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "5a7441645580beda437901fb8c213c60b32f7c789f954ec9e12dcdeb19a0ea49"
+  },
+  "item_b_pierce": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "278f40fc2ed7fc9a60853bbb69a90c9e5601367ddf6aa0fd04766d5b721d9199"
+  },
+  "item_b_ricochet": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "2de141f447e1ba1ab4383366ecc83f15c97cbef928ff889f1aec4a17f377566d"
+  },
+  "item_b_incend": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "a0721f63a18b79a39373272b635956d9c559ed495d01b8546a4e4986a9fe2ad1"
+  },
+  "item_b_cryo": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "2bd502379cb69c13845731419f76d18683a3f32f150753da08dc292cf5f73aa6"
+  },
+  "item_b_null": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "a43dceeb522b3cada23597194d5dd0a966c91623967a230ec82812fcaa01144c"
+  },
+  "item_b_lance": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "b51a6049ecc15e215829954589c4335e935b18646fa81516cfea1975718662d4"
+  },
+  "item_m_dmg_up": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "f0fceebef78b9aaf31bdf108e37191c868fa9255bb2519306ce0d4cec472f6ee"
+  },
+  "item_m_dmg_flat": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "bc688e3176c870dff6881137a2e1519b113f1adb45544e98b6ab8bf8a699c676"
+  },
+  "item_m_crit_up": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "809ee6ce8593e3483dd61d90c26a1bb8635a30a04f8908b6d469f71849be5cd0"
+  },
+  "item_m_critdmg": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "43063ae1273abee877a29e39ddd237810f40bf9ef582d3665b31190256ddd639"
+  },
+  "item_m_spread_down": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "bd9ea22fefb83fb9b516dafffef4a98e53720b1b1a64ecb56d9b502d5a3ae637"
+  },
+  "item_m_life_up": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "af50ae694d0e47f2cbc0c15b8ce543bfeaa40bbee287c90daa725a79aa77edcc"
+  },
+  "item_m_ammo_down": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "d8da7c93167b30b009fb138ef0590fed623817b8bb1811d9d88d1efc72aa7977"
+  },
+  "item_m_speed_up": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "7e64d5a7f75554d05224d66af84bb8f1851d3664999fc6f19a1e3d812fdeff9b"
+  },
+  "item_m_pierce": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "5264187a5e5745897601af9f8ff39674a81f57e30fc863cb46d1dde2dd30602a"
+  },
+  "item_m_homing": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "05a9669576f5a5c016ba7dbd7bcd6d90952085e03cee789ca0c7a6bf54536d3d"
+  },
+  "item_m_blast": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "28ee64352d9e09f2cfe4b9c31bb5b87fa67b9ca181e8f25f683ca8512a35f6d9"
+  },
+  "item_m_mag": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3ffcc1a5771462ea824bb8d8338b592a21fc63eed59371653743790ca275701c"
+  },
+  "item_m_rate": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "9899acf42cc10418829fb3d5faaa64338c927bf5f41135e4aa549eeb1e9f67ed"
+  },
+  "item_m_recoil": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "835302b7103e5984b82ebf594d4f914e2bf50576a40f61458290087d5dcf1067"
+  },
+  "item_b_plasma": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 24,
+    "src_sha256": "87074a74c57bf5fc50862f17ddc3725583244b1a1b5c0e73e674c07252beb953"
+  },
+  "item_m_split": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 24,
+    "src_sha256": "e542bcd9b75d56634d4544eebab5377ba2de35c12ef962b48810a8c92d0707ee"
+  }
+}

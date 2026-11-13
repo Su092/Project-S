@@ -1,0 +1,32 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace S.View
+{
+    /// <summary>
+    /// 背包槽位的拖放目标。每个槽代表链中的一格。
+    ///
+    /// 该组件挂在预制体上（Inventory / ChainRow），因此必须单独成文件：
+    /// Unity 按「文件名 = 类名」定位脚本，混在别的文件里会变成 Missing (Mono Script)。
+    /// </summary>
+    public sealed class SlotDropTarget : MonoBehaviour, IDropHandler, IPointerClickHandler
+    {
+        public InventoryView Owner;
+        public int SlotIndex;
+        public int ChainIndex;      // -1 表示追加到末尾
+        public bool IsBagArea;
+
+        public void OnDrop(PointerEventData e)
+        {
+            if (Owner == null) return;
+            var src = e.pointerDrag != null ? e.pointerDrag.GetComponent<DraggableItem>() : null;
+            if (src == null) return;
+            Owner.HandleDrop(src, this);
+        }
+
+        public void OnPointerClick(PointerEventData e)
+        {
+            if (Owner != null && !IsBagArea) Owner.HandleSlotClick(SlotIndex);
+        }
+    }
+}

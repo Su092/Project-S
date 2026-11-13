@@ -1,0 +1,77 @@
+# ===== Unity 工程 .gitignore =====
+# 判据：只提交「人写的」与「生成后拿不回来的」。
+# 可再生的（Library / Build / bin / obj）一律不进仓库 —— 否则仓库上 GB，
+# 且每次打包都会产生大量无意义 diff。
+
+# ---- Unity 可再生产物 ----
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Unity 生成的工程文件（每次打开都会被重写）
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Unity 崩溃与缓存
+sysinfo.txt
+crashlytics-build.properties
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# ---- dotnet 断言工程的构建产物 ----
+tools/loadout-tests/bin/
+tools/loadout-tests/obj/
+
+# ---- 本工程的运行产物 ----
+# 根目录的日志是自检/冒烟/自动驾驶的输出，随时可重跑
+*.log
+selfcheck.log
+smoke.log
+autoplay.log
+
+# APIMart 凭据（绝不入库）
+tools/.apimart.key
+tools/.apimart-ip.json
+
+# 旧 PIL 版 UI 备份：已被 tools/gen_ui_assets_ai.py 的产物取代，无脚本引用
+/Backup_UI_PIL/
+
+# Python
+__pycache__/
+*.pyc
+
+# ---- OS / 编辑器噪声 ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
+.vs/
+.idea/
+.vscode/
+
+# ---- 二进制大件的备份位（Unity 自动生成）----
+*.orig
+*.bak
+*~
