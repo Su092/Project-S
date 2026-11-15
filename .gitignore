@@ -77,9 +77,7 @@ Desktop.ini
 *~
 
 # ---- 未处理资产暂存区（原料，不入库）----
-# 见 _Inbox/README.md：AI 原图 / 参考图 / 预览渲染都放这里，
 # 只有最终进引擎的产物才落 Assets/。
-/_Inbox/
 
 # ---- 运行产物：截图与模型对照图（check.ps1 -Task shots / assets 生成）----
 /Shots/
