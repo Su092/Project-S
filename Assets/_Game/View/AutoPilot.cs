@@ -104,7 +104,7 @@ namespace S.View
 
                 var g = _weapons != null ? _weapons.Active : null;
                 string gunInfo = g != null
-                    ? $"{g.Ammo}/{g.Resolved.MagSize} cd={g.FireCooldown:0.00} rl={g.ReloadLeft:0.0}"
+                    ? $"{g.Ammo}/{g.Stats.Mag} cd={g.FireCooldown:0.00} rl={g.ReloadLeft:0.0}"
                     : "none";
 
                 // 列出全部敌人（诊断「有敌人但找不到」的僵持）
@@ -119,8 +119,7 @@ namespace S.View
                 Debug.Log($"[AUTOPILOT] t={Elapsed:0.0}s hp={_root.Hp:0} " +
                           $"enemies={_root.Enemies.Count} [{enemyInfo}] " +
                           $"gun({gunInfo}) threat={_root.Run.Threat:0} kills={_root.Run.Kills} " +
-                          $"pos=({_pc.transform.position.x:0.0},{_pc.transform.position.z:0.0}) " +
-                          $"LIST=[{sb}]");
+                          $"pos=({_pc.transform.position.x:0.0},{_pc.transform.position.z:0.0}) " +                          $"LIST=[{sb}]");
 
                 // 直接验证查找结果（区分「找不到」还是「找到但不打」）
                 {
@@ -176,37 +175,8 @@ namespace S.View
             }
             else
             {
-                // 没目标：如果本区已清空，就走向门洞进下一区；否则朝区域中心待命
-                if (_root.Progress != null && _root.Progress.CurrentCleared &&
-                    _root.Progress.IsDoorOpen(_root.Progress.Current))
-                {
-                    // 门在本区后墙处（+Z 方向）
-                    float gateZ = ZoneBuilder.CenterOf(_root.Progress.Current).z
-                                + ZoneBuilder.ZoneLength * 0.5f + 3f;
-                    var doorPos = new Vector3(0f, _pc.transform.position.y, gateZ);
-                    Vector3 toDoor = doorPos - _pc.transform.position;
-                    toDoor.y = 0f;
-
-                    if (toDoor.magnitude > 1f)
-                    {
-                        // 朝门走，同时把视角也转向门（不然会撞墙）
-                        Vector3 flat = toDoor.normalized;
-                        _pc.AiMove = flat;
-
-                        float yaw = Mathf.DeltaAngle(
-                            _pc.transform.eulerAngles.y,
-                            Quaternion.LookRotation(flat).eulerAngles.y);
-                        _pc.AiLookDelta = new Vector2(Mathf.Clamp(yaw, -25f, 25f), 0f);
-                        _pc.AiWantsSprint = toDoor.magnitude > 6f;
-                    }
-                    else
-                    {
-                        _pc.AiMove = Vector3.zero;
-                    }
-                    return;
-                }
-
-                var center = ZoneBuilder.CenterOf(_root.Zone);
+                // 没有目标：站到场地中央待命（单图没有门可走，玩家该在原地等下一波）
+                var center = ArenaBuilder.Center;
                 Vector3 toCenter = center - _pc.transform.position;
                 toCenter.y = 0f;
                 if (toCenter.magnitude > 6f)

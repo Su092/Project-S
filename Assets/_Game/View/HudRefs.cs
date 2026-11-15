@@ -45,6 +45,11 @@ namespace S.View
 
         [Header("区域与 Boss")]
         public Text ZoneText;
+
+        [Header("中央大计时器（对齐原型 #timer）")]
+        public Text Timer;
+        /// <summary>倒计时标签：距精英 / 距 Boss。</summary>
+        public Text TimerLabel;
         public GameObject BossBarRoot;
         public Image BossFill;
         public Text BossNameText;

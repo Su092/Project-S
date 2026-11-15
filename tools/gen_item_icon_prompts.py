@@ -31,8 +31,10 @@ def find_manifest():
     for _ in range(6):
         candidates.append(os.path.join(d, "tools", "apimart-assets.json"))
         d = os.path.dirname(d)
-    # 工作区根（此项目的 .apimart.key / 清单都放这里）
-    candidates.append(os.path.join("E:\\Unity Development", "tools", "apimart-assets.json"))
+    # 枢纽根（<HUB>/tools）—— 相对推算到不了，因为工程挂在 <HUB>/Project/<Game>/unity 下，
+    # 而清单在 <HUB>/tools。这里从工程根再向上三级拿到同样位置，不写死盘符。
+    candidates.append(os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "tools",
+                                                   "apimart-assets.json")))
 
     for c in candidates:
         if os.path.isfile(c):

@@ -12,7 +12,7 @@ namespace S.Core
     }
 
     /// <summary>
-    /// 局内状态：经验、等级、威胁值、背包、掉落。
+    /// 局内状态：经验、等级、威胁值、背包、抽取。
     /// 零 Unity 依赖、只用 mulberry32 + 种子 —— 同种子同操作结果一致（技术设计 §4）。
     /// 规则出处：docs/gameplay-spec.md §4 §5 §6
     /// </summary>
@@ -25,20 +25,20 @@ namespace S.Core
         uint _rng;
 
         public int Level = 1;
-        public int Xp;                 // 当前等级内已积累
-        public float Threat;           // 0..100
+        public int Xp;
+        public float Threat;
         public int Kills;
         public bool ReachedMaxLevel => Level >= MaxLevel;
 
         public readonly List<ChainItem> Bag = new List<ChainItem>();
-        public int BagCapacity = 24;
+        public int BagCapacity = 44;
 
         /// <summary>本局已出现过的史诗件（全局唯一）。</summary>
         public readonly HashSet<string> UsedEpics = new HashSet<string>();
 
         readonly SData _data;
 
-        public RunState(SData data, uint seed, int bagCapacity = 24)
+        public RunState(SData data, uint seed, int bagCapacity = 44)
         {
             _data = data;
             Seed = seed;
@@ -66,7 +66,7 @@ namespace S.Core
         /// <summary>从 level 升到 level+1 所需经验：need(L) = 2L² + 5L + 8。</summary>
         public static int NeedFor(int level) => 2 * level * level + 5 * level + 8;
 
-        /// <summary>吃经验。返回本次升了几级（调用方据此弹几次三选一）。</summary>
+        /// <summary>吃经验。返回本次升了几级。</summary>
         public int AddXp(int amount)
         {
             if (amount <= 0 || ReachedMaxLevel) return 0;
@@ -82,7 +82,6 @@ namespace S.Core
             return ups;
         }
 
-        /// <summary>到 level 级所需的累计经验（用于 UI 与验收）。</summary>
         public static int TotalXpFor(int level)
         {
             int sum = 0;
@@ -92,26 +91,16 @@ namespace S.Core
 
         // ---------- 威胁 ----------
 
-        public void ThreatTick(float dt)
+        /// <summary>把威胁值同步为时间轴给出的值（gameplay-spec §4）。</summary>
+        public void SyncThreat(float value)
         {
-            if (dt <= 0f) return;
-            Threat += 1.2f * dt;
-            if (Threat > ThreatMax) Threat = ThreatMax;
-        }
-
-        public void AddThreat(float v)
-        {
-            Threat += v;
-            if (Threat < 0f) Threat = 0f;
-            if (Threat > ThreatMax) Threat = ThreatMax;
+            Threat = value < 0f ? 0f : value > ThreatMax ? ThreatMax : value;
         }
 
         /// <summary>敌人缩放系数（gameplay-spec §3）。</summary>
-        public float HpScale => 1f + 0.004f * Threat;
-        public float DmgScale => 1f + 0.0025f * Threat;
+        public float HpScale => 1f + 0.008f * Threat;
+        public float DmgScale => 1f + 0.004f * Threat;
 
-        public bool EliteWaveUnlocked => Threat >= 35f;
-        public bool EliteEveryWave => Threat >= 65f;
         public bool HuntActive => Threat >= 88f;
 
         // ---------- 背包 ----------
@@ -134,21 +123,37 @@ namespace S.Core
             return null;
         }
 
-        /// <summary>丢弃一个背包件（背包满时顶替用）。</summary>
         public bool Discard(ChainItem item) => Bag.Remove(item);
+
+        /// <summary>
+        /// 分解配件换经验（对齐原型：普通 3 / 稀有 6 / 史诗 9）。
+        /// 玩家清背包的唯一手段 —— 不设「丢弃即消失」，否则垃圾件会一直占格。
+        /// </summary>
+        public int Salvage(ChainItem item)
+        {
+            if (item == null) return 0;
+            if (!Bag.Remove(item)) return 0;
+            int xp = item.Rarity switch
+            {
+                Rarity.Epic => 9,
+                Rarity.Rare => 6,
+                _ => 3,
+            };
+            AddXp(xp);
+            return xp;
+        }
 
         // ---------- 三选一 ----------
 
         /// <summary>
         /// 生成一次三选一。不重复同一个 id；史诗全局唯一（本局只出现一次）。
-        /// 权重来自 sdata.rarityWeights（gameplay-spec §5.3 / loadout-spec §7.4）。
         /// </summary>
         public List<Offer> Roll(int count = 3)
         {
             var offers = new List<Offer>(count);
             var picked = new HashSet<string>();
 
-            for (int attempt = 0; attempt < count * 12 && offers.Count < count; attempt++)
+            for (int attempt = 0; attempt < count * 16 && offers.Count < count; attempt++)
             {
                 var pool = BuildWeightedPool(picked);
                 if (pool.Count == 0) break;
@@ -186,10 +191,9 @@ namespace S.Core
         {
             var list = new List<PoolEntry>();
 
-            foreach (var kv in _data.Bullets)
+            for (int i = 0; i < _data.BulletOrder.Count; i++)
             {
-                var b = kv.Value;
-                if (b.Rarity == Rarity.Starter) continue;      // 起手件不进抽取池
+                var b = _data.BulletOrder[i];
                 if (exclude.Contains(b.Id)) continue;
                 if (b.Rarity == Rarity.Epic && UsedEpics.Contains(b.Id)) continue;
                 list.Add(new PoolEntry
@@ -199,9 +203,9 @@ namespace S.Core
                 });
             }
 
-            foreach (var kv in _data.Modifiers)
+            for (int i = 0; i < _data.ModifierOrder.Count; i++)
             {
-                var m = kv.Value;
+                var m = _data.ModifierOrder[i];
                 if (exclude.Contains(m.Id)) continue;
                 if (m.Rarity == Rarity.Epic && UsedEpics.Contains(m.Id)) continue;
                 list.Add(new PoolEntry

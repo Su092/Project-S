@@ -66,7 +66,7 @@ namespace S.App
             sb.AppendLine($"结果: {(_pilot.Won ? "通关" : "失败/超时")}");
             sb.AppendLine($"用时: {_pilot.Elapsed:0.0} 秒（{_pilot.Elapsed / 60f:0.0} 分钟）");
             sb.AppendLine($"到达等级: {_root.Run.Level}   击杀: {_root.Run.Kills}");
-            sb.AppendLine($"最终威胁: {_root.Run.Threat:0}   区域: {_root.Zone}/{_root.ZoneCount}");
+            sb.AppendLine($"最终威胁: {_root.Run.Threat:0}   时长: {_root.RunElapsed:000.0}s");
             sb.AppendLine($"剩余血量: {_root.Hp:0}/{_root.MaxHp:0}");
 
             sb.AppendLine();
@@ -75,15 +75,13 @@ namespace S.App
             {
                 foreach (var g in _root.Weapons.AllGuns)
                 {
-                    sb.AppendLine($"[{g.Resolved.Name}]");
+                    sb.AppendLine($"[{g.Base.Name}]  槽 {g.Slots.Length}  读取 {g.Stats.CastCount}");
                     for (int i = 0; i < g.Slots.Length; i++)
                     {
-                        var chain = g.Slots[i].Chain;
-                        if (chain.Count == 0) { sb.AppendLine($"  位{i + 1}: （空）"); continue; }
-                        var names = new System.Collections.Generic.List<string>();
-                        foreach (var it in chain)
-                            names.Add(it.IsBullet ? it.Bullet.Name : it.Mod.Name);
-                        sb.AppendLine($"  位{i + 1}: {string.Join(" → ", names)}");
+                        var it = g.Slots.Cells[i];
+                        if (it == null) { sb.AppendLine($"  槽{i + 1}: （空）"); continue; }
+                        sb.AppendLine($"  槽{i + 1}: {it.Name}" +
+                                      (it.IsBullet ? "" : $"（{ItemTooltip.ScopeName(it.Mod.Scope)}）"));
                     }
                 }
             }

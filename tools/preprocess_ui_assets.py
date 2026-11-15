@@ -126,12 +126,15 @@ SPECS = {
 # 圆形底板、外环、稀有度色环全部由 gen_ui_assets_ai.py 用几何画：
 # AI 画的圆每次半径都不一样，一圈里 25 个图标放在一起立刻看得出歪。
 ITEM_IDS = [
-    "b_slug", "b_heavy", "b_pellet", "b_pierce", "b_ricochet",
-    "b_plasma", "b_incend", "b_cryo", "b_null", "b_lance",
-    "m_dmg_up", "m_dmg_flat", "m_crit_up", "m_critdmg", "m_spread_down",
-    "m_life_up", "m_ammo_down", "m_speed_up",
-    "m_split", "m_pierce", "m_homing", "m_blast",
-    "m_mag", "m_rate", "m_recoil",
+    # ---- 子弹配件（17）----
+    "std", "light", "pellet", "ap", "laser", "grenade", "bouncer", "missile",
+    "mine", "shock", "chain", "saw", "flame", "hole", "trigger", "timer", "expire",
+    # ---- 作用于子弹的衍生件（13）----
+    "dmg", "heavy", "speed", "pierce", "explode", "homing", "bounce",
+    "burn", "frost", "giant", "crit", "scatter", "thrift",
+    # ---- 枪械向衍生件（9）----
+    "g_mag", "g_reload", "g_rapid", "g_stable", "g_recycle",
+    "g_parallel", "g_leech", "g_double", "g_triple",
 ]
 
 for _id in ITEM_IDS:
@@ -141,7 +144,7 @@ for _id in ITEM_IDS:
     # pedestal：能量类有辉光底座的先减掉再抠（见 normalize_glyph 里的说明）。
     SPECS["item_" + _id] = dict(mode="glyph", size=128, trim=True,
                                 max_dev=(0.62, 0.94),
-                                pedestal=24 if _id in ("b_plasma", "m_split") else 0)
+                                pedestal=24 if _id in ("laser", "hole") else 0)
 
 GROUPS = {
     "plate": ["plate_dark", "plate_light"],

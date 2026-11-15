@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>loadout-tests</AssemblyName>
+    <RootNamespace>LoadoutTests</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 只编译当前有效的断言文件；旧版算例（依赖已作废的链式触发 API）已移除 -->
+    <Compile Include="Program.cs" Link="tests\Program.cs" />
+    <Compile Include="Bench.cs" Link="tests\Bench.cs" />
+    <Compile Include="XpBench.cs" Link="tests\XpBench.cs" />
+
+    <Compile Include="..\..\Assets\_Game\Core\SJson.cs" Link="Core\SJson.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\LoadoutTypes.cs" Link="Core\LoadoutTypes.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\Loadout.cs" Link="Core\Loadout.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\GunRuntime.cs" Link="Core\GunRuntime.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\RunState.cs" Link="Core\RunState.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SData.cs" Link="Core\SData.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\BossState.cs" Link="Core\BossState.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\MetaProgress.cs" Link="Core\MetaProgress.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\MusicMix.cs" Link="Core\MusicMix.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\Splash.cs" Link="Core\Splash.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\RunDirector.cs" Link="Core\RunDirector.cs" />
+  </ItemGroup>
+
+</Project>

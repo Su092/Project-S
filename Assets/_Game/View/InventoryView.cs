@@ -7,72 +7,69 @@ using S.Core;
 namespace S.View
 {
     /// <summary>
-    /// 背包与改装界面。打开即暂停（gameplay-spec §6）。
-    /// 交互：拖拽入链 / 拖回背包 / 点击卸下 / 三选一。
+    /// 改装台 / 背包（对齐 MODCORE 原型的 #inventory）。
     ///
-    /// 结构纪律：面板、链区行、枪页签、配件卡、候选卡全部是 `Resources/UI/Prefabs/` 下的预制体。
-    /// 本类只做数据绑定（谁在哪一格、显示什么文案、点了做什么），不创建任何可见元素。
+    /// 布局与原型一致：左侧是枪械面板（页签 + 属性摘要 + **槽位网格**），
+    /// 右侧是背包网格 + 分解框 + 详情卡。
+    ///
+    /// 与旧版的结构差异：**一格一件**。旧版一格是一条可叠多件的「链」，
+    /// 新版把「作用范围」交给配件自身（7 种作用域），格子只负责提供位置。
+    /// 这样玩家看的是「这张牌放在这个位置会影响谁」，而不是「这条链怎么排序」。
     /// </summary>
     public sealed class InventoryView : MonoBehaviour
     {
         public bool Open { get; private set; }
         public Transform DragLayer => _dragLayer;
 
-        /// <summary>背包面板是否真的激活（自检用，不能只相信状态位）。</summary>
         public bool IsBagVisible => _bagRoot != null && _bagRoot.activeInHierarchy;
 
-        /// <summary>三选一面板是否真的激活。</summary>
+        /// <summary>背包右下角的常驻详情区（自检与外部只读用）。</summary>
+        public ItemDetailPanel DetailPanel => _inv != null ? _inv.Detail : null;
         public bool IsOfferVisible => _offerRoot != null && _offerRoot.activeInHierarchy;
-
-        /// <summary>背包网格中实际存在的卡片数。</summary>
         public int VisibleCardCount => _bagGrid != null ? _bagGrid.childCount : 0;
 
-        /// <summary>链区实际生成的行数（配件位）。</summary>
+        static string ItemName(ChainItem it) => it == null ? "（空）" : it.Name;
+
+        /// <summary>当前查看的枪（背包左侧页签选中的那把）。</summary>
+        GunRuntime CurrentGun()
+        {
+            var guns = _root?.Weapons?.AllGuns;
+            if (guns == null || guns.Count == 0) return null;
+            _viewGun = Mathf.Clamp(_viewGun, 0, guns.Count - 1);
+            return guns[_viewGun];
+        }
+
+        /// <summary>当前枪的已装件数（自检判据：可见卡片数不能是 0）。</summary>
         public int ChainRowCount
         {
             get
             {
-                if (_chainArea == null) return 0;
-                int n = 0;
-                for (int i = 0; i < _chainArea.childCount; i++)
-                    if (_chainArea.GetChild(i).name.StartsWith("Slot")) n++;
-                return n;
+                var g = CurrentGun();
+                return g != null ? g.Slots.FilledCount : 0;
             }
         }
 
-        /// <summary>三选一面板内的候选卡数（卡片在 CardArea 容器下，不直接挂在面板根上）。</summary>
         public int OfferCardCount
         {
             get
             {
-                if (_offerRefs == null || _offerRefs.CardArea == null) return 0;
                 int n = 0;
-                var area = _offerRefs.CardArea;
-                for (int i = 0; i < area.childCount; i++)
-                    if (area.GetChild(i).name.StartsWith("Offer")) n++;
+                for (int i = 0; i < _offerCards.Count; i++)
+                    if (_offerCards[i] != null && _offerCards[i].activeInHierarchy) n++;
                 return n;
             }
         }
 
-        /// <summary>
-        /// 三选一里成功绑上圆形图标的卡数（自检用）。
-        /// 只看卡片数量会漏掉一类回归：卡片生成了、但图标节点没绑到素材
-        /// （缺图、预制体丢引用、Bind 抛错）—— 玩家看到的是一排空圆环。
-        /// </summary>
         public int OfferIconBoundCount
         {
             get
             {
-                if (_offerRefs == null || _offerRefs.CardArea == null) return 0;
                 int n = 0;
-                var area = _offerRefs.CardArea;
-                for (int i = 0; i < area.childCount; i++)
+                for (int i = 0; i < _offerCards.Count; i++)
                 {
-                    var card = area.GetChild(i);
-                    if (!card.name.StartsWith("Offer")) continue;
-                    var cr = card.GetComponent<OfferCardRefs>();
-                    if (cr != null && cr.IconNode != null && cr.IconNode.Item != null
-                        && cr.IconNode.Icon != null && cr.IconNode.Icon.sprite != null) n++;
+                    if (_offerCards[i] == null || !_offerCards[i].activeInHierarchy) continue;
+                    var c = _offerCards[i].GetComponent<OfferCardRefs>();
+                    if (c != null && c.IconNode != null && c.IconNode.Item != null) n++;
                 }
                 return n;
             }
@@ -80,28 +77,24 @@ namespace S.View
 
         GameRoot _root;
         SData _data;
-
         Canvas _canvas;
+        RectTransform _dragLayer;
+
+        GameObject _bagRoot, _offerRoot;
         InvRefs _inv;
         OfferRefs _offerRefs;
-        GameObject _bagRoot;
-        GameObject _offerRoot;
-        RectTransform _bagGrid;
         RectTransform _chainArea;
+        RectTransform _bagGrid;
         Text _hint;
-        int _viewGun;
-        int _viewSlot;
-
-        Transform _dragLayer;
         Text _gunSummary;
-        Text _emptyHint;
-        readonly List<GameObject> _spawned = new List<GameObject>();
-        // 页签与行克隆出来的对象登记在这里，刷新时统一清掉
+
+        int _viewGun;
         readonly List<GameObject> _cloneSpawned = new List<GameObject>();
 
-        // 三选一当前状态
-        List<Offer> _offer;
+        // 三选一
         bool _offerMode;
+        List<Offer> _offer;
+        readonly List<GameObject> _offerCards = new List<GameObject>();
 
         public void Init(GameRoot root)
         {
@@ -109,15 +102,12 @@ namespace S.View
             _data = root.Data;
             BuildCanvas();
 
-            // 详情面板：所有界面共用同一份，必须在卡片生成前就位
             ItemTooltip.Ensure(_canvas.transform);
 
             BuildBag();
             BuildOffer();
             CloseUi();
         }
-
-        // ---------------- 构建 ----------------
 
         void BuildCanvas()
         {
@@ -132,8 +122,6 @@ namespace S.View
             scaler.matchWidthOrHeight = 0.5f;
             go.AddComponent<GraphicRaycaster>();
 
-            // 必须有 EventSystem 才能拖拽。模块由 UiUtil 统一保证（新输入系统）——
-            // 若误挂 StandaloneInputModule，光标能动但点击/拖拽全无人处理，表现就是「鼠标没反应」。
             UiUtil.EnsureEventSystem(transform);
 
             var dl = new GameObject("DragLayer", typeof(RectTransform));
@@ -146,7 +134,7 @@ namespace S.View
 
         void BuildBag()
         {
-            _bagRoot = UiPrefab.Spawn(UiPrefab.Inventory, _canvas.transform);
+            _bagRoot = UiPrefab.Spawn("Inventory", _canvas.transform);
             if (_bagRoot == null) return;
 
             _inv = _bagRoot.GetComponent<InvRefs>();
@@ -160,13 +148,12 @@ namespace S.View
             _bagGrid = _inv.BagGrid;
             _hint = _inv.Hint;
 
-            // 落点组件在预制体里，这里只注入 Owner —— 它是运行时对象，无法序列化进预制体
             if (_inv.BagDropPanel != null) _inv.BagDropPanel.Owner = this;
         }
 
         void BuildOffer()
         {
-            _offerRoot = UiPrefab.Spawn(UiPrefab.Offer, _canvas.transform);
+            _offerRoot = UiPrefab.Spawn("Offer", _canvas.transform);
             if (_offerRoot == null) return;
 
             _offerRefs = _offerRoot.GetComponent<OfferRefs>();
@@ -191,7 +178,7 @@ namespace S.View
             _offerRoot.SetActive(false);
             _bagRoot.SetActive(true);
             Open = true;
-            _root.SetPaused(true);   // 内部会同步光标（SyncCursorToState）
+            _root.SetPaused(true);
             Refresh();
         }
 
@@ -204,10 +191,7 @@ namespace S.View
         // ---------------- 自动驾驶 ----------------
 
         /// <summary>
-        /// AI 用：自动处理当前弹层。
-        /// 三选一在选（背包满了先丢一件再拿）；背包在装（把包里的件塞进链，然后关背包）。
-        /// 走的是与真人点击完全相同的 Run.TryPick / Loadout.ValidateInsert 路径，
-        /// 因此它跑出来的构筑就是玩家真能做出的构筑。
+        /// AI 用：自动处理当前弹层。走的是与真人点击完全相同的路径。
         /// </summary>
         public void AutoResolveForAI()
         {
@@ -221,91 +205,88 @@ namespace S.View
                     _offer = null;
                     _offerMode = false;
 
-                    // 还有排队的三选一就继续弹，交给下一帧再解
-                    if (_root.HasPendingOffers)
-                    {
-                        _root.PopOfferIfAny();
-                        return;
-                    }
-                }
-
-                _offerRoot.SetActive(false);
-                OpenBag();
-            }
-            else
-            {
-                AutoEquipOneForAI();
-                Close();
-            }
-        }
-
-        /// <summary>背包满了时丢一件：优先丢最普通的（非子弹、非史诗），实在没有就丢最后一件。</summary>
-        void TryDiscardOneForAI()
-        {
-            var bag = _root.Run.Bag;
-            for (int i = bag.Count - 1; i >= 0; i--)
-            {
-                var it = bag[i];
-                if (it.IsBullet || it.Mod == null || it.Mod.Rarity != Rarity.Epic)
-                {
-                    bag.RemoveAt(i);
+                    if (_root.HasPendingOffers) _root.PopOfferIfAny();
+                    else Close();
                     return;
                 }
             }
-            if (bag.Count > 0) bag.RemoveAt(bag.Count - 1);
+
+            // 背包模式：装备一件然后关掉
+            AutoEquipOneForAI();
+            Close();
         }
 
-        /// <summary>把背包里第一件能插进去的配件插进当前枪，每帧只插一件（避免一帧装完看不出过程）。</summary>
+        void TryDiscardOneForAI()
+        {
+            if (_root.Run.Bag.Count == 0) return;
+            _root.Run.Salvage(_root.Run.Bag[0]);
+        }
+
+        /// <summary>
+        /// AI 装件策略：优先把子弹放进空格；其次把件放到「上一格是子弹」的位置（Prev 生效）。
+        /// 这不是最优构筑，只是让数值链路跑起来。
+        /// </summary>
         void AutoEquipOneForAI()
         {
             var g = CurrentGun();
-            if (g == null) return;
+            if (g == null || _root.Run.Bag.Count == 0) return;
 
-            foreach (var item in _root.Run.Bag)
+            var item = _root.Run.Bag[0];
+
+            // 子弹优先放第一个空格（保证枪永远能开火）
+            if (item.IsBullet)
             {
                 for (int i = 0; i < g.Slots.Length; i++)
                 {
-                    var slot = g.Slots[i];
-                    if (slot.Chain.Count >= 6) continue;
-
-                    // 子弹往后接、配件往前插（与 UI 拖拽的默认落位一致）
-                    int index = item.IsBullet ? slot.Chain.Count : 0;
-                    if (Loadout.ValidateInsert(slot, item, index) == null)
-                    {
-                        _root.Run.Bag.Remove(item);
-                        slot.Chain.Insert(index, item);
-                        g.Recalc();
-                        return;
-                    }
+                    if (g.Slots.Cells[i] != null) continue;
+                    g.Slots.Cells[i] = item;
+                    _root.Run.RemoveFromBag(item);
+                    g.Recalc();
+                    return;
                 }
             }
+
+            // 件：找一个能用 Prev 影响左侧子弹的空格
+            for (int i = 1; i < g.Slots.Length; i++)
+            {
+                if (g.Slots.Cells[i] != null) continue;
+                if (g.Slots.Cells[i - 1] == null || !g.Slots.Cells[i - 1].IsBullet) continue;
+                g.Slots.Cells[i] = item;
+                _root.Run.RemoveFromBag(item);
+                g.Recalc();
+                return;
+            }
+
+            // 实在没位置就分解掉
+            _root.Run.Salvage(item);
         }
 
         // ---------------- 刷新 ----------------
 
         void ClearSpawned()
         {
-            // 顺序要紧：行是卡片的父节点，先销毁行会让卡片变孤儿，
-            // 下一帧再销毁时已不在 _chainArea 下，拖拽层可能残留引用。
-            // 所以先清卡片，再清行。
-            foreach (var go in _spawned) if (go != null) Destroy(go);
-            _spawned.Clear();
-
-            foreach (var go in _cloneSpawned) if (go != null) Destroy(go);
+            for (int i = 0; i < _cloneSpawned.Count; i++)
+                if (_cloneSpawned[i] != null) Destroy(_cloneSpawned[i]);
             _cloneSpawned.Clear();
         }
 
-        void Refresh()
+        public void Refresh()
         {
-            ClearSpawned();
             RefreshChain();
             RefreshBag();
             RefreshHint();
         }
 
+        /// <summary>
+        /// 左侧枪械面板：页签 + 属性摘要 + 槽位网格。
+        ///
+        /// 槽位网格用 GridLayoutGroup 而不是逐格算坐标：
+        /// 槽位数在 6~12 之间变化，硬编码坐标会在 12 槽的发射器上溢出。
+        /// </summary>
         void RefreshChain()
         {
-            // 清空链区残留（枪页签与行由 ClearSpawned 统一销毁，这里只兜底清空未登记的节点）
+            ClearSpawned();
+
             for (int i = _chainArea.childCount - 1; i >= 0; i--)
             {
                 var ch = _chainArea.GetChild(i);
@@ -315,10 +296,11 @@ namespace S.View
 
             var guns = _root.Weapons != null ? _root.Weapons.AllGuns : null;
             if (guns == null || guns.Count == 0) return;
+
             _viewGun = Mathf.Clamp(_viewGun, 0, guns.Count - 1);
             var g = guns[_viewGun];
 
-            // 枪页签：克隆 GunTab 预制体，只改位置与文案
+            // 枪页签
             if (_inv != null && _inv.GunTabTemplate != null)
             {
                 for (int gi = 0; gi < guns.Count; gi++)
@@ -351,11 +333,11 @@ namespace S.View
                     }
 
                     if (trefs.Label != null)
-                        trefs.Label.text = $"{guns[idx].Resolved.Name}  ({guns[idx].Slots.Length}位)";
+                        trefs.Label.text = $"{guns[idx].Base.Name}  ({guns[idx].Slots.Length}槽)";
                 }
             }
 
-            // 枪属性摘要（纯文本，用链区内的常驻节点）
+            // 属性摘要
             if (_gunSummary == null)
             {
                 var sgo = new GameObject("GunSummary", typeof(RectTransform));
@@ -374,537 +356,413 @@ namespace S.View
             }
             _gunSummary.color = new Color(0.6f, 0.7f, 0.85f);
             _gunSummary.text =
-                $"弹匣 {g.Ammo}/{g.Resolved.MagSize}   击发 {1f / g.Resolved.FireInterval:0.0}/s   " +
-                $"换弹 {g.Resolved.ReloadTime:0.0}s   散射 {g.Resolved.SpreadBase:0.00}°";
+                $"弹匣 {g.Ammo}/{g.Stats.Mag}   击发 {1f / Mathf.Max(0.01f, g.Stats.ShotInterval(0f)):0.0}/s   " +
+                $"换弹 {g.Stats.Reload:0.0}s   读取 {g.Stats.CastCount} 发   散射 {g.Base.SpreadBase:0.00}°";
 
-            // 各位：克隆 ChainRow 预制体
-            float top = -92f;
-            float rowH = Mathf.Min(150f, (900f - 240f) / Mathf.Max(1, g.Slots.Length));
+            // 槽位网格
+            var gridRoot = new GameObject("SlotGrid", typeof(RectTransform));
+            gridRoot.transform.SetParent(_chainArea, false);
+            var grt = (RectTransform)gridRoot.transform;
+            grt.anchorMin = new Vector2(0f, 1f); grt.anchorMax = new Vector2(1f, 1f);
+            grt.pivot = new Vector2(0.5f, 1f);
+            grt.offsetMin = new Vector2(0f, -560f);
+            grt.offsetMax = new Vector2(0f, -92f);
+            _cloneSpawned.Add(gridRoot);
+
+            // 槽位网格：列宽按「左侧区域实际宽度」算，不能写死。
+            // 区域宽度 = 屏宽 × 0.62 − 两侧内边距（40 + 10），1600 参考宽下约 942px。
+            // 写死 5 列 × 124px 时一行占 670px 看似没问题，但只要显示器更窄或
+            // 换到 1280 参考宽就会溢出到背包面板上，且这种溢出在截图里很像是「卡片没对齐」。
+            var area = (RectTransform)_chainArea;
+            float areaW = area != null && area.rect.width > 1f ? area.rect.width : 940f;
+            const int cols = 5;
+            const float gap = 10f;
+            float cellW = Mathf.Floor((areaW - 8f - gap * (cols - 1)) / cols);
+            cellW = Mathf.Clamp(cellW, 96f, 140f);
+
+            var grid = gridRoot.AddComponent<GridLayoutGroup>();
+            grid.cellSize = new Vector2(cellW, 108f);
+            grid.spacing = new Vector2(gap, gap);
+            grid.padding = new RectOffset(4, 4, 4, 4);
+            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            grid.constraintCount = cols;
+
+            int nextCell = g.PeekNextCell();
+
             for (int si = 0; si < g.Slots.Length; si++)
             {
-                var slot = g.Slots[si];
-                float y0 = top - si * (rowH + 10f);
+                var cellGo = new GameObject("Slot" + si, typeof(RectTransform));
+                cellGo.transform.SetParent(gridRoot.transform, false);
 
-                GameObject row;
-                ChainRowRefs rrefs = null;
+                var bg = cellGo.AddComponent<Image>();
+                bool isNext = nextCell == si;
+                bg.color = isNext
+                    ? new Color(0.20f, 0.30f, 0.42f, 0.98f)
+                    : new Color(0.10f, 0.12f, 0.16f, 0.95f);
 
-                if (_inv != null && _inv.ChainRowTemplate != null)
+                var drop = cellGo.AddComponent<SlotDropTarget>();
+                drop.Owner = this;
+                drop.SlotIndex = si;
+                drop.ChainIndex = -1;
+
+                var it = g.Slots.Cells[si];
+
+                // 格号
+                var idxGo = new GameObject("Idx", typeof(RectTransform));
+                idxGo.transform.SetParent(cellGo.transform, false);
+                var irt = (RectTransform)idxGo.transform;
+                irt.anchorMin = new Vector2(0f, 1f); irt.anchorMax = new Vector2(0f, 1f);
+                irt.pivot = new Vector2(0f, 1f);
+                irt.anchoredPosition = new Vector2(6f, -2f);
+                irt.sizeDelta = new Vector2(40f, 16f);
+                var idxText = idxGo.AddComponent<Text>();
+                idxText.font = UiKit.Font;
+                idxText.fontSize = 11;
+                idxText.color = isNext ? new Color(1f, 0.85f, 0.4f) : new Color(0.5f, 0.56f, 0.64f);
+                idxText.alignment = TextAnchor.UpperLeft;
+                idxText.raycastTarget = false;
+                idxText.text = isNext ? $"{si + 1}▶" : (si + 1).ToString();
+
+                if (it != null)
                 {
-                    row = Instantiate(_inv.ChainRowTemplate, _chainArea);
-                    row.name = "Slot" + si;
-                    row.SetActive(true);
-                    _cloneSpawned.Add(row);
-                    rrefs = row.GetComponent<ChainRowRefs>();
+                    var card = MakeCard(cellGo.transform, it, new Vector2(4f, 4f),
+                        new Vector2(cellW - 8f, 100f), fromSlot: si, fromChain: -1);
+
+                    var cd = card.AddComponent<SlotDropTarget>();
+                    cd.Owner = this; cd.SlotIndex = si; cd.ChainIndex = -1;
                 }
                 else
                 {
-                    Debug.LogError("[S] Inventory.prefab 未指定 ChainRowTemplate");
-                    return;
-                }
-
-                var rowRt = (RectTransform)row.transform;
-                rowRt.anchorMin = new Vector2(0f, 1f);
-                rowRt.anchorMax = new Vector2(1f, 1f);
-                rowRt.pivot = new Vector2(0.5f, 0.5f);
-                rowRt.offsetMin = new Vector2(0f, y0 - rowH);
-                rowRt.offsetMax = new Vector2(0f, y0);
-
-                bool isNext = g.PeekNextSlot() == si;
-                if (rrefs != null)
-                {
-                    if (rrefs.Background != null)
-                        rrefs.Background.color = isNext
-                            ? new Color(0.16f, 0.22f, 0.30f, 0.95f)
-                            : new Color(0.10f, 0.12f, 0.16f, 0.95f);
-
-                    if (rrefs.Drop != null)
-                    {
-                        rrefs.Drop.Owner = this;
-                        rrefs.Drop.SlotIndex = si;
-                        rrefs.Drop.ChainIndex = -1;
-                    }
-
-                    if (rrefs.RowLabel != null)
-                    {
-                        rrefs.RowLabel.text = $"位 {si + 1}{(isNext ? "  ◀ 下一发" : "")}";
-                        rrefs.RowLabel.color = isNext
-                            ? new Color(1f, 0.85f, 0.4f)
-                            : new Color(0.6f, 0.65f, 0.72f);
-                    }
-                }
-
-                // 链项
-                float x = 10f;
-                for (int ci = 0; ci < slot.Chain.Count; ci++)
-                {
-                    var item = slot.Chain[ci];
-                    int cIdx = ci;
-                    var card = MakeCard(row.transform, item, new Vector2(x, 8f), new Vector2(150f, 84f),
-                        fromSlot: si, fromChain: ci);
-
-                    var cd = card.AddComponent<SlotDropTarget>();
-                    cd.Owner = this; cd.SlotIndex = si; cd.ChainIndex = ci;
-
-                    x += 156f;
-
-                    // 警告描边：该件无作用目标
-                    if (!item.IsBullet && item.Mod != null)
-                    {
-                        var cast = Loadout.ResolveCast(g.Resolved, slot);
-                        foreach (var w in cast.Warnings)
-                            if (w.ChainIndex == cIdx)
-                            {
-                                var cr = card.GetComponent<CardRefs>();
-                                if (cr != null && cr.Background != null)
-                                    cr.Background.color = new Color(0.55f, 0.18f, 0.2f, 0.95f);
-                            }
-                    }
-                }
-
-                // 行尾追加落点：位置随链长移动
-                if (rrefs != null && rrefs.Tail != null)
-                {
-                    float tx = Mathf.Max(x, 10f);
-                    rrefs.Tail.anchorMin = new Vector2(0f, 1f);
-                    rrefs.Tail.anchorMax = new Vector2(0f, 1f);
-                    rrefs.Tail.pivot = new Vector2(0f, 1f);
-                    rrefs.Tail.anchoredPosition = new Vector2(tx, -8f);
-                    rrefs.Tail.sizeDelta = new Vector2(60f, 84f);
-
-                    if (rrefs.TailDrop != null)
-                    {
-                        rrefs.TailDrop.Owner = this;
-                        rrefs.TailDrop.SlotIndex = si;
-                        rrefs.TailDrop.ChainIndex = -1;
-                    }
+                    // 空格提示：告诉玩家这里可以放什么
+                    var hintGo = new GameObject("Empty", typeof(RectTransform));
+                    hintGo.transform.SetParent(cellGo.transform, false);
+                    var hrt = (RectTransform)hintGo.transform;
+                    hrt.anchorMin = Vector2.zero; hrt.anchorMax = Vector2.one;
+                    hrt.offsetMin = new Vector2(4f, 4f); hrt.offsetMax = new Vector2(-4f, -4f);
+                    var ht = hintGo.AddComponent<Text>();
+                    ht.font = UiKit.Font;
+                    ht.fontSize = 13;
+                    ht.color = new Color(0.35f, 0.40f, 0.48f);
+                    ht.alignment = TextAnchor.MiddleCenter;
+                    ht.raycastTarget = false;
+                    ht.text = "空";
                 }
             }
         }
 
         void RefreshBag()
         {
+            if (_bagGrid == null) return;
+
             for (int i = _bagGrid.childCount - 1; i >= 0; i--)
                 Destroy(_bagGrid.GetChild(i).gameObject);
 
-            // 背包区落点（组件在预制体上，BuildBag 时已注入 Owner）
-            foreach (var item in _root.Run.Bag)
+            var bag = _root.Run.Bag;
+            for (int i = 0; i < bag.Count; i++)
             {
-                MakeCard(_bagGrid, item, Vector2.zero, new Vector2(150f, 44f), -1, -1, compact: true);
+                var item = bag[i];
+                // 背包卡片尺寸与槽位卡一致（116×100），由 GridLayoutGroup 排布，
+                // 这里只给左上锚点让布局组接管位置。
+                MakeCard(_bagGrid, item, Vector2.zero, new Vector2(116f, 100f),
+                    fromSlot: -1, fromChain: -1);
             }
-
-            if (_root.Run.Bag.Count == 0 && _emptyHint == null)
-            {
-                var go = new GameObject("Empty", typeof(RectTransform));
-                go.transform.SetParent(_bagGrid, false);
-                var rt = (RectTransform)go.transform;
-                rt.anchorMin = new Vector2(0f, 1f); rt.anchorMax = new Vector2(1f, 1f);
-                rt.pivot = new Vector2(0.5f, 1f);
-                rt.offsetMin = new Vector2(6f, -30f); rt.offsetMax = new Vector2(-6f, 0f);
-                _emptyHint = go.AddComponent<Text>();
-                _emptyHint.font = UiKit.Font;
-                _emptyHint.fontSize = 18;
-                _emptyHint.alignment = TextAnchor.UpperLeft;
-                _emptyHint.horizontalOverflow = HorizontalWrapMode.Overflow;
-                _emptyHint.verticalOverflow = VerticalWrapMode.Overflow;
-                _emptyHint.raycastTarget = false;
-                _emptyHint.color = new Color(0.45f, 0.5f, 0.58f);
-                _emptyHint.text = "（空）";
-            }
-            else if (_root.Run.Bag.Count > 0 && _emptyHint != null)
-            {
-                Destroy(_emptyHint.gameObject);
-                _emptyHint = null;
-            }
-        }
-
-        Color RarityColor(Rarity r) => r switch
-        {
-            Rarity.Epic => new Color(0.78f, 0.42f, 0.95f),
-            Rarity.Rare => new Color(0.35f, 0.65f, 0.95f),
-            Rarity.Starter => new Color(0.45f, 0.48f, 0.52f),
-            _ => new Color(0.42f, 0.52f, 0.42f),
-        };
-
-        string ScopeTag(Scope s) => s switch
-        {
-            Scope.Whole => "全场",
-            Scope.After => "后继",
-            _ => "枪械",
-        };
-
-        string Describe(ChainItem item)
-        {
-            if (item.IsBullet)
-            {
-                var b = item.Bullet;
-                return $"{b.Name}\n伤 {b.Damage:0.#} · 弹 {b.Ammo} · 散 +{b.SpreadAdd:0.#}°";
-            }
-            var m = item.Mod;
-            var parts = new List<string>();
-            if (m.DamageMul != 1f) parts.Add($"伤×{m.DamageMul:0.##}");
-            if (m.DamageFlat != 0f) parts.Add($"伤{(m.DamageFlat > 0 ? "+" : "")}{m.DamageFlat:0.#}");
-            if (m.CritFlat != 0f) parts.Add($"暴+{m.CritFlat * 100f:0}%");
-            if (m.CritDmgFlat != 0f) parts.Add($"暴伤+{m.CritDmgFlat:0.#}");
-            if (m.SpreadMul != 1f) parts.Add($"散×{m.SpreadMul:0.##}");
-            if (m.LifetimeFlat != 0f) parts.Add($"存{(m.LifetimeFlat > 0 ? "+" : "")}{m.LifetimeFlat:0.#}s");
-            if (m.AmmoFlat != 0) parts.Add($"弹{(m.AmmoFlat > 0 ? "+" : "")}{m.AmmoFlat}");
-            if (m.SpeedMul != 1f) parts.Add($"速×{m.SpeedMul:0.##}");
-            if (m.PierceFlat != 0) parts.Add($"穿透+{m.PierceFlat}");
-            if (m.HomingRate != 0f) parts.Add("追踪");
-            if (m.SplitCount > 1) parts.Add($"分裂×{m.SplitCount}");
-            if (m.SplashAdd != 0f) parts.Add($"溅射+{m.SplashAdd:0.#}m");
-            if (m.GunMagAdd != 0) parts.Add($"弹匣+{m.GunMagAdd}");
-            if (m.GunFireIntervalMul != 1f) parts.Add($"射速×{1f / m.GunFireIntervalMul:0.##}");
-            if (m.GunSpreadMul != 1f) parts.Add($"散×{m.GunSpreadMul:0.##}");
-            return $"{m.Name}  [{ScopeTag(m.Scope)}]\n" + string.Join(" · ", parts);
-        }
-
-        /// <summary>
-        /// 造一张配件卡：克隆 `ItemCard.prefab`，只填内容与挂拖拽组件。
-        ///
-        /// 为什么连卡片也要预制体：卡片有「框线 + 内部底 + 稀有度条 + 作用域图标 + 文字」
-        /// 五层叠加，全在代码里拼的话，任何一层想调位置都得改代码。
-        /// 现在这些都写在预制体里，代码只决定颜色与文案。
-        /// </summary>
-        GameObject MakeCard(Transform parent, ChainItem item, Vector2 pos, Vector2 size,
-            int fromSlot, int fromChain, bool compact = false)
-        {
-            var rar = item.IsBullet ? item.Bullet.Rarity : item.Mod.Rarity;
-
-            var card = UiPrefab.Spawn(UiPrefab.ItemCard, parent);
-            if (card == null) return null;
-
-            var rt = (RectTransform)card.transform;
-            rt.anchorMin = new Vector2(0f, 1f);
-            rt.anchorMax = new Vector2(0f, 1f);
-            rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.anchoredPosition = new Vector2(pos.x + size.x * 0.5f, -pos.y - size.y * 0.5f);
-            rt.sizeDelta = size;
-
-            var cr = card.GetComponent<CardRefs>();
-            if (cr != null)
-            {
-                // 卡框：素材是「黑底 + 极细亮边」，缩到小尺寸后边框几乎不可见，
-                // 所以预制体里还叠了一层半透明内部底 —— 框线给轮廓，内部底保文字可读。
-                if (cr.Background != null)
-                    cr.Background.color = UiAssets.CardFrame != null
-                        ? new Color(0.75f, 0.82f, 0.92f, 0.85f)
-                        : new Color(0.13f, 0.16f, 0.20f, 0.98f);
-
-                // 稀有度色条：tag_* 带描边与小方块，编码更明确；缺图时靠颜色仍然分得出稀有度
-                if (cr.Tag != null)
-                {
-                    var tagSpr = UiAssets.TagForRarity(rar);
-                    if (tagSpr != null) cr.Tag.sprite = tagSpr;
-                    cr.Tag.color = RarityColor(rar);
-
-                    // 紧凑卡（背包格）条更窄
-                    cr.Tag.rectTransform.anchorMin = new Vector2(0f, 0f);
-                    cr.Tag.rectTransform.anchorMax = new Vector2(0f, 1f);
-                    cr.Tag.rectTransform.offsetMin = Vector2.zero;
-                    cr.Tag.rectTransform.offsetMax = new Vector2(compact ? 4f : 6f, 0f);
-                }
-
-                // 作用域图标（衍生件才有）：图标 + 文字同时出现，不单靠图标表意。
-                // ⚠ 这张 Image 由 `IconNode.ScopeMark` 提供（挂在圆形图标右上角），
-                // 所以它的显隐由下面 `IconNode.Bind(..., showScope:)` 统一决定 ——
-                // 这里只负责给 sprite 与颜色，不要在这里 enabled = false，会被下一行覆盖掉。
-                if (cr.ScopeIcon != null)
-                {
-                    var icon = (!item.IsBullet && item.Mod != null)
-                        ? UiAssets.IconForScope(item.Mod.Scope) : null;
-                    if (icon != null) UiAssets.ApplyIcon(cr.ScopeIcon, icon, new Color(1f, 1f, 1f, 0.95f));
-                }
-
-                if (cr.Label != null)
-                {
-                    cr.Label.text = Describe(item);
-                    cr.Label.fontSize = compact ? 12 : 13;
-                    cr.Label.color = item.IsBullet
-                        ? new Color(0.88f, 0.93f, 1f)
-                        : new Color(1f, 0.93f, 0.82f);
-                }
-
-                // 圆形图标：所有出现配件的位置都用它（本次要求）。
-                // compact（背包格）尺寸更小、不画外环、不叠作用域小标
-                // —— 44px 高的一行里外环和小标都会挤掉文字。
-                if (cr.IconNode != null)
-                {
-                    float iconSize = compact ? 34f : 48f;
-                    cr.IconNode.Bind(item, iconSize, showRing: !compact, showScope: !compact);
-                }
-            }
-
-            var drag = card.AddComponent<DraggableItem>();
-            drag.Owner = this; drag.Item = item;
-            drag.FromSlot = fromSlot; drag.FromChain = fromChain;
-
-            // 悬停详情：卡片本体响应。挂在最外层，这样图标和文字区都算"悬停在配件上"。
-            var hover = card.AddComponent<ItemHover>();
-            hover.Owner = this;
-            hover.Item = item;
-            hover.Tooltip = ItemTooltip.Instance;
-
-            _spawned.Add(card);
-            return card;
         }
 
         void RefreshHint()
         {
             if (_hint == null) return;
-            int n = _root.Run.Bag.Count;
-            _hint.text = $"背包 {n}/{_root.Run.BagCapacity}    ·    同名配件同链上限 2   ·   每位链长上限 {Loadout.MaxChain}   ·    拖拽落点会高亮生效目标数";
+            int filled = ChainRowCount;
+            var g = CurrentGun();
+            int total = g != null ? g.Slots.Length : 0;
+            _hint.text =
+                $"背包 {_root.Run.Bag.Count}/{_root.Run.BagCapacity}    ·    " +
+                $"已装 {filled}/{total}    ·    " +
+                "拖到槽位装入（已有件会交换）    ·    右键快速装/卸    ·    拖到空白处卸下";
         }
 
-        // ---------------- 拖放处理 ----------------
+        /// <summary>造一张配件卡（背包与槽位共用）。</summary>
+        GameObject MakeCard(Transform parent, ChainItem item, Vector2 pos, Vector2 size,
+            int fromSlot, int fromChain)
+        {
+            var prefab = UiPrefab.Load("ItemCard");
+            GameObject card;
+            if (prefab != null)
+            {
+                card = Instantiate(prefab, parent);
+                card.name = "Card_" + item.Id;
+                card.SetActive(true);
+            }
+            else
+            {
+                card = new GameObject("Card_" + item.Id, typeof(RectTransform));
+                card.transform.SetParent(parent, false);
+                var bg = card.AddComponent<Image>();
+                bg.color = new Color(0.10f, 0.14f, 0.20f, 0.95f);
+            }
+
+            var rt = (RectTransform)card.transform;
+            rt.anchorMin = new Vector2(0f, 1f);
+            rt.anchorMax = new Vector2(0f, 1f);
+            rt.pivot = new Vector2(0f, 1f);
+            rt.anchoredPosition = pos;
+            rt.sizeDelta = size;
+
+            var refs = card.GetComponent<CardRefs>();
+            if (refs != null)
+            {
+                if (refs.Background != null)
+                    refs.Background.color = new Color(0.08f, 0.10f, 0.14f, 0.96f);
+
+                // 稀有度靠顶部色带（原型 .mod 的 border-top 就是这个语义）
+                if (refs.Tag != null)
+                    refs.Tag.color = RarityColor(item.Rarity);
+
+                // 作用域色标：子弹给暖橙，被动件给各自作用域色
+                if (refs.Inner != null)
+                    refs.Inner.color = item.IsBullet
+                        ? new Color(1f, 0.70f, 0.28f, 0.9f)
+                        : ItemTooltip.ScopeColor(item.Mod.Scope);
+
+                if (refs.Label != null)
+                {
+                    // 名称就是名称：不要拼图标的单字（「标 标准弹」里的「标」在窄卡片里
+                    // 会被挤成孤零零一行，看起来像排版错位）。图标本身已经画了同样意思。
+                    refs.Label.text = item.Name;
+                    refs.Label.fontSize = 13;
+                    refs.Label.color = Color.white;
+                }
+
+                if (refs.IconNode != null) refs.IconNode.Bind(item, 52f, showRing: true, badge: null, showScope: false);
+            }
+
+            // 拖拽与悬停
+            var drag = card.AddComponent<DraggableItem>();
+            drag.Owner = this;
+            drag.Item = item;
+            drag.FromSlot = fromSlot;
+            drag.FromChain = fromChain;
+
+            var hover = card.AddComponent<ItemHover>();
+            hover.Item = item;
+            hover.Tooltip = ItemTooltip.Instance;
+            // 背包内的卡片优先填右下角的常驻详情区（#inv-detail），
+            // 不再弹出跟随鼠标的浮动提示 —— 后者会挡住相邻格子，无法对比。
+            if (_inv != null) hover.Detail = _inv.Detail;
+
+            return card;
+        }
+
+        public static Color RarityColor(Rarity r) => r switch
+        {
+            Rarity.Epic => new Color(0.78f, 0.49f, 1f),
+            Rarity.Rare => new Color(0.31f, 0.76f, 1f),
+            _ => new Color(0.62f, 0.70f, 0.78f),
+        };
+
+        // ---------------- 拖放 ----------------
+
+        DraggableItem _dragging;
+        int _hoverSlot = -1;
 
         public void NotifyDragStart(DraggableItem it)
         {
             _dragging = it;
             _hoverSlot = -1;
-            _hoverChain = -1;
         }
-
-        // 拖拽悬停状态（用于落点高亮与预览）
-        DraggableItem _dragging;
-        int _hoverSlot = -1;
-        int _hoverChain = -1;
 
         public void UpdateDropHints(ChainItem item, int fromSlot, int fromChain, PointerEventData e)
         {
-            if (_hint == null) return;
-
             var g = CurrentGun();
-            if (g == null) { _hint.text = $"拖动中：{ItemName(item)}"; return; }
 
-            // 找到指针当前覆盖的落点
-            int targetSlot = -1, targetChain = -1;
+            int targetSlot = -1;
             var hits = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(e, hits);
-            for (int i = 0; i < hits.Count; i++)
+            if (EventSystem.current != null)
             {
-                var dt = hits[i].gameObject.GetComponent<SlotDropTarget>();
-                if (dt == null || dt.IsBagArea) continue;
-                targetSlot = dt.SlotIndex;
-                targetChain = dt.ChainIndex;
-                break;
+                EventSystem.current.RaycastAll(e, hits);
+                for (int i = 0; i < hits.Count; i++)
+                {
+                    var dt = hits[i].gameObject.GetComponent<SlotDropTarget>();
+                    if (dt == null || dt.IsBagArea) continue;
+                    targetSlot = dt.SlotIndex;
+                    break;
+                }
             }
 
             _hoverSlot = targetSlot;
-            _hoverChain = targetChain;
+
+            // 拖拽时详情区显示「装到这一格会发生什么」——这是原型里最有用的预览：
+            // 光看数值说明玩家还得自己在脑子里算，直接把「期望伤害/耗弹/生效目标」
+            // 前后对比摆出来，才知道这一格该不该放。
+            if (_inv != null && _inv.Detail != null)
+            {
+                if (g == null || targetSlot < 0 || targetSlot >= g.Slots.Length)
+                    _inv.Detail.Show(item);
+                else
+                    ShowPlacementPreview(g, item, targetSlot);
+            }
+
+            if (_hint == null) return;
+            if (g == null) { _hint.text = $"拖动中：{ItemName(item)}"; return; }
 
             if (targetSlot < 0 || targetSlot >= g.Slots.Length)
             {
-                _hint.text = $"{ItemName(item)}  ·  拖到配件位内装入，拖到空白处丢弃";
-                RefreshDropHighlights(null);
+                _hint.text = $"{ItemName(item)}  ·  拖到槽位内装入，拖到空白处卸下";
                 return;
             }
 
-            var slot = g.Slots[targetSlot];
-            int at = targetChain < 0 ? slot.Chain.Count : targetChain;
-            var pv = Loadout.PreviewInsert(g.Resolved, slot, item, at);
-
-            _hint.text = DescribePreview(item, pv, targetSlot, at);
-            RefreshDropHighlights(pv);
+            _hint.text = DescribePlacement(g, item, targetSlot);
         }
 
-        /// <summary>把预览结果写成一句人能读的话。</summary>
-        string DescribePreview(ChainItem item, InsertPreview pv, int slotIndex, int at)
+        /// <summary>
+        /// 把「装到这一格」的前后对比写进常驻详情区。
+        ///
+        /// 这里必须真的跑一次 Loadout（在槽位副本上），不能用估算：
+        /// 读取式链的产出取决于扫描顺序与作用域吸附，纸面加法算不出来。
+        /// </summary>
+        void ShowPlacementPreview(GunRuntime g, ChainItem item, int cell)
         {
-            if (!pv.CanInsert)
+            var detail = _inv.Detail;
+            if (detail == null) return;
+
+            // 基线：当前枪的本次期望
+            var before = Loadout.ResolveCast(g.Base, g.Slots, g.Stats, 0);
+
+            // 试放：在副本上放到目标格
+            var probe = g.Slots.Clone();
+            probe.Cells[cell] = item;
+            var stats = Loadout.ResolveGun(g.Base, probe);
+            var after = Loadout.ResolveCast(g.Base, probe, stats, 0);
+
+            int affected = 0;
+            if (!item.IsBullet && item.Mod != null)
             {
-                return pv.RejectCode switch
-                {
-                    "chain-full" => $"✕ 该位已满（上限 {Loadout.MaxChain} 项）",
-                    "same-limit" => $"✕ 同一条链内同名配件最多 {Loadout.MaxSameIdPerChain} 个",
-                    "bad-index" => "✕ 落点无效",
-                    _ => "✕ 无法放置",
-                };
+                affected = item.Mod.Scope == Scope.Next
+                    ? (Loadout.NextBulletCell(cell, probe) >= 0 ? 1 : 0)
+                    : Loadout.TargetsOf(item.Mod.Scope, cell, probe).Count;
             }
 
-            string scope = item.IsBullet ? "子弹"
-                : pv.IsGunScope ? "枪械"
-                : item.Mod.Scope == Scope.Whole ? "全场" : "后继";
+            float dmgDelta = after.ExpectedDamage - before.ExpectedDamage;
+            int ammoDelta = after.AmmoCost - before.AmmoCost;
 
-            if (!pv.Effective)
-                return $"✕ {scope}件在此位置无作用目标（后继件必须放在子弹之前）";
-
-            string dmg;
-            if (Mathf.Abs(pv.DamageDelta) < 0.05f)
+            detail.Show(item, new ItemDetailPanel.PlacementPreview
             {
-                dmg = pv.IsGunScope ? "枪属性变化（不占位伤害）" : "伤害不变";
-            }
-            else
-            {
-                float pct = pv.DamageDeltaRatio * 100f;
-                dmg = $"{pv.BaseDamage:0.#} → {pv.NewDamage:0.#}  ({(pct >= 0 ? "+" : "")}{pct:0.#}%)";
-            }
-
-            string ammo = pv.NewAmmoCost != pv.BaseAmmoCost
-                ? $"   弹药 {pv.BaseAmmoCost} → {pv.NewAmmoCost}"
-                : "";
-
-            string proj = pv.NewProjectiles != pv.BaseProjectiles
-                ? $"   弹丸 {pv.BaseProjectiles} → {pv.NewProjectiles}"
-                : "";
-
-            return $"位{slotIndex + 1} 插在第 {at + 1} 格   生效目标 {pv.AffectedCount} 个   {dmg}{proj}{ammo}";
+                Cell = cell,
+                BaselineDamage = before.ExpectedDamage,
+                NewDamage = after.ExpectedDamage,
+                DamageDelta = dmgDelta,
+                AmmoDelta = ammoDelta,
+                AffectedTargets = affected,
+                HasTarget = item.IsBullet || affected > 0,
+            });
         }
 
-        /// <summary>落点高亮：有效=绿框，无效=红框。传 null 清除。</summary>
-        void RefreshDropHighlights(InsertPreview? pv)
+        /// <summary>
+        /// 把「放到这一格会怎样」写成一句话。
+        ///
+        /// 必须同时给出「占了什么」「影响了谁」两件事：
+        /// 读取式链里最容易犯的错是把被动件放到没有子弹的范围里，
+        /// 玩家看到「生效目标 0」就会立刻明白该换个位置。
+        /// </summary>
+        string DescribePlacement(GunRuntime g, ChainItem item, int cell)
         {
-            for (int i = 0; i < _highlightTargets.Count; i++)
+            var scope = item.IsBullet ? "子弹" : ItemTooltip.ScopeName(item.Mod.Scope);
+
+            // 试放一次，看完工后的实际产出
+            var probe = g.Slots.Clone();
+            probe.Cells[cell] = item;
+            var stats = Loadout.ResolveGun(g.Base, probe);
+            var cast = Loadout.ResolveCast(g.Base, probe, stats, 0);
+
+            int affected = 0;
+            if (!item.IsBullet && item.Mod != null)
             {
-                var img = _highlightTargets[i].Target;
-                if (img != null) img.color = _highlightTargets[i].OriginalColor;
+                affected = item.Mod.Scope == Scope.Next
+                    ? (Loadout.NextBulletCell(cell, probe) >= 0 ? 1 : 0)
+                    : Loadout.TargetsOf(item.Mod.Scope, cell, probe).Count;
             }
-            _highlightTargets.Clear();
 
-            if (pv == null || _dragging == null) return;
-            var g = CurrentGun();
-            if (g == null) return;
-            int slotIndex = _hoverSlot;
-            if (slotIndex < 0 || slotIndex >= g.Slots.Length) return;
+            string target = item.IsBullet
+                ? "本格提供一发子弹"
+                : $"生效目标 {affected} 个";
 
-            int at = _hoverChain < 0 ? g.Slots[slotIndex].Chain.Count : _hoverChain;
-            var p = pv.Value;
+            if (!item.IsBullet && affected == 0)
+                return $"✕ 槽 {cell + 1}：{scope}件在此范围没有子弹可作用";
 
-            Color tint;
-            if (!p.CanInsert) tint = new Color(0.75f, 0.18f, 0.20f, 0.95f);
-            else if (!p.Effective) tint = new Color(0.70f, 0.30f, 0.15f, 0.95f);
-            else tint = new Color(0.22f, 0.60f, 0.35f, 0.95f);
-
-            // 高亮目标行
-            var row = FindSlotRow(slotIndex);
-            if (row != null)
-            {
-                var img = row.GetComponent<Image>();
-                if (img != null) PushHighlight(img, tint);
-            }
-        }
-
-        struct Highlight
-        {
-            public Image Target;
-            public Color OriginalColor;
-        }
-
-        readonly List<Highlight> _highlightTargets = new List<Highlight>();
-
-        void PushHighlight(Image img, Color c)
-        {
-            _highlightTargets.Add(new Highlight { Target = img, OriginalColor = img.color });
-            img.color = c;
-        }
-
-        GameObject FindSlotRow(int slotIndex)
-        {
-            if (_chainArea == null) return null;
-            var name = "Slot" + slotIndex;
-            for (int i = 0; i < _chainArea.childCount; i++)
-                if (_chainArea.GetChild(i).name == name) return _chainArea.GetChild(i).gameObject;
-            return null;
+            return $"槽 {cell + 1}：{scope}    {target}    " +
+                   $"本次期望 {cast.ExpectedDamage:0.#}    耗弹 {cast.AmmoCost}";
         }
 
         public void NotifyDragEnd(DraggableItem it, PointerEventData e)
         {
-            // 若没有任何 DropTarget 接收（放到空白处）→ 从链卸下 / 从背包丢弃
-            if (!it.WasDropped)
-            {
-                if (it.FromSlot >= 0) UnequipToBag(it.FromSlot, it.FromChain);
-            }
-
-            // 清掉高亮与悬停状态，否则下次打开背包会残留染色
+            if (!it.WasDropped && it.FromSlot >= 0) UnequipToBag(it.FromSlot);
             _dragging = null;
             _hoverSlot = -1;
-            _hoverChain = -1;
-            RefreshDropHighlights(null);
-
             Refresh();
         }
 
-        public void UnequipToBag(int slotIndex, int chainIndex)
+        public void UnequipToBag(int slotIndex)
         {
             var g = CurrentGun();
             if (g == null || slotIndex < 0 || slotIndex >= g.Slots.Length) return;
-            var chain = g.Slots[slotIndex].Chain;
-            if (chainIndex < 0 || chainIndex >= chain.Count) return;
 
-            var item = chain[chainIndex];
-            if (_root.Run.Bag.Count >= _root.Run.BagCapacity) return;   // 背包满：拒绝卸下
-
-            chain.RemoveAt(chainIndex);
-            _root.Run.Bag.Add(item);
-            g.Recalc();
-            Refresh();
-        }
-
-        GunRuntime CurrentGun()
-        {
-            var guns = _root.Weapons != null ? _root.Weapons.AllGuns : null;
-            if (guns == null || guns.Count == 0) return null;
-            return guns[Mathf.Clamp(_viewGun, 0, guns.Count - 1)];
-        }
-
-        string ItemName(ChainItem i) => i.IsBullet ? i.Bullet.Name : i.Mod.Name;
-
-        public void HandleDrop(DraggableItem src, SlotDropTarget dst)
-        {
-            src.WasDropped = true;
-
-            // 落回背包区：从链卸下
-            if (dst.IsBagArea)
+            var it = g.Slots.Cells[slotIndex];
+            if (it == null) return;
+            if (_root.Run.Bag.Count >= _root.Run.BagCapacity)
             {
-                if (src.FromSlot >= 0) UnequipToBag(src.FromSlot, src.FromChain);
-                Refresh();
+                _root.HudToast("背包已满，无法卸下");
                 return;
             }
 
+            g.Slots.Cells[slotIndex] = null;
+            _root.Run.Bag.Add(it);
+            g.Recalc();
+        }
+
+        /// <summary>
+        /// 放下：从背包/其它槽位移到目标槽位。
+        /// 目标已有件时**交换**（原型行为）—— 直接覆盖会让玩家无意中丢掉配件，
+        /// 而配件是唯一资源，误丢的代价太高。
+        /// </summary>
+        public void HandleDrop(DraggableItem src, SlotDropTarget dst)
+        {
             var g = CurrentGun();
-            if (g == null) return;
-            int slotIndex = dst.SlotIndex;
-            if (slotIndex < 0 || slotIndex >= g.Slots.Length) return;
-            var slot = g.Slots[slotIndex];
+            if (g == null || src == null) return;
 
-            // 计算目标插入下标
-            int insertAt = dst.ChainIndex < 0 ? slot.Chain.Count : dst.ChainIndex;
-
-            // 从链内移动到链内：先摘除（注意下标偏移）
-            ChainItem moving = src.Item;
-            if (src.FromSlot >= 0)
+            if (dst.IsBagArea)
             {
-                var fromChain = g.Slots[src.FromSlot].Chain;
-                if (src.FromChain < 0 || src.FromChain >= fromChain.Count) return;
-                fromChain.RemoveAt(src.FromChain);
-                if (src.FromSlot == slotIndex && src.FromChain < insertAt) insertAt--;
+                if (src.FromSlot >= 0) UnequipToBag(src.FromSlot);
+                return;
+            }
+
+            int to = dst.SlotIndex;
+            if (to < 0 || to >= g.Slots.Length) return;
+            if (src.FromSlot == to) { src.WasDropped = true; return; }
+
+            var moving = src.Item;
+            var displaced = g.Slots.Cells[to];
+
+            // 从背包来：校验目标格能否接受这个件
+            if (src.FromSlot < 0)
+            {
+                var verdict = Loadout.Validate(g.Slots, to, moving, out string reason);
+                if (verdict != Loadout.DropResult.Ok && moving.IsBullet == false)
+                {
+                    _root.HudToast(reason ?? "无法放置");
+                    return;
+                }
+                _root.Run.RemoveFromBag(moving);
+                g.Slots.Cells[to] = moving;
+
+                if (displaced != null) _root.Run.Bag.Add(displaced);
             }
             else
             {
-                // 从背包取走
-                if (!_root.Run.Bag.Remove(moving)) return;
+                // 枪内移动：直接交换
+                g.Slots.Cells[src.FromSlot] = displaced;
+                g.Slots.Cells[to] = moving;
             }
 
-            var code = Loadout.ValidateInsert(slot, moving, insertAt);
-            if (code != null)
-            {
-                // 被拒：放回原处
-                if (src.FromSlot >= 0) g.Slots[src.FromSlot].Chain.Insert(
-                    Mathf.Clamp(src.FromChain, 0, g.Slots[src.FromSlot].Chain.Count), moving);
-                else _root.Run.Bag.Add(moving);
-
-                _hint.text = code switch
-                {
-                    "chain-full" => $"该位已满（上限 {Loadout.MaxChain} 项）",
-                    "same-limit" => $"同一条链内同名配件最多 {Loadout.MaxSameIdPerChain} 个",
-                    "bad-index" => "落点无效",
-                    _ => "无法放置",
-                };
-                Refresh();
-                return;
-            }
-
-            slot.Chain.Insert(insertAt, moving);
+            src.WasDropped = true;
             g.Recalc();
             Refresh();
         }
@@ -915,126 +773,74 @@ namespace S.View
 
         public void ShowOffers(List<Offer> offers)
         {
-            if (offers == null || offers.Count == 0) { _root.PopOfferIfAny(); return; }
+            if (_offerRoot == null || offers == null || offers.Count == 0) return;
+
             _offer = offers;
             _offerMode = true;
             _bagRoot.SetActive(false);
             _offerRoot.SetActive(true);
             Open = true;
-            _root.SetPaused(true);   // 内部会同步光标
+            _root.SetPaused(true);
 
-            if (_offerRefs == null) return;
-
-            // 清掉上一轮的候选卡（只清 CardArea 的子节点，标题与底板不动）
-            var area = _offerRefs.CardArea;
-            for (int i = area.childCount - 1; i >= 0; i--)
-                Destroy(area.GetChild(i).gameObject);
-
-            if (_offerRefs.CardTemplate == null)
+            // 卡片必须**克隆模板**：Offer 预制体里没有现成卡片，
+            // 只提供 OfferRefs.CardTemplate。取现成子节点会永远得到 0 张卡（踩过）。
+            if (_offerRefs == null || _offerRefs.CardTemplate == null || _offerRefs.CardArea == null)
             {
-                Debug.LogError("[S] Offer.prefab 未指定 CardTemplate");
+                Debug.LogError("[S] Offer.prefab 缺少 CardTemplate / CardArea，三选一无法显示");
                 return;
             }
 
-            int n = offers.Count;
-            for (int i = 0; i < n; i++)
+            // 清掉上一轮克隆的卡片
+            for (int i = _offerCards.Count - 1; i >= 0; i--)
+                if (_offerCards[i] != null) Destroy(_offerCards[i]);
+            _offerCards.Clear();
+
+            for (int i = 0; i < offers.Count; i++)
             {
-                var o = offers[i];
+                var item = _data.MakeItem(offers[i].Id);
+                if (item == null) continue;
+
+                var go = Instantiate(_offerRefs.CardTemplate, _offerRefs.CardArea);
+                go.name = "Offer_" + item.Id;
+                go.SetActive(true);
+                _offerCards.Add(go);
+
+                var c = go.GetComponent<OfferCardRefs>();
+                if (c == null) continue;
+
                 int idx = i;
-
-                var card = Instantiate(_offerRefs.CardTemplate, area);
-                card.name = "Offer" + i;
-                card.SetActive(true);
-
-                var cr = card.GetComponent<OfferCardRefs>();
-                if (cr == null) continue;
-
-                var item = _data.MakeItem(o.Id);
-                string rarName = o.Rarity switch
+                c.Bind(item, idx);
+                if (c.Button != null)
                 {
-                    Rarity.Epic => "史诗",
-                    Rarity.Rare => "稀有",
-                    _ => "常见",
-                };
-
-                if (cr.Background != null)
-                    cr.Background.color = UiAssets.CardFrame != null
-                        ? new Color(0.78f, 0.85f, 0.95f, 0.9f)
-                        : new Color(0.11f, 0.13f, 0.17f, 0.98f);
-
-                if (cr.Button != null)
-                {
-                    cr.Button.onClick.RemoveAllListeners();
-                    cr.Button.onClick.AddListener(() => PickOffer(idx));
+                    c.Button.onClick.RemoveAllListeners();
+                    c.Button.onClick.AddListener(() => PickOffer(idx));
                 }
-
-                // 顶部稀有度条：tag_* 带描边，卡片上更清楚；缺失则纯色
-                if (cr.TagTop != null)
-                {
-                    var tagS = UiAssets.TagForRarity(o.Rarity);
-                    if (tagS != null) cr.TagTop.sprite = tagS;
-                    cr.TagTop.color = RarityColor(o.Rarity);
-                }
-
-                if (cr.RarityName != null)
-                {
-                    cr.RarityName.text = rarName;
-                    cr.RarityName.color = RarityColor(o.Rarity);
-                }
-                if (cr.CardTitle != null)
-                    cr.CardTitle.text = item.IsBullet ? item.Bullet.Name : item.Mod.Name;
-                if (cr.Desc != null)
-                    cr.Desc.text = Describe(item);
-
-                // 圆形图标 + 悬停详情
-                if (cr.IconNode != null) cr.IconNode.Bind(item, 96f, showRing: true, showScope: true);
-
-                var hover = card.AddComponent<ItemHover>();
-                hover.Item = item;
-                hover.Tooltip = ItemTooltip.Instance;
             }
         }
 
         void PickOffer(int idx)
         {
             if (_offer == null || idx < 0 || idx >= _offer.Count) return;
-            var o = _offer[idx];
 
             if (_root.Run.Bag.Count >= _root.Run.BagCapacity)
             {
-                // 背包满：提示先去丢弃，保留选择界面。
-                // 这是瞬时反馈文字，2.5s 后自毁，不值得占一个预制体槽位。
-                var t = UiKit.MakeText(_offerRoot.transform, "BagFullTip", 20, TextAnchor.MiddleCenter,
-                    new Color(1f, 0.45f, 0.4f),
-                    new Vector2(0.5f, 0f), new Vector2(0.5f, 0f),
-                    new Vector2(-500f, 120f), new Vector2(500f, 150f));
-                t.text = "背包已满：请先进入背包丢弃一个配件";
-                Destroy(t.gameObject, 2.5f);
+                _root.HudToast("背包已满 · 先分解一件再选");
                 return;
             }
 
-            _root.Run.TryPick(o.Id);
+            _root.Run.TryPick(_offer[idx].Id);
             _offer = null;
             _offerMode = false;
+            _offerRoot.SetActive(false);
 
             if (_root.HasPendingOffers) _root.PopOfferIfAny();
-            else
-            {
-                _offerRoot.SetActive(false);
-                OpenBag();   // 选完直接进背包，符合「先进背包再装」的流程
-            }
+            else Close();
         }
 
         void Update()
         {
-            if (!Open) return;
-            var kb = UnityEngine.InputSystem.Keyboard.current;
-            if (kb == null) return;
-            if (kb.escapeKey.wasPressedThisFrame && !_offerMode)
-            {
-                // 三选一必须做出选择，Esc 不关闭；背包态下关闭
-                Close();
-            }
+            // 三选一没有键盘快捷键：必须点击（原型同）。
+            // 这里只处理 Esc 关闭背包。
         }
     }
 }

@@ -59,6 +59,19 @@ namespace S.App
             return start;
         }
 
+        /// <summary>
+        /// 场上是否已有精英。IReadOnlyList 没有 Exists，所以这里显式遍历 ——
+        /// 也顺手跳过已销毁的引用（Enemy 会在死亡帧 Destroy，列表可能短暂持有 null）。
+        /// </summary>
+        static bool HasElite(S.View.GameRoot root)
+        {
+            if (root == null) return false;
+            var list = root.Enemies;
+            for (int i = 0; i < list.Count; i++)
+                if (list[i] != null && list[i].IsElite) return true;
+            return false;
+        }
+
         /// <summary>超时保护：任何原因卡住都要写日志退出，不能挂死让 CI 等。</summary>
         IEnumerator Guard()
         {
@@ -118,9 +131,9 @@ namespace S.App
             // 自检全程免伤：否则战斗段玩家猝死会触发 Lose → SetPaused(true)，
             // 后续所有断言都在暂停态下跑，失败原因被完全掩盖（踩过两次）。
             root.InvulnerableForTest = true;
-            Check("数据: 3 把枪", data != null && data.GunOrder.Count == 3, $"{data?.GunOrder.Count}");
-            Check("数据: 10 种子弹", data != null && data.Bullets.Count == 10, $"{data?.Bullets.Count}");
-            Check("数据: 15 种衍生", data != null && data.Modifiers.Count == 15, $"{data?.Modifiers.Count}");
+            Check("数据: 6 把枪", data != null && data.GunOrder.Count == 6, $"{data?.GunOrder.Count}");
+            Check("数据: 17 种子弹", data != null && data.BulletOrder.Count == 17, $"{data?.BulletOrder.Count}");
+            Check("数据: 22 种衍生", data != null && data.ModifierOrder.Count == 22, $"{data?.ModifierOrder.Count}");
 
             // ---- 美术资产接入：模型与贴图必须真的加载到 ----
             {
@@ -318,8 +331,8 @@ namespace S.App
             Check("玩家存在", root.PlayerTransform != null);
             Check("枪械已初始化", root.Weapons != null && root.Weapons.GunCount == 2,
                 $"GunCount={root.Weapons?.GunCount}");
-            Check("起手枪有链", root.Weapons != null && root.Weapons.Active.PeekNextSlot() == 0,
-                "第一位应为非空");
+            Check("起手枪有子弹", root.Weapons != null && root.Weapons.Active.HasAnyBullet,
+                "枪里应有基础弹");
 
             // 场景里刷出了敌人
             int enemies = root.Enemies.Count;
@@ -333,7 +346,7 @@ namespace S.App
             // 此时只把 ReloadLeft 清零会得到「不在换弹、但弹匣是 0」的状态，
             // TryFire 直接返回 no-ammo，而这条失败是随机出现的（踩过：3 次里红 1 次）。
             gun.ReloadLeft = 0f;
-            gun.Ammo = gun.Resolved.MagSize;
+            gun.Ammo = gun.Stats.Mag;
             gun.FireCooldown = 0f;               // 清掉开局的射击冷却，否则首测会判 cooldown
             int ammoBefore = gun.Ammo;
             var cast = gun.TryFire(out var reason);
@@ -347,98 +360,97 @@ namespace S.App
             yield return WaitUnscaled(0.35f);
             yield return Shot("02-fired");
 
-            // ---- 链式逐渐触发（§1.2）：真的在时间轴上逐项兑现，而不是一次性铺完 ----
+            // ---- 读取式扫描（loadout-spec §3）：一次射击读到几发、耗弹多少、
+            //      被动件是否吸附、触发弹是否带载荷 ----
             {
                 var g2 = root.Weapons.Active;
 
-                // 造一条 3 项的链：3 项 × 击发间隔(0.11s) ≈ 0.22s 才能全部触发，
-                // 所以 0.06s 时必然只触发了一部分 —— 这就是"逐渐"的硬判据。
-                var s = new SlotState();
-                s.Chain.Add(data.MakeItem("m_dmg_up"));
-                s.Chain.Add(data.MakeItem("b_slug"));
-                s.Chain.Add(data.MakeItem("m_crit_up"));
-                var plan = Loadout.ResolveCast(g2.Resolved, s);
-                Check("链式计划覆盖全链", plan.Steps.Count == 3, $"steps={plan.Steps.Count}");
+                // 槽 0 = 基础弹，槽 1 = 伤害增幅（被动 Prev 吸给槽 0）
+                var saved = g2.Slots.Clone();
+                g2.Slots.Cells[0] = data.MakeItem(g2.Base.BaseBullet);
+                g2.Slots.Cells[1] = data.MakeItem("dmg");
+                g2.Slots.Cells[1].Mod.Scope = Scope.Prev;
+                g2.Recalc();
 
-                // 只驱动 ChainCast 本身，用空 spawn 避免污染场景
-                var runner = new S.View.ChainCast(plan, g2.Resolved);
-                int spawned = 0;
-                runner.Tick(0.001f, d => { spawned++; return null; }, null);
-                int afterFirst = runner.FiredCount;
-                runner.Tick(0.03f, d => { spawned++; return null; }, null);
-                Check("链式触发首帧只走第一步", afterFirst == 1, $"fired={afterFirst}");
+                var scanCast = Loadout.ResolveCast(g2.Base, g2.Slots, g2.Stats, 0);
+                Check("扫描产出一发", scanCast.Projectiles.Count == 1, $"{scanCast.Projectiles.Count}");
+                Check("被动件不占读取（未消耗第 2 格）", scanCast.UsedCells.Count == 1,
+                    $"used={scanCast.UsedCells.Count}");
+                Check("被动件生效（伤害 > 基础值）",
+                    scanCast.Projectiles[0].Damage > g2.Base.BaseBullet.Length,
+                    $"{scanCast.Projectiles[0].Damage}");
 
-                runner.Tick(1.0f, d => { spawned++; return null; }, null);
-                Check("链式触发最终全部走完", runner.FiredCount == 3,
-                    $"fired={runner.FiredCount} spawned={spawned}");
-                Check("链式触发只生成一个子弹", spawned == 1, $"spawned={spawned}");
-                Check("链式触发已结束", runner.Finished);
+                // 恢复现场：后面所有断言都跑在原始槽位上
+                g2.Slots = saved;
+                g2.Recalc();
 
-                // 重叠施法：连发枪每 0.11 s 扣一次扳机，而一条 5 项链要 0.55 s 才跑完。
-                // 若新的一发取消旧的，长链永远只走到第 2 项 —— 这是最容易"看起来正常"的错误。
+                // Next 件占读取：槽 0 = 双重施放（Next），槽 1/2 = 两发子弹
+                var probe = new SlotState(8);
+                probe.Cells[0] = data.MakeItem("std");
+                var st = Loadout.ResolveGun(g2.Base, probe);
+                var r = Loadout.ResolveCast(g2.Base, probe, st, 0);
+                Check("单子弹耗弹等于自身 cost", r.AmmoCost == data.Bullets["std"].Cost,
+                    $"{r.AmmoCost}");
+
+                // 触发弹带载荷
+                var trig = new SlotState(8);
+                trig.Cells[0] = data.MakeItem("trigger");
+                trig.Cells[1] = data.MakeItem("grenade");
+                var st2 = Loadout.ResolveGun(g2.Base, trig);
+                var r2 = Loadout.ResolveCast(g2.Base, trig, st2, 0);
+                Check("触发弹带载荷", r2.Projectiles.Count == 1 &&
+                    r2.Projectiles[0].Payload != null && r2.Projectiles[0].Payload.Count == 1,
+                    $"{r2.Projectiles.Count}/{r2.Projectiles[0].Payload?.Count}");
+
+                // 截图：把枪塞满，让 HUD 的「下一发 N 发」有东西可显示
+                var shot = g2.Slots.Clone();
+                for (int i = 0; i < g2.Slots.Length; i++)
                 {
-                    int before = root.Weapons.ActiveCastCount;
-                    var s2 = new SlotState();
-                    for (int k = 0; k < 5; k++)
-                        s2.Chain.Add(data.MakeItem(k == 1 ? "b_slug" : "m_dmg_up"));
-                    var plan2 = Loadout.ResolveCast(g2.Resolved, s2);
-                    root.Weapons.SpawnCastForAI(plan2);
-                    yield return WaitUnscaled(0.02f);
-                    root.Weapons.SpawnCastForAI(plan2);
-                    yield return WaitUnscaled(0.04f);
-                    Check("重叠施法可并存", root.Weapons.ActiveCastCount >= 2,
-                        $"before={before} now={root.Weapons.ActiveCastCount}");
-                    yield return WaitUnscaled(1.2f);
-                    Check("重叠施法最终回收", root.Weapons.ActiveCastCount == 0,
-                        $"now={root.Weapons.ActiveCastCount}");
-                }
-
-                // 顺手截一张"多项目链"的 HUD：起手链只有 1 项，看不出排布与点亮。
-                // 临时改链只是为了截图，截完必须还原 —— 否则后面所有"轮转/位/伤害"
-                // 断言都会跑在被改过的枪上（这类污染比漏测更难查）。
-                var live = g2.Slots[g2.PeekNextSlot()];
-                var backup = new List<ChainItem>(live.Chain);
-                live.Chain.Clear();
-                foreach (var id in new[] { "m_dmg_up", "b_slug", "m_crit_up", "b_plasma", "m_split" })
-                {
+                    var id = i % 3 == 0 ? "std" : (i % 3 == 1 ? "dmg" : "crit");
                     var it = data.MakeItem(id);
-                    if (it != null) live.Chain.Add(it);
+                    if (it != null && !it.IsBullet) it.Mod.Scope = (i == 0) ? Scope.Next : Scope.Prev;
+                    g2.Slots.Cells[i] = it;
                 }
+                g2.Recalc();
                 yield return WaitUnscaled(0.12f);
                 yield return Shot("02b-chain");
-                live.Chain.Clear();
-                live.Chain.AddRange(backup);
+
+                g2.Slots = shot;
+                g2.Recalc();
                 yield return WaitUnscaled(0.08f);
             }
 
-            // ---- 改装：装配配件后重算，验证 UI 数据源 ----
-            var slot1 = gun.Slots[1];
-            bool insMod = Loadout.Insert(slot1, data.MakeItem("m_dmg_up"));
-            bool insBullet = Loadout.Insert(slot1, data.MakeItem("b_heavy"));
-            Check("装配衍生件", insMod);
-            Check("装配子弹件", insBullet);
+            // ---- 改装：装配后重算，验证 UI 数据源 ----
+            gun.Slots.Cells[1] = data.MakeItem("std");
+            gun.Recalc();
+            Check("装配子弹件", gun.Slots.Cells[1] != null && gun.Slots.Cells[1].IsBullet);
+
+            gun.Slots.Cells[2] = data.MakeItem("dmg");
+            gun.Slots.Cells[2].Mod.Scope = Scope.Prev;
             gun.Recalc();
 
-            var cast2 = Loadout.ResolveCast(gun.Resolved, slot1);
-            Check("改装后该位有弹丸", cast2.Projectiles.Count == 1, $"count={cast2.Projectiles.Count}");
-            Check("改装后伤害提升", cast2.Projectiles.Count > 0 && cast2.Projectiles[0].Damage > 26f,
+            var cast2 = Loadout.ResolveCast(gun.Base, gun.Slots, gun.Stats, 1);
+            Check("改装后该位有弹丸", cast2.Projectiles.Count > 0, $"count={cast2.Projectiles.Count}");
+            Check("改装后伤害包含被动加成",
+                cast2.Projectiles.Count > 0 && cast2.Projectiles[0].Damage > data.Bullets["std"].Damage,
                 $"damage={cast2.Projectiles[0].Damage}");
 
-            // ---- 拖拽落点预览（实机 API 可用性，不依赖界面交互）----
+            // ---- 作用域取目标（实机 API 可用性）----
             {
-                var probe = new SlotState();
-                probe.Chain.Add(data.MakeItem("b_slug"));
+                var probe = new SlotState(8);
+                probe.Cells[0] = data.MakeItem("std");
+                probe.Cells[1] = data.MakeItem("std");
 
-                var pvGood = Loadout.PreviewInsert(gun.Resolved, probe, data.MakeItem("m_dmg_up"), 0);
-                Check("预览: 全场件有效", pvGood.Effective && pvGood.AffectedCount == 1,
-                    $"eff={pvGood.Effective} n={pvGood.AffectedCount}");
-                Check("预览: 伤害上升", pvGood.DamageDelta > 0f, $"delta={pvGood.DamageDelta}");
+                var t1 = Loadout.TargetsOf(Scope.Prev, 1, probe);
+                Check("预览: Prev 找到左侧子弹", t1.Count == 1 && t1[0] == 0, string.Join(",", t1));
 
-                var pvBad = Loadout.PreviewInsert(gun.Resolved, probe, data.MakeItem("m_dmg_flat"), 1);
-                Check("预览: 后继件放子弹后无目标", !pvBad.Effective && pvBad.AffectedCount == 0,
-                    $"eff={pvBad.Effective} n={pvBad.AffectedCount}");
+                var t2 = Loadout.TargetsOf(Scope.Adj, 1, probe);
+                Check("预览: Adj 覆盖左右", t2.Contains(0) && t2.Contains(2), string.Join(",", t2));
 
-                Check("预览: 不修改原链", probe.Chain.Count == 1, $"len={probe.Chain.Count}");
+                int nb = Loadout.NextBulletCell(0, probe);
+                Check("预览: Next 指向下一子弹", nb == 1, $"{nb}");
+
+                Check("预览: 不修改原槽位", probe.Cells[0] != null && probe.Cells[0].IsBullet);
             }
 
             // ---- 经验与升级 ----
@@ -475,6 +487,44 @@ namespace S.App
                 Check("背包有可交互卡片", inv.VisibleCardCount > 0,
                     $"cards={inv.VisibleCardCount}");
                 Check("背包链区已生成", inv.ChainRowCount > 0, $"rows={inv.ChainRowCount}");
+
+                // ---- 详情区（#inv-detail）：必须真的能显示一件配件的内容 ----
+                // 这段防的是「面板建好了但没接线」：只查「curDetail != null」不够，
+                // 那种断言在悬停事件没挂上时照样通过。
+                var detail = inv.DetailPanel;
+                Check("背包详情区已创建", detail != null, "InvRefs.Detail 为空");
+
+                if (detail != null)
+                {
+                    Check("详情区初始为空态", !detail.HasItem, $"id={detail.CurrentId}");
+
+                    // 直接喂一件配件，走的是与悬停完全相同的 Show 路径
+                    var probeItem = data.MakeItem(data.BulletOrder.Count > 0
+                        ? data.BulletOrder[0].Id : "std");
+                    if (probeItem != null)
+                    {
+                        detail.Show(probeItem);
+                        Check("详情区能展示子弹件", detail.HasItem && detail.CurrentId == probeItem.Id,
+                            $"id={detail.CurrentId}");
+
+                        // 拍一张「详情区有内容」的图：空态截图看不出排版对不对
+                        yield return Shot("03b-detail");
+
+                        var probeMod = data.MakeItem("dmg");
+                        if (probeMod != null)
+                        {
+                            detail.Show(probeMod);
+                            Check("详情区能展示衍生件", detail.CurrentId == "dmg",
+                                $"id={detail.CurrentId}");
+
+                            // 衍生件带作用域说明，再拍一张（两种排版都要看得到）
+                            yield return Shot("03c-detail-mod");
+                        }
+
+                        detail.Clear();
+                        Check("详情区可回到空态", !detail.HasItem, $"id={detail.CurrentId}");
+                    }
+                }
 
                 yield return Shot("03-inventory");
 
@@ -568,72 +618,78 @@ namespace S.App
                 }
             }
 
-            // ---- 区域推进：真机验证门、进区、Boss 场 ----
+            // ---- 单图时间轴：真机验证竞技场、精英与 Boss 入场 ----
             {
                 // 战斗段可能把玩家打死（Lose 会 SetPaused(true)），
-                // 一旦暂停 Update 全部短路，进区检测就不会跑。
+                // 一旦暂停 Update 全部短路，时间轴就不再推进。
                 // 这里先恢复运行态，并把「当前是否暂停」作为独立断言查出来，
-                // 避免把「测试自己把游戏停了」误判成进区逻辑坏了（踩过）。
+                // 避免把「测试自己把游戏停了」误判成时间轴逻辑坏了（踩过）。
                 Check("战斗段未因死亡而暂停", !root.Paused, "Paused=true，玩家可能在战斗段阵亡");
                 if (root.Paused) root.CloseOverlayForTest();
                 Check("恢复运行态", Mathf.Approximately(Time.timeScale, 1f), $"timeScale={Time.timeScale}");
 
-                Check("区域系统已建立", root.Progress != null && root.Zones != null,
-                    "Progress 或 Zones 为 null");
-                Check("6 个区域已构建", root.Zones != null && root.Zones.ZoneCount == 6,
-                    $"zones={root.Zones?.ZoneCount}");
-                Check("起点在 1 区", root.Zone == 1, $"zone={root.Zone}");
-                Check("初始门关闭", !root.Progress.IsDoorOpen(1));
+                Check("竞技场已构建", root.Zones != null, "Zones 为 null");
+                Check("节奏总导演已就绪", root.Director != null, "Director 为 null");
+                Check("时间轴至少 4 个阶段",
+                    root.Director != null && root.Director.Phases.Count >= 4,
+                    $"phases={root.Director?.Phases.Count}");
+                Check("Boss 入场时刻为 600s（10:00）",
+                    root.Director != null && Mathf.Approximately(root.Director.BossAt, 600f),
+                    $"bossAt={root.Director?.BossAt}");
+                Check("首只精英在 300s（5:00）",
+                    root.Director != null && Mathf.Approximately(root.Director.Elite.FirstAt, 300f),
+                    $"firstAt={root.Director?.Elite.FirstAt}");
+                Check("玩家出生在竞技场内",
+                    Mathf.Abs(root.PlayerTransform.position.x) < 60f &&
+                    Mathf.Abs(root.PlayerTransform.position.z) < 60f,
+                    $"pos={root.PlayerTransform.position}");
+                yield return Shot("07-arena");
 
-                var def1 = root.Progress.Get(1);
-                for (int w = 0; w < def1.Waves; w++) root.Progress.BeginWave();
-                bool cleared = root.Progress.TryClearCurrent();
-                Check("1 区可被标记清空", cleared);
-                root.Zones.ApplyGateState(root.Progress);
-                Check("清区后门开启", root.Progress.IsDoorOpen(1));
-
-                // 走进门 → 进 2 区。
-                // 注意：玩家用 CharacterController 移动，直接改 position 会被物理回滚，
-                // 所以这里连续几帧把它压到门后，并观察区域是否推进。
-                var entry2 = S.View.ZoneBuilder.EntryPoint(2);
-                var target = entry2 + Vector3.forward * 3f;
-                int frames = 0;
-                while (root.Zone == 1 && frames < 40)
+                // ---- 时间轴快进：直接推 Director 到 4:00 之后，验证精英真的会入场 ----
+                // 这里**不**快进真实时钟（那要等 4 分钟），而是把 Director 的计时拨过去，
+                // 再让一帧 Update 消费事件 —— 走的是与实战完全相同的 SpawnElite 路径。
+                if (root.Director != null)
                 {
-                    root.PlayerTransform.position = target;
+                    int elitesBefore = root.ElitesSpawned;
+                    root.Director.SeekTo(root.Director.Elite.FirstAt + 1f);
                     yield return null;
-                    frames++;
-                }
-                _log.Add($"  INFO 进区尝试 {frames} 帧 / {root.ZoneProgressionDebug}");
-                Check("走进门后进入 2 区", root.Zone == 2, $"zone={root.Zone} / {root.ZoneProgressionDebug}");
-                Check("2 区有波次", root.WaveCount > 0, $"waves={root.WaveCount}");
-                yield return Shot("07-zone2");
-            }
+                    yield return null;
+                    Check("4:00 后刷出精英", root.ElitesSpawned > elitesBefore,
+                        $"{elitesBefore} -> {root.ElitesSpawned}");
+                    Check("精英已标记",
+                        HasElite(root),
+                        $"enemies={root.Enemies.Count}");
 
-            // ---- Boss：切到末区并验证状态机接入 ----
-            {
-                for (int z = 2; z <= 5; z++)
+                    // 4:00 的威胁应当是 50（100 × 240/480）
+                    Check("4:00 威胁值约 50", Mathf.Abs(root.Run.Threat - 50f) < 3f,
+                        $"threat={root.Run.Threat:0.0}");
+                }
+
+                // ---- Boss 入场：推到 8:00，验证 SpawnBoss 与能量柱 ----
+                if (root.Director != null)
                 {
-                    var d = root.Progress.Get(z);
-                    if (root.Progress.Current != z) root.Progress.TryEnter(z);
-                    for (int w = 0; w < d.Waves; w++) root.Progress.BeginWave();
-                    root.Progress.TryClearCurrent();
-                }
-                root.BeginZone(6);
-                yield return WaitUnscaled(0.3f);
+                    root.Director.SeekTo(root.Director.BossAt + 1f);
+                    yield return null;
+                    yield return null;
 
-                Check("进入 Boss 区", root.Zone == 6, $"zone={root.Zone}");
-                Check("Boss 已生成", root.Boss != null && root.Boss.State != null);
+                    Check("8:00 后 Boss 已入场",
+                        root.Director.BossSpawned && root.Boss != null,
+                        $"spawned={root.Director.BossSpawned} boss={(root.Boss != null)}");
+                    Check("8:00 威胁值满", Mathf.Approximately(root.Run.Threat, 100f),
+                        $"threat={root.Run.Threat:0.0}");
+                    Check("四根能量柱已生成",
+                        root.Zones != null && root.Zones.Pillars.Count == 4,
+                        $"pillars={root.Zones?.Pillars.Count}");
+                }
+
                 if (root.Boss != null && root.Boss.State != null)
                 {
                     var bs = root.Boss.State;
                     Check("Boss 满血", Mathf.Approximately(bs.HpRatio, 1f), $"hp={bs.HpRatio}");
                     Check("Boss 初始 P1", bs.Phase == S.Core.BossPhase.P1);
-                    Check("四根能量柱存在", root.Zones.Pillars.Count == 4,
-                        $"pillars={root.Zones.Pillars.Count}");
                     yield return Shot("08-boss");
 
-                    var pillar = root.Zones.Pillars[0];
+                    var pillar = root.Zones.Pillars.Count > 0 ? root.Zones.Pillars[0] : null;
                     if (pillar != null)
                     {
                         root.OnPillarHit(pillar, S.Core.BossState.PillarHp);

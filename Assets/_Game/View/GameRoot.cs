@@ -7,7 +7,7 @@ namespace S.View
 {
     /// <summary>
     /// 局内总控：场景构建、刷怪、经验掉落、威胁推进、UI 与暂停。
-    /// 只做「编排」——区域推进与 Boss 规则都在 Core（ZoneProgress / BossState），可 headless 断言。
+    /// 只做「编排」——时间轴、刷怪规格与 Boss 规则都在 Core（RunDirector / BossState），可 headless 断言。
     /// </summary>
     public sealed class GameRoot : MonoBehaviour
     {
@@ -32,30 +32,25 @@ namespace S.View
         float _iFrameLeft;
 
         // ---- 关卡 ----
-        public ZoneProgress Progress { get; private set; }
-        public ZoneBuilder Zones { get; private set; }
+        /// <summary>单张竞技场的地形构建器。</summary>
+        public ArenaBuilder Zones { get; private set; }
+
+        /// <summary>节奏总导演：阶段、刷怪规格、精英与 Boss 时间轴。</summary>
+        public RunDirector Director { get; private set; }
+
         public BossView Boss { get; private set; }
 
-        public int Zone => Progress != null ? Progress.Current : 1;
-        public int Wave => Progress != null ? Progress.Wave : 0;
-        public int ZoneCount => Progress != null ? Progress.ZoneCount : 0;
-        public int WaveCount
-        {
-            get
-            {
-                var d = Progress?.CurrentDef;
-                return d != null ? d.Waves : 0;
-            }
-        }
+        /// <summary>存活秒数（暂停不推进）。HUD 的倒计时与结算都用它。</summary>
+        public float RunElapsed => Director != null ? Director.Elapsed : 0f;
 
         public int AliveEnemies { get; private set; }
         readonly List<Enemy> _enemies = new List<Enemy>();
 
         float _spawnTimer;
-        int _spawnRemaining;
-        float _waveBreak;
-        bool _waveInProgress;
         bool _bossFightActive;
+
+        /// <summary>已刷出的精英数（自检与遥测用）。</summary>
+        public int ElitesSpawned => Director != null ? Director.ElitesSpawned : 0;
 
         // ---- UI ----
         HudView _hud;
@@ -121,13 +116,14 @@ namespace S.View
 
             BuildWorld();
 
-            Progress = new ZoneProgress(Data.Zones);
-            Zones = gameObject.AddComponent<ZoneBuilder>();
-            Zones.Build(Data.Zones);
+            Director = Data.Director ?? new RunDirector(null, null);
 
-            // 把玩家放到 1 区入口
+            Zones = gameObject.AddComponent<ArenaBuilder>();
+            Zones.Build(Data.Arena);
+
+            // 把玩家放到场地出生点
             if (Player != null)
-                Player.transform.position = ZoneBuilder.EntryPoint(1);
+                Player.transform.position = Zones.PlayerSpawn;
 
             _hud = gameObject.AddComponent<HudView>();
             _hud.Init(this);
@@ -163,7 +159,8 @@ namespace S.View
         void StartRun()
         {
             SetPaused(false);
-            BeginZone(1);
+            _hud?.Toast("进入竞技场 · 撑住并摧毁铸造核心");
+            NextSpawnTick(instant: true);
         }
 
         /// <summary>测试用：跳过菜单直接开局（自动驾驶 / 冒烟测试走这条）。</summary>
@@ -184,7 +181,7 @@ namespace S.View
 
         void BuildWorld()
         {
-            // 光照与环境（几何体由 ZoneBuilder 负责）
+            // 光照与环境（几何体由 ArenaBuilder 负责）
             if (FindLight() == null)
             {
                 var lgo = new GameObject("Sun");
@@ -210,76 +207,79 @@ namespace S.View
             return null;
         }
 
-        // ---------------- 关卡流程 ----------------
+        // ---------------- 关卡流程（时间轴驱动，docs/gameplay-spec.md §2.1）----------------
 
-        public void BeginZone(int zone)
+        /// <summary>
+        /// 每帧的节奏推进：计时 → 威胁同步 → 事件（阶段切换 / 精英 / Boss）→ 刷怪。
+        ///
+        /// 顺序不能颠倒：威胁必须先由计时同步，再让刷怪用 Run.HpScale；
+        /// 否则本帧刷出的敌人会用上一帧的硬度，8 分钟处会看到一次「突然整体变硬」的跳变。
+        /// </summary>
+        void TickDirector(float dt)
         {
-            var code = Progress.TryEnter(zone);
-            if (code != null) return;
+            if (Run == null || Director == null) return;
 
-            // 威胁有下限（跨区累积，不清零）
-            if (Run.Threat < Progress.ThreatFloor) Run.AddThreat(Progress.ThreatFloor - Run.Threat);
+            var events = Director.Tick(dt);
+            Run.SyncThreat(Director.Threat);
 
-            Zones.ApplyGateState(Progress);
-
-            // 把玩家送到本区入口
-            if (Player != null)
-                Player.transform.position = ZoneBuilder.EntryPoint(zone);
-
-            // Boss 区
-            if (Progress.CurrentDef != null && Progress.CurrentDef.IsBoss)
+            for (int i = 0; i < events.Count; i++)
             {
-                SpawnBoss();
-                return;
+                var e = events[i];
+                switch (e.Kind)
+                {
+                    case RunDirector.EventKind.PhaseChanged:
+                        NotifyPhase(Director.CurrentPhase);
+                        break;
+                    case RunDirector.EventKind.EliteDue:
+                        SpawnElite(e.EliteIndex);
+                        break;
+                    case RunDirector.EventKind.BossDue:
+                        SpawnBoss();
+                        break;
+                }
             }
 
-            _hud?.Toast($"区域 {zone}/{ZoneCount} · {Progress.CurrentDef?.Name}");
-            NextWave();
+            // Boss 出场后普通刷怪继续（降档），否则 Boss 战会变成空场单挑；
+            // 但 Boss 死亡后就不再刷，避免通关结算被残余刷怪拖住。
+            if (!_bossFightActive || (Boss != null && Boss.State != null && Boss.State.Alive))
+                TickSpawn(dt);
         }
 
-        void NextWave()
+        void NotifyPhase(RunDirector.Phase ph)
         {
-            if (!Progress.BeginWave())
-            {
-                // 波次已打满，等场上清空再结算本区
-                _waveInProgress = false;
-                return;
-            }
-
-            int wave = Progress.Wave;
-            int defWaves = Progress.CurrentDef.Waves;
-
-            // 每波敌人数量：随波次与区域递增
-            _spawnRemaining = 3 + wave + (Progress.Current - 1);
-            _spawnTimer = 0f;
-            _waveInProgress = true;
-
-            string elite = "";
-            if (Run.EliteWaveUnlocked && wave == defWaves) elite = "  ·  精英";
-            _hud?.Toast($"区域 {Progress.Current} · 波次 {wave}/{defWaves}{elite}");
+            if (ph == null) return;
+            _hud?.Toast($"阶段 · {ph.Name}");
+            _telemetry?.NotePhase(ph.Name, RunElapsed);
         }
 
-        void CompleteZone()
+        /// <summary>
+        /// 按当前阶段的并发与间隔刷怪。玩家打量越大，场上越满，但永远不超过并发上限——
+        /// 上限是「可读性」的保护：无上限会让画面变成一堵墙，玩家分不清威胁来自哪。
+        /// </summary>
+        void TickSpawn(float dt)
         {
-            if (!Progress.TryClearCurrent()) return;
+            var phase = Director.CurrentPhase;
+            if (phase == null || phase.Pool == null || phase.Pool.Length == 0) return;
 
-            Run.AddThreat(-25f);
-            Hp = Mathf.Min(MaxHp, Hp + Data.PlayerHealPickup);
+            _spawnTimer -= dt;
+            if (_spawnTimer > 0f) return;
+            if (AliveEnemies >= phase.Concurrency) { _spawnTimer = 0.2f; return; }
 
-            Zones.ApplyGateState(Progress);
-
-            _hud?.Toast($"区域 {Progress.Current} 已清空 · 补给 +{Data.PlayerHealPickup:0} · 门已开");
-            _waveBreak = 3.0f;
+            _spawnTimer = Mathf.Max(0.15f, phase.Interval);
+            SpawnFromPool(phase.Pool, elite: false);
         }
+
+        /// <summary>开局立刻刷一批：不让玩家空场站桩等第一只。</summary>
+        void NextSpawnTick(bool instant)
+        {
+            _spawnTimer = instant ? 0f : _spawnTimer;
+        }
+
+        // ---------------- 更新 ----------------
 
         void Update()
         {
             if (Data == null || Run == null) return;
-
-            // 进区检测放在暂停判断之前：只要门开着且玩家位置越过了门就推进。
-            // 这样即使暂停/背包态把后续逻辑短路，进区也不会被漏掉。
-            if (Progress != null && Progress.CurrentCleared && !_bossFightActive)
-                CheckZoneProgression();
 
             if (HandlePauseInput()) return;
             if (Paused || InventoryOpen) return;
@@ -287,105 +287,43 @@ namespace S.View
             float dt = Time.deltaTime;
             if (dt <= 0f) return;
 
-            Run.ThreatTick(dt);
             if (_iFrameLeft > 0f) _iFrameLeft -= dt;
 
-            // 清区后：给玩家时间吃经验/改枪，然后自动推进（不强制）
-            if (Progress.CurrentCleared && !_bossFightActive)
-            {
-                if (_waveBreak > 0f) _waveBreak -= dt;
-                return;
-            }
+            TickDirector(dt);
 
-            if (_bossFightActive) return;   // Boss 由 BossView 自行推进
-
-            // 刷怪
-            if (_spawnRemaining > 0)
-            {
-                _spawnTimer -= dt;
-                if (_spawnTimer <= 0f && AliveEnemies < 16)
-                {
-                    _spawnTimer = Mathf.Max(0.25f, Random.Range(0.45f, 0.95f) - Progress.Current * 0.04f);
-                    SpawnEnemy();
-                    _spawnRemaining--;
-                }
-                return;
-            }
-
-            // 本波刷完且清空 → 下一波 或 清区
-            if (_waveInProgress && AliveEnemies == 0)
-            {
-                _waveInProgress = false;
-
-                bool hasMore = Progress.Wave < Progress.CurrentDef.Waves;
-                if (hasMore)
-                {
-                    NextWave();
-                }
-                else
-                {
-                    CompleteZone();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 清区后，玩家走进门洞（本区后墙处）就进入下一区。
-        /// 不用按键、不用自动传送——「走过去」让空间推进可感知。
-        /// </summary>
-        void CheckZoneProgression()
-        {
-            if (Player == null) return;
-            if (!Progress.IsDoorOpen(Progress.Current)) return;
-
-            float gateZ = ZoneBuilder.CenterOf(Progress.Current).z + ZoneBuilder.ZoneLength * 0.5f;
-            float dz = Player.transform.position.z - gateZ;
-
-            // 已越过门（往 +Z 方向）
-            if (dz > 0.6f)
-            {
-                int next = Progress.NextZone;
-                if (next > 0)
-                {
-                    BeginZone(next);
-                }
-            }
-        }
-
-        /// <summary>自检用：进区判定的中间量，便于定位「为什么没进区」。</summary>
-        public string ZoneProgressionDebug
-        {
-            get
-            {
-                if (Progress == null || Player == null) return "no progress/player";
-                float gateZ = ZoneBuilder.CenterOf(Progress.Current).z + ZoneBuilder.ZoneLength * 0.5f;
-                return $"cur={Progress.Current} cleared={Progress.CurrentCleared} doorOpen={Progress.IsDoorOpen(Progress.Current)} " +
-                       $"playerZ={Player.transform.position.z:0.00} gateZ={gateZ:0.00} boss={_bossFightActive}";
-            }
+            // 音乐必须每帧驱动（audio-spec §5）：这一句此前全工程缺失，
+            // 导致五个层的音量恒为 0 —— 写了音乐却永远听不到。
+            _music?.UpdateMix(Run.Threat, _bossFightActive, InventoryOpen, dt);
         }
 
         // ---------------- Boss ----------------
 
         void SpawnBoss()
         {
+            if (_bossFightActive || Boss != null) return;
             _bossFightActive = true;
-            _hud?.Toast("铸造核心 · 破坏四根能量柱破防");
+            _hud?.Toast("铸造核心入场 · 破坏四根能量柱破防");
+
+            // 柱子只在 Boss 出场时生成：单图没有「Boss 区」，
+            // 柱子如果一直立在中央，普通阶段会被当成掩体，破坏后玩家会以为地图坏了。
+            Zones?.SpawnPillars();
 
             var go = new GameObject("Boss");
-            go.transform.position = ZoneBuilder.CenterOf(Progress.Current) + Vector3.up * 0.1f;
+            go.transform.position = ArenaBuilder.Center + Vector3.up * 0.1f;
             var boss = go.AddComponent<BossView>();
             boss.Init(Data.BossHp);
             Boss = boss;
+
+            _telemetry?.NoteBossSpawn(RunElapsed);
         }
 
         public void BossToast(string msg) => _hud?.Toast(msg);
 
         public void BossSummonAdds(int count)
         {
-            for (int i = 0; i < count; i++) SpawnEnemy();
+            for (int i = 0; i < count; i++) SpawnFromPool(new[] { "Crawler" }, elite: false);
             _hud?.Toast($"召唤 {count} 只爬行者");
         }
-
         public void BossShockwave(Vector3 center)
         {
             var vis = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
@@ -430,30 +368,48 @@ namespace S.View
             _hud?.Toast($"能量柱 {p.Index + 1} 已破坏 · 破防 {BossState.PillarBreachTime:0}s");
         }
 
-        void SpawnEnemy()
+        /// <summary>
+        /// 从敌人池里刷一只。位置由 ArenaBuilder 的环形刷怪点给出，
+        /// 并强制「不刷在玩家脸上」——这是单图无限刷怪下最容易毁掉手感的一条。
+        /// </summary>
+        void SpawnFromPool(string[] pool, bool elite)
         {
-            var def = Progress.CurrentDef;
-            if (def == null || def.Pool == null || def.Pool.Length == 0) return;
+            if (pool == null || pool.Length == 0) return;
 
-            string kindName = def.Pool[Random.Range(0, def.Pool.Length)];
-            var kind = (Enemy.Kind)System.Enum.Parse(typeof(Enemy.Kind), kindName);
+            string kindName = pool[Random.Range(0, pool.Length)];
+            if (!System.Enum.TryParse(kindName, true, out Enemy.Kind kind)) kind = Enemy.Kind.Crawler;
 
-            // 从本区外缘刷入（不给「凭空出现」的观感）
-            int slots = 6;
-            Vector3 pos = Zones != null
-                ? Zones.SpawnPoint(Progress.Current, Random.Range(0, slots), slots)
-                : ZoneBuilder.CenterOf(Progress.Current) + Vector3.forward * 18f;
+            Vector3 pos = Zones != null && Player != null
+                ? Zones.PickSpawnPoint(Player.transform.position, 14f, null)
+                : new Vector3(0f, 0.9f, ArenaBuilder.Center.z + 40f);
 
-            // 别刷在玩家脸上
-            if (Player != null)
-            {
-                var toPlayer = Player.transform.position - pos;
-                toPlayer.y = 0f;
-                if (toPlayer.magnitude < 9f)
-                    pos += toPlayer.normalized * (9f - toPlayer.magnitude);
-            }
+            SpawnAt(kind, pos, elite);
+        }
 
-            var go = new GameObject("Enemy_" + kindName);
+        /// <summary>刷一只精英：继承本体行为，但更硬、更慢、更值钱，击杀回血。</summary>
+        void SpawnElite(int index)
+        {
+            var phase = Director != null ? Director.CurrentPhase : null;
+            var pool = phase != null && phase.Pool != null && phase.Pool.Length > 0
+                ? phase.Pool
+                : new[] { "Crawler" };
+
+            Vector3 pos = Zones != null && Player != null
+                ? Zones.PickSpawnPoint(Player.transform.position, 18f, null)
+                : Vector3.forward * 30f;
+
+            var kind = (Enemy.Kind)System.Enum.Parse(typeof(Enemy.Kind),
+                pool[Random.Range(0, pool.Length)], true);
+
+            SpawnAt(kind, pos, elite: true);
+            _hud?.Toast($"精英 #{index + 1} 入场 · 击杀回复 {Director.Elite.HealOnKill:0} 生命");
+            _telemetry?.NoteElite(RunElapsed, kind.ToString());
+        }
+
+        /// <summary>真正造出敌人的唯一入口（普通与精英共用）。</summary>
+        Enemy SpawnAt(Enemy.Kind kind, Vector3 pos, bool elite)
+        {
+            var go = new GameObject(elite ? "Elite_" + kind : "Enemy_" + kind);
             go.transform.position = pos;
 
             var cc = go.AddComponent<CharacterController>();
@@ -462,84 +418,107 @@ namespace S.View
             cc.center = new Vector3(0f, 0.85f, 0f);
 
             // 视觉：真实模型（缺件时 SAssets 自动回退为胶囊占位）
-            string modelName = KindModel(kind);
-            float targetH = KindHeight(kind);
-            var visual = SAssets.SpawnFit(modelName, go.transform, Vector3.zero,
-                targetH, Color.white, 0.45f);
+            var visual = SAssets.SpawnFit(KindModel(kind), go.transform, Vector3.zero,
+                KindHeight(kind), Color.white, 0.45f);
             visual.name = "Body";
 
             var e = go.AddComponent<Enemy>();
-            float hp = KindHp(kind) * Run.HpScale;
-            e.Configure(kind, hp, KindDmg(kind) * Run.DmgScale, KindSpeed(kind), KindXp(kind));
+            var el = Director != null ? Director.Elite : new RunDirector.EliteDef();
+
+            float hpMul = 1f, dmgMul = 1f, speedMul = 1f;
+            int xpMul = 1;
+            if (elite)
+            {
+                hpMul = el.HpMul; dmgMul = el.DmgMul; speedMul = el.SpeedMul; xpMul = el.XpMul;
+            }
+
+            e.Configure(kind,
+                KindHp(kind) * hpMul * Run.HpScale,
+                KindDmg(kind) * dmgMul * Run.DmgScale,
+                KindSpeed(kind) * speedMul,
+                KindXp(kind) * xpMul);
+
+            e.IsElite = elite;
+            e.HealOnKill = elite ? el.HealOnKill : 0f;
+            if (elite) e.ApplyEliteScale(el.Scale);
+
             _enemies.Add(e);
             AliveEnemies++;
+            _telemetry?.NoteSpawn(e);
+            return e;
         }
 
         static string KindModel(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => "Modle_Enemy_Spitter",
-            Enemy.Kind.Shield => "Modle_Enemy_Shield",
-            Enemy.Kind.Drone => "Modle_Enemy_Drone",
+            Enemy.Kind.Brute => "Modle_Enemy_Shield",
+            Enemy.Kind.Bomber => "Modle_Enemy_Spitter",
+            Enemy.Kind.Turret => "Modle_Enemy_Drone",
             _ => "Modle_Enemy_Crawler",
         };
 
         static float KindHeight(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => 1.74f,
-            Enemy.Kind.Shield => 1.97f,
-            Enemy.Kind.Drone => 0.38f,
+            Enemy.Kind.Brute => 1.97f,
+            Enemy.Kind.Bomber => 1.74f,
+            Enemy.Kind.Turret => 1.20f,
             _ => 0.86f,
         };
 
-        static Color KindColor(Enemy.Kind kind)
-        {
-            switch (kind)
-            {
-                case Enemy.Kind.Spitter: return new Color(0.62f, 0.85f, 0.25f);
-                case Enemy.Kind.Shield: return new Color(0.30f, 0.52f, 0.95f);
-                case Enemy.Kind.Drone: return new Color(0.92f, 0.62f, 0.22f);
-                default: return new Color(0.88f, 0.28f, 0.30f);
-            }
-        }
-
         static float KindHp(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => 45f,
-            Enemy.Kind.Shield => 140f,
-            Enemy.Kind.Drone => 70f,
-            _ => 60f,
+            Enemy.Kind.Brute => 220f,
+            Enemy.Kind.Bomber => 68f,
+            Enemy.Kind.Turret => 110f,
+            _ => 55f,
         };
+
         static float KindDmg(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => 9f,
-            Enemy.Kind.Shield => 18f,
-            Enemy.Kind.Drone => 10f,
-            _ => 12f,
+            Enemy.Kind.Brute => 22f,
+            Enemy.Kind.Bomber => 34f,
+            Enemy.Kind.Turret => 12f,
+            _ => 10f,
         };
+
         /// <summary>
-        /// 敌人移速（m/s）。数值为 `docs/gameplay-spec.md` §3 的设计值 × 1/3。
+        /// 敌人移速（m/s）。数值为设计值 × 1/3。
         ///
-        /// 为什么整体降 1/3：原速下爬行者 6.0 m/s 已接近玩家走路 5.6 m/s，
-        /// 玩家被追上后几乎无法用走位拉开，近战压力变成"只能正面硬换血"。
-        /// 降到 1/3 后爬行者 2.0 m/s 明显慢于玩家，走位与后撤才有意义。
-        ///
-        /// 注意：**不要**把这里再乘一次系数。规格里的设计值仍记录在文档中，
-        /// 这里就是实际生效值，避免"文档一个数、代码另一个数"。
+        /// 为什么整体降 1/3：原速下爬行者接近玩家走路速度，被追上后无法用走位拉开，
+        /// 近战压力变成「只能正面硬换血」。降到 1/3 后爬行者明显慢于玩家，走位与后撤才有意义。
+        /// **不要**把这里再乘一次系数。
         /// </summary>
         static float KindSpeed(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => 3.5f / 3f,   // 3.5 → 1.167
-            Enemy.Kind.Shield => 3.0f / 3f,    // 3.0 → 1.0
-            Enemy.Kind.Drone => 7.0f / 3f,     // 7.0 → 2.333
-            _ => 6.0f / 3f,                    // 6.0 → 2.0
+            Enemy.Kind.Brute => 2.2f / 3f,
+            Enemy.Kind.Bomber => 5.4f / 3f,
+            Enemy.Kind.Turret => 0f,
+            _ => 6.0f / 3f,
         };
+
         static int KindXp(Enemy.Kind k) => k switch
         {
-            Enemy.Kind.Spitter => 10,
-            Enemy.Kind.Shield => 16,
-            Enemy.Kind.Drone => 14,
+            Enemy.Kind.Brute => 22,
+            Enemy.Kind.Bomber => 14,
+            Enemy.Kind.Turret => 18,
             _ => 8,
         };
+
+        /// <summary>炸弹人自爆：范围伤害 + 视觉。</summary>
+        public void SpawnBomberBlast(Vector3 at, float dmg)
+        {
+            var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            vis.name = "BomberBlast";
+            vis.transform.position = at;
+            vis.transform.localScale = Vector3.one * 7f;
+            Object.Destroy(vis.GetComponent<Collider>());
+            SMat.Apply(vis.GetComponent<Renderer>(), SMat.Unlit(new Color(1f, 0.5f, 0.1f, 0.6f)));
+            Object.Destroy(vis, 0.3f);
+
+            SfxBank.Instance?.PlayExplode();
+
+            if (Player == null) return;
+            if (Vector3.Distance(Player.transform.position, at) < 4.5f) DamagePlayer(dmg);
+        }
 
         // ---------------- 事件 ----------------
 
@@ -548,7 +527,17 @@ namespace S.View
             _enemies.Remove(e);
             AliveEnemies = Mathf.Max(0, AliveEnemies - 1);
             Run.Kills++;
-            Run.AddThreat(0.4f);
+
+            // 精英回血：单图无限刷怪下没有「清区补给」，这是中期唯一的续航来源。
+            // 放在击杀结算最前面：玩家看到的是「打死它 → 血条立刻回来」，
+            // 而不是等升级动画播完才回，反馈才对得上因果。
+            if (e != null && e.HealOnKill > 0f)
+            {
+                Hp = Mathf.Min(MaxHp, Hp + e.HealOnKill);
+                _hud?.Toast($"精英击杀 · 回复 {e.HealOnKill:0} 生命");
+            }
+
+            _telemetry?.NoteKill(e);
 
             int ups = Run.AddXp(xp);
             for (int i = 0; i < ups; i++)
@@ -591,12 +580,25 @@ namespace S.View
         public void Win()
         {
             SetPaused(true);
+            _music?.UpdateMix(Run.Threat, true, false, 0.2f);
+
+            // 局外成长的唯一来源（gameplay-spec §8）：只有通关给 shard。
+            var meta = MetaSave.Load();
+            meta.FinishRun(true, 0f);
+            MetaSave.Save(meta);
+
+            _telemetry?.Finish(RunElapsed, true);
             _hud?.ShowEnd(true);
         }
 
         public void Lose()
         {
             SetPaused(true);
+            var meta = MetaSave.Load();
+            meta.FinishRun(false, 0f);
+            MetaSave.Save(meta);
+
+            _telemetry?.Finish(RunElapsed, false);
             _hud?.ShowEnd(false);
         }
 
@@ -621,12 +623,67 @@ namespace S.View
             _hud?.DamageNumber(p, amount);
         }
 
+        public void HudToast(string msg) => _hud?.Toast(msg);
+
         public void OnProjectileHit(Projectile p, Vector3 point) { }
+
+        /// <summary>光束/连锁的视觉线（只表现，不结算）。</summary>
+        public void SpawnBeamFx(Vector3 from, Vector3 to, Color color)
+        {
+            var go = new GameObject("BeamFx");
+            var lr = go.AddComponent<LineRenderer>();
+            lr.positionCount = 2;
+            lr.SetPosition(0, from);
+            lr.SetPosition(1, to);
+            lr.startWidth = 0.07f;
+            lr.endWidth = 0.03f;
+            SMat.Apply(lr, SMat.Unlit(color));
+            Destroy(go, 0.08f);
+        }
+
+        /// <summary>
+        /// 触发弹的载荷：在命中点施放下一组投射物。
+        /// 载荷走的是与主弹丸完全相同的生成路径，所以它自己也能带触发（递归由 Core 限制代数）。
+        /// </summary>
+        public void SpawnPayload(Vector3 at, Vector3 normal, System.Collections.Generic.List<ProjectileDesc> payload)
+        {
+            if (payload == null || payload.Count == 0) return;
+
+            Vector3 up = normal.sqrMagnitude > 0.01f ? normal : Vector3.up;
+            Vector3 dir = Vector3.Slerp(up, Vector3.up, 0.5f).normalized;
+
+            for (int i = 0; i < payload.Count; i++)
+            {
+                var d = payload[i];
+                if (d == null) continue;
+
+                int n = Mathf.Clamp(d.Count, 1, Loadout.MaxCount);
+                for (int k = 0; k < n; k++)
+                {
+                    float yaw = Random.Range(-0.5f, 0.5f) * d.Spread;
+                    float pitch = Random.Range(-0.5f, 0.5f) * d.Spread;
+                    Quaternion rot = Quaternion.LookRotation(dir) * Quaternion.Euler(pitch, 0f, yaw);
+
+                    var go = new GameObject("Payload");
+                    go.transform.position = at + up * 0.1f;
+                    var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    vis.name = "Vis";
+                    vis.transform.SetParent(go.transform, false);
+                    vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, d.Size);
+                    Destroy(vis.GetComponent<Collider>());
+                    SMat.Apply(vis.GetComponent<Renderer>(),
+                        SMat.Unlit(PlayerWeapons.ParseColor(d.Source != null ? d.Source.Color : "#ffd25a")));
+
+                    var p = go.AddComponent<Projectile>();
+                    p.Init(d, rot * Vector3.forward);
+                }
+            }
+        }
 
         /// <summary>爆炸：半径内线性衰减（gameplay-spec §5.2 的 0.45 边缘系数）。</summary>
         public void Explode(Vector3 at, ProjectileDesc desc)
         {
-            float r = desc.SplashRadius;
+            float r = desc.ExplodeR;
             if (r <= 0f) return;
 
             var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -648,7 +705,8 @@ namespace S.View
                 if (!seen.Add(e)) continue;
                 float d = Vector3.Distance(at, e.transform.position);
                 float t = Mathf.Clamp01(d / r);
-                float dmg = desc.Damage * Mathf.Lerp(1f, 0.45f, t);
+                // 爆炸伤害独立于直接命中伤害：榴弹的 10 点直伤 + 38 点爆伤是两笔
+                float dmg = desc.ExplodeDmg * Mathf.Lerp(1f, 0.45f, t);
                 e.TakeDamage(desc, at, dmg, true);
             }
         }
@@ -669,6 +727,22 @@ namespace S.View
             {
                 var e = _enemies[i];
                 if (e == null || !e.Alive) { _enemies.RemoveAt(i); continue; }
+                float d = (e.transform.position - from).sqrMagnitude;
+                if (d < bestD) { bestD = d; best = e; }
+            }
+            return best;
+        }
+
+        /// <summary>连锁闪电用：排除已经打过的目标，避免在两个敌人之间来回跳。</summary>
+        public Enemy FindNearestEnemyExcept(Vector3 from, float maxDist, HashSet<Enemy> exclude)
+        {
+            Enemy best = null;
+            float bestD = maxDist * maxDist;
+            for (int i = _enemies.Count - 1; i >= 0; i--)
+            {
+                var e = _enemies[i];
+                if (e == null || !e.Alive) continue;
+                if (exclude != null && exclude.Contains(e)) continue;
                 float d = (e.transform.position - from).sqrMagnitude;
                 if (d < bestD) { bestD = d; best = e; }
             }

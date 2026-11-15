@@ -1,237 +1,337 @@
 {
-  // ===== 唯一权威数据源 =====
+  // ===== 唯一权威数据源（对齐 MODCORE 原型）=====
   // 人读镜像：docs/loadout-spec.md（配件）、docs/gameplay-spec.md（环境与成长）
   // 改这里必须同步改文档，否则文档失真。字段契约见 docs/data-schema.md
 
   "meta": {
-    "version": 1,
-    "note": "初版垂直切片数值，未经实机校准"
+    "version": 2,
+    "note": "对齐 modcore-prototype：读取式链 + 7 种作用域 + 6 把枪"
   },
 
   "player": {
     "hp": 100,
-    "walk": 5.6,
-    "sprintSpeed": 9.2,
+    "walk": 6.2,
+    "sprintSpeed": 10.4,
     "sprintTime": 0.55,
     "sprintCooldown": 1.4,
-    "jumpHeight": 1.15,
+    "jumpHeight": 1.3,
     "gravity": 22.0,
     "capsuleRadius": 0.34,
     "capsuleHeight": 1.8,
     "iFrames": 0.25,
     "gunSlots": 2,
-    "bagSize": 24,
+    "bagSize": 44,
     "healPickup": 35
   },
 
+  // ===== 枪械（6 把，对齐原型 Zn 表）=====
+  // slotCount 是槽位数；castCount 是「每次射击读取几个子弹」；
+  // baseBullet 是开局放在第 1 槽的子弹（玩家永远有一发可用）。
   "guns": [
     {
-      "id": "g_auto",
-      "name": "MK-2 蜂鸣",
-      "kind": "Auto",
-      "slotCount": 3,
-      "fireInterval": 0.11,
-      "magSize": 36,
-      "reloadTime": 1.8,
-      "spreadBase": 1.2,
-      "muzzleSpeed": 90.0,
-      "damageMul": 1.0,
-      "splashRadius": 0.0,
-      "mode": "Straight",
-      "gravity": 0.0,
-      "starterChain": ["b_slug"]
+      "id": "rifle", "name": "制式步枪", "desc": "均衡的全能枪械。",
+      "slotCount": 8, "magSize": 30, "reloadTime": 1.5,
+      "fireInterval": 0.14, "spreadBase": 1.2, "castCount": 1,
+      "baseBullet": "std", "color": "#8f9bb3", "zoom": 55
     },
     {
-      "id": "g_grenade",
-      "name": "HK-9 投石",
-      "kind": "Grenade",
-      "slotCount": 2,
-      "fireInterval": 0.52,
-      "magSize": 10,
-      "reloadTime": 2.2,
-      "spreadBase": 0.6,
-      "muzzleSpeed": 38.0,
-      "damageMul": 3.9,
-      "splashRadius": 2.8,
-      "mode": "Ballistic",
-      "gravity": 18.0,
-      "starterChain": ["b_slug"]
+      "id": "smg", "name": "冲锋枪", "desc": "高射速、大弹匣，适合挂载低耗配件。",
+      "slotCount": 10, "magSize": 50, "reloadTime": 1.7,
+      "fireInterval": 0.075, "spreadBase": 3.5, "castCount": 1,
+      "baseBullet": "light", "color": "#6fd3c8", "zoom": 60
     },
     {
-      "id": "g_single",
-      "name": "R-71 裁决",
-      "kind": "Single",
-      "slotCount": 1,
-      "fireInterval": 0.62,
-      "magSize": 9,
-      "reloadTime": 1.9,
-      "spreadBase": 0.25,
-      "muzzleSpeed": 140.0,
-      "damageMul": 5.4,
-      "splashRadius": 0.0,
-      "mode": "Straight",
-      "gravity": 0.0,
-      "starterChain": ["b_slug"]
+      "id": "shotgun", "name": "战术霰弹枪", "desc": "每次射击读取 2 个子弹配件。",
+      "slotCount": 6, "magSize": 10, "reloadTime": 1.9,
+      "fireInterval": 0.6, "spreadBase": 2.0, "castCount": 2,
+      "baseBullet": "pellet", "color": "#c9a227", "zoom": 60
+    },
+    {
+      "id": "sniper", "name": "精确射手步枪", "desc": "零散布，右键高倍瞄准。",
+      "slotCount": 6, "magSize": 9, "reloadTime": 2.2,
+      "fireInterval": 0.85, "spreadBase": 0.0, "castCount": 1,
+      "baseBullet": "ap", "color": "#4a6fa5", "zoom": 28
+    },
+    {
+      "id": "beam", "name": "光束发射器", "desc": "能量弹匣容量大，射速极高。",
+      "slotCount": 8, "magSize": 80, "reloadTime": 2.0,
+      "fireInterval": 0.06, "spreadBase": 0.6, "castCount": 1,
+      "baseBullet": "laser", "color": "#c94fd8", "zoom": 55
+    },
+    {
+      "id": "launcher", "name": "多功能发射器", "desc": "槽位最多，适合构筑复杂连锁。",
+      "slotCount": 12, "magSize": 14, "reloadTime": 2.4,
+      "fireInterval": 0.7, "spreadBase": 1.0, "castCount": 1,
+      "baseBullet": "grenade", "color": "#5f8a5f", "zoom": 55
     }
   ],
 
+  // ===== 子弹配件（20 件，对齐原型 M_）=====
+  // kind: Proj / Beam / Mine / Field / Chain / Saw / Hole
+  // trigger: None / Hit / Timer / Expire
   "bullets": [
     {
-      "id": "b_slug", "name": "制式弹", "rarity": "Starter",
-      "damage": 12, "ammo": 2, "spreadAdd": 0.0, "lifetime": 1.2,
-      "crit": 0.05, "critDmg": 2.0
+      "id": "std", "name": "标准弹", "icon": "标", "rarity": "Common", "cost": 1, "delay": 0,
+      "desc": "均衡的高速投射物。",
+      "damage": 12, "speed": 95, "lifetime": 1.4, "color": "#ffd25a"
     },
     {
-      "id": "b_heavy", "name": "重芯弹", "rarity": "Common",
-      "damage": 26, "ammo": 3, "spreadAdd": 1.5, "lifetime": 1.0,
-      "crit": 0.08, "critDmg": 2.0
+      "id": "light", "name": "轻型弹", "icon": "轻", "rarity": "Common", "cost": 1, "delay": -0.03,
+      "desc": "伤害较低但射击间隔更短，略有散布。",
+      "damage": 7, "speed": 110, "spread": 2.5, "lifetime": 1.2, "size": 0.09, "color": "#fff3a0"
     },
     {
-      "id": "b_pellet", "name": "霰粒", "rarity": "Common",
-      "damage": 6, "ammo": 1, "spreadAdd": 3.0, "lifetime": 0.6,
-      "crit": 0.03, "critDmg": 1.5
+      "id": "pellet", "name": "霰弹", "icon": "霰", "rarity": "Common", "cost": 2, "delay": 0.05,
+      "desc": "一次射出 6 枚弹丸，近距离威力巨大。",
+      "damage": 6, "count": 6, "spread": 9, "speed": 85, "lifetime": 0.45, "size": 0.08, "color": "#ffb347"
     },
     {
-      "id": "b_pierce", "name": "穿甲钉", "rarity": "Rare",
-      "damage": 15, "ammo": 2, "spreadAdd": 0.0, "lifetime": 1.6,
-      "crit": 0.10, "critDmg": 2.2,
-      "pierce": 2
+      "id": "ap", "name": "穿甲弹", "icon": "穿", "rarity": "Rare", "cost": 3, "delay": 0.15,
+      "desc": "极高速度，可贯穿 4 名敌人。",
+      "damage": 42, "speed": 230, "pierce": 4, "lifetime": 1.2, "size": 0.1,
+      "knock": 2.5, "color": "#7df9ff"
     },
     {
-      "id": "b_ricochet", "name": "跳弹", "rarity": "Common",
-      "damage": 9, "ammo": 2, "spreadAdd": 0.5, "lifetime": 1.8,
-      "crit": 0.06, "critDmg": 2.0,
-      "bounce": 2
+      "id": "laser", "name": "激光束", "icon": "光", "rarity": "Common", "cost": 1, "delay": 0,
+      "desc": "瞬间命中的光束。穿透/弹跳对其同样生效。",
+      "kind": "Beam", "damage": 9, "range": 70, "color": "#ff4fd8"
     },
     {
-      "id": "b_plasma", "name": "电浆团", "rarity": "Rare",
-      "damage": 18, "ammo": 3, "spreadAdd": 0.2, "lifetime": 1.4,
-      "crit": 0.07, "critDmg": 2.5,
-      "splashRadius": 1.2
+      "id": "grenade", "name": "榴弹", "icon": "榴", "rarity": "Common", "cost": 3, "delay": 0.2,
+      "desc": "受重力影响的抛射榴弹，碰撞后爆炸。",
+      "damage": 10, "speed": 34, "gravity": 22, "lifetime": 3, "size": 0.2,
+      "explodeR": 4, "explodeDmg": 38, "color": "#9cff57"
     },
     {
-      "id": "b_incend", "name": "燃素弹", "rarity": "Common",
-      "damage": 10, "ammo": 2, "spreadAdd": 0.3, "lifetime": 1.1,
-      "crit": 0.05, "critDmg": 2.0,
-      "burnDps": 8, "burnTime": 3.0, "burnMaxStacks": 3
+      "id": "bouncer", "name": "弹跳弹", "icon": "跳", "rarity": "Common", "cost": 1, "delay": 0,
+      "desc": "在墙壁与地面间反弹 4 次。",
+      "damage": 11, "speed": 70, "bounce": 4, "lifetime": 3, "size": 0.13, "color": "#5affc8"
     },
     {
-      "id": "b_cryo", "name": "冻结核", "rarity": "Common",
-      "damage": 8, "ammo": 2, "spreadAdd": 0.2, "lifetime": 1.3,
-      "crit": 0.06, "critDmg": 2.0,
-      "slowPct": 0.35, "slowTime": 2.0
+      "id": "missile", "name": "追踪飞弹", "icon": "追", "rarity": "Rare", "cost": 3, "delay": 0.15,
+      "desc": "自动追踪敌人，命中时小范围爆炸。",
+      "damage": 14, "speed": 38, "homing": 7, "lifetime": 4, "size": 0.18,
+      "explodeR": 2.2, "explodeDmg": 16, "color": "#ff7a45"
     },
     {
-      "id": "b_null", "name": "空蚀弹", "rarity": "Rare",
-      "damage": 4, "ammo": 1, "spreadAdd": 0.0, "lifetime": 0.9,
-      "crit": 0.04, "critDmg": 1.8,
-      "ignoreArmor": true
+      "id": "mine", "name": "感应地雷", "icon": "雷", "rarity": "Rare", "cost": 4, "delay": 0.25,
+      "desc": "陷阱：抛出后吸附在表面，敌人靠近时爆炸，持续 25 秒。",
+      "kind": "Mine", "damage": 0, "speed": 22, "gravity": 25, "lifetime": 3, "size": 0.22,
+      "explodeR": 4.5, "explodeDmg": 70, "duration": 25, "color": "#ff3b3b"
     },
     {
-      "id": "b_lance", "name": "光矛", "rarity": "Epic",
-      "damage": 34, "ammo": 5, "spreadAdd": 0.0, "lifetime": 0.7,
-      "crit": 0.12, "critDmg": 2.8,
-      "speedMul": 1.6
+      "id": "shock", "name": "电网陷阱", "icon": "网", "rarity": "Rare", "cost": 4, "delay": 0.25,
+      "desc": "陷阱：落地展开电网 5 秒，持续伤害并减速范围内敌人。",
+      "kind": "Field", "damage": 22, "speed": 22, "gravity": 25, "lifetime": 3,
+      "size": 0.2, "radius": 4, "duration": 5, "slow": 0.4, "color": "#58a6ff"
+    },
+    {
+      "id": "chain", "name": "连锁闪电", "icon": "链", "rarity": "Rare", "cost": 2, "delay": 0.05,
+      "desc": "锁定准星附近的敌人，并在敌人之间弹跳 4 次。",
+      "kind": "Chain", "damage": 14, "chainCount": 4, "range": 32, "color": "#b7a6ff"
+    },
+    {
+      "id": "saw", "name": "回旋锯", "icon": "锯", "rarity": "Rare", "cost": 2, "delay": 0.1,
+      "desc": "无限穿透，飞出后返回玩家。",
+      "kind": "Saw", "damage": 9, "speed": 42, "lifetime": 2.4, "size": 0.35,
+      "pierce": 999, "knock": 0.5, "color": "#e0e0e0"
+    },
+    {
+      "id": "flame", "name": "火焰喷射", "icon": "火", "rarity": "Common", "cost": 1, "delay": -0.05,
+      "desc": "短程火焰，穿透并点燃敌人。",
+      "damage": 3, "count": 3, "spread": 12, "speed": 24, "lifetime": 0.4, "size": 0.25,
+      "pierce": 3, "burn": 8, "knock": 0.2, "color": "#ff6a00"
+    },
+    {
+      "id": "hole", "name": "奇点", "icon": "奇", "rarity": "Epic", "cost": 6, "delay": 0.5,
+      "desc": "缓慢飞行的引力奇点，吸引并持续伤害周围敌人，结束时坍缩爆炸。",
+      "kind": "Hole", "damage": 6, "speed": 10, "lifetime": 4, "size": 0.45,
+      "pierce": 999, "radius": 7, "explodeR": 3.5, "explodeDmg": 40, "color": "#9b5cff"
+    },
+    {
+      "id": "trigger", "name": "触发弹", "icon": "触", "rarity": "Rare", "cost": 2, "delay": 0,
+      "desc": "【命中触发】首次命中敌人或表面时，在命中点施放下一个子弹配件（连同其衍生配件）。",
+      "damage": 8, "speed": 80, "lifetime": 1.5, "trigger": "Hit", "color": "#ffffff"
+    },
+    {
+      "id": "timer", "name": "定时触发弹", "icon": "时", "rarity": "Rare", "cost": 2, "delay": 0,
+      "desc": "【定时触发】飞行 0.4 秒后，在当前位置施放下一个子弹配件。",
+      "damage": 8, "speed": 60, "lifetime": 1.5, "trigger": "Timer", "color": "#ffe9a8"
+    },
+    {
+      "id": "expire", "name": "消散触发弹", "icon": "散", "rarity": "Epic", "cost": 2, "delay": 0.05,
+      "desc": "【消散触发】可穿透 2 名敌人、反弹 2 次，彻底消失时施放下一个子弹配件。",
+      "damage": 9, "speed": 70, "lifetime": 1.6, "pierce": 2, "bounce": 2,
+      "trigger": "Expire", "color": "#d4b8ff"
     }
   ],
 
+  // ===== 衍生配件（作用于子弹的被动件 35 件，对齐原型 S_ + b_ 组合表）=====
+  // scope 取值：Next / Prev / Adj / N2 / N3 / P2 / All
+  // 字段全部是「每层叠加量」，t = 同名同域叠加层数。
   "modifiers": [
     {
-      "id": "m_dmg_up", "name": "校准套件", "scope": "Whole", "rarity": "Common",
-      "damageMul": 1.35
+      "id": "dmg", "name": "伤害增幅", "icon": "伤", "rarity": "Common", "cost": 1,
+      "desc": "伤害 +50%（每层）",
+      "damageMulAdd": 0.5
     },
     {
-      "id": "m_dmg_flat", "name": "增压衬片", "scope": "After", "rarity": "Common",
-      "damageFlat": 8
+      "id": "heavy", "name": "重弹头", "icon": "重", "rarity": "Common", "cost": 1, "delay": 0.1,
+      "desc": "伤害 +90%、体积 +50%、击退加强，速度 −40%",
+      "damageMulAdd": 0.9, "sizeMulAdd": 0.5, "speedMulAdd": -0.4, "knockMulAdd": 1.0
     },
     {
-      "id": "m_crit_up", "name": "激光准星", "scope": "Whole", "rarity": "Common",
-      "critFlat": 0.12
+      "id": "speed", "name": "加速", "icon": "速", "rarity": "Common", "cost": 0,
+      "desc": "速度 +70%、激光/闪电射程 +40%",
+      "speedMulAdd": 0.7, "rangeMulAdd": 0.4
     },
     {
-      "id": "m_critdmg", "name": "中空改造", "scope": "Whole", "rarity": "Rare",
-      "critDmgFlat": 0.6
+      "id": "pierce", "name": "穿透", "icon": "透", "rarity": "Common", "cost": 1,
+      "desc": "额外穿透 2 名敌人（每层）",
+      "piercePer": 2
     },
     {
-      "id": "m_spread_down", "name": "稳定器", "scope": "Whole", "rarity": "Common",
-      "spreadMul": 0.60
+      "id": "explode", "name": "爆裂", "icon": "爆", "rarity": "Rare", "cost": 2, "delay": 0.05,
+      "desc": "命中时爆炸；已会爆炸的子弹范围扩大 25%",
+      "explodeRBase": 2.5, "explodeRAdd": 0.25,
+      "explodeDmgFromDmg": 0.8, "explodeDmgFlat": 12
     },
     {
-      "id": "m_life_up", "name": "延时引信", "scope": "Whole", "rarity": "Common",
-      "lifetimeFlat": 0.5
+      "id": "homing", "name": "追踪", "icon": "踪", "rarity": "Common", "cost": 1,
+      "desc": "子弹追踪敌人",
+      "homingPer": 5
     },
     {
-      "id": "m_ammo_down", "name": "弹链优化", "scope": "Whole", "rarity": "Rare",
-      "ammoFlat": -1
+      "id": "bounce", "name": "弹跳", "icon": "弹", "rarity": "Common", "cost": 0,
+      "desc": "额外反弹 3 次，存在时间 +40%",
+      "bouncePer": 3, "lifeMulAdd": 0.4
     },
     {
-      "id": "m_speed_up", "name": "加速器", "scope": "Whole", "rarity": "Rare",
-      "speedMul": 1.60, "damageMul": 0.85
+      "id": "burn", "name": "燃烧", "icon": "燃", "rarity": "Common", "cost": 1,
+      "desc": "附加燃烧（每秒 10 点，3 秒）",
+      "burnPer": 10
     },
     {
-      "id": "m_split", "name": "量子分裂", "scope": "After", "rarity": "Rare",
-      "splitCount": 3, "splitDamageMul": 0.55, "splitSpreadAdd": 2.0, "splitLifetimeMul": 0.8
+      "id": "frost", "name": "冰霜", "icon": "冰", "rarity": "Common", "cost": 1,
+      "desc": "使敌人减速，持续 2 秒",
+      "slowPer": 0.5
     },
     {
-      "id": "m_pierce", "name": "穿透射击", "scope": "Whole", "rarity": "Rare",
-      "pierceFlat": 2, "damageMul": 0.85
+      "id": "giant", "name": "巨大化", "icon": "巨", "rarity": "Common", "cost": 1, "delay": 0.05,
+      "desc": "体积 +120%、伤害 +30%、范围效果 +40%",
+      "sizeMulAdd": 1.2, "damageMulAdd": 0.3, "explodeRAdd": 0.4, "radiusMulAdd": 0.4
     },
     {
-      "id": "m_homing", "name": "制导", "scope": "Whole", "rarity": "Rare",
-      "homingRate": 180, "damageMul": 0.90
+      "id": "crit", "name": "暴击", "icon": "暴", "rarity": "Common", "cost": 0,
+      "desc": "暴击率 +35%（暴击 2 倍伤害）",
+      "critPer": 0.35
     },
     {
-      "id": "m_blast", "name": "爆裂装药", "scope": "Whole", "rarity": "Epic",
-      "splashAdd": 1.4, "damageMul": 1.00
+      "id": "scatter", "name": "三重弹幕", "icon": "幕", "rarity": "Rare", "cost": 2,
+      "desc": "子弹数量 ×3，单发伤害 −30%",
+      "countMulAdd": 2.0, "spreadPer": 7, "damageMulAdd": -0.3
     },
     {
-      "id": "m_mag", "name": "弹匣扩容", "scope": "Gun", "rarity": "Common",
-      "gunMagAdd": 12
+      "id": "thrift", "name": "节能回路", "icon": "节", "rarity": "Common", "cost": -1,
+      "desc": "目标子弹耗弹 −1（最低为 0）",
+      "ammoReduce": 1
+    }
+  ],
+
+  // ===== 枪械向衍生件（9 件，全枪作用域，对齐原型 w_）=====
+  "gunModifiers": [
+    {
+      "id": "g_mag", "name": "扩容弹匣", "icon": "匣", "rarity": "Common", "cost": 0,
+      "desc": "全枪：弹匣容量 +50%。", "gunMagMul": 1.5
     },
     {
-      "id": "m_rate", "name": "高速击发", "scope": "Gun", "rarity": "Rare",
-      "gunFireIntervalMul": 0.82
+      "id": "g_reload", "name": "快速装填", "icon": "装", "rarity": "Common", "cost": 0,
+      "desc": "全枪：换弹时间 −35%。", "gunReloadMul": 0.65
     },
     {
-      "id": "m_recoil", "name": "后坐抑制", "scope": "Gun", "rarity": "Common",
-      "gunSpreadMul": 0.75, "gunReloadMul": 0.80
+      "id": "g_rapid", "name": "速射机构", "icon": "射", "rarity": "Rare", "cost": 0,
+      "desc": "全枪：射击间隔 −25%。", "gunDelayMul": 0.75
+    },
+    {
+      "id": "g_stable", "name": "稳定器", "icon": "稳", "rarity": "Common", "cost": 0,
+      "desc": "全枪：枪械与子弹散布 −60%。", "gunSpreadMul": 0.4
+    },
+    {
+      "id": "g_recycle", "name": "弹药回收", "icon": "收", "rarity": "Rare", "cost": 0,
+      "desc": "全枪：每次射击有 25% 几率不消耗弹药（可叠加）。", "gunRecycleAdd": 0.25
+    },
+    {
+      "id": "g_parallel", "name": "并联扳机", "icon": "并", "rarity": "Epic", "cost": 0,
+      "desc": "全枪：每次射击读取的子弹配件数 +1，弹匣容量 −20%。",
+      "gunCastAdd": 1, "gunMagMulIfCast": 0.8
+    },
+    {
+      "id": "g_leech", "name": "汲能模块", "icon": "汲", "rarity": "Rare", "cost": 0,
+      "desc": "全枪：使用此枪击杀敌人时回复 2 点生命。", "gunLeech": 2
+    },
+    {
+      "id": "g_double", "name": "双重施放", "icon": "双", "rarity": "Rare", "cost": 0,
+      "desc": "下一发：本次射击额外读取 1 个子弹配件同时发射。", "multicast": 1
+    },
+    {
+      "id": "g_triple", "name": "三重施放", "icon": "三", "rarity": "Epic", "cost": 0,
+      "desc": "下一发：本次射击额外读取 2 个子弹配件同时发射。", "multicast": 2
     }
   ],
 
   "rarityWeights": {
-    "Common": 58,
-    "Rare": 34,
-    "Epic": 8
+    "Common": 60,
+    "Rare": 30,
+    "Epic": 10
   },
 
-  // 箱庭区域表。出处 docs/gameplay-spec.md §2
-  // pool 里的名字对应 Enemy.Kind：Crawler / Spitter / Shield / Drone
-  "zones": [
-    {
-      "index": 1, "name": "装卸区", "waves": 3,
-      "pool": ["Crawler"], "threatStart": 0, "isBoss": false
-    },
-    {
-      "index": 2, "name": "熔渣走廊", "waves": 4,
-      "pool": ["Crawler", "Spitter"], "threatStart": 10, "isBoss": false
-    },
-    {
-      "index": 3, "name": "冷藏库", "waves": 4,
-      "pool": ["Spitter", "Shield"], "threatStart": 20, "isBoss": false
-    },
-    {
-      "index": 4, "name": "铸造车间", "waves": 5,
-      "pool": ["Crawler", "Spitter", "Shield", "Drone"], "threatStart": 32, "isBoss": false
-    },
-    {
-      "index": 5, "name": "中枢塔", "waves": 5,
-      "pool": ["Crawler", "Spitter", "Shield", "Drone"], "threatStart": 46, "isBoss": false
-    },
-    {
-      "index": 6, "name": "铸造核心", "waves": 1,
-      "pool": ["Crawler"], "threatStart": 60, "isBoss": true
+  // ===== 单张竞技场（docs/gameplay-spec.md §2）=====
+  "arena": {
+    "width": 100,
+    "depth": 100,
+    "wallHeight": 8,
+    "bossPadRadius": 9,
+    "coverCount": 18,
+    "highGroundCount": 4,
+    "spawnPoints": 16,
+    "playerSpawnZ": -38
+  },
+
+  // ===== 刷怪时间轴（docs/gameplay-spec.md §2.1）=====
+  // at = 从开局算起的秒数；pool 里的名字对应 Enemy.Kind：Crawler / Brute / Bomber / Turret
+  "timeline": {
+    "bossAt": 600,
+    "threatFullAt": 600,
+    "phases": [
+      { "at": 0,   "name": "开局", "pool": ["Crawler"],
+        "concurrency": 10, "interval": 1.4 },
+      { "at": 60,  "name": "加压", "pool": ["Crawler", "Brute"],
+        "concurrency": 14, "interval": 1.2 },
+      { "at": 150, "name": "混编", "pool": ["Crawler", "Brute", "Bomber"],
+        "concurrency": 16, "interval": 1.0 },
+      { "at": 240, "name": "全谱", "pool": ["Crawler", "Brute", "Bomber", "Turret"],
+        "concurrency": 20, "interval": 0.9 },
+      { "at": 360, "name": "高压", "pool": ["Crawler", "Brute", "Bomber", "Turret"],
+        "concurrency": 24, "interval": 0.8 }
+    ],
+    "bossPhase": {
+      "at": 600, "name": "BOSS", "pool": ["Crawler", "Bomber"],
+      "concurrency": 12, "interval": 2.0
     }
-  ],
+  },
+
+  // ===== 精英（docs/gameplay-spec.md §3）=====
+  // 原型口径：5:00 首只精英，10:00 最终首领。
+  "elite": {
+    "firstAt": 300,
+    "interval": 90,
+    "hpMul": 4.0,
+    "dmgMul": 1.5,
+    "speedMul": 0.9,
+    "xpMul": 6,
+    "scale": 1.4,
+    "healOnKill": 15
+  },
 
   "boss": {
     "id": "e_boss",

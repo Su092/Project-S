@@ -73,10 +73,17 @@ function Invoke-UnityMethod($method, $logName) {
     }
 
     Write-Host "unity -executeMethod $method" -ForegroundColor DarkGray
-    $p = Start-Process -FilePath $Unity -PassThru -NoNewWindow -ArgumentList @(
-        "-batchmode", "-quit", "-projectPath", $Proj,
-        "-executeMethod", $method, "-logFile", $log
+    # 参数必须逐个带引号：Start-Process 的 -ArgumentList 是把数组拼成一条命令行，
+    # 路径含空格（如 "F:\Unity Development\Project\S\unity"）时，
+    # -projectPath 会只吃到空格前那一段，Unity 报
+    # "Couldn't set project path to: ...\unity/F:/Unity" 并立刻退出（踩过）。
+    $args = @(
+        "-batchmode", "-quit",
+        "-projectPath", "`"$Proj`"",
+        "-executeMethod", $method,
+        "-logFile", "`"$log`""
     )
+    $p = Start-Process -FilePath $Unity -PassThru -NoNewWindow -ArgumentList $args
     $p.WaitForExit(1800000) | Out-Null
     if (-not $p.HasExited) { $p.Kill(); throw "Unity 超时: $method" }
 

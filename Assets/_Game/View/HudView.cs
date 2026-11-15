@@ -100,24 +100,22 @@ namespace S.View
                 {
                     _refs.AmmoText.text = g.Reloading
                         ? "装填…"
-                        : $"{g.Ammo} / {g.Resolved.MagSize}";
+                        : $"{g.Ammo} / {g.Stats.Mag}";
                     _refs.AmmoText.color = g.Ammo <= 2 && !g.Reloading
                         ? new Color(1f, 0.45f, 0.35f) : Color.white;
                 }
                 if (_refs.GunText != null)
-                    _refs.GunText.text = $"{g.Resolved.Name}   {1f / Mathf.Max(0.01f, g.Resolved.FireInterval):0.0} 发/秒";
+                    _refs.GunText.text = $"{g.Base.Name}   {1f / Mathf.Max(0.01f, g.Stats.ShotInterval(0f)):0.0} 发/秒";
 
                 // 该位有效伤害
                 if (_refs.DpsText != null)
                 {
-                    int peek = g.PeekNextSlot();
-                    if (peek >= 0)
-                    {
-                        var cast = Loadout.ResolveCast(g.Resolved, g.Slots[peek]);
-                        float dps = Loadout.SlotDps(g.Resolved, cast);
-                        _refs.DpsText.text = $"下一发期望 {cast.ExpectedDamage:0.0}  ·  位 DPS {dps:0}";
-                    }
-                    else _refs.DpsText.text = "空链";
+                    var peek = _root.Weapons != null ? _root.Weapons.PeekCast() : null;
+                    if (peek != null && peek.Succeeded)
+                        _refs.DpsText.text =
+                            $"本次期望 {peek.ExpectedDamage:0.0}  ·  DPS {g.DpsEstimate:0}";
+                    else
+                        _refs.DpsText.text = "空枪";
                 }
             }
 
@@ -169,6 +167,12 @@ namespace S.View
             UpdateFloats();
         }
 
+        /// <summary>
+        /// 槽位条：一格一个方块，显示「这一格是什么 + 指针在不在」。
+        ///
+        /// 与旧版的区别：旧版一格是一条链（可叠多件），新版**一格一件**。
+        /// 所以这里只需要「有/无 + 是否指针位 + 是子弹还是被动件」，不需要计数。
+        /// </summary>
         void UpdateRotation(GunRuntime g)
         {
             int slots = g != null ? g.Slots.Length : 0;
@@ -180,140 +184,95 @@ namespace S.View
                 pip.gameObject.SetActive(active);
                 if (!active) continue;
 
-                bool hasChain = !g.Slots[i].IsEmpty;
-                int bullets = g.Slots[i].BulletCount;
-                bool isNext = g.PeekNextSlot() == i;
+                var it = g.Slots.Cells[i];
+                bool isNext = g.PeekNextCell() == i;
 
-                pip.color = !hasChain
-                    ? new Color(0.14f, 0.16f, 0.2f, 0.7f)
-                    : isNext
-                        ? new Color(0.95f, 0.75f, 0.25f, 0.95f)
-                        : new Color(0.25f, 0.32f, 0.42f, 0.9f);
+                Color col;
+                if (it == null) col = new Color(0.14f, 0.16f, 0.2f, 0.7f);
+                else if (isNext) col = new Color(0.95f, 0.75f, 0.25f, 0.95f);
+                else if (it.IsBullet) col = new Color(0.55f, 0.62f, 0.75f, 0.9f);
+                else col = ItemTooltip.ScopeColor(it.Mod.Scope) * 0.7f;
+                pip.color = col;
 
                 var lbl = i < _rotationLabels.Count ? _rotationLabels[i] : null;
                 if (lbl != null)
                 {
-                    lbl.text = hasChain ? $"{i + 1}\n{bullets}弹" : $"{i + 1}\n空";
-                    lbl.fontSize = 15;
-                    lbl.color = hasChain ? Color.white : new Color(0.5f, 0.55f, 0.6f);
+                    lbl.text = it == null ? "" : (it.IsBullet ? it.Bullet.Icon : it.Mod.Icon);
+                    lbl.fontSize = 18;
+                    lbl.color = it == null ? new Color(0.4f, 0.45f, 0.5f) : Color.white;
                 }
             }
         }
 
         /// <summary>
-        /// 链式触发的可视化（本次需求核心）：
-        /// 把「下一发的格位链」按链顺序排成一排圆形配件图标，触发过的点亮 + 序号，
-        /// 尚未触发的压暗，正在等待的那一项描金边。
+        /// 「这一发会打出什么」的预览：把本次施法解析出的投射物排成一排。
         ///
-        /// 为什么按「下一发」而不是「正在跑的那一发」来画：
-        ///   链总时长 = 链长 × 击发间隔，最短也有 0.3s 左右，长的接近 1s；
-        ///   如果只在施法途中显示，玩家在射速快的枪上几乎看不到，等于没画。
-        ///   常驻显示「下一发会发生什么」+ 施法中实时点亮，两者结合才既稳定又有反馈。
+        /// 为什么改成显示投射物而不是显示格子：
+        /// 读取式链的产物可能比读到的格子多（一发分裂成 6 枚、触发弹带载荷），
+        /// 只画格子玩家看不出「实际会打出多少」。画投射物直接把结果摆出来。
         ///
-        /// 数据来源必须是 ChainCast（真实触发顺序），不能再算一遍 ResolveCast：
-        /// 两处各算一遍，迟早会因为配件顺序/作用域判据漂移而对不上，HUD 就成了假话。
+        /// 数据来源必须是 Loadout.ResolveCast（与实战同一个函数），不能在 HUD 里另算一遍 ——
+        /// 两处各算一遍迟早漂移，HUD 就成了假话。
         /// </summary>
         void UpdateChain(GunRuntime g)
         {
             if (_refs == null || _refs.ChainIcons == null) return;
 
-            var pw = _root.Weapons;
-            var cast = pw != null ? pw.PendingCast : null;
+            var cast = _root.Weapons != null ? _root.Weapons.PeekCast() : null;
+            int n = 0;
 
-            // 施法进行中优先展示那一条（玩家正在看的反馈）；否则展示下一发的链。
-            // 「正在跑」判据必须用 ChainCast 的 Finished 而不是「有没有子弹在飞」：
-            // 链跑完后子弹还会飞一段，那段时间里已经触发过的配件应保持点亮，
-            // 这样玩家能在整次飞行期间对照「这一发打了什么」。
-            bool live = cast != null && cast.Steps.Count > 0;
-            SlotState slot;
-            if (live) slot = cast.Slot;
+            if (cast != null && cast.Projectiles.Count > 0)
+            {
+                n = Mathf.Min(cast.Projectiles.Count, _refs.ChainIcons.Length);
+                for (int i = 0; i < _refs.ChainIcons.Length; i++)
+                {
+                    var icon = _refs.ChainIcons[i];
+                    if (icon == null) continue;
+
+                    if (i >= n) { icon.gameObject.SetActive(false); continue; }
+
+                    var d = cast.Projectiles[i];
+                    var item = ResolveItem(d.ModuleId);
+                    if (item == null) { icon.gameObject.SetActive(false); continue; }
+
+                    if (icon.Item == null || icon.Item.Id != item.Id)
+                    {
+                        icon.Bind(item, 40f, showRing: true, badge: (i + 1).ToString(), showScope: false);
+                        EnsureHover(icon, item);
+                    }
+                    else if (!icon.gameObject.activeSelf) icon.gameObject.SetActive(true);
+
+                    // 颜色按投射物实际表现：有载荷的描金（它还会再打一次）
+                    bool hasPayload = d.Payload != null && d.Payload.Count > 0;
+                    if (icon.Icon != null)
+                        icon.Icon.color = hasPayload ? new Color(1f, 0.95f, 0.7f) : Color.white;
+                    if (icon.Ring != null)
+                        icon.Ring.color = hasPayload
+                            ? new Color(1f, 0.85f, 0.4f, 0.98f)
+                            : new Color(0.68f, 0.76f, 0.88f, 0.9f);
+                    if (icon.Badge != null) icon.Badge.color = new Color(0.82f, 0.88f, 0.95f);
+                }
+            }
             else
             {
-                int peek0 = g != null ? g.PeekNextSlot() : -1;
-                slot = peek0 >= 0 ? g.Slots[peek0] : null;
-            }
-
-            int shownSlot = -1;
-            if (g != null && slot != null)
-                for (int i = 0; i < g.Slots.Length; i++)
-                    if (ReferenceEquals(g.Slots[i], slot)) { shownSlot = i; break; }
-
-            var chain = slot != null ? slot.Chain : null;
-            int n = chain != null ? Mathf.Min(chain.Count, _refs.ChainIcons.Length) : 0;
-
-            for (int i = 0; i < _refs.ChainIcons.Length; i++)
-            {
-                var icon = _refs.ChainIcons[i];
-                if (icon == null) continue;
-
-                if (i >= n) { icon.gameObject.SetActive(false); continue; }
-
-                var item = chain[i];
-                if (item == null) { icon.gameObject.SetActive(false); continue; }
-                if (icon.Item == null || !ReferenceEquals(icon.Item, item))
-                {
-                    icon.Bind(item, 40f, showRing: true, badge: (i + 1).ToString(), showScope: true);
-                    EnsureHover(icon, item);
-                }
-                else if (!icon.gameObject.activeSelf) icon.gameObject.SetActive(true);
-
-                // 触发状态：按 ChainCast 的已触发步数判断
-                bool fired = false, next = false;
-                if (live)
-                {
-                    var steps = cast.Steps;
-                    // 找到本链项在计划里的步下标（枪械作用域件不占步，视为"已生效"）
-                    int stepIdx = -1;
-                    for (int s = 0; s < steps.Count; s++)
-                        if (steps[s].ChainIndex == i) { stepIdx = s; break; }
-                    fired = stepIdx < 0 || stepIdx < cast.FiredCount;
-                    next = stepIdx == cast.FiredCount;
-                }
-
-                // 颜色：施法中才区分"已触发/正在触发/未触发"；
-                // 常态（预览下一发）必须全部可读 —— 全部压暗会让玩家以为这一排是空的。
-                Color col, ringCol, badgeCol;
-                if (!live)
-                {
-                    col = new Color(0.95f, 0.97f, 1f);
-                    ringCol = new Color(0.68f, 0.76f, 0.88f, 0.9f);
-                    badgeCol = new Color(0.82f, 0.88f, 0.95f);
-                }
-                else if (fired)
-                {
-                    col = Color.white;
-                    ringCol = new Color(1f, 0.92f, 0.7f, 0.95f);
-                    badgeCol = new Color(1f, 0.95f, 0.8f);
-                }
-                else if (next)
-                {
-                    col = new Color(1f, 0.92f, 0.62f);
-                    ringCol = new Color(1f, 0.85f, 0.4f, 0.98f);
-                    badgeCol = new Color(1f, 0.9f, 0.5f);
-                }
-                else
-                {
-                    col = new Color(0.45f, 0.5f, 0.58f, 0.85f);
-                    ringCol = new Color(0.4f, 0.46f, 0.55f, 0.6f);
-                    badgeCol = new Color(0.52f, 0.58f, 0.66f);
-                }
-
-                if (icon.Icon != null) icon.Icon.color = col;
-                if (icon.Ring != null) icon.Ring.color = ringCol;
-                if (icon.Badge != null) icon.Badge.color = badgeCol;
+                for (int i = 0; i < _refs.ChainIcons.Length; i++)
+                    if (_refs.ChainIcons[i] != null) _refs.ChainIcons[i].gameObject.SetActive(false);
             }
 
             if (_refs.ChainTitle != null)
             {
-                if (n == 0) _refs.ChainTitle.text = "";
-                else if (live)
-                    _refs.ChainTitle.text =
-                        $"链触发 {cast.FiredCount}/{cast.StepCount}" +
-                        (shownSlot >= 0 ? $"   位 {shownSlot + 1}" : "");
+                if (n == 0) _refs.ChainTitle.text = "空枪 · Tab 装子弹";
                 else
                     _refs.ChainTitle.text =
-                        $"下一发{(shownSlot >= 0 ? $" 位 {shownSlot + 1}" : "")}   {n} 项";
+                        $"下一发 {n} 发 · 耗弹 {cast.AmmoCost} · 期望 {cast.ExpectedDamage:0}";
             }
+        }
+
+        /// <summary>按 id 找配件（子弹优先）。HUD 只读，不缓存指针以免装配后失效。</summary>
+        ChainItem ResolveItem(string id)
+        {
+            if (string.IsNullOrEmpty(id) || _root.Data == null) return null;
+            return _root.Data.MakeItem(id);
         }
 
         /// <summary>把链图标绑到当前配件上，并刷新悬停详情的数据源。</summary>
@@ -328,18 +287,56 @@ namespace S.View
 
         void UpdateZoneBar()
         {
-            if (_refs == null || _refs.ZoneText == null || _root.Progress == null) return;
+            if (_refs == null || _root.Director == null) return;
 
-            var p = _root.Progress;
-            var def = p.CurrentDef;
-            string name = def != null ? def.Name : "";
+            var d = _root.Director;
+            float elapsed = d.Elapsed;
 
-            if (p.CurrentCleared)
-                _refs.ZoneText.text = $"区域 {p.Current}/{_root.ZoneCount} · {name}   ◀ 已清空，前进进门";
-            else if (_root.Boss != null && _root.Boss.State != null && _root.Boss.State.Alive)
-                _refs.ZoneText.text = $"区域 {p.Current}/{_root.ZoneCount} · {name}   BOSS";
-            else
-                _refs.ZoneText.text = $"区域 {p.Current}/{_root.ZoneCount} · {name}   波次 {p.Wave}/{_root.WaveCount}   剩余 {_root.AliveEnemies}";
+            // 中央大计时器：只显示「已经活了多久」。
+            // 不显示倒计时 —— 倒计时会让人下意识盯着数字等，而生存时长的正计时
+            // 在最后 30 秒更有压迫感（看着数字变大，而不是变小）。
+            if (_refs.Timer != null) _refs.Timer.text = Clock(elapsed);
+
+            // 倒计时标签：只显示**最近的一个**目标。
+            // 两个数字同时跳会让人无法判断优先级（这是原型里的处理，也是我们要的）。
+            if (_refs.TimerLabel != null)
+            {
+                string goal;
+                if (d.BossSpawned)
+                {
+                    bool bossAlive = _root.Boss != null && _root.Boss.State != null && _root.Boss.State.Alive;
+                    goal = bossAlive ? "击败铸造核心" : "";
+                }
+                else
+                {
+                    float toBoss = d.SecondsToBoss;
+                    float toElite = d.SecondsToElite;
+
+                    if (toElite >= 0f && toElite < toBoss)
+                        goal = $"距精英 {Clock(toElite)}";
+                    else if (toBoss >= 0f)
+                        goal = $"距 BOSS {Clock(toBoss)}";
+                    else
+                        goal = "BOSS";
+                }
+                _refs.TimerLabel.text = goal;
+            }
+
+            // 阶段行：阶段名 + 敌人数量 + 威胁
+            if (_refs.ZoneText != null)
+            {
+                var phase = d.CurrentPhase;
+                string phaseName = phase != null ? phase.Name : "—";
+                _refs.ZoneText.text =
+                    $"{phaseName}   ·   敌人 {_root.AliveEnemies}   ·   威胁 {_root.Run.Threat:0}";
+            }
+        }
+
+        /// <summary>秒 → `mm:ss`。统一格式，避免 1:02 与 01:2 在同一行里跳变。</summary>
+        static string Clock(float seconds)
+        {
+            int s = Mathf.Max(0, Mathf.FloorToInt(seconds));
+            return $"{s / 60:00}:{s % 60:00}";
         }
 
         void UpdateBossBar()
@@ -376,17 +373,9 @@ namespace S.View
             float spread = 1.2f;
             if (g != null)
             {
-                int peek = g.PeekNextSlot();
-                if (peek >= 0)
-                {
-                    var cast = Loadout.ResolveCast(g.Resolved, g.Slots[peek]);
-                    if (cast.Projectiles.Count > 0)
-                    {
-                        float sum = 0f;
-                        for (int i = 0; i < cast.Projectiles.Count; i++) sum += cast.Projectiles[i].Spread;
-                        spread = sum / cast.Projectiles.Count;
-                    }
-                }
+                var cast = _root.Weapons != null ? _root.Weapons.PeekCast() : null;
+                if (cast != null && cast.Projectiles.Count > 0)
+                    spread = cast.AverageSpread + g.Base.SpreadBase;
             }
             // 散射可视化：直径 px = 34 + spread × 7.0（上限 150）
             //
@@ -470,8 +459,8 @@ namespace S.View
             if (_refs.BannerPlate != null) _refs.BannerPlate.gameObject.SetActive(true);
 
             _refs.CenterBig.text = win
-                ? $"通关\n<size=26>击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}</size>"
-                : $"阵亡\n<size=26>击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}\n按 R 重开</size>";
+                ? $"通关\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}</size>"
+                : $"阵亡\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}\n按 R 重开</size>";
             _refs.CenterBig.color = win ? new Color(0.6f, 1f, 0.7f) : new Color(1f, 0.4f, 0.4f);
 
             _endAwaitingRestart = true;

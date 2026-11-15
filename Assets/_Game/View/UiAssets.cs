@@ -108,14 +108,18 @@ namespace S.View
             return true;
         }
 
-        /// <summary>按作用域取图标（UI 用，需与文字同时出现，不能只靠图标表意）。</summary>
+        /// <summary>
+        /// 按作用域取图标。7 种作用域归到现有 4 张图标上：
+        /// 读取类（Next）用「后继」图，吸附类用「全场」图，枪械件用「枪械」图。
+        /// 图标只作辅助，文字始终同时出现 —— 靠图标区分 7 种作用域是不可读的。
+        /// </summary>
         public static Sprite IconForScope(Core.Scope scope)
         {
             switch (scope)
             {
-                case Core.Scope.Whole: return IconWhole;
-                case Core.Scope.After: return IconAfter;
-                default: return IconGun;
+                case Core.Scope.Next: return IconAfter;
+                case Core.Scope.All: return IconWhole;
+                default: return IconWhole;
             }
         }
 

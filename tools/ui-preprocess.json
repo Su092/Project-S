@@ -428,5 +428,434 @@
     ],
     "pedestal": 24,
     "src_sha256": "e542bcd9b75d56634d4544eebab5377ba2de35c12ef962b48810a8c92d0707ee"
+  },
+  "item_std": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "9c19b8def275d2b23cb00afd4ab7515be70cdeb11bd340037fc1d4401fc09297"
+  },
+  "item_light": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "b33881cec4f5968bc05f2a423198bc2d74645f0f5f1a9b2f3262dacea092b5a4"
+  },
+  "item_pellet": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "2fc814fa172c80e2c2672f0b6266dd3cc898a9bc0f1d8eafa44c7bdb00a6c083"
+  },
+  "item_ap": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "d6a38bf2b13445bb88c52b59b1a22fff6d5b945fe074dbb84ad4919f4f4acbde"
+  },
+  "item_laser": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 24,
+    "src_sha256": "31269829af1eaf736bc36e582c9798c788424595a86e00be63e2a4e34d1abf38"
+  },
+  "item_grenade": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "471936ce57ca649796183c6fb1b78478ea1ca1fad6ec6a6fd002c6af481ffc91"
+  },
+  "item_bouncer": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "c731237b3005ca25d7515f0da40533e6d7876d0198ccf351600d8bc1fb4cd825"
+  },
+  "item_missile": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "76ae65544643fb4a1094415889a0570dd69b76ade7c6802d0114839d6e287fbd"
+  },
+  "item_mine": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3d84927304de706a89583f9c1420401952046efd378bc3175d32356e26a8d8df"
+  },
+  "item_shock": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3c3b492966374f439c25946610ce373fed2cb3399f67dbe17e7e916af22dec02"
+  },
+  "item_chain": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "dc4dc5f9fa38ab27e3f583957374cb4aa56ecf1bf32e3c15db8c186322ba1944"
+  },
+  "item_saw": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "39b512a7d0a5fccf78ec6f5b013b84b9422ed3c1778345c3b65805ac933f7983"
+  },
+  "item_flame": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "4d8854830563259a176d76b7c5e529f5dc54ca5ef6e8379d3b3c84f2712a7028"
+  },
+  "item_hole": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 24,
+    "src_sha256": "0cb4e699d0698686ea62d1cce437a5528a079dfc8442d48bd8b51111e348549d"
+  },
+  "item_trigger": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3affcde49322603e8c0af10a8c3d3642d321e187290152ce2bdfdb78f7419f09"
+  },
+  "item_timer": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "ce2203e34a7e198f881d8af76d9576ea18f1d9ac7c53754567d6235e1b22780d"
+  },
+  "item_expire": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "5368bfd90eff9fc4490eb7b9eaa1784195f03747e4763590d842388d035ca9c7"
+  },
+  "item_dmg": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "752b24953c8302b2a271391eae5e97be1bffa74d365f3eb85e247df81b864434"
+  },
+  "item_heavy": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "00d5555efc0a86e0dae873c8baeca262786d994f3e60fd79a73a8706f531d2f3"
+  },
+  "item_speed": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "ec7e103062562488d74b18e9e79bbbb8a1f11a9283c3506cdb7365eab7a67c64"
+  },
+  "item_pierce": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "533f49b61894520667487ed4c77cd4a89407793a36e3b941548bcf6ed9f64989"
+  },
+  "item_explode": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "d68ee1f71b1b2d743a219aa494fcce011b7f6e4681a6787c1ce1e862fffc1376"
+  },
+  "item_homing": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "813dfd0a7c988efcd623fc740d22d64b99167acb82108341da0816dd9f1ccc6a"
+  },
+  "item_bounce": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "4c8ea2196037d77384bc031ab198a17562426bc7d4975efb91751adc3e08d7f2"
+  },
+  "item_burn": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "5943453318bc086eef3da85817e2cca65af133d0f4e9d6a3d9f801e038739ae4"
+  },
+  "item_frost": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "2e4d2357d4bd2c884d293c171c829904eb5b6703761885cf2c6cfc4874ee43a9"
+  },
+  "item_giant": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "c7ce0b356b8f2b5e9e3c58ec74379e37de7220194670641928500774f678b7cd"
+  },
+  "item_crit": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "b5d16d027b179f32a924ce15af2a857e7f49a9302542ace0d79c1230de3b4bd0"
+  },
+  "item_scatter": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "9bdb2f5e27d25d1144b803106f443334b833a145d588d23848e07711063a078c"
+  },
+  "item_thrift": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "9ec2be1a9148c56ebadf906caecf30e889ee79026d3f289aea703eee074aec69"
+  },
+  "item_g_mag": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "fcb02b36846e051e3fc04dec07f7a80bcc599ec4913f3047dd99c9cd12fb1bed"
+  },
+  "item_g_reload": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3aa8c55291df1cca80a220dd3097719b5972e0b2d815fea827158a6c5c1ae5e3"
+  },
+  "item_g_rapid": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "e6c17e387c6b84814dcfe1205cfb1ca9626bade801c7d9c4bac0f7550f7e0c6e"
+  },
+  "item_g_stable": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "1d51014a53f69873f33ac1949003cc7387dd5be3cea7f14375885a44f35c887c"
+  },
+  "item_g_recycle": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "85afc12e904dc257d40efbee540b8073e8cafca9afe19faac4d2aab5ed4a3f16"
+  },
+  "item_g_parallel": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "eef5ab5e3f27622de090f3d31fccb2748fde7e473afe694c302276b168008224"
+  },
+  "item_g_leech": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "3b648e88cf9da11a47ec71378457e8fa347303b94f942ac75ee380f4b7e954d2"
+  },
+  "item_g_double": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "85abdb85053d225071585dd43a7a2a6eb984c671568e80fd0690c0b0ed78e909"
+  },
+  "item_g_triple": {
+    "mode": "glyph",
+    "size": 128,
+    "trim": true,
+    "max_dev": [
+      0.62,
+      0.94
+    ],
+    "pedestal": 0,
+    "src_sha256": "999eee4a9cb208a555ae145790365c634e5ad04a09141e8095bdd1f8951ac3ac"
   }
 }

@@ -9,7 +9,7 @@ namespace S.View
     /// </summary>
     public sealed class Enemy : MonoBehaviour
     {
-        public enum Kind { Crawler, Spitter, Shield, Drone }
+        public enum Kind { Crawler, Brute, Bomber, Turret }
 
         public Kind Type = Kind.Crawler;
         public float MaxHp = 60f;
@@ -19,7 +19,13 @@ namespace S.View
         public int Xp = 8;
         public bool IsFlying;
 
-        public Vector3 AimPoint => transform.position + Vector3.up * (IsFlying ? 0.1f : 0.8f);
+        /// <summary>是否为精英（体积更大、色调更亮、击杀回血）。</summary>
+        public bool IsElite;
+
+        /// <summary>击杀时回复玩家多少生命（0 = 不回）。精英是单图下唯一的续航来源。</summary>
+        public float HealOnKill;
+
+        public Vector3 AimPoint => transform.position + Vector3.up * 0.8f;
 
         CharacterController _cc;
         float _attackCd;
@@ -43,7 +49,42 @@ namespace S.View
             Type = kind;
             MaxHp = hp; Hp = hp;
             ContactDamage = dmg; Speed = speed; Xp = xp;
-            IsFlying = kind == Kind.Drone;
+            IsFlying = false;
+        }
+
+        /// <summary>
+        /// 精英放大：放大**视觉子物体**与**碰撞体**，但不改 transform.localScale。
+        ///
+        /// 为什么不动 localScale：CharacterController 的 radius/height 是本地空间尺寸，
+        /// 会随 transform 缩放自动放大。若两者同时乘 scale，实际体积会变成 scale²
+        /// （1.35² = 1.82 倍），精英看起来像巨怪而且近战范围远超视觉。
+        /// 只放大 Body 子物体与碰撞体，世界尺寸才是可控的 1.35 倍。
+        /// </summary>
+        public void ApplyEliteScale(float scale)
+        {
+            if (scale <= 0f || Mathf.Approximately(scale, 1f)) return;
+
+            // 视觉：SpawnFit 已经把模型缩到目标高度，这里再乘一次即可
+            var body = transform.Find("Body");
+            if (body != null) body.localScale = body.localScale * scale;
+
+            // 碰撞体：显式按世界尺寸放大（因为 transform 没变）
+            var cc = GetComponent<CharacterController>();
+            if (cc != null)
+            {
+                cc.height *= scale;
+                cc.radius *= scale;
+                cc.center = new Vector3(0f, cc.height * 0.5f, 0f);
+            }
+
+            // 精英必须一眼可辨：加一圈自发光轮廓
+            var glow = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            glow.name = "EliteGlow";
+            glow.transform.SetParent(transform, false);
+            glow.transform.localPosition = new Vector3(0f, cc != null ? cc.center.y : 0.95f, 0f);
+            glow.transform.localScale = new Vector3(1.35f, 1.1f, 1.35f) * scale;
+            Destroy(glow.GetComponent<Collider>());
+            SMat.Apply(glow.GetComponent<Renderer>(), SMat.Unlit(new Color(1f, 0.82f, 0.32f, 0.20f)));
         }
 
         void Update()
@@ -72,19 +113,6 @@ namespace S.View
             var root = GameRoot.Instance;
             if (root == null || root.PlayerTransform == null) return;
 
-            // 只在玩家所在区域追击：玩家换区后，旧敌人不再追（避免跨区大追杀）
-            if (root.Zones != null && root.Progress != null)
-            {
-                float zoneZ = ZoneBuilder.CenterOf(root.Progress.Current).z;
-                float myZ = transform.position.z;
-                if (Mathf.Abs(myZ - zoneZ) > ZoneBuilder.ZoneLength * 0.62f)
-                {
-                    // 玩家已离开本区：慢速游荡，不追
-                    Move(transform.forward * Speed * 0.25f * speedMul * dt);
-                    return;
-                }
-            }
-
             Vector3 toPlayer = root.PlayerTransform.position - transform.position;
             float dist = toPlayer.magnitude;
             Vector3 dir = dist > 0.01f ? toPlayer / dist : Vector3.forward;
@@ -96,31 +124,32 @@ namespace S.View
                     TryTouch(ContactDamage);
                     break;
 
-                case Kind.Spitter:
-                    if (dist > 13f) Move(dir * Speed * speedMul * dt);
-                    else if (dist < 10f) Move(-dir * Speed * speedMul * dt);
-                    _attackCd -= dt;
-                    if (dist < 20f && _attackCd <= 0f)
-                    {
-                        _attackCd = 1.9f;
-                        root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
-                    }
-                    break;
-
-                case Kind.Shield:
+                case Kind.Brute:
                     Move(dir * Speed * speedMul * dt);
                     TryTouch(ContactDamage);
                     break;
 
-                case Kind.Drone:
-                    // 飞到玩家侧后方
-                    Vector3 hover = root.PlayerTransform.position + Quaternion.Euler(0, 40f, 0) * (Vector3.back * 9f) + Vector3.up * 4.2f;
-                    Vector3 toHover = hover - transform.position;
-                    Move(toHover.normalized * Speed * speedMul * dt);
-                    _attackCd -= dt;
-                    if (_attackCd <= 0f && dist < 26f)
+                case Kind.Bomber:
+                    // 自爆型：贴近后引爆（撤离时间极短，玩家必须优先点掉）
+                    if (dist > 2.6f) Move(dir * Speed * speedMul * dt);
+                    else
                     {
-                        _attackCd = 1.4f;
+                        _attackCd -= dt;
+                        if (_attackCd <= 0f)
+                        {
+                            _attackCd = 1.2f;
+                            GameRoot.Instance?.SpawnBomberBlast(transform.position, ContactDamage);
+                            ApplyDamage(MaxHp);
+                        }
+                    }
+                    break;
+
+                case Kind.Turret:
+                    // 炮塔：原地不动，远程点射
+                    _attackCd -= dt;
+                    if (dist < 30f && _attackCd <= 0f)
+                    {
+                        _attackCd = 1.6f;
                         root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
                     }
                     break;
@@ -156,38 +185,45 @@ namespace S.View
 
             float final = amount;
 
-            // 盾卫正面减伤（空蚀弹无视一半）
-            if (Type == Kind.Shield && !splash)
+            // 盾卫正面减伤（穿甲弹无视）
+            if (Type == Kind.Brute && !splash)
             {
                 Vector3 toSrc = (point - transform.position).normalized;
                 float facing = Vector3.Dot(transform.forward, -toSrc);
                 if (facing > 0.3f)
                 {
-                    bool ignore = desc != null && desc.Source != null && desc.Source.IgnoreArmor;
-                    final *= ignore ? 0.7f : 0.4f;   // 正面 −60%，空蚀弹只减 30%
+                    bool ignore = desc != null && desc.Source != null && desc.Source.Pierce > 0;
+                    final *= ignore ? 0.75f : 0.45f;
                 }
             }
-            if (desc != null && desc.Source != null && desc.Source.IgnoreArmor) final *= 1f;
 
             ApplyDamage(final);
 
-            // 燃素
-            if (desc != null && desc.Source != null && desc.Source.BurnDps > 0f)
+            // 燃烧
+            if (desc != null && desc.Burn > 0f)
             {
-                _burnDps = Mathf.Max(_burnDps, desc.Source.BurnDps);
-                _burnLeft = Mathf.Max(_burnLeft, desc.Source.BurnTime);
-                _burnStacks = Mathf.Min(_burnStacks + 1,
-                    Mathf.Max(1, desc.Source.BurnMaxStacks));
+                _burnDps = Mathf.Max(_burnDps, desc.Burn);
+                _burnLeft = Mathf.Max(_burnLeft, 3f);
+                _burnStacks = Mathf.Min(_burnStacks + 1, 3);
             }
 
-            // 冻结
-            if (desc != null && desc.Source != null && desc.Source.SlowPct > 0f)
-            {
-                _slowPct = Mathf.Max(_slowPct, desc.Source.SlowPct);
-                _slowLeft = Mathf.Max(_slowLeft, desc.Source.SlowTime);
-            }
+            // 冰霜
+            if (desc != null && desc.Slow > 0f) ApplySlow(desc.Slow, 2f);
 
             GameRoot.Instance?.SpawnHitFx(point);
+        }
+
+        /// <summary>施加减速。力场每秒会重复施加，所以这里必须「取更强、刷新时间」而不是累乘。</summary>
+        public void ApplySlow(float pct, float time)
+        {
+            _slowPct = Mathf.Max(_slowPct, Mathf.Clamp01(pct));
+            _slowLeft = Mathf.Max(_slowLeft, time);
+        }
+
+        /// <summary>被奇点吸引：直接改位移（绕过 AI 决策，但保留 CharacterController 的碰撞）。</summary>
+        public void PullToward(Vector3 delta)
+        {
+            Move(delta);
         }
 
         public void ApplyDamage(float amount)

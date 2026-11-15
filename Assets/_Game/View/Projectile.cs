@@ -4,166 +4,213 @@ using S.Core;
 namespace S.View
 {
     /// <summary>
-    /// 单个弹丸的表现与命中处理。所有数值来自 Core.ProjectileDesc，
-    /// 本类不参与结算规则，只执行「飞、撞、命中、爆炸」。
+    /// 单个投射物的表现与命中处理（对齐 MODCORE 原型的 7 种弹道形态）。
+    ///
+    /// 本类只执行「飞、撞、命中、爆炸、触发」。所有数值来自 Core.ProjectileDesc，
+    /// 不参与任何结算规则 —— 规则改动一律发生在 Core，否则 dotnet 断言就测不到。
+    ///
+    /// 七种形态各自的行为：
+    ///   Proj    直线飞行，撞什么算什么（最常用）
+    ///   Beam    瞬时命中（不飞行），用射线一次结算
+    ///   Mine    抛出去落地吸附，敌人靠近才炸
+    ///   Field   抛出去落地展开力场，持续伤害 + 减速
+    ///   Chain   锁定准星附近敌人，在敌人之间弹跳
+    ///   Saw     飞出后返回玩家，路径上无限穿透
+    ///   Hole    缓慢飞行并持续吸引/伤害周围敌人，结束时坍缩爆炸
     /// </summary>
     public sealed class Projectile : MonoBehaviour
     {
         ProjectileDesc _d;
-        GunDef _gun;
         Vector3 _dir;
-        Vector3 _side;          // 施法瞬间的朝向（分裂体散开用）
         float _life;
-        float _speed;
-        Vector3 _vel;
         int _pierceLeft;
         int _bounceLeft;
+        Vector3 _vel;
 
-        static readonly Collider[] s_hits = new Collider[8];
+        // 陷阱/力场状态
+        bool _planted;
+        float _tickTimer;
+        float _fieldLeft;
+        Renderer _visR;
+        readonly System.Collections.Generic.HashSet<Enemy> _touched =
+            new System.Collections.Generic.HashSet<Enemy>();
 
-        public void Init(ProjectileDesc desc, GunDef gun, Vector3 dir)
+        // 回旋锯
+        bool _returning;
+
+        // 触发弹
+        bool _triggered;
+
+        public void Init(ProjectileDesc desc, Vector3 dir)
         {
             _d = desc;
-            _gun = gun;
-            _dir = dir.normalized;
-            _side = dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector3.forward;
+            _dir = dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector3.forward;
             _life = desc.Lifetime;
-            _speed = gun.MuzzleSpeed * desc.SpeedMul;
             _pierceLeft = desc.Pierce;
             _bounceLeft = desc.Bounce;
+            _vel = _dir * desc.Speed;
 
-            if (gun.Mode == ProjectileMode.Ballistic)
-                _vel = _dir * _speed;
-            else
-                _vel = _dir * _speed;
+            BuildVisual();
 
-            // 简易外观：按来源配色
-            var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            vis.name = "Vis";
-            vis.transform.SetParent(transform, false);
-            vis.transform.localScale = Vector3.one * (desc.SplashRadius > 0.5f ? 0.34f : 0.16f);
-            Object.Destroy(vis.GetComponent<Collider>());
-            var r = vis.GetComponent<Renderer>();
-            var mat = SMat.Lit(desc.SplashRadius > 0.5f
-                ? new Color(1f, 0.45f, 0.15f)
-                : new Color(0.55f, 0.85f, 1f), 0.2f);
-            SMat.Apply(r, mat);
+            // 光束与连锁不是「飞行物」：生成即结算
+            if (desc.Kind == BulletKind.Beam) { FireBeam(); return; }
+            if (desc.Kind == BulletKind.Chain) { FireChain(); return; }
         }
 
-        /// <summary>
-        /// 链式触发时，衍生件可能在飞行途中改这颗弹丸（加速、追踪、分裂前的属性）。
-        /// 这里只同步影响飞行与表现的部分，命中伤害始终读 `_d.Damage`（外部已就地更新）。
-        /// </summary>
-        public void ApplyDesc(ProjectileDesc desc)
+        void BuildVisual()
         {
-            if (desc == null) return;
-            _d = desc;
+            var color = PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ffd25a");
 
-            float want = _gun.MuzzleSpeed * desc.SpeedMul;
-            if (_vel.sqrMagnitude > 0.0001f)
-                _vel = _vel.normalized * want;
-            _speed = want;
-
-            _pierceLeft = desc.Pierce;
-            _bounceLeft = desc.Bounce;
-
-            var vis = transform.childCount > 0 ? transform.GetChild(0) : null;
-            if (vis != null)
+            switch (_d.Kind)
             {
-                float s = desc.SplashRadius > 0.5f ? 0.34f : 0.16f;
-                vis.localScale = Vector3.one * s;
+                case BulletKind.Hole:
+                    {
+                        var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        vis.name = "Vis";
+                        vis.transform.SetParent(transform, false);
+                        vis.transform.localScale = Vector3.one * Mathf.Max(0.2f, _d.Size * 3f);
+                        Destroy(vis.GetComponent<Collider>());
+                        _visR = vis.GetComponent<Renderer>();
+                        SMat.Apply(_visR, SMat.Unlit(new Color(color.r, color.g, color.b, 0.55f)));
+                    }
+                    break;
+                case BulletKind.Mine:
+                case BulletKind.Field:
+                    {
+                        var vis = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                        vis.name = "Vis";
+                        vis.transform.SetParent(transform, false);
+                        vis.transform.localScale = new Vector3(0.5f, 0.06f, 0.5f);
+                        Destroy(vis.GetComponent<Collider>());
+                        _visR = vis.GetComponent<Renderer>();
+                        SMat.Apply(_visR, SMat.Unlit(color));
+                    }
+                    break;
+                case BulletKind.Saw:
+                    {
+                        var vis = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                        vis.name = "Vis";
+                        vis.transform.SetParent(transform, false);
+                        vis.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                        vis.transform.localScale = new Vector3(
+                            Mathf.Max(0.2f, _d.Size * 2f), 0.05f, Mathf.Max(0.2f, _d.Size * 2f));
+                        Destroy(vis.GetComponent<Collider>());
+                        _visR = vis.GetComponent<Renderer>();
+                        SMat.Apply(_visR, SMat.Unlit(color));
+                    }
+                    break;
+                default:
+                    {
+                        var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        vis.name = "Vis";
+                        vis.transform.SetParent(transform, false);
+                        vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, _d.Size);
+                        Destroy(vis.GetComponent<Collider>());
+                        _visR = vis.GetComponent<Renderer>();
+                        SMat.Apply(_visR, SMat.Unlit(color));
+                    }
+                    break;
             }
         }
 
         void Update()
         {
             float dt = Time.deltaTime;
-            _life -= dt;
-            if (_life <= 0f) { ExplodeOrDie(); return; }
+            if (dt <= 0f) return;
 
-            // 追踪
-            if (_d.HomingRate > 0f && GameRoot.Instance != null)
+            switch (_d.Kind)
+            {
+                case BulletKind.Mine: TickMine(dt); return;
+                case BulletKind.Field: TickField(dt); return;
+                case BulletKind.Hole: TickHole(dt); return;
+                case BulletKind.Saw: TickSaw(dt); return;
+            }
+
+            TickFlight(dt);
+        }
+
+        // ---------------- 普通飞行 ----------------
+
+        void TickFlight(float dt)
+        {
+            _life -= dt;
+            if (_life <= 0f) { Expire(); return; }
+
+            if (_d.Homing > 0f && GameRoot.Instance != null)
             {
                 var target = GameRoot.Instance.FindNearestEnemy(transform.position, 40f);
                 if (target != null)
                 {
                     Vector3 want = (target.AimPoint - transform.position).normalized;
                     _vel = Vector3.RotateTowards(_vel.normalized, want,
-                        _d.HomingRate * Mathf.Deg2Rad * dt, 0f) * _vel.magnitude;
+                        _d.Homing * Mathf.Deg2Rad * 60f * dt, 0f) * _vel.magnitude;
                 }
             }
 
-            // 重力（榴弹）
-            if (_gun.Mode == ProjectileMode.Ballistic)
-                _vel += Vector3.down * _gun.Gravity * dt;
+            // 榴弹类受重力（数据里 gravity > 0 才是抛射）
+            if (_d.Gravity > 0f) _vel += Vector3.down * _d.Gravity * dt;
 
             float step = _vel.magnitude * dt;
-            Vector3 delta = _vel.normalized * step;
+            if (step <= 0.0001f) return;
 
-            // Collide 而非 Ignore：Boss 与敌人用 Trigger 做受击判定，
-            // 设为 Ignore 会让它们完全打不到（踩过）。
-            if (Physics.SphereCast(transform.position, 0.12f, _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
+            // Collide 而非 Ignore：Boss 与敌人用 Trigger 做受击判定（踩过）
+            if (Physics.SphereCast(transform.position, Mathf.Max(0.06f, _d.Size * 0.5f),
+                    _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
             {
-                HandleHit(hit, delta);
+                HandleHit(hit);
                 return;
             }
 
-            transform.position += delta;
-            transform.rotation = Quaternion.LookRotation(_vel.normalized);
+            transform.position += _vel.normalized * step;
+            if (_vel.sqrMagnitude > 0.001f)
+                transform.rotation = Quaternion.LookRotation(_vel.normalized);
         }
 
-        void HandleHit(RaycastHit hit, Vector3 delta)
+        void HandleHit(RaycastHit hit)
         {
-            // Boss 本体（Trigger 球）
-            var bossHit = hit.collider.GetComponentInParent<BossView>();
-            if (bossHit != null)
+            var boss = hit.collider.GetComponentInParent<BossView>();
+            if (boss != null)
             {
-                bossHit.OnHit(_d, hit.point, _d.Damage);
-                GameRoot.Instance?.OnProjectileHit(this, hit.point);
-                if (_d.SplashRadius > 0f) Explode(hit.point);
+                boss.OnHit(_d, hit.point, _d.Damage);
+                TriggerPayload(hit.point, hit.normal);
+                if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
             }
 
-            // 能量柱
             var pillar = hit.collider.GetComponentInParent<Pillar>();
             if (pillar != null && pillar.Alive)
             {
                 GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
                 GameRoot.Instance?.SpawnHitFx(hit.point);
-                if (_pierceLeft > 0)
-                {
-                    _pierceLeft--;
-                    transform.position += _vel.normalized * 0.4f;
-                    return;
-                }
-                if (_d.SplashRadius > 0f) Explode(hit.point);
+                if (_pierceLeft > 0) { _pierceLeft--; transform.position += _vel.normalized * 0.4f; return; }
+                if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
             }
 
-            bool isEnemy = hit.collider.GetComponentInParent<Enemy>() != null;
-
-            if (isEnemy)
+            var e = hit.collider.GetComponentInParent<Enemy>();
+            if (e != null && e.Alive)
             {
-                var e = hit.collider.GetComponentInParent<Enemy>();
                 e.TakeDamage(_d, hit.point, _d.Damage, false);
-                GameRoot.Instance?.OnProjectileHit(this, hit.point);
+                TriggerPayload(hit.point, hit.normal);
 
                 if (_pierceLeft > 0)
                 {
                     _pierceLeft--;
-                    transform.position += _vel.normalized * 0.3f; // 推过敌人，避免重复命中
-                    if (_d.SplashRadius > 0f) Explode(hit.point);
+                    transform.position += _vel.normalized * 0.35f;
+                    if (_d.ExplodeR > 0f) Explode(hit.point);
                     return;
                 }
 
-                if (_d.SplashRadius > 0f) Explode(hit.point);
+                if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
             }
 
             // 地形
+            TriggerPayload(hit.point, hit.normal);
+
             if (_bounceLeft > 0)
             {
                 _bounceLeft--;
@@ -172,19 +219,314 @@ namespace S.View
                 return;
             }
 
-            if (_d.SplashRadius > 0f) Explode(hit.point);
+            if (_d.ExplodeR > 0f) Explode(hit.point);
             Destroy(gameObject);
         }
 
-        void ExplodeOrDie()
+        void Expire()
         {
-            if (_d.SplashRadius > 0f) Explode(transform.position);
+            if (_d.Trigger == TriggerKind.Expire) TriggerPayload(transform.position, Vector3.up);
+            if (_d.ExplodeR > 0f) Explode(transform.position);
             Destroy(gameObject);
         }
+
+        // ---------------- 光束 ----------------
+
+        /// <summary>
+        /// 光束：一次射线结算，穿透与弹跳都按「沿射线继续」处理。
+        /// 用 RaycastAll + 排序而不是逐段 SphereCast：光束本来就没有体积，
+        /// 分段检测会让同一个敌人被打多次。
+        /// </summary>
+        void FireBeam()
+        {
+            float range = _d.Range;
+            var hits = Physics.RaycastAll(transform.position, _dir, range, ~0, QueryTriggerInteraction.Collide);
+            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+            int allowed = 1 + Mathf.Max(0, _pierceLeft);
+            int done = 0;
+            Vector3 end = transform.position + _dir * range;
+
+            foreach (var h in hits)
+            {
+                if (done >= allowed) break;
+
+                var e = h.collider.GetComponentInParent<Enemy>();
+                if (e != null && e.Alive)
+                {
+                    e.TakeDamage(_d, h.point, _d.Damage, false);
+                    GameRoot.Instance?.SpawnHitFx(h.point);
+                    done++;
+                    continue;
+                }
+
+                var boss = h.collider.GetComponentInParent<BossView>();
+                if (boss != null)
+                {
+                    boss.OnHit(_d, h.point, _d.Damage);
+                    done++;
+                    continue;
+                }
+
+                var pillar = h.collider.GetComponentInParent<Pillar>();
+                if (pillar != null && pillar.Alive)
+                {
+                    GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
+                    done++;
+                    continue;
+                }
+
+                // 撞到地形就截断
+                end = h.point;
+                break;
+            }
+
+            GameRoot.Instance?.SpawnBeamFx(transform.position, end,
+                PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ff4fd8"));
+            TriggerPayload(end, -_dir);
+            Destroy(gameObject);
+        }
+
+        // ---------------- 连锁闪电 ----------------
+
+        /// <summary>
+        /// 连锁：从准星附近最近敌人起，在敌人之间弹跳 chainCount 次。
+        /// 每次跳有明显更短的射程上限，否则会变成「全屏清场」，与「需要瞄准」的定位冲突。
+        /// </summary>
+        void FireChain()
+        {
+            var root = GameRoot.Instance;
+            if (root == null) { Destroy(gameObject); return; }
+
+            Vector3 from = transform.position;
+            var first = root.FindNearestEnemy(from, _d.Range);
+            if (first == null)
+            {
+                GameRoot.Instance?.SpawnBeamFx(from, from + _dir * 6f,
+                    PlayerWeapons.ParseColor("#b7a6ff"));
+                Destroy(gameObject);
+                return;
+            }
+
+            var hitSet = new System.Collections.Generic.HashSet<Enemy>();
+            var cur = first;
+            int jumps = Mathf.Max(1, _d.ChainCount);
+
+            for (int i = 0; i <= jumps && cur != null; i++)
+            {
+                cur.TakeDamage(_d, cur.AimPoint, _d.Damage, false);
+                hitSet.Add(cur);
+
+                root.SpawnBeamFx(from, cur.AimPoint,
+                    PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#b7a6ff"));
+
+                // 下一跳：离当前敌人最近、且没打过的
+                from = cur.transform.position;
+                cur = root.FindNearestEnemyExcept(from, _d.Range * 0.55f, hitSet);
+            }
+
+            TriggerPayload(first.AimPoint, Vector3.up);
+            Destroy(gameObject);
+        }
+
+        // ---------------- 地雷 ----------------
+
+        void TickMine(float dt)
+        {
+            if (!_planted)
+            {
+                _life -= dt;
+                if (_life <= 0f) { Explode(transform.position); Destroy(gameObject); return; }
+                if (_d.Gravity > 0f) _vel += Vector3.down * _d.Gravity * dt;
+
+                float step = _vel.magnitude * dt;
+                if (Physics.Raycast(transform.position, _vel.normalized, out var hit,
+                        step + 0.2f, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    transform.position = hit.point + hit.normal * 0.05f;
+                    _planted = true;
+                    _life = _d.Duration > 0f ? _d.Duration : 25f;
+                    _vel = Vector3.zero;
+                    return;
+                }
+                transform.position += _vel.normalized * step;
+                return;
+            }
+
+            // 已布设：等敌人靠近
+            _life -= dt;
+            if (_life <= 0f) { Explode(transform.position); Destroy(gameObject); return; }
+
+            var e = GameRoot.Instance != null
+                ? GameRoot.Instance.FindNearestEnemy(transform.position, 2.2f)
+                : null;
+            if (e != null)
+            {
+                Explode(transform.position);
+                Destroy(gameObject);
+            }
+        }
+
+        // ---------------- 力场 ----------------
+
+        void TickField(float dt)
+        {
+            if (!_planted)
+            {
+                _life -= dt;
+                if (_life <= 0f) { Destroy(gameObject); return; }
+                if (_d.Gravity > 0f) _vel += Vector3.down * _d.Gravity * dt;
+
+                float step = _vel.magnitude * dt;
+                if (Physics.Raycast(transform.position, _vel.normalized, out var hit,
+                        step + 0.2f, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    transform.position = hit.point + hit.normal * 0.05f;
+                    _planted = true;
+                    _fieldLeft = _d.Duration > 0f ? _d.Duration : 5f;
+                    _vel = Vector3.zero;
+
+                    // 展开的视觉：地面光环
+                    var ring = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                    ring.name = "FieldRing";
+                    ring.transform.SetParent(transform, false);
+                    ring.transform.localScale = new Vector3(_d.Radius * 2f, 0.02f, _d.Radius * 2f);
+                    Destroy(ring.GetComponent<Collider>());
+                    SMat.Apply(ring.GetComponent<Renderer>(),
+                        SMat.Unlit(PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#58a6ff")));
+                    return;
+                }
+                transform.position += _vel.normalized * step;
+                return;
+            }
+
+            _fieldLeft -= dt;
+            if (_fieldLeft <= 0f) { Destroy(gameObject); return; }
+
+            _tickTimer -= dt;
+            if (_tickTimer > 0f) return;
+            _tickTimer = 0.35f;
+
+            var list = GameRoot.Instance != null ? GameRoot.Instance.Enemies : null;
+            if (list == null) return;
+
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                var e = list[i];
+                if (e == null || !e.Alive) continue;
+                if (Vector3.Distance(e.transform.position, transform.position) > _d.Radius) continue;
+                e.TakeDamage(_d, e.AimPoint, _d.Damage * 0.35f, true);
+                if (_d.Slow > 0f) e.ApplySlow(_d.Slow, 0.6f);
+            }
+        }
+
+        // ---------------- 奇点 ----------------
+
+        void TickHole(float dt)
+        {
+            _life -= dt;
+            transform.position += _vel.normalized * _vel.magnitude * dt;
+
+            var list = GameRoot.Instance != null ? GameRoot.Instance.Enemies : null;
+            if (list != null)
+            {
+                for (int i = list.Count - 1; i >= 0; i--)
+                {
+                    var e = list[i];
+                    if (e == null || !e.Alive) continue;
+                    float dist = Vector3.Distance(e.transform.position, transform.position);
+                    if (dist > _d.Radius) continue;
+
+                    // 吸引：把敌人往中心拉
+                    Vector3 pull = (transform.position - e.transform.position).normalized;
+                    e.PullToward(pull * 1.6f * dt);
+
+                    _tickTimer -= dt;
+                    if (_tickTimer <= 0f)
+                    {
+                        _tickTimer = 0.3f;
+                        e.ApplyDamage(_d.Damage * 0.3f);
+                    }
+                }
+            }
+
+            if (_life <= 0f)
+            {
+                if (_d.ExplodeR > 0f) Explode(transform.position);
+                Destroy(gameObject);
+            }
+        }
+
+        // ---------------- 回旋锯 ----------------
+
+        void TickSaw(float dt)
+        {
+            _life -= dt;
+            if (_life <= 0f) { Destroy(gameObject); return; }
+
+            var player = GameRoot.Instance != null ? GameRoot.Instance.PlayerTransform : null;
+
+            // 飞出 40% 存活时间后折返
+            if (!_returning && _life < _d.Lifetime * 0.6f) _returning = true;
+
+            if (_returning && player != null)
+            {
+                Vector3 want = (player.position + Vector3.up * 1.2f - transform.position).normalized;
+                _vel = Vector3.RotateTowards(_vel.normalized, want, 12f * dt, 0f) * _vel.magnitude;
+            }
+
+            transform.Rotate(0f, 720f * dt, 0f, Space.Self);
+
+            float step = _vel.magnitude * dt;
+            if (Physics.SphereCast(transform.position, Mathf.Max(0.1f, _d.Size * 0.5f),
+                    _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
+            {
+                var e = hit.collider.GetComponentInParent<Enemy>();
+                if (e != null && e.Alive && _touched.Add(e))
+                {
+                    e.TakeDamage(_d, hit.point, _d.Damage, false);
+                    transform.position += _vel.normalized * 0.4f;
+                    return;
+                }
+
+                var boss = hit.collider.GetComponentInParent<BossView>();
+                if (boss != null)
+                {
+                    boss.OnHit(_d, hit.point, _d.Damage);
+                    transform.position += _vel.normalized * 0.4f;
+                    return;
+                }
+
+                if (_bounceLeft > 0)
+                {
+                    _bounceLeft--;
+                    _vel = Vector3.Reflect(_vel, hit.normal);
+                    return;
+                }
+            }
+
+            transform.position += _vel.normalized * step;
+        }
+
+        // ---------------- 爆炸与触发 ----------------
 
         void Explode(Vector3 at)
         {
             GameRoot.Instance?.Explode(at, _d);
+        }
+
+        /// <summary>
+        /// 触发载荷：命中 / 定时 / 消散三种条件都会走到这里。
+        /// 只触发一次 —— 穿透弹连续命中多个敌人时，载荷不应重复施放（会指数爆炸）。
+        /// </summary>
+        void TriggerPayload(Vector3 at, Vector3 normal)
+        {
+            if (_d.Trigger == TriggerKind.None) return;
+            if (_d.Payload == null || _d.Payload.Count == 0) return;
+            if (_triggered) return;
+            _triggered = true;
+
+            GameRoot.Instance?.SpawnPayload(at, normal, _d.Payload);
         }
     }
 }

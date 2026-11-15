@@ -8,37 +8,41 @@ namespace LoadoutTests
         public static void Run(SData data)
         {
             Console.WriteLine();
-            Console.WriteLine("===== 经验曲线实测 =====");
+            Console.WriteLine("===== 经验曲线实测（单图时间轴）=====");
 
-            // 按区域表估算一局经验投放
-            int totalXp = 0;
-            Console.WriteLine("  区域  波次  敌数  经验");
-            foreach (var z in data.Zones)
+            // 按时间轴的「玩家实际能清掉的量」估算经验投放。
+            // 为什么不用「刷了多少只」：单图是无限刷怪，算出几只没有意义；
+            // 真正的上限是玩家的清场速度（DPS × 时长）。
+            var d = data.Director;
+            float total = 0f;
+            Console.WriteLine("  阶段      时长   并发  间隔  预估可清");
+            var phases = d.Phases;
+            for (int i = 0; i < phases.Count; i++)
             {
-                if (z.IsBoss) continue;
-                int enemies = 0, xp = 0;
-                for (int w = 1; w <= z.Waves; w++)
-                {
-                    int n = 3 + w + (z.Index - 1);   // 与 GameRoot.NextWave 的公式一致
-                    enemies += n;
-                    // 取该区敌人池的平均经验
-                    float sum = 0;
-                    foreach (var k in z.Pool) sum += XpOf(k);
-                    xp += (int)(n * (sum / Math.Max(1, z.Pool.Length)));
-                }
-                totalXp += xp;
-                Console.WriteLine($"  {z.Index,4}  {z.Waves,4}  {enemies,4}  {xp,5}");
+                float from = phases[i].At;
+                float to = i + 1 < phases.Count ? phases[i + 1].At : d.BossAt;
+                float dur = to - from;
+                // 玩家清场速度约 0.55 只/秒（首轮校准实测的连发枪裸弹 DPS 60 / 敌人 60HP 量级）
+                float clearable = Math.Min(dur * 0.55f, dur / Math.Max(0.1f, phases[i].Interval) * phases[i].Concurrency * 0.5f);
+                float avgXp = 0f;
+                foreach (var k in phases[i].Pool) avgXp += XpOf(k);
+                avgXp /= Math.Max(1, phases[i].Pool.Length);
+                total += clearable * avgXp;
+                Console.WriteLine($"  {phases[i].Name,-8} {dur,6:0}s  {phases[i].Concurrency,3}  {phases[i].Interval,4:0.0}  {clearable,7:0} 只");
             }
 
-            // 区域清空奖励 15%
-            Console.WriteLine($"  小计 {totalXp}");
-            Console.WriteLine($"  清区奖励(15%) {totalXp * 0.15f:0}");
+            // 精英：3 只 × 48 XP
+            float eliteXp = 3 * 8 * d.Elite.XpMul;
+            Console.WriteLine($"  精英 3 只 × {8 * d.Elite.XpMul} = {eliteXp:0}");
 
-            int grand = (int)(totalXp * 1.15f) + 3 * 40;  // 含 Boss 的 3 次三选一按经验折算
-            Console.WriteLine($"  合计(含精英估) ≈ {grand}");
+            // Boss 战杂兵：约 20 只
+            float bossAdds = 20 * 10f;
+            Console.WriteLine($"  Boss 战杂兵 ≈ {bossAdds:0}");
+
+            int grand = (int)(total + eliteXp + bossAdds);
+            Console.WriteLine($"  合计 ≈ {grand}");
 
             // 推算到达等级
-            var run = new RunState(data, 1);
             int lv = 1;
             int acc = 0;
             while (lv < RunState.MaxLevel && acc + RunState.NeedFor(lv) <= grand)
@@ -48,12 +52,12 @@ namespace LoadoutTests
             }
             Console.WriteLine($"  → 预计到达 LV {lv}（累计 {acc} XP），三选一 {lv - 1} 次 + Boss 3 次 = {lv + 2} 次");
 
-            // 判据：docs/gameplay-spec.md §11 要求 12–15 级、14–16 次三选一
-            bool lvOk = lv >= 12 && lv <= 15;
+            // 判据：docs/gameplay-spec.md §11 要求 13–17 级、16–19 次三选一
+            bool lvOk = lv >= 13 && lv <= 17;
             int picks = lv - 1 + 3;
-            bool pickOk = picks >= 12 && picks <= 18;
-            Console.WriteLine($"  {(lvOk ? "PASS" : "FAIL")} 到达等级 {lv} 落在 12–15");
-            Console.WriteLine($"  {(pickOk ? "PASS" : "FAIL")} 三选一次数 {picks} 落在 12–18");
+            bool pickOk = picks >= 16 && picks <= 19;
+            Console.WriteLine($"  {(lvOk ? "PASS" : "FAIL")} 到达等级 {lv} 落在 13–17");
+            Console.WriteLine($"  {(pickOk ? "PASS" : "FAIL")} 三选一次数 {picks} 落在 16–19");
         }
 
         static int XpOf(string kind) => kind switch

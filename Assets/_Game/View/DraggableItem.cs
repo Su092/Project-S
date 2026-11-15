@@ -55,7 +55,7 @@ namespace S.View
         public void OnPointerClick(PointerEventData e)
         {
             if (Owner == null) return;
-            if (FromSlot >= 0) Owner.UnequipToBag(FromSlot, FromChain);
+            if (FromSlot >= 0) Owner.UnequipToBag(FromSlot);
         }
     }
 }

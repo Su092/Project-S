@@ -604,19 +604,26 @@ def make_icon_frame(name):
 # 25 个配件的 id → (中文名, 字形源图)。与 sdata.json 一一对应，
 # 缺任何一个，"所有配件都有图标"这条就不成立（自检会点名）。
 ITEM_ICONS = [
-    ("b_slug", "item_b_slug"), ("b_heavy", "item_b_heavy"), ("b_pellet", "item_b_pellet"),
-    ("b_pierce", "item_b_pierce"), ("b_ricochet", "item_b_ricochet"),
-    ("b_plasma", "item_b_plasma"),
-    ("b_incend", "item_b_incend"), ("b_cryo", "item_b_cryo"), ("b_null", "item_b_null"),
-    ("b_lance", "item_b_lance"),
-    ("m_dmg_up", "item_m_dmg_up"), ("m_dmg_flat", "item_m_dmg_flat"),
-    ("m_crit_up", "item_m_crit_up"), ("m_critdmg", "item_m_critdmg"),
-    ("m_spread_down", "item_m_spread_down"),
-    ("m_life_up", "item_m_life_up"), ("m_ammo_down", "item_m_ammo_down"),
-    ("m_speed_up", "item_m_speed_up"),
-    ("m_split", "item_m_split"), ("m_pierce", "item_m_pierce"),
-    ("m_homing", "item_m_homing"), ("m_blast", "item_m_blast"),
-    ("m_mag", "item_m_mag"), ("m_rate", "item_m_rate"), ("m_recoil", "item_m_recoil"),
+    # ---- 子弹配件（17）----
+    ("std", "item_std"), ("light", "item_light"), ("pellet", "item_pellet"),
+    ("ap", "item_ap"), ("laser", "item_laser"), ("grenade", "item_grenade"),
+    ("bouncer", "item_bouncer"), ("missile", "item_missile"), ("mine", "item_mine"),
+    ("shock", "item_shock"), ("chain", "item_chain"), ("saw", "item_saw"),
+    ("flame", "item_flame"), ("hole", "item_hole"),
+    ("trigger", "item_trigger"), ("timer", "item_timer"), ("expire", "item_expire"),
+
+    # ---- 作用于子弹的衍生件（13）----
+    ("dmg", "item_dmg"), ("heavy", "item_heavy"), ("speed", "item_speed"),
+    ("pierce", "item_pierce"), ("explode", "item_explode"), ("homing", "item_homing"),
+    ("bounce", "item_bounce"), ("burn", "item_burn"), ("frost", "item_frost"),
+    ("giant", "item_giant"), ("crit", "item_crit"), ("scatter", "item_scatter"),
+    ("thrift", "item_thrift"),
+
+    # ---- 枪械向衍生件（9）----
+    ("g_mag", "item_g_mag"), ("g_reload", "item_g_reload"), ("g_rapid", "item_g_rapid"),
+    ("g_stable", "item_g_stable"), ("g_recycle", "item_g_recycle"),
+    ("g_parallel", "item_g_parallel"), ("g_leech", "item_g_leech"),
+    ("g_double", "item_g_double"), ("g_triple", "item_g_triple"),
 ]
 
 

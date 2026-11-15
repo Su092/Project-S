@@ -3,101 +3,94 @@ using System.Collections.Generic;
 
 namespace S.Core
 {
-    /// <summary>一条链的装配结果（枪械级配件结算后的枪属性 + 链快照）。</summary>
+    /// <summary>
+    /// 一把枪的槽位布局。**一格一件**（对齐 MODCORE 原型），轮转指针在格位上推进。
+    /// </summary>
     public sealed class SlotState
     {
-        public readonly List<ChainItem> Chain = new List<ChainItem>();
+        public ChainItem[] Cells;
 
-        public bool IsEmpty => Chain.Count == 0;
-        public int BulletCount
+        public SlotState(int count)
+        {
+            Cells = new ChainItem[Math.Max(1, count)];
+        }
+
+        public int Length => Cells.Length;
+
+        public bool IsEmpty
+        {
+            get
+            {
+                for (int i = 0; i < Cells.Length; i++) if (Cells[i] != null) return false;
+                return true;
+            }
+        }
+
+        public int FilledCount
         {
             get
             {
                 int n = 0;
-                for (int i = 0; i < Chain.Count; i++) if (Chain[i].IsBullet) n++;
+                for (int i = 0; i < Cells.Length; i++) if (Cells[i] != null) n++;
                 return n;
             }
         }
 
         public SlotState Clone()
         {
-            var s = new SlotState();
-            s.Chain.AddRange(Chain);
+            var s = new SlotState(Cells.Length);
+            Array.Copy(Cells, s.Cells, Cells.Length);
             return s;
         }
     }
 
-    /// <summary>链上的一项在某一时刻触发。见 docs/loadout-spec.md §1.2（链式触发）。</summary>
-    public enum ChainStepKind
-    {
-        /// <summary>子弹件触发：此刻生成投射物。</summary>
-        Bullet = 0,
-        /// <summary>衍生件触发：此刻把效果施加到存活的投射物上。</summary>
-        Modifier = 1,
-    }
-
     /// <summary>
-    /// 链式触发的一步。整条链按**链顺序**逐项触发，相邻两步间隔 = 枪的击发间隔。
+    /// 枪械级的结算后属性（枪械向配件已并入）。原型 `Fn`。
     /// </summary>
-    public sealed class ChainStep
+    public sealed class GunStats
     {
-        public ChainStepKind Kind;
-        public int ChainIndex;
+        public int Mag = 30;
+        public float Reload = 1.5f;
+        public float Delay = 0.14f;
+        public float DelayMul = 1f;
+        public float Spread = 1.2f;
+        public float SpreadMul = 1f;
+        public int CastCount = 1;
+        public float DmgMul = 1f;
+        public float Recycle;
+        public float Leech;
 
-        /// <summary>子弹件：该子弹在链中的子弹序号（用于后继作用域判定）。</summary>
-        public int SourceIndex;
-
-        /// <summary>衍生件：触发时刻链内已经出现过的子弹数（后继作用域的判据）。</summary>
-        public int BulletsSeen;
-
-        /// <summary>子弹件：该子弹的初始描述符（已并入枪基础散射/溅射，**未**并入配件与枪械倍率）。</summary>
-        public ProjectileDesc Bullet;
-
-        /// <summary>衍生件：要施加的配件。</summary>
-        public ModifierDef Mod;
-
-        /// <summary>距本次施法开始的时间（秒）= ChainIndex × 击发间隔。</summary>
-        public float Delay;
-
-        /// <summary>衍生件在触发时刻是否有作用目标（false = no-target，UI 要提示）。</summary>
-        public bool Effective;
+        /// <summary>实际射击间隔（秒）。</summary>
+        public float ShotInterval(float delayAdd) =>
+            Math.Max(0.03f, (Delay + delayAdd) * DelayMul);
     }
 
-    /// <summary>单次施法的产物。</summary>
+    /// <summary>一条链的解析结果：本次射击读到的子弹，以及下一次的起点。</summary>
+    public sealed class CastPlan
+    {
+        public readonly List<ProjectileDesc> Projectiles = new List<ProjectileDesc>();
+        public readonly List<int> UsedCells = new List<int>();
+        public int AmmoCost;
+        public float DelayAdd;
+        public int NextPointer;
+        public bool Wrapped;
+    }
+
+    /// <summary>单次施法的产物（HUD 预览与实战共用）。</summary>
     public sealed class CastResult
     {
         public readonly List<ProjectileDesc> Projectiles = new List<ProjectileDesc>();
-
-        /// <summary>
-        /// 本次施法用的格位（Runtime 侧 HUD 要用它把「哪条链在跑」画出来）。可为 null（测试构造）。
-        /// 放在结果里而不是让 UI 自己去 `PeekNextSlot`：施法后轮转指针已前进，再取就是下一位，
-        /// HUD 会把「上一层链的触发进度」标到另一条链上。
-        /// </summary>
+        public readonly List<int> UsedCells = new List<int>();
         public SlotState Slot;
-
         public int AmmoCost;
+        public float DelayAdd;
+        public int NextPointer;
+        public bool Wrapped;
         public readonly List<CastWarning> Warnings = new List<CastWarning>();
-
-        /// <summary>
-        /// 链式触发的执行计划（按链顺序，Delay 单调递增）。运行时不直接铺 Projectiles，
-        /// 而是按这个计划逐项触发 —— 这是「链式逐渐触发」的唯一数据源。
-        /// </summary>
-        public readonly List<ChainStep> Steps = new List<ChainStep>();
-
-        /// <summary>整条链跑完所需时间（秒）。</summary>
-        public float Duration
-        {
-            get
-            {
-                float d = 0f;
-                for (int i = 0; i < Steps.Count; i++) if (Steps[i].Delay > d) d = Steps[i].Delay;
-                return d;
-            }
-        }
 
         public bool Succeeded => Projectiles.Count > 0;
 
-        /// <summary>整次施法的期望伤害总和（所有投射物）。</summary>
+        /// <summary>整次施法的期望伤害总和。</summary>
         public float ExpectedDamage
         {
             get
@@ -107,534 +100,451 @@ namespace S.Core
                 return sum;
             }
         }
+
+        public float AverageSpread
+        {
+            get
+            {
+                if (Projectiles.Count == 0) return 0f;
+                float sum = 0f;
+                for (int i = 0; i < Projectiles.Count; i++) sum += Projectiles[i].Spread;
+                return sum / Projectiles.Count;
+            }
+        }
     }
 
     public struct CastWarning
     {
         public string ItemId;
-        public int ChainIndex;
-        public string Code;   // "no-target" 等
-    }
-
-    /// <summary>拖拽落点预览结果。见 docs/loadout-spec.md §3.3。</summary>
-    public struct InsertPreview
-    {
-        /// <summary>null 表示可以插入；否则是拒绝码（same-limit / chain-full / bad-index）。</summary>
-        public string RejectCode;
-
-        public bool CanInsert => RejectCode == null;
-
-        public float BaseDamage;        // 插入前的整次施法期望
-        public float NewDamage;         // 插入后的整次施法期望
-        public int BaseProjectiles;
-        public int NewProjectiles;
-        public int BaseAmmoCost;
-        public int NewAmmoCost;
-
-        /// <summary>该件实际作用到的投射物数量（衍生件）／1（子弹或枪械件）。0 = 白放。</summary>
-        public int AffectedCount;
-
-        /// <summary>是否真的产生效果。false 表示落点会变红并提示「无作用目标」。</summary>
-        public bool Effective;
-
-        /// <summary>枪械作用域（不作用于投射物，装配时改枪属性）。</summary>
-        public bool IsGunScope;
-
-        /// <summary>该位置是否会产生 no-target 警告。</summary>
-        public bool HasNoTarget;
-
-        /// <summary>期望伤害变化率。BaseDamage 为 0 时返回 0。</summary>
-        public float DamageDeltaRatio =>
-            BaseDamage <= 0.0001f ? 0f : (NewDamage - BaseDamage) / BaseDamage;
-
-        /// <summary>期望伤害变化量。</summary>
-        public float DamageDelta => NewDamage - BaseDamage;
+        public int CellIndex;
+        public string Code;
     }
 
     /// <summary>
-    /// 装配与施法结算器。**纯逻辑、零 Unity 依赖、无随机**——
-    /// 这样整条规则可以在 dotnet 下逐条断言（见 tools/loadout-tests）。
-    /// 规则出处：docs/loadout-spec.md
+    /// 结算引擎。**对齐 MODCORE 原型的读取式链**（docs/loadout-spec.md §3）：
+    ///
+    ///   1. 从轮转指针开始**顺时针扫格子**，跳过空格与被动件；
+    ///   2. 遇到 `Next` 作用域的件 → **消耗一次读取**，其效果叠加到之后读到的第一个子弹；
+    ///   3. 遇到子弹 → 产出一次射击，读到几次子弹由 `castCount` 决定；
+    ///   4. 被动件（Prev/Adj/N2/N3/P2/All）**不占读取**，按作用域吸附到目标子弹；
+    ///   5. 触发类子弹递归解析一个载荷（只读 1 次），载荷跟着子弹走。
+    ///
+    /// 与旧实现（顺序链、衍生件在时间轴上逐项触发）的差别是根本性的：
+    /// 旧版一条链是「时间序列」，新版一次射击是「一次性解析出全部投射物」。
+    /// 这换来的是组合空间——20 个子弹 × 44 个衍生 × 7 种作用域，而不是「往里塞更多件」。
+    ///
+    /// 零 Unity 依赖：所有随机都经由外部注入的种子，dotnet 下可逐条断言。
     /// </summary>
     public static class Loadout
     {
-        public const int MaxChain = 6;
-        public const int MaxSameIdPerChain = 2;
-        public const int MaxSplitGeneration = 3;
+        public const int MaxCellScan = 64;      // 防止全空枪死循环
+        public const int MaxRecursion = 6;      // 触发载荷递归上限
+        public const int MaxCount = 24;         // 单发投射物数量上限（防指数爆炸）
 
-        // ---------------- 装配校验 ----------------
+        // ---------------- 枪械属性 ----------------
 
-        /// <summary>尝试把 item 插入 slot 的 index（-1 表示追加）。返回 null 表示成功，否则返回拒绝码。</summary>
-        public static string ValidateInsert(SlotState slot, ChainItem item, int index)
+        /// <summary>结算枪械向配件（原型 `Fn`）。</summary>
+        public static GunStats ResolveGun(GunDef gun, SlotState slots)
         {
-            if (item == null) return "null-item";
-            if (slot.Chain.Count >= MaxChain) return "chain-full";
-
-            if (index < 0 || index > slot.Chain.Count) return "bad-index";
-
-            // 同名上限：同一链内同名最多 2 个
-            int same = 0;
-            for (int i = 0; i < slot.Chain.Count; i++)
-                if (slot.Chain[i].Id == item.Id) same++;
-            if (same >= MaxSameIdPerChain) return "same-limit";
-
-            return null;
-        }
-
-        public static bool Insert(SlotState slot, ChainItem item, int index = -1)
-        {
-            if (ValidateInsert(slot, item, index < 0 ? slot.Chain.Count : index) != null) return false;
-            if (index < 0 || index > slot.Chain.Count) index = slot.Chain.Count;
-            slot.Chain.Insert(index, item);
-            return true;
-        }
-
-        // ---------------- 枪械级结算 ----------------
-
-        /// <summary>
-        /// 把枪械作用域配件并入枪属性。装配/卸下/换枪时调用一次，**不在施法时调用**。
-        /// 同名只生效第一个（loadout-spec §5.3）。
-        /// </summary>
-        public static GunDef ResolveGun(GunDef baseGun, IList<SlotState> slots)
-        {
-            var g = new GunDef
+            var s = new GunStats
             {
-                Id = baseGun.Id, Name = baseGun.Name, Kind = baseGun.Kind,
-                SlotCount = baseGun.SlotCount, FireInterval = baseGun.FireInterval,
-                MagSize = baseGun.MagSize, ReloadTime = baseGun.ReloadTime,
-                SpreadBase = baseGun.SpreadBase, MuzzleSpeed = baseGun.MuzzleSpeed,
-                DamageMul = baseGun.DamageMul, SplashRadius = baseGun.SplashRadius,
-                Mode = baseGun.Mode, Gravity = baseGun.Gravity,
+                Mag = gun.MagSize,
+                Reload = gun.ReloadTime,
+                Delay = gun.FireInterval,
+                Spread = gun.SpreadBase,
+                CastCount = Math.Max(1, gun.CastCount),
             };
 
-            var seen = new HashSet<string>();
-            float spreadMul = 1f;
+            if (slots?.Cells == null) return Finish(s);
 
-            for (int s = 0; s < slots.Count; s++)
+            // 弹匣用 float 累乘、最后取整：链上多件扩容时若逐步取整，
+            // 30 ×1.5 = 45 → ×1.5 = 67.5，不同顺序会得到 67 或 68，玩家会以为「装反了变弱」。
+            float mag = gun.MagSize;
+
+            for (int i = 0; i < slots.Cells.Length; i++)
             {
-                var chain = slots[s].Chain;
-                for (int i = 0; i < chain.Count; i++)
-                {
-                    if (chain[i].IsBullet) continue;
-                    var m = chain[i].Mod;
-                    if (m.Scope != Scope.Gun) continue;
-                    if (!seen.Add(m.Id)) continue;   // 同名只生效一次
+                var it = slots.Cells[i];
+                if (it == null || it.Mod == null) continue;
+                var m = it.Mod;
 
-                    g.MagSize += m.GunMagAdd;
-                    g.FireInterval *= m.GunFireIntervalMul;
-                    g.ReloadTime *= m.GunReloadMul;
-                    spreadMul *= m.GunSpreadMul;
+                mag *= m.GunMagMul;
+                s.Reload *= m.GunReloadMul;
+                s.DelayMul *= m.GunDelayMul;
+                s.SpreadMul *= m.GunSpreadMul;
+                if (m.GunRecycleAdd != 0f)
+                    s.Recycle = 1f - (1f - s.Recycle) * (1f - m.GunRecycleAdd);
+                if (m.GunCastAdd != 0)
+                {
+                    s.CastCount += m.GunCastAdd;
+                    if (m.GunMagMulIfCast != 1f) mag *= m.GunMagMulIfCast;
                 }
+                s.Leech += m.GunLeech;
             }
 
-            // 钳制（loadout-spec §5.3）
-            if (g.MagSize < 1) g.MagSize = 1;
-            if (g.FireInterval < 0.05f) g.FireInterval = 0.05f;
-            if (g.ReloadTime < 0.1f) g.ReloadTime = 0.1f;
-            if (spreadMul < 0.2f) spreadMul = 0.2f;
-            if (spreadMul > 2f) spreadMul = 2f;
-            g.SpreadBase *= spreadMul;
-
-            return g;
+            s.Mag = (int)System.Math.Round(mag);
+            return Finish(s);
         }
 
-        // ---------------- 施法结算 ----------------
+        static GunStats Finish(GunStats s)
+        {
+            if (s.Mag < 1) s.Mag = 1;
+            if (s.CastCount < 1) s.CastCount = 1;
+            return s;
+        }
+
+        // ---------------- 作用域 → 目标格子 ----------------
 
         /// <summary>
-        /// 解析一个配件位的链，得到本次施法的全部投射物。
-        /// 严格按 docs/loadout-spec.md §3 的算法实现，顺序不可调整。
+        /// 作用域覆盖的格子下标（原型 `sh`）。
+        ///
+        /// `Prev` 是「向左找最近的一个子弹」，不是「左一格」——
+        /// 这条差别决定了玩家能不能用中间塞被动件的方式精确控制影响对象。
         /// </summary>
-        public static CastResult ResolveCast(GunDef gun, SlotState slot)
+        public static List<int> TargetsOf(Scope scope, int cell, SlotState slots)
         {
-            var result = new CastResult();
-            result.Slot = slot;
-            if (gun == null || slot == null || slot.Chain.Count == 0) return result;
+            var res = new List<int>();
+            int n = slots.Length;
 
-            // 1) 为链中每个子弹配件生成描述符（sourceIndex = 链内子弹序号）
-            var descs = new List<ProjectileDesc>();
-            int bulletOrdinal = 0;
-            for (int i = 0; i < slot.Chain.Count; i++)
+            switch (scope)
             {
-                if (!slot.Chain[i].IsBullet) continue;
-                var d = slot.Chain[i].Bullet.ToDesc();
-                d.SourceIndex = bulletOrdinal++;
-                d.SpreadAdd += gun.SpreadBase;   // 枪基础散射在链结算前并入（§5.1）
-                // 枪基础溅射取大者（§5.1）：榴弹枪让任何子弹都具备爆炸
-                if (gun.SplashRadius > d.SplashRadius) d.SplashRadius = gun.SplashRadius;
-                descs.Add(d);
+                case Scope.Prev:
+                    for (int i = cell - 1; i >= 0; i--)
+                    {
+                        var it = slots.Cells[i];
+                        if (it != null && it.IsBullet) { res.Add(i); break; }
+                    }
+                    break;
+                case Scope.Adj:
+                    res.Add(cell - 1); res.Add(cell + 1);
+                    break;
+                case Scope.N2:
+                    res.Add(cell + 1); res.Add(cell + 2);
+                    break;
+                case Scope.N3:
+                    res.Add(cell + 1); res.Add(cell + 2); res.Add(cell + 3);
+                    break;
+                case Scope.P2:
+                    res.Add(cell - 2); res.Add(cell - 1);
+                    break;
+                case Scope.All:
+                    for (int i = 0; i < n; i++) if (i != cell) res.Add(i);
+                    break;
             }
 
-            // 2) 按链顺序逐项施法
-            int bulletsSeen = 0;
-            for (int i = 0; i < slot.Chain.Count; i++)
+            var filtered = new List<int>(res.Count);
+            for (int i = 0; i < res.Count; i++)
+                if (res[i] >= 0 && res[i] < n) filtered.Add(res[i]);
+            return filtered;
+        }
+
+        /// <summary>
+        /// `Next` 作用域的件指向哪个格子：顺时针找下一个子弹。
+        /// 找不到返回 -1（此时该件无目标，UI 应提示）。
+        /// </summary>
+        public static int NextBulletCell(int cell, SlotState slots)
+        {
+            int n = slots.Length;
+            for (int step = 1; step < n; step++)
             {
-                var item = slot.Chain[i];
-                if (item.IsBullet) { bulletsSeen++; continue; }
+                int i = (cell + step) % n;
+                var it = slots.Cells[i];
+                if (it != null && it.IsBullet) return i;
+            }
+            return -1;
+        }
 
-                var mod = item.Mod;
-                if (mod.Scope == Scope.Gun) continue;   // 枪械级已单独结算
+        /// <summary>
+        /// 作用于某个子弹格的所有被动件（原型 `ah`）。
+        /// 只统计**不是 Next** 且有实际子弹效果的件；枪械件不参与。
+        /// </summary>
+        public static List<ModifierDef> PassivesOn(GunDef gun, SlotState slots, int bulletCell)
+        {
+            var res = new List<ModifierDef>();
+            for (int i = 0; i < slots.Length; i++)
+            {
+                var it = slots.Cells[i];
+                if (it == null || it.Mod == null) continue;
+                var m = it.Mod;
+                if (!m.IsPassive || m.IsGunOnly) continue;
+                if (TargetsOf(m.Scope, i, slots).Contains(bulletCell)) res.Add(m);
+            }
+            return res;
+        }
 
-                var targets = SelectTargets(descs, mod, bulletsSeen);
-                if (targets.Count == 0)
+        // ---------------- 弹药 ----------------
+
+        /// <summary>
+        /// 某格被读取时的耗弹（原型 `oh`）：子弹自身 cost + 吸附到它的被动件 cost。
+        /// </summary>
+        public static int AmmoCostOf(GunDef gun, SlotState slots, int cell)
+        {
+            var it = slots.Cells[cell];
+            if (it == null) return 0;
+            if (!it.IsBullet) return Math.Max(0, it.Mod.Cost);
+
+            int cost = it.Bullet.Cost;
+            var passives = PassivesOn(gun, slots, cell);
+            for (int i = 0; i < passives.Count; i++) cost += passives[i].Cost;
+            return Math.Max(0, cost);
+        }
+
+        // ---------------- 读取扫描 ----------------
+
+        /// <summary>
+        /// 从 startCell 起读一轮（原型 `lh`）。
+        /// 返回本次读到的东西 + 下一个起点。
+        /// </summary>
+        static CastPlan Scan(GunDef gun, SlotState slots, GunStats stats, int startCell, int generation)
+        {
+            var plan = new CastPlan { NextPointer = startCell };
+            int n = slots.Length;
+            int cursor = startCell;
+            int scanned = 0;
+            int budget = Math.Max(1, stats.CastCount);
+            var pendingMods = new List<ModifierDef>();
+
+            while (plan.Projectiles.Count < budget && scanned < MaxCellScan)
+            {
+                // 找下一个「会被读取」的格子：子弹，或 Next 作用域的件
+                int cell = -1;
+                ChainItem hit = null;
+                while (scanned < MaxCellScan)
                 {
-                    result.Warnings.Add(new CastWarning
-                    {
-                        ItemId = mod.Id, ChainIndex = i, Code = "no-target",
-                    });
+                    int cur = cursor;
+                    cursor = (cursor + 1) % n;
+                    if (cursor == 0) plan.Wrapped = true;
+                    scanned++;
+
+                    var it = slots.Cells[cur];
+                    if (it == null) continue;
+                    if (it.IsBullet) { cell = cur; hit = it; break; }
+                    if (it.Mod != null && it.Mod.Scope == Scope.Next) { cell = cur; hit = it; break; }
+                }
+
+                if (hit == null) break;
+
+                plan.UsedCells.Add(cell);
+                plan.AmmoCost += AmmoCostOf(gun, slots, cell);
+                plan.DelayAdd += hit.IsBullet ? hit.Bullet.Delay : hit.Mod.Delay;
+
+                if (!hit.IsBullet)
+                {
+                    // Next 件：多重施放加预算，其余攒着叠给下一个子弹
+                    if (hit.Mod.Multicast > 0) budget += hit.Mod.Multicast;
+                    else pendingMods.Add(hit.Mod);
                     continue;
                 }
 
-                var next = new List<ProjectileDesc>(descs.Count);
-                for (int t = 0; t < descs.Count; t++)
-                {
-                    var d = descs[t];
-                    if (targets.Contains(t)) ApplyMod(d, mod, ref next);
-                    else next.Add(d);
-                }
-                descs = next;
+                var desc = BuildDesc(gun, slots, stats, cell, pendingMods, generation);
+                pendingMods = new List<ModifierDef>();
+                plan.Projectiles.Add(desc);
             }
 
-            // 3) 枪械固有伤害倍率：链结算之后（§5.1）
-            for (int i = 0; i < descs.Count; i++) descs[i].Damage *= gun.DamageMul;
+            plan.NextPointer = cursor;
+            return plan;
+        }
 
-            // 4) 弹药消耗
-            result.AmmoCost = ComputeAmmo(gun, slot);
-            result.Projectiles.AddRange(descs);
-            BuildSteps(gun, slot, result);
+        /// <summary>
+        /// 把一格子弹 + 吸附的被动件 + 前置 Next 件，结算成最终描述符（原型 `ch`）。
+        /// </summary>
+        static ProjectileDesc BuildDesc(GunDef gun, SlotState slots, GunStats stats,
+            int cell, List<ModifierDef> pendingMods, int generation)
+        {
+            var def = slots.Cells[cell].Bullet;
+            var d = def.ToDesc();
+
+            // 同一件在不同位置可能出现多次，按「件 id + 层数」累乘
+            var passives = PassivesOn(gun, slots, cell);
+            for (int i = 0; i < passives.Count; i++) ApplyMod(d, passives[i], 1);
+            for (int i = 0; i < pendingMods.Count; i++) ApplyMod(d, pendingMods[i], 1);
+
+            // 枪械固有倍率与散射在链结算之后
+            if (stats.DmgMul != 1f)
+            {
+                d.Damage *= stats.DmgMul;
+                d.ExplodeDmg *= stats.DmgMul;
+            }
+            d.Spread *= stats.SpreadMul;
+
+            if (d.Count < 1) d.Count = 1;
+            if (d.Count > MaxCount) d.Count = MaxCount;
+
+            // 触发弹：递归读 1 个载荷
+            if (d.Trigger != TriggerKind.None && generation < MaxRecursion)
+            {
+                int payloadStart = NextBulletCell(cell, slots);
+                if (payloadStart >= 0)
+                {
+                    var sub = Scan(gun, slots, new GunStats
+                    {
+                        Mag = stats.Mag,
+                        Reload = stats.Reload,
+                        Delay = stats.Delay,
+                        DelayMul = stats.DelayMul,
+                        Spread = stats.Spread,
+                        SpreadMul = stats.SpreadMul,
+                        CastCount = 1,
+                        DmgMul = stats.DmgMul,
+                    }, payloadStart, generation + 1);
+
+                    if (sub.Projectiles.Count > 0) d.Payload = sub.Projectiles;
+                }
+                else
+                {
+                    // 没有下一个子弹可作载荷
+                }
+            }
+
+            return d;
+        }
+
+        /// <summary>
+        /// 把一件衍生配件的效果叠加到描述符上。t = 叠加层数。
+        /// 逐条对应原型 S_ 里的 apply 闭包。
+        /// </summary>
+        public static void ApplyMod(ProjectileDesc d, ModifierDef m, int t)
+        {
+            if (m == null || t <= 0) return;
+
+            // 乘法组
+            if (m.DamageMulAdd != 0f) Mul(d, 1f + m.DamageMulAdd * t);
+            if (m.SizeMulAdd != 0f) d.Size *= 1f + m.SizeMulAdd * t;
+            if (m.SpeedMulAdd != 0f) d.Speed *= 1f + m.SpeedMulAdd * t;
+            if (m.RangeMulAdd != 0f) d.Range *= 1f + m.RangeMulAdd * t;
+            if (m.LifeMulAdd != 0f) d.Lifetime *= 1f + m.LifeMulAdd * t;
+            if (m.KnockMulAdd != 0f) d.Knock *= 1f + m.KnockMulAdd * t;
+            if (m.CountMulAdd != 0f)
+                d.Count = (int)Math.Round(d.Count * (1f + m.CountMulAdd * t));
+            if (m.RadiusMulAdd != 0f) d.Radius *= 1f + m.RadiusMulAdd * t;
+
+            // 加法组
+            if (m.PiercePer != 0)
+                d.Pierce += Math.Max(1, (int)Math.Round(m.PiercePer * (float)t));
+            if (m.BouncePer != 0)
+                d.Bounce += Math.Max(1, (int)Math.Round(m.BouncePer * (float)t));
+            if (m.HomingPer != 0f) d.Homing += m.HomingPer * t;
+            if (m.BurnPer != 0f) d.Burn += m.BurnPer * t;
+            if (m.SlowPer != 0f) d.Slow = Math.Max(d.Slow, m.SlowPer * Math.Min(1f, t + 0.2f));
+            if (m.CritPer != 0f) d.Crit += m.CritPer * t;
+            if (m.SpreadPer != 0f) d.Spread += m.SpreadPer * t;
+
+            // 爆裂：无爆裂时按基础半径建，已有则放大
+            if (m.ExplodeRBase != 0f || m.ExplodeRAdd != 0f)
+            {
+                if (d.ExplodeR > 0f)
+                    d.ExplodeR *= 1f + m.ExplodeRAdd * t;
+                else
+                    d.ExplodeR = m.ExplodeRBase;
+
+                d.ExplodeDmg += (d.Damage * m.ExplodeDmgFromDmg + m.ExplodeDmgFlat) * t;
+            }
+        }
+
+        static void Mul(ProjectileDesc d, float k)
+        {
+            d.Damage *= k;
+            d.ExplodeDmg *= k;
+        }
+
+        // ---------------- 对外：单次施法 ----------------
+
+        /// <summary>
+        /// 从 pointer 起解析一次施法（原型 `lh` + `ch`）。
+        /// 不修改 slots / pointer —— 调用方按结果推进指针。
+        /// </summary>
+        public static CastResult ResolveCast(GunDef gun, SlotState slots, GunStats stats, int pointer)
+        {
+            var result = new CastResult { Slot = slots };
+            if (gun == null || slots == null || slots.Length == 0) return result;
+
+            int p = ((pointer % slots.Length) + slots.Length) % slots.Length;
+            var plan = Scan(gun, slots, stats, p, 0);
+
+            result.Projectiles.AddRange(plan.Projectiles);
+            result.UsedCells.AddRange(plan.UsedCells);
+            result.AmmoCost = plan.AmmoCost;
+            result.DelayAdd = plan.DelayAdd;
+            result.NextPointer = plan.NextPointer;
+            result.Wrapped = plan.Wrapped;
+
+            CollectWarnings(gun, slots, result);
             return result;
         }
 
-        /// <summary>
-        /// 生成链式触发的执行计划（loadout-spec §1.2）。
-        ///
-        /// 语义：链内每一项按**链顺序**逐项触发，相邻两步间隔 = 枪的 `fireInterval`。
-        ///  - 子弹件触发：在那一刻生成它的投射物；
-        ///  - 衍生件触发：作用到**那一刻活着的**投射物，并且对其后生成的子弹同样生效。
-        ///
-        /// 为什么必须「对后生成的子弹也生效」：规格 §3 的结算域里，链内所有子弹在第一步就都在
-        /// `ctx` 里了 —— 所以 `[量子分裂, 制式弹]` 的分裂能作用到后面那颗粒子。
-        /// 若运行时只改「此刻已经在飞的」，`[校准套件, 制式弹]` 这种最常见的链会少算一段，
-        /// 总伤害与 `ResolveCast` 对不上（HUD 的期望值会骗人）。
-        ///
-        /// 因此运行时按「已触发配件清单」执行：子弹生成时先补上在它之前触发、且按作用域
-        /// 确实作用于它的配件；之后触发的配件再实时改活着的实例。两条路径合起来，
-        /// 每颗粒子得到的配件序列与全量结算**完全相同**（顺序也相同），总量必然一致。
-        ///
-        /// 子弹件携带的是「已并入枪基础项、已乘枪械倍率、未加任何配件」的模板描述符；
-        /// 配件由 `ApplyModRuntime` 施加，它会把枪械倍率暂时除掉再乘回，与全量结算同口径。
-        /// </summary>
-        static void BuildSteps(GunDef gun, SlotState slot, CastResult result)
+        /// <summary>把「Next 件没有目标」这类问题收集出来，UI 提示用。</summary>
+        static void CollectWarnings(GunDef gun, SlotState slots, CastResult result)
         {
-            if (gun == null || slot == null) return;
-
-            float dt = gun.FireInterval > 0f ? gun.FireInterval : 0f;
-
-            // 每个子弹件的模板（按键内子弹序号索引）
-            var templates = new List<ProjectileDesc>();
-            int ord = 0;
-            for (int i = 0; i < slot.Chain.Count; i++)
+            for (int i = 0; i < slots.Length; i++)
             {
-                if (!slot.Chain[i].IsBullet) continue;
-                var d = slot.Chain[i].Bullet.ToDesc();
-                d.SourceIndex = ord++;
-                d.SpreadAdd += gun.SpreadBase;
-                if (gun.SplashRadius > d.SplashRadius) d.SplashRadius = gun.SplashRadius;
-                d.Damage *= gun.DamageMul;   // 与 ResolveCast 同口径（链结算之后乘，这里提前并入模板）
-                templates.Add(d);
-            }
+                var it = slots.Cells[i];
+                if (it == null || it.Mod == null) continue;
+                if (it.Mod.Scope != Scope.Next) continue;
 
-            // 计划：按链顺序（子弹件与衍生件都在时间轴上占一格）
-            int seen = 0;
-            int bulletsBefore = 0;
-            for (int i = 0; i < slot.Chain.Count; i++)
-            {
-                var item = slot.Chain[i];
-                if (item.IsBullet)
-                {
-                    result.Steps.Add(new ChainStep
+                // 只有「这次会被读到」的 Next 件才需要提示
+                if (!result.UsedCells.Contains(i)) continue;
+                if (NextBulletCell(i, slots) < 0)
+                    result.Warnings.Add(new CastWarning
                     {
-                        Kind = ChainStepKind.Bullet,
-                        ChainIndex = i,
-                        Delay = i * dt,
-                        SourceIndex = seen,
-                        Bullet = templates[seen].Clone(),
+                        ItemId = it.Id,
+                        CellIndex = i,
+                        Code = "no-target",
                     });
-                    seen++;
-                    bulletsBefore++;
-                    continue;
-                }
-
-                var mod = item.Mod;
-                if (mod.Scope == Scope.Gun) continue;
-
-                var step = new ChainStep
-                {
-                    Kind = ChainStepKind.Modifier,
-                    ChainIndex = i,
-                    Delay = i * dt,
-                    Mod = mod,
-                    BulletsSeen = bulletsBefore,
-                };
-
-                // 生效判定与 SelectTargets 同判据（全场 = 全部子弹；后继 = 子弹序号 ≥ 已出现数）
-                int affected = 0;
-                for (int b = 0; b < templates.Count; b++)
-                {
-                    if (mod.Scope == Scope.Whole || templates[b].SourceIndex >= bulletsBefore)
-                        affected++;
-                }
-                step.Effective = affected > 0;
-                result.Steps.Add(step);
             }
         }
 
         /// <summary>
-        /// 把单个衍生件作用到单个已存在的投射物上（运行时链式触发用）。
-        ///
-        /// 返回**替换后的列表**：分裂会让 1 个变 n 个，调用方必须用返回值替换原元素。
-        /// 与 <see cref="ApplyMod"/> 共享同一套加法→乘法→钳制顺序，不能各写一份。
-        ///
-        /// 注意枪械伤害倍率：`ApplyMod` 是在 damageMul **之前**执行的，而运行时触发时
-        /// 子弹的伤害已经乘过 damageMul。这里先把倍率除掉、作用完再乘回去，
-        /// 保证「同一颗子弹无论走全量结算还是链式触发，数值完全一致」。
+        /// 整把枪所有格位的施法序列（原型 `Vd`），HUD 的「接下来几发」用。
+        /// 只做展示，不推进真实指针。
         /// </summary>
-        public static List<ProjectileDesc> ApplyModRuntime(ProjectileDesc d, ModifierDef m, GunDef gun)
+        public static List<CastResult> FullSequence(GunDef gun, SlotState slots, GunStats stats, int maxSteps = 12)
         {
-            var single = new List<ProjectileDesc>(1);
-            if (d == null || m == null) { single.Add(d); return single; }
+            var list = new List<CastResult>();
+            int p = 0;
+            for (int step = 0; step < maxSteps && step < slots.Length; step++)
+            {
+                var r = ResolveCast(gun, slots, stats, p);
+                if (!r.Succeeded) break;
 
-            float mul = gun != null ? gun.DamageMul : 1f;
-            if (mul <= 0.0001f) mul = 1f;
+                // 与已出现的结果完全重合（绕回来了）就停
+                if (r.Wrapped && r.UsedCells.Count > 0 && r.UsedCells[0] < p) break;
 
-            // 还原到「链结算前」的口径（ApplyMod 期望的是未乘枪械倍率的伤害）
-            var work = d.Clone();
-            work.Damage /= mul;
+                list.Add(r);
+                if (r.Wrapped || r.NextPointer == 0) break;
+                p = r.NextPointer;
+            }
+            return list;
+        }
 
-            var next = new List<ProjectileDesc>(m.SplitCount > 1 ? m.SplitCount : 1);
-            ApplyMod(work, m, ref next);
+        // ---------------- 装配校验 ----------------
 
-            // 乘回枪械倍率
-            for (int i = 0; i < next.Count; i++) next[i].Damage *= mul;
-            return next;
+        public enum DropResult
+        {
+            Ok = 0,
+            NotABullet = 1,
+            NoTarget = 2,
         }
 
         /// <summary>
-        /// 选出该衍生配件作用的描述符下标集合（loadout-spec §3.1）。
-        /// Whole = 当前全部；After = sourceIndex ≥ bulletsSeen 的全部。
+        /// 某件放到某格是否合法。只拦真正会让人困惑的情况：
+        /// 链里一个子弹都没有时锁死（否则玩家开火永远没反应却不知道原因）。
         /// </summary>
-        static List<int> SelectTargets(List<ProjectileDesc> descs, ModifierDef mod, int bulletsSeen)
+        public static DropResult Validate(SlotState slots, int cell, ChainItem item, out string reason)
         {
-            var idx = new List<int>();
-            for (int i = 0; i < descs.Count; i++)
+            reason = null;
+            if (item == null) { reason = "空件"; return DropResult.NotABullet; }
+
+            if (item.IsBullet) return DropResult.Ok;
+
+            // 放被动件前检查它有没有目标
+            var probe = slots.Clone();
+            probe.Cells[cell] = item;
+            if (item.Mod.Scope != Scope.Next && TargetsOf(item.Mod.Scope, cell, probe).Count == 0
+                && !item.Mod.IsGunOnly)
             {
-                if (mod.Scope == Scope.Whole) idx.Add(i);
-                else if (mod.Scope == Scope.After && descs[i].SourceIndex >= bulletsSeen) idx.Add(i);
+                reason = "此作用域在本格没有目标";
+                return DropResult.NoTarget;
             }
-            return idx;
-        }
-
-        /// <summary>把一个衍生配件作用到单个描述符（先加法后乘法，再钳制，loadout-spec §3.2）。</summary>
-        static void ApplyMod(ProjectileDesc d, ModifierDef m, ref List<ProjectileDesc> output)
-        {
-            // --- 分裂：产出多个子体，不进入其他加乘流程 ---
-            if (m.SplitCount > 1 && d.Generation < MaxSplitGeneration)
-            {
-                for (int k = 0; k < m.SplitCount; k++)
-                {
-                    var c = d.Clone();
-                    c.Generation = d.Generation + 1;
-                    c.Damage *= m.SplitDamageMul;
-                    c.SpreadAdd += m.SplitSpreadAdd;
-                    c.Lifetime *= m.SplitLifetimeMul;
-                    Clamp(c);
-                    output.Add(c);
-                }
-                return;
-            }
-
-            // --- 加法 ---
-            d.Damage += m.DamageFlat;
-            d.Crit += m.CritFlat;
-            d.CritDmg += m.CritDmgFlat;
-            d.SpreadAdd += m.SpreadAddFlat;
-            d.Lifetime += m.LifetimeFlat;
-            d.Pierce += m.PierceFlat;
-            d.Bounce += m.BounceFlat;
-
-            // --- 乘法 ---
-            d.Damage *= m.DamageMul;
-            d.Crit *= m.CritMul;
-            d.SpreadMul *= m.SpreadMul;
-            d.Lifetime *= m.LifetimeMul;
-            d.SpeedMul *= m.SpeedMul;
-
-            // --- 行为 ---
-            d.SplashRadius += m.SplashAdd;
-            d.HomingRate += m.HomingRate;
-
-            Clamp(d);
-            output.Add(d);
-        }
-
-        static void Clamp(ProjectileDesc d)
-        {
-            if (d.SpreadAdd < 0f) d.SpreadAdd = 0f;
-            if (d.SpreadMul < 0f) d.SpreadMul = 0f;
-            if (d.Lifetime < 0.05f) d.Lifetime = 0.05f;
-            if (d.Crit > 1f) d.Crit = 1f;
-            if (d.Crit < 0f) d.Crit = 0f;
-            if (d.CritDmg < 1f) d.CritDmg = 1f;
-            if (d.SpeedMul < 0.2f) d.SpeedMul = 0.2f;
-            if (d.SpeedMul > 4f) d.SpeedMul = 4f;
-            if (d.Damage < 0f) d.Damage = 0f;
-            if (d.Pierce < 0) d.Pierce = 0;
-            if (d.Bounce < 0) d.Bounce = 0;
-        }
-
-        /// <summary>弹药消耗 = Σ子弹 ammo + 加法修正，乘乘法修正，最低 1（loadout-spec §4）。</summary>
-        public static int ComputeAmmo(GunDef gun, SlotState slot)
-        {
-            float raw = 0f;
-            float mul = 1f;
-            for (int i = 0; i < slot.Chain.Count; i++)
-            {
-                var it = slot.Chain[i];
-                if (it.IsBullet) { raw += it.Bullet.Ammo; continue; }
-                var m = it.Mod;
-                if (m.Scope == Scope.Gun) continue;
-                raw += m.AmmoFlat;
-                // 本项目没有弹药乘法件；字段保留供后续扩展
-            }
-            raw *= mul;
-            int n = (int)Math.Round(raw, MidpointRounding.AwayFromZero);
-            return n < 1 ? 1 : n;
-        }
-
-        /// <summary>该位被轮转到的频率倍数（slotCount 位轮转，每 fireInterval 一次施法）。</summary>
-        public static float CastsPerSecond(GunDef resolvedGun) =>
-            resolvedGun.FireInterval <= 0f ? 0f : 1f / resolvedGun.FireInterval;
-
-        /// <summary>单个位的持续 DPS = 该次施法期望 × 施法频率 / 位数。</summary>
-        public static float SlotDps(GunDef resolvedGun, CastResult cast) =>
-            cast.ExpectedDamage * CastsPerSecond(resolvedGun) / resolvedGun.SlotCount;
-
-        // ---------------- 装配预览（拖拽落点用） ----------------
-
-        /// <summary>
-        /// 把 item 插到 slot 的 index 处会有什么后果。**不修改 slot**，只算结果。
-        /// 这是拖拽预览的数据源：UI 必须显示「生效目标数」与「期望伤害变化」，
-        /// 否则「顺序即解法」这条核心规则玩家无法感知（见 docs/loadout-spec.md §3.3）。
-        /// </summary>
-        public static InsertPreview PreviewInsert(GunDef resolvedGun, SlotState slot, ChainItem item, int index)
-        {
-            var p = new InsertPreview();
-
-            // 装配合法性
-            p.RejectCode = ValidateInsert(slot, item, index < 0 ? slot.Chain.Count : index);
-            if (p.RejectCode != null) return p;
-
-            int at = index < 0 || index > slot.Chain.Count ? slot.Chain.Count : index;
-
-            // 基线：当前链的期望伤害与弹丸数
-            var before = ResolveCast(resolvedGun, slot);
-            p.BaseDamage = before.ExpectedDamage;
-            p.BaseProjectiles = before.Projectiles.Count;
-
-            // 试插（用副本，绝不改原链）
-            var probe = slot.Clone();
-            probe.Chain.Insert(at, item);
-
-            var after = ResolveCast(resolvedGun, probe);
-            p.NewDamage = after.ExpectedDamage;
-            p.NewProjectiles = after.Projectiles.Count;
-            p.NewAmmoCost = after.AmmoCost;
-            p.BaseAmmoCost = before.AmmoCost;
-
-            // 该件是否真的影响了东西
-            p.IsGunScope = !item.IsBullet && item.Mod != null && item.Mod.Scope == Scope.Gun;
-            if (item.IsBullet)
-            {
-                // 子弹本身总是「有效」（它就是要被装填的东西）
-                p.AffectedCount = 1;
-                p.Effective = true;
-            }
-            else if (p.IsGunScope)
-            {
-                p.AffectedCount = 1;   // 枪械件作用于整把枪
-                p.Effective = true;
-            }
-            else
-            {
-                // 衍生件：数它在这个位置实际作用到几个投射物
-                p.AffectedCount = CountAffected(resolvedGun, probe, at);
-                p.Effective = p.AffectedCount > 0;
-            }
-
-            // 是否产生 no-target 警告（用于把落点标红）
-            p.HasNoTarget = false;
-            for (int i = 0; i < after.Warnings.Count; i++)
-                if (after.Warnings[i].ChainIndex == at) { p.HasNoTarget = true; break; }
-
-            return p;
-        }
-
-        /// <summary>
-        /// 数某个位置的衍生件实际作用到几个投射物上。
-        /// **必须与 ResolveCast 同序**：先把链内全部子弹入列，再逐项施加修正。
-        /// 早期版本在同一个循环里边入列边施法，导致「修正在子弹之前」时目标集恒为 0（已修）。
-        /// </summary>
-        static int CountAffected(GunDef gun, SlotState probe, int at)
-        {
-            if (at < 0 || at >= probe.Chain.Count) return 0;
-            var item = probe.Chain[at];
-            if (item.IsBullet || item.Mod == null) return 0;
-            var mod = item.Mod;
-            if (mod.Scope == Scope.Gun) return 1;
-
-            // 第一遍：全部子弹入列（与 ResolveCast 一致）
-            var descs = new List<ProjectileDesc>();
-            int bulletOrdinal = 0;
-            for (int i = 0; i < probe.Chain.Count; i++)
-            {
-                if (!probe.Chain[i].IsBullet) continue;
-                var d = probe.Chain[i].Bullet.ToDesc();
-                d.SourceIndex = bulletOrdinal++;
-                d.SpreadAdd += gun.SpreadBase;
-                if (gun.SplashRadius > d.SplashRadius) d.SplashRadius = gun.SplashRadius;
-                descs.Add(d);
-            }
-
-            // 第二遍：按链顺序施加修正，到达 at 时统计目标集
-            int bulletsSeen = 0;
-            for (int i = 0; i < probe.Chain.Count; i++)
-            {
-                var it = probe.Chain[i];
-                if (it.IsBullet) { bulletsSeen++; continue; }
-
-                var m = it.Mod;
-                if (m.Scope == Scope.Gun) continue;
-
-                var targets = new List<int>();
-                for (int t = 0; t < descs.Count; t++)
-                {
-                    if (m.Scope == Scope.Whole) targets.Add(t);
-                    else if (descs[t].SourceIndex >= bulletsSeen) targets.Add(t);
-                }
-
-                if (i == at) return targets.Count;
-
-                if (targets.Count == 0) continue;
-
-                var next = new List<ProjectileDesc>(descs.Count);
-                for (int t = 0; t < descs.Count; t++)
-                {
-                    if (targets.Contains(t)) ApplyMod(descs[t], m, ref next);
-                    else next.Add(descs[t]);
-                }
-                descs = next;
-            }
-
-            return 0;
+            return DropResult.Ok;
         }
     }
 }

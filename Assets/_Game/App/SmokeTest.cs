@@ -329,7 +329,7 @@ namespace S.App
             {
                 gun.FireCooldown = 0f;
                 gun.ReloadLeft = 0f;
-                gun.Ammo = gun.Resolved.MagSize;
+                gun.Ammo = gun.Stats.Mag;
                 int before = gun.Ammo;
                 var cast = gun.TryFire(out string why);
                 Check("正常模式下能开火", cast != null, why ?? "");

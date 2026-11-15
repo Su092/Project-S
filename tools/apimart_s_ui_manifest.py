@@ -5,10 +5,12 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-# 枢纽根从 profile 约定推导：本工程不在枢纽内，用环境变量或显式参数覆盖
+# 枢纽根：工程在 <HUB>/Project/<Game>/unity，从工程根向上三级即 <HUB>。
+# 不写死盘符 —— 换机后盘符会变；需要覆盖时仍可用 APIMART_MANIFEST。
+HUB = os.path.abspath(os.path.join(PROJ, "..", "..", ".."))
 MANIFEST = os.environ.get(
     "APIMART_MANIFEST",
-    os.path.join(os.path.dirname(PROJ), "Unity Development", "tools", "apimart-assets.json"),
+    os.path.join(HUB, "tools", "apimart-assets.json"),
 )
 # APIMart 原图落在 _Inbox/ui-ai-raw（未处理），预处理后的产物才进 _Inbox/ui-ai-src。
 # 两个目录必须分开：混在一起会让人分不清"这张到底抠过图没有"。

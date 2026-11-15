@@ -324,7 +324,7 @@ namespace S.View
         {
             if (State == null || !State.Alive) return 0f;
 
-            bool ignoreArmor = desc != null && desc.Source != null && desc.Source.IgnoreArmor;
+            bool ignoreArmor = desc != null && desc.Source != null && desc.Source.Pierce > 0;
 
             // 护盾：正面挡下（破防期无效）
             if (State.ShieldUp && !State.IsBreached)

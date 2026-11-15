@@ -43,6 +43,13 @@ crashlytics-build.properties
 tools/loadout-tests/bin/
 tools/loadout-tests/obj/
 
+# 断言工程的项目文件必须入库：
+# 上面的 `*.csproj` 是为了忽略 Unity 自动生成的工程文件，
+# 但它把 `tools/loadout-tests/loadout-tests.csproj` 一起吞掉了 ——
+# 克隆到新机后 `dotnet run` 找不到工程，213/106 条断言全跑不了。
+# 这里显式反忽略回去（`!` 必须在 `*.csproj` 之后才生效）。
+!tools/loadout-tests/loadout-tests.csproj
+
 # ---- 本工程的运行产物 ----
 # 根目录的日志是自检/冒烟/自动驾驶的输出，随时可重跑
 *.log

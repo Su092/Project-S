@@ -194,7 +194,9 @@ namespace S.View
                 _icon.enabled = false;
             }
 
-            _footer.text = "链式触发：链内每项按顺序逐项生效，间隔 = 枪的击发间隔";
+            _footer.text = bullet
+                ? "子弹配件：被读取时产出投射物，会吸附所有覆盖它的被动件"
+                : ScopeHint(item.Mod.Scope);
 
             _root.gameObject.SetActive(true);
             Follow();
@@ -253,67 +255,134 @@ namespace S.View
 
         public static string ScopeName(Scope s) => s switch
         {
-            Scope.Whole => "全场",
-            Scope.After => "后继",
-            _ => "枪械",
+            Scope.Next => "下一发",
+            Scope.Prev => "上一个",
+            Scope.Adj => "相邻",
+            Scope.N2 => "后2格",
+            Scope.N3 => "后3格",
+            Scope.P2 => "前2格",
+            _ => "全枪",
         };
 
         public static Color ScopeColor(Scope s) => s switch
         {
-            Scope.Whole => new Color(0.45f, 0.72f, 1f),
-            Scope.After => new Color(0.5f, 0.95f, 0.6f),
-            _ => new Color(0.95f, 0.78f, 0.35f),
+            Scope.Next => new Color(0.31f, 0.76f, 1f),
+            Scope.Prev => new Color(0.24f, 0.96f, 0.78f),
+            Scope.Adj => new Color(0.36f, 1f, 0.55f),
+            Scope.N2 => new Color(0.85f, 1f, 0.36f),
+            Scope.N3 => new Color(0.85f, 1f, 0.36f),
+            Scope.P2 => new Color(1f, 0.54f, 0.85f),
+            _ => new Color(0.78f, 0.49f, 1f),
         };
 
-        static string DescribeBullet(BulletDef b)
+        /// <summary>
+        /// 作用域的「怎么用」一句话。详情面板与浮动提示共用。
+        ///
+        /// 和 ScopeName（只给名字）分开：名字解决「这是什么」，这句解决「该放哪」。
+        /// 玩家最常犯的错是把被动件放进没有子弹的范围里，这条提示直接指向正确摆法。
+        /// </summary>
+        public static string ScopeHint(Scope s) => s switch
+        {
+            Scope.Next => "放在子弹前面：射击时会被读取，效果叠给之后的第一颗子弹",
+            Scope.Prev => "被动：作用于左侧最近的子弹（中间隔着别的件也能生效）",
+            Scope.Adj => "被动：作用于左右各一格内的子弹",
+            Scope.N2 => "被动：作用于右侧 2 格内的子弹",
+            Scope.N3 => "被动：作用于右侧 3 格内的子弹（耗弹打折）",
+            Scope.P2 => "被动：作用于左侧 2 格内的子弹",
+            _ => "被动：作用于整把枪，不占读取次数",
+        };
+
+        public static string DescribeBullet(BulletDef b)
         {
             var lines = new System.Collections.Generic.List<string>
             {
-                $"伤害 <b>{b.Damage:0.#}</b>    弹药 {b.Ammo}    散射 +{b.SpreadAdd:0.#}°",
-                $"暴击 {b.Crit * 100f:0}% × {b.CritDmg:0.#}    存在 {b.Lifetime:0.##}s",
+                $"伤害 <b>{b.Damage:0.#}</b>    耗弹 {b.Cost}    数量 {b.Count}",
+                $"速度 {b.Speed:0}    存在 {b.Lifetime:0.##}s    暴击 {b.Crit * 100f:0}% × {b.CritMul:0.#}",
             };
+
+            if (b.Spread > 0f) lines.Add($"散射 {b.Spread:0.#}°");
+
             var feat = new System.Collections.Generic.List<string>();
-            if (b.SplashRadius > 0f) feat.Add($"命中溅射 {b.SplashRadius:0.#}m");
-            if (b.Pierce > 0) feat.Add($"穿透 {b.Pierce} 个");
-            if (b.Bounce > 0) feat.Add($"反弹 {b.Bounce} 次");
-            if (b.BurnDps > 0f) feat.Add($"燃烧 {b.BurnDps:0}/s × {b.BurnTime:0.#}s");
-            if (b.SlowPct > 0f) feat.Add($"减速 {b.SlowPct * 100f:0}% × {b.SlowTime:0.#}s");
-            if (b.IgnoreArmor) feat.Add("无视护甲");
-            if (b.SpeedMul != 1f) feat.Add($"弹速 ×{b.SpeedMul:0.##}");
+            AddKind(feat, b.Kind);
+            if (b.Pierce > 0) feat.Add($"穿透 {b.Pierce}");
+            if (b.Bounce > 0) feat.Add($"反弹 {b.Bounce}");
+            if (b.Homing > 0f) feat.Add("追踪");
+            if (b.Gravity > 0f) feat.Add("抛射");
+            if (b.ExplodeR > 0f) feat.Add($"爆炸 {b.ExplodeR:0.#}m / {b.ExplodeDmg:0} 伤");
+            if (b.Burn > 0f) feat.Add($"燃烧 {b.Burn:0}/s");
+            if (b.Slow > 0f) feat.Add($"减速 {b.Slow * 100f:0}%");
+            if (b.Radius > 0f) feat.Add($"范围 {b.Radius:0.#}m");
+            if (b.Duration > 0f) feat.Add($"持续 {b.Duration:0}s");
+            if (b.ChainCount > 0) feat.Add($"连锁 {b.ChainCount} 次");
+            if (b.Trigger != TriggerKind.None)
+                feat.Add($"<b>{TriggerName(b.Trigger)}触发</b>：施放下一颗子弹");
             if (feat.Count > 0) lines.Add(string.Join("    ", feat));
+
             return string.Join("\n", lines);
         }
 
-        static string DescribeMod(ModifierDef m)
+        static void AddKind(System.Collections.Generic.List<string> feat, BulletKind k)
+        {
+            switch (k)
+            {
+                case BulletKind.Beam: feat.Add("瞬时命中"); break;
+                case BulletKind.Mine: feat.Add("地雷"); break;
+                case BulletKind.Field: feat.Add("力场"); break;
+                case BulletKind.Chain: feat.Add("连锁"); break;
+                case BulletKind.Saw: feat.Add("回旋"); break;
+                case BulletKind.Hole: feat.Add("奇点"); break;
+            }
+        }
+
+        public static string TriggerName(TriggerKind t) => t switch
+        {
+            TriggerKind.Hit => "命中",
+            TriggerKind.Timer => "定时",
+            TriggerKind.Expire => "消散",
+            _ => "",
+        };
+
+        public static string DescribeMod(ModifierDef m)
         {
             var parts = new System.Collections.Generic.List<string>();
-            if (m.DamageMul != 1f) parts.Add($"伤害 ×{m.DamageMul:0.##}");
-            if (m.DamageFlat != 0f) parts.Add($"伤害 {(m.DamageFlat > 0 ? "+" : "")}{m.DamageFlat:0.#}");
-            if (m.CritFlat != 0f) parts.Add($"暴击 +{m.CritFlat * 100f:0}%");
-            if (m.CritMul != 1f) parts.Add($"暴击 ×{m.CritMul:0.##}");
-            if (m.CritDmgFlat != 0f) parts.Add($"暴伤 +{m.CritDmgFlat:0.#}");
-            if (m.SpreadMul != 1f) parts.Add($"散射 ×{m.SpreadMul:0.##}");
-            if (m.SpreadAddFlat != 0f) parts.Add($"散射 +{m.SpreadAddFlat:0.#}°");
-            if (m.LifetimeFlat != 0f) parts.Add($"存在 {(m.LifetimeFlat > 0 ? "+" : "")}{m.LifetimeFlat:0.#}s");
-            if (m.LifetimeMul != 1f) parts.Add($"存在 ×{m.LifetimeMul:0.##}");
-            if (m.AmmoFlat != 0) parts.Add($"弹药 {(m.AmmoFlat > 0 ? "+" : "")}{m.AmmoFlat}");
-            if (m.SpeedMul != 1f) parts.Add($"弹速 ×{m.SpeedMul:0.##}");
-            if (m.PierceFlat != 0) parts.Add($"穿透 +{m.PierceFlat}");
-            if (m.BounceFlat != 0) parts.Add($"反弹 +{m.BounceFlat}");
-            if (m.HomingRate != 0f) parts.Add($"追踪 {m.HomingRate:0}°/s");
-            if (m.SplitCount > 1)
-                parts.Add($"分裂 ×{m.SplitCount}（伤 ×{m.SplitDamageMul:0.##} 散 +{m.SplitSpreadAdd:0.#}°）");
-            if (m.SplashAdd != 0f) parts.Add($"溅射 +{m.SplashAdd:0.#}m");
-            if (m.GunMagAdd != 0) parts.Add($"弹匣 +{m.GunMagAdd}");
-            if (m.GunFireIntervalMul != 1f) parts.Add($"射速 ×{1f / m.GunFireIntervalMul:0.##}");
-            if (m.GunSpreadMul != 1f) parts.Add($"枪散射 ×{m.GunSpreadMul:0.##}");
+
+            if (m.DamageMulAdd != 0f) parts.Add($"伤害 {(m.DamageMulAdd > 0 ? "+" : "")}{m.DamageMulAdd * 100f:0}%");
+            if (m.SizeMulAdd != 0f) parts.Add($"体积 {(m.SizeMulAdd > 0 ? "+" : "")}{m.SizeMulAdd * 100f:0}%");
+            if (m.SpeedMulAdd != 0f) parts.Add($"速度 {(m.SpeedMulAdd > 0 ? "+" : "")}{m.SpeedMulAdd * 100f:0}%");
+            if (m.RangeMulAdd != 0f) parts.Add($"射程 +{m.RangeMulAdd * 100f:0}%");
+            if (m.LifeMulAdd != 0f) parts.Add($"存在 +{m.LifeMulAdd * 100f:0}%");
+            if (m.KnockMulAdd != 0f) parts.Add($"击退 +{m.KnockMulAdd * 100f:0}%");
+            if (m.CountMulAdd != 0f) parts.Add($"数量 ×{1f + m.CountMulAdd:0.##}");
+            if (m.RadiusMulAdd != 0f) parts.Add($"范围 +{m.RadiusMulAdd * 100f:0}%");
+            if (m.PiercePer != 0) parts.Add($"穿透 +{m.PiercePer}");
+            if (m.BouncePer != 0) parts.Add($"反弹 +{m.BouncePer}");
+            if (m.HomingPer != 0f) parts.Add("追踪");
+            if (m.BurnPer != 0f) parts.Add($"燃烧 +{m.BurnPer:0}/s");
+            if (m.SlowPer != 0f) parts.Add($"减速 {m.SlowPer * 100f:0}%");
+            if (m.CritPer != 0f) parts.Add($"暴击 +{m.CritPer * 100f:0}%");
+            if (m.SpreadPer != 0f) parts.Add($"散射 +{m.SpreadPer:0.#}°");
+            if (m.ExplodeRBase != 0f) parts.Add($"命中爆炸 {m.ExplodeRBase:0.#}m");
+            if (m.ExplodeRAdd != 0f) parts.Add($"爆炸范围 +{m.ExplodeRAdd * 100f:0}%");
+            if (m.AmmoReduce != 0) parts.Add($"耗弹 −{m.AmmoReduce}");
+
+            if (m.GunMagMul != 1f) parts.Add($"弹匣 ×{m.GunMagMul:0.##}");
             if (m.GunReloadMul != 1f) parts.Add($"换弹 ×{m.GunReloadMul:0.##}");
+            if (m.GunDelayMul != 1f) parts.Add($"射速 ×{1f / m.GunDelayMul:0.##}");
+            if (m.GunSpreadMul != 1f) parts.Add($"枪散射 ×{m.GunSpreadMul:0.##}");
+            if (m.GunRecycleAdd != 0f) parts.Add($"免耗弹 {m.GunRecycleAdd * 100f:0}%");
+            if (m.GunCastAdd != 0) parts.Add($"读取 +{m.GunCastAdd}");
+            if (m.GunLeech != 0f) parts.Add($"击杀回血 {m.GunLeech:0}");
+            if (m.Multicast != 0) parts.Add($"额外读取 {m.Multicast}");
 
             string note = m.Scope switch
             {
-                Scope.After => "\n<b>后继</b>：只作用于排在它**之后**的子弹（放在子弹后 = 白放）",
-                Scope.Whole => "\n<b>全场</b>：作用于施加时刻链内全部投射物（与位置无关）",
-                _ => "\n<b>枪械</b>：装配时作用于整把枪，不占链的触发时间轴",
+                Scope.Next => "\n<b>下一发</b>：射击时会被读取，叠给之后读到的第一个子弹（自身耗弹）",
+                Scope.Prev => "\n<b>上一个</b>：被动，作用于左侧最近的子弹",
+                Scope.Adj => "\n<b>相邻</b>：被动，作用于左右各一格内的子弹",
+                Scope.N2 => "\n<b>后 2 格</b>：被动，作用于右侧 2 格内的子弹",
+                Scope.N3 => "\n<b>后 3 格</b>：被动，作用于右侧 3 格内的子弹",
+                Scope.P2 => "\n<b>前 2 格</b>：被动，作用于左侧 2 格内的子弹",
+                _ => "\n<b>全枪</b>：被动，作用于整把枪械",
             };
             return string.Join("    ", parts) + note;
         }

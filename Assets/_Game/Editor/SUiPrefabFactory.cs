@@ -453,8 +453,10 @@ namespace S.EditorTools
                 new Color(0.72f, 0.8f, 0.92f), new Vector2(1f, 0.5f), new Vector2(1f, 0.5f),
                 new Vector2(0f, 34f), new Vector2(300f, 20f));
 
-            // 6 个格位（链长上限 S.Core.Loadout.MaxChain），按需显隐
-            refs.ChainIcons = new ItemIconView[S.Core.Loadout.MaxChain];
+            // HUD 的「下一发会打出什么」：一格一发投射物，最多显示 8 个
+            // （一次施法最多 24 发，但一排 24 个图标会挤成一团，超过 8 个只显示前 8）
+            const int HudShotIcons = 8;
+            refs.ChainIcons = new ItemIconView[HudShotIcons];
             for (int i = 0; i < refs.ChainIcons.Length; i++)
             {
                 var node = CreateItemIconNode("ChainIcon" + i, refs.ChainRoot, 40f, hoverable: true);
@@ -538,13 +540,28 @@ namespace S.EditorTools
                 Color.white, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
                 new Vector2(0f, 130f), new Vector2(1200f, 90f));
 
-            refs.ZoneText = LabelFixed("ZoneText", root.transform, "", 22, TextAnchor.UpperCenter,
-                new Color(0.85f, 0.9f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
-                new Vector2(0f, -26f), new Vector2(900f, 30f));
+            // ---- 中央大计时器（对齐原型 #timer）----
+            // 原型里 00:00 是 HUD 的主视觉（34px 粗体 + 青色辉光），
+            // 我们原来只有顶部一行 22px 小字，玩家在战斗里根本注意不到「还剩多久」。
+            // 时间轴是本作唯一的节奏来源，不显眼等于没做。
+            refs.Timer = LabelFixed("Timer", root.transform, "00:00", 52, TextAnchor.UpperCenter,
+                new Color(0.86f, 0.97f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
+                new Vector2(0f, -12f), new Vector2(500f, 62f));
+            refs.Timer.fontStyle = FontStyle.Bold;
 
-            // Boss 血条（默认隐藏）
+            // 倒计时标签（金色小字，贴在计时器下方）
+            refs.TimerLabel = LabelFixed("TimerLabel", root.transform, "", 18, TextAnchor.UpperCenter,
+                new Color(1f, 0.82f, 0.35f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
+                new Vector2(0f, -76f), new Vector2(900f, 26f));
+
+            // 阶段 + 敌人数（原 ZoneText 改造：不再显示「区域 x/6」）
+            refs.ZoneText = LabelFixed("ZoneText", root.transform, "", 18, TextAnchor.UpperCenter,
+                new Color(0.72f, 0.78f, 0.88f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
+                new Vector2(0f, -104f), new Vector2(900f, 26f));
+
+            // Boss 血条（默认隐藏）：放在阶段行下方，避开中央计时器
             var bbrt = Fixed("BossBar", root.transform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
-                new Vector2(0f, -62f), new Vector2(680f, 30f));
+                new Vector2(0f, -134f), new Vector2(680f, 28f));
             var bbg = bbrt.gameObject.AddComponent<Image>();
             bbg.sprite = Sp("bar_bg");
             bbg.type = Image.Type.Sliced;
@@ -555,9 +572,9 @@ namespace S.EditorTools
 
             refs.BossFill = BarIn(bbrt, Sp("bar_fill_boss"), new Color(0.78f, 0.32f, 0.72f));
 
-            refs.BossNameText = LabelFixed("BossNameText", root.transform, "", 20, TextAnchor.UpperCenter,
+            refs.BossNameText = LabelFixed("BossNameText", root.transform, "", 18, TextAnchor.UpperCenter,
                 new Color(0.95f, 0.8f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f),
-                new Vector2(0f, -96f), new Vector2(900f, 26f));
+                new Vector2(0f, -164f), new Vector2(900f, 24f));
 
             bbrt.gameObject.SetActive(false);
             refs.BossNameText.gameObject.SetActive(false);
@@ -662,12 +679,19 @@ namespace S.EditorTools
             bagDrop.ChainIndex = -1;
             refs.BagDropPanel = bagDrop;
 
+            // 背包网格热区：占据面板上半部，下半部留给详情区。
+            // 原型（#inv-detail）也是这个结构 —— 详情常驻在背包下方，
+            // 而不是跟着鼠标飘：对比两件配件时视线不需要移动。
+            const float detailH = 210f;
+
             refs.BagGrid = Frame("Grid", bagPanelRt,
                 new Vector2(0f, 0f), new Vector2(1f, 1f),
-                new Vector2(12f, 12f), new Vector2(-12f, -46f));
+                new Vector2(12f, 12f + detailH + 8f), new Vector2(-12f, -46f));
             var glg = refs.BagGrid.gameObject.AddComponent<GridLayoutGroup>();
-            glg.cellSize = new Vector2(150f, 44f);
-            glg.spacing = new Vector2(6f, 6f);
+            // 背包格子与 ItemCard 的尺寸必须一致（116×100），
+            // 否则 GridLayoutGroup 会把卡片拉伸成细长条（旧版 150×44 就是因为这个）。
+            glg.cellSize = new Vector2(116f, 100f);
+            glg.spacing = new Vector2(8f, 8f);
             glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             glg.constraintCount = 3;
             glg.childAlignment = TextAnchor.UpperLeft;
@@ -675,6 +699,9 @@ namespace S.EditorTools
             Label("BagTitle", bagPanelRt, "背包", 20, TextAnchor.MiddleLeft,
                 new Color(0.8f, 0.85f, 0.95f),
                 new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(14f, -34f), new Vector2(200f, -6f));
+
+            // ---- 详情区（#inv-detail）----
+            BuildDetailPanel(refs, bagPanelRt, detailH);
 
             // 底部提示
             refs.Hint = Label("Hint", root.transform, "", 20, TextAnchor.MiddleCenter,
@@ -725,6 +752,82 @@ namespace S.EditorTools
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
 
             return root;
+        }
+
+        /// <summary>
+        /// 融合式详情区（对齐原型 #inv-detail）：图标 + 名称 + 稀有度 + 作用域 + 数值 + 用法提示。
+        ///
+        /// 布局按**分带**排，不用像素猜：整块高 detailH，按上到下切成
+        /// 「标题 0–34 / 元信息 34–56 / 数值 56–118 / 提示 118–detailH」。
+        /// </summary>
+        static void BuildDetailPanel(InvRefs refs, Transform parent, float detailH)
+        {
+            var panelRt = Frame("Detail", parent,
+                new Vector2(0f, 0f), new Vector2(1f, 0f),
+                new Vector2(12f, 12f), new Vector2(-12f, 12f + detailH));
+            var bg = panelRt.gameObject.AddComponent<Image>();
+            bg.color = new Color(0.06f, 0.08f, 0.11f, 0.92f);
+            bg.raycastTarget = false;
+
+            // 左侧圆形图标（含稀有度色环，与卡片同一套形状）
+            var ringRt = Fixed("DetailRing", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
+                new Vector2(12f, -12f), new Vector2(72f, 72f));
+            var ring = ringRt.gameObject.AddComponent<Image>();
+            ring.sprite = Sp("icon_frame");
+            ring.type = Image.Type.Simple;
+            ring.preserveAspect = true;
+            ring.raycastTarget = false;
+            ring.color = new Color(0.35f, 0.40f, 0.48f, 0.45f);
+
+            var iconRt = Fixed("DetailIcon", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
+                new Vector2(18f, -18f), new Vector2(60f, 60f));
+            var icon = iconRt.gameObject.AddComponent<Image>();
+            icon.type = Image.Type.Simple;
+            icon.preserveAspect = true;
+            icon.raycastTarget = false;
+            icon.enabled = false;
+
+            // 标题（右侧文字区）
+            // ⚠ 这里必须用 Label（offsetMin/offsetMax 拉伸），不能用 LabelFixed。
+            // LabelFixed 的最后一个参数是 sizeDelta 尺寸，传负值是"缩小到 0 以下"，
+            // 实际渲染会把文字裁掉一截 —— 截图里提示行被切掉就是这个原因。
+            const float textLeft = 96f;
+            var title = Label("DetailTitle", panelRt, "—", 19, TextAnchor.UpperLeft,
+                Color.white, new Vector2(0f, 1f), new Vector2(1f, 1f),
+                new Vector2(textLeft, -32f), new Vector2(-12f, -10f));
+
+            var meta = Label("DetailMeta", panelRt, "", 13, TextAnchor.UpperLeft,
+                new Color(0.75f, 0.8f, 0.9f), new Vector2(0f, 1f), new Vector2(1f, 1f),
+                new Vector2(textLeft, -54f), new Vector2(-12f, -34f));
+
+            // 作用域色块 + 文字：色块是可读性手段，不是装饰（7 种作用域靠颜色分辨）
+            var chipRt = Fixed("ScopeChip", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
+                new Vector2(textLeft, -70f), new Vector2(6f, 14f));
+            var chip = chipRt.gameObject.AddComponent<Image>();
+            chip.raycastTarget = false;
+            chip.color = new Color(0f, 0f, 0f, 0f);
+
+            var scopeText = Label("DetailScope", panelRt, "", 13, TextAnchor.UpperLeft,
+                new Color(0.7f, 0.78f, 0.9f), new Vector2(0f, 1f), new Vector2(1f, 1f),
+                new Vector2(textLeft + 12f, -70f), new Vector2(-12f, -50f));
+
+            // 数值区：多行、向上对齐、允许换行
+            var stats = Label("DetailStats", panelRt, "", 14, TextAnchor.UpperLeft,
+                new Color(0.88f, 0.92f, 1f), new Vector2(0f, 0f), new Vector2(1f, 1f),
+                new Vector2(14f, 34f), new Vector2(-12f, -96f));
+            stats.horizontalOverflow = HorizontalWrapMode.Wrap;
+            stats.verticalOverflow = VerticalWrapMode.Truncate;
+
+            // 用法提示：贴着面板底部，两行以内
+            var hint = Label("DetailHint", panelRt, "", 12, TextAnchor.UpperLeft,
+                new Color(0.60f, 0.68f, 0.78f), new Vector2(0f, 0f), new Vector2(1f, 0f),
+                new Vector2(14f, 8f), new Vector2(-12f, 32f));
+            hint.horizontalOverflow = HorizontalWrapMode.Wrap;
+            hint.verticalOverflow = VerticalWrapMode.Truncate;
+
+            var detail = panelRt.gameObject.AddComponent<ItemDetailPanel>();
+            detail.Bind(icon, ring, title, meta, scopeText, chip, stats, hint);
+            refs.Detail = detail;
         }
 
         /// <summary>背包上方的枪页签。</summary>
@@ -795,7 +898,12 @@ namespace S.EditorTools
             rt.anchorMin = new Vector2(0f, 1f);
             rt.anchorMax = new Vector2(0f, 1f);
             rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.sizeDelta = new Vector2(150f, 84f);
+
+            // 尺寸按**网格单元**设计（槽位网格 5 列、约 116×108）。
+            // 旧版是 150×84 的横向长条，那是给「一条链一行」的老布局做的；
+            // 放进新网格后每张卡变成一根横条，5 列排下来像一排书签，
+            // 完全看不出「这是一张可以拖动的配件牌」。
+            rt.sizeDelta = new Vector2(116f, 100f);
             var refs = root.AddComponent<CardRefs>();
 
             refs.Background = root.AddComponent<Image>();
@@ -805,39 +913,35 @@ namespace S.EditorTools
             refs.Background.color = new Color(0.75f, 0.82f, 0.92f, 0.85f);
             refs.Background.raycastTarget = true;
 
-            // 内衬：原来是纯色 (0.07,0.09,0.12)，和卡框的 AI 金属不是一套材质，
-            // 贴在一起有接缝感。改用 card_inner（同一批 AI 材质、同色系细边）。
-            // ⚠ Pic 在 sliced=true 时会把 color 强制设成白色（见该方法），
-            // 所以这里传白色、不要指望 tint 生效。
             refs.Inner = Pic("Inner", root.transform, Color.white,
                 Vector2.zero, Vector2.one, new Vector2(3f, 3f), new Vector2(-3f, -3f),
                 Sp("card_inner"), true);
 
-            // 稀有度色条：6×84 的竖向细条。
-            // 原来给的是 tag_common（256×64 横向标签图），套在 6px 宽的竖条上：
-            // 左右边距 1+1 已经吃掉 1/3 宽度，中间的"左端小方块"被拉伸成整条竖线，
-            // 观感是一根发虚的渐变条。竖向色条不需要贴图 —— 纯色块正是 art-style 要的。
+            // 稀有度色条改成**顶部横条**：竖条在方形卡片左边会挤掉图标宽度，
+            // 横条则天然对应「卡牌顶部的稀有度带」，也更省水平空间。
             refs.Tag = Pic("Tag", root.transform, Color.white,
-                new Vector2(0f, 0f), new Vector2(0f, 1f),
-                new Vector2(0f, 0f), new Vector2(6f, 0f));
+                new Vector2(0f, 1f), new Vector2(1f, 1f),
+                new Vector2(4f, -8f), new Vector2(-4f, -4f));
 
-            // 圆形图标：配件用圆形图标代表（本次要求）。
-            // 卡片左侧 48×48，与 HUD 链条、三选一卡片保持同一个视觉元素 —— 玩家在
-            // 背包里认熟的形状，进 HUD 还认得出来。
-            refs.IconNode = CreateItemIconNode("Icon", root.transform, 48f);
+            // 圆形图标居中偏上：方形卡片里图标是主视觉，必须放在视觉中心而不是左对齐
+            refs.IconNode = CreateItemIconNode("Icon", root.transform, 52f);
             var iRt = (RectTransform)refs.IconNode.transform;
-            iRt.anchorMin = new Vector2(0f, 0.5f);
-            iRt.anchorMax = new Vector2(0f, 0.5f);
-            iRt.pivot = new Vector2(0f, 0.5f);
-            iRt.anchoredPosition = new Vector2(12f, 0f);
+            iRt.anchorMin = new Vector2(0.5f, 1f);
+            iRt.anchorMax = new Vector2(0.5f, 1f);
+            iRt.pivot = new Vector2(0.5f, 1f);
+            iRt.anchoredPosition = new Vector2(0f, -14f);
 
-            // 用图标节点取代右上角的单色作用域小标：作用域现在叠在圆形图标右上角，
-            // 这样"图标 + 作用域"是一个整体，文字区全部留给数值。
+            // 作用域标叠在图标右上角（图标 + 作用域是一个整体）
             refs.ScopeIcon = refs.IconNode.ScopeMark;
 
-            refs.Label = Label("Label", root.transform, "", 13, TextAnchor.UpperLeft,
+            // 名称压在底部：两行上限，超出用省略号。
+            // 配件名最长 5 个汉字（「消散触发弹」），116px 宽在 12px 字号下刚好两行放得下。
+            refs.Label = Label("Label", root.transform, "", 12, TextAnchor.LowerCenter,
                 new Color(1f, 0.93f, 0.82f),
-                Vector2.zero, Vector2.one, new Vector2(70f, 4f), new Vector2(-6f, -4f));
+                new Vector2(0f, 0f), new Vector2(1f, 0f),
+                new Vector2(4f, 4f), new Vector2(-4f, 30f));
+            refs.Label.horizontalOverflow = HorizontalWrapMode.Wrap;
+            refs.Label.verticalOverflow = VerticalWrapMode.Truncate;
 
             return root;
         }
@@ -958,23 +1062,35 @@ namespace S.EditorTools
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(18f, -66f), new Vector2(-18f, -22f));
 
-            // 圆形图标：三选一是玩家第一次见到这件配件的地方，图标必须够大（96px），
-            // 并且和背包/HD 里同一套形状 —— 靠"圆 + 稀有度色环"建立识别。
-            refs.IconNode = CreateItemIconNode("Icon", root.transform, 96f);
+            // 卡片内容按**明确分带**排，而不是各自用像素偏移猜位置：
+            //   标题 0–66 / 图标 74–170 / 描述 182–396 / 提示 398–440（从上往下，单位 px）
+            // 之前图标(96px, 顶在 -78)与描述(顶在 -190)只隔 16px，
+            // 中文描述第一行有 15px 行距，实际渲染就压在圆环上了（截图可见）。
+            // 分带之后每一块的高度是显式的，改字号也不会互相顶。
+            refs.IconNode = CreateItemIconNode("Icon", root.transform, 88f);
             var iconRt = (RectTransform)refs.IconNode.transform;
             iconRt.anchorMin = new Vector2(0.5f, 1f);
             iconRt.anchorMax = new Vector2(0.5f, 1f);
             iconRt.pivot = new Vector2(0.5f, 1f);
-            iconRt.anchoredPosition = new Vector2(0f, -78f);
+            iconRt.anchoredPosition = new Vector2(0f, -74f);
 
+            // 图标与描述之间的细分割线：视觉上把「这是什么」与「它有什么用」分开
+            Pic("IconRule", root.transform, new Color(1f, 1f, 1f, 0.14f),
+                new Vector2(0f, 1f), new Vector2(1f, 1f),
+                new Vector2(40f, -176f), new Vector2(-40f, -175f), null, false);
+
+            // 描述区：横向用「整卡宽 − 两侧留白」，而不是从标题锚点续接。
+            // 标题用 (0,1)-(1,1) 锚点，宽高由偏移决定；描述若照抄标题的左锚 (0,0)-(1,1)，
+            // 它的右边界会跟着标题的 offsetMax 走，结果右边被切掉一截 ——
+            // 截图里「补水」这种被截断的字就是它造成的。
             refs.Desc = Label("Desc", root.transform, "", 15, TextAnchor.UpperLeft,
                 new Color(0.82f, 0.87f, 0.95f),
                 new Vector2(0f, 0f), new Vector2(1f, 1f),
-                new Vector2(18f, 60f), new Vector2(-18f, -190f));
+                new Vector2(20f, 44f), new Vector2(-20f, -182f));
 
             refs.PickHint = Label("PickHint", root.transform, "点击拾取", 14, TextAnchor.LowerCenter,
                 new Color(0.55f, 0.62f, 0.72f),
-                new Vector2(0f, 0f), new Vector2(1f, 0f), new Vector2(0f, 14f), new Vector2(0f, 40f));
+                new Vector2(0f, 0f), new Vector2(1f, 0f), new Vector2(0f, 12f), new Vector2(0f, 38f));
 
             return root;
         }

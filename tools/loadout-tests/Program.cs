@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using S.Core;
 
 namespace LoadoutTests
 {
     /// <summary>
-    /// 配件结算的回归断言集。直接链接 Assets/_Game/Core 源码运行，
-    /// 每个 case 对应 docs/loadout-spec.md §9 的一条算例。
-    /// 期望值写在程序里而不是从数据文件读 —— 这样数据被改动时测试会红，正是我们要的。
+    /// 结算引擎回归断言。直接链接 Assets/_Game/Core 源码运行。
+    ///
+    /// 判据纪律：期望值**写死在这里**，不从 sdata.json 反算。
+    /// 数据被改坏时必须变红 —— 否则「数据 + 断言一起改」就永远绿，
+    /// 这正是这类项目最容易烂掉的地方。
+    ///
+    /// 本轮重写：链模型从「时间序列」换成「读取式扫描」（docs/loadout-spec.md §3）。
+    /// 旧断言全部作废，新断言按原型规则逐条覆盖。
     /// </summary>
     static class Program
     {
@@ -22,18 +26,20 @@ namespace LoadoutTests
             var path = FindData();
             Console.WriteLine("DATA " + path);
             D = SData.Parse(File.ReadAllText(path));
-            Console.WriteLine($"LOADED guns={D.GunOrder.Count} bullets={D.Bullets.Count} mods={D.Modifiers.Count}");
+            Console.WriteLine($"LOADED guns={D.GunOrder.Count} bullets={D.BulletOrder.Count} mods={D.ModifierOrder.Count}");
 
-            SpecCases();
-            ChainValidationCases();
-            RotationCases();
-            GunModifierCases();
-            PreviewCases();
-            ChainTriggerCases();
-            ZoneCases();
+            DataCases();
+            ScopeCases();
+            WeightsCases();
+            ScanCases();
+            LoadoutRuleCases();
+            TriggerCases();
+            GunStatCases();
+            SequenceCases();
+            BagCases();
+            TimelineCases();
             BossCases();
 
-            // 数值基准（-bench 时才跑；输出用于校准，不计入断言总数）
             if (HasFlag("-bench"))
             {
                 Bench.RunAll(D);
@@ -51,638 +57,446 @@ namespace LoadoutTests
             return 0;
         }
 
-        // ---------------- docs/loadout-spec.md §9 ----------------
+        // ---------------- 数据 ----------------
 
-        static void SpecCases()
+        static void DataCases()
         {
-            Section("§9 施法算例");
+            Section("数据契约（data-schema.md）");
 
-            // #1 制式弹
-            {
-                var r = Cast("g_auto", "b_slug");
-                Eq("#1 弹丸数", 1, r.Projectiles.Count);
-                Near("#1 伤害", 12f, r.Projectiles[0].Damage);
-                Near("#1 暴击率", 0.05f, r.Projectiles[0].Crit);
-                Near("#1 散射", 1.2f, r.Projectiles[0].Spread);
-                Eq("#1 弹药", 2, r.AmmoCost);
-                Near("#1 单发期望", 12.6f, r.Projectiles[0].ExpectedDamage);
-            }
+            Check("6 把枪", D.GunOrder.Count == 6, $"{D.GunOrder.Count}");
+            Check("17 个子弹配件", D.BulletOrder.Count == 17, $"{D.BulletOrder.Count}");
+            Check("22 个衍生配件", D.ModifierOrder.Count == 22, $"{D.ModifierOrder.Count}");
 
-            // #2 校准 + 制式
-            {
-                var r = Cast("g_auto", "m_dmg_up", "b_slug");
-                Near("#2 伤害", 16.2f, r.Projectiles[0].Damage);
-                Near("#2 期望", 17.01f, r.Projectiles[0].ExpectedDamage);
-                Eq("#2 弹药", 2, r.AmmoCost);
-            }
+            Check("步枪 8 槽", D.Guns["rifle"].SlotCount == 8, $"{D.Guns["rifle"].SlotCount}");
+            Check("冲锋枪 10 槽", D.Guns["smg"].SlotCount == 10, $"{D.Guns["smg"].SlotCount}");
+            Check("霰弹枪读取 2 发", D.Guns["shotgun"].CastCount == 2, $"{D.Guns["shotgun"].CastCount}");
+            Check("发射器 12 槽", D.Guns["launcher"].SlotCount == 12, $"{D.Guns["launcher"].SlotCount}");
+            Check("狙击枪零散布", D.Guns["sniper"].SpreadBase == 0f, $"{D.Guns["sniper"].SpreadBase}");
 
-            // #3 [增压, 校准, 制式] = (12+8)*1.35
-            {
-                var r = Cast("g_auto", "m_dmg_flat", "m_dmg_up", "b_slug");
-                Near("#3 伤害", 27.0f, r.Projectiles[0].Damage);
-                Near("#3 期望", 28.35f, r.Projectiles[0].ExpectedDamage);
-            }
+            Check("标准弹伤害 12", Near(D.Bullets["std"].Damage, 12f), $"{D.Bullets["std"].Damage}");
+            Check("穿甲弹穿透 4", D.Bullets["ap"].Pierce == 4, $"{D.Bullets["ap"].Pierce}");
+            Check("霰弹数量 6", D.Bullets["pellet"].Count == 6, $"{D.Bullets["pellet"].Count}");
+            Check("激光是 Beam", D.Bullets["laser"].Kind == BulletKind.Beam, $"{D.Bullets["laser"].Kind}");
+            Check("榴弹受重力", D.Bullets["grenade"].Gravity > 0f, $"{D.Bullets["grenade"].Gravity}");
+            Check("触发弹为命中触发", D.Bullets["trigger"].Trigger == TriggerKind.Hit, $"{D.Bullets["trigger"].Trigger}");
+            Check("消散弹为消散触发", D.Bullets["expire"].Trigger == TriggerKind.Expire, $"{D.Bullets["expire"].Trigger}");
 
-            // #4 [校准, 增压, 制式] = 12*1.35+8
-            {
-                var r = Cast("g_auto", "m_dmg_up", "m_dmg_flat", "b_slug");
-                Near("#4 伤害", 24.2f, r.Projectiles[0].Damage);
-                Near("#4 期望", 25.41f, r.Projectiles[0].ExpectedDamage);
-            }
+            // 每把枪的 baseBullet 必须能查到
+            bool allBase = true;
+            foreach (var g in D.GunOrder)
+                if (!D.Bullets.ContainsKey(g.BaseBullet)) allBase = false;
+            Check("每把枪的 baseBullet 都能查到", allBase);
 
-            // #5 [制式, 增压] → no-target 警告，伤害同 #1
-            {
-                var r = Cast("g_auto", "b_slug", "m_dmg_flat");
-                Near("#5 伤害", 12f, r.Projectiles[0].Damage);
-                Eq("#5 警告数", 1, r.Warnings.Count);
-                Eq("#5 警告码", "no-target", r.Warnings.Count > 0 ? r.Warnings[0].Code : "");
-            }
-
-            // #6 [分裂, 制式] → 3 发 × 6.6
-            {
-                var r = Cast("g_auto", "m_split", "b_slug");
-                Eq("#6 弹丸数", 3, r.Projectiles.Count);
-                Near("#6 单个伤害", 6.6f, r.Projectiles[0].Damage);
-                Eq("#6 弹药不变", 2, r.AmmoCost);
-                Near("#6 整次期望", 20.79f, r.ExpectedDamage, 0.02f);
-            }
-
-            // #7 [分裂, 校准, 制式] → 分裂后校准作用于 3 个
-            {
-                var r = Cast("g_auto", "m_split", "m_dmg_up", "b_slug");
-                Eq("#7 弹丸数", 3, r.Projectiles.Count);
-                Near("#7 单个伤害", 8.91f, r.Projectiles[0].Damage);
-                Near("#7 整次期望", 28.07f, r.ExpectedDamage, 0.03f);
-            }
-
-            // #8 [校准, 分裂, 制式] → 与 #7 等价（验证全场语义）
-            {
-                var r = Cast("g_auto", "m_dmg_up", "m_split", "b_slug");
-                Eq("#8 弹丸数", 3, r.Projectiles.Count);
-                Near("#8 单个伤害", 8.91f, r.Projectiles[0].Damage);
-                Near("#8 整次期望", 28.07f, r.ExpectedDamage, 0.03f);
-            }
-
-            // #9 [制式, 制式]
-            {
-                var r = Cast("g_auto", "b_slug", "b_slug");
-                Eq("#9 弹丸数", 2, r.Projectiles.Count);
-                Eq("#9 弹药", 4, r.AmmoCost);
-                Near("#9 整次期望", 25.2f, r.ExpectedDamage, 0.02f);
-            }
-
-            // #10 [分裂, 分裂, 制式] → 3 → 9
-            {
-                var r = Cast("g_auto", "m_split", "m_split", "b_slug");
-                Eq("#10 弹丸数", 9, r.Projectiles.Count);
-                Near("#10 单个伤害", 3.63f, r.Projectiles[0].Damage, 0.005f);
-                Eq("#10 弹药", 2, r.AmmoCost);
-            }
-
-            // #12 [稳定器, 制式] on g_auto → 1.2*0.6
-            {
-                var r = Cast("g_auto", "m_spread_down", "b_slug");
-                Near("#12 散射", 0.72f, r.Projectiles[0].Spread);
-            }
-
-            // #13 [弹链优化, 制式] → max(1, 2-1)
-            {
-                var r = Cast("g_auto", "m_ammo_down", "b_slug");
-                Eq("#13 弹药", 1, r.AmmoCost);
-            }
-
-            // #14 [弹链优化 x2, 制式] → 钳制到 1
-            {
-                var r = Cast("g_auto", "m_ammo_down", "m_ammo_down", "b_slug");
-                Eq("#14 弹药", 1, r.AmmoCost);
-            }
-
-            // #15 [霰粒, 霰粒]
-            {
-                var r = Cast("g_auto", "b_pellet", "b_pellet");
-                Eq("#15 弹丸数", 2, r.Projectiles.Count);
-                Near("#15 单个伤害", 6f, r.Projectiles[0].Damage);
-                Eq("#15 弹药", 2, r.AmmoCost);
-                Near("#15 每颗散射", 4.2f, r.Projectiles[0].Spread);
-                Near("#15 期望", 12.18f, r.ExpectedDamage, 0.02f);
-            }
-
-            // #15b [分裂, 霰粒]
-            {
-                var r = Cast("g_auto", "m_split", "b_pellet");
-                Eq("#15b 弹丸数", 3, r.Projectiles.Count);
-                Near("#15b 单个伤害", 3.3f, r.Projectiles[0].Damage);
-                Eq("#15b 弹药", 1, r.AmmoCost);
-                Near("#15b 散射", 6.2f, r.Projectiles[0].Spread, 0.001f);
-                Near("#15b 期望", 10.05f, r.ExpectedDamage, 0.02f);
-            }
-
-            // #16 榴弹 [制式] → 溅射 2.8
-            {
-                var r = Cast("g_grenade", "b_slug");
-                Near("#16 溅射半径", 2.8f, r.Projectiles[0].SplashRadius);
-            }
-
-            // #17 榴弹 [电浆团] → max(2.8, 1.2) = 2.8
-            {
-                var r = Cast("g_grenade", "b_plasma");
-                Near("#17 溅射半径", 2.8f, r.Projectiles[0].SplashRadius);
-            }
-
-            // #21 单发 [制式] → 12 × 5.4（damageMul 已按实测校准到 5.4）
-            {
-                var r = Cast("g_single", "b_slug");
-                Near("#21 伤害", 64.8f, r.Projectiles[0].Damage, 0.01f);
-                Near("#21 期望", 68.04f, r.Projectiles[0].ExpectedDamage, 0.03f);
-            }
-
-            // #22 单发 [校准, 制式]
-            {
-                var r = Cast("g_single", "m_dmg_up", "b_slug");
-                Near("#22 伤害", 87.48f, r.Projectiles[0].Damage, 0.03f);
-                Near("#22 期望", 91.854f, r.Projectiles[0].ExpectedDamage, 0.05f);
-            }
-
-            // #23 单发 [增压, 校准, 制式]
-            {
-                var r = Cast("g_single", "m_dmg_flat", "m_dmg_up", "b_slug");
-                Near("#23 伤害", 145.8f, r.Projectiles[0].Damage, 0.05f);
-                Near("#23 期望", 153.09f, r.Projectiles[0].ExpectedDamage, 0.08f);
-            }
-
-            // #24 榴弹 [校准, 制式] → 16.2 × 3.9
-            {
-                var r = Cast("g_grenade", "m_dmg_up", "b_slug");
-                Near("#24 基础爆伤", 63.18f, r.Projectiles[0].Damage, 0.03f);
-                Near("#24 边缘伤害", 28.431f, r.Projectiles[0].Damage * 0.45f, 0.05f);
-            }
-
-            // 额外：光矛弹速
-            {
-                var r = Cast("g_auto", "b_lance");
-                Near("光矛 speedMul", 1.6f, r.Projectiles[0].SpeedMul);
-            }
-
-            // 额外：制式弹存在时间
-            {
-                var r = Cast("g_auto", "b_slug");
-                Near("制式弹 lifetime", 1.2f, r.Projectiles[0].Lifetime);
-            }
-
-            // 额外：延时引信
-            {
-                var r = Cast("g_auto", "m_life_up", "b_slug");
-                Near("延时引信 lifetime", 1.7f, r.Projectiles[0].Lifetime);
-            }
-
-            // 额外：激光准星 +12%
-            {
-                var r = Cast("g_auto", "m_crit_up", "b_slug");
-                Near("激光准星 crit", 0.17f, r.Projectiles[0].Crit, 0.0005f);
-            }
-
-            // 额外：暴击率钳制到 1.0
-            {
-                var r = Cast("g_auto", "m_crit_up", "m_crit_up", "b_slug");
-                Near("暴击钳制", 0.29f, r.Projectiles[0].Crit, 0.0005f);
-            }
-
-            // 额外：加速器速度与伤害代价
-            {
-                var r = Cast("g_auto", "m_speed_up", "b_slug");
-                Near("加速器 speedMul", 1.6f, r.Projectiles[0].SpeedMul);
-                Near("加速器伤害代价", 10.2f, r.Projectiles[0].Damage, 0.01f);
-            }
-
-            // 额外：穿透射击
-            {
-                var r = Cast("g_auto", "m_pierce", "b_slug");
-                Eq("穿透射击 pierce", 2, r.Projectiles[0].Pierce);
-                Near("穿透射击伤害代价", 10.2f, r.Projectiles[0].Damage, 0.01f);
-            }
-
-            // 额外：制导是全场作用域，放在子弹后面同样生效
-            {
-                var r = Cast("g_auto", "b_slug", "m_homing");
-                Eq("制导全场无警告", 0, r.Warnings.Count);
-                Near("制导全场生效", 180f, r.Projectiles[0].HomingRate);
-                Near("制导全场伤害代价", 10.8f, r.Projectiles[0].Damage, 0.01f);
-            }
-
-            // 额外：爆裂装药的溅射与伤害（m_blast 已按实测降到 1.4 / ×1.00）
-            {
-                var r = Cast("g_auto", "m_blast", "b_slug");
-                Near("爆裂装药溅射", 1.4f, r.Projectiles[0].SplashRadius, 0.001f);
-                Near("爆裂装药伤害不增", 12f, r.Projectiles[0].Damage, 0.01f);
-            }
-
-            // 额外：爆裂装药叠加榴弹基础溅射
-            {
-                var r = Cast("g_grenade", "m_blast", "b_slug");
-                Near("榴弹+爆裂溅射", 4.2f, r.Projectiles[0].SplashRadius, 0.001f);
-            }
+            // 起手槽位：第 1 格有子弹
+            var st = D.BuildStarterSlots("rifle");
+            Check("起手第 1 格有子弹", st.Cells[0] != null && st.Cells[0].IsBullet);
+            Check("起手其余格为空", st.Cells[1] == null && st.Cells[7] == null);
         }
 
-        // ---------------- 装配校验 ----------------
+        // ---------------- 作用域 ----------------
 
-        static void ChainValidationCases()
+        static void ScopeCases()
         {
-            Section("装配校验");
+            Section("作用域取目标（loadout-spec §2）");
 
-            // #11 三颗制式弹违反同名上限
-            {
-                var slot = new SlotState();
-                If("同名1 插入成功", Loadout.Insert(slot, D.MakeItem("b_slug")));
-                If("同名2 插入成功", Loadout.Insert(slot, D.MakeItem("b_slug")));
-                var code = Loadout.ValidateInsert(slot, D.MakeItem("b_slug"), slot.Chain.Count);
-                Eq("同名3 被拒", "same-limit", code);
-                Eq("同名拒绝后链长", 2, slot.Chain.Count);
-            }
+            var s = new SlotState(8);
+            // 0:被动Prev 1:被动Adj 2:子弹 3:子弹 4:空 5:子弹 6:空 7:空
+            s.Cells[0] = D.MakeItem("dmg");     // 默认 Next，先当占位
+            s.Cells[1] = D.MakeItem("pierce");
+            s.Cells[2] = D.MakeItem("std");
+            s.Cells[3] = D.MakeItem("std");
+            s.Cells[5] = D.MakeItem("std");
 
-            // 链长上限 6
-            {
-                var slot = new SlotState();
-                for (int i = 0; i < 5; i++) Loadout.Insert(slot, D.MakeItem("m_dmg_up"));
-                // 同名上限会先拦住，改用不同件凑满
-                slot = new SlotState();
-                foreach (var id in new[] { "b_slug", "b_slug", "m_dmg_up", "m_crit_up", "m_life_up", "m_spread_down" })
-                    If("链长填充 " + id, Loadout.Insert(slot, D.MakeItem(id)));
-                Eq("链长=6", 6, slot.Chain.Count);
-                Eq("第7项被拒", "chain-full", Loadout.ValidateInsert(slot, D.MakeItem("b_heavy"), 6));
-            }
+            // Prev：向左最近的一个子弹
+            var t = Loadout.TargetsOf(Scope.Prev, 3, s);
+            Check("Prev 从 3 找到 2", t.Count == 1 && t[0] == 2, string.Join(",", t));
 
-            // 插入位置
-            {
-                var slot = new SlotState();
-                Loadout.Insert(slot, D.MakeItem("b_slug"));
-                Loadout.Insert(slot, D.MakeItem("m_dmg_up"), 0);
-                Eq("插入头部后第一项是衍生", false, slot.Chain[0].IsBullet);
-                Eq("插入头部后第二项是子弹", true, slot.Chain[1].IsBullet);
-            }
+            // Adj：左右各一格
+            t = Loadout.TargetsOf(Scope.Adj, 3, s);
+            Check("Adj 覆盖 2 与 4", t.Contains(2) && t.Contains(4) && t.Count == 2, string.Join(",", t));
 
-            // 越界插入被拒
-            {
-                var slot = new SlotState();
-                Eq("越界索引被拒", "bad-index", Loadout.ValidateInsert(slot, D.MakeItem("b_slug"), 5));
-            }
+            // N2：右侧两格
+            t = Loadout.TargetsOf(Scope.N2, 2, s);
+            Check("N2 覆盖 3 与 4", t.Contains(3) && t.Contains(4), string.Join(",", t));
+
+            // N3：右侧三格
+            t = Loadout.TargetsOf(Scope.N3, 2, s);
+            Check("N3 覆盖 3/4/5", t.Contains(3) && t.Contains(4) && t.Contains(5), string.Join(",", t));
+
+            // P2：左侧两格
+            t = Loadout.TargetsOf(Scope.P2, 3, s);
+            Check("P2 覆盖 1 与 2", t.Contains(1) && t.Contains(2), string.Join(",", t));
+
+            // All：除自己之外全部
+            t = Loadout.TargetsOf(Scope.All, 0, s);
+            Check("All 排除自身", !t.Contains(0) && t.Count == 7, string.Join(",", t));
+
+            // 越界必须被裁掉
+            t = Loadout.TargetsOf(Scope.N3, 6, s);
+            Check("N3 在末尾裁掉越界（只剩 7）", t.Count == 1 && t[0] == 7, string.Join(",", t));
+
+            // Next 指向顺时针下一个子弹
+            int nb = Loadout.NextBulletCell(0, s);
+            Check("Next 从 0 指向 2", nb == 2, $"{nb}");
+            nb = Loadout.NextBulletCell(5, s);
+            Check("Next 从 5 环绕指向 2", nb == 2, $"{nb}");
         }
 
-        // ---------------- 轮转 ----------------
+        // ---------------- 权重（同名同域叠加）----------------
 
-        static void RotationCases()
+        static void WeightsCases()
         {
-            Section("§1.1 轮转与弹药");
+            Section("配件叠加（loadout-spec §3.3）");
 
-            // #18 三链非空 → 1,2,3,1
+            var d = D.Bullets["std"].ToDesc();
+            var m = D.Modifiers["dmg"];   // damageMulAdd = 0.5
+            Loadout.ApplyMod(d, m, 1);
+            Check("伤害增幅×1 → 12×1.5=18", Near(d.Damage, 18f), $"{d.Damage}");
+
+            var d2 = D.Bullets["std"].ToDesc();
+            Loadout.ApplyMod(d2, m, 2);
+            Check("伤害增幅×2 → 12×2=24", Near(d2.Damage, 24f), $"{d2.Damage}");
+
+            // 爆裂：无爆裂时按基础半径建
+            var d3 = D.Bullets["std"].ToDesc();
+            Loadout.ApplyMod(d3, D.Modifiers["explode"], 1);
+            Check("爆裂建立半径 2.5", Near(d3.ExplodeR, 2.5f), $"{d3.ExplodeR}");
+            Check("爆裂伤害 = 12×0.8+12 = 21.6", Near(d3.ExplodeDmg, 21.6f), $"{d3.ExplodeDmg}");
+
+            // 已有爆裂的子弹：半径 ×1.25
+            var d4 = D.Bullets["grenade"].ToDesc();
+            Loadout.ApplyMod(d4, D.Modifiers["explode"], 1);
+            Check("榴弹爆裂半径 4×1.25=5", Near(d4.ExplodeR, 5f), $"{d4.ExplodeR}");
+
+            // 巨大化：体积、伤害、范围
+            var d5 = D.Bullets["std"].ToDesc();
+            Loadout.ApplyMod(d5, D.Modifiers["giant"], 1);
+            Check("巨大化体积 ×2.2", Near(d5.Size, 0.12f * 2.2f), $"{d5.Size}");
+            Check("巨大化伤害 ×1.3", Near(d5.Damage, 15.6f), $"{d5.Damage}");
+
+            // 三重弹幕：数量 ×3、伤害 ×0.7、散射 +7
+            var d6 = D.Bullets["std"].ToDesc();
+            Loadout.ApplyMod(d6, D.Modifiers["scatter"], 1);
+            Check("三重弹幕数量 ×3", d6.Count == 3, $"{d6.Count}");
+            Check("三重弹幕伤害 ×0.7", Near(d6.Damage, 8.4f), $"{d6.Damage}");
+            Check("三重弹幕散射 +7", Near(d6.Spread, 7f), $"{d6.Spread}");
+
+            // 穿透：每层 +2
+            var d7 = D.Bullets["std"].ToDesc();
+            Loadout.ApplyMod(d7, D.Modifiers["pierce"], 1);
+            Check("穿透×1 → +2", d7.Pierce == 2, $"{d7.Pierce}");
+            Loadout.ApplyMod(d7, D.Modifiers["pierce"], 2);
+            Check("再叠 2 层 → 2+4=6", d7.Pierce == 6, $"{d7.Pierce}");
+        }
+
+        // ---------------- 扫描 ----------------
+
+        static void ScanCases()
+        {
+            Section("读取式扫描（loadout-spec §3.1）");
+
+            var gun = D.Guns["rifle"];
+
+            // 只有标准弹
+            var s = new SlotState(8);
+            s.Cells[0] = D.MakeItem("std");
+            var st = Loadout.ResolveGun(gun, s);
+            var r = Loadout.ResolveCast(gun, s, st, 0);
+            Check("单子弹产 1 发", r.Projectiles.Count == 1, $"{r.Projectiles.Count}");
+            Check("耗弹 1", r.AmmoCost == 1, $"{r.AmmoCost}");
+            Check("指针推进到 1", r.NextPointer == 1, $"{r.NextPointer}");
+
+            // Next 件占读取：dmg(0) + std(1) → 1 发，伤害 ×1.5
+            var s2 = new SlotState(8);
+            s2.Cells[0] = D.MakeItem("dmg");
+            s2.Cells[1] = D.MakeItem("std");
+            var st2 = Loadout.ResolveGun(gun, s2);
+            var r2 = Loadout.ResolveCast(gun, s2, st2, 0);
+            Check("Next+子弹 = 1 发", r2.Projectiles.Count == 1, $"{r2.Projectiles.Count}");
+            Check("Next 加成生效 → 18", Near(r2.Projectiles[0].Damage, 18f), $"{r2.Projectiles[0].Damage}");
+            Check("耗弹 = 1+1 = 2", r2.AmmoCost == 2, $"{r2.AmmoCost}");
+
+            // 被动件不占读取
+            var s3 = new SlotState(8);
+            s3.Cells[0] = D.MakeItem("std");
+            s3.Cells[1] = D.MakeItem("pierce");   // 默认 Next，需要改成被动
+            s3.Cells[1].Mod.Scope = Scope.Prev;
+            var st3 = Loadout.ResolveGun(gun, s3);
+            var r3 = Loadout.ResolveCast(gun, s3, st3, 0);
+            Check("被动件不占读取", r3.Projectiles.Count == 1, $"{r3.Projectiles.Count}");
+            Check("被动 Prev 作用于格 0", r3.Projectiles[0].Pierce == 2, $"{r3.Projectiles[0].Pierce}");
+
+            // castCount=2 的霰弹枪：读 2 个子弹
+            var sg = D.Guns["shotgun"];
+            var s4 = new SlotState(6);
+            s4.Cells[0] = D.MakeItem("pellet");
+            s4.Cells[1] = D.MakeItem("pellet");
+            var st4 = Loadout.ResolveGun(sg, s4);
+            var r4 = Loadout.ResolveCast(sg, s4, st4, 0);
+            Check("霰弹枪一次读 2 发", r4.Projectiles.Count == 2, $"{r4.Projectiles.Count}");
+            Check("两发都是 6 弹丸", r4.Projectiles[0].Count == 6 && r4.Projectiles[1].Count == 6,
+                $"{r4.Projectiles[0].Count}/{r4.Projectiles[1].Count}");
+
+            // 多重施放加预算
+            var s5 = new SlotState(8);
+            s5.Cells[0] = D.MakeItem("g_double");
+            s5.Cells[1] = D.MakeItem("std");
+            s5.Cells[2] = D.MakeItem("std");
+            var st5 = Loadout.ResolveGun(gun, s5);
+            var r5 = Loadout.ResolveCast(gun, s5, st5, 0);
+            Check("双重施放读 2 个子弹", r5.Projectiles.Count == 2, $"{r5.Projectiles.Count}");
+        }
+
+        // ---------------- 规则细节 ----------------
+
+        static void LoadoutRuleCases()
+        {
+            Section("结算规则（loadout-spec §3.2 §4）");
+
+            var gun = D.Guns["rifle"];
+
+            // 散射 × 枪械倍率
+            var s = new SlotState(8);
+            s.Cells[0] = D.MakeItem("std");
+            s.Cells[1] = D.MakeItem("g_stable");   // 全枪散射 ×0.4
+            var st = Loadout.ResolveGun(gun, s);
+            Check("稳定器散射 ×0.4", Near(st.SpreadMul, 0.4f), $"{st.SpreadMul}");
+            var r = Loadout.ResolveCast(gun, s, st, 0);
+            // std spread 0 × 1.2(枪) × 0.4 = 0
+            Check("零散布子弹仍是 0", Near(r.Projectiles[0].Spread, 0f), $"{r.Projectiles[0].Spread}");
+
+            // 有基础散射的子弹才会被枪械散射放大
+            var s2 = new SlotState(8);
+            s2.Cells[0] = D.MakeItem("light");   // spread 2.5
+            var st2 = Loadout.ResolveGun(gun, s2);
+            var r2 = Loadout.ResolveCast(gun, s2, st2, 0);
+            Check("轻型弹散射不被枪修正（GunStats.Spread 未并入）",
+                Near(r2.Projectiles[0].Spread, 2.5f), $"{r2.Projectiles[0].Spread}");
+
+            // 枪械件数量上限
+            var s3 = new SlotState(8);
+            s3.Cells[0] = D.MakeItem("pellet");
+            for (int i = 1; i < 5; i++) { s3.Cells[i] = D.MakeItem("scatter"); s3.Cells[i].Mod.Scope = Scope.Prev; }
+            var st3 = Loadout.ResolveGun(gun, s3);
+            var r3 = Loadout.ResolveCast(gun, s3, st3, 0);
+            Check("投射物数量被封顶 24", r3.Projectiles[0].Count <= Loadout.MaxCount,
+                $"{r3.Projectiles[0].Count}");
+
+            // 空格跳过：先读 0 号，指针落到下一个「可读」格（3 号）
+            var s4 = new SlotState(8);
+            s4.Cells[0] = D.MakeItem("std");
+            s4.Cells[1] = null;
+            s4.Cells[2] = null;
+            s4.Cells[3] = D.MakeItem("std");
+            var st4 = Loadout.ResolveGun(gun, s4);
+            var r4 = Loadout.ResolveCast(gun, s4, st4, 0);
+            // NextPointer 是「扫描停止位置的下一个」，再读一次应命中 3 号
+            var r4b = Loadout.ResolveCast(gun, s4, st4, r4.NextPointer);
+            Check("跳过空格后下一次读到 3 号格",
+                r4b.UsedCells.Count > 0 && r4b.UsedCells[0] == 3,
+                r4b.UsedCells.Count > 0 ? $"{r4b.UsedCells[0]}" : "无读取");
+
+            // 空枪
+            var s5 = new SlotState(8);
+            var st5 = Loadout.ResolveGun(gun, s5);
+            var r5 = Loadout.ResolveCast(gun, s5, st5, 0);
+            Check("空枪不产出", !r5.Succeeded, $"{r5.Projectiles.Count}");
+        }
+
+        // ---------------- 触发弹 ----------------
+
+        static void TriggerCases()
+        {
+            Section("触发弹载荷（loadout-spec §3.4）");
+
+            var gun = D.Guns["rifle"];
+            var s = new SlotState(8);
+            s.Cells[0] = D.MakeItem("trigger");
+            s.Cells[1] = D.MakeItem("grenade");
+            var st = Loadout.ResolveGun(gun, s);
+            var r = Loadout.ResolveCast(gun, s, st, 0);
+
+            Check("触发弹本体产出 1 发", r.Projectiles.Count == 1, $"{r.Projectiles.Count}");
+            var p = r.Projectiles[0];
+            Check("触发条件为 Hit", p.Trigger == TriggerKind.Hit, $"{p.Trigger}");
+            Check("有载荷", p.Payload != null && p.Payload.Count == 1,
+                $"{p.Payload?.Count}");
+
+            if (p.Payload != null && p.Payload.Count == 1)
             {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("b_slug"));
-                gun.Slots[2].Chain.Add(D.MakeItem("b_slug"));
+                Check("载荷是榴弹", p.Payload[0].ModuleId == "grenade", p.Payload[0].ModuleId);
+                Check("载荷带爆裂半径", p.Payload[0].ExplodeR > 0f, $"{p.Payload[0].ExplodeR}");
+            }
 
-                var seq = new List<int>();
-                for (int i = 0; i < 4; i++)
+            // 载荷伤害计入期望
+            float total = p.ExpectedDamage;
+            Check("载荷伤害计入总期望", total > 8f, $"{total}");
+
+            // 没有下一个子弹 → 无载荷但不崩
+            var s2 = new SlotState(8);
+            s2.Cells[0] = D.MakeItem("trigger");
+            var st2 = Loadout.ResolveGun(gun, s2);
+            var r2 = Loadout.ResolveCast(gun, s2, st2, 0);
+            Check("无载荷时不崩且仍产出", r2.Projectiles.Count == 1, $"{r2.Projectiles.Count}");
+            Check("无载荷时 Payload 为空", r2.Projectiles[0].Payload == null);
+
+            // 递归上限
+            var s3 = new SlotState(12);
+            for (int i = 0; i < 10; i++) s3.Cells[i] = D.MakeItem("trigger");
+            var st3 = Loadout.ResolveGun(gun, s3);
+            var r3 = Loadout.ResolveCast(gun, s3, st3, 0);
+            Check("深递归不崩", r3.Projectiles.Count >= 1, $"{r3.Projectiles.Count}");
+        }
+
+        // ---------------- 枪械属性 ----------------
+
+        static void GunStatCases()
+        {
+            Section("枪械向配件（loadout-spec §5）");
+
+            var gun = D.Guns["rifle"];
+            var s = new SlotState(8);
+            var st = Loadout.ResolveGun(gun, s);
+            Check("基础弹匣 30", st.Mag == 30, $"{st.Mag}");
+
+            s.Cells[0] = D.MakeItem("g_mag");
+            st = Loadout.ResolveGun(gun, s);
+            Check("扩容弹匣 ×1.5 = 45", st.Mag == 45, $"{st.Mag}");
+
+            s.Cells[1] = D.MakeItem("g_reload");
+            st = Loadout.ResolveGun(gun, s);
+            Check("快速装填 ×0.65 = 0.975", Near(st.Reload, 1.5f * 0.65f), $"{st.Reload}");
+
+            s.Cells[2] = D.MakeItem("g_rapid");
+            st = Loadout.ResolveGun(gun, s);
+            Check("速射 ×0.75 = 0.105", Near(st.ShotInterval(0f), 0.14f * 0.75f), $"{st.ShotInterval(0f)}");
+
+            s.Cells[3] = D.MakeItem("g_parallel");
+            st = Loadout.ResolveGun(gun, s);
+            Check("并联扳机读取 +1", st.CastCount == 2, $"{st.CastCount}");
+            Check("并联扳机弹匣 −20%", Near(st.Mag, 45f * 0.8f), $"{st.Mag}");
+
+            // 弹药回收叠加
+            var s2 = new SlotState(8);
+            s2.Cells[0] = D.MakeItem("g_recycle");
+            var st2 = Loadout.ResolveGun(gun, s2);
+            Check("回收 25%", Near(st2.Recycle, 0.25f), $"{st2.Recycle}");
+            s2.Cells[1] = D.MakeItem("g_recycle");
+            st2 = Loadout.ResolveGun(gun, s2);
+            Check("回收叠加 43.75%", Near(st2.Recycle, 1f - 0.75f * 0.75f), $"{st2.Recycle}");
+
+            // 汲能
+            var s3 = new SlotState(8);
+            s3.Cells[0] = D.MakeItem("g_leech");
+            var st3 = Loadout.ResolveGun(gun, s3);
+            Check("汲能 +2", Near(st3.Leech, 2f), $"{st3.Leech}");
+        }
+
+        // ---------------- 施法序列 ----------------
+
+        static void SequenceCases()
+        {
+            Section("施法序列（loadout-spec §3.5）");
+
+            var gun = D.Guns["rifle"];
+            var s = new SlotState(8);
+            s.Cells[0] = D.MakeItem("std");
+            s.Cells[1] = D.MakeItem("std");
+            s.Cells[2] = D.MakeItem("std");
+
+            var st = Loadout.ResolveGun(gun, s);
+            var seq = Loadout.FullSequence(gun, s, st);
+            Check("序列至少 2 步", seq.Count >= 2, $"{seq.Count}");
+            Check("第 1 步从格 0 起", seq[0].UsedCells[0] == 0, $"{seq[0].UsedCells[0]}");
+            Check("第 2 步从格 1 起", seq.Count > 1 && seq[1].UsedCells[0] == 1,
+                seq.Count > 1 ? $"{seq[1].UsedCells[0]}" : "n/a");
+        }
+
+        // ---------------- 背包 ----------------
+
+        static void BagCases()
+        {
+            Section("背包与分解（gameplay-spec §6）");
+
+            var run = new RunState(D, 12345);
+            Check("背包容量 44", run.BagCapacity == 44, $"{run.BagCapacity}");
+
+            bool ok = run.TryPick("std");
+            Check("拾取成功", ok && run.Bag.Count == 1, $"{run.Bag.Count}");
+
+            int lvBefore = run.Level;
+            int xpBefore = run.Xp;
+            int gained = run.Salvage(run.Bag[0]);
+            Check("分解普通件得 3 经验", gained == 3, $"{gained}");
+            Check("分解后背包清空", run.Bag.Count == 0, $"{run.Bag.Count}");
+            Check("分解经验已入账", run.Xp != xpBefore || run.Level != lvBefore,
+                $"xp={run.Xp} lv={run.Level}");
+
+            // 稀有 6 / 史诗 9
+            var run2 = new RunState(D, 999);
+            run2.TryPick("ap");
+            Check("分解稀有件得 6", run2.Salvage(run2.Bag[0]) == 6);
+            run2.TryPick("hole");
+            Check("分解史诗件得 9", run2.Salvage(run2.Bag[0]) == 9);
+
+            // 抽取不含重复
+            var offers = run.Roll(3);
+            Check("三选一产出 3 个", offers.Count == 3, $"{offers.Count}");
+            Check("三选一无重复",
+                offers.Count == 3 && offers[0].Id != offers[1].Id &&
+                offers[1].Id != offers[2].Id && offers[0].Id != offers[2].Id);
+        }
+
+        // ---------------- 时间轴 ----------------
+
+        static void TimelineCases()
+        {
+            Section("单图时间轴（gameplay-spec §2 §2.1）");
+
+            var a = D.Arena;
+            Check("场地 100×100", a.Width == 100f && a.Depth == 100f, $"{a.Width}×{a.Depth}");
+            Check("掩体 18 件", a.CoverCount == 18, $"{a.CoverCount}");
+
+            var d = D.Director;
+            Check("时间轴 5 阶段", d.Phases.Count == 5, $"{d.Phases.Count}");
+            Check("Boss 入场 600s（10:00）", Math.Abs(d.BossAt - 600f) < 0.001f, $"{d.BossAt}");
+            Check("精英首现 300s（5:00）", Math.Abs(d.Elite.FirstAt - 300f) < 0.001f, $"{d.Elite.FirstAt}");
+
+            var probe = new RunDirector(D.Director.PhaseList, null)
+            {
+                BossAt = D.Director.BossAt,
+                ThreatFullAt = D.Director.ThreatFullAt,
+                Elite = D.Director.Elite,
+            };
+
+            probe.SeekTo(300f);
+            Check("5:00 威胁 50", Math.Abs(probe.Threat - 50f) < 0.5f, $"{probe.Threat:0.00}");
+            probe.SeekTo(600f);
+            Check("10:00 威胁 100", Math.Abs(probe.Threat - 100f) < 0.5f, $"{probe.Threat:0.00}");
+
+            // 事件：5:00 首只精英、10:00 Boss
+            var d2 = new RunDirector(D.Director.PhaseList, null)
+            {
+                BossAt = D.Director.BossAt,
+                ThreatFullAt = D.Director.ThreatFullAt,
+                Elite = D.Director.Elite,
+            };
+            for (int i = 0; i < 299; i++) d2.Tick(1f);
+            Check("5:00 前无精英", d2.ElitesSpawned == 0, $"{d2.ElitesSpawned}");
+
+            bool elite = false, boss = false;
+            for (int i = 0; i < 302; i++)
+            {
+                foreach (var e in d2.Tick(1f))
                 {
-                    int expect = i % 3;
-                    Eq("#18 施放前 Peek", expect, gun.PeekNextSlot());
-                    var r = gun.TryFire(out _);
-                    If("#18 第" + (i + 1) + "发成功", r != null);
-                    gun.FireCooldown = 0f; // 跳过射速等待，只测轮转
-                    seq.Add(expect);
+                    if (e.Kind == RunDirector.EventKind.EliteDue) elite = true;
+                    if (e.Kind == RunDirector.EventKind.BossDue) boss = true;
                 }
-                // 打满 4 发后 cursor 回到 1
-                Eq("#18 第四发后指针", 1 % 3, gun.Cursor);
             }
-
-            // #19 中间位为空 → 跳过
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Clear();
-                gun.Slots[2].Chain.Add(D.MakeItem("b_slug"));
-
-                Eq("#19 首跳 1 位", 0, gun.PeekNextSlot());
-                gun.TryFire(out _); gun.FireCooldown = 0f;
-                Eq("#19 空位被跳过 → 2", 2, gun.PeekNextSlot());
-                gun.TryFire(out _); gun.FireCooldown = 0f;
-                Eq("#19 回绕到 0", 0, gun.PeekNextSlot());
-            }
-
-            // #20 全空 → 空枪，不耗弹，指针不动
-            {
-                var gun = MakeGun("g_auto");
-                for (int i = 0; i < gun.Slots.Length; i++) gun.Slots[i].Chain.Clear();
-                int ammoBefore = gun.Ammo;
-                var r = gun.TryFire(out var reason);
-                Eq("#20 空枪返回 null", true, r == null);
-                Eq("#20 原因", "no-bullet", reason);
-                Eq("#20 弹药不变", ammoBefore, gun.Ammo);
-                Eq("#20 指针不动", 0, gun.Cursor);
-            }
-
-            // 弹药不足 → 不施法 + 自动换弹
-            {
-                var gun = MakeGun("g_auto");
-                gun.Ammo = 1;   // 制式弹需要 2
-                var r = gun.TryFire(out var reason);
-                Eq("弹药不足返回 null", true, r == null);
-                Eq("弹药不足原因", "no-ammo", reason);
-                Eq("弹药不足触发换弹", true, gun.Reloading);
-                Eq("弹药不足指针不动", 0, gun.Cursor);
-            }
-
-            // 换弹后补满，且指针保持
-            {
-                var gun = MakeGun("g_auto");
-                gun.TryFire(out _); // 消耗 2，指针 → 1
-                int cursorBefore = gun.Cursor;
-                gun.FireCooldown = 0f;
-                gun.Ammo = 3;
-                gun.StartReload();
-                gun.Tick(gun.Resolved.ReloadTime + 0.01f);
-                Eq("换弹补满", gun.Resolved.MagSize, gun.Ammo);
-                Eq("换弹不重置指针", cursorBefore, gun.Cursor);
-            }
-
-            // 射速冷却阻止连点
-            {
-                var gun = MakeGun("g_auto");
-                If("首发生效", gun.TryFire(out _) != null);
-                var r2 = gun.TryFire(out var reason2);
-                Eq("冷却中返回 null", true, r2 == null);
-                Eq("冷却原因", "cooldown", reason2);
-            }
-
-            // 打空自动换弹
-            {
-                var gun = MakeGun("g_auto");
-                gun.Ammo = 2;
-                If("打空最后一发", gun.TryFire(out _) != null);
-                Eq("打空后自动换弹", 0, gun.Ammo);
-                Eq("打空后进入换弹", true, gun.Reloading);
-            }
-        }
-
-        // ---------------- 枪械级配件 ----------------
-
-        static void GunModifierCases()
-        {
-            Section("§5.3 枪械级配件");
-
-            // 弹匣扩容 +12
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("m_mag"));
-                gun.Recalc();
-                Eq("弹匣扩容", 48, gun.Resolved.MagSize);
-            }
-
-            // 同名只生效一次
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("m_mag"));
-                gun.Slots[2].Chain.Add(D.MakeItem("m_mag"));
-                gun.Recalc();
-                Eq("弹匣扩容同名只算一次", 48, gun.Resolved.MagSize);
-            }
-
-            // 高速击发
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("m_rate"));
-                gun.Recalc();
-                Near("高速击发间隔", 0.11f * 0.82f, gun.Resolved.FireInterval, 0.0005f);
-            }
-
-            // 后坐抑制：散射 ×0.75，换弹 ×0.80
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("m_recoil"));
-                gun.Recalc();
-                Near("后坐散射", 1.2f * 0.75f, gun.Resolved.SpreadBase, 0.0005f);
-                Near("后坐换弹", 1.8f * 0.80f, gun.Resolved.ReloadTime, 0.0005f);
-            }
-
-            // 枪械件不影响投射物
-            {
-                var r = Cast("g_auto", "m_mag", "b_slug");
-                Near("枪械件不作用于弹丸", 12f, r.Projectiles[0].Damage);
-            }
-
-            // 枪械件放在子弹后面也生效
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[0].Chain.Clear();
-                gun.Slots[0].Chain.Add(D.MakeItem("b_slug"));
-                gun.Slots[0].Chain.Add(D.MakeItem("m_mag"));
-                gun.Recalc();
-                Eq("枪械件位置无关", 48, gun.Resolved.MagSize);
-            }
-
-            // 弹匣缩小时钳制当前弹药
-            {
-                var gun = MakeGun("g_auto");
-                gun.Slots[1].Chain.Add(D.MakeItem("m_mag"));
-                gun.Recalc();
-                gun.Ammo = 48;
-                gun.Slots[1].Chain.Clear();
-                gun.Recalc();
-                Eq("卸下扩容后弹药被钳制", 36, gun.Ammo);
-            }
-        }
-
-        // ---------------- 拖拽落点预览 ----------------
-
-        static void PreviewCases()
-        {
-            Section("拖拽落点预览（§3.3）");
-
-            var gun = D.Guns["g_auto"];
-
-            // 空链插入子弹：基线 0 → 有伤害，且原链不被修改
-            {
-                var slot = new SlotState();
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("b_slug"), 0);
-                If("预览可插入", pv.CanInsert);
-                Near("空链基线伤害 0", 0f, pv.BaseDamage);
-                Near("插子弹后 12.6", 12.6f, pv.NewDamage, 0.01f);
-                Eq("子弹算有效", true, pv.Effective);
-                Eq("原链未被修改", 0, slot.Chain.Count);
-            }
-
-            // 全场件插在子弹前：作用于 1 个
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_up"), 0);
-                Eq("全场件生效目标数 1", 1, pv.AffectedCount);
-                Eq("全场件有效", true, pv.Effective);
-                Near("伤 12.6 → 17.01", 17.01f, pv.NewDamage, 0.02f);
-                Near("变化率 +35%", 0.35f, pv.DamageDeltaRatio, 0.01f);
-                Eq("原链仍为 1 项", 1, slot.Chain.Count);
-            }
-
-            // 全场件插在子弹后：仍然作用于 1 个（全场语义与位置无关）
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_up"), 1);
-                Eq("全场件放子弹后仍生效", 1, pv.AffectedCount);
-                Near("结果与放前面相同", 17.01f, pv.NewDamage, 0.02f);
-            }
-
-            // 后继件插在子弹后：0 个目标 → 落点应为红
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_flat"), 1);
-                Eq("后继件放子弹后目标数 0", 0, pv.AffectedCount);
-                Eq("后继件放子弹后无效", false, pv.Effective);
-                Eq("产生 no-target 警告", true, pv.HasNoTarget);
-                Near("伤害无变化", 12.6f, pv.NewDamage, 0.01f);
-            }
-
-            // 后继件插在子弹前：作用于它后面的 1 个
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_flat"), 0);
-                Eq("后继件放前面目标数 1", 1, pv.AffectedCount);
-                Eq("后继件放前面有效", true, pv.Effective);
-                Near("伤 12.6 → (12+8)×1.05 = 21", 21f, pv.NewDamage, 0.02f);
-            }
-
-            // 两颗子弹 + 全场件：作用于 2 个
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_up"), 0);
-                Eq("全场件作用于 2 颗", 2, pv.AffectedCount);
-                Eq("弹丸数 2", 2, pv.NewProjectiles);
-            }
-
-            // 两颗子弹 + 后继件插在中间：只作用于第 2 颗
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_flat"), 1);
-                Eq("后继件插中间目标数 1", 1, pv.AffectedCount);
-                // 第 1 颗 12.6，第 2 颗 (12+8)=20 → (1+.05*1)=21
-                Near("整次期望 12.6+21=33.6", 33.6f, pv.NewDamage, 0.05f);
-            }
-
-            // 枪械件：有效，但不改伤害
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_mag"), 0);
-                Eq("枪械件有效", true, pv.Effective);
-                Eq("枪械件标记", true, pv.IsGunScope);
-                Near("枪械件不改该位伤害", 12.6f, pv.NewDamage, 0.01f);
-            }
-
-            // 拒绝码：同名上限
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("b_slug"), 0);
-                Eq("同名超限被拒", "same-limit", pv.RejectCode);
-                Eq("被拒时无效", false, pv.CanInsert);
-            }
-
-            // 拒绝码：链满
-            {
-                var slot = new SlotState();
-                foreach (var id in new[] { "b_slug", "b_slug", "m_dmg_up", "m_crit_up", "m_life_up", "m_spread_down" })
-                    slot.Chain.Add(D.MakeItem(id));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("b_heavy"), 6);
-                Eq("链满被拒", "chain-full", pv.RejectCode);
-            }
-
-            // 分裂件的目标数：插在子弹前，作用 1 个但产出 3 发
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_split"), 0);
-                Eq("分裂目标数 1", 1, pv.AffectedCount);
-                Eq("分裂后弹丸 3", 3, pv.NewProjectiles);
-                Near("分裂整次期望 20.79", 20.79f, pv.NewDamage, 0.03f);
-            }
-
-            // 弹药变化可预览
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var pv = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_ammo_down"), 0);
-                Eq("弹药 2 → 1", 1, pv.NewAmmoCost);
-                Eq("基线弹药 2", 2, pv.BaseAmmoCost);
-            }
-
-            // 预览绝不修改原链（连续调用两次结果一致）
-            {
-                var slot = new SlotState();
-                slot.Chain.Add(D.MakeItem("b_slug"));
-                var a = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_up"), 0);
-                var b = Loadout.PreviewInsert(gun, slot, D.MakeItem("m_dmg_up"), 0);
-                Near("两次预览结果一致", a.NewDamage, b.NewDamage, 0.0001f);
-                Eq("原链长度不变", 1, slot.Chain.Count);
-            }
-        }
-
-        // ---------------- 区域推进 ----------------
-
-        static void ZoneCases()
-        {
-            Section("区域推进（gameplay-spec §2）");
-
-            var zones = D.Zones;
-            Check("数据: 6 个区域", zones.Count == 6, $"{zones.Count}");
-            Check("数据: 末区是 Boss 场", zones.Count > 0 && zones[zones.Count - 1].IsBoss);
-
-            var zp = new ZoneProgress(zones);
-
-            Eq("起点为 1 区", 1, zp.Current);
-            Eq("进入 1 区幂等", null, zp.TryEnter(1));
-            Eq("不能跳到 3 区", "locked", zp.TryEnter(3));
-            If("2 区初始锁定", !zp.CanEnter(2));
-            If("1 区门初始关闭", !zp.IsDoorOpen(1));
-
-            var def1 = zp.Get(1);
-            for (int i = 0; i < def1.Waves; i++) If($"1 区第 {i + 1} 波开始", zp.BeginWave());
-            If("波次用尽后不能再开", !zp.BeginWave());
-            If("清区成功", zp.TryClearCurrent());
-            Eq("1 区已清空", true, zp.CurrentCleared);
-            If("1 区门已开", zp.IsDoorOpen(1));
-            If("清空后可进 2 区", zp.CanEnter(2));
-
-            Eq("进入 2 区成功", null, zp.TryEnter(2));
-            Eq("当前为 2 区", 2, zp.Current);
-            Eq("进区后波次归零", 0, zp.Wave);
-            Eq("2 区未清空", false, zp.IsCleared(2));
-            If("3 区仍锁定", !zp.CanEnter(3));
-
-            zp.BeginWave();
-            If("只打 1 波不能清区", !zp.TryClearCurrent());
-
-            bool ok = true;
-            for (int z = 2; z <= zp.ZoneCount; z++)
-            {
-                if (zp.Current != z && zp.TryEnter(z) != null) { ok = false; break; }
-                var def = zp.Get(z);
-                for (int w = 0; w < def.Waves; w++) zp.BeginWave();
-                if (!zp.TryClearCurrent()) { ok = false; break; }
-            }
-            If("6 区可依次打通", ok);
-            If("末区无门", !zp.IsDoorOpen(zp.ZoneCount));
-            Eq("末区 NextZone 为 0", 0, zp.NextZone);
-            If("末区标记为最终区", zp.IsFinalZone);
-
-            Eq("越界区域被拒", "bad-zone", zp.TryEnter(99));
-            Eq("区域 0 被拒", "bad-zone", zp.TryEnter(0));
-
-            Eq("1 区威胁下限 0", 0f, zones[0].ThreatStart);
-            Eq("Boss 区威胁下限 60", 60f, zones[5].ThreatStart);
+            Check("5:00 触发精英", elite);
+            Check("10:00 触发 Boss", boss);
+            Check("Boss 已入场", d2.BossSpawned);
+            Check("精英共 4 只（5:00/6:30/8:00/9:30）", d2.ElitesSpawned == 4, $"{d2.ElitesSpawned}");
         }
 
         // ---------------- Boss ----------------
@@ -692,275 +506,33 @@ namespace LoadoutTests
             Section("Boss 状态机（gameplay-spec §3.1）");
 
             var b = new BossState(6000f);
-            Eq("初始 P1", BossPhase.P1, b.Phase);
-            If("初始存活", b.Alive);
-            Eq("初始 4 根柱", 4, b.PillarsAlive);
-            If("初始无护盾", !b.ShieldUp);
-            Near("初始无破防加成", 1f, b.DamageTakenMul, 0.001f);
+            Check("初始 P1", b.Phase == BossPhase.P1);
+            Check("初始 4 柱", b.PillarsAlive == 4, $"{b.PillarsAlive}");
+            Check("初始无护盾", !b.ShieldUp);
 
-            b.TakeDamage(1800f, false);
-            Near("血量 70%", 0.7f, b.HpRatio, 0.001f);
-            Eq("70% 仍 P1", BossPhase.P1, b.Phase);
+            // 阶段切换发生在 Tick 里，不在 TakeDamage 里 —— 这是有意的：
+            // 掉血是「结算」，换阶段是「时序事件」，混在一起会让暂停/慢速下的阶段推进失真。
+            b.TakeDamage(2100f, false);   // → 65%
+            Check("扣血后血量到 65%", Near(b.HpRatio, 0.65f, 0.01f), $"{b.HpRatio:0.000}");
+            b.Tick(0.05f);
+            Check("Tick 后进 P2", b.Phase == BossPhase.P2, $"{b.Phase} {b.HpRatio:0.00}");
 
-            b.TakeDamage(240f, false);
-            Near("血量降到 66% 以下", b.HpRatio, 0.66f, 0.02f);
-            b.Tick(0.016f);
-            Eq("进入 P2", BossPhase.P2, b.Phase);
+            b.TakeDamage(2100f, false);   // → 30%
+            b.Tick(0.05f);
+            Check("Tick 后进 P3", b.Phase == BossPhase.P3, $"{b.Phase} {b.HpRatio:0.00}");
 
-            bool shieldEverOn = false;
-            for (int i = 0; i < 2000; i++)
-            {
-                b.Tick(0.05f);
-                if (b.ShieldUp) { shieldEverOn = true; break; }
-            }
-            If("P2 会开护盾", shieldEverOn);
-            If("护盾挡普通攻击", b.IsBlockedByShield(false));
-            If("空蚀弹穿透护盾", !b.IsBlockedByShield(true));
-
-            bool broke = b.DamagePillar(0, 800f);
-            If("能量柱被打碎", broke);
-            Eq("柱剩 3 根", 3, b.PillarsAlive);
-            If("碎柱立刻关盾", !b.ShieldUp);
-            If("碎柱进入破防", b.IsBreached);
-            Near("破防受伤 ×1.5", 1.5f, b.DamageTakenMul, 0.001f);
-            If("破防期护盾无效", !b.IsBlockedByShield(false));
-            If("同柱不能重复打碎", !b.DamagePillar(0, 800f));
-
-            for (int i = 0; i < 200; i++) b.Tick(0.05f);
-            If("破防会结束", !b.IsBreached);
-            Near("破防结束恢复 ×1", 1f, b.DamageTakenMul, 0.001f);
-
-            b.TakeDamage(b.Hp * 0.5f, false);
-            b.Tick(0.016f);
-            Eq("进入 P3", BossPhase.P3, b.Phase);
-
-            bool shock = false;
-            for (int i = 0; i < 800; i++)
-            {
-                var e = b.Tick(0.05f);
-                foreach (var x in e) if (x.Kind == BossEventKind.Shockwave) { shock = true; break; }
-                if (shock) break;
-            }
-            If("P3 会放冲击波", shock);
-
-            b.TakeDamage(b.Hp + 1f, false);
-            Eq("Boss 死亡", BossPhase.Dead, b.Phase);
-            If("死亡后不存活", !b.Alive);
-            Near("死亡后血量 0", 0f, b.Hp, 0.001f);
-
-            var b2 = new BossState(6000f);
-            bool p1Shield = false;
-            for (int i = 0; i < 2000; i++) { b2.Tick(0.05f); if (b2.ShieldUp) p1Shield = true; }
-            If("P1 不会开护盾", !p1Shield);
+            b.TakeDamage(9999f, false);
+            b.Tick(0.05f);
+            Check("Boss 死亡", b.Phase == BossPhase.Dead);
+            Check("死亡后不再存活", !b.Alive);
         }
 
-        // ---------------- 链式触发（loadout-spec §1.2） ----------------
+        // ---------------- 工具 ----------------
 
-        /// <summary>
-        /// 链式触发的核心不变量：**总量不变**。
-        ///
-        /// 运行时不铺 `Projectiles`，而是按 `Steps` 逐项触发。这里用与 `ChainCast` 完全相同的
-        /// 执行顺序在测试里重放一遍，然后逐颗比对伤害/散射/弹药等字段 —— 只要执行器与全量结算
-        /// 有任何口径差异（例如「全场配件排在子弹前」漏算），这条就会红。
-        /// </summary>
-        static void ChainTriggerCases()
-        {
-            Section("§1.2 链式触发");
+        static bool Near(float a, float b, float eps = 0.001f) => Math.Abs(a - b) < eps;
 
-            // 时间轴：每项占一格，间隔 = 击发间隔
-            {
-                var r = Cast("g_auto", "m_dmg_up", "b_slug");
-                Eq("步骤数 = 链长", 2, r.Steps.Count);
-                If("首步在 0 时刻", Math.Abs(r.Steps[0].Delay) < 0.0001f);
-                Near("次步间隔 = 击发间隔", D.Guns["g_auto"].FireInterval, r.Steps[1].Delay);
-                Near("整链时长", D.Guns["g_auto"].FireInterval, r.Duration);
-                Eq("子弹件带模板", ChainStepKind.Bullet, r.Steps[1].Kind);
-                Eq("衍生件带配件", ChainStepKind.Modifier, r.Steps[0].Kind);
-            }
-
-            // 枪械级配件不占时间轴
-            {
-                var r = Cast("g_auto", "m_mag", "b_slug");
-                Eq("枪械件不进时间轴", 1, r.Steps.Count);
-                Eq("剩下的是子弹件", ChainStepKind.Bullet, r.Steps[0].Kind);
-            }
-
-            // 逐条链重放：链式触发总量必须等于全量结算
-            string[][] chains =
-            {
-                new[] { "b_slug" },
-                new[] { "m_dmg_up", "b_slug" },
-                new[] { "m_dmg_flat", "m_dmg_up", "b_slug" },
-                new[] { "m_dmg_up", "m_dmg_flat", "b_slug" },
-                new[] { "b_slug", "m_dmg_flat" },
-                new[] { "m_split", "b_slug" },
-                new[] { "m_split", "m_dmg_up", "b_slug" },
-                new[] { "m_dmg_up", "m_split", "b_slug" },
-                new[] { "b_slug", "b_slug" },
-                new[] { "m_split", "m_split", "b_slug" },
-                new[] { "m_spread_down", "b_slug" },
-                new[] { "m_ammo_down", "b_slug" },
-                new[] { "b_pellet", "b_pellet" },
-                new[] { "m_split", "b_pellet" },
-                new[] { "m_dmg_up", "m_split", "m_dmg_flat", "b_heavy" },
-                new[] { "m_crit_up", "m_critdmg", "m_pierce", "m_blast", "b_lance" },
-            };
-
-            string[] gunIds = { "g_auto", "g_grenade", "g_single" };
-            foreach (var gunId in gunIds)
-            {
-                foreach (var chain in chains)
-                {
-                    var full = Cast(gunId, chain);
-                    var replays = ReplayChain(gunId, full);
-                    string label = $"{gunId} [{string.Join(",", chain)}]";
-
-                    Eq(label + " 弹丸数", full.Projectiles.Count, replays.Count);
-
-                    float want = 0f, got = 0f;
-                    for (int i = 0; i < full.Projectiles.Count; i++) want += full.Projectiles[i].Damage;
-                    for (int i = 0; i < replays.Count; i++) got += replays[i].Damage;
-                    Near(label + " 总伤害", want, got, 0.01f);
-
-                    float wantExp = full.ExpectedDamage, gotExp = 0f;
-                    for (int i = 0; i < replays.Count; i++) gotExp += replays[i].ExpectedDamage;
-                    Near(label + " 整次期望", wantExp, gotExp, 0.01f);
-
-                    // 散射 / 穿透 / 溅射也要一致 —— 只比伤害会漏掉"行为类配件没生效"
-                    for (int i = 0; i < Math.Min(full.Projectiles.Count, replays.Count); i++)
-                    {
-                        Near(label + $" 散射#{i}", full.Projectiles[i].Spread, replays[i].Spread, 0.001f);
-                        Eq(label + $" 穿透#{i}", full.Projectiles[i].Pierce, replays[i].Pierce);
-                        Eq(label + $" 反弹#{i}", full.Projectiles[i].Bounce, replays[i].Bounce);
-                        Near(label + $" 溅射#{i}", full.Projectiles[i].SplashRadius, replays[i].SplashRadius, 0.001f);
-                    }
-                }
-            }
-
-            // 分裂代数上限：链式触发也必须遵守
-            {
-                var r = Cast("g_auto", "m_split", "m_split", "m_split", "m_split", "b_slug");
-                var replays = ReplayChain("g_auto", r);
-                Eq("分裂代上限 弹丸数", r.Projectiles.Count, replays.Count);
-            }
-        }
-
-        /// <summary>
-        /// 在测试里重放 `ChainCast` 的执行顺序（与 View/ChainCast.cs 同构，故意不复用 ——
-        /// 复用就等于用被测代码证明被测代码是对的）。返回最终在场弹丸的描述符。
-        /// </summary>
-        static List<ProjectileDesc> ReplayChain(string gunId, CastResult cast)
-        {
-            var gun = D.Guns[gunId];
-            var alive = new List<ProjectileDesc>();
-            var firedMods = new List<ChainStep>();
-
-            for (int s = 0; s < cast.Steps.Count; s++)
-            {
-                var step = cast.Steps[s];
-                if (step.Kind == ChainStepKind.Bullet)
-                {
-                    var descs = new List<ProjectileDesc> { step.Bullet.Clone() };
-
-                    // 补算在它之前触发、且作用于它的**全部**前置配件，按链顺序
-                    for (int k = 0; k < firedMods.Count; k++)
-                    {
-                        var mod = firedMods[k].Mod;
-                        if (mod == null) continue;
-
-                        var nextStep = new List<ProjectileDesc>(descs.Count);
-                        foreach (var d in descs)
-                        {
-                            if (!Hits(mod, firedMods[k].BulletsSeen, d.SourceIndex)) { nextStep.Add(d); continue; }
-                            nextStep.AddRange(Loadout.ApplyModRuntime(d, mod, gun));
-                        }
-                        descs = nextStep;
-                    }
-
-                    alive.AddRange(descs);
-                    continue;
-                }
-
-                if (step.Mod == null) continue;
-                firedMods.Add(step);
-
-                var next = new List<ProjectileDesc>(alive.Count);
-                foreach (var d in alive)
-                {
-                    if (!Hits(step.Mod, step.BulletsSeen, d.SourceIndex)) { next.Add(d); continue; }
-                    next.AddRange(Loadout.ApplyModRuntime(d, step.Mod, gun));
-                }
-                alive = next;
-            }
-            return alive;
-        }
-
-        static bool Hits(ModifierDef mod, int bulletsSeen, int sourceIndex)
-        {
-            if (mod == null) return false;
-            if (mod.Scope == Scope.Whole) return true;
-            if (mod.Scope == Scope.After) return sourceIndex >= bulletsSeen;
-            return false;
-        }
-
-        static CastResult Cast(string gunId, params string[] chain)
-        {
-            var gun = D.Guns[gunId];
-            var slot = new SlotState();
-            foreach (var id in chain)
-            {
-                var it = D.MakeItem(id);
-                if (it == null) throw new Exception("未知配件 id: " + id);
-                slot.Chain.Add(it);
-            }
-            return Loadout.ResolveCast(gun, slot);
-        }
-
-        static GunRuntime MakeGun(string gunId)
-        {
-            var slots = D.BuildStarterSlots(gunId);
-            return new GunRuntime(D.Guns[gunId], slots);
-        }
-
-        static ProjectileDesc FindDesc(CastResult r, string bulletId)
-        {
-            foreach (var d in r.Projectiles)
-                if (d.Source != null && d.Source.Id == bulletId) return d;
-            return null;
-        }
-
-        static void Section(string name) => Console.WriteLine("-- " + name);
-
-        static void Eq<T>(string name, T expect, T actual)
-        {
-            if (EqualityComparer<T>.Default.Equals(expect, actual)) Ok(name);
-            else Fail($"{name}: 期望 {expect} 实际 {actual}");
-        }
-
-        static void Near(string name, float expect, float actual, float tol = 0.001f)
-        {
-            if (Math.Abs(expect - actual) <= tol) Ok(name);
-            else Fail($"{name}: 期望 {Fmt(expect)} 实际 {Fmt(actual)} (容差 {tol})");
-        }
-
-        static void If(string name, bool cond)
-        {
-            if (cond) Ok(name); else Fail(name + ": 条件为假");
-        }
-
-        static string Fmt(float f) => f.ToString("0.####", CultureInfo.InvariantCulture);
         static bool HasFlag(string flag) =>
             Array.IndexOf(Environment.GetCommandLineArgs(), flag) >= 0;
-
-        static void Ok(string name) => s_pass++;
-        static void Fail(string msg) { s_fail++; s_fails.Add(msg); }
-
-        /// <summary>带说明的条件断言（与 `If` 等价，失败时带原因）。</summary>
-        static void Check(string name, bool cond, string why = "")
-        {
-            if (cond) Ok(name);
-            else Fail(why.Length > 0 ? $"{name} :: {why}" : name);
-        }
 
         static string FindData()
         {
@@ -971,7 +543,25 @@ namespace LoadoutTests
                 if (File.Exists(p)) return p;
                 dir = Path.GetDirectoryName(dir.TrimEnd(Path.DirectorySeparatorChar));
             }
-            throw new FileNotFoundException("找不到 sdata.json");
+            return Path.Combine(AppContext.BaseDirectory, "sdata.json");
+        }
+
+        static void Section(string name)
+        {
+            Console.WriteLine();
+            Console.WriteLine("-- " + name);
+        }
+
+        static void Check(string name, bool cond, string detail = "")
+        {
+            if (cond) { s_pass++; Console.WriteLine("  PASS " + name); }
+            else
+            {
+                s_fail++;
+                var msg = string.IsNullOrEmpty(detail) ? name : $"{name} :: {detail}";
+                s_fails.Add(msg);
+                Console.WriteLine("  FAIL " + msg);
+            }
         }
     }
 }

@@ -12,6 +12,10 @@ namespace S.View
         public SlotDropTarget BagDropPanel;
         public Text Hint;
 
+        [Header("详情面板（对齐原型 #inv-detail）")]
+        /// <summary>固定详情区：显示悬停配件的名称/稀有度/作用域/完整数值。</summary>
+        public ItemDetailPanel Detail;
+
         [Header("模板（保持非激活，运行时克隆）")]
         public GameObject ChainRowTemplate;
         public GameObject GunTabTemplate;

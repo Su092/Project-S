@@ -6,8 +6,11 @@ using S.Core;
 namespace S.View
 {
     /// <summary>
-    /// 玩家武器管理：持 2 把枪、开火、换弹、轮转、生成弹丸。
-    /// 结算全部由 Core.Loadout 完成，本类只负责「把描述符变成场景里的子弹」。
+    /// 玩家武器管理：持 2 把枪、开火、换弹、轮转、生成弹丸（对齐 MODCORE 原型）。
+    ///
+    /// 结算全部由 Core.Loadout 完成，本类只负责「把描述符变成场景里的东西」。
+    /// 与原型的差别：原型是一次射击立刻生成全部投射物（即时结算），
+    /// 这里保留「按 delay 逐发飞出」的表现，否则散弹枪的 6 枚弹丸会同一帧叠成一个点。
     /// </summary>
     public sealed class PlayerWeapons : MonoBehaviour
     {
@@ -18,25 +21,20 @@ namespace S.View
         readonly List<GunRuntime> _guns = new List<GunRuntime>();
         int _active;
         float _switchCooldown;
+        uint _rngState = 0x5EED1234u;
 
-        /// <summary>
-        /// 正在执行的链式施法（可以有多条同时在跑）。
-        ///
-        /// 为什么是"多条"而不是"一条"：链的总时长 = (链长−1) × 击发间隔，最长接近 0.6 s，
-        /// 而连发枪每 0.11 s 就扣一次扳机。若只保留一条并让新的一发把它 `Cancel()` 掉，
-        /// 长链每一发都只能走到第 2 项就断 —— 总伤害远低于 HUD 显示的期望值。
-        /// 每条施法本来就是独立结算，重叠执行才是符合规格的语义。
-        /// </summary>
-        readonly List<ChainCast> _casts = new List<ChainCast>();
+        /// <summary>正在按 delay 逐发飞出的施法（一个投射物一条队列）。</summary>
+        readonly List<PendingShot> _pending = new List<PendingShot>();
 
-        /// <summary>
-        /// 最近一次施法（HUD 链条用它把「哪些配件已经触发」画出来）。
-        /// HUD 只画一条：同时画多条会在同一排图标上互相覆盖。
-        /// </summary>
-        public ChainCast PendingCast => _casts.Count > 0 ? _casts[_casts.Count - 1] : null;
-
-        /// <summary>正在执行的施法条数（自检用：验证重叠生效、且不会被无限堆积）。</summary>
-        public int ActiveCastCount => _casts.Count;
+        sealed class PendingShot
+        {
+            public ProjectileDesc Desc;
+            public GunDef Gun;
+            public float Delay;
+            public int Fired;
+            public Vector3 Origin;
+            public Quaternion Aim;
+        }
 
         public GunRuntime Active => _guns.Count == 0 ? null : _guns[_active];
         public int GunCount => _guns.Count;
@@ -46,14 +44,16 @@ namespace S.View
 
         public readonly List<GunRuntime> AllGuns = new List<GunRuntime>();
 
+        public SData Data => _data;
+
         public void Init(SData data)
         {
             _data = data;
             _guns.Clear();
             AllGuns.Clear();
 
-            // 起手两把枪：连发 + 单发（榴弹留作局内替换演示）
-            string[] starters = { "g_auto", "g_single" };
+            // 起手两把：步枪 + 霰弹枪（前者易上手，后者立刻能看出「读 2 发」的差别）
+            string[] starters = { "rifle", "shotgun" };
             foreach (var id in starters)
             {
                 if (!data.Guns.TryGetValue(id, out var def)) continue;
@@ -64,7 +64,7 @@ namespace S.View
             _active = 0;
         }
 
-        /// <summary>当前枪对应的模型名（用于第一人称枪模切换）。</summary>
+        /// <summary>当前枪对应的模型名。</summary>
         public string ActiveGunModel
         {
             get
@@ -73,15 +73,25 @@ namespace S.View
                 if (g == null) return null;
                 return g.Base.Id switch
                 {
-                    "g_grenade" => "Modle_Gun_Grenade",
-                    "g_single" => "Modle_Gun_Single",
+                    "shotgun" => "Modle_Gun_Grenade",
+                    "sniper" => "Modle_Gun_Single",
+                    "launcher" => "Modle_Gun_Grenade",
+                    "beam" => "Modle_Gun_Single",
                     _ => "Modle_Gun_Auto",
                 };
             }
         }
 
-        /// <summary>枪模根节点（由 Bootstrap 提供，切枪时替换其下的模型）。</summary>
         public Transform GunModelRoot;
+
+        float NextRng()
+        {
+            _rngState += 0x6D2B79F5u;
+            uint t = _rngState;
+            t = (t ^ (t >> 15)) * (t | 1u);
+            t ^= t + (t ^ (t >> 7)) * (t | 61u);
+            return ((t ^ (t >> 14)) >> 8) / 16777216f;
+        }
 
         void Update()
         {
@@ -89,8 +99,6 @@ namespace S.View
 
             float dt = Time.deltaTime;
 
-            // 链式施法时间轴：必须在暂停/换枪判定之外推进，
-            // 但真正触发要受 timeScale 控制（暂停时 Time.deltaTime 为 0，天然停住）。
             TickPending(dt);
 
             if (_switchCooldown > 0f) _switchCooldown -= dt;
@@ -103,85 +111,106 @@ namespace S.View
             var mouse = Mouse.current;
             if (kb == null || mouse == null) return;
 
-            // 切枪
             if (kb.digit1Key.wasPressedThisFrame) SwitchTo(0);
             if (kb.digit2Key.wasPressedThisFrame) SwitchTo(1);
+            if (kb.qKey.wasPressedThisFrame) SwitchTo((_active + 1) % Mathf.Max(1, _guns.Count));
 
-            // 换弹：丢弃全部在跑的施法（换弹后手上这批计划就作废了）
-            if (kb.rKey.wasPressedThisFrame) { g.StartReload(); CancelAllCasts(); }
+            if (kb.rKey.wasPressedThisFrame) { g.StartReload(); CancelAll(); }
 
-            // 开火（支持按住连发）
             if (mouse.leftButton.isPressed && !IsSwitching)
             {
-                var cast = g.TryFire(out string reason);
+                var cast = g.TryFire(out string reason, NextRng);
                 if (cast != null) BeginCast(cast);
-                else if (reason == "no-bullet") { /* HUD 提示空链 */ }
+                else if (reason == "no-bullet" && Time.frameCount % 30 == 0)
+                    GameRoot.Instance?.HudToast("枪里没有子弹配件 · Tab 打开改装台装一颗");
             }
         }
 
         /// <summary>
-        /// 开始一次链式施法。**不再**一次性生成全部弹丸：
-        /// 只把计划交给 ChainCast，由它按「链顺序 + 击发间隔」逐项触发。
+        /// 把一次施法拆成「按 delay 排队飞出」的投射物。
         ///
-        /// ⚠ 不再取消上一条链：链时长可以超过击发间隔，连发时本来就会有 2~3 条重叠。
-        /// 取消上一条会让长链永远只触发头两项，总伤害低于 §3 的期望值（HUD 会骗人）。
-        /// 只有换枪 / 换弹 / 死亡才是真正需要打断的时机。
+        /// 为什么不用一次性生成：原型是 2D 即时结算，一次射击的几十枚弹丸可以同帧出现；
+        /// 3D 里同帧出现会变成一团，玩家看不清「这一发打了什么」。
+        /// 逐发飞出 + 每发带散射，才看得出霰弹/多弹幕的构成。
         /// </summary>
         void BeginCast(CastResult cast)
         {
-            if (cast == null || cast.Steps.Count == 0) return;
+            if (cast == null || cast.Projectiles.Count == 0) return;
 
-            _casts.Add(new ChainCast(cast, Active != null ? Active.Resolved : null));
+            var g = Active;
+            Vector3 origin = MuzzlePoint != null ? MuzzlePoint.position : transform.position;
+            Quaternion aim = Camera.main != null ? Camera.main.transform.rotation : transform.rotation;
 
-            // 音效按「整次施法」的实际构成决定三轨（audio-spec §3），
-            // 仍然在扣扳机那一刻响一次，不随链拆成多次 —— 否则连发会糊成噪音。
+            for (int i = 0; i < cast.Projectiles.Count; i++)
+            {
+                _pending.Add(new PendingShot
+                {
+                    Desc = cast.Projectiles[i],
+                    Gun = g != null ? g.Base : null,
+                    Delay = i * Mathf.Max(0.02f, g != null ? g.Stats.ShotInterval(0f) * 0.35f : 0.05f),
+                    Origin = origin,
+                    Aim = aim,
+                });
+            }
+
             PlayCastSfx(cast);
-        }
-
-        /// <summary>丢弃所有尚未触发的部分（换枪 / 换弹 / 死亡）。</summary>
-        void CancelAllCasts()
-        {
-            for (int i = 0; i < _casts.Count; i++) _casts[i].Cancel();
-            _casts.Clear();
         }
 
         void TickPending(float dt)
         {
-            for (int i = _casts.Count - 1; i >= 0; i--)
+            for (int i = _pending.Count - 1; i >= 0; i--)
             {
-                var c = _casts[i];
-                c.Tick(dt, SpawnProjectile, RemoveProjectile);
+                var p = _pending[i];
+                p.Delay -= dt;
+                if (p.Delay > 0f) continue;
 
-                // 链跑完 + 它产生的弹丸都消失，才能回收这条施法
-                if (c.Finished && c.RemainingProjectiles == 0) _casts.RemoveAt(i);
+                FireDesc(p.Desc, p.Origin, p.Aim, p.Gun);
+                _pending.RemoveAt(i);
             }
         }
 
-        /// <summary>造一颗场景弹丸（朝施法瞬间的准心方向，带散射偏移）。</summary>
-        Projectile SpawnProjectile(ProjectileDesc desc)
+        /// <summary>真正把一个描述符变成场景里的弹丸（含 count 多弹丸与载荷）。</summary>
+        void FireDesc(ProjectileDesc desc, Vector3 origin, Quaternion aim, GunDef gun)
         {
-            var g = Active;
-            if (g == null || desc == null) return null;
+            if (desc == null) return;
 
-            Vector3 origin = MuzzlePoint != null ? MuzzlePoint.position : transform.position;
-            Quaternion aim = Camera.main != null ? Camera.main.transform.rotation : transform.rotation;
+            int n = Mathf.Clamp(desc.Count, 1, Loadout.MaxCount);
+            for (int i = 0; i < n; i++)
+            {
+                float yaw = Random.Range(-0.5f, 0.5f) * (desc.Spread + (gun != null ? gun.SpreadBase : 0f));
+                float pitch = Random.Range(-0.5f, 0.5f) * (desc.Spread + (gun != null ? gun.SpreadBase : 0f));
+                Quaternion rot = aim * Quaternion.Euler(pitch, yaw, 0f);
 
-            float yaw = Random.Range(-0.5f, 0.5f) * desc.Spread;
-            float pitch = Random.Range(-0.5f, 0.5f) * desc.Spread;
-            Quaternion rot = aim * Quaternion.Euler(pitch, yaw, 0f);
+                var go = new GameObject("Projectile");
+                go.transform.position = origin;
+                go.transform.rotation = rot;
 
-            var go = new GameObject("Projectile");
-            go.transform.position = origin;
-            go.transform.rotation = rot;
+                var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                vis.name = "Vis";
+                vis.transform.SetParent(go.transform, false);
+                vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, desc.Size);
+                Destroy(vis.GetComponent<Collider>());
+                SMat.Apply(vis.GetComponent<Renderer>(),
+                    SMat.Unlit(ParseColor(desc.Source != null ? desc.Source.Color : "#ffd25a")));
 
-            var p = go.AddComponent<Projectile>();
-            p.Init(desc, g.Resolved, rot * Vector3.forward);
-            return p;
+                var p = go.AddComponent<Projectile>();
+                p.Init(desc, rot * Vector3.forward);
+            }
         }
 
-        static void RemoveProjectile(Projectile p)
+        /// <summary>把 `#rrggbb` 解析成 Color。数据里存字符串是为了让 sdata.json 可读。</summary>
+        public static Color ParseColor(string hex)
         {
-            if (p != null) Destroy(p.gameObject);
+            if (string.IsNullOrEmpty(hex) || hex[0] != '#') return Color.white;
+            if (!int.TryParse(hex.Substring(1), System.Globalization.NumberStyles.HexNumber,
+                    System.Globalization.CultureInfo.InvariantCulture, out int v))
+                return Color.white;
+            return new Color(((v >> 16) & 0xFF) / 255f, ((v >> 8) & 0xFF) / 255f, (v & 0xFF) / 255f);
+        }
+
+        void CancelAll()
+        {
+            _pending.Clear();
         }
 
         void PlayCastSfx(CastResult cast)
@@ -191,9 +220,9 @@ namespace S.View
             if (cast.Projectiles.Count > 0)
             {
                 var d0 = cast.Projectiles[0];
-                speedMul = d0.SpeedMul;
+                speedMul = Mathf.Clamp(d0.Speed / 90f, 0.4f, 2.5f);
                 lifetime = d0.Lifetime;
-                splash = d0.SplashRadius > 0f;
+                splash = d0.ExplodeR > 0f;
             }
             SfxBank.Instance?.PlayShoot(speedMul, lifetime, cast.Projectiles.Count, splash);
         }
@@ -203,11 +232,10 @@ namespace S.View
             if (idx < 0 || idx >= _guns.Count || idx == _active || IsSwitching) return;
             _active = idx;
             _switchCooldown = 0.3f;
-            CancelAllCasts();
+            CancelAll();
             RefreshGunModel();
         }
 
-        /// <summary>按当前枪替换第一人称枪模。</summary>
         public void RefreshGunModel()
         {
             if (GunModelRoot == null) return;
@@ -221,24 +249,17 @@ namespace S.View
             var vis = SAssets.SpawnFit(modelName, GunModelRoot, Vector3.zero,
                 0.62f, Color.white, 0.55f, null, true, groundAlign: false);
             vis.name = "GunVisual";
-
-            // 枪口方向：模型在 Blender 里枪管沿 -Y、上方 +Z；FBX 导入的轴转换
-            // 已把它映射成 **枪管 +Z、上方 +Y**，正好就是第一人称的「前」与「上」。
-            // 所以这里**不要**再叠加旋转 —— 早先有一句 Euler(0,-90,0) 是为了补救
-            // 「SpawnFit 把导入旋转清零导致枪躺倒」，那个根因已在 SAssets 修掉，
-            // 这句补偿现在只会把已经正确的朝向再转歪。
         }
 
-        /// <summary>自动驾驶用：把 AI 已经算好的施法结果交给同一条链式触发路径。</summary>
+        /// <summary>自动驾驶用：把 AI 已经算好的施法结果交给同一条路径。</summary>
         public void SpawnCastForAI(CastResult cast) => BeginCast(cast);
 
-        /// <summary>换弹/受击等 UI 需要读取的当前枪。</summary>
-        public SlotState PeekSlot()
+        /// <summary>HUD 用：指针所指格子的施法预览。</summary>
+        public CastResult PeekCast()
         {
             var g = Active;
-            if (g == null) return null;
-            int i = g.PeekNextSlot();
-            return i < 0 ? null : g.Slots[i];
+            if (g == null || !g.HasAnyBullet) return null;
+            return Loadout.ResolveCast(g.Base, g.Slots, g.Stats, g.Cursor);
         }
     }
 }

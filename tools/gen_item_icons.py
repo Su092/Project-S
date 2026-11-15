@@ -21,7 +21,28 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SKILL = "E:\\Unity Development\\.cursor\\skills\\apimart-image\\scripts"
+
+
+def _find_hub(start):
+    """向上找含 `.cursor/skills` 的目录（= 枢纽根）。
+
+    为什么不用「向上数 N 级」：工程目录结构变过（早期在枢纽内、后来挪到
+    `<HUB>/Project/<Game>/unity`），写死层数换机或换布局就会断。
+    按特征目录找，只要还在枢纽下就一定能找到。
+    """
+    d = start
+    for _ in range(8):
+        if os.path.isdir(os.path.join(d, ".cursor", "skills")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    raise SystemExit("找不到枢纽根（含 .cursor/skills 的目录），起点：" + start)
+
+
+HUB = _find_hub(HERE)
+SKILL = os.path.join(HUB, ".cursor", "skills", "apimart-image", "scripts")
 sys.path.insert(0, SKILL)
 
 import apimart_image as api   # noqa: E402  复用提交/轮询/下载与反污染 DNS
@@ -33,17 +54,25 @@ _lock = threading.Lock()
 
 
 def find_manifest():
-    for c in (os.path.join(HERE, "..", "tools", "apimart-assets.json"),
-              "E:\\Unity Development\\tools\\apimart-assets.json"):
+    candidates = [
+        os.path.join(HUB, "tools", "apimart-assets.json"),
+        os.path.join(HERE, "..", "tools", "apimart-assets.json"),
+    ]
+    for c in candidates:
         c = os.path.abspath(c)
         if os.path.isfile(c):
             return c
-    raise SystemExit("找不到 apimart-assets.json")
-
+    raise SystemExit("找不到 apimart-assets.json，候选：\n  " + "\n  ".join(candidates))
 
 def run(key, item):
     out = item["out"]
-    print("[%s] submit" % item["id"], flush=True)
+    # `out` 在清单里是相对路径（形如 `_Inbox/ui-ai-raw/item_std.png`），
+    # 而 apimart_image.download() 会把相对路径拼到**枢纽根 REPO** 上，
+    # 于是产物落到 <HUB>/_Inbox 而不是本工程的 _Inbox（实测 39 张全跑偏）。
+    # 这里先按「工程根」解析成绝对路径再交给 download —— 绝对路径不会被它改写。
+    if not os.path.isabs(out):
+        out = os.path.abspath(os.path.join(PROJ, out))
+    print("[%s] submit -> %s" % (item["id"], out), flush=True)
     tid = api.submit(key, item["prompt"], item.get("size"), item.get("resolution"),
                      item.get("image_urls"), item.get("nsfw_check", False))
     print("[%s] task=%s" % (item["id"], tid), flush=True)
@@ -80,7 +109,11 @@ def main():
     os.makedirs(RAW, exist_ok=True)
     todo = []
     for a in items:
+        # 与 run() 用同一套解析，否则「判断是否存在」看的是枢纽目录，
+        # 会永远认为缺图并重复生成（实测过一次：39 张跑了两轮）。
         out = a["out"]
+        if not os.path.isabs(out):
+            out = os.path.abspath(os.path.join(PROJ, out))
         if os.path.isfile(out) and os.path.getsize(out) > 10000 and not args.force:
             continue
         todo.append(a)
