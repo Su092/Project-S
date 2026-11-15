@@ -17,7 +17,27 @@ param(
 $ErrorActionPreference = "Stop"
 
 $Proj     = Split-Path -Parent $PSScriptRoot
-$Unity    = "D:\Unity\6000.6.4f1\Editor\Unity.exe"
+
+# 编辑器路径从枢纽 profile 取，不写死盘符。
+# 查找顺序：$env:UNITY_EXE → $env:HUB_ROOT → 与工程同级的 Unity Development。
+$Unity = $env:UNITY_EXE
+if (-not $Unity) {
+    $candidates = @()
+    if ($env:HUB_ROOT) { $candidates += (Join-Path $env:HUB_ROOT "machine\profile.ps1") }
+    $candidates += (Join-Path (Split-Path $Proj -Parent) "Unity Development\machine\profile.ps1")
+    foreach ($p in $candidates) {
+        if (Test-Path $p) {
+            . $p
+            try { $Unity = Get-UnityEditor -Version "6000.6.4f1"; break } catch { }
+        }
+    }
+}
+if (-not $Unity -or -not (Test-Path $Unity)) {
+    Write-Host "找不到 Unity 编辑器。设 `$env:UNITY_EXE 或 `$env:HUB_ROOT，或在 machine/profile.local.json 填 tools.unityEditorRoot。" -ForegroundColor Red
+    Write-Host "  尝试过：$Unity" -ForegroundColor DarkGray
+    exit 3
+}
+
 $Exe      = Join-Path $Proj "Build\Windows\S.exe"
 $LogDir   = Join-Path $Proj "Logs"
 $TestProj = Join-Path $Proj "tools\loadout-tests"

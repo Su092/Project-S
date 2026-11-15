@@ -4,7 +4,7 @@ Project S — UI 素材前期处理（APIMart 原图 → 可进引擎的源素�
 流程分三段，每段职责单一，不许跳步：
 
     APIMart 出图            本脚本                 合成器
-  tools/ui-ai-raw/  ──►  tools/ui-ai-src/  ──►  Assets/Resources/UI/
+  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/Resources/UI/
    （4~8MB、RGB、           （抠图完成、尺寸             （精确几何 + 9-slice
      黑底、无 alpha）          规范、质量已过门）              + 圆角裁剪）
                                                                 │
@@ -44,8 +44,11 @@ except ImportError:      # pragma: no cover
     np = None
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RAW = os.path.join(HERE, "ui-ai-raw")      # APIMart 原始下载
-SRC = os.path.join(HERE, "ui-ai-src")      # 处理完、可合成的源素材
+PROJ = os.path.dirname(HERE)
+# 未处理资产统一放工程根的 _Inbox/（不入库，见 _Inbox/README.md）
+INBOX = os.path.join(PROJ, "_Inbox")
+RAW = os.path.join(INBOX, "ui-ai-raw")      # APIMart 原始下载（未处理）
+SRC = os.path.join(INBOX, "ui-ai-src")      # 处理完、可合成的源素材
 REPORT = os.path.join(HERE, "ui-preprocess.json")
 # 早期直接落进工程的老素材（panel / banner / 图标等）。它们没有合成步骤 ——
 # 预处理就是它们的最后一道工序，所以产物直接写进 Assets。
@@ -645,7 +648,7 @@ def process(name, force=False):
     spec = SPECS[name]
     src_path = os.path.join(RAW, name + ".png")
     # final 素材没有合成阶段：预处理产物就是最终图，直接写进 Assets。
-    # 其余素材（材质/字形）写 ui-ai-src，留给 gen_ui_assets_ai.py 合成。
+    # 其余素材（材质/字形）写 _Inbox/ui-ai-src，留给 gen_ui_assets_ai.py 合成。
     dst_dir = DEST_UI if spec.get("final") else SRC
     dst_path = os.path.join(dst_dir, name + ".png")
     os.makedirs(dst_dir, exist_ok=True)
@@ -749,7 +752,7 @@ def audit_legacy():
     if rows == 0:
         print("无")
     else:
-        print("\n迁移做法：把原图放进 tools/ui-ai-raw/，在 SPECS 里加一条，再重跑本脚本。")
+        print("\n迁移做法：把原图放进 _Inbox/ui-ai-raw/，在 SPECS 里加一条，再重跑本脚本。")
         print("⚠ 若要做降尺寸，必须同步重算 9-slice 边距 —— 边距是贴图像素，")
         print("   缩放贴图会让同样的边距在画面上放大，圆角观感随之改变。")
 

@@ -26,7 +26,9 @@ sys.path.insert(0, SKILL)
 
 import apimart_image as api   # noqa: E402  复用提交/轮询/下载与反污染 DNS
 
-RAW = os.path.join(HERE, "ui-ai-raw")
+# 未处理资产统一放工程根的 _Inbox/（不入库，见 _Inbox/README.md）
+PROJ = os.path.dirname(HERE)
+RAW = os.path.join(PROJ, "_Inbox", "ui-ai-raw")
 _lock = threading.Lock()
 
 

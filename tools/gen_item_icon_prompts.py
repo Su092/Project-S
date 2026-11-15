@@ -41,7 +41,9 @@ def find_manifest():
 
 
 MANIFEST = find_manifest()
-RAW = os.path.join(HERE, "ui-ai-raw")
+# 未处理资产统一放工程根的 _Inbox/（不入库，见 _Inbox/README.md）
+PROJ = os.path.dirname(HERE)
+RAW = os.path.join(PROJ, "_Inbox", "ui-ai-raw")
 
 # 共用画风后缀：所有配件图标必须是同一套笔触，否则并排显示像两个画师画的
 STYLE = (

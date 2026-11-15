@@ -2,7 +2,7 @@
 
 第一人称射击 + 局内构筑 roguelite。枪是容器，配件才是武器。
 
-> 设计与数值文档**不在本工程**，在 `E:\Unity Development\Project\S\docs\`。
+> 设计与数值文档**不在本工程**，在 `<HUB>/Project/S/docs/`（`<HUB>` 查 `machine/profile.local.json`）。
 > 本文件只保留「打开工程就能跑」所需的信息。
 
 ## 环境
@@ -160,7 +160,7 @@ Keyboard   FastKeyboard enabled=True   ← 键盘不受影响
 
 ```
 APIMart 出图          前期处理                合成                  接入引擎
-tools/ui-ai-raw/ ──► tools/ui-ai-src/ ──► Assets/Resources/UI/ ──► Unity 导入
+_Inbox/ui-ai-raw/ ──► _Inbox/ui-ai-src/ ──► Assets/Resources/UI/ ──► Unity 导入
  RGB、黑底、4~8MB     抠图/尺寸/质量门        几何 + 9-slice         .meta 边距
 ```
 
@@ -220,7 +220,7 @@ python tools\gen_ui_assets_ai.py --list          # 看有哪些类
 
 ### 新增一张素材的完整步骤
 
-1. 登记 `tools/apimart-assets.json`，`out` 指向 `tools/ui-ai-raw/`
+1. 登记 `tools/apimart-assets.json`，`out` 指向 `_Inbox/ui-ai-raw/`
 2. APIMart 生成
 3. 在 `preprocess_ui_assets.py` 的 `SPECS` 加规格（`material` 或 `glyph`），跑第 1 段
 4. 在 `gen_ui_assets_ai.py` 的 `build()` 加合成逻辑，跑第 2 段

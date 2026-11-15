@@ -3,10 +3,16 @@ import json
 import os
 import sys
 
-MANIFEST = r"E:\Unity Development\tools\apimart-assets.json"
-# APIMart 原图落在 ui-ai-raw（未处理），预处理后的产物才进 ui-ai-src。
+HERE = os.path.dirname(os.path.abspath(__file__))
+PROJ = os.path.dirname(HERE)
+# 枢纽根从 profile 约定推导：本工程不在枢纽内，用环境变量或显式参数覆盖
+MANIFEST = os.environ.get(
+    "APIMART_MANIFEST",
+    os.path.join(os.path.dirname(PROJ), "Unity Development", "tools", "apimart-assets.json"),
+)
+# APIMart 原图落在 _Inbox/ui-ai-raw（未处理），预处理后的产物才进 _Inbox/ui-ai-src。
 # 两个目录必须分开：混在一起会让人分不清"这张到底抠过图没有"。
-SRC = r"E:\S\tools\ui-ai-raw"
+SRC = os.path.join(PROJ, "_Inbox", "ui-ai-raw")
 
 STYLE = ("Cold industrial sci-fi first-person-shooter UI art. Hard edges, matte surfaces, "
          "very low saturation, restrained contrast, no gradients across the whole frame, "

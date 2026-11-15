@@ -4,7 +4,7 @@ Project S — UI 素材合成器（AI 材质 + 精确几何）
 三段流程，本脚本是第三段：
 
     APIMart 出图            前期处理                本脚本
-  tools/ui-ai-raw/  ──►  tools/ui-ai-src/  ──►  Assets/Resources/UI/
+  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/Resources/UI/
   （RGB、黑底、4~8MB）      （抠图、尺寸、质量门）      （几何 + 9-slice）
 
 分工（这是本脚本存在的理由）：
@@ -21,7 +21,7 @@ Project S — UI 素材合成器（AI 材质 + 精确几何）
 前置条件：输入必须是 tools/preprocess_ui_assets.py 处理过的素材。
 直接喂 APIMart 原图会得到黑底方块（原图没有 alpha），所以这里先校验。
 
-输入：tools/ui-ai-src/*.png（预处理产物，已抠图）
+输入：_Inbox/ui-ai-src/*.png（预处理产物，已抠图）
 输出：Assets/Resources/UI/*.png（覆盖同名文件，.meta 保留原 GUID，引用不断）
 
 用法（工程根目录）：
@@ -40,9 +40,11 @@ import sys
 from PIL import Image, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "ui-ai-src")
-REPORT = os.path.join(HERE, "ui-preprocess.json")
 PROJ = os.path.dirname(HERE)
+# 未处理资产统一放工程根的 _Inbox/（不入库，见 _Inbox/README.md）
+INBOX = os.path.join(PROJ, "_Inbox")
+SRC = os.path.join(INBOX, "ui-ai-src")
+REPORT = os.path.join(HERE, "ui-preprocess.json")
 OUT = os.path.join(PROJ, "Assets", "Resources", "UI")
 
 # ---------------- 调色板（art-style.md §2/§4，与 panel.png 一致）----------------
