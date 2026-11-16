@@ -29,7 +29,9 @@ namespace S.View
         // 为什么 Icon/Items 要单独一层：它是唯一按数据 id 取图的分类。
         // 与静态图标混放时，`item_*` 一多会把 `icon_*` 挤得找不到，
         // 而且「新增一件配件要加一张图」这条流程只对这一个目录成立。
-        const string Root = "UI/Sprites/";
+        /// <summary>素材根目录（相对工程根，带尾斜杠）。运行时按名取件，不需要它；
+        /// 编辑器侧（预制体工厂、九宫格校验）拼资产路径要用。</summary>
+        const string Root = SRes.Root + "Texture/UI/";
 
         /// <summary>
         /// **唯一**真相：素材名 → 分类。
@@ -86,7 +88,7 @@ namespace S.View
             { "icon_arrow", "Icon" },
         };
 
-        /// <summary>分类目录（相对 Resources，带尾斜杠）。</summary>
+        /// <summary>分类目录（相对工程根，带尾斜杠）。编辑器拼资产路径用。</summary>
         static readonly Dictionary<string, string> Dirs = new Dictionary<string, string>
         {
             { "Common", Root + "Common/" },
@@ -130,8 +132,8 @@ namespace S.View
                 Debug.LogWarning($"[S] UI 素材未在 UiAssets.Catalog 登记: {name}");
                 return null;
             }
-            cache = Resources.Load<Sprite>(dir + name);
-            if (cache == null) Debug.LogWarning($"[S] UI 素材缺失: {dir + name}");
+            cache = SRes.Get<Sprite>(name);
+            if (cache == null) Debug.LogWarning($"[S] UI 素材缺失: {name}（{SRes.Diagnose(name)}）");
             return cache;
         }
 
@@ -266,10 +268,17 @@ namespace S.View
         public static Sprite ItemIcon(string itemId)
         {
             if (string.IsNullOrEmpty(itemId)) return null;
-            string key = "item_" + itemId;
+            string iconId = itemId switch
+            {
+                "rear_boost" or "twin_boost" or "forward_battery" or "rear_battery" or "whole_boost" => "dmg",
+                "crossfire" => "pierce", "gap_lens" => "crit", "rear_frost" => "frost",
+                "ring_burn" => "burn", "gap_bounce" => "bounce", "rear_blast" => "explode",
+                "whole_guidance" => "homing", _ => itemId,
+            };
+            string key = "item_" + iconId;
             if (s_itemIcons.TryGetValue(key, out var cached)) return cached;
 
-            var sp = Resources.Load<Sprite>(DirOfCategory("Items") + key);
+            var sp = SRes.Get<Sprite>(key);
             s_itemIcons[key] = sp;
             return sp;
         }
@@ -302,7 +311,7 @@ namespace S.View
 
             // Resources/UI/mat_ui_additive.mat（由编辑器脚本生成）。
             // 拿不到就返回 null，图标走普通混合（会有黑底，但不崩）。
-            s_additive = Resources.Load<Material>("UI/mat_ui_additive");
+            s_additive = SRes.Get<Material>("mat_ui_additive");
             return s_additive;
         }
 

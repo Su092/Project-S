@@ -33,6 +33,7 @@ namespace S.View
             string badge = null, bool showScope = false)
         {
             _item = item;
+            if (item != null && item.Level > 1 && (badge == null || !badge.StartsWith("Lv."))) badge = string.IsNullOrEmpty(badge) ? "Lv." + item.Level : badge + " · L" + item.Level;
             if (item == null) { gameObject.SetActive(false); return; }
 
             gameObject.SetActive(true);

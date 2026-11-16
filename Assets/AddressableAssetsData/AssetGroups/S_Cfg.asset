@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: S_Cfg
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: S_Cfg
+  m_GUID: d912d18dcd0c7be43bdff205c23b9fd8
+  m_SerializeEntries:
+  - m_GUID: 0b6ea78cacdb4a2458861ac6547358cd
+    m_Address: cfg/GunModifier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10f7adaf62bd0a340bf442d60ace1d2e
+    m_Address: cfg/Boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14d3e91a35035034a84e0f5d928e81f4
+    m_Address: cfg/Player
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ee646fb6be970f43866fd610f999f0e
+    m_Address: cfg/Arena
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fecdd76decf7604d8c37deceddaf1a0
+    m_Address: cfg/Elite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 356a358bec68ced4d8c82afd7d110481
+    m_Address: cfg/Modifier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77187610c627d0c43bdfd44257b68906
+    m_Address: cfg/Gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85d2614ae98f0af42bfd729ee8e74033
+    m_Address: cfg/Bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99589d43ca0eaa0418843ed947608fc6
+    m_Address: cfg/RarityWeight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: deb05a403c0528343bb2a8c1cca45265
+    m_Address: cfg/Enemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed457beb92011844e82ab5050beecad8
+    m_Address: cfg/Timeline
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_cfg
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 822063efaaa2f1249bc7501b8910d190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0c282419bc3ef30418921de58e9c99df, type: 2}
+    - {fileID: 11400000, guid: 6d95c2c5802d97a46ba21ce02ded20ec, type: 2}

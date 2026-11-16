@@ -17,7 +17,7 @@ namespace S.View
     {
         public ItemTooltip Tooltip;
         [System.NonSerialized] public ChainItem Item;
-        /// <summary>所属的改装界面（可选）。目前只用于诊断，不参与悬停逻辑。</summary>
+        /// <summary>所属的改装界面（可选）。用于背包效果范围预览；其它界面可为空。</summary>
         [System.NonSerialized] public InventoryView Owner;
 
         bool _hovering;
@@ -34,11 +34,13 @@ namespace S.View
             if (Item == null) return;
 
             if (Tooltip == null) Tooltip = ItemTooltip.Instance;
-            if (Tooltip == null) return;
 
             // 游玩态光标锁定时鼠标钉在屏幕中心：HUD 角落图标若压到中心会永远挡准星。
             // 暂停/背包态（光标解锁）才允许显示。
             if (Cursor.lockState == CursorLockMode.Locked) return;
+
+            Owner?.BeginItemHover(this);
+            if (Tooltip == null) return;
 
             // 浮窗钉在本配件正下方（不是背包底部常驻区，也不是跟鼠标飘）
             Tooltip.ShowUnder(Item, _rt != null ? _rt : (RectTransform)transform);
@@ -47,6 +49,7 @@ namespace S.View
         public void OnPointerExit(PointerEventData e)
         {
             _hovering = false;
+            Owner?.EndItemHover(this);
             if (Tooltip == null) Tooltip = ItemTooltip.Instance;
             Tooltip?.Hide();
         }
@@ -57,7 +60,7 @@ namespace S.View
         public void OnBeginDrag(PointerEventData e)
         {
             if (Tooltip == null) Tooltip = ItemTooltip.Instance;
-            if (Owner != null) { Tooltip?.Hide(); return; }
+            if (Owner != null) { _hovering = false; Owner.EndItemHover(this); Tooltip?.Hide(); return; }
             Tooltip?.Suppress(true);
         }
 
@@ -65,6 +68,8 @@ namespace S.View
         {
             if (Tooltip == null) Tooltip = ItemTooltip.Instance;
             Tooltip?.Suppress(false);
+
+            if (Owner != null) return; // 背包结束拖拽会重建卡片，不能重开旧卡片浮窗
 
             // 拖拽结束后鼠标通常还在原处：重新钉回本配件下方
             if (_hovering && Item != null)
@@ -76,6 +81,7 @@ namespace S.View
             // 销毁/禁用时必须收起，否则详情会留在屏幕上（背包刷新会销毁全部卡片）
             if (!_hovering) return;
             _hovering = false;
+            Owner?.EndItemHover(this);
             if (Tooltip == null) Tooltip = ItemTooltip.Instance;
             Tooltip?.Hide();
         }

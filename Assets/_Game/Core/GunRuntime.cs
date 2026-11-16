@@ -79,7 +79,7 @@ namespace S.Core
 
         public bool CanFire => !Reloading && FireCooldown <= 0f;
 
-        /// <summary>指针所指的格子是否是「会被读取」的（子弹或 Next 件）。</summary>
+        /// <summary>预览下一次会读取的子弹格；配件按物理范围吸附。</summary>
         public int PeekNextCell()
         {
             int n = Slots.Length;
@@ -89,7 +89,6 @@ namespace S.Core
                 var it = Slots.Cells[i];
                 if (it == null) continue;
                 if (it.IsBullet) return i;
-                if (it.Mod != null && it.Mod.Scope == Scope.Next) return i;
             }
             return -1;
         }

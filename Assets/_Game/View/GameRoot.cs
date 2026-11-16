@@ -46,6 +46,9 @@ namespace S.View
         public int AliveEnemies { get; private set; }
         readonly List<Enemy> _enemies = new List<Enemy>();
 
+        readonly List<ExperiencePickup> _experiencePickups = new List<ExperiencePickup>();
+        public IReadOnlyList<ExperiencePickup> ExperiencePickups => _experiencePickups;
+
         float _spawnTimer;
         bool _bossFightActive;
 
@@ -89,7 +92,7 @@ namespace S.View
         /// <summary>自检用：强制关掉背包/三选一弹层并恢复时间。</summary>
         public void CloseOverlayForTest()
         {
-            _inv?.Close();
+            _inv?.DismissForTest();
             Paused = false;
             Time.timeScale = 1f;
             if (Player != null) Player.InputLocked = false;
@@ -156,8 +159,13 @@ namespace S.View
             }
         }
 
+        bool _runStarted;
         void StartRun()
         {
+            if (_runStarted) return;
+            string id = _menu != null ? _menu.SelectedGunId : null;
+            if (!Weapons.StartWith(string.IsNullOrEmpty(id) ? Data.GunOrder[0].Id : id)) return;
+            _runStarted = true;
             SetPaused(false);
             _hud?.Toast("进入竞技场 · 撑住并摧毁铸造核心");
             NextSpawnTick(instant: true);
@@ -290,6 +298,8 @@ namespace S.View
             if (_iFrameLeft > 0f) _iFrameLeft -= dt;
 
             TickDirector(dt);
+            TickExperiencePickups(dt);
+            if (Paused || InventoryOpen) return;
 
             // 音乐必须每帧驱动（audio-spec §5）：这一句此前全工程缺失，
             // 导致五个层的音量恒为 0 —— 写了音乐却永远听不到。
@@ -335,7 +345,7 @@ namespace S.View
             vis.name = "Shockwave";
             vis.transform.position = center + Vector3.up * 0.15f;
             vis.transform.localScale = new Vector3(18f, 0.1f, 18f);
-            Object.Destroy(vis.GetComponent<Collider>());
+            SAssets.RemoveColliders(vis);
             SMat.Apply(vis.GetComponent<Renderer>(), SMat.Lit(new Color(1f, 0.35f, 0.55f), 0.2f));
             Object.Destroy(vis, 0.4f);
 
@@ -354,7 +364,7 @@ namespace S.View
             // Boss 奖励：3 次三选一
             for (int i = 0; i < 3; i++)
             {
-                var offers = Run.Roll(3);
+                var offers = Run.Roll(3, Weapons.OwnedGunIds);
                 if (offers.Count > 0) _pendingOffers.Enqueue(offers);
             }
             _hud?.Toast("铸造核心已摧毁");
@@ -480,13 +490,7 @@ namespace S.View
         /// <summary>炸弹人自爆：范围伤害 + 视觉。</summary>
         public void SpawnBomberBlast(Vector3 at, float dmg)
         {
-            var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            vis.name = "BomberBlast";
-            vis.transform.position = at;
-            vis.transform.localScale = Vector3.one * 7f;
-            Object.Destroy(vis.GetComponent<Collider>());
-            SMat.Apply(vis.GetComponent<Renderer>(), SMat.Unlit(new Color(1f, 0.5f, 0.1f, 0.6f)));
-            Object.Destroy(vis, 0.3f);
+            CombatFx.Explosion(at, 4.5f, new Color(1f, 0.4f, 0.1f));
 
             SfxBank.Instance?.PlayExplode();
 
@@ -513,17 +517,93 @@ namespace S.View
 
             _telemetry?.NoteKill(e);
 
-            int ups = Run.AddXp(xp);
+            // 击杀只产生掉落；经验与升级必须等玩家走近拾取后才结算。
+            if (e != null) SpawnExperience(e.transform.position, xp);
+        }
+
+        /// <summary>一只敌人掉一个晶体，完整保留普通/精英的配置经验值。</summary>
+        void SpawnExperience(Vector3 at, int amount)
+        {
+            if (amount <= 0) return;
+
+            // 在死亡位置的正下方找地面，排除玩家/敌人胶囊，兼容高台与悬空敌人。
+            var hits = Physics.RaycastAll(at + Vector3.up * 0.25f, Vector3.down, 100f,
+                ~0, QueryTriggerInteraction.Ignore);
+            float nearest = float.PositiveInfinity;
+            foreach (var hit in hits)
+            {
+                if (hit.normal.y < 0.5f || hit.distance >= nearest) continue;
+                if (hit.collider.GetComponentInParent<Enemy>() != null ||
+                    hit.collider.GetComponentInParent<PlayerController>() != null) continue;
+                nearest = hit.distance;
+                at.y = hit.point.y;
+            }
+
+            var go = new GameObject("ExperiencePickup");
+            go.transform.SetParent(transform, true);
+            go.transform.position = at;
+            var pickup = go.AddComponent<ExperiencePickup>();
+            pickup.Init(this, amount);
+            _experiencePickups.Add(pickup);
+        }
+
+        void TickExperiencePickups(float dt)
+        {
+            for (int i = _experiencePickups.Count - 1; i >= 0; i--)
+            {
+                var pickup = _experiencePickups[i];
+                if (pickup == null) { _experiencePickups.RemoveAt(i); continue; }
+                pickup.TickVisual(dt);
+                TryCollectExperience(pickup);
+                // 本次拾取触发三选一后立即停止，不能在暂停状态继续吃掉其他经验。
+                if (Paused || InventoryOpen) break;
+            }
+        }
+
+        /// <summary>唯一拾取入口：检查距离/暂停/归属，先移除再结算，避免同帧重复领取。</summary>
+        public bool TryCollectExperience(ExperiencePickup pickup)
+        {
+            if (Run == null || PlayerTransform == null || Hp <= 0f || Paused || InventoryOpen ||
+                Time.timeScale <= 0f || pickup == null || pickup.Owner != this ||
+                !pickup.gameObject.activeInHierarchy) return false;
+            if ((PlayerTransform.position - pickup.transform.position).sqrMagnitude >
+                ExperiencePickup.PickupRadius * ExperiencePickup.PickupRadius) return false;
+            if (!_experiencePickups.Remove(pickup)) return false;
+
+            int amount = pickup.Amount;
+            pickup.gameObject.SetActive(false);
+            Destroy(pickup.gameObject);
+            GrantExperience(amount);
+            return true;
+        }
+
+        public bool TryPickOffer(Offer offer)
+        {
+            if (!offer.IsGun)
+            {
+                bool picked = Run.TryPick(offer.Id);
+                if (!picked) HudToast("背包已满 · 按 Tab 整理配件后返回选择");
+                return picked;
+            }
+            if (!Weapons.AcquireGun(offer.Id, Run, out string reason))
+            { HudToast(reason); return false; }
+            HudToast("获得枪械：" + Weapons.Active.Base.Name);
+            return true;
+        }
+
+        void GrantExperience(int amount)
+        {
+            int ups = Run.AddXp(amount);
             for (int i = 0; i < ups; i++)
             {
-                var offers = Run.Roll(3);
+                var offers = Run.Roll(3, Weapons.OwnedGunIds);
                 if (offers.Count > 0)
                 {
                     if (AutoAcceptOffers)
                     {
                         // 自检模式：直接进背包，不弹窗、不暂停
                         for (int k = 0; k < offers.Count && k < 1; k++)
-                            Run.TryPick(offers[0].Id);
+                            TryPickOffer(offers[0]);
                     }
                     else
                     {
@@ -580,14 +660,7 @@ namespace S.View
 
         public void SpawnHitFx(Vector3 p, bool onEnemy = true)
         {
-            var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            go.name = "HitFx";
-            go.transform.position = p;
-            go.transform.localScale = Vector3.one * 0.25f;
-            Object.Destroy(go.GetComponent<Collider>());
-            // 用 sharedMaterial：材质已全局缓存，写 .material 会为每颗弹复制一份实例（泄漏）
-            SMat.Apply(go.GetComponent<Renderer>(), SMat.Lit(new Color(1f, 0.9f, 0.4f)));
-            Object.Destroy(go, 0.08f);
+            CombatFx.Impact(p, onEnemy ? new Color(1f, 0.75f, 0.3f) : new Color(0.5f, 0.8f, 1f), Vector3.up);
 
             SfxBank.Instance?.PlayHit(onEnemy);
         }
@@ -604,15 +677,7 @@ namespace S.View
         /// <summary>光束/连锁的视觉线（只表现，不结算）。</summary>
         public void SpawnBeamFx(Vector3 from, Vector3 to, Color color)
         {
-            var go = new GameObject("BeamFx");
-            var lr = go.AddComponent<LineRenderer>();
-            lr.positionCount = 2;
-            lr.SetPosition(0, from);
-            lr.SetPosition(1, to);
-            lr.startWidth = 0.07f;
-            lr.endWidth = 0.03f;
-            SMat.Apply(lr, SMat.Unlit(color));
-            Destroy(go, 0.08f);
+            CombatFx.Beam(from, to, color);
         }
 
         /// <summary>
@@ -640,14 +705,6 @@ namespace S.View
 
                     var go = new GameObject("Payload");
                     go.transform.position = at + up * 0.1f;
-                    var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    vis.name = "Vis";
-                    vis.transform.SetParent(go.transform, false);
-                    vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, d.Size);
-                    Destroy(vis.GetComponent<Collider>());
-                    SMat.Apply(vis.GetComponent<Renderer>(),
-                        SMat.Unlit(PlayerWeapons.ParseColor(d.Source != null ? d.Source.Color : "#ffd25a")));
-
                     var p = go.AddComponent<Projectile>();
                     p.Init(d, rot * Vector3.forward);
                 }
@@ -660,13 +717,9 @@ namespace S.View
             float r = desc.ExplodeR;
             if (r <= 0f) return;
 
-            var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            vis.name = "Blast";
-            vis.transform.position = at;
-            vis.transform.localScale = Vector3.one * (r * 2f);
-            Object.Destroy(vis.GetComponent<Collider>());
-            SMat.Apply(vis.GetComponent<Renderer>(), SMat.Lit(new Color(1f, 0.55f, 0.18f, 1f), 0.05f));
-            Object.Destroy(vis, 0.18f);
+            CombatFx.Explosion(at, r,
+                PlayerWeapons.ParseColor(desc.Source != null ? desc.Source.Color : "#ff9638"),
+                desc.Kind == BulletKind.Hole);
 
             SfxBank.Instance?.PlayExplode();
 

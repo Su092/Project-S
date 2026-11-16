@@ -25,16 +25,21 @@ namespace S.View
         readonly List<GameObject> _rows = new List<GameObject>();
 
         MetaProgress _meta;
+        SData _data;
         System.Action _onStart;
+        bool _choosingGun;
+        public string SelectedGunId { get; private set; }
+        public bool ChoosingGun => _choosingGun;
 
         float[] _volValues;
         Text[] _volValueTexts;
 
         public bool IsOpen => _refs != null && _refs.Root != null && _refs.Root.activeSelf;
 
-        public void Init(MetaProgress meta, System.Action onStart)
+        public void Init(MetaProgress meta, System.Action onStart, SData data = null)
         {
             _meta = meta;
+            _data = data ?? GameRoot.Instance?.Data;
             _onStart = onStart;
 
             BuildCanvas();
@@ -76,13 +81,13 @@ namespace S.View
             _refs.StartButton.onClick.AddListener(() =>
             {
                 SfxBank.Instance?.PlayUiClick();
-                Close();
-                _onStart?.Invoke();
+                StartOrChoose();
             });
 
             _refs.QuitButton.onClick.AddListener(() =>
             {
                 SfxBank.Instance?.PlayUiClick();
+                if (_choosingGun) { _choosingGun = false; SelectedGunId = null; Refresh(); return; }
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -163,13 +168,18 @@ namespace S.View
         public void Refresh()
         {
             if (_meta == null || _refs == null || _refs.UnlockList == null) return;
+            if (_choosingGun) { RefreshGunChoices(); return; }
+            _refs.StartButton.interactable = true;
+            if (_refs.PanelTitle != null) _refs.PanelTitle.text = "局 外 解 锁";
+            _refs.StartButton.GetComponentInChildren<Text>().text = "选择初始武器";
+            _refs.QuitButton.GetComponentInChildren<Text>().text = "退出";
 
             if (_refs.ShardText != null)
                 _refs.ShardText.text = $"shard  {_meta.Shard}    ·    通关 {_meta.Clears}";
             if (_refs.StatsText != null)
                 _refs.StatsText.text = $"历史最高单发 {_meta.BestSingleHit:0.#}\n图鉴已记录 {_meta.Codex.Count} 种配件";
 
-            foreach (var r in _rows) if (r != null) Destroy(r);
+            foreach (var r in _rows) if (r != null) { r.SetActive(false); if (Application.isPlaying) Destroy(r); else DestroyImmediate(r); }
             _rows.Clear();
 
             // 行高按列表可用高度均分，填满而不留大片空白。
@@ -207,7 +217,7 @@ namespace S.View
                 return null;
             }
 
-            bool owned = _meta.IsUnlocked(u.Id);
+            bool owned = u.Id == "gun_third" || _meta.IsUnlocked(u.Id);
             bool afford = _meta.CanAfford(u.Id);
 
             var go = Instantiate(_refs.RowTemplate, _refs.UnlockList);
@@ -275,10 +285,10 @@ namespace S.View
 
             if (r.Name != null)
             {
-                r.Name.text = u.Name;
+                r.Name.text = u.Id == "gun_third" ? "全部初始武器" : u.Name;
                 r.Name.color = owned ? new Color(0.70f, 0.97f, 0.75f) : Color.white;
             }
-            if (r.Desc != null) r.Desc.text = u.Desc;
+            if (r.Desc != null) r.Desc.text = u.Id == "gun_third" ? "开局可从全部武器中选择一把，无需解锁。" : u.Desc;
 
             // 右侧按钮：已解锁→灰绿；买得起→亮蓝（可点）；买不起→压灰（禁点）
             if (r.BuyButton != null)
@@ -316,8 +326,58 @@ namespace S.View
             return go;
         }
 
+        public void StartOrChoose()
+        {
+            if (!_choosingGun) { _choosingGun = true; Refresh(); return; }
+            if (string.IsNullOrEmpty(SelectedGunId)) return;
+            Close(); _onStart?.Invoke();
+        }
+
+        public void SelectGun(string id)
+        {
+            if (!_choosingGun || !_data.Guns.ContainsKey(id)) return;
+            SelectedGunId = id;
+            SfxBank.Instance?.PlayUiClick();
+            RefreshGunChoices();
+        }
+
+        void RefreshGunChoices()
+        {
+            foreach (var old in _rows) if (old != null) { old.SetActive(false); if (Application.isPlaying) Destroy(old); else DestroyImmediate(old); }
+            _rows.Clear();
+            var guns = _data.GunOrder;
+            if (_refs.PanelTitle != null) _refs.PanelTitle.text = "选 择 初 始 武 器";
+            float height = Mathf.Clamp((_refs.UnlockList.rect.height - 8f * guns.Count) / guns.Count, 60f, 92f);
+            for (int i = 0; i < guns.Count; i++)
+            {
+                var gun = guns[i];
+                var go = Instantiate(_refs.RowTemplate, _refs.UnlockList);
+                go.name = "GunChoice_" + gun.Id; go.SetActive(true); _rows.Add(go);
+                var rt = (RectTransform)go.transform;
+                rt.anchorMin = new Vector2(0f, 1f); rt.anchorMax = new Vector2(1f, 1f);
+                rt.offsetMin = new Vector2(0f, -4f - i * (height + 8f) - height);
+                rt.offsetMax = new Vector2(0f, -4f - i * (height + 8f));
+                var row = go.GetComponent<MenuRowRefs>();
+                bool selected = SelectedGunId == gun.Id;
+                if (row.Name != null) row.Name.text = gun.Name;
+                if (row.Desc != null) row.Desc.text = $"{gun.Desc}  槽位 {gun.SlotCount} · 弹匣 {gun.MagSize}";
+                if (row.Icon != null) { row.Icon.sprite = UiAssets.IconGun; row.Icon.color = PlayerWeapons.ParseColor(gun.Color); }
+                if (row.Badge != null) { row.Badge.sprite = UiAssets.IconCheck; row.Badge.enabled = selected; }
+                if (row.BadgeBack != null) row.BadgeBack.enabled = selected;
+                if (row.Background != null) row.Background.color = selected ? new Color(0.12f, 0.3f, 0.32f) : new Color(0.1f, 0.13f, 0.18f);
+                if (row.BuyLabel != null) row.BuyLabel.text = selected ? "已选" : "选择";
+                if (row.BuyButton != null)
+                { row.BuyButton.interactable = true; row.BuyButton.onClick.RemoveAllListeners(); row.BuyButton.onClick.AddListener(() => SelectGun(gun.Id)); }
+            }
+            if (_refs.Hint != null) _refs.Hint.text = "从全部武器中选 1 把进入 · 升级有小概率获得其他枪械";
+            _refs.StartButton.interactable = !string.IsNullOrEmpty(SelectedGunId);
+            _refs.StartButton.GetComponentInChildren<Text>().text = "携带所选武器出发";
+            _refs.QuitButton.GetComponentInChildren<Text>().text = "返回";
+        }
+
         void Buy(string id)
         {
+            if (id == "gun_third") return;
             var code = _meta.Purchase(id);
             SfxBank.Instance?.PlayUiClick();
 
@@ -351,8 +411,7 @@ namespace S.View
             if (kb.enterKey.wasPressedThisFrame || kb.spaceKey.wasPressedThisFrame)
             {
                 SfxBank.Instance?.PlayUiClick();
-                Close();
-                _onStart?.Invoke();
+                StartOrChoose();
             }
         }
 
@@ -361,6 +420,7 @@ namespace S.View
         /// <summary>自检用：直接触发「开始」（等价于点按钮）。</summary>
         public void StartForTest()
         {
+            if (string.IsNullOrEmpty(SelectedGunId)) SelectedGunId = _data.GunOrder[0].Id;
             Close();
             _onStart?.Invoke();
         }

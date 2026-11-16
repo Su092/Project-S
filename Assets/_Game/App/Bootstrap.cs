@@ -15,10 +15,16 @@ namespace S.App
         {
             Application.targetFrameRate = 120;
             QualitySettings.vSyncCount = 1;
+
+            // 资源全部在 Assets/_Game/Res/ 下（不在 Resources 里），必须先经 Addressables
+            // 预加载成同步可查的表，后面的一切取件（配置表/模型/贴图/UI）才取得到。
+            // 放在最前面：Bootstrap 下面第一件事就是 SDataLoader.Get()，它要从表里读 TSV。
+            SRes.PreloadAll();
+
             var data = SDataLoader.Get();
             if (data == null)
             {
-                Debug.LogError("[S] 配置表（Assets/Resources/Data/Cfg/*.tsv）缺失或校验失败，无法启动");
+                Debug.LogError("[S] 配置表（Assets/_Game/Res/Cfg/*.tsv）缺失或校验失败，无法启动");
                 return;
             }
 
@@ -78,7 +84,7 @@ namespace S.App
                 box.name = "Fallback";
                 box.transform.SetParent(gunHolder.transform, false);
                 box.transform.localScale = new Vector3(0.09f, 0.11f, 0.62f);
-                Destroy(box.GetComponent<Collider>());
+                SAssets.RemoveColliders(box);
                 SMat.Apply(box.GetComponent<Renderer>(),
                     SMat.Lit(new Color(0.16f, 0.17f, 0.20f), 0.55f));
             }

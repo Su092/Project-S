@@ -22,8 +22,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-UI = os.path.join(PROJ, "Assets", "Resources", "UI")
-SPRITES = os.path.join(UI, "Sprites")
+UI = os.path.join(PROJ, "Assets", "_Game", "Res", "Texture", "UI")
+# 对齐参考工程的扁平分类：Texture/UI/<Category>，**没有** Sprites 这一层
+SPRITES = UI
 UIASSETS_CS = os.path.join(PROJ, "Assets", "_Game", "View", "UiAssets.cs")
 
 CATEGORIES = ("Common", "Frame", "Widget", "Tag", "Icon", "Items")
@@ -177,9 +178,9 @@ def main():
             print("PASS %s 分类表与 C# 一致" % rel)
 
     # ---- 7. 配件图标数量应与数据一致 ----
-    # 数据源已从 sdata.json 迁到 Assets/Resources/Data/Cfg/*.tsv（三行表头）。
+    # 数据源已从 sdata.json 迁到 Assets/_Game/Res/Cfg/*.tsv（三行表头）。
     # 这里必须读**同一份真相**，否则图标的完整性校验会对着已废弃的文件做判断。
-    cfg_dir = os.path.join(PROJ, "Assets", "Resources", "Data", "Cfg")
+    cfg_dir = os.path.join(PROJ, "Assets", "_Game", "Res", "Cfg")
     if os.path.isdir(cfg_dir):
         live = set()
         for tbl in ("Bullet.tsv", "Modifier.tsv", "GunModifier.tsv"):

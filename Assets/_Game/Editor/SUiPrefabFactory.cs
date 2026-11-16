@@ -20,7 +20,7 @@ namespace S.EditorTools
     /// </summary>
     public static class SUiPrefabFactory
     {
-        const string PrefabDir = "Assets/Resources/UI/Prefabs";
+        static readonly string PrefabDir = S.View.UiPrefab.AssetDir.TrimEnd('/');
         // 素材路径不在这里拼：素材已按功能分类（Sprites/<Category>/），
         // 目录由 UiAssets.Catalog 决定，见 Sp()。
 
@@ -43,7 +43,7 @@ namespace S.EditorTools
             // 这里**不要**再拼 "Assets/Resources/UI/" + name —— 那是扁平布局的旧写法，
             // 素材一分类就会全部落空（表现为预制体里 sprite 全为 null）。
             var dir = S.View.UiAssets.DirOf(name);
-            string path = dir == null ? null : "Assets/Resources/" + dir + name + ".png";
+            string path = dir == null ? null : S.View.SRes.Root + dir + name + ".png";
             var s = path == null ? null : AssetDatabase.LoadAssetAtPath<Sprite>(path);
             if (s == null) Debug.LogWarning($"[S] 预制体用图缺失: {name}.png（查得路径 {path ?? "未登记"}）");
             return s;
@@ -223,7 +223,7 @@ namespace S.EditorTools
             panelImg.raycastTarget = true;
             refs.UnlockPanel = panelRt;
 
-            Label("PanelTitle", panelRt, "局 外 解 锁", 26, TextAnchor.UpperLeft,
+            refs.PanelTitle = Label("PanelTitle", panelRt, "局 外 解 锁", 26, TextAnchor.UpperLeft,
                 new Color(0.85f, 0.9f, 1f),
                 new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(28f, -46f), new Vector2(400f, -12f));
 
@@ -665,7 +665,7 @@ namespace S.EditorTools
                 new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -70f), new Vector2(600f, 40f));
 
             Label("Subtitle", root.transform,
-                "Tab / Esc 关闭   ·   拖拽配件入链   ·   点击链内配件卸下   ·   拖到空白丢弃",
+                "Tab / Esc 关闭   ·   悬停查看范围   ·   同种同级拖拽合成   ·   不同配件交换   ·   右键卸下",
                 17, TextAnchor.MiddleLeft, new Color(0.6f, 0.66f, 0.75f),
                 new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -98f), new Vector2(1200f, 26f));
 

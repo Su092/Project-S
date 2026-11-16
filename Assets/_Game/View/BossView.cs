@@ -53,7 +53,7 @@ namespace S.View
                 body.transform.SetParent(transform, false);
                 body.transform.localPosition = new Vector3(0f, 2.2f, 0f);
                 body.transform.localScale = new Vector3(3.6f, 2.6f, 3.6f);
-                Destroy(body.GetComponent<Collider>());
+                SAssets.RemoveColliders(body);
                 _body = body.GetComponent<Renderer>();
                 SMat.Apply(_body, SMat.Lit(new Color(0.70f, 0.36f, 0.88f), 0.45f));
             }
@@ -64,7 +64,7 @@ namespace S.View
             _shieldGo.transform.SetParent(transform, false);
             _shieldGo.transform.localPosition = new Vector3(0f, 2.2f, 0f);
             _shieldGo.transform.localScale = Vector3.one * 6.6f;
-            Destroy(_shieldGo.GetComponent<Collider>());
+            SAssets.RemoveColliders(_shieldGo);
             _shieldR = _shieldGo.GetComponent<Renderer>();
             SMat.Apply(_shieldR, SMat.Unlit(new Color(0.35f, 0.70f, 1f, 0.16f)));
             _shieldGo.SetActive(false);
@@ -244,7 +244,7 @@ namespace S.View
             go.name = "SpikeTelegraph";
             go.transform.position = at;
             go.transform.localScale = new Vector3(2.1f, 0.02f, 2.1f);
-            Destroy(go.GetComponent<Collider>());
+            SAssets.RemoveColliders(go);
 
             var st = go.AddComponent<SpikeTelegraph>();
             st.Seconds = _def.SpikeTelegraphTime;

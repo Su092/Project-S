@@ -52,17 +52,46 @@ namespace S.View
             _guns.Clear();
             AllGuns.Clear();
 
-            // 起手枪械来自 Gun.tsv 的 `starter` 列（旧版这里写死 { "rifle", "shotgun" }，
-            // 加一把新起手枪要改代码；现在改表即可，且顺序由表的 starter 列 + id 顺序决定）
-            var starters = data.StarterGunIds();
-            foreach (var id in starters)
+            // 菜单确认前使用一把默认枪供预览与自动测试。
+            StartWith(data.GunOrder[0].Id);
+        }
+
+        public HashSet<string> OwnedGunIds => new HashSet<string>(_guns.ConvertAll(g => g.Base.Id));
+        public int Capacity => Mathf.Max(1, _data.Player.GunSlots);
+
+        public bool StartWith(string id)
+        {
+            if (!_data.Guns.TryGetValue(id, out var def)) return false;
+            CancelAll();
+            _guns.Clear(); AllGuns.Clear();
+            var gun = new GunRuntime(def, _data.BuildStarterSlots(id));
+            _guns.Add(gun); AllGuns.Add(gun);
+            _active = 0; _switchCooldown = 0f;
+            RefreshGunModel();
+            return true;
+        }
+
+        public bool AcquireGun(string id, RunState run, out string reason)
+        {
+            reason = null;
+            if (!_data.Guns.TryGetValue(id, out var def)) { reason = "未知枪械"; return false; }
+            if (OwnedGunIds.Contains(id)) { reason = "已经持有这把枪"; return false; }
+            bool replace = _guns.Count >= Capacity;
+            var old = replace ? Active : null;
+            if (old != null && run.Bag.Count + old.Slots.FilledCount > run.BagCapacity)
+            { reason = $"需要腾出 {old.Slots.FilledCount} 格背包，才能收回旧枪配件（按 Tab 整理）"; return false; }
+            var gun = new GunRuntime(def, _data.BuildStarterSlots(id));
+            CancelAll();
+            if (replace)
             {
-                if (!data.Guns.TryGetValue(id, out var def)) continue;
-                var rt = new GunRuntime(def, data.BuildStarterSlots(id));
-                _guns.Add(rt);
-                AllGuns.Add(rt);
+                foreach (var item in old.Slots.Cells) if (item != null) run.Bag.Add(item);
+                _guns[_active] = gun; AllGuns[_active] = gun;
             }
-            _active = 0;
+            else
+            { _guns.Add(gun); AllGuns.Add(gun); _active = _guns.Count - 1; }
+            _switchCooldown = 0.3f;
+            RefreshGunModel();
+            return true;
         }
 
         /// <summary>当前枪对应的模型名。</summary>
@@ -78,6 +107,7 @@ namespace S.View
         }
 
         public Transform GunModelRoot;
+        WeaponMotion _motion;
 
         float NextRng()
         {
@@ -93,6 +123,7 @@ namespace S.View
             if (_data == null) return;
 
             float dt = Time.deltaTime;
+            if (dt <= 0f) return;
 
             TickPending(dt);
 
@@ -110,6 +141,7 @@ namespace S.View
             if (kb.digit2Key.wasPressedThisFrame) SwitchTo(1);
             if (kb.qKey.wasPressedThisFrame) SwitchTo((_active + 1) % Mathf.Max(1, _guns.Count));
 
+            g = Active; // 切枪输入后，换弹与开火使用新枪
             if (kb.rKey.wasPressedThisFrame) { g.StartReload(); CancelAll(); }
 
             if (mouse.leftButton.isPressed && !IsSwitching)
@@ -169,6 +201,9 @@ namespace S.View
         {
             if (desc == null) return;
 
+            _motion?.Fire(gun);
+            CombatFx.Muzzle(origin, aim * Vector3.forward,
+                ParseColor(desc.Source != null ? desc.Source.Color : "#ffd25a"));
             int n = Mathf.Clamp(desc.Count, 1, Loadout.MaxCount);
             for (int i = 0; i < n; i++)
             {
@@ -179,14 +214,6 @@ namespace S.View
                 var go = new GameObject("Projectile");
                 go.transform.position = origin;
                 go.transform.rotation = rot;
-
-                var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                vis.name = "Vis";
-                vis.transform.SetParent(go.transform, false);
-                vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, desc.Size);
-                Destroy(vis.GetComponent<Collider>());
-                SMat.Apply(vis.GetComponent<Renderer>(),
-                    SMat.Unlit(ParseColor(desc.Source != null ? desc.Source.Color : "#ffd25a")));
 
                 var p = go.AddComponent<Projectile>();
                 p.Init(desc, rot * Vector3.forward);
@@ -236,7 +263,11 @@ namespace S.View
             if (GunModelRoot == null) return;
 
             for (int i = GunModelRoot.childCount - 1; i >= 0; i--)
-                Destroy(GunModelRoot.GetChild(i).gameObject);
+            {
+                var old = GunModelRoot.GetChild(i).gameObject;
+                old.SetActive(false);
+                Destroy(old);
+            }
 
             var modelName = ActiveGunModel;
             if (modelName == null) return;
@@ -244,6 +275,9 @@ namespace S.View
             var vis = SAssets.SpawnFit(modelName, GunModelRoot, Vector3.zero,
                 0.62f, Color.white, 0.55f, null, true, groundAlign: false);
             vis.name = "GunVisual";
+            _motion = GunModelRoot.GetComponent<WeaponMotion>();
+            if (_motion == null) _motion = GunModelRoot.gameObject.AddComponent<WeaponMotion>();
+            _motion.Bind(this, vis);
         }
 
         /// <summary>自动驾驶用：把 AI 已经算好的施法结果交给同一条路径。</summary>

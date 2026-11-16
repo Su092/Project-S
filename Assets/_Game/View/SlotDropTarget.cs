@@ -9,7 +9,8 @@ namespace S.View
     /// 该组件挂在预制体上（Inventory / ChainRow），因此必须单独成文件：
     /// Unity 按「文件名 = 类名」定位脚本，混在别的文件里会变成 Missing (Mono Script)。
     /// </summary>
-    public sealed class SlotDropTarget : MonoBehaviour, IDropHandler, IPointerClickHandler
+    public sealed class SlotDropTarget : MonoBehaviour, IDropHandler, IPointerClickHandler,
+        IPointerEnterHandler, IPointerExitHandler
     {
         public InventoryView Owner;
         public int SlotIndex;
@@ -24,9 +25,20 @@ namespace S.View
             Owner.HandleDrop(src, this);
         }
 
+        public void OnPointerEnter(PointerEventData e)
+        {
+            if (!IsBagArea) Owner?.PreviewSlot(SlotIndex, true);
+        }
+
+        public void OnPointerExit(PointerEventData e)
+        {
+            if (!IsBagArea) Owner?.PreviewSlot(SlotIndex, false);
+        }
+
         public void OnPointerClick(PointerEventData e)
         {
-            if (Owner != null && !IsBagArea) Owner.HandleSlotClick(SlotIndex);
+            if (Owner != null && !IsBagArea && e.button == PointerEventData.InputButton.Left)
+                Owner.HandleSlotClick(SlotIndex);
         }
     }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-把 sdata.json 导出成 Assets/Resources/Data/Cfg/*.tsv（三行表头）。
+把 sdata.json 导出成 Assets/_Game/Res/Cfg/*.tsv（三行表头）。
 
 这是一次性迁移工具，不是长期构建步骤：
   - 迁移后 **TSV 就是唯一源头**，sdata.json 不再参与运行时。
@@ -23,7 +23,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
 SRC = os.path.join(PROJ, "tools", "legacy-sdata.json")
-OUT = os.path.join(PROJ, "Assets", "Resources", "Data", "Cfg")
+OUT = os.path.join(PROJ, "Assets", "_Game", "Res", "Cfg")
 
 
 # ---------------------------------------------------------------- 敌人

@@ -55,6 +55,9 @@ namespace S.EditorTools
             var log = new StringBuilder();
             log.AppendLine("=== 全部模型同场景渲染 ===");
 
+            // 模型现在走 Addressables 预加载，不预加载则全部 MISSING（表里查不到）
+            S.View.SRes.PreloadAll();
+
             var sceneRoot = new GameObject("ModelSheet").transform;
 
             // 地面：给模型一个落点参照，否则悬空件看起来像贴在天上
@@ -81,7 +84,8 @@ namespace S.EditorTools
                 int row = i / cols;
                 var slot = new Vector3((col - (cols - 1) * 0.5f) * cellW, 0f, -row * cellD + 3.2f);
 
-                var prefab = Resources.Load<GameObject>("Models/" + Items[i].name);
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                    S.View.SAssets.ModelDir + Items[i].name + ".fbx");
                 if (prefab == null)
                 {
                     log.AppendLine($"MISSING {Items[i].name}");

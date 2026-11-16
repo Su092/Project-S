@@ -18,12 +18,13 @@ namespace S.View
             _dmg = dmg;
             SpeedOf = speed > 0f ? speed : 18f;
 
-            var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            vis.transform.SetParent(transform, false);
-            vis.transform.localScale = Vector3.one * 0.28f;
-            Destroy(vis.GetComponent<Collider>());
-            var m = SMat.Lit(new Color(0.75f, 1f, 0.35f));
-            SMat.Apply(vis.GetComponent<Renderer>(), m);
+            transform.rotation = Quaternion.LookRotation(_dir.sqrMagnitude > 0.001f ? _dir : Vector3.forward);
+            var visual = gameObject.AddComponent<ProjectileVisual>();
+            visual.Init(new S.Core.ProjectileDesc
+            {
+                Size = 0.28f,
+                Source = new S.Core.BulletDef { Id = "enemy", Color = "#ff5544" }
+            });
             Destroy(gameObject, 5f);
         }
 
@@ -34,7 +35,7 @@ namespace S.View
             if (_life <= 0f) { Destroy(gameObject); return; }
 
             float step = SpeedOf * dt;
-            if (Physics.SphereCast(transform.position, 0.18f, _dir, out var hit, step, ~0, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(transform.position, 0.14f, _dir, out var hit, step, ~0, QueryTriggerInteraction.Ignore))
             {
                 var root = GameRoot.Instance;
                 if (root != null && root.PlayerTransform != null)
@@ -42,6 +43,7 @@ namespace S.View
                     if (Vector3.Distance(hit.point, root.PlayerTransform.position + Vector3.up) < 2.2f)
                         root.DamagePlayer(_dmg);
                 }
+                CombatFx.Impact(hit.point, new Color(1f, 0.25f, 0.15f), hit.normal);
                 Destroy(gameObject);
                 return;
             }

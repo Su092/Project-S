@@ -15,13 +15,13 @@ namespace S.View
 
         public bool Alive => Hp > 0f;
 
-        Renderer _r;
+        Renderer[] _renderers;
         Vector3 _baseScale;
         bool _broken;
 
         void Awake()
         {
-            _r = GetComponent<Renderer>();
+            _renderers = GetComponentsInChildren<Renderer>();
             _baseScale = transform.localScale;
         }
 
@@ -48,18 +48,22 @@ namespace S.View
 
         void Tint(Color c)
         {
-            if (_r == null) return;
-            var mpb = new MaterialPropertyBlock();
-            _r.GetPropertyBlock(mpb);
-            mpb.SetColor("_BaseColor", c);
-            _r.SetPropertyBlock(mpb);
+            if (_renderers == null) return;
+            foreach (var renderer in _renderers)
+            {
+                if (renderer == null) continue;
+                var mpb = new MaterialPropertyBlock();
+                renderer.GetPropertyBlock(mpb);
+                mpb.SetColor("_BaseColor", c);
+                renderer.SetPropertyBlock(mpb);
+            }
         }
 
         void Break()
         {
             _broken = true;
-            var col = GetComponent<Collider>();
-            if (col != null) col.enabled = false;
+            foreach (var col in GetComponentsInChildren<Collider>())
+                col.enabled = false;
 
             // 倒塌：压扁 + 变暗，然后移除
             transform.localScale = new Vector3(_baseScale.x * 1.4f, _baseScale.y * 0.12f, _baseScale.z * 1.4f);

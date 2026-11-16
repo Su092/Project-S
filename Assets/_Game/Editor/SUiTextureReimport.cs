@@ -16,7 +16,7 @@ namespace S.EditorTools
     /// </summary>
     public static class SUiTextureReimport
     {
-        const string UiRoot = "Assets/Resources/UI";
+        static readonly string UiRoot = S.View.SRes.Root + "Texture/UI";
 
         [MenuItem("S/重新导入 UI 贴图")]
         public static void ReimportAll()

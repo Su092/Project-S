@@ -81,6 +81,21 @@ namespace S.View
             return m;
         }
 
+        /// <summary>共享粒子/拖尾材质：仅三种固定变体，颜色由顶点传入。</summary>
+        public static Material Combat(bool soft, bool smoke = false)
+        {
+            string key = "Combat|" + soft + "|" + smoke;
+            if (s_cache.TryGetValue(key, out var cached) && cached != null) return cached;
+            var shader = Shader.Find("S/CombatGlow");
+            if (shader == null) return Unlit(Color.white);
+            var mat = new Material(shader);
+            mat.SetColor("_BaseColor", Color.white);
+            mat.SetFloat("_Soft", soft ? 1f : 0f);
+            mat.SetFloat("_DstBlend", smoke ? (float)BlendMode.OneMinusSrcAlpha : (float)BlendMode.One);
+            s_cache[key] = mat; s_owned.Add(mat);
+            return mat;
+        }
+
         /// <summary>安全赋值：材质为 null 时保留 Renderer 原有材质，不抛异常。</summary>
         public static void Apply(Renderer r, Material m)
         {

@@ -4,7 +4,7 @@ Project S — UI 素材合成器（AI 材质 + 精确几何）
 三段流程，本脚本是第三段：
 
     APIMart 出图            前期处理                本脚本
-  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/Resources/UI/
+  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/_Game/Res/Texture/UI/
   （RGB、黑底、4~8MB）      （抠图、尺寸、质量门）      （几何 + 9-slice）
 
 分工（这是本脚本存在的理由）：
@@ -22,7 +22,7 @@ Project S — UI 素材合成器（AI 材质 + 精确几何）
 直接喂 APIMart 原图会得到黑底方块（原图没有 alpha），所以这里先校验。
 
 输入：_Inbox/ui-ai-src/*.png（预处理产物，已抠图）
-输出：Assets/Resources/UI/*.png（覆盖同名文件，.meta 保留原 GUID，引用不断）
+输出：Assets/_Game/Res/Texture/UI/*.png（覆盖同名文件，.meta 保留原 GUID，引用不断）
 
 用法（工程根目录）：
   python tools/preprocess_ui_assets.py              # 第一步：抠图/规范化
@@ -45,7 +45,7 @@ PROJ = os.path.dirname(HERE)
 INBOX = os.path.join(PROJ, "_Inbox")
 SRC = os.path.join(INBOX, "ui-ai-src")
 REPORT = os.path.join(HERE, "ui-preprocess.json")
-OUT = os.path.join(PROJ, "Assets", "Resources", "UI")
+OUT = os.path.join(PROJ, "Assets", "_Game", "Res", "Texture", "UI")
 
 # ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
 # 依据是「这张图服务几个地方」，不是「它长什么样」。规范见枢纽

@@ -4,7 +4,7 @@ Project S — UI 素材前期处理（APIMart 原图 → 可进引擎的源素�
 流程分三段，每段职责单一，不许跳步：
 
     APIMart 出图            本脚本                 合成器
-  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/Resources/UI/
+  _Inbox/ui-ai-raw/  ──►  _Inbox/ui-ai-src/  ──►  Assets/_Game/Res/Texture/UI/
    （4~8MB、RGB、           （抠图完成、尺寸             （精确几何 + 9-slice
      黑底、无 alpha）          规范、质量已过门）              + 圆角裁剪）
                                                                 │
@@ -52,7 +52,7 @@ SRC = os.path.join(INBOX, "ui-ai-src")      # 处理完、可合成的源素材
 REPORT = os.path.join(HERE, "ui-preprocess.json")
 # 早期直接落进工程的老素材（panel / banner / 图标等）。它们没有合成步骤 ——
 # 预处理就是它们的最后一道工序，所以产物直接写进 Assets。
-DEST_UI = os.path.join(os.path.dirname(HERE), "Assets", "Resources", "UI")
+DEST_UI = os.path.join(os.path.dirname(HERE), "Assets", "_Game", "Res", "Texture", "UI")
 
 # ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
 # final 素材写进 Assets 时必须落到对应分类子目录，不能再写到 UI/ 根下 ——
@@ -106,7 +106,7 @@ def cat_dir(name):
 #
 # size:    处理后的边长；int 表示正方形，tuple 表示 (宽, 高)
 # trim:    glyph / icon 专用，按包围盒裁掉多余留白后重新居中
-# final:   该素材没有合成阶段，预处理产物就是最终图（直接写进 Assets/Resources/UI）
+# final:   该素材没有合成阶段，预处理产物就是最终图（直接写进 Assets/_Game/Res/Texture/UI）
 SPECS = {
     "plate_dark":  dict(mode="material", size=1024, sat=0.0),
     "plate_light": dict(mode="material", size=1024, sat=0.0),
@@ -707,7 +707,7 @@ def process(name, force=False):
 
     mode = spec["mode"]
     # 先写到临时文件，质量门过了才搬到正式位置。
-    # 为什么：final 素材的目标路径就是 Assets/Resources/UI，
+    # 为什么：final 素材的目标路径就是 Assets/_Game/Res/Texture/UI，
     # 若先写再校验，一张没通过的图会留在工程里被 Unity 导进包（踩过）。
     tmp_path = dst_path + ".tmp.png"
     if mode == "material":
@@ -754,13 +754,13 @@ def _prev_report():
 
 
 def audit_legacy():
-    """列出 Assets/Resources/UI 里**不在本流水线内**的贴图。
+    """列出 Assets/_Game/Res/Texture/UI 里**不在本流水线内**的贴图。
 
     这些是早期直接由 APIMart 原图落进工程的，绕过了抠图与尺寸规范化。
     典型问题：2048² 存着，实际最大只用到 720px（浪费 8 倍像素）；
     或从没做过质量门检查。
     """
-    assets_ui = os.path.join(os.path.dirname(HERE), "Assets", "Resources", "UI")
+    assets_ui = os.path.join(os.path.dirname(HERE), "Assets", "_Game", "Res", "Texture", "UI")
     if not os.path.isdir(assets_ui):
         return
     managed = set(SPECS.keys())

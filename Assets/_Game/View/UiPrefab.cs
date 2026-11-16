@@ -11,8 +11,8 @@ namespace S.View
     /// 现在结构（层级/锚点/颜色/九宫格/字体）全部落在 `Assets/Resources/UI/Prefabs/*.prefab`，
     /// 运行时代码只负责**填数据与挂事件**，不再决定界面长什么样。
     ///
-    /// 加载路径固定在 Resources 下：这些视图是运行时 AddComponent 创建的，
-    /// 没有可序列化的 Inspector 槽位来引用预制体，Resources 是最直接的途径。
+    /// 加载路径：资产在 `Assets/_Game/Res/UIPrefabs/`，由 Addressables 预加载进
+    /// <see cref="SRes"/>，这里按名字查表（详见 SRes 类注释里为什么不用 async）。
     ///
     /// 注意：所有挂进预制体的 MonoBehaviour（各类 `*Refs`）都**单独成文件**。
     /// Unity 反序列化预制体时按「文件名 = 类名」定位脚本，
@@ -20,7 +20,8 @@ namespace S.View
     /// </summary>
     public static class UiPrefab
     {
-        const string Root = "UI/Prefabs/";
+        /// <summary>编辑器侧用的资产目录（拼接 AssetDatabase 路径）。运行时不用它取件。</summary>
+        public const string AssetDir = SRes.Root + "UIPrefabs/";
 
         public const string Menu = "Menu";
         public const string Hud = "HUD";
@@ -36,9 +37,9 @@ namespace S.View
         {
             if (s_cache.TryGetValue(name, out var cached) && cached != null) return cached;
 
-            var go = Resources.Load<GameObject>(Root + name);
+            var go = SRes.Get<GameObject>(name);
             if (go == null)
-                Debug.LogError($"[S] 缺少 UI 预制体：{Root}{name}（菜单 S/生成 UI 预制体）");
+                Debug.LogError($"[S] 缺少 UI 预制体：{name}（{SRes.Diagnose(name)}）");
 
             s_cache[name] = go;
             return go;

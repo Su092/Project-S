@@ -77,7 +77,7 @@ namespace S.View
                 strip.transform.localPosition = Quaternion.Euler(0f, ang, 0f) *
                     new Vector3(0f, 0.02f, _def.Depth * 0.33f);
                 strip.transform.localScale = new Vector3(0.6f, 0.04f, _def.Depth * 0.30f);
-                Object.Destroy(strip.GetComponent<Collider>());
+                SAssets.RemoveColliders(strip);
                 SMat.Apply(strip.GetComponent<Renderer>(), lineMat);
             }
         }
@@ -112,7 +112,7 @@ namespace S.View
             pad.transform.SetParent(transform, false);
             pad.transform.localPosition = new Vector3(0f, 0.05f, 0f);
             pad.transform.localScale = new Vector3(_def.BossPadRadius * 2f, 0.05f, _def.BossPadRadius * 2f);
-            Object.Destroy(pad.GetComponent<Collider>());
+            SAssets.RemoveColliders(pad);
             SMat.Apply(pad.GetComponent<Renderer>(), SMat.Lit(new Color(0.34f, 0.20f, 0.30f), 0.3f));
 
             // 环：破防提示与 Boss 站位的地标，也让玩家一眼看出中央是「舞台」
@@ -121,7 +121,7 @@ namespace S.View
             ring.transform.SetParent(transform, false);
             ring.transform.localPosition = new Vector3(0f, 0.06f, 0f);
             ring.transform.localScale = new Vector3(_def.BossPadRadius * 2f + 0.8f, 0.06f, _def.BossPadRadius * 2f + 0.8f);
-            Object.Destroy(ring.GetComponent<Collider>());
+            SAssets.RemoveColliders(ring);
             SMat.Apply(ring.GetComponent<Renderer>(), SMat.Lit(new Color(0.72f, 0.36f, 0.88f), 0.5f));
         }
 
@@ -169,9 +169,7 @@ namespace S.View
                 0.92f, Color.white, 0.4f);
             vis.name = "Model";
 
-            var box = crate.AddComponent<BoxCollider>();
-            box.size = new Vector3(1.16f, 0.92f, 1.16f);
-            box.center = new Vector3(0f, 0.46f, 0f);
+            SAssets.AddStaticMeshColliders(vis);
         }
 
         void SpawnBarrel(System.Random rng, float x, float z)
@@ -184,10 +182,7 @@ namespace S.View
                 0.94f, Color.white, 0.4f);
             vis.name = "Model";
 
-            var cap = barrel.AddComponent<CapsuleCollider>();
-            cap.radius = 0.33f;
-            cap.height = 0.94f;
-            cap.center = new Vector3(0f, 0.47f, 0f);
+            SAssets.AddStaticMeshColliders(vis);
         }
 
         void SpawnCoverWall(System.Random rng, float x, float z)
@@ -203,14 +198,14 @@ namespace S.View
             var vis = SAssets.SpawnFit("Modle_Prop_Wall", wall.transform, Vector3.zero,
                 h, Color.white, 0.35f, "tex_wall_panel");
             vis.name = "Model";
-            // 墙板模型是 8m 宽，按 w 再横缩
-            if (SAssets.Model("Modle_Prop_Wall") != null)
-                vis.transform.localScale = new Vector3(
-                    vis.transform.localScale.x * (w / 8f), vis.transform.localScale.y, vis.transform.localScale.z);
-
-            var box = wall.AddComponent<BoxCollider>();
-            box.size = new Vector3(w, h, 0.5f);
-            box.center = new Vector3(0f, h * 0.5f, 0f);
+            // 高度适配已经改变宽度；按适配后的真实宽度设置目标宽度。
+            var bounds = SAssets.MeasureBoundsLocal(vis);
+            if (bounds.size.x > 0.001f)
+                vis.transform.localScale = Vector3.Scale(vis.transform.localScale,
+                    new Vector3(w / bounds.size.x, 1f, 1f));
+            bounds = SAssets.MeasureBoundsLocal(vis);
+            vis.transform.localPosition -= new Vector3(bounds.center.x, bounds.min.y, bounds.center.z);
+            SAssets.AddStaticMeshColliders(vis);
         }
 
         void BuildHighGround()
@@ -317,22 +312,17 @@ namespace S.View
                 float rad = _def.BossPadRadius * 0.72f;
                 var pos = new Vector3(
                     Mathf.Cos(ang * Mathf.Deg2Rad) * rad,
-                    2.6f,
+                    0f,
                     Mathf.Sin(ang * Mathf.Deg2Rad) * rad);
 
-                var pillar = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                pillar.name = "Pillar" + i;
+                // 根节点不缩放：模型高度和碰撞均以世界米为单位。
+                var pillar = new GameObject("Pillar" + i);
                 pillar.transform.SetParent(transform, false);
                 pillar.transform.localPosition = pos;
-                pillar.transform.localScale = new Vector3(1.7f, 2.6f, 1.7f);
-
-                // 真实模型（缺件时保留圆柱占位）。模型原点在地面，高 4.96m。
-                var vis = SAssets.SpawnFit("Modle_Prop_Pillar", pillar.transform, new Vector3(0f, -2.6f, 0f),
-                    4.96f, Color.white, 0.5f);
+                var vis = SAssets.SpawnFit("Modle_Prop_Pillar", pillar.transform, Vector3.zero,
+                    5.2f, new Color(0.62f, 0.30f, 0.82f), 0.5f);
                 vis.name = "Model";
-                var pr = pillar.GetComponent<Renderer>();
-                if (pr != null && SAssets.Model("Modle_Prop_Pillar") != null) pr.enabled = false;
-                else SMat.Apply(pr, SMat.Lit(new Color(0.62f, 0.30f, 0.82f), 0.5f));
+                SAssets.AddStaticMeshColliders(vis);
 
                 var pc = pillar.AddComponent<Pillar>();
                 pc.Index = i;

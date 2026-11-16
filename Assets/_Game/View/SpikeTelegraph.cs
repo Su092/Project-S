@@ -77,7 +77,7 @@ namespace S.View
                 spike.transform.position = p + Vector3.up * 0.9f;
                 spike.transform.localScale = new Vector3(0.28f, 1.8f, 0.28f);
                 spike.transform.rotation = Quaternion.Euler(0f, ang, 0f);
-                Destroy(spike.GetComponent<Collider>());
+                SAssets.RemoveColliders(spike);
                 SMat.Apply(spike.GetComponent<Renderer>(), SMat.Lit(new Color(0.55f, 0.15f, 0.20f), 0.6f));
                 Destroy(spike, 0.55f);
             }

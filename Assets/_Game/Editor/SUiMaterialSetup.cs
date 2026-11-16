@@ -12,14 +12,13 @@ namespace S.EditorTools
     /// </summary>
     public static class SUiMaterialSetup
     {
-        const string MatPath = "Assets/Resources/UI/mat_ui_additive.mat";
-        const string ShaderPath = "Assets/_Game/Art/Shaders/UiAdditive.shader";
+        static readonly string MatPath = S.View.SRes.Root + "Shaders/mat_ui_additive.mat";
+        static readonly string ShaderPath = S.View.SRes.Root + "Shaders/UiAdditive.shader";
 
         [MenuItem("S/生成 UI 加色材质")]
         public static void Create()
         {
-            System.IO.Directory.CreateDirectory("Assets/Resources/UI");
-            System.IO.Directory.CreateDirectory("Assets/_Game/Art/Shaders");
+            System.IO.Directory.CreateDirectory(S.View.SRes.Root + "Shaders");
 
             // 优先用工程自带的加色 shader；没有就先写一个最小的
             var shader = Shader.Find("S/UiAdditive");

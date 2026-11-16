@@ -17,8 +17,8 @@ namespace S.View
     {
         static Font s_font;
 
-        /// <summary>工程统一字体（`Resources/Font/UiRounded.ttf`，原名「极影毁片圆」）。</summary>
-        public const string FontPath = "Font/UiRounded";
+        /// <summary>工程统一字体（`Assets/_Game/Res/Font/UiRounded.ttf`，原名「极影毁片圆」）。</summary>
+        public const string FontAssetName = "UiRounded";
 
         /// <summary>
         /// **唯一**字体入口。所有文本都必须走这里，不要在别处写内置字体名。
@@ -35,10 +35,10 @@ namespace S.View
             get
             {
                 if (s_font != null) return s_font;
-                s_font = Resources.Load<Font>(FontPath);
+                s_font = SRes.Get<Font>(FontAssetName);
                 if (s_font == null)
                 {
-                    Debug.LogWarning($"[S] 字体缺失：Resources/{FontPath}.ttf，已回退内置字体");
+                    Debug.LogWarning($"[S] 字体缺失：{FontAssetName}.ttf，已回退内置字体（{SRes.Diagnose(FontAssetName)}）");
                     s_font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
                     if (s_font == null) s_font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 }
@@ -46,8 +46,8 @@ namespace S.View
             }
         }
 
-        /// <summary>编辑器侧取字体用（预制体工厂不能走 Resources，要拿资产本体去序列化）。</summary>
-        public const string FontAssetPath = "Assets/Resources/Font/UiRounded.ttf";
+        /// <summary>编辑器侧取字体用（预制体工厂不能走 Addressables，要拿资产本体去序列化）。</summary>
+        public const string FontAssetPath = SRes.Root + "Font/UiRounded.ttf";
 
         /// <summary>造一段临时文字（锚点 + 四边偏移定位，与预制体里的写法一致）。</summary>
         public static Text MakeText(Transform parent, string name, int size, TextAnchor align,

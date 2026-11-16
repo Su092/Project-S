@@ -164,8 +164,8 @@ namespace S.View
             if (_stats != null)
             {
                 _stats.text = bullet
-                    ? ItemTooltip.DescribeBullet(item.Bullet)
-                    : ItemTooltip.DescribeMod(item.Mod);
+                    ? ItemTooltip.DescribeBullet(item.EffectiveBullet)
+                    : ItemTooltip.DescribeMod(item.EffectiveMod);
             }
 
             if (_hint != null)

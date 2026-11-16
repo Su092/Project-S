@@ -1,0 +1,28 @@
+id	name	icon	desc	rarity	scope	cost	delay	damageMulAdd	sizeMulAdd	speedMulAdd	rangeMulAdd	lifeMulAdd	knockMulAdd	countMulAdd	radiusMulAdd	piercePer	bouncePer	homingPer	burnPer	slowPer	critPer	spreadPer	explodeRAdd	explodeRBase	explodeDmgFromDmg	explodeDmgFlat	ammoReduce	gunMagMul	gunReloadMul	gunDelayMul	gunSpreadMul	gunRecycleAdd	gunCastAdd	gunMagMulIfCast	gunLeech	multicast
+配件编号	名称	角标字	效果描述	稀有度	作用域	耗弹	击发修正	伤害加成	体积加成	速度加成	射程加成	存活加成	击退加成	数量加成	半径加成	每层穿透	每层反弹	追踪	燃烧	减速	暴击	散射	爆裂半径加成	爆裂基础半径	爆伤系数	爆伤固定	省弹	弹匣倍率	换弹倍率	射速倍率	散布倍率	免耗弹	读取加成	并联惩罚	击杀回血	多重施放
+string,unique	string	string	string	Common|Rare|Epic	enum|int|float	enum|int|float	enum|int|float	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int
+dmg	伤害增幅	伤	伤害 +50%（每层）	Common	Next	1	0	0.5																												
+heavy	重弹头	重	伤害 +90%、体积 +50%、击退加强，速度 −40%	Common	Next	1	0.1	0.9	0.5	-0.4			1																							
+speed	加速	速	速度 +70%、激光/闪电射程 +40%	Common	N2	0	0			0.7	0.4																									
+pierce	穿透	透	额外穿透 2 名敌人（每层）	Common	Prev	1	0									2																				
+explode	爆裂	爆	命中时爆炸；已会爆炸的子弹范围扩大 25%	Rare	Next	2	0.05																0.25	2.5	0.8	12										
+homing	追踪	踪	子弹追踪敌人	Common	P2	1	0											5																		
+bounce	弹跳	弹	额外反弹 3 次，存在时间 +40%	Common	Adj	0	0					0.4					3																			
+burn	燃烧	燃	附加燃烧（每秒 10 点，3 秒）	Common	N3	1	0												10																	
+frost	冰霜	冰	使敌人减速，持续 2 秒	Common	Adj	1	0													0.5																
+giant	巨大化	巨	体积 +120%、伤害 +30%、范围效果 +40%	Common	N2	1	0.05	0.3	1.2						0.4								0.4													
+crit	暴击	暴	暴击率 +35%（暴击 2 倍伤害）	Common	Prev	0	0														0.35															
+scatter	三重弹幕	幕	子弹数量 ×3，单发伤害 −30%	Rare	Next	2	0	-0.3						2								7														
+thrift	节能回路	节	目标子弹耗弹 −1（最低为 0）	Common	Prev	-1	0																				1									
+rear_boost	后援增幅	援	前一格子弹伤害 +60%。	Common	Prev	1	0	0.6																												
+twin_boost	双向增幅	双	前后各一格子弹伤害 +30%。	Common	Adj	1	0	0.3																												
+forward_battery	前进火力组	进	后三格子弹伤害 +25%、速度 +20%。	Rare	N3	1	0	0.25		0.2																										
+rear_battery	后备火力组	备	前三格子弹伤害 +30%、击退 +30%。	Rare	P3	1	0	0.3					0.3																							
+crossfire	交叉火力	交	前后各两格子弹伤害 +20%、额外穿透 1。	Rare	Adj2	1	0	0.2								1																				
+gap_lens	隔位聚焦	隔	前后隔一格的子弹伤害 +70%、体积 +20%。	Common	Skip	1	0	0.7	0.2																											
+rear_frost	后置冰阵	霜	前三格子弹附加 30% 减速。	Rare	P3	1	0													0.3																
+ring_burn	环形燃烧	环	前后各两格子弹附加每秒 6 点燃烧。	Rare	Adj2	1	0												6																	
+gap_bounce	隔位弹射	跳	前后隔一格的子弹额外反弹 2 次、存在时间 +25%。	Common	Skip	0	0					0.25					2																			
+rear_blast	后置爆裂	轰	前两格子弹附加爆炸，已有爆炸的范围 +20%。	Rare	P2	2	0.05																0.2	2	0.6	8										
+whole_boost	全域增幅	域	全枪子弹伤害 +15%。	Rare	All	1	0	0.15																												
+whole_guidance	全域制导	导	全枪子弹获得弱追踪、速度 +15%。	Rare	All	1	0			0.15								2																		

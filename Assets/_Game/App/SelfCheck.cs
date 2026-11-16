@@ -133,7 +133,7 @@ namespace S.App
             root.InvulnerableForTest = true;
             Check("数据: 6 把枪", data != null && data.GunOrder.Count == 6, $"{data?.GunOrder.Count}");
             Check("数据: 17 种子弹", data != null && data.BulletOrder.Count == 17, $"{data?.BulletOrder.Count}");
-            Check("数据: 22 种衍生", data != null && data.ModifierOrder.Count == 22, $"{data?.ModifierOrder.Count}");
+            Check("数据: 34 种衍生", data != null && data.ModifierOrder.Count == 34, $"{data?.ModifierOrder.Count}");
 
             // ---- 美术资产接入：模型与贴图必须真的加载到 ----
             {
@@ -238,7 +238,7 @@ namespace S.App
                 // 字体缺失时 UiKit.Font 会静默回退内置 Arial（界面能读但不统一），
                 // 不做断言就永远发现不了「字体没进包」这件事。
                 var font = S.View.UiKit.Font;
-                Check("统一字体已加载", font != null, "Resources/Font/UiRounded.ttf 取不到");
+                Check("统一字体已加载", font != null, $"字体取不到（{S.View.SRes.Diagnose(S.View.UiKit.FontAssetName)}）");
                 if (font != null)
                 {
                     // 名字里能看出是不是回退到了内置字体
@@ -332,8 +332,9 @@ namespace S.App
                 // 图标必须走加色材质（黑底才不会显示成黑方块）
                 if (S.View.UiAssets.IconWhole != null)
                 {
-                    var mat = Resources.Load<Material>("UI/mat_ui_additive");
-                    Check("UI 加色材质存在", mat != null, "Resources/UI/mat_ui_additive 缺失");
+                    var mat = S.View.SRes.Get<Material>("mat_ui_additive");
+                    Check("UI 加色材质存在", mat != null,
+                        $"mat_ui_additive 缺失（{S.View.SRes.Diagnose("mat_ui_additive")}）");
                 }
             }
 
@@ -342,7 +343,7 @@ namespace S.App
             yield return Shot("01-start");
 
             Check("玩家存在", root.PlayerTransform != null);
-            Check("枪械已初始化", root.Weapons != null && root.Weapons.GunCount == 2,
+            Check("枪械已初始化", root.Weapons != null && root.Weapons.GunCount == 1,
                 $"GunCount={root.Weapons?.GunCount}");
             Check("起手枪有子弹", root.Weapons != null && root.Weapons.Active.HasAnyBullet,
                 "枪里应有基础弹");
@@ -466,6 +467,8 @@ namespace S.App
                 Check("预览: 不修改原槽位", probe.Cells[0] != null && probe.Cells[0].IsBullet);
             }
 
+            CheckExperiencePickups(root);
+
             // ---- 经验与升级 ----
             int lvBefore = root.Run.Level;
             int ups = root.Run.AddXp(root.Run.NeedFor(1) + 5);
@@ -538,6 +541,7 @@ namespace S.App
                     }
                 }
 
+                yield return CheckInventoryScopePreview(inv, root);
                 yield return Shot("03-inventory");
 
                 inv.Close();
@@ -557,7 +561,7 @@ namespace S.App
                 yield return Shot("04-offer");
                 Check("三选一卡有圆形图标", inv.OfferIconBoundCount == 3,
                     $"bound={inv.OfferIconBoundCount}");
-                inv.Close();
+                root.CloseOverlayForTest();
                 yield return WaitUnscaled(0.1f);
             }
 
@@ -792,6 +796,140 @@ namespace S.App
             Check("结算暂停", Mathf.Approximately(Time.timeScale, 0f), $"timeScale={Time.timeScale}");
 
             Finish();
+        }
+
+        IEnumerator CheckInventoryScopePreview(InventoryView inv, GameRoot root)
+        {
+            var gun = root.Weapons.AllGuns[0];
+            var saved = gun.Slots.Clone();
+            var selected = root.Data.MakeItem("dmg");
+            selected.Mod.Scope = Scope.N2;
+            try
+            {
+                for (int i = 0; i < gun.Slots.Length; i++) gun.Slots.Cells[i] = null;
+                gun.Slots.Cells[1] = selected;
+                gun.Slots.Cells[2] = root.Data.MakeItem("std");
+                gun.Recalc();
+                inv.Refresh();
+                DraggableItem card = null;
+                foreach (var candidate in inv.GetComponentsInChildren<DraggableItem>())
+                    if (ReferenceEquals(candidate.Item, selected)) { card = candidate; break; }
+                Check("范围预览卡片已创建", card != null);
+                if (card == null) yield break;
+                var hover = card.GetComponent<ItemHover>();
+                var e = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
+                hover.OnPointerEnter(e);
+                Check("悬停显示范围且只统计真实子弹", inv.HasScopePreview &&
+                    inv.PreviewSourceCell == 1 && inv.PreviewTargetCount == 1);
+                var target = card.transform.parent.parent.Find("Slot2/EffectRange");
+                Check("生效子弹格已点亮且不挡射线", target != null && target.gameObject.activeSelf &&
+                    !target.GetComponent<UnityEngine.UI.Image>().raycastTarget);
+                hover.OnPointerExit(e);
+                Check("未选中时移出清理范围", !inv.HasScopePreview);
+                e.button = UnityEngine.EventSystems.PointerEventData.InputButton.Left;
+                card.OnPointerClick(e);
+                Check("左键选中保留范围且不卸下配件", inv.HasScopePreview && gun.Slots.Cells[1] == selected);
+                hover.OnPointerEnter(e);
+                hover.OnPointerExit(e);
+                Check("选中后移出仍保留范围", inv.HasScopePreview && inv.PreviewTargetCount == 1);
+                yield return Shot("03d-scope-range");
+                e.button = UnityEngine.EventSystems.PointerEventData.InputButton.Right;
+                card.OnPointerClick(e);
+                Check("右键仍可卸下配件", gun.Slots.Cells[1] == null && root.Run.Bag.Contains(selected));
+                DraggableItem bagCard = null;
+                foreach (var candidate in inv.GetComponentsInChildren<DraggableItem>())
+                    if (ReferenceEquals(candidate.Item, selected) && candidate.FromSlot < 0) { bagCard = candidate; break; }
+                Check("卸下后生成背包卡片", bagCard != null);
+                if (bagCard != null)
+                {
+                    e.button = UnityEngine.EventSystems.PointerEventData.InputButton.Left;
+                    bagCard.OnPointerClick(e);
+                    inv.PreviewSlot(0, true);
+                    Check("选中背包配件后悬停槽位可试装", inv.HasScopePreview &&
+                        inv.PreviewSourceCell == 0 && inv.PreviewTargetCount == 1);
+                    Check("试装不修改真实布局", gun.Slots.Cells[0] == null && root.Run.Bag.Contains(selected));
+                    inv.PreviewSlot(0, false);
+                    Check("背包试装移出后清理范围", !inv.HasScopePreview);
+                }
+                inv.Close();
+                Check("关闭背包清理范围", !inv.HasScopePreview);
+                inv.OpenBag();
+            }
+            finally
+            {
+                root.Run.Bag.Remove(selected);
+                gun.Slots = saved;
+                gun.Recalc();
+                inv.Refresh();
+            }
+        }
+
+        /// <summary>走真实敌人死亡/拾取/三选一路径；同步执行避免其他战斗帧干扰断言。</summary>
+        void CheckExperiencePickups(GameRoot root)
+        {
+            var enemy = root.FindNearestEnemy(root.PlayerTransform.position, 500f);
+            Check("经验掉落测试有敌人", enemy != null);
+            if (enemy == null) return;
+
+            var player = root.PlayerTransform;
+            var cc = player.GetComponent<CharacterController>();
+            bool ccEnabled = cc != null && cc.enabled;
+            Vector3 savedPosition = player.position;
+            int savedLevel = root.Run.Level;
+            int savedXp = root.Run.Xp;
+            int savedBag = root.Run.Bag.Count;
+            int savedKills = root.Run.Kills;
+            int savedDrops = root.ExperiencePickups.Count;
+            bool savedAutoAccept = root.AutoAcceptOffers;
+            if (ccEnabled) cc.enabled = false;
+            root.AutoAcceptOffers = false;
+            try
+            {
+                Vector3 deathPosition = enemy.transform.position;
+                player.position = deathPosition + Vector3.right * 10f;
+                // 恰好升两级，验证多级奖励仍然逐次排队。
+                enemy.Xp = root.Run.NeedFor(savedLevel) - savedXp + root.Run.NeedFor(savedLevel + 1);
+                int expectedXp = enemy.Xp;
+                enemy.ApplyDamage(enemy.MaxHp + 1f);
+
+                Check("击杀增加计数但不直接加经验",
+                    root.Run.Kills == savedKills + 1 && root.Run.Level == savedLevel && root.Run.Xp == savedXp);
+                Check("敌人死亡生成一个经验掉落", root.ExperiencePickups.Count == savedDrops + 1);
+                if (root.ExperiencePickups.Count != savedDrops + 1) return;
+                var pickup = root.ExperiencePickups[root.ExperiencePickups.Count - 1];
+                Check("经验掉落保留死亡地点与经验数值", pickup.Amount == expectedXp &&
+                    Mathf.Abs(pickup.transform.position.x - deathPosition.x) < 0.01f &&
+                    Mathf.Abs(pickup.transform.position.z - deathPosition.z) < 0.01f);
+                Check("远距离不能领取经验", !root.TryCollectExperience(pickup) && root.Run.Level == savedLevel);
+                player.position = pickup.transform.position + Vector3.up * 3f;
+                Check("不同高度不能隔层领取", !root.TryCollectExperience(pickup));
+                player.position = pickup.transform.position + Vector3.right * 0.5f;
+                root.SetPaused(true);
+                Check("暂停期间不能拾取经验", !root.TryCollectExperience(pickup) && pickup.gameObject.activeSelf);
+                root.SetPaused(false);
+                Check("走近后能够领取经验", root.TryCollectExperience(pickup));
+                Check("拾取才触发多级升级", root.Run.Level == savedLevel + 2 && root.Run.Xp == 0);
+                Check("拾取后掉落移除且不可重复领取", root.ExperiencePickups.Count == savedDrops &&
+                    !pickup.gameObject.activeSelf && !root.TryCollectExperience(pickup));
+                var inv = root.GetComponent<InventoryView>();
+                Check("拾取升级弹出三选一并保留后续奖励", root.Paused && inv.IsOfferVisible && root.HasPendingOffers);
+                inv.AutoResolveForAI();
+                Check("多级奖励按顺序继续展示", inv.IsOfferVisible && !root.HasPendingOffers);
+                inv.AutoResolveForAI();
+                Check("全部升级奖励领取后恢复游戏", !root.Paused && !root.InventoryOpen &&
+                    root.Run.Bag.Count == savedBag + 2);
+            }
+            finally
+            {
+                root.CloseOverlayForTest();
+                root.AutoAcceptOffers = savedAutoAccept;
+                root.Run.Level = savedLevel;
+                root.Run.Xp = savedXp;
+                if (root.Run.Bag.Count > savedBag)
+                    root.Run.Bag.RemoveRange(savedBag, root.Run.Bag.Count - savedBag);
+                player.position = savedPosition;
+                if (ccEnabled) cc.enabled = true;
+            }
         }
 
         /// <summary>

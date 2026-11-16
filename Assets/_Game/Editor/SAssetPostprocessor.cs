@@ -12,28 +12,18 @@ namespace S.EditorTools
     /// </summary>
     public sealed class SAssetPostprocessor : AssetPostprocessor
     {
-        const string TexRoot = "Assets/_Game/Art/Textures/";
-        const string ModelRoot = "Assets/_Game/Art/Models/";
-        const string UiRoot = "Assets/Resources/UI/";
+        static readonly string TexRoot = S.View.SRes.Root + "Texture/";
+        static readonly string ModelRoot = S.View.SRes.Root + "Model/";
+        static readonly string UiRoot = S.View.SRes.Root + "Texture/UI/";
 
         void OnPreprocessTexture()
         {
             string p = assetPath.Replace('\\', '/');
 
-            if (p.Contains(TexRoot))
-            {
-                var ti = (TextureImporter)assetImporter;
-                ti.textureType = TextureImporterType.Default;
-                ti.wrapMode = TextureWrapMode.Repeat;      // 平铺
-                ti.filterMode = FilterMode.Bilinear;
-                ti.mipmapEnabled = true;
-                ti.anisoLevel = 4;
-                ti.maxTextureSize = 2048;
-                ti.sRGBTexture = true;
-                ti.textureCompression = TextureImporterCompression.CompressedHQ;
-                return;
-            }
-
+            // UI 素材优先判断：它就在 Texture/ 下面，若先命中 TexRoot 会被当成平铺贴图
+            // 导成 Default 类型，sprite 取不到、9-slice 边距也写不进去（顺带说，原先
+            // 这两条规则匹配的目录是 Resources/UI 与 _Game/Art/Textures，搬目录后必须同步，
+            // 否则规则静默失效 —— 编译打包全绿，只是圆角全坏）。
             if (p.Contains(UiRoot))
             {
                 var ti = (TextureImporter)assetImporter;
@@ -54,6 +44,20 @@ namespace S.EditorTools
                 // Sliced，就会用上这份没人维护的边距，圆角被切成方块。
                 var border = BorderFor(Path.GetFileNameWithoutExtension(p));
                 ti.spriteBorder = border ?? Vector4.zero;
+                return;
+            }
+
+            if (p.Contains(TexRoot))
+            {
+                var ti = (TextureImporter)assetImporter;
+                ti.textureType = TextureImporterType.Default;
+                ti.wrapMode = TextureWrapMode.Repeat;      // 平铺
+                ti.filterMode = FilterMode.Bilinear;
+                ti.mipmapEnabled = true;
+                ti.anisoLevel = 4;
+                ti.maxTextureSize = 2048;
+                ti.sRGBTexture = true;
+                ti.textureCompression = TextureImporterCompression.CompressedHQ;
                 return;
             }
         }

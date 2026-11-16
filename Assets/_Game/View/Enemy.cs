@@ -37,6 +37,8 @@ namespace S.View
 
         CharacterController _cc;
         float _attackCd;
+        float _attackWindup = -1f;
+        EnemyMotion _motion;
         float _slowLeft;
         float _slowPct;
         int _burnStacks;
@@ -133,14 +135,26 @@ namespace S.View
             glow.transform.SetParent(transform, false);
             glow.transform.localPosition = new Vector3(0f, cc != null ? cc.center.y : 0.95f, 0f);
             glow.transform.localScale = new Vector3(1.35f, 1.1f, 1.35f) * scale;
-            Destroy(glow.GetComponent<Collider>());
+            SAssets.RemoveColliders(glow);
             SMat.Apply(glow.GetComponent<Renderer>(), SMat.Unlit(new Color(1f, 0.82f, 0.32f, 0.20f)));
+        }
+
+        void Start()
+        {
+            var body = transform.Find("Body");
+            if (body != null)
+            {
+                _motion = gameObject.AddComponent<EnemyMotion>();
+                _motion.Bind(this, body.gameObject);
+            }
         }
 
         void Update()
         {
             if (!Alive) return;
             float dt = Time.deltaTime;
+            if (dt <= 0f) return;
+            _attackCd = Mathf.Max(0f, _attackCd - dt);
 
             // 燃烧
             if (_burnLeft > 0f)
@@ -167,36 +181,33 @@ namespace S.View
             float dist = toPlayer.magnitude;
             Vector3 dir = dist > 0.01f ? toPlayer / dist : Vector3.forward;
 
+            if (_attackWindup >= 0f)
+            {
+                _attackWindup -= dt;
+                if (_attackWindup <= 0f)
+                {
+                    _attackWindup = -1f;
+                    float range = Ai == EnemyAi.Chaser ? _contactRange : _attackRange;
+                    if (dist <= range)
+                    {
+                        if (Ai == EnemyAi.Chaser) root.DamagePlayer(ContactDamage);
+                        else if (Ai == EnemyAi.Turret) root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
+                        else { root.SpawnBomberBlast(transform.position, ContactDamage); ApplyDamage(MaxHp); return; }
+                    }
+                }
+            }
             switch (Ai)
             {
                 case EnemyAi.Chaser:
-                    Move(dir * Speed * speedMul * dt);
-                    if (_contactRange > 0f) TryTouch(ContactDamage, _contactRange);
+                    if (_attackWindup < 0f) Move(dir * Speed * speedMul * dt);
+                    BeginAttack(dist, _contactRange);
                     break;
-
                 case EnemyAi.Bomber:
-                    // 自爆型：贴近后引爆（撤离时间极短，玩家必须优先点掉）
-                    if (dist > _attackRange) Move(dir * Speed * speedMul * dt);
-                    else
-                    {
-                        _attackCd -= dt;
-                        if (_attackCd <= 0f)
-                        {
-                            _attackCd = _attackCooldown > 0f ? _attackCooldown : 1.2f;
-                            root.SpawnBomberBlast(transform.position, ContactDamage);
-                            ApplyDamage(MaxHp);
-                        }
-                    }
+                    if (dist > _attackRange && _attackWindup < 0f) Move(dir * Speed * speedMul * dt);
+                    BeginAttack(dist, _attackRange);
                     break;
-
                 case EnemyAi.Turret:
-                    // 炮塔：原地不动，远程点射
-                    _attackCd -= dt;
-                    if (dist < _attackRange && _attackCd <= 0f)
-                    {
-                        _attackCd = _attackCooldown > 0f ? _attackCooldown : 1.6f;
-                        root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
-                    }
+                    BeginAttack(dist, _attackRange);
                     break;
             }
 
@@ -216,11 +227,12 @@ namespace S.View
             else transform.position += delta;
         }
 
-        void TryTouch(float dmg, float range)
+        void BeginAttack(float distance, float range)
         {
-            if (GameRoot.Instance == null) return;
-            if (Vector3.Distance(transform.position, GameRoot.Instance.PlayerTransform.position) < range)
-                GameRoot.Instance.DamagePlayer(dmg);
+            if (range <= 0f || distance > range || _attackCd > 0f || _attackWindup >= 0f) return;
+            _attackWindup = Ai == EnemyAi.Bomber ? 0.4f : 0.22f;
+            _attackCd = _attackCooldown > 0f ? _attackCooldown : 0.85f;
+            _motion?.Attack();
         }
 
         /// <summary>命中判定入口。desc 携带所有配件结算结果。</summary>

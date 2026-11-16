@@ -11,7 +11,7 @@ namespace S.View
     /// 因为 `Item` 是运行时数据、Owner 是场景对象，都无法序列化进预制体。
     /// </summary>
     public sealed class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
-        IEndDragHandler, IPointerClickHandler
+        IEndDragHandler, IPointerClickHandler, IDropHandler
     {
         public InventoryView Owner;
         [System.NonSerialized] public ChainItem Item;
@@ -31,6 +31,7 @@ namespace S.View
         public void OnBeginDrag(PointerEventData e)
         {
             if (Owner == null) return;
+            WasDropped = false;
             _dragLayer = Owner.DragLayer;
 
             transform.SetParent(_dragLayer, true);
@@ -52,10 +53,16 @@ namespace S.View
             Owner.NotifyDragEnd(this, e);
         }
 
+        public void OnDrop(PointerEventData e)
+        {
+            var src = e.pointerDrag != null ? e.pointerDrag.GetComponent<DraggableItem>() : null;
+            if (src != null) Owner?.HandleItemDrop(src, this);
+        }
+
         public void OnPointerClick(PointerEventData e)
         {
             if (Owner == null) return;
-            if (FromSlot >= 0) Owner.UnequipToBag(FromSlot);
+            Owner.HandleItemClick(this, e.button);
         }
     }
 }

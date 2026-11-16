@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: S_Texture
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: S_Texture
+  m_GUID: 070eaedbf3e7a174388f587f7b07b287
+  m_SerializeEntries:
+  - m_GUID: 17b57fd60fd7d094fac6ab62d91e067e
+    m_Address: tex/tex_wall_panel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f9cfb6b4c95a984e95251821f8f5e0e
+    m_Address: tex/tex_floor_metal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a58da647b4861c741b56093e0268f842
+    m_Address: tex/tex_metal_rust
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d681a6a97a8048745a2863719952dd73
+    m_Address: tex/tex_floor_concrete
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 822063efaaa2f1249bc7501b8910d190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c520aeb80d3bfeb46a37a11cc497f067, type: 2}
+    - {fileID: 11400000, guid: 4dcaa098a2ac6e549b12fc2c4559113c, type: 2}

@@ -6,13 +6,16 @@ using S.Core;
 namespace S.EditorTools
 {
     /// <summary>
-    /// 配置表**能不能被 Resources.Load 取到**的编辑器侧断言。
+    /// 配置表**能不能作为 TextAsset 被读到**的编辑器侧断言。
     ///
     /// 为什么单独做这一步：`.tsv` 不在 Unity 默认的文本扩展名清单里，
-    /// 没有 <see cref="STsvImporter"/> 时 `Resources.Load&lt;TextAsset&gt;` 返回 null，
-    /// 而**编译期完全看不出来** —— 编辑器里 Play 也会报「缺表」，
-    /// 但那是运行期才发现的，且很容易被误判成「路径写错了」。
-    /// 这里在导入后立刻逐张表断言，把「导入器没生效」和「路径写错」分开。
+    /// 没有 <see cref="STsvImporter"/> 时导入结果**根本不是 TextAsset**，
+    /// 而**编译期完全看不出来** —— 打包也成功，只是运行时「缺表」。
+    /// 这里用 AssetDatabase 按资产路径断言（资产已搬到 `Assets/_Game/Res/Cfg/`，
+    /// 不走 Resources），把「导入器没生效」和「路径写错」分开。
+    ///
+    /// ⚠ 这里刻意不用 `SRes`：SRes 依赖 Addressables 分组已构建，
+    /// 而本断言的职责是「文件本身导对没有」。两者分开，分组没建时也能定位问题。
     /// </summary>
     public static class SCfgImportVerify
     {
@@ -30,12 +33,12 @@ namespace S.EditorTools
             for (int i = 0; i < SCfgAddresses.Required.Length; i++)
             {
                 string table = SCfgAddresses.Required[i];
-                string path = SCfgAddresses.ResourcePath(table);
-                var asset = Resources.Load<TextAsset>(path);
+                string path = SCfgAddresses.AssetPath(table);
+                var asset = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
 
                 if (asset == null)
                 {
-                    sb.AppendLine($"FAIL {path,-44} Resources.Load 返回 null（.tsv 导入器未生效？）");
+                    sb.AppendLine($"FAIL {path,-44} AssetDatabase 取不到 TextAsset（.tsv 导入器未生效？）");
                     fail++;
                     continue;
                 }

@@ -44,6 +44,11 @@ namespace LoadoutTests
             CfgCases();
             DataCases();
             ScopeCases();
+            ScopePreviewCases();
+            // Scope 测试会修改共享定义，重新加载避免污染其余断言。
+            D = SCfgLoader.Load(new SCfgDirectorySource(dir));
+            PhysicalScopeCastCases();
+            D = SCfgLoader.Load(new SCfgDirectorySource(dir));
             WeightsCases();
             ScanCases();
             LoadoutRuleCases();
@@ -51,8 +56,11 @@ namespace LoadoutTests
             GunStatCases();
             SequenceCases();
             BagCases();
+            GunOfferCases();
             TimelineCases();
             BossCases();
+            D = SCfgLoader.Load(new SCfgDirectorySource(dir));
+            FusionCases.Run(D, Check);
 
             if (HasFlag("-bench"))
             {
@@ -71,6 +79,48 @@ namespace LoadoutTests
             return 0;
         }
 
+        static void GunOfferCases()
+        {
+            Section("枪械奖励");
+            var owned = new HashSet<string> { "rifle", "smg" };
+            var a = new RunState(D, 417);
+            var b = new RunState(D, 417);
+            int gunRolls = 0;
+            bool shape = true, excludes = true, deterministic = true, allAvailable = true;
+            var seen = new HashSet<string>();
+            for (int i = 0; i < 10000; i++)
+            {
+                var aa = a.Roll(3, owned); var bb = b.Roll(3, owned);
+                int count = 0;
+                shape &= aa.Count == 3;
+                for (int j = 0; j < aa.Count; j++)
+                {
+                    deterministic &= aa[j].Id == bb[j].Id && aa[j].IsGun == bb[j].IsGun;
+                    if (!aa[j].IsGun) continue;
+                    count++; seen.Add(aa[j].Id);
+                    excludes &= !owned.Contains(aa[j].Id);
+                    allAvailable &= D.Guns.ContainsKey(aa[j].Id);
+                }
+                shape &= count <= 1;
+                if (count > 0) gunRolls++;
+            }
+            Check("每次三选一最多一把枪", shape);
+            Check("排除已持有枪", excludes);
+            Check("只生成有效枪且所有未持有枪都可出现", allAvailable && seen.Count == D.GunOrder.Count - 2);
+            Check("相同种子枪械奖励一致", deterministic);
+            Check("枪械出现率约10%", gunRolls >= 850 && gunRolls <= 1150, gunRolls.ToString());
+            var all = new HashSet<string>(D.GunOrder.ConvertAll(g => g.Id));
+            bool noGun = true;
+            for (int i = 0; i < 100; i++)
+                foreach (var o in a.Roll(3, all)) noGun &= !o.IsGun;
+            Check("全部持有后只出配件", noGun);
+            noGun = true;
+            for (int i = 0; i < 100; i++)
+                foreach (var o in a.Roll()) noGun &= !o.IsGun;
+            Check("旧版纯配件抽取接口保持兼容", noGun);
+            Check("零候选不消耗奖励", a.Roll(0, owned).Count == 0);
+        }
+
         // ---------------- 数据 ----------------
 
         static void DataCases()
@@ -79,7 +129,7 @@ namespace LoadoutTests
 
             Check("6 把枪", D.GunOrder.Count == 6, $"{D.GunOrder.Count}");
             Check("17 个子弹配件", D.BulletOrder.Count == 17, $"{D.BulletOrder.Count}");
-            Check("22 个衍生配件", D.ModifierOrder.Count == 22, $"{D.ModifierOrder.Count}");
+            Check("34 个衍生配件", D.ModifierOrder.Count == 34, $"{D.ModifierOrder.Count}");
 
             Check("步枪 8 槽", D.Guns["rifle"].SlotCount == 8, $"{D.Guns["rifle"].SlotCount}");
             Check("冲锋枪 10 槽", D.Guns["smg"].SlotCount == 10, $"{D.Guns["smg"].SlotCount}");
@@ -246,7 +296,7 @@ namespace LoadoutTests
             s.Cells[3] = D.MakeItem("std");
             s.Cells[5] = D.MakeItem("std");
 
-            // Prev：向左最近的一个子弹
+            // Prev：严格前一格
             var t = Loadout.TargetsOf(Scope.Prev, 3, s);
             Check("Prev 从 3 找到 2", t.Count == 1 && t[0] == 2, string.Join(",", t));
 
@@ -274,11 +324,133 @@ namespace LoadoutTests
             t = Loadout.TargetsOf(Scope.N3, 6, s);
             Check("N3 在末尾裁掉越界（只剩 7）", t.Count == 1 && t[0] == 7, string.Join(",", t));
 
-            // Next 指向顺时针下一个子弹
+            // 触发弹载荷仍顺时针找下一颗子弹，与配件范围分离
             int nb = Loadout.NextBulletCell(0, s);
-            Check("Next 从 0 指向 2", nb == 2, $"{nb}");
+            Check("触发载荷从 0 找到 2", nb == 2, $"{nb}");
             nb = Loadout.NextBulletCell(5, s);
-            Check("Next 从 5 环绕指向 2", nb == 2, $"{nb}");
+            Check("触发载荷扫描保留环绕", nb == 2, $"{nb}");
+        }
+
+        static void ScopePreviewCases()
+        {
+            Section("背包效果范围与安装预览");
+            var slots = new SlotState(8);
+            slots.Cells[0] = D.MakeItem("std");
+            slots.Cells[2] = D.MakeItem("std");
+            slots.Cells[5] = D.MakeItem("std");
+            var mod = D.MakeItem("dmg");
+            slots.Cells[3] = mod;
+
+            mod.Mod.Scope = Scope.Adj;
+            var range = Loadout.EffectRangeOf(slots, 3);
+            var targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("相邻覆盖包含空格", range.Count == 2 && range.Contains(2) && range.Contains(4));
+            Check("相邻生效目标不统计空格", targets.Count == 1 && targets[0] == 2);
+            mod.Mod.Scope = Scope.Prev;
+            slots.Cells[2] = null;
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("前一格为空时不跨格寻找子弹", targets.Count == 0);
+            mod.Mod.Scope = Scope.N2;
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("N2 仅统计后两格内子弹", targets.Count == 1 && targets[0] == 5);
+            mod.Mod.Scope = Scope.N3;
+            range = Loadout.EffectRangeOf(slots, 3);
+            Check("N3 覆盖后 3 格", range.Count == 3 && range.Contains(4) && range.Contains(6));
+            mod.Mod.Scope = Scope.P2;
+            Check("P2 范围有空格但无生效子弹", Loadout.EffectRangeOf(slots, 3).Count == 2 &&
+                Loadout.AffectedBulletCells(slots, 3).Count == 0);
+            mod.Mod.Scope = Scope.All;
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("All 覆盖全枪但仅两颗子弹生效", Loadout.EffectRangeOf(slots, 3).Count == 7 &&
+                targets.Count == 2 && targets.Contains(0) && targets.Contains(5));
+            mod.Mod.Scope = Scope.Next;
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("后一格为空时不跨格寻找子弹", targets.Count == 0);
+            var wrapped = Loadout.PreviewPlacement(slots, mod, 7, 3);
+            targets = Loadout.AffectedBulletCells(wrapped, 7);
+            Check("后一格在末尾不环绕", targets.Count == 0 && Loadout.EffectRangeOf(wrapped, 7).Count == 0);
+            Check("枪内移动预览移走来源，不复制配件", wrapped.Cells[3] == null && wrapped.Cells[7] == mod);
+            Check("预览不改原布局", slots.Cells[3] == mod && slots.Cells[7] == null);
+
+            var swap = Loadout.PreviewPlacement(slots, mod, 0, 3);
+            Check("预览交换保留被替换子弹", swap.Cells[0] == mod && swap.Cells[3] == slots.Cells[0]);
+            Check("交换预览不跨空格影响移走的子弹", Loadout.AffectedBulletCells(swap, 0).Count == 0);
+            var same = Loadout.PreviewPlacement(slots, mod, 3, 3);
+            Check("原格预览布局不变", same.Cells[3] == mod && same.FilledCount == slots.FilledCount);
+            var bagItem = D.MakeItem("pierce");
+            var bagProbe = Loadout.PreviewPlacement(slots, bagItem, 0);
+            Check("背包装入预览替换目标，不动其余格", bagProbe.Cells[0] == bagItem &&
+                bagProbe.Cells[3] == mod && slots.Cells[0].IsBullet);
+            Check("子弹件没有被动作用范围", Loadout.EffectRangeOf(slots, 0).Count == 0);
+            Check("无效格预览不崩溃", Loadout.EffectRangeOf(slots, -1).Count == 0 &&
+                Loadout.AffectedBulletCells(slots, 8).Count == 0 && Loadout.EffectRangeOf(null, 0).Count == 0);
+
+            var empty = new SlotState(4);
+            empty.Cells[1] = D.MakeItem("g_mag"); // 数据标为 Next，实际由 ResolveGun 全局结算。
+            range = Loadout.EffectRangeOf(empty, 1);
+            Check("枪械件无子弹仍覆盖全枪", range.Count == 3 && range.Contains(0) && range.Contains(3));
+            Check("枪械件不虚报生效子弹", Loadout.AffectedBulletCells(empty, 1).Count == 0);
+            empty.Cells[1] = mod;
+            Check("后一格覆盖空槽但不生效", Loadout.EffectRangeOf(empty, 1).Count == 1 &&
+                Loadout.EffectRangeOf(empty, 1)[0] == 2 && Loadout.AffectedBulletCells(empty, 1).Count == 0);
+            mod.Mod.Scope = Scope.P2;
+            Check("P2 开头截断，不环绕", Loadout.EffectRangeOf(empty, 1).Count == 1 &&
+                Loadout.EffectRangeOf(empty, 1)[0] == 0);
+            mod.Mod.Scope = Scope.N3;
+            Check("N3 末尾截断", Loadout.EffectRangeOf(empty, 1).Count == 2);
+
+            slots.Cells[3] = D.MakeItem("g_double");
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("双重施放不跨空槽生效", targets.Count == 0);
+            slots.Cells[4] = D.MakeItem("std");
+            slots.Cells[3] = D.MakeItem("g_triple");
+            targets = Loadout.AffectedBulletCells(slots, 3);
+            Check("多重施放仅标出后一格触发目标", targets.Count == 1 && targets[0] == 4);
+        }
+
+        static void PhysicalScopeCastCases()
+        {
+            Section("物理前后格实战回归");
+            var gun = D.Guns["rifle"];
+            var slots = new SlotState(8);
+            slots.Cells[0] = D.MakeItem("std");
+            slots.Cells[1] = D.MakeItem("dmg");
+            CastResult Cast(int pointer) => Loadout.ResolveCast(gun, slots, Loadout.ResolveGun(gun, slots), pointer);
+
+            Check("子弹后放后一格配件不反向增伤", Near(Cast(1).Projectiles[0].Damage, 12f));
+            Check("没有目标不收取配件耗弹", Cast(1).AmmoCost == 1);
+            slots.Cells[3] = D.MakeItem("std");
+            Check("隔空槽射击不增伤", Near(Cast(1).Projectiles[0].Damage, 12f));
+            slots.Cells[2] = D.MakeItem("std");
+            Check("紧邻后一格增伤", Near(Cast(1).Projectiles[0].Damage, 18f));
+            Check("从子弹格开始读取也按物理范围增伤", Near(Cast(2).Projectiles[0].Damage, 18f));
+            Check("相邻配件耗弹只计一次", Cast(2).AmmoCost == 2);
+            slots.Cells[2] = D.MakeItem("speed");
+            Check("配件不会将前一配件效果传递给子弹", Near(Cast(1).Projectiles[0].Damage, 12f));
+            slots.Cells[1] = null;
+            slots.Cells[2] = null;
+            slots.Cells[7] = D.MakeItem("dmg");
+            Check("末格配件不环绕增强首格子弹", Near(Cast(7).Projectiles[0].Damage, 12f));
+            slots.Cells[7] = null;
+            slots.Cells[2] = D.MakeItem("dmg");
+            slots.Cells[2].Mod.Scope = Scope.Prev;
+            Check("前一格为空不跨格增伤", Near(Cast(0).Projectiles[0].Damage, 12f));
+            slots.Cells[1] = D.MakeItem("std");
+            Check("紧邻前一格增伤", Near(Cast(1).Projectiles[0].Damage, 18f));
+            slots.Cells[0] = D.MakeItem("dmg");
+            slots.Cells[0].Mod.Scope = Scope.Prev;
+            Check("首格前一格范围为空", Loadout.EffectRangeOf(slots, 0).Count == 0);
+            slots = new SlotState(8);
+            slots.Cells[0] = D.MakeItem("g_double");
+            slots.Cells[2] = D.MakeItem("std");
+            Check("多重施放隔空槽不触发", Cast(0).Projectiles.Count == 1);
+            slots.Cells[1] = D.MakeItem("std");
+            Check("多重施放从目标子弹格起读仍触发", Cast(1).Projectiles.Count == 2);
+            slots.Cells[2] = null;
+            Check("多重施放环绕不无限追加读取", Cast(1).Projectiles.Count == 2);
+            slots.Cells[0] = D.MakeItem("heavy");
+            Check("后一格配件击发延迟计入目标", Near(Cast(1).DelayAdd,
+                D.Bullets["std"].Delay + D.Modifiers["heavy"].Delay));
         }
 
         // ---------------- 权重（同名同域叠加）----------------
@@ -675,14 +847,17 @@ namespace LoadoutTests
 
         static string FindCfgDir()
         {
+            // 沿目录上溯找工程内的配置表目录。
+            // 路径取 SCfgAddresses.AssetFolder（唯一真相），不要再手写一份 ——
+            // 资产从 Resources/ 搬到 Assets/_Game/Res/Cfg/ 时就是这里先漏掉的。
             var dir = AppContext.BaseDirectory;
             for (int i = 0; i < 8 && dir != null; i++)
             {
-                var p = Path.Combine(dir, "Assets", "Resources", "Data", "Cfg");
+                var p = Path.Combine(dir, SCfgAddresses.AssetFolder.Replace('/', Path.DirectorySeparatorChar));
                 if (Directory.Exists(p)) return p;
                 dir = Path.GetDirectoryName(dir.TrimEnd(Path.DirectorySeparatorChar));
             }
-            return Path.Combine(AppContext.BaseDirectory, "Cfg");
+            return Path.Combine(AppContext.BaseDirectory, SCfgAddresses.ResourceFolder);
         }
 
         static void Section(string name)

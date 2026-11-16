@@ -38,7 +38,7 @@ namespace S.EditorTools
         {
             string name = fileName.EndsWith(".png") ? fileName.Substring(0, fileName.Length - 4) : fileName;
             var dir = S.View.UiAssets.DirOf(name);
-            return dir == null ? null : "Assets/Resources/" + dir + name + ".png";
+            return dir == null ? null : S.View.SRes.Root + dir + name + ".png";
         }
 
         [MenuItem("S/写入 UI 九宫格边距")]

@@ -124,9 +124,9 @@ namespace S.Core
     /// 结算引擎。**对齐 MODCORE 原型的读取式链**（docs/loadout-spec.md §3）：
     ///
     ///   1. 从轮转指针开始**顺时针扫格子**，跳过空格与被动件；
-    ///   2. 遇到 `Next` 作用域的件 → **消耗一次读取**，其效果叠加到之后读到的第一个子弹；
+    ///   2. 配件按物理槽位作用域吸附到子弹，Next/Prev 仅后一格/前一格，不环绕；
     ///   3. 遇到子弹 → 产出一次射击，读到几次子弹由 `castCount` 决定；
-    ///   4. 被动件（Prev/Adj/N2/N3/P2/All）**不占读取**，按作用域吸附到目标子弹；
+    ///   4. 配件不单独读取；多重施放由相邻目标子弹触发，增加本次读取预算；
     ///   5. 触发类子弹递归解析一个载荷（只读 1 次），载荷跟着子弹走。
     ///
     /// 与旧实现（顺序链、衍生件在时间轴上逐项触发）的差别是根本性的：
@@ -165,7 +165,7 @@ namespace S.Core
             {
                 var it = slots.Cells[i];
                 if (it == null || it.Mod == null) continue;
-                var m = it.Mod;
+                var m = it.EffectiveMod;
 
                 mag *= m.GunMagMul;
                 s.Reload *= m.GunReloadMul;
@@ -197,8 +197,7 @@ namespace S.Core
         /// <summary>
         /// 作用域覆盖的格子下标（原型 `sh`）。
         ///
-        /// `Prev` 是「向左找最近的一个子弹」，不是「左一格」——
-        /// 这条差别决定了玩家能不能用中间塞被动件的方式精确控制影响对象。
+        /// Next/Prev 严格覆盖后一格/前一格，不跨空格、不环绕。
         /// </summary>
         public static List<int> TargetsOf(Scope scope, int cell, SlotState slots)
         {
@@ -207,12 +206,11 @@ namespace S.Core
 
             switch (scope)
             {
+                case Scope.Next:
+                    res.Add(cell + 1);
+                    break;
                 case Scope.Prev:
-                    for (int i = cell - 1; i >= 0; i--)
-                    {
-                        var it = slots.Cells[i];
-                        if (it != null && it.IsBullet) { res.Add(i); break; }
-                    }
+                    res.Add(cell - 1);
                     break;
                 case Scope.Adj:
                     res.Add(cell - 1); res.Add(cell + 1);
@@ -226,6 +224,15 @@ namespace S.Core
                 case Scope.P2:
                     res.Add(cell - 2); res.Add(cell - 1);
                     break;
+                case Scope.P3:
+                    res.Add(cell - 3); res.Add(cell - 2); res.Add(cell - 1);
+                    break;
+                case Scope.Adj2:
+                    res.Add(cell - 2); res.Add(cell - 1); res.Add(cell + 1); res.Add(cell + 2);
+                    break;
+                case Scope.Skip:
+                    res.Add(cell - 2); res.Add(cell + 2);
+                    break;
                 case Scope.All:
                     for (int i = 0; i < n; i++) if (i != cell) res.Add(i);
                     break;
@@ -238,7 +245,7 @@ namespace S.Core
         }
 
         /// <summary>
-        /// `Next` 作用域的件指向哪个格子：顺时针找下一个子弹。
+        /// 触发弹载荷扫描：顺时针找下一个子弹（与配件的物理作用域无关）。
         /// 找不到返回 -1（此时该件无目标，UI 应提示）。
         /// </summary>
         public static int NextBulletCell(int cell, SlotState slots)
@@ -255,7 +262,7 @@ namespace S.Core
 
         /// <summary>
         /// 作用于某个子弹格的所有被动件（原型 `ah`）。
-        /// 只统计**不是 Next** 且有实际子弹效果的件；枪械件不参与。
+        /// 按物理作用域收集；枪械件不参与。
         /// </summary>
         public static List<ModifierDef> PassivesOn(GunDef gun, SlotState slots, int bulletCell)
         {
@@ -264,11 +271,57 @@ namespace S.Core
             {
                 var it = slots.Cells[i];
                 if (it == null || it.Mod == null) continue;
-                var m = it.Mod;
+                var m = it.EffectiveMod;
                 if (!m.IsPassive || m.IsGunOnly) continue;
                 if (TargetsOf(m.Scope, i, slots).Contains(bulletCell)) res.Add(m);
             }
             return res;
+        }
+
+        /// <summary>安装预览用的布局副本；枪内移动与实际拖放一致，交换两格而不是复制配件。</summary>
+        public static SlotState PreviewPlacement(SlotState slots, ChainItem item, int target, int source = -1)
+        {
+            var probe = slots.Clone();
+            if (target < 0 || target >= probe.Length || item == null) return probe;
+            var fused = ItemFusion.Preview(item, probe.Cells[target]);
+            if (fused != null)
+            {
+                if (source >= 0 && source < probe.Length) probe.Cells[source] = null;
+                probe.Cells[target] = fused;
+                return probe;
+            }
+            if (probe.Cells[target] != null && probe.Cells[target].Id == item.Id &&
+                probe.Cells[target].IsBullet == item.IsBullet) return probe;
+            if (source >= 0 && source < probe.Length && source != target)
+                probe.Cells[source] = probe.Cells[target];
+            probe.Cells[target] = item;
+            return probe;
+        }
+
+        /// <summary>UI 的效果覆盖格，与结算共用作用域规则；空格可覆盖，但不等于实际生效目标。</summary>
+        public static List<int> EffectRangeOf(SlotState slots, int cell)
+        {
+            var result = new List<int>();
+            if (slots == null || cell < 0 || cell >= slots.Length) return result;
+            var item = slots.Cells[cell];
+            if (item == null || item.IsBullet || item.Mod == null) return result;
+            var mod = item.Mod;
+            // 枪械属性由 ResolveGun 全局结算，即使数据标为 Next 也不能显示成仅下一颗子弹。
+            if (mod.IsGunOnly)
+            {
+                for (int i = 0; i < slots.Length; i++) if (i != cell) result.Add(i);
+                return result;
+            }
+            return TargetsOf(mod.Scope, cell, slots);
+        }
+
+        /// <summary>范围中实际存在的子弹；不把空格或其他被动件误算成生效目标。</summary>
+        public static List<int> AffectedBulletCells(SlotState slots, int cell)
+        {
+            var result = new List<int>();
+            foreach (int target in EffectRangeOf(slots, cell))
+                if (slots.Cells[target] != null && slots.Cells[target].IsBullet) result.Add(target);
+            return result;
         }
 
         // ---------------- 弹药 ----------------
@@ -301,43 +354,37 @@ namespace S.Core
             int cursor = startCell;
             int scanned = 0;
             int budget = Math.Max(1, stats.CastCount);
-            var pendingMods = new List<ModifierDef>();
+            var multicastApplied = new HashSet<int>();
 
             while (plan.Projectiles.Count < budget && scanned < MaxCellScan)
             {
-                // 找下一个「会被读取」的格子：子弹，或 Next 作用域的件
                 int cell = -1;
-                ChainItem hit = null;
                 while (scanned < MaxCellScan)
                 {
                     int cur = cursor;
                     cursor = (cursor + 1) % n;
                     if (cursor == 0) plan.Wrapped = true;
                     scanned++;
-
-                    var it = slots.Cells[cur];
-                    if (it == null) continue;
-                    if (it.IsBullet) { cell = cur; hit = it; break; }
-                    if (it.Mod != null && it.Mod.Scope == Scope.Next) { cell = cur; hit = it; break; }
+                    if (slots.Cells[cur] != null && slots.Cells[cur].IsBullet)
+                    {
+                        cell = cur;
+                        break;
+                    }
                 }
-
-                if (hit == null) break;
+                if (cell < 0) break;
 
                 plan.UsedCells.Add(cell);
                 plan.AmmoCost += AmmoCostOf(gun, slots, cell);
-                plan.DelayAdd += hit.IsBullet ? hit.Bullet.Delay : hit.Mod.Delay;
-
-                if (!hit.IsBullet)
+                plan.DelayAdd += slots.Cells[cell].Bullet.Delay;
+                foreach (var mod in PassivesOn(gun, slots, cell))
                 {
-                    // Next 件：多重施放加预算，其余攒着叠给下一个子弹
-                    if (hit.Mod.Multicast > 0) budget += hit.Mod.Multicast;
-                    else pendingMods.Add(hit.Mod);
-                    continue;
+                    // 后一格配件的耗弹已由 AmmoCostOf 并入目标子弹。
+                    plan.DelayAdd += mod.Delay;
+                    // 环绕再次读取同一子弹时不无限增加多重施放预算。
+                    if (mod.Multicast > 0 && multicastApplied.Add(cell))
+                        budget += mod.Multicast;
                 }
-
-                var desc = BuildDesc(gun, slots, stats, cell, pendingMods, generation);
-                pendingMods = new List<ModifierDef>();
-                plan.Projectiles.Add(desc);
+                plan.Projectiles.Add(BuildDesc(gun, slots, stats, cell, generation));
             }
 
             plan.NextPointer = cursor;
@@ -345,18 +392,17 @@ namespace S.Core
         }
 
         /// <summary>
-        /// 把一格子弹 + 吸附的被动件 + 前置 Next 件，结算成最终描述符（原型 `ch`）。
+        /// 把一格子弹及物理作用域覆盖它的配件，结算成最终描述符。
         /// </summary>
         static ProjectileDesc BuildDesc(GunDef gun, SlotState slots, GunStats stats,
-            int cell, List<ModifierDef> pendingMods, int generation)
+            int cell, int generation)
         {
-            var def = slots.Cells[cell].Bullet;
+            var def = slots.Cells[cell].EffectiveBullet;
             var d = def.ToDesc();
 
             // 同一件在不同位置可能出现多次，按「件 id + 层数」累乘
             var passives = PassivesOn(gun, slots, cell);
             for (int i = 0; i < passives.Count; i++) ApplyMod(d, passives[i], 1);
-            for (int i = 0; i < pendingMods.Count; i++) ApplyMod(d, pendingMods[i], 1);
 
             // 枪械固有倍率与散射在链结算之后
             if (stats.DmgMul != 1f)
@@ -366,6 +412,9 @@ namespace S.Core
             }
             d.Spread *= stats.SpreadMul;
 
+            d.Crit = Math.Min(1f, d.Crit);
+            d.Slow = Math.Min(0.85f, d.Slow);
+            d.Spread = Math.Max(0f, d.Spread);
             if (d.Count < 1) d.Count = 1;
             if (d.Count > MaxCount) d.Count = MaxCount;
 
@@ -478,11 +527,9 @@ namespace S.Core
             {
                 var it = slots.Cells[i];
                 if (it == null || it.Mod == null) continue;
-                if (it.Mod.Scope != Scope.Next) continue;
 
-                // 只有「这次会被读到」的 Next 件才需要提示
-                if (!result.UsedCells.Contains(i)) continue;
-                if (NextBulletCell(i, slots) < 0)
+                if (it.Mod.IsGunOnly) continue;
+                if (AffectedBulletCells(slots, i).Count == 0)
                     result.Warnings.Add(new CastWarning
                     {
                         ItemId = it.Id,
@@ -538,7 +585,7 @@ namespace S.Core
             // 放被动件前检查它有没有目标
             var probe = slots.Clone();
             probe.Cells[cell] = item;
-            if (item.Mod.Scope != Scope.Next && TargetsOf(item.Mod.Scope, cell, probe).Count == 0
+            if (TargetsOf(item.Mod.Scope, cell, probe).Count == 0
                 && !item.Mod.IsGunOnly)
             {
                 reason = "此作用域在本格没有目标";

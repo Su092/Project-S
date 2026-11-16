@@ -178,6 +178,7 @@ namespace S.View
             Apply(item);
         }
 
+        int _currentLevel;
         void Apply(ChainItem item)
         {
             if (item == null || _suppressed) { Hide(); return; }
@@ -186,30 +187,31 @@ namespace S.View
             EnsureFonts();
 
             string id = item.IsBullet ? item.Bullet.Id : item.Mod.Id;
-            bool same = id == _currentId && Visible;
+            bool same = id == _currentId && _currentLevel == item.Level && Visible;
+            _currentLevel = item.Level;
             _currentId = id;
 
             if (!same)
             {
                 bool bullet = item.IsBullet;
                 Rarity rar = bullet ? item.Bullet.Rarity : item.Mod.Rarity;
-                string name = bullet ? item.Bullet.Name : item.Mod.Name;
+                string name = item.Name;
 
                 _title.text = name;
-                _rarity.text = RarityName(rar) + (bullet ? "   ·   子弹配件" : "   ·   衍生配件");
+                _rarity.text = "Lv." + item.Level + "   ·   " + RarityName(rar) + (bullet ? "   ·   子弹配件" : "   ·   衍生配件");
                 _rarity.color = RarityColor(rar);
 
                 if (bullet)
                 {
                     _scope.text = BulletKindName(item.Bullet.Kind);
                     _scope.color = new Color(1f, 0.72f, 0.32f);
-                    _body.text = DescribeBullet(item.Bullet);
+                    _body.text = DescribeBullet(item.EffectiveBullet);
                 }
                 else
                 {
                     _scope.text = "作用范围：" + ScopeName(item.Mod.Scope);
                     _scope.color = ScopeColor(item.Mod.Scope);
-                    _body.text = DescribeMod(item.Mod);
+                    _body.text = DescribeMod(item.EffectiveMod);
                 }
 
                 _icon.enabled = true;
@@ -226,6 +228,8 @@ namespace S.View
                 : (item.IsBullet
                     ? "放在任意槽位即可被读取"
                     : ScopeHint(item.Mod.Scope));
+            if (string.IsNullOrEmpty(_footerOverride))
+                _footer.text += item.Level < ItemFusion.MaxLevel ? "\n同种同级拖到一起合成升级（最高 Lv.5）" : "\n已满级 Lv.5";
 
             _root.gameObject.SetActive(true);
             Place();
@@ -344,12 +348,15 @@ namespace S.View
 
         public static string ScopeName(Scope s) => s switch
         {
-            Scope.Next => "下一发",
-            Scope.Prev => "上一个",
+            Scope.Next => "后一格",
+            Scope.Prev => "前一格",
             Scope.Adj => "相邻",
             Scope.N2 => "后2格",
             Scope.N3 => "后3格",
             Scope.P2 => "前2格",
+            Scope.P3 => "前3格",
+            Scope.Adj2 => "前后各2格",
+            Scope.Skip => "隔一格",
             _ => "全枪",
         };
 
@@ -361,17 +368,23 @@ namespace S.View
             Scope.N2 => new Color(0.85f, 1f, 0.36f),
             Scope.N3 => new Color(0.85f, 1f, 0.36f),
             Scope.P2 => new Color(1f, 0.54f, 0.85f),
+            Scope.P3 => new Color(1f, 0.42f, 0.65f),
+            Scope.Adj2 => new Color(0.3f, 1f, 0.85f),
+            Scope.Skip => new Color(1f, 0.72f, 0.3f),
             _ => new Color(0.78f, 0.49f, 1f),
         };
 
         public static string ScopeHint(Scope s) => s switch
         {
-            Scope.Next => "放在子弹前面：射击时会被读取，效果叠给之后的第一颗子弹",
-            Scope.Prev => "被动：作用于左侧最近的子弹（中间隔着别的件也能生效）",
+            Scope.Next => "仅作用于槽位编号 +1 的子弹；不跨空格、不环绕",
+            Scope.Prev => "仅作用于槽位编号 -1 的子弹；不跨空格、不环绕",
             Scope.Adj => "被动：作用于左右各一格内的子弹",
-            Scope.N2 => "被动：作用于右侧 2 格内的子弹",
-            Scope.N3 => "被动：作用于右侧 3 格内的子弹",
-            Scope.P2 => "被动：作用于左侧 2 格内的子弹",
+            Scope.N2 => "被动：作用于后 2 格内的子弹",
+            Scope.N3 => "被动：作用于后 3 格内的子弹",
+            Scope.P2 => "被动：作用于前 2 格内的子弹",
+            Scope.P3 => "被动：作用于前 3 格内的子弹，不环绕",
+            Scope.Adj2 => "被动：作用于前后各 2 格内的子弹，不环绕",
+            Scope.Skip => "只作用于编号 −2、+2 的子弹，跳过紧邻格，不环绕",
             _ => "被动：作用于整把枪，不占读取次数",
         };
 
@@ -457,16 +470,7 @@ namespace S.View
             if (m.GunLeech != 0f) parts.Add($"击杀回血 {m.GunLeech:0}");
             if (m.Multicast != 0) parts.Add($"额外读取 {m.Multicast}");
 
-            string note = m.Scope switch
-            {
-                Scope.Next => "\n<b>下一发</b>：射击时会被读取，叠给之后读到的第一个子弹（自身耗弹）",
-                Scope.Prev => "\n<b>上一个</b>：被动，作用于左侧最近的子弹",
-                Scope.Adj => "\n<b>相邻</b>：被动，作用于左右各一格内的子弹",
-                Scope.N2 => "\n<b>后 2 格</b>：被动，作用于右侧 2 格内的子弹",
-                Scope.N3 => "\n<b>后 3 格</b>：被动，作用于右侧 3 格内的子弹",
-                Scope.P2 => "\n<b>前 2 格</b>：被动，作用于左侧 2 格内的子弹",
-                _ => "\n<b>全枪</b>：被动，作用于整把枪械",
-            };
+            string note = "\n" + ScopeHint(m.Scope);
             return string.Join("    ", parts) + note;
         }
 

@@ -11,9 +11,9 @@ namespace S.Core
     /// </summary>
     public enum Scope
     {
-        /// <summary>下一发：**会被读取**（占读取次数），叠加到其后读到的第一个子弹。</summary>
+        /// <summary>后一格：仅作用于槽位编号 +1 的子弹，不跨格、不环绕。</summary>
         Next = 0,
-        /// <summary>上一个：被动，作用于左侧最近的子弹。</summary>
+        /// <summary>前一格：仅作用于槽位编号 -1 的子弹，不跨格、不环绕。</summary>
         Prev = 1,
         /// <summary>相邻：被动，作用于左右两侧一格内的子弹。</summary>
         Adj = 2,
@@ -25,6 +25,10 @@ namespace S.Core
         P2 = 5,
         /// <summary>全枪：被动，作用于整把枪械（枪属性或全部子弹）。</summary>
         All = 6,
+        P3 = 7,   // 前三格
+        Adj2 = 8, // 前后各两格
+        Skip = 9, // 前后各隔一格（±2）
+
     }
 
     public enum Rarity { Common = 0, Rare = 1, Epic = 2, Starter = 3 }
@@ -177,6 +181,8 @@ namespace S.Core
         public TriggerKind Trigger = TriggerKind.None;
         public string Color = "#ffd25a";
 
+        public BulletDef Clone() => (BulletDef)MemberwiseClone();
+
         public ProjectileDesc ToDesc()
         {
             return new ProjectileDesc
@@ -274,8 +280,9 @@ namespace S.Core
             GunMagMul != 1f || GunReloadMul != 1f || GunDelayMul != 1f || GunSpreadMul != 1f ||
             GunRecycleAdd != 0f || GunCastAdd != 0 || GunLeech != 0f;
 
-        /// <summary>是否为被动件（不被读取）。`Next` 以外的全部是被动。</summary>
-        public bool IsPassive => Scope != Scope.Next;
+        /// <summary>配件均按物理作用域吸附，不单独被读取。</summary>
+        public bool IsPassive => true;
+        public ModifierDef Clone() => (ModifierDef)MemberwiseClone();
     }
 
     /// <summary>一个槽位里的一项（子弹或衍生）。原型里一格只放一件。</summary>
@@ -285,7 +292,14 @@ namespace S.Core
         public ModifierDef Mod;
         public bool IsBullet => Bullet != null;
         public string Id => IsBullet ? Bullet.Id : Mod.Id;
-        public string Name => IsBullet ? Bullet.Name : Mod.Name;
+        public int Level { get; private set; } = 1;
+        ModifierDef _effectiveMod;
+        BulletDef _effectiveBullet;
+        public ModifierDef EffectiveMod => Level == 1 ? Mod : (_effectiveMod ??= ItemFusion.Upgrade(Mod, Level));
+        public BulletDef EffectiveBullet => Level == 1 ? Bullet : (_effectiveBullet ??= ItemFusion.Upgrade(Bullet, Level));
+        public string BaseName => IsBullet ? Bullet.Name : Mod.Name;
+        public string Name => Level > 1 ? BaseName + " Lv." + Level : BaseName;
+        internal ChainItem AtLevel(int level) => new ChainItem { Bullet = Bullet, Mod = Mod, Level = level };
         public Rarity Rarity => IsBullet ? Bullet.Rarity : Mod.Rarity;
     }
 

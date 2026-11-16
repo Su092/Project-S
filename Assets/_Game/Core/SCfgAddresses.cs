@@ -9,8 +9,11 @@ namespace S.Core
     /// </summary>
     public static class SCfgAddresses
     {
-        /// <summary>Resources 下的目录（相对 `Assets/Resources/`，不带扩展名）。</summary>
-        public const string ResourceFolder = "Data/Cfg";
+        /// <summary>资产目录（相对工程根），从 `Assets/_Game/Res/Cfg/` 取表。</summary>
+        public const string ResourceFolder = "Cfg";
+
+        /// <summary>完整的资产目录路径（报错给人看用）。</summary>
+        public const string AssetFolder = "Assets/_Game/Res/Cfg";
 
         public const string Player = "Player";
         public const string Gun = "Gun";
@@ -34,11 +37,10 @@ namespace S.Core
             Arena, Timeline, Elite, Boss, Enemy,
         };
 
-        /// <summary>Resources 路径（不含扩展名），Unity 侧加载用。</summary>
+        /// <summary>相对资产路径（不含扩展名），Addressables 地址就是表名。</summary>
         public static string ResourcePath(string table) => ResourceFolder + "/" + table;
 
         /// <summary>相对工程根的资产路径，报错时给人看用。</summary>
-        public static string AssetPath(string table) =>
-            "Assets/Resources/" + ResourceFolder + "/" + table + ".tsv";
+        public static string AssetPath(string table) => AssetFolder + "/" + table + ".tsv";
     }
 }

@@ -14,8 +14,8 @@ import re
 import sys
 
 PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PF = os.path.join(PROJ, "Assets", "Resources", "UI", "Prefabs")
-UI = os.path.join(PROJ, "Assets", "Resources", "UI")
+PF = os.path.join(PROJ, "Assets", "_Game", "Res", "UIPrefabs")
+UI = os.path.join(PROJ, "Assets", "_Game", "Res", "Texture", "UI")
 
 # 与 SAssetPostprocessor.BorderFor 保持一致（left, bottom, right, top）
 # 这些值按控件真实像素倒推，不是按贴图尺寸 —— 详见 BorderFor 的注释。

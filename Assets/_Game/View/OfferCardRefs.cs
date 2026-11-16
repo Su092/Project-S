@@ -23,6 +23,35 @@ namespace S.View
         /// 把一张候选配件填进卡片。三选一是玩家第一次见到这件配件的地方，
         /// 所以必须同时给出：名称、稀有度、一句话效果、作用域。
         /// </summary>
+        public void BindGun(GunDef gun, string action)
+        {
+            if (CardTitle != null) CardTitle.text = gun.Name;
+            if (RarityName != null) { RarityName.text = "稀有 · 枪械"; RarityName.color = InventoryView.RarityColor(Rarity.Rare); }
+            if (TagTop != null) TagTop.color = InventoryView.RarityColor(Rarity.Rare);
+            if (Desc != null)
+            {
+                Desc.horizontalOverflow = HorizontalWrapMode.Wrap;
+                Desc.text = $"{gun.Desc}\n槽位 {gun.SlotCount} · 弹匣 {gun.MagSize}\n换弹 {gun.ReloadTime:0.0}s · 自带基础子弹";
+            }
+            if (PickHint != null) PickHint.text = action;
+            if (IconNode != null)
+            {
+                IconNode.gameObject.SetActive(true);
+                ((RectTransform)IconNode.transform).sizeDelta = new Vector2(96f, 96f);
+                if (IconNode.Icon != null)
+                {
+                    IconNode.Icon.enabled = true;
+                    IconNode.Icon.type = Image.Type.Simple;
+                    IconNode.Icon.sprite = UiAssets.IconGun;
+                    IconNode.Icon.material = null;
+                    IconNode.Icon.color = PlayerWeapons.ParseColor(gun.Color);
+                    IconNode.Icon.preserveAspect = true;
+                }
+                if (IconNode.ScopeMark != null) IconNode.ScopeMark.enabled = false;
+                if (IconNode.Badge != null) { IconNode.Badge.gameObject.SetActive(true); IconNode.Badge.text = "枪"; }
+            }
+        }
+
         public void Bind(ChainItem item, int index)
         {
             if (item == null) return;

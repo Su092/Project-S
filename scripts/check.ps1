@@ -53,22 +53,40 @@ function Write-Section($t) {
     Write-Host ("=" * 62) -ForegroundColor DarkCyan
 }
 
-function Invoke-UnityMethod($method, $logName) {
+function Invoke-UnityMethod($method, $logName, [switch]$NoQuit) {
     $log = Join-Path $LogDir $logName
     if (Test-Path $log) { Remove-Item $log -Force }
 
     # 工程被编辑器占用时，batchmode 拿不到锁会「启动即退出」或长时间干等，
     # 日志里只有一句 Aborting、没有 error CS，表现为莫名其妙的超时。
-    # 先快速判掉，给出可操作的提示，而不是让人等 30 分钟。
-    $lock = Join-Path $Proj "Temp\UnityLockfile"
-    if (Test-Path $lock) {
-        $editor = Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue |
-                  Where-Object { $_.CommandLine -like "*$Proj*" -and $_.CommandLine -notlike "*-batchMode*" }
-        Write-Host "工程锁被占用：Temp\UnityLockfile 存在" -ForegroundColor Red
-        if ($editor) {
-            Write-Host "  占用进程：PID $($editor.ProcessId -join ',')（Unity 编辑器正打开本工程）" -ForegroundColor Yellow
-            Write-Host "  请先关闭该编辑器窗口再重跑，否则 batchmode 无法编译。" -ForegroundColor Yellow
+    #
+    # ⚠ 不要用「Temp\UnityLockfile 是否存在」判断 —— 那是**常驻残留**：
+    # 编辑器异常退出后这个 0 字节文件会留下，之后每次 batchmode 都会被误判成
+    # 「工程被占用」而直接放弃（本次就踩了，明明没有编辑器却跑不了构建）。
+    # 判据统一交给枢纽的 tools\unity-lock.ps1（唯一实现：查进程 + 试独占数据库文件）。
+    # 注意工程不一定在枢纽目录里（当前 E:\S 就独立在外），所以优先取配置过的枢纽路径，
+    # 找不到时按环境变量/常见位置兜底，最后才退回文件存在性弱判据。
+    $hubCandidates = @(
+        $env:S_HUB,
+        "E:\Unity Development",
+        (Split-Path $Proj -Parent)
+    )
+    $lockTool = $null
+    foreach ($c in $hubCandidates) {
+        if (-not $c) { continue }
+        $t = Join-Path $c "tools\unity-lock.ps1"
+        if (Test-Path $t) { $lockTool = $t; break }
+    }
+    if ($lockTool -and (Test-Path $lockTool)) {
+        & powershell -ExecutionPolicy Bypass -File $lockTool -ProjectPath $Proj | Out-Null
+        if ($LASTEXITCODE -eq 1) {
+            Write-Host "工程被占用：Unity 编辑器正打开本工程" -ForegroundColor Red
+            Write-Host "  先关闭编辑器（或跑 unity-lock.ps1 -Force），否则 batchmode 结果不可信" -ForegroundColor Yellow
+            throw "工程被占用，无法执行 $method"
         }
+    } elseif (Test-Path (Join-Path $Proj "Temp\UnityLockfile")) {
+        # 兜底：没有探测脚本时才退回文件存在性判据（并提示这是弱判据）
+        Write-Host "工程锁疑似被占用（弱判据：Temp\UnityLockfile 存在）" -ForegroundColor Red
         throw "工程被占用，无法执行 $method"
     }
 
@@ -77,8 +95,13 @@ function Invoke-UnityMethod($method, $logName) {
     # 路径含空格（如 "F:\Unity Development\Project\S\unity"）时，
     # -projectPath 会只吃到空格前那一段，Unity 报
     # "Couldn't set project path to: ...\unity/F:/Unity" 并立刻退出（踩过）。
-    $args = @(
-        "-batchmode", "-quit",
+    #     "-batchmode", "-quit",
+    #
+    # ⚠ -quit 与 Addressables 内容构建互斥：构建是挂在 EditorApplication.update 上的
+    # 异步任务链，-quit 会在方法体返回后立刻结束进程，于是任务一个都没跑、也没有任何报错，
+    # 日志里只有开头那句「开始构建」，看起来像成功（这是本工程踩过的静默失败）。
+    # 需要跑异步链的方法要自己 EditorApplication.Exit()，由 -NoQuit 关掉 -quit。
+    $args = @("-batchmode") + $(if ($NoQuit) { @() } else { @("-quit") }) + @(
         "-projectPath", "`"$Proj`"",
         "-executeMethod", $method,
         "-logFile", "`"$log`""
@@ -289,6 +312,24 @@ function Task-Smoke {
 
 function Task-Build {
     Write-Section "build — 打包 Windows x64"
+
+    # ── 第一步：Addressables 内容构建 ───────────────────────────────
+    # 必须单独一步、且**不带 -quit**：内容构建是挂在 EditorApplication.update 上的
+    # 异步任务链，-quit 会在方法返回后立刻杀进程 —— 结果是 0 bundle、0 报错，
+    # 日志里只有「开始构建」，后面 Player 打包照样 Succeeded，运行时却缺全部资源。
+    # 所以这一步用 -NoQuit，由 BuildContentBatch 自己 delayCall 校验后 Exit。
+    $rc = Invoke-UnityMethod "S.EditorTools.BuildPlayer.BuildContentBatch" "addressables.log" -NoQuit
+    $cRes = Select-String -Path $rc.Log -Pattern "RESULT Addressables 内容 bundle (\d+) 个" | Select-Object -Last 1
+    if (-not $cRes) {
+        $script:Failed += "build"
+        Write-Host "RESULT build FAIL（Addressables 内容构建未产出 bundle）" -ForegroundColor Red
+        $tailLines = @(Get-Content $rc.Log -Tail 15 -ErrorAction SilentlyContinue)
+        if ($tailLines) { Write-Host "  addressables.log 结尾：" -ForegroundColor Yellow; $tailLines | ForEach-Object { Write-Host "    $_" -ForegroundColor DarkGray } }
+        return
+    }
+    Write-Host "  内容包就绪：$($cRes.Matches[0].Groups[1].Value) 个 bundle" -ForegroundColor DarkGray
+
+    # ── 第二步：打 Player ─────────────────────────────────────────
     $r = Invoke-UnityMethod "S.EditorTools.BuildPlayer.BuildBatch" "build.log"
     $res = Select-String -Path $r.Log -Pattern "BUILD RESULT (\w+)" | Select-Object -Last 1
     $err = Select-String -Path $r.Log -Pattern "BUILD ERRORS (\d+)"    | Select-Object -Last 1
@@ -300,30 +341,53 @@ function Task-Build {
         return
     }
 
-    # 配置表必须真的进包。`.tsv` 不在 Unity 默认文本扩展名清单里，
-    # 少了 STsvImporter 时文件会被**静默丢弃** —— 编译 0 错误、build Succeeded，
-    # 只有运行起来才发现「缺表」。所以这里直接查构建产物里有没有这些文件。
-    $cfgSrc = Join-Path $Proj "Assets\Resources\Data\Cfg"
-    $assets = Join-Path $Proj "Build\Windows\S_Data\resources.assets"
+    # 配置表与全部资源必须真的进包。资产已从 Resources/ 搬到 Assets/_Game/Res/，
+    # 由 Addressables 打包 —— 分组漏登记或内容没构建的表现是**静默缺件**：
+    # 编译 0 错误、build Succeeded，只有运行起来才发现「缺表」/界面全是纯色块。
+    # 所以这里直接查构建产物里的 catalog 与 bundle。
+    $cfgSrc = Join-Path $Proj "Assets\_Game\Res\Cfg"
+    $dataDir = Join-Path $Proj "Build\Windows\S_Data"
+    $settingsFile = Join-Path $dataDir "StreamingAssets\aa\settings.json"
     $missing = @()
-    if (-not (Test-Path $assets)) {
+
+    if (-not (Test-Path $settingsFile)) {
         $script:Failed += "build-cfg"
-        Write-Host "RESULT build FAIL（找不到 resources.assets，构建产物不完整）" -ForegroundColor Red
+        Write-Host "RESULT build FAIL（找不到 Addressables settings.json，内容包没进构建）" -ForegroundColor Red
+        Write-Host "  检查 BuildPlayer.BuildContentBatch 是否产出了 bundle（先跑那一步）" -ForegroundColor Yellow
         return
     }
+
+    # 所有 bundle 的清单在 catalog 里，表名与全部资产名都会出现。
+    # 逐个表名去查：查不到 = 那张表没进包（分组漏登记或 .tsv 导入器失效）。
+    $catalogFiles = Get-ChildItem $dataDir -Recurse -Filter "catalog*" -File -ErrorAction SilentlyContinue
+    if ($catalogFiles.Count -eq 0) {
+        $script:Failed += "build-cfg"
+        Write-Host "RESULT build FAIL（找不到 Addressables catalog，构建产物不完整）" -ForegroundColor Red
+        return
+    }
+
+    $catalogText = ($catalogFiles | ForEach-Object { Get-Content $_.FullName -Raw -ErrorAction SilentlyContinue }) -join "`n"
     Get-ChildItem $cfgSrc -Filter *.tsv | ForEach-Object {
-        # TextAsset 的正文会以原文形式落在 resources.assets 里，
-        # 表名与首个字段名都会出现；两者都查不到才算没进包。
-        if (-not (Select-String -Path $assets -Pattern $_.BaseName -Quiet -ErrorAction SilentlyContinue)) {
+        if ($catalogText -notmatch [regex]::Escape($_.BaseName)) {
             $missing += $_.BaseName
         }
     }
+
     if ($missing.Count -gt 0) {
         $script:Failed += "build-cfg"
         Write-Host "RESULT build FAIL（配置表未进包：$($missing -join ', ')）" -ForegroundColor Red
-        Write-Host "  检查 Assets/_Game/Editor/STsvImporter.cs 是否生效，或改为 .txt 后缀" -ForegroundColor Yellow
+        Write-Host "  检查 STsvImporter 是否生效，以及 SAddressablesSetup 的 S_Cfg 分组是否包含该表" -ForegroundColor Yellow
     } else {
         Write-Host "RESULT 配置表进包 $((Get-ChildItem $cfgSrc -Filter *.tsv).Count) 张" -ForegroundColor Green
+    }
+
+    # bundle 数量也要断言：分组在了但内容没打包时，bundle 目录是空的
+    $bundles = Get-ChildItem $dataDir -Recurse -Filter "*.bundle" -File -ErrorAction SilentlyContinue
+    if ($bundles.Count -eq 0) {
+        $script:Failed += "build-bundle"
+        Write-Host "RESULT build FAIL（0 个 bundle，Addressables 内容没打包）" -ForegroundColor Red
+    } else {
+        Write-Host "RESULT Addressables bundle $($bundles.Count) 个" -ForegroundColor Green
     }
 }
 

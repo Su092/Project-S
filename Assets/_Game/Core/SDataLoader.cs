@@ -4,13 +4,12 @@ using UnityEngine;
 namespace S.Core
 {
     /// <summary>
-    /// Unity 侧的桥：从 Resources 读 `Data/Cfg/*.tsv`，交给 SCfgLoader 装配。
+    /// Unity 侧的桥：从 Addressables（`Assets/_Game/Res/Cfg/*.tsv`）取表，交给 SCfgLoader 装配。
     /// Core 本身不依赖 UnityEngine，只有这个文件把两边接起来。
     ///
-    /// 为什么用 Resources 文本而不是自定义 ScriptedImporter：
-    /// 本工程没有 Addressables，表只有 11 张、总量几十 KB，
-    /// 引入 `.tsv` 导入器（识别 + meta 维护 + 平台差异）的收益抵不上成本。
-    /// 若以后要给玩家热更配置，换 Addressables 只需改 <see cref="SCfgResourcesSource"/>。
+    /// 加载机制变更说明：原先走 `Resources.Load<TextAsset>`，资产搬出 `Resources/` 后
+    /// 改为 Addressables 预加载（见 <see cref="S.View.SRes"/>）。表是**同步必需**的
+    /// （Bootstrap 在 Awake 里就要拿到），所以和美术资产一样走预加载 + 查表。
     /// </summary>
     public static class SDataLoader
     {
@@ -22,6 +21,12 @@ namespace S.Core
             if (s_cache != null) return s_cache;
 
             InstallLogHook();
+
+            // 兜底：正常路径是 Bootstrap 先跑 SRes.PreloadAll()。但如果有人直接从
+            // 编辑器菜单/测试方法里调 SDataLoader（如 SCfgImportVerify），预加载还没发生，
+            // 表就取不到，表现成「配置加载失败」而非「没预加载」—— 假故障很难查。
+            // 这里补一次，PreloadAll 自身幂等。
+            if (!S.View.SRes.IsLoaded) S.View.SRes.PreloadAll();
 
             var source = new SCfgResourcesSource();
             try
@@ -63,10 +68,10 @@ namespace S.Core
         }
     }
 
-    /// <summary>从 `Assets/Resources/Data/Cfg/` 取 TSV 文本。读过的表会缓存。</summary>
+    /// <summary>从 Addressables（预加载到 <see cref="S.View.SRes"/>）取 TSV 文本。读过的表会缓存。</summary>
     public sealed class SCfgResourcesSource : ISCfgSource
     {
-        public string RootKey => "Assets/Resources/" + SCfgAddresses.ResourceFolder;
+        public string RootKey => SCfgAddresses.AssetFolder;
 
         readonly Dictionary<string, string> _cache = new Dictionary<string, string>();
 
@@ -74,7 +79,7 @@ namespace S.Core
         {
             if (_cache.TryGetValue(table, out text)) return text != null;
 
-            var asset = Resources.Load<TextAsset>(SCfgAddresses.ResourcePath(table));
+            var asset = S.View.SRes.Get<TextAsset>(table);
             text = asset != null ? asset.text : null;
             _cache[table] = text;
             return text != null;

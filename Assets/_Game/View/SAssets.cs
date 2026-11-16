@@ -10,14 +10,18 @@ namespace S.View
     /// 美术资产是逐步接入的，任何一件缺失时都必须回退到程序化占位体，
     /// 否则一次资产漏拷就让整局黑屏（初版已踩过 URP 着色器剥离的同类坑）。
     ///
-    /// 路径约定：
-    ///   模型  Resources/Models/<Name>      （FBX，由 blender_s_build_assets.py 产出）
-    ///   贴图  Resources/Textures/<Name>    （2k 平铺）
+    /// 路径约定（资产已搬出 Resources，改由 Addressables 预加载，见 <see cref="SRes"/>）：
+    ///   模型  Assets/_Game/Res/Model/<Name>     （FBX，由 blender_s_build_assets.py 产出）
+    ///   贴图  Assets/_Game/Res/Texture/<Name>   （2k 平铺）
+    ///
+    /// ⚠ 这里仍按**资产名**取，不拼路径：SRes 以资产名（= 文件名去扩展名）为键，
+    /// 与原先 `Resources.Load("Models/<Name>")` 的调用形状一致，调用点无需改动。
     /// </summary>
     public static class SAssets
     {
-        public const string ModelPath = "Models/";
-        public const string TexPath = "Textures/";
+        /// <summary>编辑器侧用的资产目录（拼接 AssetDatabase 路径）。运行时不用它取件。</summary>
+        public const string ModelDir = SRes.Root + "Model/";
+        public const string TexDir = SRes.Root + "Texture/";
 
         static readonly Dictionary<string, GameObject> s_models = new Dictionary<string, GameObject>();
         static readonly Dictionary<string, Texture2D> s_textures = new Dictionary<string, Texture2D>();
@@ -29,7 +33,7 @@ namespace S.View
             if (string.IsNullOrEmpty(name)) return null;
             if (s_models.TryGetValue(name, out var cached)) return cached;
 
-            var go = Resources.Load<GameObject>(ModelPath + name);
+            var go = SRes.Get<GameObject>(name);
             s_models[name] = go;
             return go;
         }
@@ -39,7 +43,7 @@ namespace S.View
             if (string.IsNullOrEmpty(name)) return null;
             if (s_textures.TryGetValue(name, out var cached)) return cached;
 
-            var t = Resources.Load<Texture2D>(TexPath + name);
+            var t = SRes.Get<Texture2D>(name);
             s_textures[name] = t;
             return t;
         }
@@ -154,10 +158,11 @@ namespace S.View
                 go.transform.SetParent(parent, false);
                 go.transform.localScale = new Vector3(targetHeight * 0.45f, targetHeight * 0.5f, targetHeight * 0.45f);
                 go.transform.localPosition = localPos + Vector3.up * (targetHeight * 0.5f);
-                Object.Destroy(go.GetComponent<Collider>());
+                SAssets.RemoveColliders(go);
                 SMat.Apply(go.GetComponent<Renderer>(), SMat.Lit(tint, smoothness));
             }
 
+            RemoveColliders(go);
             return go;
         }
 
@@ -189,7 +194,10 @@ namespace S.View
             var b = new Bounds();
             foreach (var r in rs)
             {
-                var wb = r.bounds;
+                if (!r.enabled || !r.gameObject.activeInHierarchy) continue;
+                // 从渲染器局部包围盒直接转换，避免世界 AABB 经旋转后再次膨胀。
+                var wb = r.localBounds;
+                var meshToParent = toParent * r.transform.localToWorldMatrix;
                 // 8 个角点变换到父空间
                 for (int i = 0; i < 8; i++)
                 {
@@ -197,12 +205,37 @@ namespace S.View
                         (i & 1) == 0 ? wb.min.x : wb.max.x,
                         (i & 2) == 0 ? wb.min.y : wb.max.y,
                         (i & 4) == 0 ? wb.min.z : wb.max.z);
-                    var p = toParent.MultiplyPoint3x4(c);
+                    var p = meshToParent.MultiplyPoint3x4(c);
                     if (!inited) { b = new Bounds(p, Vector3.zero); inited = true; }
                     else b.Encapsulate(p);
                 }
             }
             return b;
+        }
+
+        /// <summary>纯视觉对象立即退出物理世界，不等 Destroy 在帧末执行。</summary>
+        public static void RemoveColliders(GameObject go)
+        {
+            foreach (var collider in go.GetComponentsInChildren<Collider>(true))
+            {
+                collider.enabled = false;
+                if (Application.isPlaying) Object.Destroy(collider);
+                else Object.DestroyImmediate(collider);
+            }
+        }
+
+        /// <summary>静态障碍直接使用可见网格，保留凹槽和模型轴转换，不用放大的包围箱。</summary>
+        public static void AddStaticMeshColliders(GameObject visual)
+        {
+            RemoveColliders(visual);
+            foreach (var filter in visual.GetComponentsInChildren<MeshFilter>())
+            {
+                var renderer = filter.GetComponent<MeshRenderer>();
+                if (filter.sharedMesh == null || renderer == null || !renderer.enabled) continue;
+                var collider = filter.gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = filter.sharedMesh;
+                collider.convex = false;
+            }
         }
 
         /// <summary>自检用：统计已成功加载的模型数（缺件时能立刻看出来）。</summary>

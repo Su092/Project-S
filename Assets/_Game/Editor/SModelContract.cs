@@ -29,9 +29,8 @@ namespace S.EditorTools
     /// </summary>
     public static class SModelContract
     {
-        // Resources.Load 的路径本身就相对于某个 Resources 目录，
-        // 所以这里不能写 "Resources/..."，否则会变成 Resources/Resources/...（踩过）
-        const string ModelPath = "Models/";
+        // 资产已搬到 Assets/_Game/Res/Model/，编辑器侧按完整资产路径取（不再走 Resources）。
+        static string ModelDir => S.View.SAssets.ModelDir;
 
         sealed class Spec
         {
@@ -74,10 +73,11 @@ namespace S.EditorTools
 
             foreach (var spec in Specs)
             {
-                var prefab = Resources.Load<GameObject>(ModelPath + spec.Name);
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(ModelDir + spec.Name + ".fbx");
                 if (prefab == null)
                 {
-                    sb.AppendLine($"FAIL {spec.Name,-24} 缺失（{ModelPath}{spec.Name}）");                    fail++;
+                    sb.AppendLine($"FAIL {spec.Name,-24} 缺失（{ModelDir}{spec.Name}.fbx）");
+                    fail++;
                     continue;
                 }
 
@@ -143,6 +143,10 @@ namespace S.EditorTools
             sb.AppendLine("=== 运行时生成契约（SAssets.SpawnFit）===");
 
             // 与运行时一致的调用参数：每种敌人按 Enemy.tsv 的 height 列取目标高度
+            // ⚠ 先预加载：SAssets 内部查的是 SRes 的表，没预加载时每件都是 null，
+            // 于是全部走胶囊占位、断言看似「旋转被清零」，实则是模型根本没取到。
+            S.View.SRes.PreloadAll();
+
             var cases = new (string model, float targetH, bool groundAlign)[]
             {
                 ("Modle_Enemy_Crawler",  0.86f, true),
@@ -189,9 +193,18 @@ namespace S.EditorTools
                     bool grounded = !c.groundAlign || Mathf.Abs(b.min.y) < 0.02f;
 
                     // 判据 3：导入旋转没被抹掉。
+                    // ⚠ 查的是**根节点**（FBX 实例的根），不是最深层的 MeshRenderer 节点：
+                    // X≈-90° 的轴转换写在外层，内层网格节点本身是 identity。
+                    // 之前这里查 FindVisual（最内层），拿到的是子节点，于是永远读到 0° ——
+                    // 断言恒假。改为查根，与 SpawnFit 的注释约定一致。
                     var visual = FindVisual(go);
                     bool rotKept = visual == null
-                        || Mathf.Abs(Mathf.DeltaAngle(visual.localRotation.eulerAngles.x, 0f)) > 45f;
+                        || Mathf.Abs(Mathf.DeltaAngle(go.transform.localRotation.eulerAngles.x, 0f)) > 45f;
+
+                    // 占位体 = 模型没取到（SRes 缺件/未预加载）。这种情况旋转当然是 0，
+                    // 若不单独报出来，日志会误导成「导入旋转被清掉了」（本次就踩过）。
+                    bool isFallback = go.name.EndsWith("_Fallback");
+                    if (isFallback) rotKept = false;
 
                     bool ok = upright && grounded && rotKept;
                     if (ok) pass++; else fail++;
@@ -200,7 +213,7 @@ namespace S.EditorTools
                                   $"{(c.groundAlign ? "h" : "longest")}={measured:F3}" +
                                   $"[{(upright ? "ok" : $"应为 {c.targetH:F2}")}] " +
                                   $"minY={b.min.y:F3}[{(grounded ? "ok" : "未落地")}] " +
-                                  $"rotKept={(rotKept ? "ok" : "被清零")}");
+                                  $"rotKept={(rotKept ? "ok" : (isFallback ? "模型未取到(占位体)" : "被清零"))}");
 
                     Object.DestroyImmediate(go);
                 }

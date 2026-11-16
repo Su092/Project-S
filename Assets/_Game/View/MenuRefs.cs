@@ -17,6 +17,7 @@ namespace S.View
         public RectTransform UnlockList;
 
         [Header("文字")]
+        public Text PanelTitle;
         public Text ShardText;
         public Text StatsText;
         public Text Hint;

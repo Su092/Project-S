@@ -8,6 +8,7 @@ namespace S.Core
     {
         public string Id;
         public bool IsBullet;
+        public bool IsGun;
         public Rarity Rarity;
     }
 
@@ -33,7 +34,7 @@ namespace S.Core
         public readonly List<ChainItem> Bag = new List<ChainItem>();
         public int BagCapacity = 44;
 
-        /// <summary>本局已出现过的史诗件（全局唯一）。</summary>
+        /// <summary>本局已出现过的史诗件（记录用途，允许再次抽取用于合成）。</summary>
         public readonly HashSet<string> UsedEpics = new HashSet<string>();
 
         readonly SData _data;
@@ -167,12 +168,20 @@ namespace S.Core
         // ---------- 三选一 ----------
 
         /// <summary>
-        /// 生成一次三选一。不重复同一个 id；史诗全局唯一（本局只出现一次）。
+        /// 生成一次三选一。不重复同一个 id；史诗允许跨轮重复，以支持合成。
         /// </summary>
-        public List<Offer> Roll(int count = 3)
+        public const float GunOfferChance = 0.10f;
+
+        public List<Offer> Roll(int count = 3, ISet<string> ownedGuns = null)
         {
             var offers = new List<Offer>(count);
             var picked = new HashSet<string>();
+            if (count > 0 && ownedGuns != null)
+            {
+                var guns = _data.GunOrder.FindAll(g => !ownedGuns.Contains(g.Id));
+                if (guns.Count > 0 && NextFloat() < GunOfferChance)
+                    offers.Add(new Offer { Id = guns[NextInt(guns.Count)].Id, IsGun = true, Rarity = Rarity.Rare });
+            }
 
             for (int attempt = 0; attempt < count * 16 && offers.Count < count; attempt++)
             {
@@ -216,7 +225,6 @@ namespace S.Core
             {
                 var b = _data.BulletOrder[i];
                 if (exclude.Contains(b.Id)) continue;
-                if (b.Rarity == Rarity.Epic && UsedEpics.Contains(b.Id)) continue;
                 list.Add(new PoolEntry
                 {
                     Offer = new Offer { Id = b.Id, IsBullet = true, Rarity = b.Rarity },
@@ -228,7 +236,6 @@ namespace S.Core
             {
                 var m = _data.ModifierOrder[i];
                 if (exclude.Contains(m.Id)) continue;
-                if (m.Rarity == Rarity.Epic && UsedEpics.Contains(m.Id)) continue;
                 list.Add(new PoolEntry
                 {
                     Offer = new Offer { Id = m.Id, IsBullet = false, Rarity = m.Rarity },

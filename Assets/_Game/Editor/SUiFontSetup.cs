@@ -92,7 +92,7 @@ namespace S.EditorTools
             }
 
             // 2) 所有 UI 预制体的 Text 重新赋值并保存
-            string[] prefs = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Resources/UI/Prefabs" });
+            string[] prefs = AssetDatabase.FindAssets("t:Prefab", new[] { S.View.UiPrefab.AssetDir.TrimEnd('/') });
             int texts = 0, prefabs = 0;
             foreach (string g in prefs)
             {
@@ -160,16 +160,16 @@ namespace S.EditorTools
                 Debug.Log($"PASS 字体 fontNames = [{string.Join(", ", importer.fontNames)}]");
             }
 
-            // 3) 运行时 Resources 路径也能取到（两套路径不能只有一套通）
-            var rt = Resources.Load<Font>(S.View.UiKit.FontPath);
+            // 3) Addressables 分组里也能取到（两套路径不能只有一套通）
+            var rt = AssetDatabase.LoadAssetAtPath<Font>(S.View.UiKit.FontAssetPath);
             if (rt == null)
             {
-                Debug.LogError($"FAIL Resources 取不到字体: Resources/{S.View.UiKit.FontPath}");
+                Debug.LogError($"FAIL 取不到字体资产: {S.View.UiKit.FontAssetPath}");
                 fail++;
             }
             else
             {
-                Debug.Log($"PASS Resources 取到字体: name={rt.name}");
+                Debug.Log($"PASS 取到字体资产: name={rt.name}");
             }
 
             // 4) GUID 必须与预制体里写的一致
@@ -182,7 +182,7 @@ namespace S.EditorTools
             }
 
             // 5) 预制体里的每一处 m_Font 都必须是这个 GUID，不许残留内置 Arial
-            string[] prefs = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Resources/UI/Prefabs" });
+            string[] prefs = AssetDatabase.FindAssets("t:Prefab", new[] { S.View.UiPrefab.AssetDir.TrimEnd('/') });
             int refs = 0, stale = 0;
             foreach (string g in prefs)
             {

@@ -31,7 +31,7 @@ namespace S.View
         bool _planted;
         float _tickTimer;
         float _fieldLeft;
-        Renderer _visR;
+        ProjectileVisual _visual;
         readonly System.Collections.Generic.HashSet<Enemy> _touched =
             new System.Collections.Generic.HashSet<Enemy>();
 
@@ -59,58 +59,9 @@ namespace S.View
 
         void BuildVisual()
         {
-            var color = PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ffd25a");
-
-            switch (_d.Kind)
-            {
-                case BulletKind.Hole:
-                    {
-                        var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        vis.name = "Vis";
-                        vis.transform.SetParent(transform, false);
-                        vis.transform.localScale = Vector3.one * Mathf.Max(0.2f, _d.Size * 3f);
-                        Destroy(vis.GetComponent<Collider>());
-                        _visR = vis.GetComponent<Renderer>();
-                        SMat.Apply(_visR, SMat.Unlit(new Color(color.r, color.g, color.b, 0.55f)));
-                    }
-                    break;
-                case BulletKind.Mine:
-                case BulletKind.Field:
-                    {
-                        var vis = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                        vis.name = "Vis";
-                        vis.transform.SetParent(transform, false);
-                        vis.transform.localScale = new Vector3(0.5f, 0.06f, 0.5f);
-                        Destroy(vis.GetComponent<Collider>());
-                        _visR = vis.GetComponent<Renderer>();
-                        SMat.Apply(_visR, SMat.Unlit(color));
-                    }
-                    break;
-                case BulletKind.Saw:
-                    {
-                        var vis = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                        vis.name = "Vis";
-                        vis.transform.SetParent(transform, false);
-                        vis.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-                        vis.transform.localScale = new Vector3(
-                            Mathf.Max(0.2f, _d.Size * 2f), 0.05f, Mathf.Max(0.2f, _d.Size * 2f));
-                        Destroy(vis.GetComponent<Collider>());
-                        _visR = vis.GetComponent<Renderer>();
-                        SMat.Apply(_visR, SMat.Unlit(color));
-                    }
-                    break;
-                default:
-                    {
-                        var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        vis.name = "Vis";
-                        vis.transform.SetParent(transform, false);
-                        vis.transform.localScale = Vector3.one * Mathf.Max(0.05f, _d.Size);
-                        Destroy(vis.GetComponent<Collider>());
-                        _visR = vis.GetComponent<Renderer>();
-                        SMat.Apply(_visR, SMat.Unlit(color));
-                    }
-                    break;
-            }
+            transform.rotation = Quaternion.LookRotation(_dir);
+            _visual = gameObject.AddComponent<ProjectileVisual>();
+            _visual.Init(_d);
         }
 
         void Update()
@@ -154,7 +105,7 @@ namespace S.View
             if (step <= 0.0001f) return;
 
             // Collide 而非 Ignore：Boss 与敌人用 Trigger 做受击判定（踩过）
-            if (Physics.SphereCast(transform.position, Mathf.Max(0.06f, _d.Size * 0.5f),
+            if (Physics.SphereCast(transform.position, Mathf.Max(0.025f, _d.Size * 0.5f),
                     _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
             {
                 HandleHit(hit);
@@ -208,7 +159,8 @@ namespace S.View
                 return;
             }
 
-            // 地形
+            // 地形命中：按弹种取色，反弹也留下接触火花。
+            CombatFx.Impact(hit.point, PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ffd25a"), hit.normal);
             TriggerPayload(hit.point, hit.normal);
 
             if (_bounceLeft > 0)
@@ -276,7 +228,8 @@ namespace S.View
                     continue;
                 }
 
-                // 撞到地形就截断
+                // 撞到地形就截断，并留下接触火花。
+                CombatFx.Impact(h.point, PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ff4fd8"), h.normal);
                 end = h.point;
                 break;
             }
@@ -302,8 +255,7 @@ namespace S.View
             var first = root.FindNearestEnemy(from, _d.Range);
             if (first == null)
             {
-                GameRoot.Instance?.SpawnBeamFx(from, from + _dir * 6f,
-                    PlayerWeapons.ParseColor("#b7a6ff"));
+                CombatFx.Beam(from, from + _dir * 6f, PlayerWeapons.ParseColor("#b7a6ff"), true);
                 Destroy(gameObject);
                 return;
             }
@@ -317,8 +269,8 @@ namespace S.View
                 cur.TakeDamage(_d, cur.AimPoint, _d.Damage, false);
                 hitSet.Add(cur);
 
-                root.SpawnBeamFx(from, cur.AimPoint,
-                    PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#b7a6ff"));
+                CombatFx.Beam(from, cur.AimPoint,
+                    PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#b7a6ff"), true);
 
                 // 下一跳：离当前敌人最近、且没打过的
                 from = cur.transform.position;
@@ -345,6 +297,7 @@ namespace S.View
                 {
                     transform.position = hit.point + hit.normal * 0.05f;
                     _planted = true;
+                    _visual?.Deploy(hit.normal, _d.Radius);
                     _life = _d.Duration > 0f ? _d.Duration : 25f;
                     _vel = Vector3.zero;
                     return;
@@ -383,17 +336,10 @@ namespace S.View
                 {
                     transform.position = hit.point + hit.normal * 0.05f;
                     _planted = true;
+                    _visual?.Deploy(hit.normal, _d.Radius);
                     _fieldLeft = _d.Duration > 0f ? _d.Duration : 5f;
                     _vel = Vector3.zero;
 
-                    // 展开的视觉：地面光环
-                    var ring = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                    ring.name = "FieldRing";
-                    ring.transform.SetParent(transform, false);
-                    ring.transform.localScale = new Vector3(_d.Radius * 2f, 0.02f, _d.Radius * 2f);
-                    Destroy(ring.GetComponent<Collider>());
-                    SMat.Apply(ring.GetComponent<Renderer>(),
-                        SMat.Unlit(PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#58a6ff")));
                     return;
                 }
                 transform.position += _vel.normalized * step;
@@ -475,7 +421,7 @@ namespace S.View
                 _vel = Vector3.RotateTowards(_vel.normalized, want, 12f * dt, 0f) * _vel.magnitude;
             }
 
-            transform.Rotate(0f, 720f * dt, 0f, Space.Self);
+            if (_vel.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(_vel.normalized);
 
             float step = _vel.magnitude * dt;
             if (Physics.SphereCast(transform.position, Mathf.Max(0.1f, _d.Size * 0.5f),
@@ -526,6 +472,7 @@ namespace S.View
             if (_triggered) return;
             _triggered = true;
 
+            CombatFx.Impact(at, PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#d4b8ff"), normal);
             GameRoot.Instance?.SpawnPayload(at, normal, _d.Payload);
         }
     }
