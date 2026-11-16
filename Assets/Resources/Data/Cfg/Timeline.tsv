@@ -1,0 +1,9 @@
+at	name	pool	concurrency	interval	boss
+开始秒数	阶段名	敌人池	并发上限	刷出间隔	是否Boss阶段
+float,ascending	string	{Kind,Kid}	int	float	bool01
+0	开局	{Crawler}	10	1.4	0
+60	加压	{Crawler,Brute}	14	1.2	0
+150	混编	{Crawler,Brute,Bomber}	16	1	0
+240	全谱	{Crawler,Brute,Bomber,Turret}	20	0.9	0
+360	高压	{Crawler,Brute,Bomber,Turret}	24	0.8	0
+600	BOSS	{Crawler,Bomber}	12	2	1

@@ -19,6 +19,15 @@
     <Compile Include="XpBench.cs" Link="tests\XpBench.cs" />
 
     <Compile Include="..\..\Assets\_Game\Core\SJson.cs" Link="Core\SJson.cs" />
+    <!-- 配置表基础设施：TSV 读取 / 文本源 / 装配 / 校验。
+         这些文件零 Unity 依赖，正是为了让断言能在 dotnet 下跑「和运行时完全同一份」的加载逻辑。 -->
+    <Compile Include="..\..\Assets\_Game\Core\STsv.cs" Link="Core\STsv.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\ISCfgSource.cs" Link="Core\ISCfgSource.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SCfgAddresses.cs" Link="Core\SCfgAddresses.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SCfgSources.cs" Link="Core\SCfgSources.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SCfgLoader.cs" Link="Core\SCfgLoader.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SCfgValidator.cs" Link="Core\SCfgValidator.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\SLog.cs" Link="Core\SLog.cs" />
     <Compile Include="..\..\Assets\_Game\Core\LoadoutTypes.cs" Link="Core\LoadoutTypes.cs" />
     <Compile Include="..\..\Assets\_Game\Core\Loadout.cs" Link="Core\Loadout.cs" />
     <Compile Include="..\..\Assets\_Game\Core\GunRuntime.cs" Link="Core\GunRuntime.cs" />

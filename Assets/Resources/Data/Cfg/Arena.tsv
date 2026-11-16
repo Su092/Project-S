@@ -1,0 +1,4 @@
+width	depth	wallHeight	bossPadRadius	coverCount	highGroundCount	spawnPoints	playerSpawnZ
+场地宽	场地深	墙高	Boss台半径	掩体数	高台数	刷怪点数	出生点Z
+float	float	float	float	int	int	int	float
+100	100	8	9	18	4	16	-38

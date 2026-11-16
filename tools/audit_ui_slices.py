@@ -43,24 +43,28 @@ REF_W, REF_H = 1600.0, 900.0
 
 
 def guid_map():
+    """guid → 素材名。递归扫描：素材已按功能分类到 Sprites/<Category>/。"""
     out = {}
-    for f in os.listdir(UI):
-        if not f.endswith(".png.meta"):
-            continue
-        with open(os.path.join(UI, f), encoding="utf-8", errors="replace") as fh:
-            m = re.search(r"guid: ([0-9a-f]{32})", fh.read(400))
-        if m:
-            out[m.group(1)] = f[: -len(".png.meta")]
+    for root, _dirs, files in os.walk(UI):
+        for f in files:
+            if not f.endswith(".png.meta"):
+                continue
+            with open(os.path.join(root, f), encoding="utf-8", errors="replace") as fh:
+                m = re.search(r"guid: ([0-9a-f]{32})", fh.read(400))
+            if m:
+                out[m.group(1)] = f[: -len(".png.meta")]
     return out
 
 
 def png_size(name):
-    p = os.path.join(UI, name + ".png")
-    if not os.path.isfile(p):
-        return None
-    with open(p, "rb") as f:
-        head = f.read(26)
-    return (int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big"))
+    # 素材已按功能分类到 Sprites/<Category>/，按名递归找，不假设扁平目录。
+    for root, _dirs, files in os.walk(UI):
+        p = os.path.join(root, name + ".png")
+        if os.path.isfile(p):
+            with open(p, "rb") as f:
+                head = f.read(26)
+            return (int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big"))
+    return None
 
 
 def parse(path):

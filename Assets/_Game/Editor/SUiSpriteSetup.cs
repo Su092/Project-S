@@ -14,7 +14,8 @@ namespace S.EditorTools
     /// </summary>
     public static class SUiSpriteSetup
     {
-        const string UiRoot = "Assets/Resources/UI/";
+        // 素材路径不在这里拼：素材已按功能分类（Sprites/<Category>/），
+        // 目录由 UiAssets.Catalog 决定，见 PathOf()。
 
         // 只用于校验的最小控件尺寸（与 audit_ui_slices.py / SAssetPostprocessor 对齐）
         struct Rule
@@ -31,6 +32,14 @@ namespace S.EditorTools
             new Rule("bar_frame.png",  new Vector2(60f, 14f)),
             new Rule("banner.png",     new Vector2(720f, 88f)),
         };
+
+        /// <summary>素材名 → 工程内完整路径（目录由 UiAssets.Catalog 决定，不在这里拼）。</summary>
+        static string PathOf(string fileName)
+        {
+            string name = fileName.EndsWith(".png") ? fileName.Substring(0, fileName.Length - 4) : fileName;
+            var dir = S.View.UiAssets.DirOf(name);
+            return dir == null ? null : "Assets/Resources/" + dir + name + ".png";
+        }
 
         [MenuItem("S/写入 UI 九宫格边距")]
         public static void Apply()
@@ -52,9 +61,10 @@ namespace S.EditorTools
 
             foreach (var r in Rules)
             {
-                var path = UiRoot + r.File;
+                var path = PathOf(r.File);
+                if (path == null) { sb.AppendLine($"  未在 UiAssets.Catalog 登记: {r.File}"); allOk = false; continue; }
                 var sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-                if (sp == null) { sb.AppendLine($"  缺 {r.File}"); allOk = false; continue; }
+                if (sp == null) { sb.AppendLine($"  缺 {r.File}（查得 {path}）"); allOk = false; continue; }
 
                 Vector4 bd = sp.border;
                 float sumX = bd.x + bd.z;

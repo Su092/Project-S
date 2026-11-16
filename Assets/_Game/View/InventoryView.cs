@@ -23,7 +23,10 @@ namespace S.View
 
         public bool IsBagVisible => _bagRoot != null && _bagRoot.activeInHierarchy;
 
-        /// <summary>背包右下角的常驻详情区（自检与外部只读用）。</summary>
+        /// <summary>
+        /// 旧版背包底部常驻详情区（已停用，悬停改为配件正下方的 ItemTooltip）。
+        /// 保留属性以免外部引用编译失败；始终为隐藏状态。
+        /// </summary>
         public ItemDetailPanel DetailPanel => _inv != null ? _inv.Detail : null;
         public bool IsOfferVisible => _offerRoot != null && _offerRoot.activeInHierarchy;
         public int VisibleCardCount => _bagGrid != null ? _bagGrid.childCount : 0;
@@ -149,6 +152,12 @@ namespace S.View
             _hint = _inv.Hint;
 
             if (_inv.BagDropPanel != null) _inv.BagDropPanel.Owner = this;
+
+            // 悬停详情改到配件正下方的浮动提示；背包底常驻详情区收回，网格吃满高度。
+            if (_inv.Detail != null)
+                _inv.Detail.gameObject.SetActive(false);
+            if (_bagGrid != null)
+                _bagGrid.offsetMin = new Vector2(_bagGrid.offsetMin.x, 12f);
         }
 
         void BuildOffer()
@@ -168,8 +177,23 @@ namespace S.View
         void CloseUi()
         {
             Open = false;
+            _dragging = null;
+            _hoverSlot = -1;
+            // 拖拽中的卡被挂到 DragLayer（不在 bagRoot 下），只关面板会留「幽灵卡」到游戏画面
+            ClearDragLayer();
+            ItemTooltip.Instance?.Hide();
             if (_bagRoot != null) _bagRoot.SetActive(false);
             if (_offerRoot != null) _offerRoot.SetActive(false);
+        }
+
+        void ClearDragLayer()
+        {
+            if (_dragLayer == null) return;
+            for (int i = _dragLayer.childCount - 1; i >= 0; i--)
+            {
+                var ch = _dragLayer.GetChild(i);
+                if (ch != null) Destroy(ch.gameObject);
+            }
         }
 
         public void OpenBag()
@@ -544,10 +568,9 @@ namespace S.View
 
             var hover = card.AddComponent<ItemHover>();
             hover.Item = item;
+            hover.Owner = this;
             hover.Tooltip = ItemTooltip.Instance;
-            // 背包内的卡片优先填右下角的常驻详情区（#inv-detail），
-            // 不再弹出跟随鼠标的浮动提示 —— 后者会挡住相邻格子，无法对比。
-            if (_inv != null) hover.Detail = _inv.Detail;
+            // 浮窗钉在本卡片正下方（ItemHover → ItemTooltip.ShowUnder）
 
             return card;
         }
@@ -590,13 +613,12 @@ namespace S.View
 
             _hoverSlot = targetSlot;
 
-            // 拖拽时详情区显示「装到这一格会发生什么」——这是原型里最有用的预览：
-            // 光看数值说明玩家还得自己在脑子里算，直接把「期望伤害/耗弹/生效目标」
-            // 前后对比摆出来，才知道这一格该不该放。
-            if (_inv != null && _inv.Detail != null)
+            // 拖拽时用浮动提示显示「装到这一格会发生什么」（跟手，不钉在原卡片下）
+            var tip = ItemTooltip.Instance;
+            if (tip != null)
             {
                 if (g == null || targetSlot < 0 || targetSlot >= g.Slots.Length)
-                    _inv.Detail.Show(item);
+                    tip.Show(item);
                 else
                     ShowPlacementPreview(g, item, targetSlot);
             }
@@ -621,8 +643,8 @@ namespace S.View
         /// </summary>
         void ShowPlacementPreview(GunRuntime g, ChainItem item, int cell)
         {
-            var detail = _inv.Detail;
-            if (detail == null) return;
+            var tip = ItemTooltip.Instance;
+            if (tip == null) return;
 
             // 基线：当前枪的本次期望
             var before = Loadout.ResolveCast(g.Base, g.Slots, g.Stats, 0);
@@ -643,17 +665,24 @@ namespace S.View
 
             float dmgDelta = after.ExpectedDamage - before.ExpectedDamage;
             int ammoDelta = after.AmmoCost - before.AmmoCost;
+            bool hasTarget = item.IsBullet || affected > 0;
 
-            detail.Show(item, new ItemDetailPanel.PlacementPreview
+            string hint;
+            if (!hasTarget)
             {
-                Cell = cell,
-                BaselineDamage = before.ExpectedDamage,
-                NewDamage = after.ExpectedDamage,
-                DamageDelta = dmgDelta,
-                AmmoDelta = ammoDelta,
-                AffectedTargets = affected,
-                HasTarget = item.IsBullet || affected > 0,
-            });
+                hint = $"✕ 装到槽 {cell + 1} 后没有作用目标，效果会全部落空";
+            }
+            else
+            {
+                string sign = dmgDelta >= 0f ? "+" : "";
+                string ammo = ammoDelta == 0 ? "耗弹不变" : $"耗弹 {ammoDelta:+0;-0}";
+                string targets = item.IsBullet ? "占用 1 个读取" : $"生效目标 {affected} 个";
+                hint =
+                    $"装到槽 {cell + 1}：本次期望 {before.ExpectedDamage:0.#} → {after.ExpectedDamage:0.#}" +
+                    $"（{sign}{dmgDelta:0.#}）  {ammo}  {targets}";
+            }
+
+            tip.Show(item, hint);
         }
 
         /// <summary>
@@ -694,9 +723,14 @@ namespace S.View
 
         public void NotifyDragEnd(DraggableItem it, PointerEventData e)
         {
-            if (!it.WasDropped && it.FromSlot >= 0) UnequipToBag(it.FromSlot);
+            if (it != null && !it.WasDropped && it.FromSlot >= 0) UnequipToBag(it.FromSlot);
             _dragging = null;
             _hoverSlot = -1;
+            ItemTooltip.Instance?.Hide();
+            // 拖拽卡已 SetParent 到 DragLayer，Refresh 只清槽位/背包子节点，清不掉它。
+            // 必须先毁拖影，再 Refresh 重建 —— 否则游戏画面会残留配件卡。
+            if (it != null) Destroy(it.gameObject);
+            ClearDragLayer();
             Refresh();
         }
 
@@ -777,6 +811,8 @@ namespace S.View
 
             _offer = offers;
             _offerMode = true;
+            ClearDragLayer();
+            ItemTooltip.Instance?.Hide();
             _bagRoot.SetActive(false);
             _offerRoot.SetActive(true);
             Open = true;

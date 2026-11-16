@@ -12,6 +12,8 @@ namespace S.View
 
         [Header("弹药")]
         public Text AmmoText;
+        /// <summary>弹匣进度条填充（耗弹变短；换弹时从左往右涨满）。</summary>
+        public Image AmmoFill;
         public Text GunText;
         public Text DpsText;
 

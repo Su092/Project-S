@@ -13,7 +13,7 @@
 | 渲染 | URP 17.6（`Assets/Settings/PC_RPAsset`） |
 | 输入 | Input System 1.19+（**仅新输入**，`activeInputHandler = 1`） |
 | 运行时根 | `Assets/_Game/` |
-| 数据 | `Assets/Resources/Data/sdata.json` |
+| 数据 | `Assets/Resources/Data/Cfg/*.tsv`（三行表头，11 张表） |
 
 ## 运行
 
@@ -333,7 +333,7 @@ Assets/
     View/     玩法表现：玩家、武器、弹丸、敌人、HUD、背包
     App/      场景入口 Bootstrap、实机自检 SelfCheck
     Editor/   场景生成 / 打包 / 着色器写入 / 模型朝向契约与对照渲染
-  Resources/Data/sdata.json    唯一数值来源
+  Resources/Data/Cfg/*.tsv     唯一数值来源（三行表头，SCfgLoader 装配）
   Scenes/Main.unity            唯一场景（单入口节点）
   Settings/                    URP 资产
 scripts/check.ps1              验证入口（UTF-8 BOM）

@@ -1,0 +1,7 @@
+id	name	ai	model	height	hp	dmg	speed	xp	contactRange	attackRange	attackCooldown	shieldFacing	shieldMul	shieldPierceMul
+敌人编号	名称	行为	模型	目标高度	生命	伤害	移速	经验	接触距离	攻击距离	攻击冷却	盾面阈值	无穿透减伤	有穿透减伤
+string,unique	string	Chaser|Bomber|Turret	string	float	float	float	float	int	float	float	float	float	float	float
+Crawler	爬行者	Chaser	Modle_Enemy_Crawler	0.86	55	10	2	8	1.4	0	0	0	1	1
+Brute	盾卫	Chaser	Modle_Enemy_Shield	1.97	220	22	0.733333	22	1.4	0	0	0.3	0.45	0.75
+Bomber	轰炸者	Bomber	Modle_Enemy_Spitter	1.74	68	34	1.8	14	2.6	2.6	1.2	0	1	1
+Turret	炮塔无人机	Turret	Modle_Enemy_Drone	1.2	110	12	0	18	0	30	1.6	0	1	1

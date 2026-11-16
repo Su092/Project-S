@@ -18,7 +18,7 @@ namespace S.App
             var data = SDataLoader.Get();
             if (data == null)
             {
-                Debug.LogError("[S] sdata.json 缺失，无法启动");
+                Debug.LogError("[S] 配置表（Assets/Resources/Data/Cfg/*.tsv）缺失或校验失败，无法启动");
                 return;
             }
 

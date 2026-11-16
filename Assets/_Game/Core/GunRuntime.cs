@@ -21,6 +21,29 @@ namespace S.Core
         public float ReloadLeft;
         public bool Reloading => ReloadLeft > 0f;
 
+        /// <summary>
+        /// HUD 弹匣条用：平时 = 剩余弹药比例；换弹中 = 换弹完成比例（0→1）。
+        /// </summary>
+        public float MagBarFill
+        {
+            get
+            {
+                if (Reloading)
+                {
+                    float dur = Stats.Reload > 0.01f ? Stats.Reload : 0.01f;
+                    float done = 1f - (ReloadLeft / dur);
+                    if (done < 0f) done = 0f;
+                    if (done > 1f) done = 1f;
+                    return done;
+                }
+                int mag = Stats.Mag > 0 ? Stats.Mag : 1;
+                float pct = (float)Ammo / mag;
+                if (pct < 0f) pct = 0f;
+                if (pct > 1f) pct = 1f;
+                return pct;
+            }
+        }
+
         /// <summary>累计击杀（汲能模块按此回血）。</summary>
         public int Kills;
 

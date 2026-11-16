@@ -54,6 +54,45 @@ REPORT = os.path.join(HERE, "ui-preprocess.json")
 # 预处理就是它们的最后一道工序，所以产物直接写进 Assets。
 DEST_UI = os.path.join(os.path.dirname(HERE), "Assets", "Resources", "UI")
 
+# ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
+# final 素材写进 Assets 时必须落到对应分类子目录，不能再写到 UI/ 根下 ——
+# 根目录是「未分类」的暂存，一旦素材分类完成，根下只允许留材质等非 sprite 资产。
+SPRITES_ROOT = os.path.join(DEST_UI, "Sprites")
+CAT_DIRS = {
+    "Common": os.path.join(SPRITES_ROOT, "Common"),
+    "Frame":  os.path.join(SPRITES_ROOT, "Frame"),
+    "Widget": os.path.join(SPRITES_ROOT, "Widget"),
+    "Tag":    os.path.join(SPRITES_ROOT, "Tag"),
+    "Icon":   os.path.join(SPRITES_ROOT, "Icon"),
+    "Items":  os.path.join(SPRITES_ROOT, "Icon", "Items"),
+}
+
+CATEGORY = {}
+for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
+    CATEGORY[_n] = "Common"
+for _n in ("card_frame", "card_inner", "bar_frame"):
+    CATEGORY[_n] = "Frame"
+for _n in ("btn_primary", "btn_primary_hover", "btn_danger", "slot_empty", "slot_filled",
+           "bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat",
+           "crosshair", "hit_marker", "keycap"):
+    CATEGORY[_n] = "Widget"
+for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
+    CATEGORY[_n] = "Tag"
+for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
+           "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
+    CATEGORY[_n] = "Icon"
+
+
+def cat_dir(name):
+    """素材名 → 工程内目标目录。未登记就抛错，防止素材又落回扁平根目录。"""
+    # 配件图标（item_*）统一归 Items，按前缀判断，与 C# 的动态取图对应
+    if name.startswith("item_"):
+        return CAT_DIRS["Items"]
+    d = CATEGORY.get(name)
+    if d is None:
+        raise KeyError("素材未登记分类: %s（见 UiAssets.Catalog）" % name)
+    return CAT_DIRS[d]
+
 
 # ---------------------------------------------------------------- 规格表
 # mode:
@@ -650,9 +689,9 @@ def quality_gate(name, spec, out_path, info):
 def process(name, force=False):
     spec = SPECS[name]
     src_path = os.path.join(RAW, name + ".png")
-    # final 素材没有合成阶段：预处理产物就是最终图，直接写进 Assets。
+    # final 素材没有合成阶段：预处理产物就是最终图，直接写进 Assets 的对应分类目录。
     # 其余素材（材质/字形）写 _Inbox/ui-ai-src，留给 gen_ui_assets_ai.py 合成。
-    dst_dir = DEST_UI if spec.get("final") else SRC
+    dst_dir = cat_dir(name) if spec.get("final") else SRC
     dst_path = os.path.join(dst_dir, name + ".png")
     os.makedirs(dst_dir, exist_ok=True)
 
@@ -729,29 +768,33 @@ def audit_legacy():
     print("%-14s %-12s %-9s %s" % ("贴图", "尺寸", "体积", "说明"))
     print("-" * 72)
     rows = 0
-    for f in sorted(os.listdir(assets_ui)):
-        if not f.endswith(".png"):
-            continue
-        name = f[:-4]
-        # 合成器产出的 21 张由 gen_ui_assets_ai.py 管，不算绕过
-        if name in MANAGED_BY_COMPOSITOR:
-            continue
-        if name in managed:
-            continue
-        p = os.path.join(assets_ui, f)
-        try:
-            im = Image.open(p)
-            kb = os.path.getsize(p) / 1024
-        except Exception:
-            continue
-        note = []
-        if max(im.size) >= 1024:
-            note.append("尺寸偏大")
-        if im.mode != "RGBA":
-            note.append("无 alpha")
-        print("%-14s %-12s %6.0fKB  %s"
-              % (name, "%dx%d" % im.size, kb, "、".join(note) or "形态正常，仅未纳入流水线"))
-        rows += 1
+    # 递归扫描：素材已按功能分类到 Sprites/<Category>/，只在根目录 listdir 会全部漏掉。
+    for root, _dirs, files in os.walk(assets_ui):
+        for f in sorted(files):
+            if not f.endswith(".png"):
+                continue
+            name = f[:-4]
+            # 合成器产出的 21 张由 gen_ui_assets_ai.py 管，不算绕过
+            if name in MANAGED_BY_COMPOSITOR:
+                continue
+            if name in managed:
+                continue
+            p = os.path.join(root, f)
+            rel = os.path.relpath(p, assets_ui).replace("\\", "/")
+            try:
+                im = Image.open(p)
+                kb = os.path.getsize(p) / 1024
+            except Exception:
+                continue
+            note = []
+            if max(im.size) >= 1024:
+                note.append("尺寸偏大")
+            if im.mode != "RGBA":
+                note.append("无 alpha")
+            print("%-14s %-12s %6.0fKB  %s  [%s]"
+                  % (name, "%dx%d" % im.size, kb,
+                     "、".join(note) or "形态正常，仅未纳入流水线", rel))
+            rows += 1
     if rows == 0:
         print("无")
     else:

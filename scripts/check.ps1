@@ -142,6 +142,21 @@ function Task-Ui {
         $script:Failed += "ui-reimport"
         Write-Host "RESULT ui FAIL（贴图重导失败）" -ForegroundColor Red
     }
+
+    # 统一字体：预制体里 72 处 m_Font 是硬 GUID 引用，字体导入失败时 Unity **不报错**，
+    # 只是所有文字变成 Missing (Font)。必须单独断言，否则只能靠肉眼发现。
+    # 空 fontNames / 手写 m_Font 还会出现「GUID 对得上但动态贴图为空、字全没」——
+    # 所以这里跑 Rebind（重导 + 重赋 Text.font + Verify），不能只跑 Verify。
+    Write-Host ">>> 5/5 统一字体（重导 + 重绑 + 校验）" -ForegroundColor Cyan
+    $rf = Invoke-UnityMethod "S.EditorTools.SUiFontSetup.RebindBatch" "fontverify.log"
+    if ((Select-String -Path $rf.Log -Pattern "RESULT UI 字体重绑 完成" -Quiet) -and
+        (Select-String -Path $rf.Log -Pattern "RESULT UI 字体 全部通过" -Quiet)) {
+        Write-Host "RESULT ui-font OK" -ForegroundColor Green
+    } else {
+        $script:Failed += "ui-font"
+        Write-Host "RESULT ui FAIL（统一字体未通过）" -ForegroundColor Red
+        Select-String -Path $rf.Log -Pattern "FAIL |RESULT UI 字体" | ForEach-Object { Write-Host "  $($_.Line.Trim())" -ForegroundColor Red }
+    }
 }
 
 function Task-Tests {
@@ -159,6 +174,21 @@ function Task-Tests {
         Write-Host "RESULT FAIL (dotnet exit=$code)" -ForegroundColor Red
     } else {
         Write-Host "RESULT $($line.Matches[0].Groups[1].Value)" -ForegroundColor Green
+    }
+
+    # UI 素材分类一致性（纯 Python，秒级）。
+    # 为什么放在 tests 里：分类表存在 C# + 两个 Python 共三份，
+    # 漂移的症状是**静默的**（Resources.Load 返回 null，界面退化成纯色块，不报错）。
+    # 不接进自动化，就只能在看图时偶然发现。详见 docs/ui-asset-taxonomy.md。
+    Write-Section "tests — UI 素材分类一致性"
+    $tax = & python (Join-Path $Proj "tools\audit_ui_taxonomy.py") 2>&1
+    $taxCode = $LASTEXITCODE
+    $tax | ForEach-Object { Write-Host $_ }
+    if ($taxCode -ne 0) {
+        $script:Failed += "taxonomy"
+        Write-Host "RESULT UI 素材分类 DRIFT" -ForegroundColor Red
+    } else {
+        Write-Host "RESULT UI 素材分类 OK" -ForegroundColor Green
     }
 }
 
@@ -267,6 +297,33 @@ function Task-Build {
     } else {
         $script:Failed += "build"
         Write-Host "RESULT build FAIL" -ForegroundColor Red
+        return
+    }
+
+    # 配置表必须真的进包。`.tsv` 不在 Unity 默认文本扩展名清单里，
+    # 少了 STsvImporter 时文件会被**静默丢弃** —— 编译 0 错误、build Succeeded，
+    # 只有运行起来才发现「缺表」。所以这里直接查构建产物里有没有这些文件。
+    $cfgSrc = Join-Path $Proj "Assets\Resources\Data\Cfg"
+    $assets = Join-Path $Proj "Build\Windows\S_Data\resources.assets"
+    $missing = @()
+    if (-not (Test-Path $assets)) {
+        $script:Failed += "build-cfg"
+        Write-Host "RESULT build FAIL（找不到 resources.assets，构建产物不完整）" -ForegroundColor Red
+        return
+    }
+    Get-ChildItem $cfgSrc -Filter *.tsv | ForEach-Object {
+        # TextAsset 的正文会以原文形式落在 resources.assets 里，
+        # 表名与首个字段名都会出现；两者都查不到才算没进包。
+        if (-not (Select-String -Path $assets -Pattern $_.BaseName -Quiet -ErrorAction SilentlyContinue)) {
+            $missing += $_.BaseName
+        }
+    }
+    if ($missing.Count -gt 0) {
+        $script:Failed += "build-cfg"
+        Write-Host "RESULT build FAIL（配置表未进包：$($missing -join ', ')）" -ForegroundColor Red
+        Write-Host "  检查 Assets/_Game/Editor/STsvImporter.cs 是否生效，或改为 .txt 后缀" -ForegroundColor Yellow
+    } else {
+        Write-Host "RESULT 配置表进包 $((Get-ChildItem $cfgSrc -Filter *.tsv).Count) 张" -ForegroundColor Green
     }
 }
 

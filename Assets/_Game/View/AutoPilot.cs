@@ -98,7 +98,7 @@ namespace S.View
                 if (nearest != null)
                 {
                     float nd = Vector3.Distance(_pc.transform.position, nearest.transform.position);
-                    enemyInfo = $"{nearest.Type} hp={nearest.Hp:0.#}/{nearest.MaxHp:0.#} d={nd:0.0}m " +
+                    enemyInfo = $"{nearest.KindId} hp={nearest.Hp:0.#}/{nearest.MaxHp:0.#} d={nd:0.0}m " +
                                 $"at({nearest.transform.position.x:0.0},{nearest.transform.position.y:0.0},{nearest.transform.position.z:0.0})";
                 }
 
@@ -113,7 +113,7 @@ namespace S.View
                 {
                     if (e == null) { sb.Append("null;"); continue; }
                     var p = e.transform.position;
-                    sb.Append($"{e.Type}/hp{e.Hp:0}/x{p.x:0}/y{p.y:0}/z{p.z:0}; ");
+                    sb.Append($"{e.KindId}/hp{e.Hp:0}/x{p.x:0}/y{p.y:0}/z{p.z:0}; ");
                 }
 
                 Debug.Log($"[AUTOPILOT] t={Elapsed:0.0}s hp={_root.Hp:0} " +
@@ -129,7 +129,7 @@ namespace S.View
                         var e0 = _root.Enemies[0];
                         Debug.LogError("[AUTOPILOT] 查找失败但列表非空：" +
                             (e0 == null ? "首个引用为 null"
-                                : $"首个 {e0.Type} alive={e0.Alive} hp={e0.Hp:0.#} " +
+                                : $"首个 {e0.KindId} alive={e0.Alive} hp={e0.Hp:0.#} " +
                                   $"dist={Vector3.Distance(_pc.transform.position, e0.transform.position):0.0}m"));
                     }
                 }

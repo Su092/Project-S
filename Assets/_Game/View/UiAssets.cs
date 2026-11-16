@@ -16,7 +16,98 @@ namespace S.View
     /// </summary>
     public static class UiAssets
     {
-        const string Root = "UI/";
+        // ---- 素材分类（规范见枢纽 `docs/ui-asset-taxonomy.md`）----
+        //
+        // 分类依据是「这张图服务几个地方」，不是「它长什么样」：
+        //   Common  通用底盘：出现 ≥3 处或跨界面，换掉它等于整体换肤
+        //   Frame   容器边框：包裹内容，9-slice 拉伸，通常带 border
+        //   Widget  交互控件：有状态（正常/悬停/危险、空/满）或承载实时数值
+        //   Tag     语义标签：表达一个**离散状态**（稀有度），颜色本身就是信息
+        //   Icon    图标：静态语义符号，不含状态、不承载数值
+        //   Icon/Items  配件图标：**数据驱动**，按 id 动态拼名查找，与静态图标分开
+        //
+        // 为什么 Icon/Items 要单独一层：它是唯一按数据 id 取图的分类。
+        // 与静态图标混放时，`item_*` 一多会把 `icon_*` 挤得找不到，
+        // 而且「新增一件配件要加一张图」这条流程只对这一个目录成立。
+        const string Root = "UI/Sprites/";
+
+        /// <summary>
+        /// **唯一**真相：素材名 → 分类。
+        ///
+        /// 运行时加载与编辑器脚本（预制体工厂、九宫格校验）都从这里查，
+        /// 杜绝「两处各写一份路径」。新增素材只做两件事：
+        /// ① 文件放进对应分类目录 ② 在本表登记一行。
+        ///
+        /// 别把它拆成「按目录列的数组」——那样加一件要同时改数组和目录，容易漏。
+        /// </summary>
+        static readonly Dictionary<string, string> Catalog = new Dictionary<string, string>
+        {
+            // ---- Common 通用底盘（5）----
+            { "panel", "Common" },
+            { "banner", "Common" },
+            { "vignette", "Common" },
+            { "vignette_damage", "Common" },
+            { "divider", "Common" },
+
+            // ---- Frame 容器边框（3）----
+            { "card_frame", "Frame" },
+            { "card_inner", "Frame" },
+            { "bar_frame", "Frame" },
+
+            // ---- Widget 交互控件（13）----
+            { "btn_primary", "Widget" },
+            { "btn_primary_hover", "Widget" },
+            { "btn_danger", "Widget" },
+            { "slot_empty", "Widget" },
+            { "slot_filled", "Widget" },
+            { "bar_bg", "Widget" },
+            { "bar_fill_hp", "Widget" },
+            { "bar_fill_xp", "Widget" },
+            { "bar_fill_boss", "Widget" },
+            { "bar_fill_threat", "Widget" },
+            { "crosshair", "Widget" },
+            { "hit_marker", "Widget" },
+            { "keycap", "Widget" },
+
+            // ---- Tag 语义标签（4）----
+            { "tag_starter", "Tag" },
+            { "tag_common", "Tag" },
+            { "tag_rare", "Tag" },
+            { "tag_epic", "Tag" },
+
+            // ---- Icon 静态图标（8）----
+            { "icon_bullet", "Icon" },
+            { "icon_whole", "Icon" },
+            { "icon_after", "Icon" },
+            { "icon_gun", "Icon" },
+            { "icon_frame", "Icon" },
+            { "icon_lock", "Icon" },
+            { "icon_check", "Icon" },
+            { "icon_arrow", "Icon" },
+        };
+
+        /// <summary>分类目录（相对 Resources，带尾斜杠）。</summary>
+        static readonly Dictionary<string, string> Dirs = new Dictionary<string, string>
+        {
+            { "Common", Root + "Common/" },
+            { "Frame",  Root + "Frame/"  },
+            { "Widget", Root + "Widget/" },
+            { "Tag",    Root + "Tag/"    },
+            { "Icon",   Root + "Icon/"   },
+            // 配件图标按数据 id 取图，与静态图标分开一层（见类顶部注释）
+            { "Items",  Root + "Icon/Items/" },
+        };
+
+        /// <summary>按素材名查它所在分类目录（形如 `UI/Sprites/Widget/`）。</summary>
+        public static string DirOf(string spriteName)
+        {
+            if (string.IsNullOrEmpty(spriteName)) return null;
+            return Catalog.TryGetValue(spriteName, out var cat) && Dirs.TryGetValue(cat, out var d) ? d : null;
+        }
+
+        /// <summary>按分类名取目录（`Common` / `Frame` / `Widget` / `Tag` / `Icon` / `Items`）。</summary>
+        public static string DirOfCategory(string category) =>
+            category != null && Dirs.TryGetValue(category, out var d) ? d : null;
 
         static readonly Dictionary<string, Sprite> s_sprites = new Dictionary<string, Sprite>();
         static Sprite s_crosshair, s_panel, s_card, s_cardInner, s_bar, s_banner, s_vignette, s_keycap;
@@ -29,10 +120,18 @@ namespace S.View
         static Sprite s_tagStarter, s_tagCommon, s_tagRare, s_tagEpic;
         static Sprite s_iconLock, s_iconCheck, s_iconArrow;
 
+        /// <summary>按素材名加载：目录由 <see cref="Catalog"/> 决定，调用处不再写路径。</summary>
         static Sprite Load(string name, ref Sprite cache)
         {
             if (cache != null) return cache;
-            cache = Resources.Load<Sprite>(Root + name);
+            var dir = DirOf(name);
+            if (dir == null)
+            {
+                Debug.LogWarning($"[S] UI 素材未在 UiAssets.Catalog 登记: {name}");
+                return null;
+            }
+            cache = Resources.Load<Sprite>(dir + name);
+            if (cache == null) Debug.LogWarning($"[S] UI 素材缺失: {dir + name}");
             return cache;
         }
 
@@ -170,7 +269,7 @@ namespace S.View
             string key = "item_" + itemId;
             if (s_itemIcons.TryGetValue(key, out var cached)) return cached;
 
-            var sp = Resources.Load<Sprite>(Root + key);
+            var sp = Resources.Load<Sprite>(DirOfCategory("Items") + key);
             s_itemIcons[key] = sp;
             return sp;
         }

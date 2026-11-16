@@ -8,12 +8,15 @@ namespace S.View
         Vector3 _dir;
         float _dmg;
         float _life = 4f;
-        const float Speed = 18f;
 
-        public void Init(Vector3 dir, float dmg)
+        /// <summary>飞行速度（米/秒）。由 Boss.tsv 的 volleySpeed / trackVolleySpeed 注入。</summary>
+        public float SpeedOf = 18f;
+
+        public void Init(Vector3 dir, float dmg, float speed = 18f)
         {
             _dir = dir.normalized;
             _dmg = dmg;
+            SpeedOf = speed > 0f ? speed : 18f;
 
             var vis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             vis.transform.SetParent(transform, false);
@@ -30,7 +33,7 @@ namespace S.View
             _life -= dt;
             if (_life <= 0f) { Destroy(gameObject); return; }
 
-            float step = Speed * dt;
+            float step = SpeedOf * dt;
             if (Physics.SphereCast(transform.position, 0.18f, _dir, out var hit, step, ~0, QueryTriggerInteraction.Ignore))
             {
                 var root = GameRoot.Instance;

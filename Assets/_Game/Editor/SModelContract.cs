@@ -142,7 +142,7 @@ namespace S.EditorTools
             var sb = new StringBuilder();
             sb.AppendLine("=== 运行时生成契约（SAssets.SpawnFit）===");
 
-            // 与运行时一致的调用参数：每种敌人按 GameRoot.KindHeight 的目标高度
+            // 与运行时一致的调用参数：每种敌人按 Enemy.tsv 的 height 列取目标高度
             var cases = new (string model, float targetH, bool groundAlign)[]
             {
                 ("Modle_Enemy_Crawler",  0.86f, true),

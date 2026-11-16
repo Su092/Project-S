@@ -13,6 +13,9 @@ namespace S.View
     {
         public BossState State { get; private set; }
 
+        /// <summary>规则参数（来自 Boss.tsv）。技能节奏与伤害都从这里读，不再写死在方法体里。</summary>
+        BossDef _def = new BossDef();
+
         Renderer _body;
         Renderer _shieldR;
         GameObject _shieldGo;
@@ -31,9 +34,10 @@ namespace S.View
 
         public Vector3 AimPoint => transform.position + Vector3.up * 1.6f;
 
-        public void Init(float hp)
+        public void Init(float hp, BossDef def = null)
         {
-            State = new BossState(hp);
+            if (def != null) _def = def;
+            State = new BossState(hp, _def);
 
             // 真实模型（缺件时回退到球体占位）
             var visual = SAssets.SpawnFit("Modle_Boss_ForgeCore", transform, Vector3.zero,
@@ -100,8 +104,8 @@ namespace S.View
                     : Color.white;
             ApplyTint(tint);
 
-            // 缓慢移动（P3 加速）
-            float speed = 2.5f * (State.Phase == BossPhase.P3 ? 1.6f : 1f);
+            // 缓慢移动（P3 加速）。基础速度来自 Boss.tsv 的 moveSpeed。
+            float speed = _def.MoveSpeed * (State.Phase == BossPhase.P3 ? 1.6f : 1f);
             _moveTimer -= dt;
             if (_moveTimer <= 0f) PickNewTarget();
             transform.position = Vector3.MoveTowards(transform.position, _target, speed * dt);
@@ -117,11 +121,11 @@ namespace S.View
                         Quaternion.LookRotation(flat), 3f * dt);
             }
 
-            // 接触伤害
+            // 接触伤害（数值与判定半径都来自 Boss.tsv）
             if (root != null && root.PlayerTransform != null)
             {
-                if (Vector3.Distance(transform.position, root.PlayerTransform.position) < 3.2f)
-                    root.DamagePlayer(25f * (root.Run != null ? root.Run.DmgScale : 1f));
+                if (Vector3.Distance(transform.position, root.PlayerTransform.position) < _def.ContactRange)
+                    root.DamagePlayer(_def.ContactDamage * (root.Run != null ? root.Run.DmgScale : 1f));
             }
 
             // 冲击波视觉计时
@@ -148,14 +152,14 @@ namespace S.View
             {
                 if (phase == BossPhase.P3)
                 {
-                    _volleyCd = 2.4f;
+                    _volleyCd = _def.TrackVolleyInterval;
                     FireTrackVolley(root);
                 }
                 else
                 {
-                    _volleyCd = 3.0f;
+                    _volleyCd = _def.VolleyInterval;
                     BossFanVolley(transform.position + Vector3.up * 2.0f,
-                        root.PlayerAimPoint, 5);
+                        root.PlayerAimPoint, _def.VolleyCount);
                 }
             }
 
@@ -165,7 +169,7 @@ namespace S.View
                 _spikeCd -= dt;
                 if (_spikeCd <= 0f)
                 {
-                    _spikeCd = 4.5f;
+                    _spikeCd = _def.SpikeInterval;
                     SpawnSpikeTelegraph(root);
                 }
             }
@@ -197,8 +201,8 @@ namespace S.View
                 go.transform.position = origin;
 
                 var eb = go.AddComponent<EnemyBullet>();
-                eb.Init(dir, 14f * (GameRoot.Instance != null && GameRoot.Instance.Run != null
-                    ? GameRoot.Instance.Run.DmgScale : 1f));
+                eb.Init(dir, _def.VolleyDamage * (GameRoot.Instance != null && GameRoot.Instance.Run != null
+                    ? GameRoot.Instance.Run.DmgScale : 1f), _def.VolleySpeed);
             }
 
             SfxBank.Instance?.PlayShoot(0.6f, 1.2f, count, false);
@@ -221,7 +225,8 @@ namespace S.View
                 var go = new GameObject("BossTrackShot");
                 go.transform.position = origin;
                 var eb = go.AddComponent<EnemyBullet>();
-                eb.Init(dir, 16f * (root.Run != null ? root.Run.DmgScale : 1f));
+                eb.Init(dir, _def.TrackVolleyDamage * (root.Run != null ? root.Run.DmgScale : 1f),
+                    _def.TrackVolleySpeed);
             }
 
             SfxBank.Instance?.PlayShoot(0.5f, 1.2f, 3, false);
@@ -242,8 +247,8 @@ namespace S.View
             Destroy(go.GetComponent<Collider>());
 
             var st = go.AddComponent<SpikeTelegraph>();
-            st.Seconds = 1.2f;
-            st.Damage = 18f * (root.Run != null ? root.Run.DmgScale : 1f);
+            st.Seconds = _def.SpikeTelegraphTime;
+            st.Damage = _def.SpikeDamage * (root.Run != null ? root.Run.DmgScale : 1f);
         }
 
         void PickNewTarget()

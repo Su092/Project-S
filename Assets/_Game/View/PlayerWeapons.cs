@@ -52,8 +52,9 @@ namespace S.View
             _guns.Clear();
             AllGuns.Clear();
 
-            // 起手两把：步枪 + 霰弹枪（前者易上手，后者立刻能看出「读 2 发」的差别）
-            string[] starters = { "rifle", "shotgun" };
+            // 起手枪械来自 Gun.tsv 的 `starter` 列（旧版这里写死 { "rifle", "shotgun" }，
+            // 加一把新起手枪要改代码；现在改表即可，且顺序由表的 starter 列 + id 顺序决定）
+            var starters = data.StarterGunIds();
             foreach (var id in starters)
             {
                 if (!data.Guns.TryGetValue(id, out var def)) continue;
@@ -71,14 +72,8 @@ namespace S.View
             {
                 var g = Active;
                 if (g == null) return null;
-                return g.Base.Id switch
-                {
-                    "shotgun" => "Modle_Gun_Grenade",
-                    "sniper" => "Modle_Gun_Single",
-                    "launcher" => "Modle_Gun_Grenade",
-                    "beam" => "Modle_Gun_Single",
-                    _ => "Modle_Gun_Auto",
-                };
+                // 模型名来自 Gun.tsv 的 `model` 列（旧版这里是 5 个 case 的硬编码映射）
+                return string.IsNullOrEmpty(g.Base.Model) ? "Modle_Gun_Auto" : g.Base.Model;
             }
         }
 

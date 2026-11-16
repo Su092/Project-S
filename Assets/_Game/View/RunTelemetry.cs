@@ -74,7 +74,7 @@ namespace S.View
             _spawnTime.Remove(e);
 
             float dt = Elapsed - t0;
-            string key = e.IsElite ? "精英" : e.Type.ToString();
+            string key = e.IsElite ? "精英" : e.KindId;
             if (!_killTimes.TryGetValue(key, out var list))
             {
                 list = new List<float>();

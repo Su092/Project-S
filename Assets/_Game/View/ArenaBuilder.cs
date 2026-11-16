@@ -305,7 +305,13 @@ namespace S.View
         {
             if (_pillars.Count > 0) return;
 
-            for (int i = 0; i < BossState.PillarCount; i++)
+            // 柱子数与柱血量都来自 Boss.tsv。注意 SpawnPillars 是在 Boss 实例创建**之前**调用的
+            // （先立柱子再入场），所以不能从 Boss.State 读 —— 那里还是 null。
+            var bossDef = GameRoot.Instance != null ? GameRoot.Instance.Data?.Boss : null;
+            int pillarCount = bossDef != null && bossDef.Pillars > 0 ? bossDef.Pillars : BossState.DefaultPillars;
+            float pillarHp = bossDef != null && bossDef.PillarHp > 0f ? bossDef.PillarHp : BossState.DefaultPillarHp;
+
+            for (int i = 0; i < pillarCount; i++)
             {
                 float ang = 45f + i * 90f;
                 float rad = _def.BossPadRadius * 0.72f;
@@ -330,8 +336,8 @@ namespace S.View
 
                 var pc = pillar.AddComponent<Pillar>();
                 pc.Index = i;
-                pc.Hp = BossState.PillarHp;
-                pc.MaxHp = BossState.PillarHp;
+                pc.Hp = pillarHp;
+                pc.MaxHp = pillarHp;
                 _pillars.Add(pc);
             }
         }

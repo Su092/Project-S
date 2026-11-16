@@ -1,0 +1,4 @@
+firstAt	interval	hpMul	dmgMul	speedMul	xpMul	scale	healOnKill
+首只时刻	出现间隔	生命倍率	伤害倍率	速度倍率	经验倍率	体积倍率	击杀回血
+float	float	float	float	float	int	float	float
+300	90	4	1.5	0.9	6	1.4	15

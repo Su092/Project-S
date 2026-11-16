@@ -137,13 +137,17 @@ namespace S.View
             if (_grounded && _vy < 0f) _vy = -2f;
         }
 
-        /// <summary>由 Bootstrap 用 sdata 数值初始化。</summary>
+        /// <summary>由 Bootstrap 用 Player.tsv 的数值初始化。</summary>
         public void Configure(S.Core.SData d)
         {
-            WalkSpeed = d.PlayerWalk;
-            Gravity = d.PlayerGravity;
-            JumpHeight = d.PlayerJumpHeight;
-            if (d.PlayerSprintSpeed > 0f) SprintSpeed = d.PlayerSprintSpeed;
+            var p = d != null ? d.Player : null;
+            if (p == null) return;
+            WalkSpeed = p.Walk;
+            Gravity = p.Gravity;
+            JumpHeight = p.JumpHeight;
+            if (p.SprintSpeed > 0f) SprintSpeed = p.SprintSpeed;
+            if (p.SprintTime > 0f) SprintTime = p.SprintTime;
+            if (p.SprintCooldown > 0f) SprintCooldown = p.SprintCooldown;
         }
 
         /// <summary>

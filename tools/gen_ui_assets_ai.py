@@ -47,6 +47,47 @@ SRC = os.path.join(INBOX, "ui-ai-src")
 REPORT = os.path.join(HERE, "ui-preprocess.json")
 OUT = os.path.join(PROJ, "Assets", "Resources", "UI")
 
+# ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
+# 依据是「这张图服务几个地方」，不是「它长什么样」。规范见枢纽
+# `docs/ui-asset-taxonomy.md`。新增素材时：① 放进对应分类目录 ② 在 UiAssets.Catalog 登记。
+SPRITES = os.path.join(OUT, "Sprites")
+CAT_DIRS = {
+    "Common": os.path.join(SPRITES, "Common"),
+    "Frame":  os.path.join(SPRITES, "Frame"),
+    "Widget": os.path.join(SPRITES, "Widget"),
+    "Tag":    os.path.join(SPRITES, "Tag"),
+    "Icon":   os.path.join(SPRITES, "Icon"),
+    # 配件图标按数据 id 取图，单独一层
+    "Items":  os.path.join(SPRITES, "Icon", "Items"),
+}
+
+
+def cat_dir(name):
+    """素材名 → 目标目录。未登记直接抛错，避免素材又落回扁平根目录。"""
+    d = CATEGORY.get(name)
+    if d is None:
+        raise KeyError("素材未登记分类: %s（见 UiAssets.Catalog）" % name)
+    return CAT_DIRS[d]
+
+
+# 与 C# 的 UiAssets.Catalog 是同一份清单。改一边必须改另一边 ——
+# 之所以不能共享文件：Runner 侧不能读 C#，C# 侧不能读 Python。
+# 校验办法：跑一次 `python tools/audit_ui_taxonomy.py`（比对两边与磁盘）。
+CATEGORY = {}
+for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
+    CATEGORY[_n] = "Common"
+for _n in ("card_frame", "card_inner", "bar_frame"):
+    CATEGORY[_n] = "Frame"
+for _n in ("btn_primary", "btn_primary_hover", "btn_danger", "slot_empty", "slot_filled",
+           "bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat",
+           "crosshair", "hit_marker", "keycap"):
+    CATEGORY[_n] = "Widget"
+for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
+    CATEGORY[_n] = "Tag"
+for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
+           "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
+    CATEGORY[_n] = "Icon"
+
 # ---------------- 调色板（art-style.md §2/§4，与 panel.png 一致）----------------
 
 EDGE = (86, 96, 112, 255)
@@ -314,7 +355,7 @@ def make_btn(name, accent, light=False):
                                           fill=CYAN_HI if light else accent)
     img.alpha_composite(bar.filter(ImageFilter.GaussianBlur(0.5)))
 
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -340,7 +381,7 @@ def make_bar_bg(name):
     img.alpha_composite(shade.filter(ImageFilter.GaussianBlur(3)))
 
     hard_line(img, [1, 1, w - 2, h - 2], r, EDGE, 2)
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -376,7 +417,7 @@ def make_bar_fill(name, color):
                                          radius=3, fill=(255, 255, 255, 40))
     img.alpha_composite(hi.filter(ImageFilter.GaussianBlur(2)))
 
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -406,7 +447,7 @@ def make_slot(name, filled):
     # 四角 L 角标：本作槽位的识别符。长度同步收到 20，避免小尺寸下粘连
     corner_ticks(img, s, 20, 12, AMBER, 3)
 
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -427,7 +468,7 @@ def make_rarity_tag(name, color):
     # 左端方块：放在左边距(8)之外一点，避免被 9-slice 拉到中间
     ImageDraw.Draw(img).rounded_rectangle([10, h // 2 - 7, 24, h // 2 + 7],
                                           radius=3, fill=color)
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -447,7 +488,7 @@ def make_divider(name):
     img = img.filter(ImageFilter.GaussianBlur(0.7))
     ImageDraw.Draw(img).line([(w // 4, h // 2), (w - w // 4, h // 2)],
                              fill=CYAN_HI[:3] + (210,), width=1)
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -500,7 +541,7 @@ def make_crosshair(name):
     dark.alpha_composite(img)
     img = dark
 
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -530,7 +571,7 @@ def make_card_inner(name):
     # 1px 冷色细边：和框的描边同色系，衔接才不突兀
     hard_line(img, [1, 1, w - 2, h - 2], r, EDGE, 1)
 
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -544,7 +585,7 @@ def make_hit_marker(name):
     for sx, sy in ((1, 1), (-1, 1), (1, -1), (-1, -1)):
         d.line([(c + gap * sx, c + gap * sy), (c + (gap + L) * sx, c + (gap + L) * sy)],
                fill=WHITE, width=t)
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -560,7 +601,7 @@ def make_vignette(name):
             d = math.hypot(x - cx, y - cy) / maxd
             a = 0 if d < 0.52 else int(255 * ((d - 0.52) / 0.48) ** 1.8)
             px[x, y] = (255, 46, 42, min(255, a))
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -575,7 +616,7 @@ def make_icon(name, src_name, tint, size=128):
                 continue
             # 保留 glyph 的抗锯齿 alpha，颜色换成 tint
             px[x, y] = (tint[0], tint[1], tint[2], a)
-    g.save(os.path.join(OUT, name + ".png"))
+    g.save(os.path.join(cat_dir(name), name + ".png"))
     return g
 
 
@@ -595,7 +636,7 @@ def make_icon_frame(name):
         (pad, s - pad - cut), (pad, pad + cut),
     ]
     d.line(pts + [pts[0]], fill=CYAN, width=3, joint="curve")
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -693,7 +734,7 @@ def make_item_icon(name, glyph_src_name):
             px[x, y] = (244, 246, 250, a0)
 
     img.alpha_composite(glyph_layer)
-    img.save(os.path.join(OUT, name + ".png"))
+    img.save(os.path.join(cat_dir(name), name + ".png"))
     return img
 
 
@@ -809,7 +850,8 @@ def main():
         print("缺少 AI 材质目录：%s" % SRC, file=sys.stderr)
         return 2
 
-    os.makedirs(OUT, exist_ok=True)
+    for _d in CAT_DIRS.values():
+        os.makedirs(_d, exist_ok=True)
 
     want = []
     if args.only:

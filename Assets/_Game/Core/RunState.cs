@@ -37,13 +37,29 @@ namespace S.Core
         public readonly HashSet<string> UsedEpics = new HashSet<string>();
 
         readonly SData _data;
+        readonly float _hpScalePerThreat;
+        readonly float _dmgScalePerThreat;
+        readonly float _huntAtThreat;
+        readonly int _salvageCommon;
+        readonly int _salvageRare;
+        readonly int _salvageEpic;
 
         public RunState(SData data, uint seed, int bagCapacity = 44)
         {
             _data = data;
             Seed = seed;
             _rng = seed == 0 ? 0x9E3779B9u : seed;
-            BagCapacity = bagCapacity;
+
+            // 这些系数原先写死在这里。搬进 Player.tsv 后仍要走默认值：
+            // 断言用的 SData 可能是手工拼的最小集，缺字段不该让规则变成 0。
+            var p = data != null ? data.Player : null;
+            BagCapacity = bagCapacity > 0 ? bagCapacity : (p != null && p.BagSize > 0 ? p.BagSize : 44);
+            _hpScalePerThreat = p != null && p.HpScalePerThreat > 0f ? p.HpScalePerThreat : 0.008f;
+            _dmgScalePerThreat = p != null && p.DmgScalePerThreat > 0f ? p.DmgScalePerThreat : 0.004f;
+            _huntAtThreat = p != null && p.HuntAtThreat > 0f ? p.HuntAtThreat : 88f;
+            _salvageCommon = p != null && p.SalvageCommon > 0 ? p.SalvageCommon : 3;
+            _salvageRare = p != null && p.SalvageRare > 0 ? p.SalvageRare : 6;
+            _salvageEpic = p != null && p.SalvageEpic > 0 ? p.SalvageEpic : 9;
         }
 
         // ---------- 随机 ----------
@@ -63,8 +79,11 @@ namespace S.Core
 
         // ---------- 经验与等级 ----------
 
-        /// <summary>从 level 升到 level+1 所需经验：need(L) = 2L² + 5L + 8。</summary>
-        public static int NeedFor(int level) => 2 * level * level + 5 * level + 8;
+        /// <summary>
+        /// 从 level 升到 level+1 所需经验：`A·L² + B·L + C`，系数来自 Player.tsv。
+        /// 默认 2/5/8 与原 `2L² + 5L + 8` 完全一致。
+        /// </summary>
+        public int NeedFor(int level) => _data != null ? _data.XpNeedFor(level) : 2 * level * level + 5 * level + 8;
 
         /// <summary>吃经验。返回本次升了几级。</summary>
         public int AddXp(int amount)
@@ -82,7 +101,7 @@ namespace S.Core
             return ups;
         }
 
-        public static int TotalXpFor(int level)
+        public int TotalXpFor(int level)
         {
             int sum = 0;
             for (int l = 1; l < level; l++) sum += NeedFor(l);
@@ -97,11 +116,13 @@ namespace S.Core
             Threat = value < 0f ? 0f : value > ThreatMax ? ThreatMax : value;
         }
 
-        /// <summary>敌人缩放系数（gameplay-spec §3）。</summary>
-        public float HpScale => 1f + 0.008f * Threat;
-        public float DmgScale => 1f + 0.004f * Threat;
+        /// <summary>
+        /// 敌人缩放系数（gameplay-spec §3）。系数可在 Player.tsv 覆盖（`hpScalePerThreat`）。
+        /// </summary>
+        public float HpScale => 1f + _hpScalePerThreat * Threat;
+        public float DmgScale => 1f + _dmgScalePerThreat * Threat;
 
-        public bool HuntActive => Threat >= 88f;
+        public bool HuntActive => Threat >= _huntAtThreat;
 
         // ---------- 背包 ----------
 
@@ -135,9 +156,9 @@ namespace S.Core
             if (!Bag.Remove(item)) return 0;
             int xp = item.Rarity switch
             {
-                Rarity.Epic => 9,
-                Rarity.Rare => 6,
-                _ => 3,
+                Rarity.Epic => _salvageEpic,
+                Rarity.Rare => _salvageRare,
+                _ => _salvageCommon,
             };
             AddXp(xp);
             return xp;

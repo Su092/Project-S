@@ -19,9 +19,108 @@ namespace S.Core
     }
 
     /// <summary>
-    /// sdata.json 的解析与纯查询。零 Unity 依赖：入口是 Parse(string)，
-    /// Unity 侧用 Resources 读文本喂进来，dotnet 测试直接读文件，两条通路共用同一份代码。
-    /// 字段契约见 docs/data-schema.md。
+    /// 玩家基础属性。原先散在 SData 的 8 个 `Player*` 字段里，
+    /// 这里收成一个对象：加一个属性就要在 3 处（字段/解析/默认值）同步，
+    /// 散着放迟早漏一处。
+    /// </summary>
+    public sealed class PlayerDef
+    {
+        public float Hp = 100f;
+        public float Walk = 6.2f;
+        public float SprintSpeed = 10.4f;
+        public float SprintTime = 0.55f;
+        public float SprintCooldown = 1.4f;
+        public float JumpHeight = 1.3f;
+        public float Gravity = 22f;
+        public float CapsuleRadius = 0.34f;
+        public float CapsuleHeight = 1.8f;
+        public float IFrames = 0.25f;
+        public int GunSlots = 2;
+        public int BagSize = 44;
+        public float HealPickup = 35f;
+
+        /// <summary>升级所需经验公式：`A·L² + B·L + C`（默认 2/5/8，与原 RunState.NeedFor 一致）。</summary>
+        public int XpSquare = 2;
+        public int XpLinear = 5;
+        public int XpFlat = 8;
+
+        /// <summary>威胁每 1 点带来的敌人生命倍率增量（默认 0.008）。</summary>
+        public float HpScalePerThreat = 0.008f;
+        /// <summary>威胁每 1 点带来的敌人伤害倍率增量（默认 0.004）。</summary>
+        public float DmgScalePerThreat = 0.004f;
+        /// <summary>威胁值达到多少算「狩猎模式」（默认 88）。</summary>
+        public float HuntAtThreat = 88f;
+
+        /// <summary>分解配件换经验（普通 / 稀有 / 史诗），原先写死在 RunState.Salvage。</summary>
+        public int SalvageCommon = 3;
+        public int SalvageRare = 6;
+        public int SalvageEpic = 9;
+    }
+
+    /// <summary>
+    /// Boss 的规则参数。**原先全是 BossState 里的 const**（护盾周期、破防时长、
+    /// 柱血量…），改一个数要重新编译；现在是数据。
+    ///
+    /// 注意 `BossState` 仍保留一份默认值：dotnet 断言会直接 `new BossState(hp)`，
+    /// 那条路径不读表。两边的默认值必须一致，由 SCfgValidator 断言。
+    /// </summary>
+    public sealed class BossDef
+    {
+        public string Id = "e_boss";
+        public string Name = "铸造核心";
+        public float Hp = 6000f;
+        public float ContactDamage = 25f;
+        public float MoveSpeed = 2.5f;
+        public int Pillars = 4;
+        public float PillarHp = 800f;
+        public float BreachTime = 4f;
+        public float BreachDamageMul = 1.5f;
+        public float ShieldPeriod = 18f;
+        public float ShieldUpTime = 6f;
+        public float SummonInterval = 12f;
+        public int SummonCount = 2;
+        /// <summary>召唤出来的杂兵 id（Enemy.tsv 的 id）。原先是 GameRoot 里写死的 "Crawler"。</summary>
+        public string SummonEnemy = "Crawler";
+        public float ShockwaveInterval = 20f;
+        public float ShockwaveDamage = 22f;
+
+        /// <summary>接触伤害的判定半径（米）。原先写死在 BossView 里的 3.2f。</summary>
+        public float ContactRange = 3.2f;
+
+        /// <summary>技能节奏（秒）：扇形弹幕 / P3 追踪弹幕 / 地刺。原先写死在 BossView.TickSkills。</summary>
+        public float VolleyInterval = 3f;
+        public float TrackVolleyInterval = 2.4f;
+        public float SpikeInterval = 4.5f;
+        public int VolleyCount = 5;
+        /// <summary>弹幕速度与伤害、地刺伤害。</summary>
+        public float VolleySpeed = 14f;
+        public float VolleyDamage = 14f;
+        public float TrackVolleySpeed = 16f;
+        public float TrackVolleyDamage = 16f;
+        public float SpikeDamage = 18f;
+        public float SpikeTelegraphTime = 1.2f;
+
+        /// <summary>Boss 入场时刻（秒）。时间轴行的 `boss=1` 才是定义处，这里是冗余快照供 UI 读。</summary>
+        public float BossAt = 600f;
+        /// <summary>威胁值达到 100 的时刻（秒）。</summary>
+        public float ThreatFullAt = 600f;
+    }
+
+    /// <summary>
+    /// 全部游戏数据。**唯一来源是 `Assets/Resources/Data/Cfg/*.tsv`**（由 SCfgLoader 装配）。
+    ///
+    /// 为什么从 sdata.json 换成 TSV（对齐 Haunted Match 3 的 Cfg 结构）：
+    ///   1. 表格软件能直接打开，策划改数值不需要碰代码或引号语法；
+    ///   2. 三行表头把「字段名 / 中文名 / 类型规则」分开，列序调整不影响代码；
+    ///   3. 一行一条记录，新增一件配件是加一行，diff 只多一行。
+    /// JSON 的问题是深层嵌套 + 手工逗号，一个括号错就整份文件失效，
+    /// 而嵌套字段（子弹的 20 多个数值）在 diff 里看不出「改了哪件」。
+    ///
+    /// 层归属：本类只做**纯数据容器 + 查询**，零 Unity 依赖。
+    /// 装配逻辑在 SCfgLoader，校验在 SCfgValidator，两边都可在 dotnet 下跑。
+
+    /// 注意：旧的 `Resources/Data/sdata.json` 已移出运行时目录（现在只作迁移留档，
+    /// 放在 `tools/legacy-sdata.json`）。任何「改 json 就生效」的旧习惯都会静默失效。
     /// </summary>
     public sealed class SData
     {
@@ -33,282 +132,57 @@ namespace S.Core
         public readonly List<ModifierDef> ModifierOrder = new List<ModifierDef>();
         public readonly Dictionary<Rarity, int> RarityWeights = new Dictionary<Rarity, int>();
 
+        /// <summary>敌人表（Cfg/Enemy.tsv）。顺序即表的行序。</summary>
+        public readonly Dictionary<string, EnemyDef> Enemies = new Dictionary<string, EnemyDef>();
+        public readonly List<EnemyDef> EnemyOrder = new List<EnemyDef>();
+
+        public PlayerDef Player = new PlayerDef();
+
         /// <summary>单张竞技场的地形参数（docs/gameplay-spec.md §2）。</summary>
         public ArenaDef Arena = new ArenaDef();
 
         /// <summary>时间轴与精英规格（docs/gameplay-spec.md §2.1 / §3）。</summary>
         public RunDirector Director = new RunDirector(null, null);
 
+        /// <summary>Boss 规则参数。</summary>
+        public BossDef Boss = new BossDef();
+
         /// <summary>Boss 入场时刻（秒）的冗余快照，供 UI 读。</summary>
-        public float BossDurationHint = 600f;
+        public float BossDurationHint => Boss.BossAt;
 
-        public float BossHp = 6000f;
-        public float BossContactDamage = 25f;
-        public float BossMoveSpeed = 2.5f;
+        // ---- 兼容旧调用点：这些属性把 def 里的字段摊平出来 ----
+        // 上层（View / App）原本大量引用 Data.PlayerHp 这类名字，一次性改完风险大，
+        // 先把读取点保持可用；后续可以逐步换成 Data.Player.Hp。
+        public float PlayerHp => Player.Hp;
+        public float PlayerWalk => Player.Walk;
+        public float PlayerGravity => Player.Gravity;
+        public float PlayerJumpHeight => Player.JumpHeight;
+        public float PlayerIFrames => Player.IFrames;
+        public float PlayerSprintSpeed => Player.SprintSpeed;
+        public int PlayerGunSlots => Player.GunSlots;
+        public int PlayerBagSize => Player.BagSize;
+        public float PlayerHealPickup => Player.HealPickup;
 
-        public float PlayerHp, PlayerWalk, PlayerGravity, PlayerJumpHeight, PlayerIFrames, PlayerSprintSpeed;
-        public int PlayerGunSlots, PlayerBagSize;
-        public float PlayerHealPickup;
+        public float BossHp => Boss.Hp;
+        public float BossContactDamage => Boss.ContactDamage;
+        public float BossMoveSpeed => Boss.MoveSpeed;
 
-        public static SData Parse(string json)
-        {
-            var root = SJson.Parse(json);
-            var d = new SData();
-
-            var p = root["player"];
-            if (p != null)
-            {
-                d.PlayerHp = p.F("hp", 100);
-                d.PlayerWalk = p.F("walk", 6.2f);
-                d.PlayerGravity = p.F("gravity", 22f);
-                d.PlayerJumpHeight = p.F("jumpHeight", 1.3f);
-                d.PlayerIFrames = p.F("iFrames", 0.25f);
-                d.PlayerSprintSpeed = p.F("sprintSpeed", 10.4f);
-                d.PlayerGunSlots = p.I("gunSlots", 2);
-                d.PlayerBagSize = p.I("bagSize", 44);
-                d.PlayerHealPickup = p.F("healPickup", 35);
-            }
-
-            foreach (var g in root.Arr("guns"))
-            {
-                var gun = new GunDef
-                {
-                    Id = g.Str("id"),
-                    Name = g.Str("name"),
-                    Desc = g.Str("desc"),
-                    SlotCount = g.I("slotCount", 8),
-                    MagSize = g.I("magSize", 30),
-                    ReloadTime = g.F("reloadTime", 1.5f),
-                    FireInterval = g.F("fireInterval", 0.14f),
-                    SpreadBase = g.F("spreadBase", 1.2f),
-                    CastCount = g.I("castCount", 1),
-                    BaseBullet = g.Str("baseBullet"),
-                    Color = g.Str("color", "#8f9bb3"),
-                    ZoomDistance = g.F("zoom", 55f),
-                };
-                d.Guns[gun.Id] = gun;
-                d.GunOrder.Add(gun);
-            }
-
-            foreach (var b in root.Arr("bullets"))
-            {
-                var def = new BulletDef
-                {
-                    Id = b.Str("id"),
-                    Name = b.Str("name"),
-                    Icon = b.Str("icon"),
-                    Rarity = ParseEnum(b.Str("rarity"), Rarity.Common),
-                    Cost = b.I("cost", 1),
-                    Delay = b.F("delay"),
-                    Desc = b.Str("desc"),
-
-                    Kind = ParseEnum(b.Str("kind"), BulletKind.Proj),
-                    Damage = b.F("damage", 10f),
-                    Count = b.I("count", 1),
-                    Spread = b.F("spread"),
-                    Speed = b.F("speed", 80f),
-                    Lifetime = b.F("lifetime", 1.5f),
-                    Size = b.F("size", 0.12f),
-                    Pierce = b.I("pierce"),
-                    Bounce = b.I("bounce"),
-                    Homing = b.F("homing"),
-                    Gravity = b.F("gravity"),
-                    ExplodeR = b.F("explodeR"),
-                    ExplodeDmg = b.F("explodeDmg"),
-                    Burn = b.F("burn"),
-                    Slow = b.F("slow"),
-                    Crit = b.F("crit", 0.05f),
-                    CritMul = b.F("critMul", 2f),
-                    Knock = b.F("knock", 1f),
-                    ChainCount = b.I("chainCount"),
-                    Range = b.F("range", 60f),
-                    Radius = b.F("radius"),
-                    Duration = b.F("duration"),
-                    Trigger = ParseEnum(b.Str("trigger"), TriggerKind.None),
-                    Color = b.Str("color", "#ffd25a"),
-                };
-                d.Bullets[def.Id] = def;
-                d.BulletOrder.Add(def);
-            }
-
-            foreach (var m in root.Arr("modifiers")) d.AddModifier(m);
-            foreach (var m in root.Arr("gunModifiers")) d.AddModifier(m);
-
-            var rw = root["rarityWeights"];
-            if (rw != null)
-            {
-                d.RarityWeights[Rarity.Common] = rw.I("Common", 60);
-                d.RarityWeights[Rarity.Rare] = rw.I("Rare", 30);
-                d.RarityWeights[Rarity.Epic] = rw.I("Epic", 10);
-            }
-
-            ParseArenaAndTimeline(root, d);
-
-            var boss = root["boss"];
-            if (boss != null)
-            {
-                d.BossHp = boss.F("hp", 6000f);
-                d.BossContactDamage = boss.F("contactDamage", 25f);
-                d.BossMoveSpeed = boss.F("moveSpeed", 2.5f);
-            }
-
-            return d;
-        }
-
-        void AddModifier(SJson m)
-        {
-            var def = new ModifierDef
-            {
-                Id = m.Str("id"),
-                Name = m.Str("name"),
-                Icon = m.Str("icon"),
-                Rarity = ParseEnum(m.Str("rarity"), Rarity.Common),
-                Scope = ParseEnum(m.Str("scope"), Scope.Next),
-                Cost = m.I("cost", 1),
-                Delay = m.F("delay"),
-                Desc = m.Str("desc"),
-
-                DamageMulAdd = m.F("damageMulAdd"),
-                SizeMulAdd = m.F("sizeMulAdd"),
-                SpeedMulAdd = m.F("speedMulAdd"),
-                RangeMulAdd = m.F("rangeMulAdd"),
-                LifeMulAdd = m.F("lifeMulAdd"),
-                KnockMulAdd = m.F("knockMulAdd"),
-                CountMulAdd = m.F("countMulAdd"),
-                RadiusMulAdd = m.F("radiusMulAdd"),
-
-                PiercePer = m.I("piercePer"),
-                BouncePer = m.I("bouncePer"),
-                HomingPer = m.F("homingPer"),
-                BurnPer = m.F("burnPer"),
-                SlowPer = m.F("slowPer"),
-                CritPer = m.F("critPer"),
-                SpreadPer = m.F("spreadPer"),
-
-                ExplodeRAdd = m.F("explodeRAdd"),
-                ExplodeRBase = m.F("explodeRBase"),
-                ExplodeDmgFromDmg = m.F("explodeDmgFromDmg"),
-                ExplodeDmgFlat = m.F("explodeDmgFlat"),
-
-                AmmoReduce = m.I("ammoReduce"),
-
-                GunMagMul = m.F("gunMagMul", 1f),
-                GunReloadMul = m.F("gunReloadMul", 1f),
-                GunDelayMul = m.F("gunDelayMul", 1f),
-                GunSpreadMul = m.F("gunSpreadMul", 1f),
-                GunRecycleAdd = m.F("gunRecycleAdd"),
-                GunCastAdd = m.I("gunCastAdd"),
-                GunMagMulIfCast = m.F("gunMagMulIfCast", 1f),
-                GunLeech = m.F("gunLeech"),
-
-                Multicast = m.I("multicast"),
-            };
-
-            // 全枪作用域的件：如果带 multicast，仍按 Next 处理（双重施放是「下一发」）
-            if (def.Multicast > 0 && def.Scope != Scope.Next) def.Scope = Scope.Next;
-
-            // 枪械件一律 All
-            if (def.IsGunOnly) def.Scope = Scope.All;
-
-            Modifiers[def.Id] = def;
-            ModifierOrder.Add(def);
-        }
-
-        /// <summary>
-        /// 竞技场与时间轴（docs/gameplay-spec.md §2 §2.1）。
-        /// </summary>
-        static void ParseArenaAndTimeline(SJson root, SData d)
-        {
-            var arena = root["arena"];
-            if (arena != null)
-            {
-                d.Arena.Width = arena.F("width", 100f);
-                d.Arena.Depth = arena.F("depth", 100f);
-                d.Arena.WallHeight = arena.F("wallHeight", 8f);
-                d.Arena.BossPadRadius = arena.F("bossPadRadius", 9f);
-                d.Arena.CoverCount = arena.I("coverCount", 18);
-                d.Arena.HighGroundCount = arena.I("highGroundCount", 4);
-                d.Arena.SpawnPoints = arena.I("spawnPoints", 16);
-                d.Arena.PlayerSpawnZ = arena.F("playerSpawnZ", -38f);
-            }
-
-            var tl = root["timeline"];
-            var phases = new List<RunDirector.Phase>();
-            RunDirector.Phase bossPhase = null;
-            if (tl != null)
-            {
-                foreach (var ph in tl.Arr("phases"))
-                {
-                    var poolList = new List<string>();
-                    foreach (var pe in ph.Arr("pool"))
-                        if (pe.Type == SJson.Kind.String) poolList.Add(pe.StringValue);
-
-                    phases.Add(new RunDirector.Phase
-                    {
-                        At = ph.F("at"),
-                        Name = ph.Str("name"),
-                        Pool = poolList.ToArray(),
-                        Concurrency = ph.I("concurrency", 12),
-                        Interval = ph.F("interval", 1.2f),
-                    });
-                }
-
-                var bp = tl["bossPhase"];
-                if (bp != null)
-                {
-                    var poolList = new List<string>();
-                    foreach (var pe in bp.Arr("pool"))
-                        if (pe.Type == SJson.Kind.String) poolList.Add(pe.StringValue);
-
-                    bossPhase = new RunDirector.Phase
-                    {
-                        At = bp.F("at"),
-                        Name = bp.Str("name", "BOSS"),
-                        Pool = poolList.ToArray(),
-                        Concurrency = bp.I("concurrency", 8),
-                        Interval = bp.F("interval", 2.0f),
-                    };
-                }
-
-                d.BossDurationHint = tl.F("bossAt", 600f);
-            }
-
-            d.Director = new RunDirector(phases, bossPhase);
-            if (tl != null)
-            {
-                d.Director.BossAt = tl.F("bossAt", 600f);
-                d.Director.ThreatFullAt = tl.F("threatFullAt", d.Director.BossAt);
-            }
-
-            var elite = root["elite"];
-            if (elite != null)
-            {
-                var e = d.Director.Elite;
-                e.HpMul = elite.F("hpMul", e.HpMul);
-                e.DmgMul = elite.F("dmgMul", e.DmgMul);
-                e.SpeedMul = elite.F("speedMul", e.SpeedMul);
-                e.XpMul = elite.I("xpMul", e.XpMul);
-                e.Scale = elite.F("scale", e.Scale);
-                e.HealOnKill = elite.F("healOnKill", e.HealOnKill);
-                e.FirstAt = elite.F("firstAt", e.FirstAt);
-                e.Interval = elite.F("interval", e.Interval);
-            }
-        }
-
-        static T ParseEnum<T>(string s, T fallback) where T : struct
-        {
-            if (string.IsNullOrEmpty(s)) return fallback;
-            return System.Enum.TryParse<T>(s, true, out var v) ? v : fallback;
-        }
-
-        // ---- 便捷构造 ----
+        // ================= 查询 =================
 
         /// <summary>按 id 造一件配件（子弹优先，其次衍生）。</summary>
         public ChainItem MakeItem(string id)
         {
+            if (string.IsNullOrEmpty(id)) return null;
             if (Bullets.TryGetValue(id, out var b)) return new ChainItem { Bullet = b };
             if (Modifiers.TryGetValue(id, out var m)) return new ChainItem { Mod = m };
             return null;
+        }
+
+        /// <summary>按 id 取敌人定义。取不到返回 null（调用方必须兜底）。</summary>
+        public EnemyDef Enemy(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return Enemies.TryGetValue(id, out var e) ? e : null;
         }
 
         /// <summary>按枪的 baseBullet 建初始槽位：只有第 1 格有子弹，其余为空。</summary>
@@ -322,10 +196,19 @@ namespace S.Core
             return slots;
         }
 
+        /// <summary>开局持有的枪 id（Gun.tsv 的 starter=1，按表序）。</summary>
+        public List<string> StarterGunIds()
+        {
+            var list = new List<string>();
+            for (int i = 0; i < GunOrder.Count; i++)
+                if (GunOrder[i].Starter) list.Add(GunOrder[i].Id);
+            return list;
+        }
+
         /// <summary>可抽取的全部配件 id（子弹 + 衍生，不含起手件）。</summary>
         public List<string> RollPool()
         {
-            var list = new List<string>();
+            var list = new List<string>(BulletOrder.Count + ModifierOrder.Count);
             for (int i = 0; i < BulletOrder.Count; i++) list.Add(BulletOrder[i].Id);
             for (int i = 0; i < ModifierOrder.Count; i++) list.Add(ModifierOrder[i].Id);
             return list;
@@ -336,6 +219,14 @@ namespace S.Core
             if (Bullets.TryGetValue(id, out var b)) return b.Rarity;
             if (Modifiers.TryGetValue(id, out var m)) return m.Rarity;
             return Rarity.Common;
+        }
+
+        /// <summary>玩家等级 → 升级所需经验。公式可在 Player.tsv 覆盖（`xpPerLevelA/B/C`），此处保留默认。</summary>
+        public int XpNeedFor(int level)
+        {
+            int a = Player.XpSquare, b = Player.XpLinear, c = Player.XpFlat;
+            int need = a * level * level + b * level + c;
+            return need < 1 ? 1 : need;
         }
     }
 }

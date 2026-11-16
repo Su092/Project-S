@@ -25,29 +25,36 @@ namespace LoadoutTests
                 // 玩家清场速度约 0.55 只/秒（首轮校准实测的连发枪裸弹 DPS 60 / 敌人 60HP 量级）
                 float clearable = Math.Min(dur * 0.55f, dur / Math.Max(0.1f, phases[i].Interval) * phases[i].Concurrency * 0.5f);
                 float avgXp = 0f;
-                foreach (var k in phases[i].Pool) avgXp += XpOf(k);
+                foreach (var k in phases[i].Pool) avgXp += XpOf(data, k);
                 avgXp /= Math.Max(1, phases[i].Pool.Length);
                 total += clearable * avgXp;
                 Console.WriteLine($"  {phases[i].Name,-8} {dur,6:0}s  {phases[i].Concurrency,3}  {phases[i].Interval,4:0.0}  {clearable,7:0} 只");
             }
 
-            // 精英：3 只 × 48 XP
-            float eliteXp = 3 * 8 * d.Elite.XpMul;
-            Console.WriteLine($"  精英 3 只 × {8 * d.Elite.XpMul} = {eliteXp:0}");
+            // 精英：3 只 × 基础经验 × 精英倍率。基础经验取敌人表里最低的那档（Crawler），
+            // 原先这里写死 `8 * XpMul`，换了敌人表就对不上了。
+            int baseXp = int.MaxValue;
+            for (int i = 0; i < data.EnemyOrder.Count; i++)
+                if (data.EnemyOrder[i].Xp < baseXp) baseXp = data.EnemyOrder[i].Xp;
+            if (baseXp == int.MaxValue) baseXp = 8;
 
-            // Boss 战杂兵：约 20 只
-            float bossAdds = 20 * 10f;
+            float eliteXp = 3 * baseXp * d.Elite.XpMul;
+            Console.WriteLine($"  精英 3 只 × {baseXp * d.Elite.XpMul} = {eliteXp:0}");
+
+            // Boss 战杂兵：约 20 只（按 Crawler 的经验算，也是表里的最低档）
+            float bossAdds = 20 * baseXp;
             Console.WriteLine($"  Boss 战杂兵 ≈ {bossAdds:0}");
 
             int grand = (int)(total + eliteXp + bossAdds);
             Console.WriteLine($"  合计 ≈ {grand}");
 
-            // 推算到达等级
+            // 推算到达等级。经验曲线来自 Player.tsv（`xpSquare/xpLinear/xpFlat`），
+            // 不再写死 `2L²+5L+8`。
             int lv = 1;
             int acc = 0;
-            while (lv < RunState.MaxLevel && acc + RunState.NeedFor(lv) <= grand)
+            while (lv < RunState.MaxLevel && acc + data.XpNeedFor(lv) <= grand)
             {
-                acc += RunState.NeedFor(lv);
+                acc += data.XpNeedFor(lv);
                 lv++;
             }
             Console.WriteLine($"  → 预计到达 LV {lv}（累计 {acc} XP），三选一 {lv - 1} 次 + Boss 3 次 = {lv + 2} 次");
@@ -60,12 +67,12 @@ namespace LoadoutTests
             Console.WriteLine($"  {(pickOk ? "PASS" : "FAIL")} 三选一次数 {picks} 落在 16–19");
         }
 
-        static int XpOf(string kind) => kind switch
+        /// <summary>按 id 取经验；取不到退到表里最低档，不再有写死的 <c>Spitter/Shield/Drone</c> 分支。</summary>
+        static int XpOf(SData data, string id)
         {
-            "Spitter" => 10,
-            "Shield" => 16,
-            "Drone" => 14,
-            _ => 8,
-        };
+            var e = data.Enemy(id);
+            if (e != null) return e.Xp;
+            return 8;
+        }
     }
 }

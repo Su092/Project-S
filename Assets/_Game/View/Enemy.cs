@@ -6,18 +6,26 @@ namespace S.View
     /// <summary>
     /// 敌人。AI 极简（趋向玩家 + 接触/远程攻击），重点是「能吃住各种配件效果」：
     /// 护甲、燃烧、减速、穿透都在这层体现。
+    ///
+    /// **本轮改造**：`Enemy.Kind` 枚举换成 `EnemyDef`（来自 Cfg/Enemy.tsv）。
+    /// 旧版的 Type 枚举同时承担了三件事 —— 模型/数值查表、行为分支、UI 与遥测的分类名。
+    /// 新增一种敌人要改 7 处（GameRoot 的 6 个函数 + 这里的 switch），
+    /// 漏一处就静默退化成爬行者。现在数值全由 def 提供，
+    /// 这里只剩「行为策略」这一件事，且策略只有 3 种。
     /// </summary>
     public sealed class Enemy : MonoBehaviour
     {
-        public enum Kind { Crawler, Brute, Bomber, Turret }
+        /// <summary>行为策略（Cfg/Enemy.tsv 的 `ai` 列）。</summary>
+        public EnemyAi Ai = EnemyAi.Chaser;
 
-        public Kind Type = Kind.Crawler;
+        /// <summary>数据定义。HUD/遥测取名字与 id 都从这里读。</summary>
+        public EnemyDef Def;
+
         public float MaxHp = 60f;
         public float Hp = 60f;
         public float ContactDamage = 12f;
-        public float Speed = 2f;   // 默认值；实际由 GameRoot.KindSpeed 在 Configure 时写入
+        public float Speed = 2f;
         public int Xp = 8;
-        public bool IsFlying;
 
         /// <summary>是否为精英（体积更大、色调更亮、击杀回血）。</summary>
         public bool IsElite;
@@ -35,21 +43,63 @@ namespace S.View
         float _burnLeft;
         float _burnDps;
         float _burnTick;
-        bool _shieldFacingPlayer;
+
+        // ---- 从 def 缓存下来，避免每帧查字典 ----
+        float _contactRange;
+        float _attackRange;
+        float _attackCooldown;
+        float _shieldFacing;
+        float _shieldMul;
+        float _shieldPierceMul;
 
         public bool Alive => Hp > 0f;
+
+        /// <summary>分类名（遥测/诊断用）。旧代码里是 `Type.ToString()`，现在是配置里的 id。</summary>
+        public string KindId => Def != null && !string.IsNullOrEmpty(Def.Id) ? Def.Id : "enemy";
 
         void Awake()
         {
             _cc = GetComponent<CharacterController>();
         }
 
-        public void Configure(Enemy.Kind kind, float hp, float dmg, float speed, int xp)
+        /// <summary>
+        /// 按数据定义配置。**所有倍率在这里一次乘完**，别在 Update 里再乘
+        /// （旧版漏乘一处会让精英的伤害变成「普通 × 威胁 × 精英」的意外组合）。
+        /// </summary>
+        public void Configure(EnemyDef def, float hpMul, float dmgMul, float speedMul, int xpMul,
+            float hpScale = 1f, float dmgScale = 1f)
         {
-            Type = kind;
+            Def = def;
+            if (def == null) return;
+
+            Ai = def.Ai;
+            MaxHp = def.Hp * hpMul * hpScale;
+            Hp = MaxHp;
+            ContactDamage = def.Damage * dmgMul * dmgScale;
+            Speed = def.Speed * speedMul;
+            Xp = def.Xp * xpMul;
+
+            _contactRange = def.ContactRange;
+            _attackRange = def.AttackRange;
+            _attackCooldown = def.AttackCooldown;
+            _shieldFacing = def.ShieldFacing;
+            _shieldMul = def.ShieldMul;
+            _shieldPierceMul = def.ShieldPierceMul;
+        }
+
+        /// <summary>用于测试/兼容：只给 id 与数值，不接数据表。</summary>
+        public void Configure(string id, float hp, float dmg, float speed, int xp)
+        {
+            Def = new EnemyDef { Id = id, Name = id };
+            Ai = EnemyAi.Chaser;
             MaxHp = hp; Hp = hp;
             ContactDamage = dmg; Speed = speed; Xp = xp;
-            IsFlying = false;
+            _contactRange = 1.4f;
+            _attackRange = 0f;
+            _attackCooldown = 0f;
+            _shieldFacing = 0f;
+            _shieldMul = 1f;
+            _shieldPierceMul = 1f;
         }
 
         /// <summary>
@@ -117,39 +167,34 @@ namespace S.View
             float dist = toPlayer.magnitude;
             Vector3 dir = dist > 0.01f ? toPlayer / dist : Vector3.forward;
 
-            switch (Type)
+            switch (Ai)
             {
-                case Kind.Crawler:
+                case EnemyAi.Chaser:
                     Move(dir * Speed * speedMul * dt);
-                    TryTouch(ContactDamage);
+                    if (_contactRange > 0f) TryTouch(ContactDamage, _contactRange);
                     break;
 
-                case Kind.Brute:
-                    Move(dir * Speed * speedMul * dt);
-                    TryTouch(ContactDamage);
-                    break;
-
-                case Kind.Bomber:
+                case EnemyAi.Bomber:
                     // 自爆型：贴近后引爆（撤离时间极短，玩家必须优先点掉）
-                    if (dist > 2.6f) Move(dir * Speed * speedMul * dt);
+                    if (dist > _attackRange) Move(dir * Speed * speedMul * dt);
                     else
                     {
                         _attackCd -= dt;
                         if (_attackCd <= 0f)
                         {
-                            _attackCd = 1.2f;
-                            GameRoot.Instance?.SpawnBomberBlast(transform.position, ContactDamage);
+                            _attackCd = _attackCooldown > 0f ? _attackCooldown : 1.2f;
+                            root.SpawnBomberBlast(transform.position, ContactDamage);
                             ApplyDamage(MaxHp);
                         }
                     }
                     break;
 
-                case Kind.Turret:
+                case EnemyAi.Turret:
                     // 炮塔：原地不动，远程点射
                     _attackCd -= dt;
-                    if (dist < 30f && _attackCd <= 0f)
+                    if (dist < _attackRange && _attackCd <= 0f)
                     {
-                        _attackCd = 1.6f;
+                        _attackCd = _attackCooldown > 0f ? _attackCooldown : 1.6f;
                         root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
                     }
                     break;
@@ -171,10 +216,10 @@ namespace S.View
             else transform.position += delta;
         }
 
-        void TryTouch(float dmg)
+        void TryTouch(float dmg, float range)
         {
             if (GameRoot.Instance == null) return;
-            if (Vector3.Distance(transform.position, GameRoot.Instance.PlayerTransform.position) < 1.4f)
+            if (Vector3.Distance(transform.position, GameRoot.Instance.PlayerTransform.position) < range)
                 GameRoot.Instance.DamagePlayer(dmg);
         }
 
@@ -185,15 +230,16 @@ namespace S.View
 
             float final = amount;
 
-            // 盾卫正面减伤（穿甲弹无视）
-            if (Type == Kind.Brute && !splash)
+            // 盾面减伤（穿甲弹减轻减免）。阈值与两种系数都来自 Enemy.tsv，
+            // 原先 `facing > 0.3f` / `0.45f` / `0.75f` 是写死在这里的。
+            if (_shieldFacing > 0f && !splash)
             {
                 Vector3 toSrc = (point - transform.position).normalized;
                 float facing = Vector3.Dot(transform.forward, -toSrc);
-                if (facing > 0.3f)
+                if (facing > _shieldFacing)
                 {
                     bool ignore = desc != null && desc.Source != null && desc.Source.Pierce > 0;
-                    final *= ignore ? 0.75f : 0.45f;
+                    final *= ignore ? _shieldPierceMul : _shieldMul;
                 }
             }
 

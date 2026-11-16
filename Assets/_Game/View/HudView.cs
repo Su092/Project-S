@@ -50,7 +50,66 @@ namespace S.View
             {
                 _rotationPips.AddRange(_refs.RotationPips);
                 _rotationLabels.AddRange(_refs.RotationLabels);
+                EnsureAmmoBar();
             }
+        }
+
+        /// <summary>
+        /// 在弹药数字下方补一条弹匣进度条。预制体若已有 AmmoFill 则跳过；
+        /// 否则运行时造（避免为加一条条去整表重生成 HUD）。
+        /// </summary>
+        void EnsureAmmoBar()
+        {
+            if (_refs == null || _refs.AmmoFill != null) return;
+
+            Transform parent = _refs.AmmoText != null
+                ? _refs.AmmoText.transform.parent
+                : _refs.transform;
+
+            // 数字上移一点，条贴在数字正下方（原 AmmoText 在 y=30）
+            if (_refs.AmmoText != null)
+            {
+                var tr = (RectTransform)_refs.AmmoText.transform;
+                tr.anchoredPosition = new Vector2(-30f, 42f);
+            }
+
+            var barGo = new GameObject("AmmoBar", typeof(RectTransform));
+            barGo.transform.SetParent(parent, false);
+            var brt = (RectTransform)barGo.transform;
+            brt.anchorMin = new Vector2(1f, 0f);
+            brt.anchorMax = new Vector2(1f, 0f);
+            brt.pivot = new Vector2(1f, 0f);
+            brt.anchoredPosition = new Vector2(-30f, 26f);
+            brt.sizeDelta = new Vector2(280f, 12f);
+
+            var bg = barGo.AddComponent<Image>();
+            bg.sprite = UiAssets.BarBg;
+            bg.type = Image.Type.Sliced;
+            bg.pixelsPerUnitMultiplier = 1f;
+            bg.color = new Color(1f, 1f, 1f, 0.85f);
+            bg.raycastTarget = false;
+
+            var fillGo = new GameObject("Fill", typeof(RectTransform));
+            fillGo.transform.SetParent(barGo.transform, false);
+            var frt = (RectTransform)fillGo.transform;
+            frt.anchorMin = Vector2.zero;
+            frt.anchorMax = Vector2.one;
+            frt.offsetMin = new Vector2(2f, 2f);
+            frt.offsetMax = new Vector2(-2f, -2f);
+
+            var fill = fillGo.AddComponent<Image>();
+            fill.sprite = UiAssets.BarXp;
+            fill.type = Image.Type.Filled;
+            fill.fillMethod = Image.FillMethod.Horizontal;
+            fill.fillOrigin = (int)Image.OriginHorizontal.Left;
+            fill.fillAmount = 1f;
+            fill.raycastTarget = false;
+            fill.color = new Color(0.45f, 0.85f, 1f, 1f);
+
+            _refs.AmmoFill = fill;
+            // 条在数字后面，避免挡住字
+            barGo.transform.SetSiblingIndex(
+                _refs.AmmoText != null ? _refs.AmmoText.transform.GetSiblingIndex() : 0);
         }
 
         void BuildCanvas()
@@ -69,9 +128,9 @@ namespace S.View
         /// <summary>浮动伤害数字用的临时文本样式（每次伤害只有一格，不需要预制体）。</summary>
         static Font UiFont()
         {
-            var f = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            if (f == null) f = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            return f;
+            // 统一走 UiKit.Font，不要在视图里各自取内置字体 ——
+            // 否则将来换字体要改多处，漏一处就有一批文字仍是旧字体（很难看出来）。
+            return UiKit.Font;
         }
 
         // ---------------- 更新 ----------------
@@ -96,13 +155,29 @@ namespace S.View
             // 弹药与枪
             if (g != null)
             {
+                float magFill = g.MagBarFill;
                 if (_refs.AmmoText != null)
                 {
                     _refs.AmmoText.text = g.Reloading
-                        ? "装填…"
+                        ? $"装填 {magFill * 100f:0}%"
                         : $"{g.Ammo} / {g.Stats.Mag}";
-                    _refs.AmmoText.color = g.Ammo <= 2 && !g.Reloading
-                        ? new Color(1f, 0.45f, 0.35f) : Color.white;
+                    _refs.AmmoText.color = g.Reloading
+                        ? new Color(0.55f, 0.90f, 1f)
+                        : g.Ammo <= 2
+                            ? new Color(1f, 0.45f, 0.35f)
+                            : Color.white;
+                }
+                if (_refs.AmmoFill != null)
+                {
+                    _refs.AmmoFill.fillAmount = magFill;
+                    // 换弹：青色上涨；弹药充足：淡青；见底：转橙红
+                    _refs.AmmoFill.color = g.Reloading
+                        ? new Color(0.35f, 0.82f, 1f, 1f)
+                        : magFill > 0.35f
+                            ? new Color(0.45f, 0.85f, 1f, 1f)
+                            : magFill > 0.15f
+                                ? new Color(1f, 0.72f, 0.35f, 1f)
+                                : new Color(1f, 0.35f, 0.32f, 1f);
                 }
                 if (_refs.GunText != null)
                     _refs.GunText.text = $"{g.Base.Name}   {1f / Mathf.Max(0.01f, g.Stats.ShotInterval(0f)):0.0} 发/秒";
@@ -118,12 +193,16 @@ namespace S.View
                         _refs.DpsText.text = "空枪";
                 }
             }
+            else if (_refs.AmmoFill != null)
+            {
+                _refs.AmmoFill.fillAmount = 0f;
+            }
 
             UpdateRotation(g);
             UpdateChain(g);
 
             // 经验
-            int need = RunState.NeedFor(r.Level);
+            int need = r.NeedFor(r.Level);
             if (_refs.XpFill != null)
                 _refs.XpFill.fillAmount = r.ReachedMaxLevel
                     ? 1f
@@ -364,7 +443,7 @@ namespace S.View
             string shield = s.ShieldUp ? "  ·  护盾" : "";
             string breach = s.IsBreached ? $"  ·  破防 {s.BreachLeft:0.0}s" : "";
             if (_refs.BossNameText != null)
-                _refs.BossNameText.text = $"铸造核心  {s.Hp:0}/{s.MaxHp:0}  ·  柱 {s.PillarsAlive}/{BossState.PillarCount}{shield}{breach}";
+                _refs.BossNameText.text = $"铸造核心  {s.Hp:0}/{s.MaxHp:0}  ·  柱 {s.PillarsAlive}/{s.PillarCount}{shield}{breach}";
         }
 
         void UpdateCrosshair(GunRuntime g)

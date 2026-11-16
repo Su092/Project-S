@@ -1,29 +1,26 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using S.Core;
 
 namespace S.View
 {
     /// <summary>
-    /// 配件悬浮详情。悬停在任意配件图标上时显示名称、稀有度、作用域与完整数值。
+    /// 配件悬浮详情。悬停在配件上时显示名称、稀有度、作用域与完整数值。
     ///
-    /// 为什么做成一个「单例挂在 Overlay Canvas 上」的组件，而不是每张卡片自带一个面板：
-    ///   1. 详情面板比图标大得多，跟着图标走会互相遮挡，也放不进背包格；
-    ///   2. 25 张卡片各带一个面板 = 25 个隐藏的 Text 层级，每次刷新都要重建；
-    ///   3. 详情必须画在**最上层**（背包面板之上），只有独立 Canvas 能保证。
+    /// 定位：
+    ///   · ShowUnder → 钉在指定控件正下方（背包/槽位悬停）
+    ///   · Show → 跟随鼠标（HUD / 三选一 / 拖拽落点预览）
     ///
-    /// 交互契约：
-    ///   · 悬停 → 显示；移出 → 隐藏。
-    ///   · 拖拽中不显示（拖拽时鼠标位置由卡片跟随，详情会闪）。
-    ///   · 面板跟随鼠标但**自动避让屏幕边缘**，不能跑出画面。
+    /// 为什么挂在同一套 Canvas 上、只用 overrideSorting：
+    /// 以前另起一个带 CanvasScaler 的嵌套 Overlay，坐标被缩放出错，
+    /// 浮窗会飘到屏幕中央；文字区参数符号也曾写反，矩形倒过来 → 有底板无字。
     /// </summary>
     public sealed class ItemTooltip : MonoBehaviour
     {
         static ItemTooltip s_instance;
 
-        Canvas _canvas;
-        RectTransform _root;
+        RectTransform _layer;   // 铺满父 Canvas，作为定位参考
+        RectTransform _root;    // 实际浮窗面板
         Image _back;
         Image _icon;
         Image _iconRing;
@@ -35,53 +32,54 @@ namespace S.View
 
         string _currentId;
         bool _suppressed;
+        RectTransform _anchor;
+        string _footerOverride;
 
         const float Width = 340f;
+        const float Height = 220f;
+        const float UnderGap = 10f;
 
         public static ItemTooltip Instance => s_instance;
 
-        /// <summary>详情面板是否正在显示（自检用）。</summary>
         public bool Visible => _root != null && _root.gameObject.activeSelf;
-
-        /// <summary>当前展示的配件 id（自检用）。</summary>
         public string CurrentId => _currentId;
+        public string TitleText => _title != null ? _title.text : null;
 
         public static ItemTooltip Ensure(Transform parent)
         {
             if (s_instance != null) return s_instance;
 
-            var go = new GameObject("ItemTooltipCanvas");
+            // 挂在已有 Canvas 下，只 override 排序 —— 不要再套一层 CanvasScaler
+            var go = new GameObject("ItemTooltip", typeof(RectTransform));
             go.transform.SetParent(parent, false);
 
+            var layer = (RectTransform)go.transform;
+            layer.anchorMin = Vector2.zero;
+            layer.anchorMax = Vector2.one;
+            layer.offsetMin = Vector2.zero;
+            layer.offsetMax = Vector2.zero;
+
             var canvas = go.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 90;          // 高于背包(20)与三选一，低于主菜单
-
-            var scaler = go.AddComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1600f, 900f);
-            scaler.matchWidthOrHeight = 0.5f;
-
+            canvas.overrideSorting = true;
+            canvas.sortingOrder = 90;
             go.AddComponent<GraphicRaycaster>();
 
             var tip = go.AddComponent<ItemTooltip>();
-            tip.Build(go.transform);
+            tip._layer = layer;
+            tip.Build();
             s_instance = tip;
             return tip;
         }
 
-        void Build(Transform parent)
+        void Build()
         {
-            _canvas = GetComponent<Canvas>();
+            _root = new GameObject("Panel", typeof(RectTransform)).GetComponent<RectTransform>();
+            _root.SetParent(_layer, false);
+            _root.anchorMin = new Vector2(0.5f, 0.5f);
+            _root.anchorMax = new Vector2(0.5f, 0.5f);
+            _root.pivot = new Vector2(0.5f, 1f);
+            _root.sizeDelta = new Vector2(Width, Height);
 
-            _root = (RectTransform)new GameObject("Panel", typeof(RectTransform)).transform;
-            _root.SetParent(parent, false);
-            _root.anchorMin = new Vector2(0f, 1f);
-            _root.anchorMax = new Vector2(0f, 1f);
-            _root.pivot = new Vector2(0f, 1f);
-            _root.sizeDelta = new Vector2(Width, 230f);
-
-            // 底板：复用 panel 素材的 9-slice，和背包/菜单是同一套材质
             _back = _root.gameObject.AddComponent<Image>();
             var panel = UiAssets.Panel;
             if (panel != null)
@@ -92,25 +90,26 @@ namespace S.View
                 _back.color = new Color(1f, 1f, 1f, 0.98f);
             }
             else _back.color = new Color(0.06f, 0.08f, 0.11f, 0.97f);
-            _back.raycastTarget = false;    // 详情不能吃鼠标，否则会打断悬停
+            _back.raycastTarget = false;
 
-            // 圆形图标（左上）
-            _iconRing = Pic("IconRing", new Vector2(14f, -14f), new Vector2(64f, 64f));
+            _iconRing = Pic("IconRing", new Vector2(14f, -14f), new Vector2(56f, 56f));
             _iconRing.sprite = UiAssets.IconFrame;
             _iconRing.color = new Color(0.55f, 0.62f, 0.72f, 0.55f);
             _iconRing.preserveAspect = true;
 
-            _icon = Pic("Icon", new Vector2(20f, -20f), new Vector2(52f, 52f));
+            _icon = Pic("Icon", new Vector2(18f, -18f), new Vector2(48f, 48f));
 
-            _title = Txt("Title", 17f, -76f, -20f, -40f, 20, TextAnchor.MiddleLeft, Color.white);
-            _rarity = Txt("Rarity", 14f, -96f, -20f, -78f, 13, TextAnchor.MiddleLeft,
-                new Color(0.75f, 0.8f, 0.9f));
-            _scope = Txt("Scope", 15f, -96f, -140f, -60f, 13, TextAnchor.MiddleRight,
-                new Color(0.7f, 0.78f, 0.9f));
-            _body = Txt("Body", 22f, -200f, -16f, -112f, 14, TextAnchor.UpperLeft,
-                new Color(0.88f, 0.92f, 1f));
-            _footer = Txt("Footer", 8f, -230f, -20f, -202f, 12, TextAnchor.MiddleLeft,
-                new Color(0.55f, 0.62f, 0.72f));
+            // 正数边距：left/right/top/height 都是「向内」的像素，不再传负数
+            _title = Txt("Title", top: 14f, left: 78f, right: 14f, height: 26f,
+                20, TextAnchor.MiddleLeft, Color.white);
+            _rarity = Txt("Rarity", top: 40f, left: 78f, right: 14f, height: 20f,
+                13, TextAnchor.MiddleLeft, new Color(0.75f, 0.8f, 0.9f));
+            _scope = Txt("Scope", top: 60f, left: 78f, right: 14f, height: 20f,
+                13, TextAnchor.MiddleLeft, new Color(0.7f, 0.78f, 0.9f));
+            _body = Txt("Body", top: 88f, left: 14f, right: 14f, height: 88f,
+                14, TextAnchor.UpperLeft, new Color(0.88f, 0.92f, 1f));
+            _footer = Txt("Footer", top: 182f, left: 14f, right: 14f, height: 30f,
+                12, TextAnchor.UpperLeft, new Color(0.55f, 0.62f, 0.72f));
 
             _root.gameObject.SetActive(false);
         }
@@ -127,9 +126,14 @@ namespace S.View
             rt.sizeDelta = size;
             var img = go.AddComponent<Image>();
             img.raycastTarget = false;
+            img.preserveAspect = true;
             return img;
         }
 
+        /// <summary>
+        /// top/left/right/height 全部是相对面板的正数内边距/高度。
+        /// offsetMin = (left, -(top+height))；offsetMax = (-right, -top)。
+        /// </summary>
         Text Txt(string name, float top, float left, float right, float height,
             int size, TextAnchor align, Color color)
         {
@@ -139,7 +143,7 @@ namespace S.View
             rt.anchorMin = new Vector2(0f, 1f);
             rt.anchorMax = new Vector2(1f, 1f);
             rt.pivot = new Vector2(0f, 1f);
-            rt.offsetMin = new Vector2(left, -top - height);
+            rt.offsetMin = new Vector2(left, -(top + height));
             rt.offsetMax = new Vector2(-right, -top);
 
             var t = go.AddComponent<Text>();
@@ -147,93 +151,178 @@ namespace S.View
             t.fontSize = size;
             t.alignment = align;
             t.color = color;
+            t.supportRichText = true;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;
             t.verticalOverflow = VerticalWrapMode.Truncate;
             t.raycastTarget = false;
             return t;
         }
 
-        /// <summary>拖拽开始时抑制显示，避免详情跟着拖拽中的卡片闪。</summary>
         public void Suppress(bool on)
         {
             _suppressed = on;
             if (on) Hide();
         }
 
-        public void Show(ChainItem item)
+        public void ShowUnder(ChainItem item, RectTransform under, string footerOverride = null)
+        {
+            _anchor = under;
+            _footerOverride = footerOverride;
+            Apply(item);
+        }
+
+        public void Show(ChainItem item, string footerOverride = null)
+        {
+            _anchor = null;
+            _footerOverride = footerOverride;
+            Apply(item);
+        }
+
+        void Apply(ChainItem item)
         {
             if (item == null || _suppressed) { Hide(); return; }
+
+            // 每次显示都重绑字体：Build 时若字体尚未导入完成，会静默变成空白字
+            EnsureFonts();
+
             string id = item.IsBullet ? item.Bullet.Id : item.Mod.Id;
-            if (id == _currentId && Visible) { Follow(); return; }
+            bool same = id == _currentId && Visible;
             _currentId = id;
 
-            bool bullet = item.IsBullet;
-            Rarity rar = bullet ? item.Bullet.Rarity : item.Mod.Rarity;
-            string name = bullet ? item.Bullet.Name : item.Mod.Name;
-
-            _title.text = name;
-            _rarity.text = RarityName(rar) + (bullet ? "   ·   子弹配件" : "   ·   衍生配件");
-            _rarity.color = RarityColor(rar);
-
-            if (bullet)
+            if (!same)
             {
-                _scope.text = "";
-                _body.text = DescribeBullet(item.Bullet);
-            }
-            else
-            {
-                _scope.text = ScopeName(item.Mod.Scope);
-                _scope.color = ScopeColor(item.Mod.Scope);
-                _body.text = DescribeMod(item.Mod);
+                bool bullet = item.IsBullet;
+                Rarity rar = bullet ? item.Bullet.Rarity : item.Mod.Rarity;
+                string name = bullet ? item.Bullet.Name : item.Mod.Name;
+
+                _title.text = name;
+                _rarity.text = RarityName(rar) + (bullet ? "   ·   子弹配件" : "   ·   衍生配件");
+                _rarity.color = RarityColor(rar);
+
+                if (bullet)
+                {
+                    _scope.text = BulletKindName(item.Bullet.Kind);
+                    _scope.color = new Color(1f, 0.72f, 0.32f);
+                    _body.text = DescribeBullet(item.Bullet);
+                }
+                else
+                {
+                    _scope.text = "作用范围：" + ScopeName(item.Mod.Scope);
+                    _scope.color = ScopeColor(item.Mod.Scope);
+                    _body.text = DescribeMod(item.Mod);
+                }
+
+                _icon.enabled = true;
+                if (!UiAssets.ApplyItemIcon(_icon, id, Color.white))
+                    _icon.enabled = false;
+
+                var ringCol = RarityColor(rar);
+                if (_iconRing != null)
+                    _iconRing.color = new Color(ringCol.r, ringCol.g, ringCol.b, 0.85f);
             }
 
-            _icon.enabled = true;
-            if (!UiAssets.ApplyItemIcon(_icon, id, Color.white))
-            {
-                // 缺图降级：不显示图标，但面板照常给数值 —— 不能让详情整块消失
-                _icon.enabled = false;
-            }
-
-            _footer.text = bullet
-                ? "子弹配件：被读取时产出投射物，会吸附所有覆盖它的被动件"
-                : ScopeHint(item.Mod.Scope);
+            _footer.text = !string.IsNullOrEmpty(_footerOverride)
+                ? _footerOverride
+                : (item.IsBullet
+                    ? "放在任意槽位即可被读取"
+                    : ScopeHint(item.Mod.Scope));
 
             _root.gameObject.SetActive(true);
-            Follow();
+            Place();
+        }
+
+        void EnsureFonts()
+        {
+            var font = UiKit.Font;
+            if (_title != null) _title.font = font;
+            if (_rarity != null) _rarity.font = font;
+            if (_scope != null) _scope.font = font;
+            if (_body != null) _body.font = font;
+            if (_footer != null) _footer.font = font;
         }
 
         public void Hide()
         {
             _currentId = null;
+            _anchor = null;
+            _footerOverride = null;
             if (_root != null) _root.gameObject.SetActive(false);
         }
 
-        /// <summary>跟随鼠标，并避让屏幕四边。</summary>
-        void Follow()
+        void LateUpdate()
+        {
+            if (Visible) Place();
+        }
+
+        void Place()
+        {
+            if (_anchor != null) PlaceUnderAnchor();
+            else FollowMouse();
+        }
+
+        /// <summary>
+        /// 用同一 Canvas 空间的 InverseTransformPoint 定位，避免嵌套 Overlay 的屏幕换算偏差。
+        /// </summary>
+        void PlaceUnderAnchor()
+        {
+            if (_layer == null || _anchor == null || !_anchor.gameObject.activeInHierarchy)
+            {
+                FollowMouse();
+                return;
+            }
+
+            var corners = new Vector3[4];
+            _anchor.GetWorldCorners(corners);
+            Vector3 localBottom = _layer.InverseTransformPoint((corners[0] + corners[3]) * 0.5f);
+            Vector3 localTop = _layer.InverseTransformPoint((corners[1] + corners[2]) * 0.5f);
+
+            _root.pivot = new Vector2(0.5f, 1f);
+            float x = localBottom.x;
+            float y = localBottom.y - UnderGap;
+
+            var bounds = _layer.rect;
+            // 下方放不下 → 翻到配件上方（枢轴在顶边，上方时 y = 顶部 + 高度 + 间距）
+            if (y - Height < bounds.yMin + 8f)
+                y = localTop.y + UnderGap + Height;
+
+            x = Mathf.Clamp(x, bounds.xMin + Width * 0.5f + 8f, bounds.xMax - Width * 0.5f - 8f);
+            y = Mathf.Clamp(y, bounds.yMin + Height + 8f, bounds.yMax - 8f);
+            _root.anchoredPosition = new Vector2(x, y);
+        }
+
+        void FollowMouse()
         {
             var mouse = UnityEngine.InputSystem.Mouse.current;
-            if (mouse == null || _canvas == null) return;
+            if (mouse == null || _layer == null) return;
 
             Vector2 screen = mouse.position.ReadValue();
             Vector2 local;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                (RectTransform)_canvas.transform, screen, null, out local);
+            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(_layer, screen, null, out local))
+                return;
 
-            // Canvas 是 ScaleWithScreenSize，这里用画布矩形换算回参考分辨率下的尺寸
-            var canvasRt = (RectTransform)_canvas.transform;
-            Vector2 size = _root.rect.size;
+            _root.pivot = new Vector2(0f, 1f);
+            float x = local.x + 18f;
+            float y = local.y - 14f;
 
-            float x = local.x + 22f;
-            float y = local.y - 16f;
-
-            // 右/下越界则翻到鼠标另一侧
-            if (x + size.x > canvasRt.rect.xMax - 8f) x = local.x - size.x - 22f;
-            if (y - size.y < canvasRt.rect.yMin + 8f) y = local.y + size.y + 16f;
+            var bounds = _layer.rect;
+            if (x + Width > bounds.xMax - 8f) x = local.x - Width - 18f;
+            if (y - Height < bounds.yMin + 8f) y = local.y + Height + 14f;
 
             _root.anchoredPosition = new Vector2(
-                Mathf.Clamp(x, canvasRt.rect.xMin + 8f, canvasRt.rect.xMax - size.x - 8f),
-                Mathf.Clamp(y, canvasRt.rect.yMin + size.y + 8f, canvasRt.rect.yMax - 8f));
+                Mathf.Clamp(x, bounds.xMin + 8f, bounds.xMax - Width - 8f),
+                Mathf.Clamp(y, bounds.yMin + Height + 8f, bounds.yMax - 8f));
         }
+
+        static string BulletKindName(BulletKind k) => k switch
+        {
+            BulletKind.Beam => "形态：瞬时光束",
+            BulletKind.Mine => "形态：地雷陷阱",
+            BulletKind.Field => "形态：持续力场",
+            BulletKind.Chain => "形态：连锁闪电",
+            BulletKind.Saw => "形态：回旋锯",
+            BulletKind.Hole => "形态：引力奇点",
+            _ => "形态：投射物",
+        };
 
         // ---------------- 文案 ----------------
 
@@ -275,19 +364,13 @@ namespace S.View
             _ => new Color(0.78f, 0.49f, 1f),
         };
 
-        /// <summary>
-        /// 作用域的「怎么用」一句话。详情面板与浮动提示共用。
-        ///
-        /// 和 ScopeName（只给名字）分开：名字解决「这是什么」，这句解决「该放哪」。
-        /// 玩家最常犯的错是把被动件放进没有子弹的范围里，这条提示直接指向正确摆法。
-        /// </summary>
         public static string ScopeHint(Scope s) => s switch
         {
             Scope.Next => "放在子弹前面：射击时会被读取，效果叠给之后的第一颗子弹",
             Scope.Prev => "被动：作用于左侧最近的子弹（中间隔着别的件也能生效）",
             Scope.Adj => "被动：作用于左右各一格内的子弹",
             Scope.N2 => "被动：作用于右侧 2 格内的子弹",
-            Scope.N3 => "被动：作用于右侧 3 格内的子弹（耗弹打折）",
+            Scope.N3 => "被动：作用于右侧 3 格内的子弹",
             Scope.P2 => "被动：作用于左侧 2 格内的子弹",
             _ => "被动：作用于整把枪，不占读取次数",
         };
@@ -385,6 +468,11 @@ namespace S.View
                 _ => "\n<b>全枪</b>：被动，作用于整把枪械",
             };
             return string.Join("    ", parts) + note;
+        }
+
+        void OnDestroy()
+        {
+            if (s_instance == this) s_instance = null;
         }
     }
 }

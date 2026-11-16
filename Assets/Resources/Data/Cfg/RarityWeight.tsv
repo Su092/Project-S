@@ -1,0 +1,6 @@
+rarity	weight
+稀有度	抽取权重
+string,unique	int
+Common	60
+Rare	30
+Epic	10

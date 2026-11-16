@@ -9,15 +9,34 @@ namespace S.Core
     /// 铸造核心 Boss 的状态机：血量分段、护盾周期、能量柱破坏与破防。
     /// 零 Unity 依赖 —— 「什么时候该开护盾」「破防窗口多长」这类时序最容易错，必须可断言。
     /// 时间由外部以 dt 推进（暂停时外部不调 Tick 即可）。
+    ///
+    /// **本轮改造**：所有时序参数从 `const` 改成实例字段（由 `SData.Boss` 注入）。
+    /// 原来 `ShieldPeriod = 18f` 是 const，改护盾节奏要重新编译并重新打包，
+    /// 而这恰恰是 Boss 手感调优最常动的数。现在它们是一行 TSV。
+    ///
+    /// 默认值必须与 `Cfg/Boss.tsv` 出厂值一致 —— dotnet 断言走 `new BossState(hp)`
+    /// 这条不读表的路径，两边不一致会导致「测试绿、实机却是另一套节奏」。
+    /// SCfgValidator 会检查关键项（柱子数与柱血量）。
     /// </summary>
     public sealed class BossState
     {
-        public const int PillarCount = 4;
-        public const float PillarHp = 800f;
-        public const float PillarBreachTime = 4f;     // 破坏一根后的破防时长
-        public const float BreachDamageMul = 1.5f;    // 破防期受伤倍率
-        public const float ShieldPeriod = 18f;        // P2 起护盾周期
-        public const float ShieldUpTime = 6f;         // 护盾持续
+        // ---- 默认值（与 Boss.tsv 出厂值一致）----
+        public const int DefaultPillars = 4;
+        public const float DefaultPillarHp = 800f;
+
+        public int PillarCount = DefaultPillars;
+        public float PillarHp = DefaultPillarHp;
+        public float PillarBreachTime = 4f;
+        public float BreachDamageMul = 1.5f;
+        public float ShieldPeriod = 18f;
+        public float ShieldUpTime = 6f;
+
+        /// <summary>召唤杂兵的间隔与数量（P1/P2）。</summary>
+        public float SummonInterval = 12f;
+        public int SummonCount = 2;
+
+        /// <summary>P3 冲击波间隔。</summary>
+        public float ShockwaveInterval = 20f;
 
         public float MaxHp;
         public float Hp;
@@ -27,21 +46,38 @@ namespace S.Core
         /// <summary>护盾是否开启（P2 起才有）。开盾时正面免伤。</summary>
         public bool ShieldUp { get; private set; }
 
-        /// <summary>破防剩余时间（>0 时受伤 ×1.5）。</summary>
+        /// <summary>破防剩余时间（>0 时受伤 ×BreachDamageMul）。</summary>
         public float BreachLeft { get; private set; }
 
-        /// <summary>存活能量柱数（0..4）。</summary>
-        public int PillarsAlive { get; private set; } = PillarCount;
+        /// <summary>存活能量柱数。</summary>
+        public int PillarsAlive { get; private set; }
 
-        readonly float[] _pillarHp = new float[PillarCount];
-
+        float[] _pillarHp;
         float _shieldTimer;
         float _addTimer;
 
-        public BossState(float maxHp)
+        public BossState(float maxHp) : this(maxHp, null) { }
+
+        /// <summary>从数据构造。传 null 时用默认值（dotnet 断言走这条）。</summary>
+        public BossState(float maxHp, BossDef def)
         {
+            if (def != null)
+            {
+                PillarCount = def.Pillars > 0 ? def.Pillars : DefaultPillars;
+                PillarHp = def.PillarHp > 0f ? def.PillarHp : DefaultPillarHp;
+                PillarBreachTime = def.BreachTime;
+                BreachDamageMul = def.BreachDamageMul;
+                ShieldPeriod = def.ShieldPeriod;
+                ShieldUpTime = def.ShieldUpTime;
+                SummonInterval = def.SummonInterval;
+                SummonCount = def.SummonCount;
+                ShockwaveInterval = def.ShockwaveInterval;
+            }
+
             MaxHp = maxHp;
             Hp = maxHp;
+            PillarsAlive = PillarCount;
+            _pillarHp = new float[PillarCount];
             for (int i = 0; i < PillarCount; i++) _pillarHp[i] = PillarHp;
         }
 
@@ -52,7 +88,7 @@ namespace S.Core
         /// <summary>破防中（受伤加成窗口）。</summary>
         public bool IsBreached => BreachLeft > 0f;
 
-        /// <summary>当前受伤倍率：破防 ×1.5，否则 ×1。护盾由外部按方向判定。</summary>
+        /// <summary>当前受伤倍率：破防 ×BreachDamageMul，否则 ×1。护盾由外部按方向判定。</summary>
         public float DamageTakenMul => IsBreached ? BreachDamageMul : 1f;
 
         public float PillarHpAt(int i) =>
@@ -82,8 +118,8 @@ namespace S.Core
 
             if (Phase == BossPhase.Dead) return ev;
 
-            // P2 起护盾周期：先开 6 秒，再关直到下一周期
-            if (Phase >= BossPhase.P2)
+            // P2 起护盾周期：先开 ShieldUpTime 秒，再关到下一周期
+            if (Phase >= BossPhase.P2 && ShieldPeriod > 0f)
             {
                 _shieldTimer -= dt;
                 if (_shieldTimer <= 0f)
@@ -97,22 +133,22 @@ namespace S.Core
                 }
             }
 
-            // P1/P2 每 12 秒召唤两只爬行者
-            if (Phase < BossPhase.P3)
+            // P1/P2 定期召唤杂兵
+            if (Phase < BossPhase.P3 && SummonInterval > 0f && SummonCount > 0)
             {
                 _addTimer += dt;
-                if (_addTimer >= 12f)
+                if (_addTimer >= SummonInterval)
                 {
                     _addTimer = 0f;
-                    ev.Add(new BossEvent { Kind = BossEventKind.SummonAdds, Value = 2 });
+                    ev.Add(new BossEvent { Kind = BossEventKind.SummonAdds, Value = SummonCount });
                 }
             }
 
-            // P3 每 20 秒全屏冲击波（需跳跃躲避）
-            if (Phase == BossPhase.P3)
+            // P3 全屏冲击波（需跳跃躲避）
+            if (Phase == BossPhase.P3 && ShockwaveInterval > 0f)
             {
                 _addTimer += dt;
-                if (_addTimer >= 20f)
+                if (_addTimer >= ShockwaveInterval)
                 {
                     _addTimer = 0f;
                     ev.Add(new BossEvent { Kind = BossEventKind.Shockwave });
@@ -151,7 +187,7 @@ namespace S.Core
 
         /// <summary>
         /// 正面护盾免伤判定。返回 true 表示这次攻击被护盾挡下。
-        /// 破防期间护盾无效；空蚀弹（ignoreArmor）穿透一半。
+        /// 破防期间护盾无效；穿甲弹（ignoreArmor）穿透一半。
         /// </summary>
         public bool IsBlockedByShield(bool ignoreArmor)
         {

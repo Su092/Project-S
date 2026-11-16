@@ -21,20 +21,31 @@ namespace S.EditorTools
     public static class SUiPrefabFactory
     {
         const string PrefabDir = "Assets/Resources/UI/Prefabs";
-        const string UiRoot = "Assets/Resources/UI/";
+        // 素材路径不在这里拼：素材已按功能分类（Sprites/<Category>/），
+        // 目录由 UiAssets.Catalog 决定，见 Sp()。
 
         // ---------------- 基础工具 ----------------
 
         static Font F()
         {
-            var f = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            return f != null ? f : Resources.GetBuiltinResource<Font>("Arial.ttf");
+            // 预制体工厂必须拿到**资产本体**再序列化进预制体 —— 所以用 AssetDatabase
+            // 按路径取，而不是 Resources.Load（后者取的是运行时实例，写不进预制体）。
+            var f = AssetDatabase.LoadAssetAtPath<Font>(S.View.UiKit.FontAssetPath);
+            if (f != null) return f;
+            Debug.LogWarning($"[S] 字体缺失：{S.View.UiKit.FontAssetPath}，预制体将回退内置字体");
+            var b = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            return b != null ? b : Resources.GetBuiltinResource<Font>("Arial.ttf");
         }
 
         static Sprite Sp(string name)
         {
-            var s = AssetDatabase.LoadAssetAtPath<Sprite>(UiRoot + name + ".png");
-            if (s == null) Debug.LogWarning($"[S] 预制体用图缺失: {name}.png");
+            // 目录由 UiAssets.Catalog 决定（素材已按功能分类到 Sprites/<Category>/）。
+            // 这里**不要**再拼 "Assets/Resources/UI/" + name —— 那是扁平布局的旧写法，
+            // 素材一分类就会全部落空（表现为预制体里 sprite 全为 null）。
+            var dir = S.View.UiAssets.DirOf(name);
+            string path = dir == null ? null : "Assets/Resources/" + dir + name + ".png";
+            var s = path == null ? null : AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            if (s == null) Debug.LogWarning($"[S] 预制体用图缺失: {name}.png（查得路径 {path ?? "未登记"}）");
             return s;
         }
 
@@ -405,10 +416,15 @@ namespace S.EditorTools
             refs.HpText = LabelFixed("HpText", root.transform, "100", 20, TextAnchor.LowerLeft, Color.white,
                 new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(32f, 58f), new Vector2(200f, 26f));
 
-            // 弹药
+            // 弹药数字 + 弹匣条（条在数字正下方；耗弹变短，换弹时从左往右涨）
             refs.AmmoText = LabelFixed("AmmoText", root.transform, "36 / 36", 40, TextAnchor.LowerRight,
                 Color.white, new Vector2(1f, 0f), new Vector2(1f, 0f),
-                new Vector2(-30f, 30f), new Vector2(300f, 50f));
+                new Vector2(-30f, 42f), new Vector2(300f, 50f));
+
+            refs.AmmoFill = Bar(root.transform, new Vector2(1f, 0f), new Vector2(1f, 0f),
+                new Vector2(-30f, 26f), new Vector2(280f, 12f), Sp("bar_bg"), Sp("bar_fill_xp"));
+            if (refs.AmmoFill != null)
+                refs.AmmoFill.color = new Color(0.45f, 0.85f, 1f, 1f);
 
             refs.GunText = LabelFixed("GunText", root.transform, "", 18, TextAnchor.LowerRight,
                 new Color(0.7f, 0.78f, 0.9f), new Vector2(1f, 0f), new Vector2(1f, 0f),
@@ -679,14 +695,13 @@ namespace S.EditorTools
             bagDrop.ChainIndex = -1;
             refs.BagDropPanel = bagDrop;
 
-            // 背包网格热区：占据面板上半部，下半部留给详情区。
-            // 原型（#inv-detail）也是这个结构 —— 详情常驻在背包下方，
-            // 而不是跟着鼠标飘：对比两件配件时视线不需要移动。
+            // 背包网格吃满面板（悬停详情改为配件正下方的 ItemTooltip 浮窗，
+            // 不再占背包底部常驻区）。Detail 节点仍生成以便旧引用不空，但默认隐藏。
             const float detailH = 210f;
 
             refs.BagGrid = Frame("Grid", bagPanelRt,
                 new Vector2(0f, 0f), new Vector2(1f, 1f),
-                new Vector2(12f, 12f + detailH + 8f), new Vector2(-12f, -46f));
+                new Vector2(12f, 12f), new Vector2(-12f, -46f));
             var glg = refs.BagGrid.gameObject.AddComponent<GridLayoutGroup>();
             // 背包格子与 ItemCard 的尺寸必须一致（116×100），
             // 否则 GridLayoutGroup 会把卡片拉伸成细长条（旧版 150×44 就是因为这个）。
@@ -700,8 +715,9 @@ namespace S.EditorTools
                 new Color(0.8f, 0.85f, 0.95f),
                 new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(14f, -34f), new Vector2(200f, -6f));
 
-            // ---- 详情区（#inv-detail）----
+            // ---- 旧详情区节点（隐藏保留；运行时 InventoryView 也会再关一次）----
             BuildDetailPanel(refs, bagPanelRt, detailH);
+            if (refs.Detail != null) refs.Detail.gameObject.SetActive(false);
 
             // 底部提示
             refs.Hint = Label("Hint", root.transform, "", 20, TextAnchor.MiddleCenter,
@@ -1087,6 +1103,9 @@ namespace S.EditorTools
                 new Color(0.82f, 0.87f, 0.95f),
                 new Vector2(0f, 0f), new Vector2(1f, 1f),
                 new Vector2(20f, 44f), new Vector2(-20f, -182f));
+            // Label() 默认 Overflow；三选一描述必须 Wrap，否则长句单行溢出
+            refs.Desc.horizontalOverflow = HorizontalWrapMode.Wrap;
+            refs.Desc.verticalOverflow = VerticalWrapMode.Truncate;
 
             refs.PickHint = Label("PickHint", root.transform, "点击拾取", 14, TextAnchor.LowerCenter,
                 new Color(0.55f, 0.62f, 0.72f),

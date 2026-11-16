@@ -24,7 +24,7 @@ namespace S.EditorTools
         const int Width = 1920;
         const int Height = 820;
 
-        // 与运行时目标高度对齐（GameRoot.KindHeight / BossView / PlayerWeapons / ArenaBuilder）
+        // 与运行时目标高度对齐（Enemy.tsv 的 height / Boss.tsv / PlayerWeapons / ArenaBuilder）
         static readonly (string name, float targetH)[] Items =
         {
             ("Modle_Enemy_Crawler",   0.86f),

@@ -1,0 +1,9 @@
+id	name	desc	slotCount	magSize	reloadTime	fireInterval	spreadBase	castCount	baseBullet	color	zoom	model	starter
+枪械编号	枪械名称	定位描述	槽位数	弹匣容量	换弹秒数	击发间隔	基础散射	每次读取数	起手子弹	主题色	瞄准视距	枪械模型	是否起手
+string,unique	string	string	int	int	float	float	float	int	string	string	float	string	bool01
+rifle	制式步枪	均衡的全能枪械。	8	30	1.5	0.14	1.2	1	std	#8f9bb3	55	Modle_Gun_Auto	1
+smg	冲锋枪	高射速、大弹匣，适合挂载低耗配件。	10	50	1.7	0.075	3.5	1	light	#6fd3c8	60	Modle_Gun_Auto	0
+shotgun	战术霰弹枪	每次射击读取 2 个子弹配件。	6	10	1.9	0.6	2	2	pellet	#c9a227	60	Modle_Gun_Grenade	1
+sniper	精确射手步枪	零散布，右键高倍瞄准。	6	9	2.2	0.85	0	1	ap	#4a6fa5	28	Modle_Gun_Single	0
+beam	光束发射器	能量弹匣容量大，射速极高。	8	80	2	0.06	0.6	1	laser	#c94fd8	55	Modle_Gun_Single	0
+launcher	多功能发射器	槽位最多，适合构筑复杂连锁。	12	14	2.4	0.7	1	1	grenade	#5f8a5f	55	Modle_Gun_Grenade	0

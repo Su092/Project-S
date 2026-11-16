@@ -311,7 +311,7 @@ namespace S.View
             var go = new GameObject("Boss");
             go.transform.position = ArenaBuilder.Center + Vector3.up * 0.1f;
             var boss = go.AddComponent<BossView>();
-            boss.Init(Data.BossHp);
+            boss.Init(Data.BossHp, Data.Boss);
             Boss = boss;
 
             _telemetry?.NoteBossSpawn(RunElapsed);
@@ -321,8 +321,13 @@ namespace S.View
 
         public void BossSummonAdds(int count)
         {
-            for (int i = 0; i < count; i++) SpawnFromPool(new[] { "Crawler" }, elite: false);
-            _hud?.Toast($"召唤 {count} 只爬行者");
+            // 召唤哪种敌人来自 Boss.tsv 的 summonEnemy（原先是写死的 "Crawler"）
+            string id = Data != null && Data.Boss != null && !string.IsNullOrEmpty(Data.Boss.SummonEnemy)
+                ? Data.Boss.SummonEnemy
+                : "Crawler";
+            for (int i = 0; i < count; i++) SpawnFromPool(new[] { id }, elite: false);
+            var def = Data != null ? Data.Enemy(id) : null;
+            _hud?.Toast($"召唤 {count} 只{(def != null ? def.Name : id)}");
         }
         public void BossShockwave(Vector3 center)
         {
@@ -340,7 +345,7 @@ namespace S.View
                 _hud?.Toast("躲过冲击波");
                 return;
             }
-            DamagePlayer(22f * Run.DmgScale);
+            DamagePlayer(Data.Boss.ShockwaveDamage * Run.DmgScale);
         }
 
         public void OnBossKilled()
@@ -364,8 +369,8 @@ namespace S.View
             if (!broke) return;
 
             // 规则层：碎柱 → 关盾 + 破防
-            Boss.State.DamagePillar(p.Index, BossState.PillarHp);
-            _hud?.Toast($"能量柱 {p.Index + 1} 已破坏 · 破防 {BossState.PillarBreachTime:0}s");
+            Boss.State.DamagePillar(p.Index, Boss.State.PillarHp);
+            _hud?.Toast($"能量柱 {p.Index + 1} 已破坏 · 破防 {Boss.State.PillarBreachTime:0}s");
         }
 
         /// <summary>
@@ -376,14 +381,36 @@ namespace S.View
         {
             if (pool == null || pool.Length == 0) return;
 
-            string kindName = pool[Random.Range(0, pool.Length)];
-            if (!System.Enum.TryParse(kindName, true, out Enemy.Kind kind)) kind = Enemy.Kind.Crawler;
+            var def = PickEnemyDef(pool);
+            if (def == null) return;
 
             Vector3 pos = Zones != null && Player != null
                 ? Zones.PickSpawnPoint(Player.transform.position, 14f, null)
                 : new Vector3(0f, 0.9f, ArenaBuilder.Center.z + 40f);
 
-            SpawnAt(kind, pos, elite);
+            SpawnAt(def, pos, elite);
+        }
+
+        /// <summary>
+        /// 从池子里随机取一个**能在 Enemy.tsv 里查到**的定义。
+        ///
+        /// 原先这里是 `Enum.TryParse` 失败就静默退化成 Crawler ——
+        /// 数据里拼错名字看起来完全正常，只是永远只出一种敌人。
+        /// 现在拼错会被 SCfgValidator 在加载期拦下；这里再兜一层，
+        /// 是为了「校验被绕过时也不崩」。
+        /// </summary>
+        EnemyDef PickEnemyDef(string[] pool)
+        {
+            for (int attempt = 0; attempt < pool.Length; attempt++)
+            {
+                string id = pool[Random.Range(0, pool.Length)];
+                var def = Data.Enemy(id);
+                if (def != null) return def;
+            }
+
+            // 池子里一个都查不到：退到表里的第一种，至少不空场
+            if (Data.EnemyOrder.Count > 0) return Data.EnemyOrder[0];
+            return null;
         }
 
         /// <summary>刷一只精英：继承本体行为，但更硬、更慢、更值钱，击杀回血。</summary>
@@ -392,34 +419,39 @@ namespace S.View
             var phase = Director != null ? Director.CurrentPhase : null;
             var pool = phase != null && phase.Pool != null && phase.Pool.Length > 0
                 ? phase.Pool
-                : new[] { "Crawler" };
+                : null;
+
+            var def = PickEnemyDef(pool ?? new[] { Data.EnemyOrder.Count > 0 ? Data.EnemyOrder[0].Id : "" });
+            if (def == null) return;
 
             Vector3 pos = Zones != null && Player != null
                 ? Zones.PickSpawnPoint(Player.transform.position, 18f, null)
                 : Vector3.forward * 30f;
 
-            var kind = (Enemy.Kind)System.Enum.Parse(typeof(Enemy.Kind),
-                pool[Random.Range(0, pool.Length)], true);
-
-            SpawnAt(kind, pos, elite: true);
+            SpawnAt(def, pos, elite: true);
             _hud?.Toast($"精英 #{index + 1} 入场 · 击杀回复 {Director.Elite.HealOnKill:0} 生命");
-            _telemetry?.NoteElite(RunElapsed, kind.ToString());
+            _telemetry?.NoteElite(RunElapsed, def.Id);
         }
 
-        /// <summary>真正造出敌人的唯一入口（普通与精英共用）。</summary>
-        Enemy SpawnAt(Enemy.Kind kind, Vector3 pos, bool elite)
+        /// <summary>真正造出敌人的唯一入口（普通与精英共用）。数值全部来自 EnemyDef。</summary>
+        Enemy SpawnAt(EnemyDef def, Vector3 pos, bool elite)
         {
-            var go = new GameObject(elite ? "Elite_" + kind : "Enemy_" + kind);
+            if (def == null) return null;
+
+            var go = new GameObject(elite ? "Elite_" + def.Id : "Enemy_" + def.Id);
             go.transform.position = pos;
 
             var cc = go.AddComponent<CharacterController>();
-            cc.height = 1.7f;
-            cc.radius = 0.42f;
-            cc.center = new Vector3(0f, 0.85f, 0f);
+            // 碰撞体跟着模型高度走（原先写死 1.7 / 0.42，矮敌人会有看不见的碰撞壳、
+            // 高敌人则打不到上半身）。
+            float h = Mathf.Max(0.3f, def.Height);
+            cc.height = h;
+            cc.radius = Mathf.Clamp(h * 0.25f, 0.15f, 0.7f);
+            cc.center = new Vector3(0f, h * 0.5f, 0f);
 
             // 视觉：真实模型（缺件时 SAssets 自动回退为胶囊占位）
-            var visual = SAssets.SpawnFit(KindModel(kind), go.transform, Vector3.zero,
-                KindHeight(kind), Color.white, 0.45f);
+            var visual = SAssets.SpawnFit(def.Model, go.transform, Vector3.zero,
+                def.Height, Color.white, 0.45f);
             visual.name = "Body";
 
             var e = go.AddComponent<Enemy>();
@@ -432,11 +464,8 @@ namespace S.View
                 hpMul = el.HpMul; dmgMul = el.DmgMul; speedMul = el.SpeedMul; xpMul = el.XpMul;
             }
 
-            e.Configure(kind,
-                KindHp(kind) * hpMul * Run.HpScale,
-                KindDmg(kind) * dmgMul * Run.DmgScale,
-                KindSpeed(kind) * speedMul,
-                KindXp(kind) * xpMul);
+            // 缩放系数在 Enemy.Configure 里统一乘：威胁缩放与精英倍率
+            e.Configure(def, hpMul, dmgMul, speedMul, xpMul, Run.HpScale, Run.DmgScale);
 
             e.IsElite = elite;
             e.HealOnKill = elite ? el.HealOnKill : 0f;
@@ -447,61 +476,6 @@ namespace S.View
             _telemetry?.NoteSpawn(e);
             return e;
         }
-
-        static string KindModel(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => "Modle_Enemy_Shield",
-            Enemy.Kind.Bomber => "Modle_Enemy_Spitter",
-            Enemy.Kind.Turret => "Modle_Enemy_Drone",
-            _ => "Modle_Enemy_Crawler",
-        };
-
-        static float KindHeight(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => 1.97f,
-            Enemy.Kind.Bomber => 1.74f,
-            Enemy.Kind.Turret => 1.20f,
-            _ => 0.86f,
-        };
-
-        static float KindHp(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => 220f,
-            Enemy.Kind.Bomber => 68f,
-            Enemy.Kind.Turret => 110f,
-            _ => 55f,
-        };
-
-        static float KindDmg(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => 22f,
-            Enemy.Kind.Bomber => 34f,
-            Enemy.Kind.Turret => 12f,
-            _ => 10f,
-        };
-
-        /// <summary>
-        /// 敌人移速（m/s）。数值为设计值 × 1/3。
-        ///
-        /// 为什么整体降 1/3：原速下爬行者接近玩家走路速度，被追上后无法用走位拉开，
-        /// 近战压力变成「只能正面硬换血」。降到 1/3 后爬行者明显慢于玩家，走位与后撤才有意义。
-        /// **不要**把这里再乘一次系数。
-        /// </summary>
-        static float KindSpeed(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => 2.2f / 3f,
-            Enemy.Kind.Bomber => 5.4f / 3f,
-            Enemy.Kind.Turret => 0f,
-            _ => 6.0f / 3f,
-        };
-
-        static int KindXp(Enemy.Kind k) => k switch
-        {
-            Enemy.Kind.Brute => 22,
-            Enemy.Kind.Bomber => 14,
-            Enemy.Kind.Turret => 18,
-            _ => 8,
-        };
 
         /// <summary>炸弹人自爆：范围伤害 + 视觉。</summary>
         public void SpawnBomberBlast(Vector3 at, float dmg)
@@ -758,7 +732,10 @@ namespace S.View
 
             if (kb.tabKey.wasPressedThisFrame)
             {
-                if (!Paused) ToggleInventory();
+                // 开背包会 SetPaused(true)：若仍要求 !Paused 才能 Toggle，
+                // Tab 就只能开不能关（用户只能靠 Esc）。背包开着时 Tab = 关闭。
+                if (InventoryOpen) _inv.Close();
+                else if (!Paused) _inv.OpenBag();
                 return true;
             }
             if (kb.escapeKey.wasPressedThisFrame)

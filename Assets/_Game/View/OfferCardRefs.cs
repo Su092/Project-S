@@ -44,6 +44,9 @@ namespace S.View
 
             if (Desc != null)
             {
+                // 预制体 Label 默认 Overflow；长描述（并联扳机等）必须换行，否则单行顶出卡片。
+                Desc.horizontalOverflow = HorizontalWrapMode.Wrap;
+                Desc.verticalOverflow = VerticalWrapMode.Truncate;
                 string desc = item.IsBullet
                     ? item.Bullet.Desc
                     : (item.Mod.Desc ?? "") +

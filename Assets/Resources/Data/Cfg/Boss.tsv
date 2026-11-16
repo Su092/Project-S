@@ -1,0 +1,4 @@
+id	name	hp	contactDamage	contactRange	moveSpeed	pillars	pillarHp	breachTime	breachDamageMul	shieldPeriod	shieldUpTime	summonInterval	summonCount	summonEnemy	shockwaveInterval	shockwaveDamage	volleyInterval	volleyCount	volleySpeed	volleyDamage	trackVolleyInterval	trackVolleySpeed	trackVolleyDamage	spikeInterval	spikeDamage	spikeTelegraphTime	bossAt	threatFullAt
+编号	名称	生命值	接触伤害	接触半径	移动速度	能量柱数	柱血量	破防时长	破防易伤	护盾周期	护盾持续	召唤间隔	召唤数量	召唤敌人	冲击波间隔	冲击波伤害	扇形弹幕间隔	扇形弹数	弹幕速度	弹幕伤害	追踪弹幕间隔	追踪弹速度	追踪弹伤害	地刺间隔	地刺伤害	地刺预警时长	入场时刻	威胁满时刻
+string	string	float	float	float	float	int	float	float	float	float	float	float	int	string	float	float	float	int	float	float	float	float	float	float	float	float	float	float
+e_boss	铸造核心	6000	25	3.2	2.5	4	800	4	1.5	18	6	12	2	Crawler	20	22	3	5	14	14	2.4	16	16	4.5	18	1.2	600	600

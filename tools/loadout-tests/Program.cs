@@ -23,11 +23,25 @@ namespace LoadoutTests
 
         static int Main()
         {
-            var path = FindData();
-            Console.WriteLine("DATA " + path);
-            D = SData.Parse(File.ReadAllText(path));
-            Console.WriteLine($"LOADED guns={D.GunOrder.Count} bullets={D.BulletOrder.Count} mods={D.ModifierOrder.Count}");
+            var dir = FindCfgDir();
+            Console.WriteLine("CFG " + dir);
 
+            // 走和运行时**同一份**装配 + 校验路径（SCfgLoader → SCfgValidator）。
+            // 旧版是 `SData.Parse(json)`，于是「编辑器里能跑、dotnet 断言却读另一套解析」
+            // 成了可能 —— 现在两边只有一个加载器。
+            try
+            {
+                D = SCfgLoader.Load(new SCfgDirectorySource(dir));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("FATAL 配置装配失败：" + ex.Message);
+                return 1;
+            }
+            Console.WriteLine($"LOADED guns={D.GunOrder.Count} bullets={D.BulletOrder.Count} " +
+                              $"mods={D.ModifierOrder.Count} enemies={D.EnemyOrder.Count}");
+
+            CfgCases();
             DataCases();
             ScopeCases();
             WeightsCases();
@@ -91,6 +105,131 @@ namespace LoadoutTests
             var st = D.BuildStarterSlots("rifle");
             Check("起手第 1 格有子弹", st.Cells[0] != null && st.Cells[0].IsBullet);
             Check("起手其余格为空", st.Cells[1] == null && st.Cells[7] == null);
+        }
+
+        // ---------------- 配置驱动（Cfg/*.tsv） ----------------
+
+        static void CfgCases()
+        {
+            Section("配置驱动（Cfg/*.tsv → SData）");
+
+            // ---- 敌人表 ----
+            Check("敌人表 ≥4 种", D.EnemyOrder.Count >= 4, $"{D.EnemyOrder.Count}");
+            Check("Crawler 存在且为 Chaser",
+                D.Enemy("Crawler") != null && D.Enemy("Crawler").Ai == EnemyAi.Chaser);
+            Check("Bomber 有攻击距离（能引爆）",
+                D.Enemy("Bomber") != null && D.Enemy("Bomber").AttackRange > 0f,
+                D.Enemy("Bomber")?.AttackRange.ToString() ?? "null");
+            Check("Turret 攻击距离 > 0（能开火）",
+                D.Enemy("Turret") != null && D.Enemy("Turret").AttackRange > 0f);
+
+            // 每种敌人的关键字段都必须有值 —— 漏填会让敌人在场上静止或零伤
+            foreach (var e in D.EnemyOrder)
+            {
+                bool ok = e.Hp > 0f && e.Damage > 0f && e.Height > 0f && e.Xp > 0
+                          && !string.IsNullOrEmpty(e.Model);
+                Check($"敌人 {e.Id} 字段完整", ok,
+                    $"hp={e.Hp} dmg={e.Damage} h={e.Height} xp={e.Xp} model={e.Model}");
+            }
+
+            // 有盾的敌人必须两种系数都 <1，否则「破柱」这件事在数值上看不见
+            var shield = D.Enemy("Brute");
+            if (shield != null && shield.HasShield)
+                Check("盾卫两种减伤系数都生效",
+                    shield.ShieldMul < 1f && shield.ShieldPierceMul < 1f && shield.ShieldPierceMul > shield.ShieldMul,
+                    $"mul={shield.ShieldMul} pierce={shield.ShieldPierceMul}");
+
+            // ---- 起手枪 ----
+            var starters = D.StarterGunIds();
+            Check("起手枪来自 starter 列", starters.Count == 2, string.Join(",", starters));
+            Check("起手枪都有模型名", starters.TrueForAll(id => !string.IsNullOrEmpty(D.Guns[id].Model)));
+
+            // ---- 枪模：每种枪都必须能定位到一个模型（旧版是 switch 的 default 兜底，
+            //      新增一把枪会静默显示成「自动步枪」，肉眼极难发现） ----
+            foreach (var g in D.GunOrder)
+                Check($"枪 {g.Id} 有模型名", !string.IsNullOrEmpty(g.Model), g.Model);
+
+            // ---- 玩家成长曲线（原先写死在 RunState.NeedFor） ----
+            Check("1 级需要 15 经验", D.XpNeedFor(1) == 15, $"{D.XpNeedFor(1)}");
+            Check("2 级需要 26 经验", D.XpNeedFor(2) == 26, $"{D.XpNeedFor(2)}");
+            Check("10 级需要 258 经验", D.XpNeedFor(10) == 258, $"{D.XpNeedFor(10)}");
+
+            // ---- Boss 默认值必须与 BossState 的出厂默认一致 ----
+            // BossState 有一份不读表的默认值（dotnet 断言直接 new BossState(hp)），
+            // 两边不一致会导致「测试绿、实机是另一套节奏」。
+            var bd = D.Boss;
+            var bs = new BossState(100f);
+            Check("Boss 柱数与 BossState 默认一致", bd.Pillars == bs.PillarCount,
+                $"{bd.Pillars} vs {bs.PillarCount}");
+            Check("Boss 柱血量与 BossState 默认一致", Near(bd.PillarHp, bs.PillarHp),
+                $"{bd.PillarHp} vs {bs.PillarHp}");
+            Check("Boss 护盾周期与 BossState 默认一致", Near(bd.ShieldPeriod, bs.ShieldPeriod),
+                $"{bd.ShieldPeriod} vs {bs.ShieldPeriod}");
+            Check("Boss 破防时长与 BossState 默认一致", Near(bd.BreachTime, bs.PillarBreachTime),
+                $"{bd.BreachTime} vs {bs.PillarBreachTime}");
+
+            // 数据注入必须真的生效（否则上面那些「一致」是摆设）
+            var tuned = new BossState(100f, new BossDef
+            {
+                Pillars = 2, PillarHp = 100f, BreachTime = 1f, BreachDamageMul = 3f,
+                ShieldPeriod = 10f, ShieldUpTime = 2f,
+                SummonInterval = 3f, SummonCount = 5, ShockwaveInterval = 7f,
+            });
+            Check("BossDef 注入生效（柱数）", tuned.PillarCount == 2, $"{tuned.PillarCount}");
+            Check("BossDef 注入生效（柱血）", Near(tuned.PillarHpAt(0), 100f), $"{tuned.PillarHpAt(0)}");
+            Check("BossDef 注入生效（易伤）", Near(tuned.DamageTakenMul, 1f));
+            tuned.DamagePillar(0, 100f);
+            Check("BossDef 注入生效（破防倍率）", Near(tuned.DamageTakenMul, 3f), $"{tuned.DamageTakenMul}");
+
+            // ---- 威胁缩放：数值来自 Player.tsv，不再是 RunState 里的字面量 ----
+            var run = new RunState(D, 1u) { Threat = 100f };
+            Check("威胁 100 时血量缩放 1.8", Near(run.HpScale, 1.8f), $"{run.HpScale:0.000}");
+            Check("威胁 100 时伤害缩放 1.4", Near(run.DmgScale, 1.4f), $"{run.DmgScale:0.000}");
+
+            // ---- 配置校验器：故意改坏一张表必须被拦下 ----
+            CfgValidatorCases();
+        }
+
+        /// <summary>
+        /// 校验器必须真的会红。这里做「最小破坏」的负例：把模板抄一份，只改一处，
+        /// 断言 SCfgLoader.Load 抛异常。若这里全绿，说明校验器形同虚设。
+        /// </summary>
+        static void CfgValidatorCases()
+        {
+            var dir = FindCfgDir();
+
+            // 负例 1：时间轴引用一个不存在的敌人 id
+            var mem = SCfgMemorySource.CopyOf(new SCfgDirectorySource(dir));
+            var timeline = mem.TryGetText(SCfgAddresses.Timeline, out var tl) ? tl : null;
+            if (timeline != null)
+            {
+                var broken = timeline.Replace("Crawler", "NoSuchEnemy");
+                mem.Set(SCfgAddresses.Timeline, broken);
+                Check("引用不存在的敌人被拦下", Throws(() => SCfgLoader.Load(mem)));
+            }
+
+            // 负例 2：枪的 baseBullet 指向不存在的子弹
+            var mem2 = SCfgMemorySource.CopyOf(new SCfgDirectorySource(dir));
+            if (mem2.TryGetText(SCfgAddresses.Gun, out var gunTsv))
+            {
+                mem2.Set(SCfgAddresses.Gun, gunTsv.Replace("\tstd\t", "\tno_such_bullet\t"));
+                Check("baseBullet 不存在被拦下", Throws(() => SCfgLoader.Load(mem2)));
+            }
+
+            // 负例 3：缺一张必需表
+            var mem3 = SCfgMemorySource.CopyOf(new SCfgDirectorySource(dir));
+            mem3.Set(SCfgAddresses.Enemy, string.Empty);
+            Check("空敌人表被拦下", Throws(() => SCfgLoader.Load(mem3)));
+
+            // 正例：原样复制必须能过
+            var mem4 = SCfgMemorySource.CopyOf(new SCfgDirectorySource(dir));
+            Check("整份复制能通过校验", !Throws(() => SCfgLoader.Load(mem4)));
+        }
+
+        static bool Throws(Action a)
+        {
+            try { a(); return false; }
+            catch { return true; }
         }
 
         // ---------------- 作用域 ----------------
@@ -534,16 +673,16 @@ namespace LoadoutTests
         static bool HasFlag(string flag) =>
             Array.IndexOf(Environment.GetCommandLineArgs(), flag) >= 0;
 
-        static string FindData()
+        static string FindCfgDir()
         {
             var dir = AppContext.BaseDirectory;
             for (int i = 0; i < 8 && dir != null; i++)
             {
-                var p = Path.Combine(dir, "Assets", "Resources", "Data", "sdata.json");
-                if (File.Exists(p)) return p;
+                var p = Path.Combine(dir, "Assets", "Resources", "Data", "Cfg");
+                if (Directory.Exists(p)) return p;
                 dir = Path.GetDirectoryName(dir.TrimEnd(Path.DirectorySeparatorChar));
             }
-            return Path.Combine(AppContext.BaseDirectory, "sdata.json");
+            return Path.Combine(AppContext.BaseDirectory, "Cfg");
         }
 
         static void Section(string name)

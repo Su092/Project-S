@@ -1,0 +1,12 @@
+id	name	icon	desc	rarity	scope	cost	delay	damageMulAdd	sizeMulAdd	speedMulAdd	rangeMulAdd	lifeMulAdd	knockMulAdd	countMulAdd	radiusMulAdd	piercePer	bouncePer	homingPer	burnPer	slowPer	critPer	spreadPer	explodeRAdd	explodeRBase	explodeDmgFromDmg	explodeDmgFlat	ammoReduce	gunMagMul	gunReloadMul	gunDelayMul	gunSpreadMul	gunRecycleAdd	gunCastAdd	gunMagMulIfCast	gunLeech	multicast
+配件编号	名称	角标字	效果描述	稀有度	作用域	耗弹	击发修正	伤害加成	体积加成	速度加成	射程加成	存活加成	击退加成	数量加成	半径加成	每层穿透	每层反弹	追踪	燃烧	减速	暴击	散射	爆裂半径加成	爆裂基础半径	爆伤系数	爆伤固定	省弹	弹匣倍率	换弹倍率	射速倍率	散布倍率	免耗弹	读取加成	并联惩罚	击杀回血	多重施放
+string,unique	string	string	string	Common|Rare|Epic	enum|int|float	enum|int|float	enum|int|float	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int	float|int
+g_mag	扩容弹匣	匣	全枪：弹匣容量 +50%。	Common	Next	0	0																					1.5								
+g_reload	快速装填	装	全枪：换弹时间 −35%。	Common	Next	0	0																						0.65							
+g_rapid	速射机构	射	全枪：射击间隔 −25%。	Rare	Next	0	0																							0.75						
+g_stable	稳定器	稳	全枪：枪械与子弹散布 −60%。	Common	Next	0	0																								0.4					
+g_recycle	弹药回收	收	全枪：每次射击有 25% 几率不消耗弹药（可叠加）。	Rare	Next	0	0																									0.25				
+g_parallel	并联扳机	并	全枪：每次射击读取的子弹配件数 +1，弹匣容量 −20%。	Epic	Next	0	0																										1	0.8		
+g_leech	汲能模块	汲	全枪：使用此枪击杀敌人时回复 2 点生命。	Rare	Next	0	0																												2	
+g_double	双重施放	双	下一发：本次射击额外读取 1 个子弹配件同时发射。	Rare	Next	0	0																													1
+g_triple	三重施放	三	下一发：本次射击额外读取 2 个子弹配件同时发射。	Epic	Next	0	0																													2

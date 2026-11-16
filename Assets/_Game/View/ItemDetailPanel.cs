@@ -16,24 +16,40 @@ namespace S.View
     ///   · 本类 = 背包内的常驻详情（结构化：图标 + 名称 + 稀有度 + 作用域 + 数值行）
     ///   · ItemTooltip = 任意界面的浮动提示（HUD 链条、三选一卡片）
     /// 两者的**数值文案必须同源**，都调 ItemTooltip 的静态方法，不能各写一套。
+    ///
+    /// 控件引用必须是 SerializeField：预制体落盘后 Bind 的内存赋值会丢，
+    /// 运行时 Instantiate 出来若字段为空，悬停只改 CurrentId、界面永远停在空态「—」。
     /// </summary>
     public sealed class ItemDetailPanel : MonoBehaviour
     {
-        Image _icon;
-        Image _iconRing;
+        [SerializeField] Image _icon;
+        [SerializeField] Image _iconRing;
 
-        Text _title;
-        Text _meta;        // 稀有度 · 类别
-        Text _scopeText;   // 作用域名
-        Image _scopeChip;  // 作用域色块
-        Text _stats;       // 数值行
-        Text _hint;        // 空态提示 / 作用域说明
+        [SerializeField] Text _title;
+        [SerializeField] Text _meta;        // 稀有度 · 类别
+        [SerializeField] Text _scopeText;   // 作用域名
+        [SerializeField] Image _scopeChip;  // 作用域色块
+        [SerializeField] Text _stats;       // 数值行
+        [SerializeField] Text _hint;        // 空态提示 / 作用域说明
 
         /// <summary>当前展示的配件 id（null = 空态）。自检用。</summary>
         public string CurrentId { get; private set; }
 
         /// <summary>是否正在展示某件配件。</summary>
         public bool HasItem => CurrentId != null;
+
+        /// <summary>当前标题文案（自检：证明 Show 真的改了 UI，不只改了 CurrentId）。</summary>
+        public string TitleText => _title != null ? _title.text : null;
+
+        /// <summary>控件是否已接上（未接线时 Show 是空转）。</summary>
+        public bool IsWired => _title != null && _stats != null && _hint != null;
+
+        void Awake()
+        {
+            // 旧预制体可能只有组件、没有序列化引用：按子节点名补接，避免悬停无反馈。
+            if (!IsWired) WireFromChildren();
+            if (IsWired && CurrentId == null) Clear();
+        }
 
         /// <summary>
         /// 由预制体构造后调用一次，把各子控件接进来。
@@ -53,6 +69,34 @@ namespace S.View
             _hint = hint;
 
             Clear();
+        }
+
+        /// <summary>
+        /// 按 SUiPrefabFactory.BuildDetailPanel 的固定子节点名接线。
+        /// 名字是约定：改布局时两边必须一起改，否则这里接不上。
+        /// </summary>
+        void WireFromChildren()
+        {
+            _icon = FindImg("DetailIcon");
+            _iconRing = FindImg("DetailRing");
+            _title = FindTxt("DetailTitle");
+            _meta = FindTxt("DetailMeta");
+            _scopeText = FindTxt("DetailScope");
+            _scopeChip = FindImg("ScopeChip");
+            _stats = FindTxt("DetailStats");
+            _hint = FindTxt("DetailHint");
+        }
+
+        Image FindImg(string childName)
+        {
+            var t = transform.Find(childName);
+            return t != null ? t.GetComponent<Image>() : null;
+        }
+
+        Text FindTxt(string childName)
+        {
+            var t = transform.Find(childName);
+            return t != null ? t.GetComponent<Text>() : null;
         }
 
         /// <summary>回到空态（未悬停任何配件）。</summary>
@@ -76,6 +120,7 @@ namespace S.View
         /// <summary>展示一件配件的完整内容。</summary>
         public void Show(ChainItem item)
         {
+            if (!IsWired) WireFromChildren();
             if (item == null) { Clear(); return; }
 
             string id = item.Id;

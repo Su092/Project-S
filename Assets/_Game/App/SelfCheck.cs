@@ -234,6 +234,19 @@ namespace S.App
                     $"缺失 {uiMissing.Count}: {string.Join(",", uiMissing)}");
                 _log.Add($"  INFO UI 素材已加载 {uiLoaded}/32");
 
+                // ---- 统一字体 ----
+                // 字体缺失时 UiKit.Font 会静默回退内置 Arial（界面能读但不统一），
+                // 不做断言就永远发现不了「字体没进包」这件事。
+                var font = S.View.UiKit.Font;
+                Check("统一字体已加载", font != null, "Resources/Font/UiRounded.ttf 取不到");
+                if (font != null)
+                {
+                    // 名字里能看出是不是回退到了内置字体
+                    bool fallback = font.name == "Arial" || font.name == "LegacyRuntime";
+                    Check("统一字体非内置回退", !fallback, $"实际字体 = {font.name}（回退说明自定义字体没加载）");
+                    _log.Add($"  INFO 字体 = {font.name}");
+                }
+
                 // ---- 配件圆形图标（本次要求：每个配件一张素材）----
                 // 判据用「数据里实际存在的配件 id」逐个点名检查，而不是数个数：
                 // 数个数时若某两张图互相覆盖（旧命名残留），数量照样对得上，
@@ -455,7 +468,7 @@ namespace S.App
 
             // ---- 经验与升级 ----
             int lvBefore = root.Run.Level;
-            int ups = root.Run.AddXp(RunState.NeedFor(1) + 5);
+            int ups = root.Run.AddXp(root.Run.NeedFor(1) + 5);
             Check("升级触发", ups >= 1 && root.Run.Level == lvBefore + 1,
                 $"ups={ups} level={root.Run.Level}");
 
@@ -488,41 +501,40 @@ namespace S.App
                     $"cards={inv.VisibleCardCount}");
                 Check("背包链区已生成", inv.ChainRowCount > 0, $"rows={inv.ChainRowCount}");
 
-                // ---- 详情区（#inv-detail）：必须真的能显示一件配件的内容 ----
-                // 这段防的是「面板建好了但没接线」：只查「curDetail != null」不够，
-                // 那种断言在悬停事件没挂上时照样通过。
-                var detail = inv.DetailPanel;
-                Check("背包详情区已创建", detail != null, "InvRefs.Detail 为空");
+                // ---- 配件浮窗（ItemTooltip）：悬停详情钉在配件正下方 ----
+                var tip = ItemTooltip.Instance;
+                Check("配件浮窗已创建", tip != null, "ItemTooltip.Instance 为空");
 
-                if (detail != null)
+                if (tip != null)
                 {
-                    Check("详情区初始为空态", !detail.HasItem, $"id={detail.CurrentId}");
+                    Check("浮窗初始隐藏", !tip.Visible, $"id={tip.CurrentId}");
 
-                    // 直接喂一件配件，走的是与悬停完全相同的 Show 路径
                     var probeItem = data.MakeItem(data.BulletOrder.Count > 0
                         ? data.BulletOrder[0].Id : "std");
                     if (probeItem != null)
                     {
-                        detail.Show(probeItem);
-                        Check("详情区能展示子弹件", detail.HasItem && detail.CurrentId == probeItem.Id,
-                            $"id={detail.CurrentId}");
+                        tip.Show(probeItem);
+                        Check("浮窗能展示子弹件", tip.Visible && tip.CurrentId == probeItem.Id,
+                            $"id={tip.CurrentId}");
+                        Check("浮窗标题已刷新", tip.TitleText == probeItem.Name,
+                            $"title='{tip.TitleText}' expected='{probeItem.Name}'");
 
-                        // 拍一张「详情区有内容」的图：空态截图看不出排版对不对
                         yield return Shot("03b-detail");
 
                         var probeMod = data.MakeItem("dmg");
                         if (probeMod != null)
                         {
-                            detail.Show(probeMod);
-                            Check("详情区能展示衍生件", detail.CurrentId == "dmg",
-                                $"id={detail.CurrentId}");
+                            tip.Show(probeMod);
+                            Check("浮窗能展示衍生件", tip.CurrentId == "dmg",
+                                $"id={tip.CurrentId}");
+                            Check("浮窗衍生件标题已刷新", tip.TitleText == probeMod.Name,
+                                $"title='{tip.TitleText}' expected='{probeMod.Name}'");
 
-                            // 衍生件带作用域说明，再拍一张（两种排版都要看得到）
                             yield return Shot("03c-detail-mod");
                         }
 
-                        detail.Clear();
-                        Check("详情区可回到空态", !detail.HasItem, $"id={detail.CurrentId}");
+                        tip.Hide();
+                        Check("浮窗可隐藏", !tip.Visible, $"id={tip.CurrentId}");
                     }
                 }
 
@@ -645,8 +657,8 @@ namespace S.App
                     $"pos={root.PlayerTransform.position}");
                 yield return Shot("07-arena");
 
-                // ---- 时间轴快进：直接推 Director 到 4:00 之后，验证精英真的会入场 ----
-                // 这里**不**快进真实时钟（那要等 4 分钟），而是把 Director 的计时拨过去，
+                // ---- 时间轴快进：直接推 Director 到精英首现时刻之后，验证精英真的会入场 ----
+                // 这里**不**快进真实时钟（那要等好几分钟），而是把 Director 的计时拨过去，
                 // 再让一帧 Update 消费事件 —— 走的是与实战完全相同的 SpawnElite 路径。
                 if (root.Director != null)
                 {
@@ -654,15 +666,20 @@ namespace S.App
                     root.Director.SeekTo(root.Director.Elite.FirstAt + 1f);
                     yield return null;
                     yield return null;
-                    Check("4:00 后刷出精英", root.ElitesSpawned > elitesBefore,
+                    Check("精英首现后刷出精英", root.ElitesSpawned > elitesBefore,
                         $"{elitesBefore} -> {root.ElitesSpawned}");
                     Check("精英已标记",
                         HasElite(root),
                         $"enemies={root.Enemies.Count}");
 
-                    // 4:00 的威胁应当是 50（100 × 240/480）
-                    Check("4:00 威胁值约 50", Mathf.Abs(root.Run.Threat - 50f) < 3f,
-                        $"threat={root.Run.Threat:0.0}");
+                    // 威胁值按「精英首现时刻 / Boss 入场时刻」的比例推进。
+                    // 这里按数据算期望值，不再写死 50 —— 改了时间轴后写死的期望会变成假红。
+                    float expectThreat = root.Director.BossAt > 0.01f
+                        ? 100f * (root.Director.Elite.FirstAt + 1f) / root.Director.BossAt
+                        : 0f;
+                    Check("精英首现时刻威胁值匹配",
+                        Mathf.Abs(root.Run.Threat - expectThreat) < 3f,
+                        $"threat={root.Run.Threat:0.0} 期望≈{expectThreat:0.0}");
                 }
 
                 // ---- Boss 入场：推到 8:00，验证 SpawnBoss 与能量柱 ----
@@ -692,7 +709,7 @@ namespace S.App
                     var pillar = root.Zones.Pillars.Count > 0 ? root.Zones.Pillars[0] : null;
                     if (pillar != null)
                     {
-                        root.OnPillarHit(pillar, S.Core.BossState.PillarHp);
+                        root.OnPillarHit(pillar, bs.PillarHp);
                         Check("碎柱后 Boss 破防", bs.IsBreached, $"breach={bs.BreachLeft}");
                         Check("碎柱后柱数减少", bs.PillarsAlive == 3, $"pillars={bs.PillarsAlive}");
                     }

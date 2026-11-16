@@ -304,5 +304,69 @@ namespace S.Core
         public string BaseBullet;      // 开火时第 1 槽预置的子弹 id
         public string Color = "#8f8f8f";
         public float ZoomDistance = 55f;  // 右键瞄准的 FOV
+
+        /// <summary>第一人称枪模名（Resources/Models/&lt;名&gt;）。原先硬编码在 PlayerWeapons 的 switch 里。</summary>
+        public string Model = "Modle_Gun_Auto";
+
+        /// <summary>是否开局就持有的枪。原先是 PlayerWeapons.Init 里的 string[]{"rifle","shotgun"}。</summary>
+        public bool Starter;
+    }
+
+    /// <summary>
+    /// 敌人行为。**取代**原先散在 GameRoot 与 Enemy 里的 `Enemy.Kind` 枚举。
+    ///
+    /// 为什么换掉枚举：旧枚举把「哪种敌人」写进了两处 switch ——
+    /// GameRoot 的 6 个 `Kind*` 函数（模型/高度/血/伤/速/经验）和 Enemy.Update 的行为分支。
+    /// 新增一种敌人要改 7 个地方，漏一个就静默退化成爬行者。
+    /// 现在「哪种敌人」是一行数据，行为只是 3 选 1 的策略枚举。
+    /// </summary>
+    public enum EnemyAi
+    {
+        /// <summary>近身撞击（原 Crawler / Brute）。</summary>
+        Chaser = 0,
+        /// <summary>贴近后自爆（原 Bomber）。</summary>
+        Bomber = 1,
+        /// <summary>原地远程点射（原 Turret）。</summary>
+        Turret = 2,
+    }
+
+    /// <summary>
+    /// 一种敌人。数值与表现全部来自 Cfg/Enemy.tsv，代码里不再有按类型分支的常量。
+    /// </summary>
+    public sealed class EnemyDef
+    {
+        public string Id;
+        public string Name;
+        public EnemyAi Ai = EnemyAi.Chaser;
+
+        /// <summary>模型名（Resources/Models/&lt;名&gt;）。缺件时 SAssets 自动回退胶囊占位。</summary>
+        public string Model;
+        /// <summary>模型归一到的目标高度（米）。</summary>
+        public float Height = 1f;
+
+        public float Hp = 60f;
+        public float Damage = 10f;
+        public float Speed = 2f;
+        public int Xp = 8;
+
+        /// <summary>近身判定的距离（米）。0 = 不做接触伤害。</summary>
+        public float ContactRange = 1.4f;
+        /// <summary>远程/引爆的触发距离（米）。0 = 不用。</summary>
+        public float AttackRange;
+
+        /// <summary>重复攻击/引爆的冷却（秒）。0 = 一次性（引爆型用完即毁，不需要）。</summary>
+        public float AttackCooldown;
+
+        /// <summary>
+        /// 正面盾减伤：朝向点积阈值（0 = 无盾）。
+        /// 原先写死在 Enemy.TakeDamage：`facing > 0.3f` 才判减伤。
+        /// </summary>
+        public float ShieldFacing;
+        /// <summary>盾面挡住时（普通弹）的伤害系数。</summary>
+        public float ShieldMul = 1f;
+        /// <summary>盾面挡住时（穿透弹）的伤害系数。</summary>
+        public float ShieldPierceMul = 1f;
+
+        public bool HasShield => ShieldFacing > 0f;
     }
 }
