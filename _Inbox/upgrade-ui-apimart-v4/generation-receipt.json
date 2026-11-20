@@ -1,0 +1,16 @@
+[
+  {
+    "id": "s-upgrade-apimart-v4-staff",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-19T17:27:37+0800",
+    "task_id": "task_01M7SJ44AJZCRQZ5TXKPPCQRVB",
+    "result_url": "https://getapib.org/image/9998204919516252-947294b9-a86a-4653-9a3e-032dfb12f9e8-image_task_01M7SJ4W6QQED9VESYSG9TXJRG_0.png",
+    "width": 3072,
+    "height": 1024,
+    "mode": "RGBA",
+    "out": "_Inbox/upgrade-ui-apimart-v4/03-gold-staff-flat.png",
+    "bytes": 1117118,
+    "sha256": "3f287cbea49d98953de3b32ff4621b4ef92f910ee51f2f8c71d0f1706743ab0b"
+  }
+]

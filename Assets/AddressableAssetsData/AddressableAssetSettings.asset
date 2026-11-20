@@ -63,14 +63,18 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
-  - {fileID: 11400000, guid: 8ed65c69f0be6da4db18b2966dc8d68f, type: 2}
-  - {fileID: 11400000, guid: f3945e4d417e04943a12ed23d170c0ae, type: 2}
-  - {fileID: 11400000, guid: c516ab356f1424846ab929c0f12c6596, type: 2}
-  - {fileID: 11400000, guid: f5193bc24dbf66f4d9fca945b6ebf890, type: 2}
-  - {fileID: 11400000, guid: ae8643af436e8ee468400de697b5f2ec, type: 2}
-  - {fileID: 11400000, guid: 08dd03950afdfb94592398c9c261b051, type: 2}
   - {fileID: 11400000, guid: 7b559439dc7c1b74a9a708c5f465ae3f, type: 2}
+  - {fileID: 11400000, guid: f5193bc24dbf66f4d9fca945b6ebf890, type: 2}
+  - {fileID: 11400000, guid: 08dd03950afdfb94592398c9c261b051, type: 2}
+  - {fileID: 11400000, guid: c516ab356f1424846ab929c0f12c6596, type: 2}
+  - {fileID: 11400000, guid: ae8643af436e8ee468400de697b5f2ec, type: 2}
+  - {fileID: 11400000, guid: 805491ab4c782cf4e93a478858f7057c, type: 2}
+  - {fileID: 11400000, guid: ef7c24d47c234c4458b3cd01eb12f825, type: 2}
   - {fileID: 11400000, guid: 15ca9cb84b05e7945a627c3cb05cfc22, type: 2}
+  - {fileID: 11400000, guid: 573de50d084f8e942b9b8eea13e2ae27, type: 2}
+  - {fileID: 11400000, guid: 56c88aa888ddfb844a1d1a81f69ade84, type: 2}
+  - {fileID: 11400000, guid: f3945e4d417e04943a12ed23d170c0ae, type: 2}
+  - {fileID: 11400000, guid: 8ed65c69f0be6da4db18b2966dc8d68f, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -117,6 +121,8 @@ MonoBehaviour:
     - s_font
     - s_cfg
     - s_mat
+    - s_map
+    - s_enemy
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 315f9f7d0e590e04f83de31b79a2301e, type: 2}

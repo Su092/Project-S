@@ -1,0 +1,16 @@
+{
+  "image": "enemy-selection-01.png",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "sha256": "8e587b1c9256a41ac46ae71a5a582a388c9881296d11a72f57d79deb61152985",
+  "visual_review": {
+    "eight_characters": true,
+    "numbers_01_to_08_readable": true,
+    "full_bodies_visible": true,
+    "distinct_music_related_silhouettes": true,
+    "not_limited_to_theater": true
+  },
+  "scope": "Concept selection only; no gameplay/model changes."
+}

@@ -57,7 +57,7 @@ DEST_UI = os.path.join(os.path.dirname(HERE), "Assets", "_Game", "Res", "Texture
 # ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
 # final 素材写进 Assets 时必须落到对应分类子目录，不能再写到 UI/ 根下 ——
 # 根目录是「未分类」的暂存，一旦素材分类完成，根下只允许留材质等非 sprite 资产。
-SPRITES_ROOT = os.path.join(DEST_UI, "Sprites")
+SPRITES_ROOT = DEST_UI
 CAT_DIRS = {
     "Common": os.path.join(SPRITES_ROOT, "Common"),
     "Frame":  os.path.join(SPRITES_ROOT, "Frame"),
@@ -68,6 +68,8 @@ CAT_DIRS = {
 }
 
 CATEGORY = {}
+for _n in ("hud_quality_blue", "hud_quality_gold", "hud_quality_red"):
+    CATEGORY[_n] = "Frame"
 for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
     CATEGORY[_n] = "Common"
 for _n in ("card_frame", "card_inner", "bar_frame"):
@@ -81,6 +83,9 @@ for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
 for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
            "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
     CATEGORY[_n] = "Icon"
+
+with open(os.path.join(HERE, "hud-v2-catalog.json"), encoding="utf-8") as _hf:
+    CATEGORY.update(json.load(_hf))
 
 
 def cat_dir(name):

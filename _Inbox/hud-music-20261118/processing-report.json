@@ -1,0 +1,1486 @@
+{
+  "components": [
+    {
+      "name": "hud_weapon_rail",
+      "category": "Frame",
+      "size": [
+        512,
+        96
+      ],
+      "source": "01_frames",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        720,
+        1024
+      ],
+      "sha256": "52ed4029c526da00ae674f3ffe38c64d9d733e401ad5bb223831cbb76b036120"
+    },
+    {
+      "name": "hud_portrait_frame",
+      "category": "Frame",
+      "size": [
+        256,
+        256
+      ],
+      "source": "user-overrides/hud_portrait_frame.png",
+      "cell": null,
+      "crop": [
+        720,
+        0,
+        1365,
+        1024
+      ],
+      "sha256": "3ad949aaa091d949678b487b45d7ba40573b1435cce1f8597e54850329a0940b"
+    },
+    {
+      "name": "hud_attachment_socket",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 2,
+      "crop": [
+        1365,
+        0,
+        2048,
+        1024
+      ],
+      "sha256": "18897e78a5625f40182f0f1df8e53ab11109553041a0543b39c30596a50edb3b"
+    },
+    {
+      "name": "hud_minimap_bezel",
+      "category": "Frame",
+      "size": [
+        376,
+        420
+      ],
+      "source": "user-overrides/hud_minimap_bezel.png",
+      "cell": null,
+      "crop": [
+        0,
+        1024,
+        683,
+        2048
+      ],
+      "sha256": "4d2a498eef24ac81d7162c49f9f92eb593d13ebf563886d35678569ac58a96e1"
+    },
+    {
+      "name": "hud_pause_button_base",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 4,
+      "crop": [
+        683,
+        1024,
+        1365,
+        2048
+      ],
+      "sha256": "0649944dcf28292aff5a4875b4196c4f7cf580abb386cb6e9771b6d343d1b68a"
+    },
+    {
+      "name": "hud_item_slot",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 5,
+      "crop": [
+        1365,
+        1024,
+        2048,
+        2048
+      ],
+      "sha256": "397b2daf6af42b6ebf7a24412763a3e58d20a81f4310cd6d17ddef5d2b0c78ef"
+    },
+    {
+      "name": "hud_hp_track_frame",
+      "category": "Frame",
+      "size": [
+        855,
+        85
+      ],
+      "source": "02_bars",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        1024,
+        683
+      ],
+      "sha256": "296e8de583d146ae6a25337242f0972188bde7518cd17829003e320e60ee3b7c"
+    },
+    {
+      "name": "hud_music_hp_fill",
+      "category": "Widget",
+      "size": [
+        1659,
+        74
+      ],
+      "source": "02_bars",
+      "cell": 1,
+      "crop": [
+        1024,
+        0,
+        2048,
+        683
+      ],
+      "sha256": "02a5e5bc79be9e0965a9e935b6280a1f6836b436f3f65b0102e9eed0729ed69f"
+    },
+    {
+      "name": "hud_xp_track_frame",
+      "category": "Frame",
+      "size": [
+        937,
+        80
+      ],
+      "source": "02_bars",
+      "cell": 2,
+      "crop": [
+        0,
+        683,
+        1024,
+        1365
+      ],
+      "sha256": "96eee35f61669677ab6c46fbf3feb15455952ca40105d141bd1d94fe6682fe63"
+    },
+    {
+      "name": "hud_music_xp_fill",
+      "category": "Widget",
+      "size": [
+        1586,
+        58
+      ],
+      "source": "02_bars",
+      "cell": 3,
+      "crop": [
+        1024,
+        683,
+        2048,
+        1365
+      ],
+      "sha256": "05882d862914fa0cc64bf56f81e686d5883e62983550b3f64fc7856c8b26af17"
+    },
+    {
+      "name": "hud_boss_track_frame",
+      "category": "Frame",
+      "size": [
+        863,
+        91
+      ],
+      "source": "02_bars",
+      "cell": 4,
+      "crop": [
+        0,
+        1365,
+        1024,
+        2048
+      ],
+      "sha256": "7c673465afcaafc6b7b6790d009079bb29088f39667323e017b00ef2cda13269"
+    },
+    {
+      "name": "hud_music_boss_fill",
+      "category": "Widget",
+      "size": [
+        1891,
+        78
+      ],
+      "source": "02_bars",
+      "cell": 5,
+      "crop": [
+        1024,
+        1365,
+        2048,
+        2048
+      ],
+      "sha256": "decd6f9c0e83c3741e6682a74188f83d48c167d0d04e6176991cb0da6f260991"
+    },
+    {
+      "name": "hud_music_crosshair",
+      "category": "Widget",
+      "size": [
+        128,
+        128
+      ],
+      "source": "03_combat",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "sha256": "1c36803ee7cc4fa1a56fd9a85e2812a9877bd88e334c0e581ce0b5ea1343d4e4"
+    },
+    {
+      "name": "hud_reload_spinner",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 1,
+      "crop": [
+        1024,
+        0,
+        2048,
+        1024
+      ],
+      "sha256": "8ecf49ab64729a61989e063577ba3704286ebffcf2a978afc9b7969f81df2005"
+    },
+    {
+      "name": "hud_ammo_arc_track",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 2,
+      "crop": [
+        0,
+        1024,
+        1024,
+        2048
+      ],
+      "sha256": "eaddb9c138cee9dc5e028ff072072f60f6500e81513864968e231fee4071cd73"
+    },
+    {
+      "name": "hud_ammo_arc_fill",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 3,
+      "crop": [
+        1024,
+        1024,
+        2048,
+        2048
+      ],
+      "sha256": "739b94fe44ed387ab2b6d3c404c9a70e8350b88c0c12fe3beb95dbab3a11b4b0"
+    },
+    {
+      "name": "hud_map_player_heading",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        683,
+        1024
+      ],
+      "sha256": "07c277ab741331f8e1f884c5924c557ae3b77520e11230da9f031dc0d5cd26b3"
+    },
+    {
+      "name": "hud_map_enemy",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 1,
+      "crop": [
+        683,
+        0,
+        1365,
+        1024
+      ],
+      "sha256": "18a8602c89fede6ea2b7dc0151dfb3a3f3df970a5e909694d3f3235a4dd1b294"
+    },
+    {
+      "name": "hud_map_chest",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 2,
+      "crop": [
+        1365,
+        0,
+        2048,
+        1024
+      ],
+      "sha256": "45e1bcd68bdcc21e53b25ac05921845c4a405e1ec90893f18f09786f35783840"
+    },
+    {
+      "name": "hud_pause_glyph",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 3,
+      "crop": [
+        0,
+        1024,
+        683,
+        2048
+      ],
+      "sha256": "e14c0ec0c3553e12777d6497c19a87597ed1849601267551d2eb688fba29c110"
+    },
+    {
+      "name": "hud_weapon_swap",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 4,
+      "crop": [
+        683,
+        1024,
+        1365,
+        2048
+      ],
+      "sha256": "75b83c74ae9d7250965eaa8d3f5fdb282799a2605b0492ab6487c2529a4f49df"
+    },
+    {
+      "name": "hud_read_cursor",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 5,
+      "crop": [
+        1365,
+        1024,
+        2048,
+        2048
+      ],
+      "sha256": "4a70ca4fdb0eb56266d7fe7c6fecd5083276c4bda38236a81fe14235e05d784e"
+    },
+    {
+      "name": "hud_gun_rifle",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        730,
+        1024
+      ],
+      "sha256": "69f1d0ee00ea5da596643a7cdacfc883f4313725edb7ca1d810745f97ed134f8"
+    },
+    {
+      "name": "hud_gun_smg",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 1,
+      "crop": [
+        730,
+        0,
+        1365,
+        1024
+      ],
+      "sha256": "8d56614a4cc43facd8caef962b894700e858b0b1638672a685e5636d99a6e847"
+    },
+    {
+      "name": "hud_gun_shotgun",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 2,
+      "crop": [
+        1365,
+        0,
+        2048,
+        1024
+      ],
+      "sha256": "5284c6010f159244d101eec5f456cfaab582233aff5bc13536f64b0bb869f148"
+    },
+    {
+      "name": "hud_gun_sniper",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 3,
+      "crop": [
+        0,
+        1024,
+        730,
+        2048
+      ],
+      "sha256": "7c6256f5759d0c8e4fe6aed65b04a52a731b97a2622e774e5f99e1384d6bcde3"
+    },
+    {
+      "name": "hud_gun_beam",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 4,
+      "crop": [
+        730,
+        1024,
+        1365,
+        2048
+      ],
+      "sha256": "ef88e2c1f31557ce59dd282c0824c822bb420eb1c3c6e1b094d1ad08e1996cea"
+    },
+    {
+      "name": "hud_gun_launcher",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_instruments",
+      "cell": 5,
+      "crop": [
+        1365,
+        1024,
+        2048,
+        2048
+      ],
+      "sha256": "a681a5b4232da1d56836caca451a0a8c8d3eaf44c4a96cd1039509e9c21cf3ba"
+    },
+    {
+      "name": "hud_operator_portrait",
+      "category": "Icon",
+      "size": [
+        512,
+        512
+      ],
+      "source": "06_portrait",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        2048,
+        2048
+      ],
+      "sha256": "c60aee459128a6b46a6bd305053250577a698c6b24ed8aacd7d9e087ef1c7069"
+    },
+    {
+      "name": "hud_timer_plate",
+      "category": "Frame",
+      "size": [
+        256,
+        80
+      ],
+      "source": "07_states",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        1080,
+        1024
+      ],
+      "sha256": "c787a5539128b82a4414aca6207ad170f4bcc463696c707328cdc9f180688f94"
+    },
+    {
+      "name": "hud_weapon_selected_ring",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "07_states",
+      "cell": 1,
+      "crop": [
+        1080,
+        0,
+        2048,
+        1024
+      ],
+      "sha256": "2e1fc071b139729ddf2ddc00d4c578b0ed8e091e3d6e6aa5f1f79fc063390208"
+    },
+    {
+      "name": "hud_attachment_read_ring",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "07_states",
+      "cell": 2,
+      "crop": [
+        0,
+        1024,
+        1024,
+        2048
+      ],
+      "sha256": "c6518f7848eba08c409f180d3c9ee24faf3a90ab638aa21625b6f0678ef227ba"
+    },
+    {
+      "name": "hud_utility_placeholder",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "07_states",
+      "cell": 3,
+      "crop": [
+        1024,
+        1024,
+        2048,
+        2048
+      ],
+      "sha256": "e27a7c61255133a20f2ead837cde7ae24e8fe3c0a68a7485fcbff90d206b2b64"
+    },
+    {
+      "name": "item_std",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sha256": "2a82a628f8cd699ed9b5e7a043a427c31256e0f722d17d8d403227a09f78a1dc"
+    },
+    {
+      "name": "item_light",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 1,
+      "crop": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "sha256": "4aad65c71a168b205f18ad9cdbd482f7bc2d49d3b9e11f008fc9426646ce0adf"
+    },
+    {
+      "name": "item_pellet",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 2,
+      "crop": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "sha256": "f2c313e50585d10515c8d3f47b01540a84edaa8754dcc50f14726b2697107110"
+    },
+    {
+      "name": "item_ap",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 3,
+      "crop": [
+        1536,
+        0,
+        2048,
+        512
+      ],
+      "sha256": "82bb240ebd67221af9d047a475e6a1eaed0a5fa9908a6e0a1591a146ca94706b"
+    },
+    {
+      "name": "item_laser",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 4,
+      "crop": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "sha256": "29fa482aa3c8aaf5064286391be95adcef250e75611e123d824798416651da0a"
+    },
+    {
+      "name": "item_grenade",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 5,
+      "crop": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "sha256": "536320e645fe7e407d84ceac64573019d09c1749c0afc099957029eb29bee70b"
+    },
+    {
+      "name": "item_bouncer",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 6,
+      "crop": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "sha256": "231ed16c6ec0e072256887d84840e00a29354328329b37751f8694ded8187cc2"
+    },
+    {
+      "name": "item_missile",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 7,
+      "crop": [
+        1536,
+        512,
+        2048,
+        1024
+      ],
+      "sha256": "efb176f2cb12ee64a731163b78044137c2fb176e2c1ab0b5339aeebe55e9caac"
+    },
+    {
+      "name": "item_mine",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 8,
+      "crop": [
+        0,
+        1024,
+        512,
+        1536
+      ],
+      "sha256": "29ea98adb8b41c109b2ccd6b303c8f851061fa50542894693eb2f86f62c761ac"
+    },
+    {
+      "name": "item_shock",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 9,
+      "crop": [
+        512,
+        1024,
+        1024,
+        1536
+      ],
+      "sha256": "18bfb5b7e5c1aa0b97379afdc953bb650bfd2ff8e55215a9b8bd79071f7d22c4"
+    },
+    {
+      "name": "item_chain",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 10,
+      "crop": [
+        1024,
+        1024,
+        1536,
+        1536
+      ],
+      "sha256": "b0b64bdddabd15a198d2068fc6e30f19649be8549a399e463d339b79c54a2a4f"
+    },
+    {
+      "name": "item_saw",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 11,
+      "crop": [
+        1536,
+        1024,
+        2048,
+        1536
+      ],
+      "sha256": "e5c689a9434ad7dd59430194a6d1a7bb5dbffd8eed167771668c58f45a9c40fb"
+    },
+    {
+      "name": "item_flame",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 12,
+      "crop": [
+        0,
+        1536,
+        512,
+        2048
+      ],
+      "sha256": "7dc767a425ebba9e58960ad1e5931835079057991701ce55be1b588111ffe9c8"
+    },
+    {
+      "name": "item_hole",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 13,
+      "crop": [
+        512,
+        1536,
+        1024,
+        2048
+      ],
+      "sha256": "90fb561dbae93e42a8c9416a507768e454a26b13c939107eb52521f357edc26f"
+    },
+    {
+      "name": "item_trigger",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 14,
+      "crop": [
+        1024,
+        1536,
+        1536,
+        2048
+      ],
+      "sha256": "5a29620f02e277933a1fd695ec92d238dc05d40205f2073bcd847a1c3228bfcf"
+    },
+    {
+      "name": "item_timer",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_notes",
+      "cell": 15,
+      "crop": [
+        1536,
+        1536,
+        2048,
+        2048
+      ],
+      "sha256": "41d0fe031761746236c59f4b2dfa31f294d8cf99492c85a66f14af02e717ae92"
+    },
+    {
+      "name": "item_expire",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sha256": "01fa06891488eeac04af2743f752f289b31c5f59cd6b4476b48a8982e1063447"
+    },
+    {
+      "name": "item_dmg",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 1,
+      "crop": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "sha256": "f989b9df3032b8e0c5c7a793481b05d7b41f7e459e58fc7e1eb123089f648978"
+    },
+    {
+      "name": "item_heavy",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 2,
+      "crop": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "sha256": "b053cae5e9709207204c77113dd003a8d9a36fffd5445fef28e739218cb07ca6"
+    },
+    {
+      "name": "item_speed",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 3,
+      "crop": [
+        1536,
+        0,
+        2048,
+        512
+      ],
+      "sha256": "b11a53968d6a9fbe8d1e09f00013d34355b11e281ef06d65003ec452e9a3e6fa"
+    },
+    {
+      "name": "item_pierce",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 4,
+      "crop": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "sha256": "f345ce5c7f43139c13701823ea38e16cde1c338ffe040c127a97379d1a13ac1d"
+    },
+    {
+      "name": "item_explode",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 5,
+      "crop": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "sha256": "0a5435944a7098e6d52292a7c98637b6d16a58c44ca81d68fda0470ad42b9dc7"
+    },
+    {
+      "name": "item_homing",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 6,
+      "crop": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "sha256": "906ea885f162580fa98f51aa288b41ed6035c62b96d2aad00ccc3ab1c6119068"
+    },
+    {
+      "name": "item_bounce",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 7,
+      "crop": [
+        1536,
+        512,
+        2048,
+        1024
+      ],
+      "sha256": "a666a8f722cf5d6c02513194a7edf98f6298d2810673715eca0932662eb1b386"
+    },
+    {
+      "name": "item_burn",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 8,
+      "crop": [
+        0,
+        1024,
+        512,
+        1536
+      ],
+      "sha256": "b2fe090d2c8498c8ed0dcb5556415c59590a565263024ae3424f0f05c24f9227"
+    },
+    {
+      "name": "item_frost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 9,
+      "crop": [
+        512,
+        1024,
+        1024,
+        1536
+      ],
+      "sha256": "16cc6e92466964c4af2c971a82360aaa209edf88f1aaec929d52b8756cba2e94"
+    },
+    {
+      "name": "item_giant",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 10,
+      "crop": [
+        1024,
+        1024,
+        1536,
+        1536
+      ],
+      "sha256": "0810cfce15db7d236df33d68c736d1e418ba187942512cc479e55d7490e59484"
+    },
+    {
+      "name": "item_crit",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 11,
+      "crop": [
+        1536,
+        1024,
+        2048,
+        1536
+      ],
+      "sha256": "5d42f599611c58b92188766a8246b300bc25919857812dd798eb29b8c952c25b"
+    },
+    {
+      "name": "item_scatter",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 12,
+      "crop": [
+        0,
+        1536,
+        512,
+        2048
+      ],
+      "sha256": "85e577f5302318cbdf7e0ebc7385851185e78e6e576c5ed4330f25433024dbc9"
+    },
+    {
+      "name": "item_thrift",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 13,
+      "crop": [
+        512,
+        1536,
+        1024,
+        2048
+      ],
+      "sha256": "6fe507b6a5903de13c69d675cdc09d49e887e2ca5798bcd3030c2eaf7a1a037b"
+    },
+    {
+      "name": "item_rear_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 14,
+      "crop": [
+        1024,
+        1536,
+        1536,
+        2048
+      ],
+      "sha256": "4ddcefefb14b21d5781871740cc3b848675b0af2461cebabe0215b5f483a3198"
+    },
+    {
+      "name": "item_twin_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "09_notes",
+      "cell": 15,
+      "crop": [
+        1536,
+        1536,
+        2048,
+        2048
+      ],
+      "sha256": "17dd44b787f33a8c6c71a9ad1473ef89cd66e9b712844872168fecef3f3dd7fa"
+    },
+    {
+      "name": "item_forward_battery",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sha256": "486d2119ada439f2f98eaa7b0b66a2c2bef51dc2febb5460854d344ca0a1f4dd"
+    },
+    {
+      "name": "item_rear_battery",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 1,
+      "crop": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "sha256": "013379f005441af26f2408adb3974697fdf5d3cbcb649a36cbbe71f90ce0e87d"
+    },
+    {
+      "name": "item_crossfire",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 2,
+      "crop": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "sha256": "960a245059a2f022d923499dd32be20b2d8efaf622db0a2a377393af66744e1a"
+    },
+    {
+      "name": "item_gap_lens",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 3,
+      "crop": [
+        1536,
+        0,
+        2048,
+        512
+      ],
+      "sha256": "1f9210a3c253a05fcff78173d8c7258e068c0dda3aac10d52ea0cdd5976c3b5d"
+    },
+    {
+      "name": "item_rear_frost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 4,
+      "crop": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "sha256": "a0413f0188a47ee8199f9d86008a2c177d5030decd70158f40e8a39b864ed5a8"
+    },
+    {
+      "name": "item_ring_burn",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 5,
+      "crop": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "sha256": "e20d982b84560dbe35cbf650592f141e0712cad0513845293bb481220367842a"
+    },
+    {
+      "name": "item_gap_bounce",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 6,
+      "crop": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "sha256": "9ae6519dc8a9f0cc050ce73d0a4cc335d1e703b0dbc00962d763df4dd42931be"
+    },
+    {
+      "name": "item_rear_blast",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 7,
+      "crop": [
+        1536,
+        512,
+        2048,
+        1024
+      ],
+      "sha256": "2e9b2bc3ef82a748ff4e2df9505ca6ba53cd7938f1a21149dc4d4fb9680d9baa"
+    },
+    {
+      "name": "item_whole_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 8,
+      "crop": [
+        0,
+        1024,
+        512,
+        1536
+      ],
+      "sha256": "118d95a9f412ebf47b2138b5a8f9d347523173e41fefb232395963e24597448b"
+    },
+    {
+      "name": "item_whole_guidance",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 9,
+      "crop": [
+        512,
+        1024,
+        1024,
+        1536
+      ],
+      "sha256": "ef4a1a794297b8f08d050f3a5ffbfb6a6f73e94ec4f8118eac71c5a0be276d86"
+    },
+    {
+      "name": "item_g_mag",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 10,
+      "crop": [
+        1024,
+        1024,
+        1536,
+        1536
+      ],
+      "sha256": "ee64ba88014957542ae246c0aa8791d7affe28d71f6b8e8d8adfe5da5a22e6d2"
+    },
+    {
+      "name": "item_g_reload",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 11,
+      "crop": [
+        1536,
+        1024,
+        2048,
+        1536
+      ],
+      "sha256": "6d48b746b3d0bad3b002a2b234d0f98e8b5fe5985b6d3028f0e8aec26cedf1ba"
+    },
+    {
+      "name": "item_g_rapid",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 12,
+      "crop": [
+        0,
+        1536,
+        512,
+        2048
+      ],
+      "sha256": "e9e16a45aa6c7733aefe6533ab6c42ff69f0ed1b964f88d040179f0e88a6dea2"
+    },
+    {
+      "name": "item_g_stable",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 13,
+      "crop": [
+        512,
+        1536,
+        1024,
+        2048
+      ],
+      "sha256": "3fbf4f46ce9e89fcd4665c94fc8888d30de9782428eb81e2aed4e5f2a1d2f45c"
+    },
+    {
+      "name": "item_g_recycle",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 14,
+      "crop": [
+        1024,
+        1536,
+        1536,
+        2048
+      ],
+      "sha256": "ff24f54ef800ede0334c170339e1e7de36852105645724d19674cb4f601d7c6f"
+    },
+    {
+      "name": "item_g_parallel",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "10_notes",
+      "cell": 15,
+      "crop": [
+        1536,
+        1536,
+        2048,
+        2048
+      ],
+      "sha256": "c60db85f3889d3b73d97e9989d9281e6a3f6d8285b4ec8958bf54d7e2bd7766b"
+    },
+    {
+      "name": "item_g_leech",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "11_notes",
+      "cell": 0,
+      "crop": [
+        0,
+        0,
+        683,
+        1360
+      ],
+      "sha256": "47797833c328f72811fa771659431ef588a9a993bb6d52a4059418762bf333fc"
+    },
+    {
+      "name": "item_g_double",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "11_notes",
+      "cell": 1,
+      "crop": [
+        683,
+        0,
+        1365,
+        1360
+      ],
+      "sha256": "1ca633ddefc9fd23a23f17f216e0d20b5d87a8368c2fa8a7e6a404e0af58f1ca"
+    },
+    {
+      "name": "item_g_triple",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "11_notes",
+      "cell": 2,
+      "crop": [
+        1365,
+        0,
+        2048,
+        1360
+      ],
+      "sha256": "86e0fbb09ffe5eab704cb8782421ed0da62b2ad49715ad2b890e3023afcd89ed"
+    },
+    {
+      "name": "hud_music_badge_mask",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "derived-inner-circle",
+      "cell": null,
+      "crop": null,
+      "sha256": "7c4caaa23f80c0d3194f203d198a9a7cc5295a0413f16ec1990f87fa9f94a4ea"
+    },
+    {
+      "name": "hud_music_resume",
+      "category": "Widget",
+      "size": [
+        256,
+        96
+      ],
+      "source": "01_frames",
+      "cell": 5,
+      "crop": null,
+      "sha256": "90ccd5491c46ea31dffc4f8ccd3728621c74f0319a6b85b1f258957828f92059"
+    },
+    {
+      "name": "hud_music_banner",
+      "category": "Frame",
+      "size": [
+        512,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 5,
+      "crop": null,
+      "sha256": "fb9589deb291e04954029c19d60b074b81adf91d85b8011d62b2785ef6538718"
+    }
+  ],
+  "raw_hashes": {
+    "01_frames.png": "8b50d2994633bbfbe38fae323d6aa17e7e9ec4914ab802a9dd0d328eaa408002",
+    "02_bars.png": "1c79bba32a566f1547ee061ff3b1ca472a0930f18e9789b45a2a6c34075f6fb8",
+    "03_combat.png": "ee0ff802b021924aae8f213dbaabdd1bea3a04402e44f8b0f7fadde78c9f2168",
+    "04_markers.png": "b59e6ae84219ccca5a18b75e9d017c14fe80423e1a1faad8d9b564fff5385839",
+    "05_instruments.png": "1b0a790f5bbde19494480440d5f7a96ef10dfbac17f453b51d8ea2243150bf57",
+    "06_portrait.png": "07fba50d0ad3bacb09a8ff7642211f7263e6c38ca538bfa74758c1d6b7647609",
+    "07_states.png": "abdd8159fbecb76757f5b1c4ea7bfa4054c98fdf3a8bcf2eec110fdf083208ed",
+    "08_notes.png": "d598fd7fcc8ec4da738e600af9ef3d71dbdc3899c840c9d6275dcacdb10a92b3",
+    "09_notes.png": "cd25f4757aea40a499370fcafc0245d128aff986fbad4b3e76d99ffd4933980a",
+    "10_notes.png": "99d10c0de3b1d04a34321fad32cdeca6b19f48cfcd2def05a662237bf96ddd9a",
+    "11_notes.png": "e4da976698c9d66d11879f070254fbd38adfb3d643ed739c407f6e00eb612dcb"
+  },
+  "notes": [
+    "Existing GUIDs retained; user replacement aspect/circle alignment and bar content insets updated",
+    "Ammo arc geometrically registered at 256x256 pivot128 radius96..112; fill99..109",
+    "New HUD-only fills, reticle and overlays; other shared panels unchanged"
+  ]
+}

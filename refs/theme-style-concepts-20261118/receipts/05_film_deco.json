@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-05_film_deco",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/05_film_deco.png",
+  "submitted_at": "2026-11-18T15:40:21+0800",
+  "task_id": "task_01M7PSK0Z4CY07QW929V25H7NQ",
+  "result_url": "https://getapib.org/f/image/8343947917277257-d5a2415b-d8e0-4958-ba1d-5b5ea6ed883e-image_02JHTB9697PMNC7256M40ZYMYH_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2484381,
+  "sha256": "26d824bd9df0f3de3626a1a7ce24517c0353971fd21febf2e00ae07fc9081e92",
+  "completed_at": "2026-11-18T15:41:23+0800"
+}

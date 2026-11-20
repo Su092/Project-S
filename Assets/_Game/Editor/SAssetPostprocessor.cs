@@ -36,6 +36,14 @@ namespace S.EditorTools
                 ti.maxTextureSize = 2048;
                 ti.textureCompression = TextureImporterCompression.CompressedHQ;
                 ti.spritePixelsPerUnit = 100f;
+                if (Path.GetFileName(p).StartsWith("offer_") || Path.GetFileName(p).StartsWith("score_"))
+                {
+                    ti.textureCompression = TextureImporterCompression.Uncompressed;
+                    ti.maxTextureSize = 4096;
+                    var settings = new TextureImporterSettings();
+                    ti.ReadTextureSettings(settings);settings.spriteMeshType = SpriteMeshType.FullRect;
+                    ti.SetTextureSettings(settings);
+                }
 
                 // 9-slice 边距：按钮/条/槽必须按名字给边距，否则拉伸时圆角与内线会被拉变形。
                 // 这里集中配置，新增素材只要命名匹配就自动获得边距，不必手工改 meta（踩过）。
@@ -47,6 +55,8 @@ namespace S.EditorTools
                 return;
             }
 
+            // Preserve the validated delivery's normal/mask color spaces and FBX axis settings.
+            if (p.Contains("/Environment/GrandTheater/")) return;
             if (p.Contains(TexRoot))
             {
                 var ti = (TextureImporter)assetImporter;
@@ -77,8 +87,18 @@ namespace S.EditorTools
         /// </summary>
         static Vector4? BorderFor(string name)
         {
+            if (name.StartsWith("offer_frame_")) return new Vector4(52, 64, 52, 96);
             switch (name)
             {
+                case "hud_music_resume": return new Vector4(16, 14, 16, 14);
+                case "hud_music_banner": return new Vector4(20, 20, 20, 20);
+                case "score_preview_rail": return new Vector4(48, 48, 48, 48);
+                case "hud_weapon_rail": return new Vector4(46, 8, 46, 8);
+                case "hud_timer_plate": return new Vector4(24, 10, 24, 10);
+                // Native source-pixel caps; HUD builder applies source-height/display-height PPU.
+                case "hud_hp_track_frame": return new Vector4(104, 16, 104, 16);
+                case "hud_xp_track_frame": return new Vector4(82, 16, 82, 16);
+                case "hud_boss_track_frame": return new Vector4(108, 16, 108, 16);
                 // 按钮：最小控件 108×40（背包 BuyButton），其次 340×70。
                 // 圆角 12 ⇒ 边距必须 ≥12 才能包住圆角，同时 40 高要留出可拉伸区。
                 // 取 14：12 圆角 + 2px 余量，40-28=12px 可拉伸区。原来的 22 直接吃光 40 高。
@@ -155,7 +175,7 @@ namespace S.EditorTools
         void OnPreprocessModel()
         {
             string p = assetPath.Replace('\\', '/');
-            if (!p.Contains(ModelRoot)) return;
+            if (!p.Contains(ModelRoot) || p.Contains("/Environment/GrandTheater/")) return;
 
             var mi = (ModelImporter)assetImporter;
             mi.globalScale = 1f;

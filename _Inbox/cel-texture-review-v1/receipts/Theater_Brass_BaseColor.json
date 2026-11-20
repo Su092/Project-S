@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_brass_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:40:53+0800",
+  "task_id": "task_01M7W1VAYZQTEF9MH88Y9CKZ81",
+  "result_url": "https://getapib.org/image/9998204835898586-bc1e43a6-b8ab-453d-96d3-c93552413aa3-image_task_01M7W1WP2CJXV3HCV1DF9KYE9C_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Brass_BaseColor.png",
+  "bytes": 2066564,
+  "sha256": "656626afb8bcca4c9595421075673c7ca658fdcda26a95a07e7e019053bc5e28"
+}

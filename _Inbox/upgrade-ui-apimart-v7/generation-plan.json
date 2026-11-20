@@ -1,0 +1,17 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "干净线芯；移除烘焙 Bloom 和微粒；辉光与光点留给后期",
+  "jobs": [
+    {
+      "name": "03-gold-staff-clean-core",
+      "id": "s-upgrade-apimart-v7-staff-clean-core",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v7/03-gold-staff-clean-core.png",
+      "reference_local": "_Inbox/upgrade-ui-apimart-v6/03-gold-staff-bloom.png",
+      "no_global_style": true,
+      "prompt": "Edit the provided five-line golden musical staff source image to create ONLY the CLEAN LINE-CORE LAYER, ready for separately controlled glow in a game UI. Preserve the reference's exact five principal graceful shallow S-shaped curves, their positions, spacing, full-width flowing arrangement and tapered tips. REMOVE ALL BLOOM, all soft halos, all particles, all scattered light dots, dust, grain, sparks and mist. Outside the five crisp line silhouettes, every pixel must be flat pure BLACK, including the four gaps. Crucial: a BRIGHT GOLD COLOR is requested but no light leaking outside the strokes. Exactly FIVE continuous thin elegant strands, five separate ends left and five separate ends right, never intersecting. Make the strokes slim and even, about 4-6 pixels wide at 2K horizontal image width, with a smooth clean bright warm-gold face (#F6D460), a narrow pale-gold center accent (#FFEBA6) entirely contained within each line, and minimal restrained warm-gold edge (#DDB74C). Flat two-tone or three-tone illustrated look, no cylindrical metal, no chrome, no raised bevels, no realistic reflection, no engraving, no mottled texture, no internal glitter. The lines should feel light, flexible and flowing, not thick rigid bars. Keep their main thickness almost uniform, only tips taper gently. All curves fully contained with generous black margins. Do NOT add web connectors, leaves, flourishes, ribbons, musical note icons, text, labels, framing, stars or shadow. Do NOT turn the image into a fully glowing effect; glow and particles will be added later at runtime and MUST NOT be present in this original. One extremely clean five-line gold musical staff on completely solid BLACK background. Retain the lovely flowing curve from reference, but cleanly isolate only FIVE slender gold strokes. Anti-alias at the immediate silhouette edge only; no blurred exterior."
+    }
+  ]
+}

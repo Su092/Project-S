@@ -148,14 +148,14 @@ def main():
         print("PASS 每个素材都在它登记的目录里")
 
     # ---- 5. Items 必须是数据驱动的配件图标 ----
-    bad_items = sorted(n for n in disk["Items"] if not n.startswith("item_"))
+    bad_items = sorted(n for n in disk["Items"] if not n.startswith(("item_", "offer_item_")))
     if bad_items:
         ok = False
-        print("FAIL Icon/Items 里混入了非配件图标（该目录只放 item_*）：")
+        print("FAIL Icon/Items 里混入了非配件图标（该目录只放 item_* / offer_item_*）：")
         for n in bad_items:
             print("       " + n)
     else:
-        print("PASS Icon/Items 全部是 item_*（%d 张）" % len(disk["Items"]))
+        print("PASS Icon/Items 全部是已登记的配件原图/升级变体（%d 张）" % len(disk["Items"]))
 
     # ---- 6. Python 流水线的分类表与 C# 一致 ----
     for rel in ("preprocess_ui_assets.py", "gen_ui_assets_ai.py"):
@@ -203,7 +203,7 @@ def main():
                     live.add(cols[id_col].strip())
         # disk["Items"] 里是文件名（`item_ap`），live 里是配件 id（`ap`）。
         # 两者必须去掉前缀才能比较 —— 这是本脚本最容易写错的一处。
-        have = {n[5:] if n.startswith("item_") else n for n in disk["Items"]}
+        have = {n[5:] for n in disk["Items"] if n.startswith("item_")}
         miss = sorted(live - have)
         extra = sorted(have - live)
         if miss:
@@ -218,6 +218,12 @@ def main():
                 print("       item_" + n + ".png")
         if not miss and not extra:
             print("PASS 配件图标与 Cfg/*.tsv 的 %d 件一一对应" % len(live))
+        variants = {n[len("offer_item_"):] for n in disk["Items"] if n.startswith("offer_item_")}
+        if variants != live:
+            ok = False
+            print("FAIL 升级专用无底盘图标与配置不一致; missing=" + str(sorted(live-variants)) + "; extra=" + str(sorted(variants-live)))
+        else:
+            print("PASS 升级专用图标与 Cfg/*.tsv 的 %d 件一一对应" % len(live))
     print()
     print("RESULT %s" % ("OK" if ok else "DRIFT"))
     return 0 if ok else 1

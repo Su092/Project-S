@@ -1,0 +1,54 @@
+{
+  "asset": "Boss_CrucibleSovereign",
+  "target_dimensions": [
+    5.6,
+    5,
+    5.8
+  ],
+  "triangles": [
+    4512,
+    3240,
+    1596
+  ],
+  "bone_count": 33,
+  "materials": 2,
+  "texture_resolution": 2048,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Turn_L",
+    "Turn_R",
+    "Volley",
+    "TrackingFire",
+    "Shockwave",
+    "SpikeCast",
+    "Summon",
+    "Shield_Close",
+    "Shield_Open",
+    "Stagger",
+    "PhaseTransition",
+    "Death"
+  ],
+  "axis_blender": "Z up, -Y forward",
+  "root": [
+    0,
+    0,
+    0
+  ],
+  "flight_pivot": false,
+  "status": "TECHNICAL_PASS_PENDING_VISUAL_AND_UNITY_QA",
+  "unverified": [
+    "Unity URP import/axes/normal map/Animator",
+    "joint intersections over every frame",
+    "foot contact under gameplay movement",
+    "LOD popping in engine",
+    "unique texel density: shared construction trim UVs",
+    "platform occupancy in actual skill states"
+  ],
+  "proxy_count": 107,
+  "actual_dimensions": [
+    5.6,
+    5.0,
+    5.8
+  ]
+}

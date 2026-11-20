@@ -1,0 +1,11 @@
+Wall_WideDoor8: early collision >6cm = 0 / 1350 rays
+Wall_InnerCorner: early collision >6cm = 0 / 1350 rays
+Platform_Stairs4x5: early collision >6cm = 0 / 1350 rays
+Platform_Ramp4x8: early collision >6cm = 0 / 1350 rays
+Cover_CrateLow: early collision >6cm = 0 / 1350 rays
+Cover_CrateHigh: early collision >6cm = 0 / 1350 rays
+Cover_ShortWall: early collision >6cm = 0 / 1350 rays
+Cover_Barrel: early collision >6cm = 0 / 1350 rays
+Core_EnergyBase: early collision >6cm = 0 / 1350 rays
+Core_EnergyPillar: early collision >6cm = 0 / 1350 rays
+TOTAL rays=13500 early=0; sampled proxy-vs-LOD0 surface comparison, not exhaustive projectile integration.

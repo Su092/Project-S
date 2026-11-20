@@ -58,9 +58,12 @@ namespace LoadoutTests
             BagCases();
             GunOfferCases();
             TimelineCases();
+            RestartCases();
             BossCases();
+            MusicCombatCases.Run(Check);
             D = SCfgLoader.Load(new SCfgDirectorySource(dir));
             FusionCases.Run(D, Check);
+            ScoreCases.Run(D, Check);
 
             if (HasFlag("-bench"))
             {
@@ -730,7 +733,7 @@ namespace LoadoutTests
             Section("背包与分解（gameplay-spec §6）");
 
             var run = new RunState(D, 12345);
-            Check("背包容量 44", run.BagCapacity == 44, $"{run.BagCapacity}");
+            Check("背包容量 15", run.BagCapacity == 15, $"{run.BagCapacity}");
 
             bool ok = run.TryPick("std");
             Check("拾取成功", ok && run.Bag.Count == 1, $"{run.Bag.Count}");
@@ -810,12 +813,48 @@ namespace LoadoutTests
             Check("精英共 4 只（5:00/6:30/8:00/9:30）", d2.ElitesSpawned == 4, $"{d2.ElitesSpawned}");
         }
 
+        static void RestartCases()
+        {
+            Section("新局时间轴隔离与连续重开");
+            var template = D.Director;
+            var previous = template.CreateRun();
+            for (int cycle = 0; cycle < 3; cycle++)
+            {
+                previous.Tick(601f);
+                var run = previous.CreateRun();
+                Check($"重开 {cycle + 1}：时间和威胁归零", run.Elapsed == 0 && run.Threat == 0);
+                Check($"重开 {cycle + 1}：初始阶段与倒计时", run.CurrentPhase.Name == template.Phases[0].Name &&
+                    run.SecondsToElite == 300f && run.SecondsToBoss == 600f);
+                Check($"重开 {cycle + 1}：事件标记清空", !run.BossSpawned && run.ElitesSpawned == 0);
+                var events = run.Tick(300f);
+                Check($"重开 {cycle + 1}：精英重新触发", events.Exists(e => e.Kind == RunDirector.EventKind.EliteDue) && run.ElitesSpawned == 1);
+                events = run.Tick(300f);
+                Check($"重开 {cycle + 1}：Boss 重新触发且保留 Boss 阶段", events.Exists(e => e.Kind == RunDirector.EventKind.BossDue) &&
+                    run.CurrentPhase != null && run.CurrentPhase.Name == previous.CurrentPhase.Name && run.ElitesSpawned == 4);
+                Check($"重开 {cycle + 1}：Boss 不重复触发", !run.Tick(1f).Exists(e => e.Kind == RunDirector.EventKind.BossDue));
+                previous = run;
+            }
+            Check("推进副本不改变缓存模板", template.Elapsed == 0 && !template.BossSpawned && template.ElitesSpawned == 0);
+            var isolated = template.CreateRun();
+            isolated.Elite.FirstAt = 1;
+            isolated.Phases[0].Pool[0] = "changed";
+            isolated.Phases[0].Concurrency = -1;
+            Check("局内配置修改不影响下局", template.Elite.FirstAt == 300f &&
+                template.Phases[0].Pool[0] != "changed" && template.Phases[0].Concurrency > 0);
+            Check("空时间轴可开局", new RunDirector(null, null).CreateRun().CurrentPhase == null);
+        }
+
         // ---------------- Boss ----------------
 
         static void BossCases()
         {
             Section("Boss 状态机（gameplay-spec §3.1）");
 
+            var mapDef = new BossDef();
+            var theaterBoss = new BossState(6000f, mapDef, 0);
+            Check("无柱地图不保留幽灵能量柱", theaterBoss.PillarCount == 0 && theaterBoss.PillarsAlive == 0, $"{theaterBoss.PillarsAlive}");
+            Check("无柱地图拒绝不存在的能量柱伤害", !theaterBoss.DamagePillar(0, 1000f), "");
+            Check("地图覆盖不污染共享Boss配置", mapDef.Pillars == BossState.DefaultPillars, "");
             var b = new BossState(6000f);
             Check("初始 P1", b.Phase == BossPhase.P1);
             Check("初始 4 柱", b.PillarsAlive == 4, $"{b.PillarsAlive}");

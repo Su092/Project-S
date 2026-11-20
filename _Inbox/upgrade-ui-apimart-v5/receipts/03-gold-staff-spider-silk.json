@@ -1,0 +1,14 @@
+{
+  "id": "s-upgrade-apimart-v5-staff-silk",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-19T17:29:43+0800",
+  "task_id": "task_01M7SJ809VH5K3AX427K4STSXG",
+  "result_url": "https://getapib.org/image/9998204919388464-896cc234-a0a0-4b73-9125-30328592be84-image_task_01M7SJ8RGCE3ZBXTG6PE9BNB0F_0.png",
+  "width": 3072,
+  "height": 1024,
+  "mode": "RGBA",
+  "out": "_Inbox/upgrade-ui-apimart-v5/03-gold-staff-spider-silk.png",
+  "bytes": 877233,
+  "sha256": "34a2665a2388fba1337efa84a9c5978b9880c4e0449e43b7b10384204060b440"
+}

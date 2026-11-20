@@ -1,0 +1,25 @@
+{
+  "unchanged_rect_transforms": 100,
+  "authorized_geometry_updates": [
+    "HUD/BossBar/Fill",
+    "HUD/Experience/Fill",
+    "HUD/Health/Fill",
+    "HUD/Minimap/Bezel",
+    "HUD/Minimap/North"
+  ],
+  "unchanged_scene_config_and_other_prefab_files": 41,
+  "unchanged_other_prefabs": [
+    "ChainRow.prefab",
+    "GunTab.prefab",
+    "Inventory.prefab",
+    "ItemCard.prefab",
+    "Menu.prefab",
+    "Offer.prefab",
+    "OfferCard.prefab"
+  ],
+  "preserved_existing_texture_guids": 120,
+  "unchanged_other_textures": 34,
+  "verified_processed_sprites": 87,
+  "verified_raw_sheets": 11,
+  "result": "PASS"
+}

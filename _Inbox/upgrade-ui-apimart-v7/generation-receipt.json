@@ -1,0 +1,16 @@
+[
+  {
+    "id": "s-upgrade-apimart-v7-staff-clean-core",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-19T17:34:30+0800",
+    "task_id": "task_01M7SJGT5F8N0BJSVPSNYD84YB",
+    "result_url": "https://getapib.org/image/9998204919099993-0edd0a49-1ce4-4990-b177-25c9414a52cf-image_task_01M7SJHJY3YZX2PVJPXTZJ1VSQ_0.png",
+    "width": 3072,
+    "height": 1024,
+    "mode": "RGBA",
+    "out": "_Inbox/upgrade-ui-apimart-v7/03-gold-staff-clean-core.png",
+    "bytes": 784107,
+    "sha256": "ea7a39d3eff37dfa400a3ae4152de7f9756df3047b68101238e30bd27b0ea9b0"
+  }
+]

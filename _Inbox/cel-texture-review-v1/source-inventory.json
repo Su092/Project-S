@@ -1,0 +1,544 @@
+[
+  {
+    "number": 1,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+    "name": "T_SW01_Violin_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW01_Violin/MAT_SW01_Violin.mat"
+    ]
+  },
+  {
+    "number": 2,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+    "name": "T_SW02_Kalimba_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW02_Kalimba/MAT_SW02_Kalimba.mat"
+    ]
+  },
+  {
+    "number": 3,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+    "name": "T_SW03_FrameDrum_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW03_FrameDrum/MAT_SW03_FrameDrum.mat"
+    ]
+  },
+  {
+    "number": 4,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+    "name": "T_SW04_Cello_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW04_Cello/MAT_SW04_Cello.mat"
+    ]
+  },
+  {
+    "number": 5,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+    "name": "T_SW05_Harp_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW05_Harp/MAT_SW05_Harp.mat"
+    ]
+  },
+  {
+    "number": 6,
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+    "name": "T_SW06_Accordion_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "16ba9c39f844285f14546aebe3c9edf21a4ad2ab5fcf4086dad34e43530d3dea",
+    "materials": [
+      "Assets/_Game/Res/Material/Weapons/Music/SW06_Accordion/MAT_SW06_Accordion.mat"
+    ]
+  },
+  {
+    "number": 7,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+    "name": "T_S08_BassWave",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "sha256": "2297898054c46876b8e0118547826a89e66777f6f6b1c964000eb12acd3c334e",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S08_BassWave/MAT_FXM_S08_BassWave.mat"
+    ]
+  },
+  {
+    "number": 8,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+    "name": "T_S14_NoteAtlas",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_FallingNote/MAT_FXM_S14_FallingNote.mat",
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_MarchingNote/MAT_FXM_S14_MarchingNote.mat"
+    ]
+  },
+  {
+    "number": 9,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+    "name": "T_FXM_S14_NoteGate_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "06da2786a6a0ca1d2a2e26650dc6a7a51cbe5e6c6c108151fcea97f1d93d15f5",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_NoteGate/MAT_FXM_S14_NoteGate.mat"
+    ]
+  },
+  {
+    "number": 10,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+    "name": "T_FXM_S14_NoteGate_Curtain",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      56,
+      230
+    ],
+    "sha256": "2e82479624334a70b31afa77d3270bd796ecdeba48dbb7743841b3a73c3f217d",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_NoteGate/MAT_FXM_S14_NoteGate_Accent.mat"
+    ]
+  },
+  {
+    "number": 11,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+    "name": "T_S16_NoteAtlas",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S16_PluckedNote/MAT_FXM_S16_PluckedNote.mat"
+    ]
+  },
+  {
+    "number": 12,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+    "name": "T_S21_VentGust",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "sha256": "7d3d2a5209f8099118e4db7e290749525379756bd014305b6b7da031de51abd9",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S21_VentGust/MAT_FXM_S21_VentGust.mat"
+    ]
+  },
+  {
+    "number": 13,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+    "name": "T_S29_NoteAtlas",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_ClampShard/MAT_FXM_S29_ClampShard.mat",
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_CoreShard/MAT_FXM_S29_CoreShard.mat",
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_HornShard/MAT_FXM_S29_HornShard.mat",
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_HousingShard/MAT_FXM_S29_HousingShard.mat",
+      "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_NoteShot/MAT_FXM_S29_NoteShot.mat"
+    ]
+  },
+  {
+    "number": 14,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+    "name": "T_S02_DrumBeetle_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "20cccd5271f19bd53fd41168ce9c3d48bad70afc885f683059a7da88f8eaaef2",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S02_DrumBeetle/MAT_S02_DrumBeetle.mat"
+    ]
+  },
+  {
+    "number": 15,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+    "name": "T_S03_HornHound_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "89f9a4d9b679559b4b8c37917c71b1b1f019ae960f374491327f23238bf8e8c8",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S03_HornHound/MAT_S03_HornHound.mat"
+    ]
+  },
+  {
+    "number": 16,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+    "name": "T_S07_LostScoreGhost_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "0f9fcf3a98478798d9ace8bede68643d147f1b5f4b6f08e9fc83043ac9388bc0",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S07_LostScoreGhost/MAT_S07_LostScoreGhost.mat"
+    ]
+  },
+  {
+    "number": 17,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+    "name": "T_S08_MetronomeGuard_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "d23e401beab9f325d32cbb5091aadda645567f43572257d4ea9869d059e6d2e1",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S08_MetronomeGuard/MAT_S08_MetronomeGuard.mat"
+    ]
+  },
+  {
+    "number": 18,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+    "name": "T_S11_CymbalMoth_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "0312694a61dc5d1617f0799adea4c79047e2c8abfa0de892efe5bc433d9b5bba",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S11_CymbalMoth/MAT_S11_CymbalMoth.mat"
+    ]
+  },
+  {
+    "number": 19,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+    "name": "T_S14_XylophoneStegosaur_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "9039cb229b720dc2be47d11a9100b2adda6ae26f7573a15ce6f8b03a9c6b7b8c",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S14_XylophoneStegosaur/MAT_S14_XylophoneStegosaur.mat"
+    ]
+  },
+  {
+    "number": 20,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+    "name": "T_S16_MusicBoxBallerina_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "ec48d0a331cd6c8fe2002f9a46ee55aab30d2a6630272b93cb8f255225f00010",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S16_MusicBoxBallerina/MAT_S16_MusicBoxBallerina.mat"
+    ]
+  },
+  {
+    "number": 21,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+    "name": "T_S19_CastanetFish_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "d38a721250ae4485f4cf6d8ddb647c81437e602ed9730d4d8a6f70bab5babc20",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S19_CastanetFish/MAT_S19_CastanetFish.mat"
+    ]
+  },
+  {
+    "number": 22,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+    "name": "T_S21_BagpipeBoar_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "eb184c224ceb51684f86964b8d9830199273844d8649a0018f3273047e5aa7d7",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S21_BagpipeBoar/MAT_S21_BagpipeBoar.mat"
+    ]
+  },
+  {
+    "number": 23,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+    "name": "T_S29_NoteTurret_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "54c0c28fb0584b15d9a5c4fd9d5cc24b03c948015b847a4501dd5cbf47d64637",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S29_NoteTurret/MAT_S29_NoteTurret.mat"
+    ]
+  },
+  {
+    "number": 24,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+    "name": "T_S29_WanderingConductor_BC",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "66cfb647fdc29cefb025edf43d32d08770163a78e2c5a8af7d922f894a2aefa9",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/S29_WanderingConductor/MAT_S29_WanderingConductor.mat"
+    ]
+  },
+  {
+    "number": 25,
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+    "name": "T_SM_MusicFollowSpot_BC",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "sha256": "53a2a36a2693b355a87b1e0eea3c6e0313ecf8e59791b8261d938d6fdf5c3d4e",
+    "materials": [
+      "Assets/_Game/Res/Material/Enemies/Music/SM_MusicFollowSpot/MAT_SM_MusicFollowSpot.mat"
+    ]
+  },
+  {
+    "number": 26,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+    "name": "Theater_Brass_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "e276d5aea7afda0760622948c246915982d1d64255fe412e68335520138bc2c2",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Brass.mat"
+    ]
+  },
+  {
+    "number": 27,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+    "name": "Theater_Ivory_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "e54e37283beb6335b8d1bd085474e8bc99727410d0590dc66e72f30e767d3b09",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Ivory.mat"
+    ]
+  },
+  {
+    "number": 28,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+    "name": "Theater_Lamp_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "3322677da246fcbdfc53ba4b70fcdb726243f46742f700fbdcda0cde3a6804f0",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Lamp.mat"
+    ]
+  },
+  {
+    "number": 29,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+    "name": "Theater_Midnight_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "2e3a3a6417b1b0dfd927b0d3d90b83702416f94a540083c43a27341ee24147ba",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Midnight.mat"
+    ]
+  },
+  {
+    "number": 30,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+    "name": "Theater_Stone_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "fc97751d97f36481bbb434142caa92ad36325973b5d666f07decfc704910271a",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Stone.mat"
+    ]
+  },
+  {
+    "number": 31,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+    "name": "Theater_Trim_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "32fa2776a119a982e6e9cad9d32be34313f2a56c19f806773ee92fca0384da4b",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Trim.mat"
+    ]
+  },
+  {
+    "number": 32,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+    "name": "Theater_Walnut_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "22714b45df2d895914303341d9323766369cff129debe1b71e64840a827296ce",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Walnut.mat"
+    ]
+  },
+  {
+    "number": 33,
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+    "name": "Theater_Wine_BaseColor",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "15c34b95548ec5ca90b3f13aec8eed6b5bc6570d58bdc4b80218cff2d5e323c2",
+    "materials": [
+      "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Wine.mat"
+    ]
+  }
+]

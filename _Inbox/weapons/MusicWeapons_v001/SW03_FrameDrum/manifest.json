@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SW03_FrameDrum",
+  "gunId": "shotgun",
+  "revision": "v001",
+  "units": "m",
+  "sourceSpec": "鼓面直径 0.34m，鼓圈厚 0.085m，演奏面朝 +Y；背面握柄可向 -Y 额外伸出 0.055m。",
+  "restBBoxBlender": [
+    [
+      -0.17000000178813934,
+      0.1826031655073166
+    ],
+    [
+      -0.3400000035762787,
+      0.0
+    ],
+    [
+      -0.12200000137090683,
+      0.0494999997317791
+    ]
+  ],
+  "axis": {
+    "BlenderUp": "+Z",
+    "BlenderForward": "-Y",
+    "FBXForward": "-Z",
+    "FBXUp": "Y",
+    "UnityReadback": "measured; see unityReadback"
+  },
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "leafBones": false,
+    "bakeSpaceTransform": false,
+    "onlyDeform": false
+  },
+  "lods": [
+    {
+      "name": "SM_SW03_FrameDrum_All_LOD0",
+      "triangles": 9148,
+      "budget": 10000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW03_FrameDrum_All_LOD1",
+      "triangles": 4848,
+      "budget": 5000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW03_FrameDrum_All_LOD2",
+      "triangles": 1746,
+      "budget": 1800,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "membrane",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.17000000178813934
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.039000004529953
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "strap",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.27000001072883606
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          -0.08500000089406967
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tuning_lever",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.14000000059604645
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.2800000011920929
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.009999999776482582
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.08500000089406967
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.22100000083446503
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.08500000089406967
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.09520000219345093
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.05950000137090683
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Output",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.23800000548362732
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.06800000369548798
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Palm_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.11999999731779099
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.04100000113248825
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Aim",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.22100000083446503
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.06544999778270721
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Retune",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.20399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.050999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Stow",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.08500000089406967
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "state": "Idle",
+      "duration": 2,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Idle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Move",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Move.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Equip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Equip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Unequip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Unequip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Fire",
+      "duration": 0.6,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Fire.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireRecover",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_FireRecover.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Reload",
+      "duration": 1.9,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Reload.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": [
+        0.18,
+        0.42,
+        0.62,
+        0.82
+      ]
+    },
+    {
+      "state": "Inspect",
+      "duration": 3,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW03_FrameDrum_Inspect.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    }
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_SW03_FrameDrum_BC.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SW03_FrameDrum_ORM.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    },
+    {
+      "file": "Textures/T_SW03_FrameDrum_E.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    }
+  ],
+  "collisionOptional": true,
+  "validationStatus": {
+    "topologyBudgetWeights": "pass",
+    "UnityReadback": "pass",
+    "UVTexelDensity": "degraded",
+    "motionIntersections": "degraded",
+    "FPReview": "degraded",
+    "packedUV": "pass",
+    "FBXRoundTrip": "pass",
+    "rootMotionAndLoopEndpoints": "pass",
+    "referenceArtMatch": "degraded",
+    "dimensionsWithin2Percent": "degraded"
+  },
+  "limitations": [
+    "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+    "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+    "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+    "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+    "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+    "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+    "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+  ],
+  "inputs": [
+    {
+      "path": "Exports/SW03_FrameDrum_Model.fbx",
+      "sha256": "221865a0d1266d7d62c604971b276d43a6d510bb15a7681dc0854efe0530b526"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Equip.fbx",
+      "sha256": "11078337657f644b0efeff750405918a1e3a29f5f90f37a1f117750c1956ccc4"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Fire.fbx",
+      "sha256": "454d10a9cb5ceff991ea162930e64a025aedc5f5d379414208b9a5c902123ff5"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_FireRecover.fbx",
+      "sha256": "8426f6fc9e7473cd9e42732c0cad813556206105ad042af1ead45b61d57688f7"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Idle.fbx",
+      "sha256": "0d46161aa8657cf9fe34d56b6f10e516cab866159241e053ae89f2b62cd2c97b"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Inspect.fbx",
+      "sha256": "57be206b5456eb14413422aa8dc35b07abfce97935d365b213f8ccfa84799316"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Move.fbx",
+      "sha256": "c6f17332814407dbb70ff8c55b6bd682e8db2c17d4dd69ce0c2e93f2aa569264"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Reload.fbx",
+      "sha256": "c5a9dedc99b2328484170a9b189cd8e3e328d23bc8e37558984ddedfacbad659"
+    },
+    {
+      "path": "Animations/AN_SW03_FrameDrum_Unequip.fbx",
+      "sha256": "bce4af1cfa2c23238cd284115d440844bd272cf6834736ac02ed50b8d8df3883"
+    },
+    {
+      "path": "Textures/T_SW03_FrameDrum_BC.png",
+      "sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36"
+    },
+    {
+      "path": "Textures/T_SW03_FrameDrum_E.png",
+      "sha256": "3732e44570b951b4dd54dd7c303449f213994f1512b98342dfdfb7b11802444b"
+    },
+    {
+      "path": "Textures/T_SW03_FrameDrum_ORM.png",
+      "sha256": "9edb83e460830d3d0104aede473622c6305d3478ea7d6c0fe52067d170d7a854"
+    },
+    {
+      "path": "Collision/SW03_FrameDrum_Collision.fbx",
+      "sha256": "2108d84dcbabaa82d578e0965953939bfd829c3bc7b8ea18cf250c66ba6bf8ba"
+    }
+  ],
+  "videoSegments": [
+    {
+      "state": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0
+    },
+    {
+      "state": "Fire",
+      "startSeconds": 2.0,
+      "endSeconds": 2.6
+    },
+    {
+      "state": "Reload",
+      "startSeconds": 2.6,
+      "endSeconds": 4.466666666666667
+    },
+    {
+      "state": "Inspect",
+      "startSeconds": 4.466666666666667,
+      "endSeconds": 7.466666666666667
+    }
+  ],
+  "unityReadback": {
+    "assetId": "SW03_FrameDrum",
+    "meshes": 3,
+    "triangles": [
+      9148,
+      4848,
+      1746
+    ],
+    "bones": [
+      "SW03_FrameDrum_Model(Clone)",
+      "ARM_SW03_FrameDrum",
+      "root",
+      "body",
+      "membrane",
+      "Socket_Grip_L",
+      "Socket_Grip_R",
+      "Socket_Output",
+      "Socket_Palm_R",
+      "strap",
+      "tuning_lever",
+      "Socket_Aim",
+      "Socket_Retune",
+      "Socket_Stow",
+      "SM_SW03_FrameDrum_All_LOD0",
+      "SM_SW03_FrameDrum_All_LOD1",
+      "SM_SW03_FrameDrum_All_LOD2"
+    ],
+    "bboxMin": {
+      "x": -0.1826031655073166,
+      "y": -0.12229455262422562,
+      "z": 0.0
+    },
+    "bboxMax": {
+      "x": 0.17000003159046173,
+      "y": 0.04950007051229477,
+      "z": 0.3399999141693115
+    },
+    "outputForward": {
+      "x": 8.74227694680485e-08,
+      "y": 1.1920928244535389e-07,
+      "z": 1.0
+    },
+    "outputUp": {
+      "x": 5.447336646428186e-15,
+      "y": 1.0,
+      "z": -1.1920928244535389e-07
+    },
+    "clips": [
+      {
+        "name": "AN_SW03_FrameDrum_Equip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Fire",
+        "duration": 0.6000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_FireRecover",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Idle",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Inspect",
+        "duration": 3.000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Move",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Reload",
+        "duration": 1.9000000953674316,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW03_FrameDrum_Unequip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      }
+    ],
+    "finiteBounds": true,
+    "clipDurationsMatch": true,
+    "socketAxesMatch": true
+  }
+}

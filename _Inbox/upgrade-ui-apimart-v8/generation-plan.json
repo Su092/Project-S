@@ -1,0 +1,17 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "基于第七版干净线芯风格生成六枚音符；亮金、平面、无 Bloom/颗粒/底板",
+  "jobs": [
+    {
+      "name": "02-gold-notes-clean",
+      "id": "s-upgrade-apimart-v8-notes-clean",
+      "size": "3:2",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v8/02-gold-notes-clean.png",
+      "reference_local": "_Inbox/upgrade-ui-apimart-v7/03-gold-staff-clean-core.png",
+      "no_global_style": true,
+      "prompt": "Create a new raw sprite sheet of SIX separate musical notation decorations, styled to match the attached CLEAN GOLDEN STAFF texture. The reference is ONLY for the bright warm gold color, clean flat surface and delicate flowing silhouette. Do NOT draw any of its five staff lines. A precise 3-column by 2-row grid with invisible cell boundaries and very generous pure-black spacing. Exactly six centered independent glyphs, one in each cell. Top row left: a QUARTER NOTE, filled angled oval notehead attached to a slender upward stem, NO flag. Top row center: a SINGLE EIGHTH NOTE, filled angled oval head, slender stem, exactly ONE curved flag. Top row right: TWO BEAMED EIGHTH NOTES, two filled oval heads and stems connected by EXACTLY ONE horizontal/slightly sloping beam, not two. Bottom row left: a SINGLE SIXTEENTH NOTE, filled head and stem with exactly TWO distinct flowing flags. Bottom row center: TWO BEAMED SIXTEENTH NOTES with exactly TWO parallel beams connecting the two stems, visibly distinct from top right. Bottom row right: one elegant TREBLE CLEF, correctly recognizable flowing calligraphic silhouette. Match all six in size, visual weight, stroke treatment and color. Refined lightweight graphic notation, slender but readable stems, small balanced noteheads rather than chunky swollen bulbs, slightly graceful curved flag tips. Bright warm golden yellow face like the reference (#F6D460), tiny restrained pale-gold inner accents (#FFEBA6), no obvious 3D depth. Smooth clean flat two-tone illustration. No shiny chrome, no metallic bevel, no realistic reflection, no extruded outline, no heavy dark brown border, no scratch or grain. NO BLOOM, NO glow halo, NO particles, NO dust, NO sparks, NO shadows anywhere. Solid pure BLACK background outside the glyph silhouettes and inside open holes. No circles, square badges, pedestals or bottom plates. No staff, no scene, no letters, labels, numbers, watermark, arrows or grid separators. Full glyphs with ample black clearance in each cell for later independent slicing and floating animation. This is a static unprocessed source sheet; all six shapes must be visually distinct and follow the exact flag/beam counts above."
+    }
+  ]
+}

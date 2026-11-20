@@ -1,0 +1,24 @@
+{
+  "same_camera": true,
+  "same_fov": true,
+  "same_game_time": true,
+  "models": 35,
+  "views": [
+    {
+      "view": "game",
+      "mean_rgb_difference": [
+        14.22462432484568,
+        11.774525462962963,
+        8.79548900462963
+      ]
+    },
+    {
+      "view": "theater",
+      "mean_rgb_difference": [
+        6.184813368055556,
+        6.331390817901235,
+        6.610319733796296
+      ]
+    }
+  ]
+}

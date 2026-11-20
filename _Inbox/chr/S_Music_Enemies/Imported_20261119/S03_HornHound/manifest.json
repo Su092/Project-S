@@ -1,0 +1,1316 @@
+{
+  "schemaVersion": 1,
+  "assetId": "S03_HornHound",
+  "conceptNumber": "03",
+  "category": "Common",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 1.08,
+  "measuredBounds": {
+    "min": [
+      -0.39490869641304016,
+      -1.0649521350860596,
+      0.0
+    ],
+    "max": [
+      0.39490869641304016,
+      1.0949370861053467,
+      1.0800000429153442
+    ]
+  },
+  "units": "m",
+  "blenderAxes": "+Z up, -Y forward",
+  "unityAxes": "+Y up, +Z forward (target)",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "addLeafBones": false,
+    "allActions": false
+  },
+  "variants": [
+    "Base"
+  ],
+  "lods": [
+    {
+      "variant": "Base",
+      "level": 0,
+      "file": "Exports/S03_HornHound_Model.fbx",
+      "tris": 6272,
+      "budget": 6500,
+      "nodes": [
+        "SM_S03_HornHound_Brow_LOD0",
+        "SM_S03_HornHound_Haunch_LOD0",
+        "SM_S03_HornHound_MuzzleStop_LOD0",
+        "SM_S03_HornHound_Ear_LOD0",
+        "SM_S03_HornHound_EyeSocket_LOD0",
+        "SM_S03_HornHound_Eye_LOD0",
+        "SM_S03_HornHound_LForeUpperJoint_LOD0",
+        "SM_S03_HornHound_LForeShinJoint_LOD0",
+        "SM_S03_HornHound_LForeFootJoint_LOD0",
+        "SM_S03_HornHound_LForeSole_LOD0",
+        "SM_S03_HornHound_LHindUpperJoint_LOD0",
+        "SM_S03_HornHound_LHindShinJoint_LOD0",
+        "SM_S03_HornHound_LHindFootJoint_LOD0",
+        "SM_S03_HornHound_LHindSole_LOD0",
+        "SM_S03_HornHound_RForeUpperJoint_LOD0",
+        "SM_S03_HornHound_RForeShinJoint_LOD0",
+        "SM_S03_HornHound_RForeFootJoint_LOD0",
+        "SM_S03_HornHound_RForeSole_LOD0",
+        "SM_S03_HornHound_RHindUpperJoint_LOD0",
+        "SM_S03_HornHound_RHindShinJoint_LOD0",
+        "SM_S03_HornHound_RHindFootJoint_LOD0",
+        "SM_S03_HornHound_RHindSole_LOD0",
+        "SM_S03_HornHound_Button_LOD0",
+        "SM_S03_HornHound_Valve_LOD0",
+        "SM_S03_HornHound_Scarf_LOD0",
+        "SM_S03_HornHound_ScarfEnd_LOD0",
+        "SM_S03_HornHound_Tail_LOD0",
+        "SM_S03_HornHound_CoiledTubing_LOD0",
+        "SM_S03_HornHound_Muzzle_LOD0",
+        "SM_S03_HornHound_MuzzleBore_LOD0",
+        "SM_S03_HornHound_LForeUpper_LOD0",
+        "SM_S03_HornHound_LForeShin_LOD0",
+        "SM_S03_HornHound_LForeFoot_LOD0",
+        "SM_S03_HornHound_LHindUpper_LOD0",
+        "SM_S03_HornHound_LHindShin_LOD0",
+        "SM_S03_HornHound_LHindFoot_LOD0",
+        "SM_S03_HornHound_RForeUpper_LOD0",
+        "SM_S03_HornHound_RForeShin_LOD0",
+        "SM_S03_HornHound_RForeFoot_LOD0",
+        "SM_S03_HornHound_RHindUpper_LOD0",
+        "SM_S03_HornHound_RHindShin_LOD0",
+        "SM_S03_HornHound_RHindFoot_LOD0"
+      ],
+      "unityTris": 6272,
+      "unityHeightMeters": 1.080303430557251
+    },
+    {
+      "variant": "Base",
+      "level": 1,
+      "file": "Exports/S03_HornHound_Model.fbx",
+      "tris": 3080,
+      "budget": 3200,
+      "nodes": [
+        "SM_S03_HornHound_CoiledTubing_LOD1",
+        "SM_S03_HornHound_Brow_LOD1",
+        "SM_S03_HornHound_Haunch_LOD1",
+        "SM_S03_HornHound_Ear_LOD1",
+        "SM_S03_HornHound_EyeSocket_LOD1",
+        "SM_S03_HornHound_Eye_LOD1",
+        "SM_S03_HornHound_LForeUpperJoint_LOD1",
+        "SM_S03_HornHound_LForeShinJoint_LOD1",
+        "SM_S03_HornHound_LForeFootJoint_LOD1",
+        "SM_S03_HornHound_LForeSole_LOD1",
+        "SM_S03_HornHound_LHindUpperJoint_LOD1",
+        "SM_S03_HornHound_LHindShinJoint_LOD1",
+        "SM_S03_HornHound_LHindFootJoint_LOD1",
+        "SM_S03_HornHound_LHindSole_LOD1",
+        "SM_S03_HornHound_RForeUpperJoint_LOD1",
+        "SM_S03_HornHound_RForeShinJoint_LOD1",
+        "SM_S03_HornHound_RForeFootJoint_LOD1",
+        "SM_S03_HornHound_RForeSole_LOD1",
+        "SM_S03_HornHound_RHindUpperJoint_LOD1",
+        "SM_S03_HornHound_RHindShinJoint_LOD1",
+        "SM_S03_HornHound_RHindFootJoint_LOD1",
+        "SM_S03_HornHound_RHindSole_LOD1",
+        "SM_S03_HornHound_Valve_LOD1",
+        "SM_S03_HornHound_Button_LOD1",
+        "SM_S03_HornHound_Scarf_LOD1",
+        "SM_S03_HornHound_ScarfEnd_LOD1",
+        "SM_S03_HornHound_Tail_LOD1",
+        "SM_S03_HornHound_Muzzle_LOD1",
+        "SM_S03_HornHound_MuzzleBore_LOD1",
+        "SM_S03_HornHound_MuzzleStop_LOD1",
+        "SM_S03_HornHound_LForeUpper_LOD1",
+        "SM_S03_HornHound_LForeShin_LOD1",
+        "SM_S03_HornHound_LForeFoot_LOD1",
+        "SM_S03_HornHound_LHindUpper_LOD1",
+        "SM_S03_HornHound_LHindShin_LOD1",
+        "SM_S03_HornHound_LHindFoot_LOD1",
+        "SM_S03_HornHound_RForeUpper_LOD1",
+        "SM_S03_HornHound_RForeShin_LOD1",
+        "SM_S03_HornHound_RForeFoot_LOD1",
+        "SM_S03_HornHound_RHindUpper_LOD1",
+        "SM_S03_HornHound_RHindShin_LOD1",
+        "SM_S03_HornHound_RHindFoot_LOD1"
+      ],
+      "unityTris": 3080,
+      "unityHeightMeters": 1.080303430557251
+    },
+    {
+      "variant": "Base",
+      "level": 2,
+      "file": "Exports/S03_HornHound_Model.fbx",
+      "tris": 1254,
+      "budget": 1300,
+      "nodes": [
+        "SM_S03_HornHound_Brow_LOD2",
+        "SM_S03_HornHound_Ear_LOD2",
+        "SM_S03_HornHound_EyeSocket_LOD2",
+        "SM_S03_HornHound_Eye_LOD2",
+        "SM_S03_HornHound_LForeSole_LOD2",
+        "SM_S03_HornHound_LHindFoot_LOD2",
+        "SM_S03_HornHound_LHindSole_LOD2",
+        "SM_S03_HornHound_RForeShin_LOD2",
+        "SM_S03_HornHound_RForeSole_LOD2",
+        "SM_S03_HornHound_RHindShin_LOD2",
+        "SM_S03_HornHound_RHindSole_LOD2",
+        "SM_S03_HornHound_Button_LOD2",
+        "SM_S03_HornHound_Scarf_LOD2",
+        "SM_S03_HornHound_ScarfEnd_LOD2",
+        "SM_S03_HornHound_CoiledTubing_LOD2",
+        "SM_S03_HornHound_Haunch_LOD2",
+        "SM_S03_HornHound_Muzzle_LOD2",
+        "SM_S03_HornHound_MuzzleBore_LOD2",
+        "SM_S03_HornHound_MuzzleStop_LOD2",
+        "SM_S03_HornHound_LForeUpper_LOD2",
+        "SM_S03_HornHound_LForeShin_LOD2",
+        "SM_S03_HornHound_LForeFoot_LOD2",
+        "SM_S03_HornHound_LHindUpper_LOD2",
+        "SM_S03_HornHound_LHindShin_LOD2",
+        "SM_S03_HornHound_RForeUpper_LOD2",
+        "SM_S03_HornHound_RForeFoot_LOD2",
+        "SM_S03_HornHound_RHindUpper_LOD2",
+        "SM_S03_HornHound_RHindFoot_LOD2",
+        "SM_S03_HornHound_Valve_LOD2",
+        "SM_S03_HornHound_Tail_LOD2"
+      ],
+      "unityTris": 1254,
+      "unityHeightMeters": 1.080303430557251
+    }
+  ],
+  "rootPath": "ARM_S03_HornHound/root",
+  "materials": [
+    "MAT_S03_HornHound_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S03_HornHound_BC.png",
+      "space": "sRGB",
+      "channels": "BaseColor"
+    },
+    {
+      "file": "Textures/T_S03_HornHound_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S03_HornHound_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S03_HornHound/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S03_HornHound/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5653036236763
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "pelvis",
+      "path": "ARM_S03_HornHound/root/body/pelvis",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.39530104398727417
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5101453065872192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "spine",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine",
+      "parent": "pelvis",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.31256359815597534
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5653036236763
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "neck",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine/neck",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.33094972372055054
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6296549439430237
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "head",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine/neck/head",
+      "parent": "neck",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.5423897504806519
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.785936713218689
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Mouth",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine/neck/head/Socket_Mouth",
+      "parent": "head",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -1.0388143062591553
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7951297760009766
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "scarf",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine/neck/scarf",
+      "parent": "neck",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.33094972372055054
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.758357584476471
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tail",
+      "path": "ARM_S03_HornHound/root/body/pelvis/tail",
+      "parent": "pelvis",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5975480675697327
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6204618811607361
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeUpper",
+      "path": "ARM_S03_HornHound/root/body/LForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.2114400863647461
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.32175666093826294
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5469174981117249
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeShin",
+      "path": "ARM_S03_HornHound/root/body/LForeUpper/LForeShin",
+      "parent": "LForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.2665983736515045
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.441266268491745
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.30973684787750244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeFoot",
+      "path": "ARM_S03_HornHound/root/body/LForeUpper/LForeShin/LForeFoot",
+      "parent": "LForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.30337056517601013
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15628179907798767
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.1221986711025238
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindUpper",
+      "path": "ARM_S03_HornHound/root/body/LHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.2114400863647461
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.441266268491745
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5469174981117249
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindShin",
+      "path": "ARM_S03_HornHound/root/body/LHindUpper/LHindShin",
+      "parent": "LHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.2665983736515045
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.560775876045227
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.30973684787750244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindFoot",
+      "path": "ARM_S03_HornHound/root/body/LHindUpper/LHindShin/LHindFoot",
+      "parent": "LHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.30337056517601013
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.6067411303520203
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.1221986711025238
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeUpper",
+      "path": "ARM_S03_HornHound/root/body/RForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.2114400863647461
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.32175666093826294
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5469174981117249
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeShin",
+      "path": "ARM_S03_HornHound/root/body/RForeUpper/RForeShin",
+      "parent": "RForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.2665983736515045
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.441266268491745
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.30973684787750244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeFoot",
+      "path": "ARM_S03_HornHound/root/body/RForeUpper/RForeShin/RForeFoot",
+      "parent": "RForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.30337056517601013
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15628179907798767
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.1221986711025238
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindUpper",
+      "path": "ARM_S03_HornHound/root/body/RHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.2114400863647461
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.441266268491745
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5469174981117249
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindShin",
+      "path": "ARM_S03_HornHound/root/body/RHindUpper/RHindShin",
+      "parent": "RHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.2665983736515045
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.560775876045227
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.30973684787750244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindFoot",
+      "path": "ARM_S03_HornHound/root/body/RHindUpper/RHindShin/RHindFoot",
+      "parent": "RHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.30337056517601013
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.6067411303520203
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.1221986711025238
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S03_HornHound/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5653036236763
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Mouth",
+      "path": "ARM_S03_HornHound/root/body/pelvis/spine/neck/head/Socket_Mouth",
+      "parent": "head",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -1.0388143062591553
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7951297760009766
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -0.4964245557785034,
+        "z": 0.009193062782287598
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S03_HornHound/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5653036236763
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S03_HornHound_Movement_COL",
+      "shape": "convex",
+      "purpose": "Movement",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.5653036236763
+      ],
+      "size": [
+        0.3159269690513611,
+        0.9935489892959595,
+        0.47520002722740173
+      ]
+    },
+    {
+      "node": "SM_S03_HornHound_Hurt_COL",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.5653036236763
+      ],
+      "size": [
+        0.4422977566719055,
+        1.295933485031128,
+        0.6047999858856201
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S03_HornHound_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S03_HornHound_Spawn.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.39490869641304016,
+          -1.1140071153640747,
+          -0.20397035777568817
+        ],
+        "max": [
+          0.39490869641304016,
+          1.0944502353668213,
+          1.1367114782333374
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.13789570331573486,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.13789570331573486
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S03_HornHound_Idle.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.39490869641304016,
+          -1.0649521350860596,
+          -0.0003033819084521383
+        ],
+        "max": [
+          0.39490869641304016,
+          1.111148476600647,
+          1.1130950450897217
+        ]
+      },
+      "unityCheck": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 4.553677558898926,
+        "maxBoneTravel": 0.033094942569732666,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S03_HornHound_Hit.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.44416946172714233,
+          -1.0649521350860596,
+          -0.17611485719680786
+        ],
+        "max": [
+          0.39490869641304016,
+          1.1527236700057983,
+          1.3670201301574707
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.347187042236328,
+        "maxBoneTravel": 1.25393512462324e-07,
+        "loopAngle": 1.8460420370101929,
+        "loopTravel": 5.551115123125783e-17
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Walk",
+      "durationSec": 0.8,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.4
+      },
+      "file": "Exports/AN_S03_HornHound_Walk.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.39490869641304016,
+          -1.0649521350860596,
+          -0.008654732257127762
+        ],
+        "max": [
+          0.39490869641304016,
+          1.1044203042984009,
+          1.1130950450897217
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 20.626487731933594,
+        "maxBoneTravel": 0.033094942569732666,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Run",
+      "durationSec": 0.6,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.3
+      },
+      "file": "Exports/AN_S03_HornHound_Run.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 18.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.39490869641304016,
+          -1.0649521350860596,
+          -0.011338092386722565
+        ],
+        "max": [
+          0.39490869641304016,
+          1.1043362617492676,
+          1.1130950450897217
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.6000000238418579,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 38.947479248046875,
+        "maxBoneTravel": 0.033094942569732666,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Attack_Primary",
+      "durationSec": 0.75,
+      "loop": false,
+      "markersSec": {
+        "Strike": 0.375
+      },
+      "file": "Exports/AN_S03_HornHound_Attack_Primary.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 22.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.39490869641304016,
+          -1.3564815521240234,
+          -0.0003033819084521383
+        ],
+        "max": [
+          0.39490869641304016,
+          1.095698356628418,
+          1.2075108289718628
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.75,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 25.209150314331055,
+        "maxBoneTravel": 0.2479097992181778,
+        "loopAngle": 0.6305580735206604,
+        "loopTravel": 3.722587836278668e-33
+      }
+    },
+    {
+      "clip": "AN_S03_HornHound_Death",
+      "durationSec": 0.4,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 0.4
+      },
+      "file": "Exports/AN_S03_HornHound_Death.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 12.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.5068105459213257,
+          -1.112481951713562,
+          -0.5238991379737854
+        ],
+        "max": [
+          0.39490869641304016,
+          1.0944502353668213,
+          1.0800000429153442
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.40000003576278687,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 50.452781677246094,
+        "maxBoneTravel": 0.4103776514530182,
+        "loopAngle": 50.4202880859375,
+        "loopTravel": 0.4103776514530182
+      }
+    }
+  ],
+  "derivatives": [],
+  "validationStatus": {
+    "modelImport": "verified",
+    "heightAndPolyBudgets": "verified",
+    "avatarClipSampling": "verified",
+    "loopEndpoints": "verified",
+    "collisionGeometry": "verified",
+    "conceptBoardComparison": "pending",
+    "targetURPAndCombatReview": "pending"
+  },
+  "unityVersion": "6000.6.4f1",
+  "sourceQA": {
+    "roots": [
+      "root"
+    ],
+    "images": [
+      {
+        "file": "//..\\Textures\\T_S03_HornHound_BC.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S03_HornHound_E.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S03_HornHound_ORM.png",
+        "exists": true
+      }
+    ],
+    "contacts": [],
+    "variantBody": {},
+    "restBoneCount": 22
+  },
+  "materialNotes": "Shared UV0 atlas with intentional reuse by surface type. Flat tangent normal (0.5,0.5,1). BC sRGB. ORM and E linear. Warm emission tint is controlled separately.",
+  "unityBoundsMeters": {
+    "width": 0.7898173928260803,
+    "height": 1.080303430557251,
+    "depth": 2.1594018936157227
+  }
+}

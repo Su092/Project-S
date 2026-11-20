@@ -29,16 +29,37 @@ namespace S.View
 
         /// <summary>是否为精英（体积更大、色调更亮、击杀回血）。</summary>
         public bool IsElite;
+        public bool ExternalControl, CombatAuxiliary;
+        public MusicEliteBrain MusicBrain { get; private set; }
 
         /// <summary>击杀时回复玩家多少生命（0 = 不回）。精英是单图下唯一的续航来源。</summary>
         public float HealOnKill;
 
-        public Vector3 AimPoint => transform.position + Vector3.up * 0.8f;
+        public Vector3 AimPoint => Visual ? Visual.AimPoint : transform.position + Vector3.up * 0.8f;
+        public EnemyVisual Visual { get; private set; }
+        public void BindVisual(EnemyVisual visual)
+        {
+            Visual = visual;
+            if(visual.AssetId.StartsWith("S"))
+            {
+                _shieldFacing=0;
+                if(IsElite){MusicBrain=gameObject.AddComponent<MusicEliteBrain>();MusicBrain.Init(this);}
+                else if(!ExternalControl)
+                {
+                    Ai=visual.AssetId.StartsWith("S11")?EnemyAi.Turret:EnemyAi.Chaser;
+                    if(visual.AssetId.StartsWith("S03")){Speed=3.5f;_contactRange=1.4f;}
+                    if(visual.AssetId.StartsWith("S11"))Speed=2.2f;
+                }
+            }
+            gameObject.layer = LayerMask.NameToLayer(WorldPhysics.MovementLayer);
+            Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer(WorldPhysics.ShotLayer), true);
+        }
 
         CharacterController _cc;
         float _attackCd;
         float _attackWindup = -1f;
         EnemyMotion _motion;
+        TheaterPathFollower _path;
         float _slowLeft;
         float _slowPct;
         int _burnStacks;
@@ -62,6 +83,7 @@ namespace S.View
         void Awake()
         {
             _cc = GetComponent<CharacterController>();
+            WorldPhysics.ConfigureActor(gameObject);
         }
 
         /// <summary>
@@ -141,6 +163,9 @@ namespace S.View
 
         void Start()
         {
+            if (GameRoot.Instance?.Zones?.Map && GameRoot.Instance.Zones.Map.IsTheater)
+                _path = gameObject.AddComponent<TheaterPathFollower>();
+            if (Visual) return;
             var body = transform.Find("Body");
             if (body != null)
             {
@@ -177,6 +202,8 @@ namespace S.View
             var root = GameRoot.Instance;
             if (root == null || root.PlayerTransform == null) return;
 
+            if(ExternalControl)return;
+            if(MusicBrain){MusicBrain.Tick(dt,speedMul);return;}
             Vector3 toPlayer = root.PlayerTransform.position - transform.position;
             float dist = toPlayer.magnitude;
             Vector3 dir = dist > 0.01f ? toPlayer / dist : Vector3.forward;
@@ -188,51 +215,63 @@ namespace S.View
                 {
                     _attackWindup = -1f;
                     float range = Ai == EnemyAi.Chaser ? _contactRange : _attackRange;
-                    if (dist <= range)
+                    if (dist <= range && (!_path || _path.ClearSight(AimPoint, root.PlayerTransform.position + Vector3.up)))
                     {
                         if (Ai == EnemyAi.Chaser) root.DamagePlayer(ContactDamage);
-                        else if (Ai == EnemyAi.Turret) root.EnemyShot(AimPoint, root.PlayerAimPoint, ContactDamage);
+                        else if (Ai == EnemyAi.Turret) root.EnemyShot(Visual && Visual.Muzzle ? Visual.Muzzle.position : AimPoint, root.PlayerAimPoint, ContactDamage);
                         else { root.SpawnBomberBlast(transform.position, ContactDamage); ApplyDamage(MaxHp); return; }
                     }
                 }
             }
+            Vector3 movementStart=transform.position;
+            Vector3 travel = _path ? _path.Direction(root.PlayerTransform.position) : dir;
+            if (_path && _cc && _cc.enabled) _cc.Move(Vector3.down * (8f * dt));
             switch (Ai)
             {
                 case EnemyAi.Chaser:
-                    if (_attackWindup < 0f) Move(dir * Speed * speedMul * dt);
+                    if (_attackWindup < 0f) Move(travel * Speed * speedMul * dt);
                     BeginAttack(dist, _contactRange);
                     break;
                 case EnemyAi.Bomber:
-                    if (dist > _attackRange && _attackWindup < 0f) Move(dir * Speed * speedMul * dt);
+                    if (dist > _attackRange && _attackWindup < 0f) Move(travel * Speed * speedMul * dt);
                     BeginAttack(dist, _attackRange);
                     break;
                 case EnemyAi.Turret:
+                    if(Visual && Visual.AssetId.StartsWith("S11") && (dist>10 || (_path && !_path.ClearSight(AimPoint,root.PlayerAimPoint))))Move(travel*Speed*speedMul*dt);
                     BeginAttack(dist, _attackRange);
                     break;
             }
 
-            if (transform.position.y > -30f)
+            // Movement has priority over looking at the target, including detours and wall sliding.
+            if(!ActorFacing.AlongMovement(transform,transform.position-movementStart)&&_attackWindup>=0f)
             {
-                // 面向玩家
-                Vector3 flat = dir; flat.y = 0f;
-                if (flat.sqrMagnitude > 0.01f)
-                    transform.rotation = Quaternion.Slerp(transform.rotation,
-                        Quaternion.LookRotation(flat), 12f * dt);
+                Vector3 flat=dir;flat.y=0;
+                if(flat.sqrMagnitude>.001f)transform.rotation=Quaternion.LookRotation(flat);
             }
         }
 
-        void Move(Vector3 delta)
+        public CollisionFlags MoveDelta(Vector3 delta)
         {
-            if (_cc != null && _cc.enabled) _cc.Move(delta);
-            else transform.position += delta;
+            Vector3 before=transform.position;CollisionFlags flags=CollisionFlags.None;
+            if(_cc&&_cc.enabled)flags=_cc.Move(delta);else transform.position+=delta;
+            ActorFacing.AlongMovement(transform,transform.position-before);return flags;
         }
+        public void GroundStep(float dt){if(_cc&&_cc.enabled)_cc.Move(Vector3.down*8*dt);}
+        public void TravelTo(Vector3 target,float dt,float multiplier=1)
+        {
+            var dir=_path?_path.Direction(target):MusicCombatWorld.Flat(target-transform.position).normalized;
+            if(dir.sqrMagnitude>.001f)MoveDelta(dir*Speed*multiplier*dt);
+        }
+        void Move(Vector3 delta)=>MoveDelta(delta);
 
         void BeginAttack(float distance, float range)
         {
             if (range <= 0f || distance > range || _attackCd > 0f || _attackWindup >= 0f) return;
+            if (_path && !_path.ClearSight(AimPoint, GameRoot.Instance.PlayerTransform.position + Vector3.up)) return;
             _attackWindup = Ai == EnemyAi.Bomber ? 0.4f : 0.22f;
             _attackCd = _attackCooldown > 0f ? _attackCooldown : 0.85f;
             _motion?.Attack();
+            if (Visual) Visual.Attack(_attackWindup);
         }
 
         /// <summary>命中判定入口。desc 携带所有配件结算结果。</summary>
@@ -281,6 +320,7 @@ namespace S.View
         /// <summary>被奇点吸引：直接改位移（绕过 AI 决策，但保留 CharacterController 的碰撞）。</summary>
         public void PullToward(Vector3 delta)
         {
+            if(CombatAuxiliary)return; // Balcony mounts stay fixed under attraction effects.
             Move(delta);
         }
 
@@ -288,12 +328,17 @@ namespace S.View
         {
             if (!Alive) return;
             Hp -= amount;
+            if (Hp > 0f && Visual) Visual.Hit();
             GameRoot.Instance?.SpawnDamageNumber(transform.position + Vector3.up * 1.2f, amount);
             if (Hp <= 0f)
             {
                 Hp = 0f;
+                MusicBrain?.Cancel();
+                GetComponent<MusicNoteGun>()?.BreakApart();
                 GameRoot.Instance?.OnEnemyKilled(this, Xp);
-                Destroy(gameObject);
+                if (_cc) _cc.enabled = false;
+                if (Visual) Destroy(gameObject, Visual.Die() + (Visual.AssetId.Length > 2 && Visual.AssetId[0] == 'S' && char.IsDigit(Visual.AssetId[1]) ? 0f : .35f));
+                else Destroy(gameObject);
             }
         }
     }

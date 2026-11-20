@@ -59,7 +59,7 @@ namespace S.Core
         public BossState(float maxHp) : this(maxHp, null) { }
 
         /// <summary>从数据构造。传 null 时用默认值（dotnet 断言走这条）。</summary>
-        public BossState(float maxHp, BossDef def)
+        public BossState(float maxHp, BossDef def, int? mapPillarCount = null)
         {
             if (def != null)
             {
@@ -74,6 +74,7 @@ namespace S.Core
                 ShockwaveInterval = def.ShockwaveInterval;
             }
 
+            if (mapPillarCount.HasValue) PillarCount = System.Math.Max(0, mapPillarCount.Value);
             MaxHp = maxHp;
             Hp = maxHp;
             PillarsAlive = PillarCount;
@@ -156,6 +157,12 @@ namespace S.Core
             }
 
             return ev;
+        }
+
+        public void TickMusic(float dt)
+        {
+            if(dt<=0)return;
+            Phase=PhaseFor(HpRatio);ShieldUp=false;BreachLeft=0;
         }
 
         static BossPhase PhaseFor(float ratio)

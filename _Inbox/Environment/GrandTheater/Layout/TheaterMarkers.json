@@ -1,0 +1,892 @@
+{
+  "spawn": {
+    "position": [
+      0,
+      0,
+      -32
+    ],
+    "floor": "L1",
+    "rotationEuler": [
+      0,
+      0,
+      0
+    ],
+    "viewHeight": 1.65
+  },
+  "referenceCapsule": {
+    "diameter": 1,
+    "height": 2
+  },
+  "routes": [
+    {
+      "id": "L1_AuditoriumLoop",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            0,
+            0,
+            -29
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            0,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            0,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "L1_BackstageLoop",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -21,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            0,
+            16
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -23,
+            0,
+            18
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -23,
+            0,
+            32
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            23,
+            0,
+            32
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            23,
+            0,
+            18
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            0,
+            16
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "L2_FullLoop",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            0,
+            6,
+            -22
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -20.5,
+            6,
+            -22
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -20.5,
+            6,
+            31
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            20.5,
+            6,
+            31
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            20.5,
+            6,
+            -22
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            0,
+            6,
+            -22
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stage_WestSteps",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -10,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            0,
+            9.44
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            1.2,
+            12
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            1.2,
+            17
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stage_EastSteps",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            10,
+            0,
+            6
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            0,
+            9.44
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            1.2,
+            12
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            1.2,
+            17
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stage_WestRamp",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -23,
+            0,
+            18
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -23,
+            0,
+            22
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -22,
+            0,
+            22
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -14,
+            1.2,
+            22
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            1.2,
+            22
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stage_EastRamp",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            23,
+            0,
+            18
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            23,
+            0,
+            22
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            22,
+            0,
+            22
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            14,
+            1.2,
+            22
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            1.2,
+            22
+          ],
+          "floor": "Stage",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stair_West_Rear",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -21,
+            0,
+            -23
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            0,
+            -23
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            3,
+            -13.6
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            3,
+            -12.35
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            3,
+            -12.35
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            3,
+            -13.6
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            6,
+            -20
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            6,
+            -21.2
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            6,
+            -21.2
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stair_West_Front",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -21,
+            0,
+            17
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            0,
+            17
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            0,
+            20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            3,
+            26.4
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -29.75,
+            3,
+            27.65
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            3,
+            27.65
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            3,
+            26.4
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            6,
+            20
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -26.25,
+            6,
+            18.8
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -21,
+            6,
+            18.8
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stair_East_Rear",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            21,
+            0,
+            -23
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            0,
+            -23
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            0,
+            -20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            3,
+            -13.6
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            3,
+            -12.35
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            3,
+            -12.35
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            3,
+            -13.6
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            6,
+            -20
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            6,
+            -21.2
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            6,
+            -21.2
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Stair_East_Front",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            21,
+            0,
+            17
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            0,
+            17
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            0,
+            20
+          ],
+          "floor": "L1",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            3,
+            26.4
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            29.75,
+            3,
+            27.65
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            3,
+            27.65
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            3,
+            26.4
+          ],
+          "floor": "Transition",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            6,
+            20
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            26.25,
+            6,
+            18.8
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            21,
+            6,
+            18.8
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Box_West",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            -14,
+            6,
+            -22.6
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -14,
+            6,
+            -19.65
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            6,
+            -19.65
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            -10,
+            6,
+            -22.6
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    },
+    {
+      "id": "Box_East",
+      "bidirectional": true,
+      "nodes": [
+        {
+          "position": [
+            14,
+            6,
+            -22.6
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            14,
+            6,
+            -19.65
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            6,
+            -19.65
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        },
+        {
+          "position": [
+            10,
+            6,
+            -22.6
+          ],
+          "floor": "L2",
+          "viewHeight": 1.65
+        }
+      ]
+    }
+  ]
+}

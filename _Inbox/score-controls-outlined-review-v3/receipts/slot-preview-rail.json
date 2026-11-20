@@ -1,0 +1,14 @@
+{
+  "id": "s-slot-preview-rail-review-20261120-v3",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:59:43+0800",
+  "task_id": "task_01M7VHRFEPCA5V03CK7RYW0M35",
+  "result_url": "https://getapib.org/image/9998204852793455-472793fe-4b4e-458d-81e7-f81343d9a9b8-image_task_01M7VHS38QR4Y5TKERKDSZ699E_0.png",
+  "width": 2688,
+  "height": 1152,
+  "mode": "RGBA",
+  "out": "_Inbox/score-controls-outlined-review-v3/slot-preview-rail.png",
+  "bytes": 494074,
+  "sha256": "7e88d2a3570422420b6a8a0a0e74e7d7d31668e52b9ab8df28566c8fa8273031"
+}

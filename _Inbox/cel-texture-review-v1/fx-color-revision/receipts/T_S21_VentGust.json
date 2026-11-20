@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s21_ventgust-rgb-revision-20261120-v2",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:47+0800",
+  "task_id": "task_01M7W1QF43WYJM4XWNAFSBCC30",
+  "result_url": "https://getapib.org/image/9998204836014915-a042c675-6c9a-4829-aade-324d685f20af-image_task_01M7W1S47QGWTA0FQ2729HAFBC_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+  "bytes": 1295782,
+  "sha256": "f1c51f7308cb5000e1906278e577f4d2911926b131e18297999bd707c97675ac"
+}

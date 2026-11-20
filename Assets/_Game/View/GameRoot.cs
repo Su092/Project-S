@@ -64,6 +64,25 @@ namespace S.View
 
         public bool InventoryOpen => _inv != null && _inv.Open;
         public bool Paused { get; private set; }
+        public bool AttachmentPreviewExpanded { get; private set; } = true;
+        public ScoreWorkbench NearbyWorkbench => ScoreWorkbench.Nearest(this);
+        public void ExpandAttachmentPreview() => AttachmentPreviewExpanded = true;
+        public void ToggleAttachmentPreview()
+        {
+            if (!_runStarted || _runEnded || (_menu != null && _menu.IsOpen)) return;
+            AttachmentPreviewExpanded = !AttachmentPreviewExpanded;
+        }
+        public bool TryOpenScoreWorkbench(ScoreWorkbench station)
+        {
+            if (!_runStarted || _runEnded || Paused || InventoryOpen || !station || !station.InRange(this)) return false;
+            return _inv.OpenAtWorkbench(station);
+        }
+        public void ResumeAfterDeferredOffer()
+        {
+            Paused = false;
+            Time.timeScale = 1f;
+            SyncCursorToState();
+        }
 
         /// <summary>主菜单（正常启动时打开；-scheck 等测试模式下不创建）。</summary>
         public MenuView Menu => _menu;
@@ -102,6 +121,7 @@ namespace S.View
         public bool InvulnerableForTest { get; set; }
 
         public IReadOnlyList<Enemy> Enemies => _enemies;
+        public bool CombatEnded => _runEnded;
 
         void Awake()
         {
@@ -117,12 +137,12 @@ namespace S.View
             Hp = MaxHp;
             Run = new RunState(Data, (uint)System.Environment.TickCount);
 
-            BuildWorld();
 
-            Director = Data.Director ?? new RunDirector(null, null);
+            Director = Data.Director?.CreateRun() ?? new RunDirector(null, null);
 
             Zones = gameObject.AddComponent<ArenaBuilder>();
             Zones.Build(Data.Arena);
+            BuildWorld();
 
             // 把玩家放到场地出生点
             if (Player != null)
@@ -160,6 +180,12 @@ namespace S.View
         }
 
         bool _runStarted;
+        bool _runEnded;
+        bool _hudPointerWasHeld;
+        public bool RunStarted => _runStarted;
+        public bool RunEnded => _runEnded;
+        public bool HudPointerHeld => _runStarted && !_runEnded && !Paused && Keyboard.current != null &&
+            (Keyboard.current.leftAltKey.isPressed || Keyboard.current.rightAltKey.isPressed);
         void StartRun()
         {
             if (_runStarted) return;
@@ -167,7 +193,7 @@ namespace S.View
             if (!Weapons.StartWith(string.IsNullOrEmpty(id) ? Data.GunOrder[0].Id : id)) return;
             _runStarted = true;
             SetPaused(false);
-            _hud?.Toast("进入竞技场 · 撑住并摧毁铸造核心");
+            _hud?.Toast(Zones.Map.IsTheater ? "进入鸣奏大剧院" : "进入竞技场 · 撑住并摧毁铸造核心");
             NextSpawnTick(instant: true);
         }
 
@@ -189,6 +215,7 @@ namespace S.View
 
         void BuildWorld()
         {
+            if (Zones != null && Zones.Map != null) return; // Authored maps own their lighting.
             // 光照与环境（几何体由 ArenaBuilder 负责）
             if (FindLight() == null)
             {
@@ -289,6 +316,8 @@ namespace S.View
         {
             if (Data == null || Run == null) return;
 
+            if (_hudPointerWasHeld != HudPointerHeld)
+            { _hudPointerWasHeld = HudPointerHeld; SyncCursorToState(); }
             if (HandlePauseInput()) return;
             if (Paused || InventoryOpen) return;
 
@@ -312,14 +341,14 @@ namespace S.View
         {
             if (_bossFightActive || Boss != null) return;
             _bossFightActive = true;
-            _hud?.Toast("铸造核心入场 · 破坏四根能量柱破防");
+            _hud?.Toast(Zones.Map.IsTheater ? "Boss 入场" : "铸造核心入场 · 破坏四根能量柱破防");
 
             // 柱子只在 Boss 出场时生成：单图没有「Boss 区」，
             // 柱子如果一直立在中央，普通阶段会被当成掩体，破坏后玩家会以为地图坏了。
             Zones?.SpawnPillars();
 
             var go = new GameObject("Boss");
-            go.transform.position = ArenaBuilder.Center + Vector3.up * 0.1f;
+            go.transform.position = Zones.BossSpawn;
             var boss = go.AddComponent<BossView>();
             boss.Init(Data.BossHp, Data.Boss);
             Boss = boss;
@@ -367,7 +396,7 @@ namespace S.View
                 var offers = Run.Roll(3, Weapons.OwnedGunIds);
                 if (offers.Count > 0) _pendingOffers.Enqueue(offers);
             }
-            _hud?.Toast("铸造核心已摧毁");
+            _hud?.Toast("乐章终止 · Boss 已击败");
             Win();
         }
 
@@ -380,6 +409,7 @@ namespace S.View
 
             // 规则层：碎柱 → 关盾 + 破防
             Boss.State.DamagePillar(p.Index, Boss.State.PillarHp);
+            if (Boss.Visual) Boss.Visual.Action("Stagger", .5f, 4);
             _hud?.Toast($"能量柱 {p.Index + 1} 已破坏 · 破防 {Boss.State.PillarBreachTime:0}s");
         }
 
@@ -444,7 +474,23 @@ namespace S.View
         }
 
         /// <summary>真正造出敌人的唯一入口（普通与精英共用）。数值全部来自 EnemyDef。</summary>
-        Enemy SpawnAt(EnemyDef def, Vector3 pos, bool elite)
+        Enemy SpawnAt(EnemyDef def, Vector3 pos, bool elite) => SpawnActor(elite?Data.Enemy("Brute"):def,pos,elite,MusicEnemyAssets.Select(def.Id,elite));
+
+        public Enemy SpawnMusicElite(Vector3 pos,string asset=null) => SpawnActor(Data.Enemy("Brute"),pos,true,asset??MusicEnemyAssets.Select("Brute",true));
+        public Enemy SpawnMusicAuxiliary(Vector3 pos,float hp)
+        {
+            var go=new GameObject("MusicNoteGun");go.transform.position=pos;
+            var visual=EnemyAssets.Spawn("S29_NoteTurret",go.transform);
+            var e=go.AddComponent<Enemy>();e.ExternalControl=true;e.CombatAuxiliary=true;
+            e.Configure("NoteGun",hp,0,0,0);e.BindVisual(visual);_enemies.Add(e);AliveEnemies++;return e;
+        }
+        public void DespawnMusicActor(Enemy actor)
+        {
+            if(!actor)return;
+            if(_enemies.Remove(actor))AliveEnemies=Mathf.Max(0,AliveEnemies-1);
+            actor.gameObject.SetActive(false);Destroy(actor.gameObject);
+        }
+        Enemy SpawnActor(EnemyDef def, Vector3 pos, bool elite,string asset)
         {
             if (def == null) return null;
 
@@ -452,17 +498,12 @@ namespace S.View
             go.transform.position = pos;
 
             var cc = go.AddComponent<CharacterController>();
-            // 碰撞体跟着模型高度走（原先写死 1.7 / 0.42，矮敌人会有看不见的碰撞壳、
-            // 高敌人则打不到上半身）。
-            float h = Mathf.Max(0.3f, def.Height);
-            cc.height = h;
-            cc.radius = Mathf.Clamp(h * 0.25f, 0.15f, 0.7f);
-            cc.center = new Vector3(0f, h * 0.5f, 0f);
-
-            // 视觉：真实模型（缺件时 SAssets 自动回退为胶囊占位）
-            var visual = SAssets.SpawnFit(def.Model, go.transform, Vector3.zero,
-                def.Height, Color.white, 0.45f);
-            visual.name = "Body";
+            var visual = EnemyAssets.Spawn(asset, go.transform);
+            cc.height = visual.MovementHeight;
+            cc.radius = visual.MovementRadius;
+            cc.center = visual.MovementCenter;
+            cc.stepOffset = Mathf.Min(.22f, cc.height * .3f);
+            cc.skinWidth = .02f;
 
             var e = go.AddComponent<Enemy>();
             var el = Director != null ? Director.Elite : new RunDirector.EliteDef();
@@ -479,7 +520,7 @@ namespace S.View
 
             e.IsElite = elite;
             e.HealOnKill = elite ? el.HealOnKill : 0f;
-            if (elite) e.ApplyEliteScale(el.Scale);
+            e.BindVisual(visual); // Elite uses authored geometry, not an additional uniform scale.
 
             _enemies.Add(e);
             AliveEnemies++;
@@ -504,6 +545,7 @@ namespace S.View
         {
             _enemies.Remove(e);
             AliveEnemies = Mathf.Max(0, AliveEnemies - 1);
+            if(e && e.CombatAuxiliary)return;
             Run.Kills++;
 
             // 精英回血：单图无限刷怪下没有「清区补给」，这是中期唯一的续航来源。
@@ -528,7 +570,7 @@ namespace S.View
 
             // 在死亡位置的正下方找地面，排除玩家/敌人胶囊，兼容高台与悬空敌人。
             var hits = Physics.RaycastAll(at + Vector3.up * 0.25f, Vector3.down, 100f,
-                ~0, QueryTriggerInteraction.Ignore);
+                WorldPhysics.GroundMask, QueryTriggerInteraction.Ignore);
             float nearest = float.PositiveInfinity;
             foreach (var hit in hits)
             {
@@ -582,7 +624,7 @@ namespace S.View
             if (!offer.IsGun)
             {
                 bool picked = Run.TryPick(offer.Id);
-                if (!picked) HudToast("背包已满 · 按 Tab 整理配件后返回选择");
+                if (!picked) HudToast("曲谱已满 · Esc 保留奖励，前往调律谱架整理后领取");
                 return picked;
             }
             if (!Weapons.AcquireGun(offer.Id, Run, out string reason))
@@ -612,7 +654,7 @@ namespace S.View
                 }
             }
             if (ups > 0) SfxBank.Instance?.PlayLevelUp();
-            if (!AutoAcceptOffers && _pendingOffers.Count > 0 && !InventoryOpen)
+            if (!AutoAcceptOffers && _pendingOffers.Count > 0 && !InventoryOpen && !_inv.RewardsDeferred)
                 _inv.ShowOffers(_pendingOffers.Dequeue());
         }
 
@@ -633,6 +675,9 @@ namespace S.View
 
         public void Win()
         {
+            if (_runEnded) return;
+            _runEnded = true;
+            MusicCombatWorld.EndEncounter();
             SetPaused(true);
             _music?.UpdateMix(Run.Threat, true, false, 0.2f);
 
@@ -647,6 +692,9 @@ namespace S.View
 
         public void Lose()
         {
+            if (_runEnded) return;
+            _runEnded = true;
+            MusicCombatWorld.EndEncounter();
             SetPaused(true);
             var meta = MetaSave.Load();
             meta.FinishRun(false, 0f);
@@ -780,30 +828,40 @@ namespace S.View
 
         bool HandlePauseInput()
         {
+            if (_runEnded || (_menu != null && _menu.IsOpen)) return true;
             var kb = Keyboard.current;
             if (kb == null) return false;
 
             if (kb.tabKey.wasPressedThisFrame)
             {
-                // 开背包会 SetPaused(true)：若仍要求 !Paused 才能 Toggle，
-                // Tab 就只能开不能关（用户只能靠 Esc）。背包开着时 Tab = 关闭。
-                if (InventoryOpen) _inv.Close();
-                else if (!Paused) _inv.OpenBag();
-                return true;
+                ToggleAttachmentPreview();
+            }
+            if (kb.fKey.wasPressedThisFrame && !Paused && !InventoryOpen)
+            {
+                var station = NearbyWorkbench;
+                if (station && station.Interact(this)) return true;
             }
             if (kb.escapeKey.wasPressedThisFrame)
             {
                 if (InventoryOpen) { _inv.Close(); return true; }
-                SetPaused(!Paused);
+                TogglePause();
                 return true;
             }
             return false;
         }
 
+        public void TogglePause()
+        {
+            if (!_runStarted || _runEnded || InventoryOpen || (_menu != null && _menu.IsOpen)) return;
+            SetPaused(!Paused);
+        }
+
+        // Compatibility entry point: it may only open a nearby map device.
         public void ToggleInventory()
         {
-            if (InventoryOpen) _inv.Close();
-            else _inv.OpenBag();
+            var station = NearbyWorkbench;
+            if (station) TryOpenScoreWorkbench(station);
+            else HudToast("请前往调律谱架装配配件");
         }
 
         public void SetPaused(bool v)
@@ -811,7 +869,7 @@ namespace S.View
             Paused = v;
             Time.timeScale = v ? 0f : 1f;
             SyncCursorToState();
-            if (!v && _pendingOffers.Count > 0 && !InventoryOpen)
+            if (!v && _pendingOffers.Count > 0 && !InventoryOpen && !_inv.RewardsDeferred)
                 _inv.ShowOffers(_pendingOffers.Dequeue());
         }
 
@@ -827,7 +885,7 @@ namespace S.View
         /// </summary>
         public void SyncCursorToState()
         {
-            bool uiNeedsMouse = Paused
+            bool uiNeedsMouse = HudPointerHeld || Paused
                 || InventoryOpen
                 || (_menu != null && _menu.IsOpen)
                 || (_inv != null && _inv.IsOfferVisible);
@@ -838,6 +896,7 @@ namespace S.View
         /// <summary>背包关闭后，若还有排队的三选一则继续弹。</summary>
         public void OnInventoryClosed()
         {
+            if (_inv.ResumeDeferredOffers()) return;
             if (_pendingOffers.Count > 0) _inv.ShowOffers(_pendingOffers.Dequeue());
             else SetPaused(false);
         }

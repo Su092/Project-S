@@ -1,0 +1,14 @@
+{
+  "id": "s-hud-quality-frames-20261120",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T10:12:34+0800",
+  "task_id": "task_01M7VBM97PV2P30NMPME7QEGBF",
+  "result_url": "https://getapib.org/image/9998204859199573-d9245823-6562-4f78-a94b-917138285477-image_img_1a06db9d0224418d9397b49ba52c6bfd_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/hud-quality-apimart/quality-frames.png",
+  "bytes": 2388831,
+  "sha256": "9fce23ac4cfb292435b7d8e104d69c850be615158397df7b4b214f15946d744c"
+}

@@ -50,7 +50,7 @@ OUT = os.path.join(PROJ, "Assets", "_Game", "Res", "Texture", "UI")
 # ---------------- 素材分类（与 Assets/_Game/View/UiAssets.cs 的 Catalog 一致）----------------
 # 依据是「这张图服务几个地方」，不是「它长什么样」。规范见枢纽
 # `docs/ui-asset-taxonomy.md`。新增素材时：① 放进对应分类目录 ② 在 UiAssets.Catalog 登记。
-SPRITES = os.path.join(OUT, "Sprites")
+SPRITES = OUT
 CAT_DIRS = {
     "Common": os.path.join(SPRITES, "Common"),
     "Frame":  os.path.join(SPRITES, "Frame"),
@@ -74,6 +74,8 @@ def cat_dir(name):
 # 之所以不能共享文件：Runner 侧不能读 C#，C# 侧不能读 Python。
 # 校验办法：跑一次 `python tools/audit_ui_taxonomy.py`（比对两边与磁盘）。
 CATEGORY = {}
+for _n in ("hud_quality_blue", "hud_quality_gold", "hud_quality_red"):
+    CATEGORY[_n] = "Frame"
 for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
     CATEGORY[_n] = "Common"
 for _n in ("card_frame", "card_inner", "bar_frame"):
@@ -87,6 +89,9 @@ for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
 for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
            "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
     CATEGORY[_n] = "Icon"
+
+with open(os.path.join(HERE, "hud-v2-catalog.json"), encoding="utf-8") as _hf:
+    CATEGORY.update(json.load(_hf))
 
 # ---------------- 调色板（art-style.md §2/§4，与 panel.png 一致）----------------
 

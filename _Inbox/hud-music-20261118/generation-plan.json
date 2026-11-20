@@ -1,0 +1,268 @@
+{
+  "theme": "战斗音律",
+  "style": "02 复古动漫赛璐璐",
+  "scope": "HUD artwork replacement; identical layout and gameplay",
+  "model": "gpt-image-2",
+  "jobs": [
+    {
+      "id": "s-hud-music-01_frames",
+      "name": "01_frames",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/01_frames.png",
+      "grid": [
+        3,
+        2
+      ],
+      "components": [
+        "weapon_rail",
+        "portrait_frame",
+        "attachment_socket",
+        "minimap_bezel",
+        "pause_button_base",
+        "item_slot"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 6 separate components in an invisible uniform 3-column by 2-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: a long horizontal empty navy instrument staff tray, width to height 5.3:1, thin ivory-gold parallel top and bottom border, rounded ends with very small musical flourishes confined to endcaps, continuous empty navy center, NO internal slots. Cell 2: perfect circular portrait frame, thin elegant gold and ivory ring with four small art nouveau curls on cardinal points, completely EMPTY BLACK circular center. Cell 3: perfect circular empty equipment socket, dark navy filled disk with very thin pale gold rim, simple clean center with no symbol. Cell 4: perfect circular compass bezel, single delicate gold ring with tiny diamond ornament above it, completely EMPTY BLACK circular center, no compass letters or lines inside. Cell 5: round navy pause button disk, thin double pale-gold border, empty dark center. Cell 6: rounded-square navy utility-slot panel, thin double ivory-gold outline, small radius corners, no ornament in center.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-02_bars",
+      "name": "02_bars",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/02_bars.png",
+      "grid": [
+        2,
+        3
+      ],
+      "components": [
+        "hp_track_frame",
+        "hp_fill",
+        "xp_track_frame",
+        "xp_fill",
+        "boss_track_frame",
+        "boss_fill"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 6 separate components in an invisible uniform 2-column by 3-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: empty horizontal health track, aspect 12:1, continuous dark navy center, thin ivory and gold rounded rectangular border, small endcaps only. Cell 2: flat horizontal solid coral-red health fill, aspect 12:1, full length equally bright, no frame, no end ornament. Cell 3: empty horizontal experience track, aspect 18:1, dark navy center, delicate gold rounded rectangular border. Cell 4: flat horizontal solid warm pale-gold experience fill, aspect 18:1, full length equally bright, no frame. Cell 5: empty horizontal boss track, aspect 12:1, dark navy center, ivory gold border with restrained burgundy endcaps. Cell 6: flat horizontal solid raspberry-red boss fill, aspect 12:1, full length equally bright, no frame.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-03_combat",
+      "name": "03_combat",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/03_combat.png",
+      "grid": [
+        2,
+        2
+      ],
+      "components": [
+        "crosshair",
+        "reload_spinner",
+        "ammo_arc_track",
+        "ammo_arc_fill"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 4 separate components in an invisible uniform 2-column by 2-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: small precise ivory aiming reticle, thin incomplete circular outline with four short cardinal tick marks and an empty center, symmetric and readable. Cell 2: single ivory-gold clockwise loading arc, thin 270 degree open circle, clear large missing quarter, rounded tiny notehead at one end only, no inner symbol. Cell 3: right-hand quarter-circle meter track, only the 90 degree arc from 1:30 to 4:30, pale gold outer stroke and navy inner stripe, completely empty black everywhere else. Cell 4: right-hand quarter-circle meter fill, only the 90 degree arc from 1:30 to 4:30, full smooth turquoise and ivory stripe, exact same curve as previous cell.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-04_markers",
+      "name": "04_markers",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/04_markers.png",
+      "grid": [
+        3,
+        2
+      ],
+      "components": [
+        "map_player_heading",
+        "map_enemy",
+        "map_chest",
+        "pause_glyph",
+        "weapon_swap",
+        "read_cursor"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 6 separate components in an invisible uniform 3-column by 2-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: ivory filled upward-pointing navigational arrowhead, long sharp tip and notched bottom, dark navy thin outline. Cell 2: simple solid coral red enemy dot with small ivory rim. Cell 3: tiny closed treasure chest pictogram, gold lid and ivory clasp, dark navy base, readable at 16 pixels. Cell 4: two simple thick parallel vertical ivory pause bars. Cell 5: two slender gold arrows pointing up and down side by side, switching icon. Cell 6: solid downward gold triangle playhead with ivory edge.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-05_instruments",
+      "name": "05_instruments",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/05_instruments.png",
+      "grid": [
+        3,
+        2
+      ],
+      "components": [
+        "gun_rifle",
+        "gun_smg",
+        "gun_shotgun",
+        "gun_sniper",
+        "gun_beam",
+        "gun_launcher"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 6 separate components in an invisible uniform 3-column by 2-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: golden violin and bow, diagonally oriented, clear whole instrument silhouette, ivory strings, no badge or surrounding frame. Cell 2: silver ivory concert flute diagonally oriented, tiny warm gold keys, clear simple silhouette, no badge. Cell 3: round golden frame drum seen almost front-on, ivory stretched membrane, burgundy side band, no badge. Cell 4: golden cello with long neck and endpin, larger pear-shaped body than violin, diagonally oriented, no badge. Cell 5: elegant small golden harp with distinct triangular arch and five ivory strings, no badge. Cell 6: golden French horn with circular coiled tube and large flared bell, no badge.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-06_portrait",
+      "name": "06_portrait",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/06_portrait.png",
+      "grid": [
+        1,
+        1
+      ],
+      "components": [
+        "operator_portrait"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 1 separate components in an invisible uniform 1-column by 1-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: ONE close-up head and shoulders portrait of an adult female musician age 25, confident kind expression facing slightly right, short dark brown wavy hair and large burgundy ribbon on left, ivory blouse and burgundy concert waistcoat, crisp expressive brown anime eyes, warm skin, limited cel shadow, plain circular dark navy backdrop, face fills 65% of disk, no instrument, no frame.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-07_states",
+      "name": "07_states",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/07_states.png",
+      "grid": [
+        2,
+        2
+      ],
+      "components": [
+        "timer_plate",
+        "weapon_selected_ring",
+        "attachment_read_ring",
+        "utility_placeholder"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 4 separate components in an invisible uniform 2-column by 2-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: horizontal dark navy countdown plaque aspect 3.2:1, thin elegant gold border, small symmetric music-inspired flourishes only at left and right tips, empty center. Cell 2: perfect circular golden selected-instrument ring with four subtle accent marks, EMPTY BLACK inside. Cell 3: perfect circular bright warm gold active-note ring, small downward triangular playhead integrated at top edge, EMPTY BLACK inside, high visibility at 68px. Cell 4: small delicate gold musical rest pictogram, elegant zigzag quarter rest, no surrounding frame.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-08_notes",
+      "name": "08_notes",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/08_notes.png",
+      "grid": [
+        4,
+        4
+      ],
+      "components": [
+        "item_std",
+        "item_light",
+        "item_pellet",
+        "item_ap",
+        "item_laser",
+        "item_grenade",
+        "item_bouncer",
+        "item_missile",
+        "item_mine",
+        "item_shock",
+        "item_chain",
+        "item_saw",
+        "item_flame",
+        "item_hole",
+        "item_trigger",
+        "item_timer"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 16 separate components in an invisible uniform 4-column by 4-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: a compact music ability glyph: single solid quarter note, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 2: a compact music ability glyph: single eighth note with slim flag, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 3: a compact music ability glyph: three noteheads forming a fan-shaped chord, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 4: a compact music ability glyph: sharp elongated notehead with straight piercing accent, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 5: a compact music ability glyph: notehead with one long horizontal sustained beam, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 6: a compact music ability glyph: bass note inside four-point burst, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 7: a compact music ability glyph: note following a zigzag bouncing arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 8: a compact music ability glyph: note following a curved glissando arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 9: a compact music ability glyph: whole rest above a small grounded trap diamond, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 10: a compact music ability glyph: note with three lightning sparks, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 11: a compact music ability glyph: three linked noteheads connected by curved ties, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 12: a compact music ability glyph: note encircled by a returning crescent arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 13: a compact music ability glyph: notehead shaped as a small flame, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 14: a compact music ability glyph: fermata dot surrounded by vortex rings, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 15: a compact music ability glyph: note and small impact star cue, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 16: a compact music ability glyph: note and tiny clock face without numbers, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-09_notes",
+      "name": "09_notes",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/09_notes.png",
+      "grid": [
+        4,
+        4
+      ],
+      "components": [
+        "item_expire",
+        "item_dmg",
+        "item_heavy",
+        "item_speed",
+        "item_pierce",
+        "item_explode",
+        "item_homing",
+        "item_bounce",
+        "item_burn",
+        "item_frost",
+        "item_giant",
+        "item_crit",
+        "item_scatter",
+        "item_thrift",
+        "item_rear_boost",
+        "item_twin_boost"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 16 separate components in an invisible uniform 4-column by 4-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: a compact music ability glyph: note fading into three separated smaller dots, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 2: a compact music ability glyph: bold note and upward strength chevron, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 3: a compact music ability glyph: heavy double notehead with downward weight mark, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 4: a compact music ability glyph: eighth note with two forward motion streaks, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 5: a compact music ability glyph: note crossed by one pointed straight arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 6: a compact music ability glyph: note with four radial burst accents, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 7: a compact music ability glyph: note inside two inward curved arrows, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 8: a compact music ability glyph: repeat sign with angular arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 9: a compact music ability glyph: note with one small fire tongue, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 10: a compact music ability glyph: notehead formed from a snowflake, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 11: a compact music ability glyph: large whole note between two outward arrows, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 12: a compact music ability glyph: sharp bright four-point note star, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 13: a compact music ability glyph: three notes fanning outward, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 14: a compact music ability glyph: single note cradled by a small saving loop, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 15: a compact music ability glyph: bold note and LEFT arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 16: a compact music ability glyph: one note between LEFT and RIGHT arrows, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-10_notes",
+      "name": "10_notes",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/10_notes.png",
+      "grid": [
+        4,
+        4
+      ],
+      "components": [
+        "item_forward_battery",
+        "item_rear_battery",
+        "item_crossfire",
+        "item_gap_lens",
+        "item_rear_frost",
+        "item_ring_burn",
+        "item_gap_bounce",
+        "item_rear_blast",
+        "item_whole_boost",
+        "item_whole_guidance",
+        "item_g_mag",
+        "item_g_reload",
+        "item_g_rapid",
+        "item_g_stable",
+        "item_g_recycle",
+        "item_g_parallel"
+      ],
+      "size": "1:1",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 16 separate components in an invisible uniform 4-column by 4-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: a compact music ability glyph: three notes and RIGHT long arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 2: a compact music ability glyph: three notes and LEFT long arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 3: a compact music ability glyph: two piercing notes pointing outward LEFT and RIGHT, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 4: a compact music ability glyph: note followed by one hollow spacer then larger note, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 5: a compact music ability glyph: snowflake note and LEFT arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 6: a compact music ability glyph: flame note inside complete circular loop, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 7: a compact music ability glyph: bounce note next to one hollow spacer, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 8: a compact music ability glyph: burst note and LEFT arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 9: a compact music ability glyph: four notes under an encompassing upper brace, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 10: a compact music ability glyph: four notes inside one curved guidance loop, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 11: a compact music ability glyph: stack of three whole notes in open ledger book, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 12: a compact music ability glyph: tuning fork encircled by one circular arrow, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 13: a compact music ability glyph: three fast beamed sixteenth notes, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 14: a compact music ability glyph: tuning fork centered between balanced horizontal bars, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 15: a compact music ability glyph: one note inside recycling arrows, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 16: a compact music ability glyph: two parallel musical staffs each with notehead, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    },
+    {
+      "id": "s-hud-music-11_notes",
+      "name": "11_notes",
+      "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/11_notes.png",
+      "grid": [
+        3,
+        1
+      ],
+      "components": [
+        "item_g_leech",
+        "item_g_double",
+        "item_g_triple"
+      ],
+      "size": "3:2",
+      "resolution": "2k",
+      "prompt": "Production game HUD sprite atlas for a musical fantasy action game. Use the attached reference ONLY for its HUD art direction: 1990s hand-drawn anime cel shading, elegant warm pale gold and ivory ink outlines, dark desaturated midnight-blue enamel, restrained burgundy and turquoise accents, clean graphic silhouettes, flat two-tone shadows. Match the reference's musical ornament shapes. NOT a screenshot, NOT an environment. NO guns, ammunition bullets, industrial metal, sci-fi holograms, bevelled photorealism, rivets, text, letters, numbers, captions, watermarks, grid lines, glow or drop shadows. Outside EVERY separate component use exact pure black #000000, so it can be extracted; do not use black INSIDE solid filled components (use navy #263347). Flat orthographic front view. Keep generous empty black gutters. EXACTLY 3 separate components in an invisible uniform 3-column by 1-row grid, strictly equal cell sizes. Each component centered inside its own cell, never crossing the cell, leave at least 12% margin on every side. Reading order left to right, top to bottom: Cell 1: a compact music ability glyph: note stem ending in small heart, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 2: a compact music ability glyph: two distinct noteheads joined in duet, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background. Cell 3: a compact music ability glyph: three distinct noteheads joined in trio, warm ivory primary shape and pale gold secondary marks, bold readable silhouette, NO surrounding circle, badge, panel or colored background.",
+      "no_global_style": true,
+      "reference": "refs/theme-style-concepts-20261118/images/02_music_cel.png"
+    }
+  ]
+}

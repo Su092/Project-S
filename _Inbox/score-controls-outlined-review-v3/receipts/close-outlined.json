@@ -1,0 +1,14 @@
+{
+  "id": "s-close-outlined-review-20261120-v3",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:59:43+0800",
+  "task_id": "task_01M7VHRK951S9ZZACMVGYS4GPS",
+  "result_url": "https://getapib.org/image/9998204852780173-02d8e9a0-8406-41e9-8412-adf8ee1773ea-image_task_01M7VHSG1F51QYT2SRMJ0Y1158_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/score-controls-outlined-review-v3/close-outlined.png",
+  "bytes": 927984,
+  "sha256": "3bcd95ff09bb1b139af38d655d8b7a342c6a1cdfb0a322fe5eab1165c7ddbc5b"
+}

@@ -1,0 +1,6 @@
+E:\S\_Inbox\Environment\AbandonedFoundry\Source\build_foundry.py:52: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('MAT_Foundry_'+key);mat.use_nodes=True;nodes=mat.node_tree.nodes;bs=nodes.get('Principled BSDF')
+E:\S\_Inbox\Environment\AbandonedFoundry\Source\build_foundry.py:325: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Foundry overcast');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.16,.21,.28,1);world.node_tree.nodes['Background'].inputs[1].default_value=.5
+E:\S\_Inbox\Environment\AbandonedFoundry\Source\build_foundry.py:352: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  wire=bpy.data.materials.new('QA Collision');wire.diffuse_color=(.1,1,.1,1);wire.use_nodes=True

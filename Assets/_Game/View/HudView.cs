@@ -20,10 +20,13 @@ namespace S.View
 
         Canvas _canvas;
         HudRefs _refs;
+        HudV2View _v2;
 
         readonly List<Image> _rotationPips = new List<Image>();
         readonly List<Text> _rotationLabels = new List<Text>();
         float _toastLeft;
+        const float DamageFlashDuration = 0.5f;
+        const float DamageFlashPeakAlpha = 0.6f;
         float _vignetteLeft;
         bool _endAwaitingRestart;
 
@@ -51,6 +54,13 @@ namespace S.View
                 _rotationPips.AddRange(_refs.RotationPips);
                 _rotationLabels.AddRange(_refs.RotationLabels);
                 EnsureAmmoBar();
+                SetDamageFlashAlpha(0f);
+                _v2 = inst.GetComponent<HudV2View>();
+                if (_v2 != null)
+                {
+                    _canvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1920, 1080);
+                    _v2.Init(root, _refs);
+                }
             }
         }
 
@@ -198,8 +208,7 @@ namespace S.View
                 _refs.AmmoFill.fillAmount = 0f;
             }
 
-            UpdateRotation(g);
-            UpdateChain(g);
+            if (_v2 == null) { UpdateRotation(g); UpdateChain(g); }
 
             // 经验
             int need = r.NeedFor(r.Level);
@@ -224,6 +233,7 @@ namespace S.View
             UpdateZoneBar();
             UpdateBossBar();
             UpdateCrosshair(g);
+            _v2?.Refresh(g);
 
             // toast 淡出
             if (_toastLeft > 0f && _refs.Toast != null)
@@ -235,12 +245,10 @@ namespace S.View
             }
 
             // 受击红晕
-            if (_vignetteLeft > 0f && _refs.DamageVignette != null)
+            if (_vignetteLeft > 0f)
             {
-                _vignetteLeft -= Time.unscaledDeltaTime;
-                var c = _refs.DamageVignette.color;
-                c.a = Mathf.Clamp01(_vignetteLeft / 0.5f) * 0.35f;
-                _refs.DamageVignette.color = c;
+                _vignetteLeft = Mathf.Max(0f, _vignetteLeft - Time.unscaledDeltaTime);
+                SetDamageFlashAlpha((_vignetteLeft / DamageFlashDuration) * DamageFlashPeakAlpha);
             }
 
             UpdateFloats();
@@ -340,7 +348,7 @@ namespace S.View
 
             if (_refs.ChainTitle != null)
             {
-                if (n == 0) _refs.ChainTitle.text = "空枪 · Tab 装子弹";
+                if (n == 0) _refs.ChainTitle.text = "空槽 · 前往调律谱架装配";
                 else
                     _refs.ChainTitle.text =
                         $"下一发 {n} 发 · 耗弹 {cast.AmmoCost} · 期望 {cast.ExpectedDamage:0}";
@@ -384,7 +392,7 @@ namespace S.View
                 if (d.BossSpawned)
                 {
                     bool bossAlive = _root.Boss != null && _root.Boss.State != null && _root.Boss.State.Alive;
-                    goal = bossAlive ? "击败铸造核心" : "";
+                    goal = bossAlive ? "击败"+_root.Boss.DisplayName : "";
                 }
                 else
                 {
@@ -443,7 +451,7 @@ namespace S.View
             string shield = s.ShieldUp ? "  ·  护盾" : "";
             string breach = s.IsBreached ? $"  ·  破防 {s.BreachLeft:0.0}s" : "";
             if (_refs.BossNameText != null)
-                _refs.BossNameText.text = $"铸造核心  {s.Hp:0}/{s.MaxHp:0}  ·  柱 {s.PillarsAlive}/{s.PillarCount}{shield}{breach}";
+                _refs.BossNameText.text = $"{_root.Boss.DisplayName}  {s.Hp:0}/{s.MaxHp:0}" + (s.PillarCount > 0 ? $"  ·  柱 {s.PillarsAlive}/{s.PillarCount}" : "") + shield + breach;
         }
 
         void UpdateCrosshair(GunRuntime g)
@@ -478,7 +486,19 @@ namespace S.View
             _toastLeft = 2.2f;
         }
 
-        public void FlashDamage() => _vignetteLeft = 0.5f;
+        public void FlashDamage()
+        {
+            _vignetteLeft = DamageFlashDuration;
+            SetDamageFlashAlpha(DamageFlashPeakAlpha);
+        }
+
+        void SetDamageFlashAlpha(float alpha)
+        {
+            if (_refs == null || _refs.DamageVignette == null) return;
+            // The sprite already contains the red gradient; clear RGB would multiply it to black.
+            _refs.DamageVignette.color = new Color(1f, 1f, 1f, Mathf.Clamp01(alpha));
+            _refs.DamageVignette.raycastTarget = false;
+        }
 
         public void DamageNumber(Vector3 world, float amount)
         {

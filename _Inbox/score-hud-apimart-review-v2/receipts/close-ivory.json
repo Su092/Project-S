@@ -1,0 +1,14 @@
+{
+  "id": "s-close-ivory-review-20261120-v2",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:40:41+0800",
+  "task_id": "task_01M7VGNM7PRY6WBVVV1BA4HY0K",
+  "result_url": "https://getapib.org/image/9998204853925512-049e9b27-110b-43bc-ab81-3491d028d229-image_task_01M7VGPHVAVFPKBQYB4S25MQ14_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/score-hud-apimart-review-v2/close-ivory.png",
+  "bytes": 678524,
+  "sha256": "ba9258c703157b81e6141ac333903b30c167a102392b27a2a45070998a4a95c3"
+}

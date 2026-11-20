@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s29_wanderingconductor_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:40:14+0800",
+  "task_id": "task_01M7W1T4EE5DR7YTZGJA4AB5SG",
+  "result_url": "https://getapib.org/image/9998204835931103-d773bce8-549b-42db-99e3-c6254c7d4b14-image_task_01M7W1VPGNV2KRYWAWXSYPDWCD_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S29_WanderingConductor_BC.png",
+  "bytes": 1368576,
+  "sha256": "2c84c7fb0c976d166a08f10b023a995bfa3ebafff689d0e31093166198c10105"
+}

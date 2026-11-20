@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_Texture
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_Texture
-  m_GUID: 070eaedbf3e7a174388f587f7b07b287
+  m_GUID: efe7230f054c5954c89b7abe2147ed60
   m_SerializeEntries:
   - m_GUID: 17b57fd60fd7d094fac6ab62d91e067e
     m_Address: tex/tex_wall_panel

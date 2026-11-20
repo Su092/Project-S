@@ -138,8 +138,8 @@ namespace S.App
             // ---- 美术资产接入：模型与贴图必须真的加载到 ----
             {
                 string[] models = {
-                    "Modle_Enemy_Crawler", "Modle_Enemy_Spitter", "Modle_Enemy_Shield",
-                    "Modle_Enemy_Drone", "Modle_Boss_ForgeCore",
+                    "SlagHound", "PressureRunner", "FurnaceWarden",
+                    "RingSentry", EnemyAssets.Boss,
                     "Modle_Gun_Auto", "Modle_Gun_Grenade", "Modle_Gun_Single",
                     "Modle_Prop_Crate", "Modle_Prop_Barrel", "Modle_Prop_Pillar", "Modle_Prop_Wall",
                 };
@@ -151,6 +151,21 @@ namespace S.App
                 }
                 Check("12 个模型全部加载", missing == 0,
                     $"缺失 {missing}: {string.Join(",", missNames)}");
+
+                var characters = new List<string> { EnemyAssets.Boss };
+                foreach (var enemy in data.EnemyOrder)
+                {
+                    characters.Add(EnemyAssets.Name(enemy.Id, false));
+                    characters.Add(EnemyAssets.Name(enemy.Id, true));
+                }
+                foreach (var name in characters)
+                {
+                    var prefab = SRes.Get<GameObject>(name);
+                    var visual = prefab ? prefab.GetComponent<EnemyVisual>() : null;
+                    Check("新敌人骨骼/动作/受击绑定 " + name,
+                        visual && visual.Animator && visual.Animator.avatar && visual.Animator.avatar.isValid &&
+                        visual.Clips.Length > 0 && visual.HitColliders.Length > 0 && prefab.GetComponent<LODGroup>());
+                }
 
                 string[] texs = { "tex_floor_metal", "tex_wall_panel", "tex_metal_rust", "tex_floor_concrete" };
                 int texMissing = 0;
@@ -607,7 +622,7 @@ namespace S.App
             root.Weapons.Player.InputLocked = false;
             yield return WaitUnscaled(3.5f);
             yield return Shot("05-combat");
-            root.AutoAcceptOffers = false;
+            // 后续仍会拾取场上经验，保持自动领奖直至战斗/Boss 断言结束。
 
             // 若仍有残留弹窗，关掉它，保证后续断言在运行态
             if (root.InventoryOpen) root.CloseOverlayForTest();
@@ -686,20 +701,20 @@ namespace S.App
                         $"threat={root.Run.Threat:0.0} 期望≈{expectThreat:0.0}");
                 }
 
-                // ---- Boss 入场：推到 8:00，验证 SpawnBoss 与能量柱 ----
+                // ---- Boss 入场：推进到配置入场时刻，验证 SpawnBoss 与地图柱绑定 ----
                 if (root.Director != null)
                 {
                     root.Director.SeekTo(root.Director.BossAt + 1f);
                     yield return null;
                     yield return null;
 
-                    Check("8:00 后 Boss 已入场",
+                    Check("配置时刻后 Boss 已入场",
                         root.Director.BossSpawned && root.Boss != null,
                         $"spawned={root.Director.BossSpawned} boss={(root.Boss != null)}");
-                    Check("8:00 威胁值满", Mathf.Approximately(root.Run.Threat, 100f),
+                    Check("Boss 入场威胁值满", Mathf.Approximately(root.Run.Threat, 100f),
                         $"threat={root.Run.Threat:0.0}");
-                    Check("四根能量柱已生成",
-                        root.Zones != null && root.Zones.Pillars.Count == 4,
+                    Check("能量柱数量匹配当前地图",
+                        root.Zones != null && root.Zones.Pillars.Count == (root.Zones.Map.IsTheater ? 0 : 4),
                         $"pillars={root.Zones?.Pillars.Count}");
                 }
 
@@ -715,7 +730,7 @@ namespace S.App
                     {
                         root.OnPillarHit(pillar, bs.PillarHp);
                         Check("碎柱后 Boss 破防", bs.IsBreached, $"breach={bs.BreachLeft}");
-                        Check("碎柱后柱数减少", bs.PillarsAlive == 3, $"pillars={bs.PillarsAlive}");
+                        Check("碎柱后柱数减少", bs.PillarsAlive == bs.PillarCount - 1, $"pillars={bs.PillarsAlive}");
                     }
 
                     float before = bs.Hp;
@@ -864,6 +879,22 @@ namespace S.App
             }
         }
 
+        // 经验测试明确点击配件卡：随机枪械奖励不进背包，也会改变后续射击测试的武器。
+        static void PickAccessoryRewardForCheck(GameRoot root)
+        {
+            foreach (var card in Object.FindObjectsByType<OfferCardRefs>())
+            {
+                const string prefix = "Offer_";
+                if (!card.gameObject.activeInHierarchy || !card.name.StartsWith(prefix) ||
+                    card.Button == null || !card.Button.interactable) continue;
+                string id = card.name.Substring(prefix.Length);
+                if (root.Data.MakeItem(id) == null) continue;
+                card.Button.onClick.Invoke();
+                return;
+            }
+            throw new System.InvalidOperationException("No selectable accessory reward in experience check.");
+        }
+
         /// <summary>走真实敌人死亡/拾取/三选一路径；同步执行避免其他战斗帧干扰断言。</summary>
         void CheckExperiencePickups(GameRoot root)
         {
@@ -913,9 +944,9 @@ namespace S.App
                     !pickup.gameObject.activeSelf && !root.TryCollectExperience(pickup));
                 var inv = root.GetComponent<InventoryView>();
                 Check("拾取升级弹出三选一并保留后续奖励", root.Paused && inv.IsOfferVisible && root.HasPendingOffers);
-                inv.AutoResolveForAI();
+                PickAccessoryRewardForCheck(root);
                 Check("多级奖励按顺序继续展示", inv.IsOfferVisible && !root.HasPendingOffers);
-                inv.AutoResolveForAI();
+                PickAccessoryRewardForCheck(root);
                 Check("全部升级奖励领取后恢复游戏", !root.Paused && !root.InventoryOpen &&
                     root.Run.Bag.Count == savedBag + 2);
             }

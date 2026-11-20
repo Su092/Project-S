@@ -1,0 +1,1 @@
+Model comparison reshot from original backup textures and installed textures in the same preview scene; full HiDPI render targets captured. Original before/after scene screenshots unchanged. Initial model captures retained in models-initial.

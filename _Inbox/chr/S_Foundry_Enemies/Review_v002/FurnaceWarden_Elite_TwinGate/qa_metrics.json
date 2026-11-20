@@ -1,0 +1,46 @@
+{
+  "asset": "FurnaceWarden_Elite_TwinGate",
+  "target_dimensions": [
+    2,
+    1.45,
+    2.85
+  ],
+  "triangles": [
+    1360,
+    1168,
+    400
+  ],
+  "bone_count": 13,
+  "materials": 1,
+  "texture_resolution": 2048,
+  "clips": [
+    "Idle_Guard",
+    "Walk_Heavy",
+    "Attack_Ram",
+    "Hit_Front",
+    "Hit_Back",
+    "Death"
+  ],
+  "axis_blender": "Z up, -Y forward",
+  "root": [
+    0,
+    0,
+    0
+  ],
+  "flight_pivot": false,
+  "status": "TECHNICAL_PASS_PENDING_VISUAL_AND_UNITY_QA",
+  "unverified": [
+    "Unity URP import/axes/normal map/Animator",
+    "joint intersections over every frame",
+    "foot contact under gameplay movement",
+    "LOD popping in engine",
+    "unique texel density: shared construction trim UVs",
+    "platform occupancy in actual skill states"
+  ],
+  "proxy_count": 28,
+  "actual_dimensions": [
+    2.0,
+    1.45,
+    2.85
+  ]
+}

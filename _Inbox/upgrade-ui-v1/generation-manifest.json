@@ -1,0 +1,21 @@
+{
+  "status": "raw_only_not_imported",
+  "assets": [
+    {
+      "file": "01-blue-information-frame.png",
+      "source": "../../generated/image-1795079176505-3f6c26.png"
+    },
+    {
+      "file": "02-gold-note-elements.png",
+      "source": "../../generated/image-1795079202544-7a3472.png",
+      "review": "六个元素未切分，光晕较强，后续复核"
+    },
+    {
+      "file": "03-gold-staff-strip.png",
+      "source": "../../generated/image-1795079218262-6d3c1c.png",
+      "review": "边缘纹理后续清理；尚未验证拼接"
+    }
+  ],
+  "processingPerformed": false,
+  "unityImported": false
+}

@@ -1,0 +1,27 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "线谱花纹增强：流动金丝、刻纹与疏密有序的卷曲饰纹",
+  "jobs": [
+    {
+      "name": "03-gold-staff-ornamental",
+      "id": "s-upgrade-apimart-v3-staff",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v3/03-gold-staff-ornamental.png",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v2/receipts/01-frames-four-colors.json",
+      "no_global_style": true,
+      "prompt": "Design ONE ornate GOLDEN MUSICAL STAFF strip sprite for the same musical fantasy game UI as the referenced ornate card frames. Reference is for art style and gold filigree vocabulary ONLY: DO NOT draw any card, panel, rectangle, colored gem or frame. Make the staff a lyrical flowing gold-thread design, not five plain gold bars. Exactly FIVE continuous fine parallel golden strands flowing left-to-right in one shallow graceful S wave, all five clearly countable, separated by four clean black gaps, the strands never cross each other. Give each strand a delicate pale-champagne highlight core, engraved warm-gold edging and amber fine shadow, with tiny periodic etched dashes and finely worked metal detail. At two or three sparse places add beautifully controlled small Art Nouveau calligraphic acanthus scroll flourishes branching OUTWARD from only the topmost and bottommost strands. Flourishes echo the elegant ivory-gold curls of the reference, shallow airy asymmetrical curls and a few tapering gold whiplash strokes; ornament is integrated into the line silhouette, NOT separate objects or musical-note symbols. Keep the middle three strands largely clean, and keep the central 60 percent uncluttered for three upgrade icons to travel along it. Most visual detail comes from elegant line craftsmanship, subtle variable-width calligraphic articulation, small braided/engraved accents and restrained moving-looking golden highlights, NOT massive solid filling. Polished retro anime cel-shaded illustration, thin refined warm luminous gold, no rigid bevelled rails, no industrial tubes. Each main line continuous from x=3% to x=97%, design occupies middle 60 percent of canvas height with generous margin; all decorative curls remain fully inside image. Readable graceful silhouette at game UI scale, coherent 2D frontal view. Pure uniform solid BLACK background including all spaces between strands. No text, NO letters, NO music-note glyphs (notes are independent separate assets), NO big treble clef, NO card frame, NO colored jewels, NO fog, NO large bloom, NO white edge border, NO random particles, NO watermark. Exactly one five-line flowing ornamental musical staff, not a comparison sheet. The new design must feel substantially richer and more lyrical than plain five parallel bars while keeping all five principal lines legible."
+    },
+    {
+      "name": "03b-gold-staff-ornamental-five",
+      "id": "s-upgrade-apimart-v3-staff-five",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v3/03b-gold-staff-ornamental-five.png",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v3/receipts/03-gold-staff-ornamental.json",
+      "no_global_style": true,
+      "prompt": "Correct the attached golden ornamental musical staff illustration. Its art style, graceful shallow wave, delicate engraved gold lines and sparse Art Nouveau gold curls are excellent; preserve these. BUT the attached image mistakenly has only FOUR long horizontal wavy strands. Add ONE additional matching continuous wavy golden strand to produce EXACTLY FIVE main lines, with FOUR open black spaces between them. Draw FIVE clearly separated gold strands from left to right: the top line, second line, the central THIRD line, fourth line, and the bottom FIFTH line. At the LEFT edge there must be FIVE separate curled line tips; at the RIGHT edge there must also be FIVE separate curled line tips. All FIVE strands run across the full width as parallel shallow S curves, do not cross or merge, equal spacing. Keep all five easily countable, not four! Center the five-line group with ample black margins. Keep engraved motifs, pale champagne edge highlights, warm gold face, amber shading. Place decorative curl flourishes only above the TOP line and below the BOTTOM line, not on internal lines. Preserve airy open central space, elegant refined anime music-game UI style. Pure BLACK background. No additional separate musical notes, no labels or numbering, no text, no card, no fog, no giant glow. SINGLE finished raw ornamental FIVE-LINE staff graphic, not multiple alternatives. Crucial edit: five complete main strands instead of the reference's four."
+    }
+  ]
+}

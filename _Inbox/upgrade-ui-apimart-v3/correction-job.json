@@ -1,0 +1,10 @@
+{
+  "name": "03b-gold-staff-ornamental-five",
+  "id": "s-upgrade-apimart-v3-staff-five",
+  "size": "3:1",
+  "resolution": "2k",
+  "out": "_Inbox/upgrade-ui-apimart-v3/03b-gold-staff-ornamental-five.png",
+  "reference_receipt": "_Inbox/upgrade-ui-apimart-v3/receipts/03-gold-staff-ornamental.json",
+  "no_global_style": true,
+  "prompt": "Correct the attached golden ornamental musical staff illustration. Its art style, graceful shallow wave, delicate engraved gold lines and sparse Art Nouveau gold curls are excellent; preserve these. BUT the attached image mistakenly has only FOUR long horizontal wavy strands. Add ONE additional matching continuous wavy golden strand to produce EXACTLY FIVE main lines, with FOUR open black spaces between them. Draw FIVE clearly separated gold strands from left to right: the top line, second line, the central THIRD line, fourth line, and the bottom FIFTH line. At the LEFT edge there must be FIVE separate curled line tips; at the RIGHT edge there must also be FIVE separate curled line tips. All FIVE strands run across the full width as parallel shallow S curves, do not cross or merge, equal spacing. Keep all five easily countable, not four! Center the five-line group with ample black margins. Keep engraved motifs, pale champagne edge highlights, warm gold face, amber shading. Place decorative curl flourishes only above the TOP line and below the BOTTOM line, not on internal lines. Preserve airy open central space, elegant refined anime music-game UI style. Pure BLACK background. No additional separate musical notes, no labels or numbering, no text, no card, no fog, no giant glow. SINGLE finished raw ornamental FIVE-LINE staff graphic, not multiple alternatives. Crucial edit: five complete main strands instead of the reference's four."
+}

@@ -51,7 +51,11 @@ namespace S.EditorTools
 
         static readonly Rule[] Rules =
         {
+            new Rule { Dir = Root + "Prefab/Enemies", Group = "S_Enemy", Label = Req.Enemy, Prefix = SRes.PrefixEnemy, Recursive = false, Extensions = new[] { ".prefab" } },
+            new Rule { Dir = Root + "Prefab/Maps", Group = "S_Map", Label = Req.Map, Prefix = SRes.PrefixMap, Recursive = false, Extensions = new[] { ".prefab" } },
+            new Rule { Dir = Root + "Prefab/Weapons", Group = "S_Weapon", Label = Req.Model, Prefix = SRes.PrefixModel, Recursive = false, Extensions = new[] { ".prefab" } },
             new Rule { Dir = Root + "Model",      Group = "S_Model",    Label = Req.Model,    Prefix = SRes.PrefixModel,    Recursive = true,  Extensions = new[] { ".fbx", ".prefab" } },
+            new Rule { Dir = Root + "Texture/VFX", Group = "S_VfxTexture", Label = Req.Texture, Prefix = SRes.PrefixTexture, Recursive = true, Extensions = new[] { ".png", ".jpg" } },
             new Rule { Dir = Root + "Texture/UI", Group = "S_Ui",       Label = Req.Ui,       Prefix = SRes.PrefixUi,       Recursive = true,  Extensions = new[] { ".png", ".jpg" } },
             new Rule { Dir = Root + "Texture",    Group = "S_Texture",  Label = Req.Texture,  Prefix = SRes.PrefixTexture,  Recursive = false, Extensions = new[] { ".png", ".jpg" } },
             new Rule { Dir = Root + "UIPrefabs",  Group = "S_UiPrefab", Label = Req.UiPrefab, Prefix = SRes.PrefixUiPrefab, Recursive = false, Extensions = new[] { ".prefab" } },

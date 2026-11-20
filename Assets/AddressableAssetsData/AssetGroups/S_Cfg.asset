@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_Cfg
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_Cfg
-  m_GUID: d912d18dcd0c7be43bdff205c23b9fd8
+  m_GUID: b0928e726811d934a91aa56cc3546cd2
   m_SerializeEntries:
   - m_GUID: 0b6ea78cacdb4a2458861ac6547358cd
     m_Address: cfg/GunModifier

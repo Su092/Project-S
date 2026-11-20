@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_trim_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:42:26+0800",
+  "task_id": "task_01M7W1Y51C444ZDMQSBPX4RR7P",
+  "result_url": "https://getapib.org/image/9998204835803853-1447e80e-7baa-423b-ab56-c6e42a8ae0a8-image_task_01M7W1ZJFF6C1S22KTZWW7YBVH_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Trim_BaseColor.png",
+  "bytes": 2681863,
+  "sha256": "e5631b9afd851486512b92a34a07e771dccc43dfa305db5cd3c932d57bce5d0b"
+}

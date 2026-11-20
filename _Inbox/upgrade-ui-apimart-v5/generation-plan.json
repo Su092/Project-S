@@ -1,0 +1,17 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "金色蛛丝质感：五根纤细主线、稀疏连接丝、轻微光点、平面插画表现",
+  "jobs": [
+    {
+      "name": "03-gold-staff-spider-silk",
+      "id": "s-upgrade-apimart-v5-staff-silk",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v5/03-gold-staff-spider-silk.png",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v4/receipts/03-gold-staff-flat.json",
+      "no_global_style": true,
+      "prompt": "Redesign the attached golden five-line musical staff with the FEELING OF DELICATE SPIDER SILK. Use reference ONLY for the horizontal shallow flowing S-shaped arrangement and the five-line count. Completely REMOVE all acanthus leaves, baroque curls, chunky scroll tips, thick gold bands and ornamental metal. Replace them with ethereal slender GOLDEN SILK FILAMENTS. Exactly FIVE main continuous parallel gently curving threads extend across almost the whole width, from x=4% to x=96%; five threads clearly distinguishable at both left and right ends, four open gaps. Silk strands have slight natural tension and sag, subtly varying thickness, tapering ends, a hair-fine pale champagne core within muted warm-gold edges, minimal flat two-tone illustration. Each strand only about 2-4 pixels thick at 2K image width, visible but truly gossamer thin, NOT thick ribbons. Add only a FEW extremely fine connecting spider-silk arcs between adjacent main strands near the far left and far right, forming two or three small irregular open web cells, not a dense full web. Near the ends a few loose curling wisps taper away organically. Central 65 percent remains almost entirely the five unobstructed flowing lines, spacious for three moving game-item icons. Tiny subtle pale-gold glints at a handful of silk junctions, never a foggy glow. Elegant graceful magical music UI, flat 2D anime/illustration style, slightly luminous graphic golden silk, airy and lightweight. Main strands should remain countable as FIVE, auxiliary connectors must be much fainter and thinner and NOT run full width. No literal spider, no insects, no scary elements, no large radial circular cobweb, no realistic macro photography, no 3D metal or chrome, no glossy bevel, no leaves, no floral ornaments, no pearls or large dew droplets, no musical note glyphs, no text. Pure uniform BLACK background and black negative spaces for later cutout, generous margin, all filaments fully inside canvas, no border. ONE horizontal golden spider-silk musical staff raw artwork, not a moodboard. Prioritize the silk-like tension, fineness, translucency illusion and airiness, with restrained crisp flat highlights."
+    }
+  ]
+}

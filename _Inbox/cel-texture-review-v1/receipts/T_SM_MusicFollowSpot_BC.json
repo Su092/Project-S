@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_sm_musicfollowspot_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:40:41+0800",
+  "task_id": "task_01M7W1TZA4878RWGZF4BECZWN3",
+  "result_url": "https://getapib.org/image/9998204835857797-c21b4817-16e0-4e32-90f4-2e148046d6c9-image_task_01M7W1XY41CKABF9D1NCF4W62K_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_SM_MusicFollowSpot_BC.png",
+  "bytes": 659637,
+  "sha256": "dd3d520bdc07e91538cbebc8dc0707be78ffeac015936d00a82e8edb00bea36f"
+}

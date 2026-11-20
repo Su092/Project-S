@@ -1,0 +1,17 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "保留五线曲线及卷曲饰纹，适度平面化，减弱写实金属高光刻纹",
+  "jobs": [
+    {
+      "name": "03-gold-staff-flat",
+      "id": "s-upgrade-apimart-v4-staff",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v4/03-gold-staff-flat.png",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v3/receipts/03b-gold-staff-ornamental-five.json",
+      "no_global_style": true,
+      "prompt": "Edit the attached ornamental golden five-line musical staff. Preserve its exact composition, all FIVE continuous parallel wavy strands, their shallow S curve, four black gaps, curled end tips and the placement and silhouettes of the sparse exterior ornamental curls/leaves. The user likes the richer ornament but says the surface is TOO REALISTIC and wants it A LITTLE FLATTER. Make a controlled style adjustment, not a complete redesign: elegant illustrated 2D cel-shaded game UI, subtly dimensional rather than photorealistic metal. Replace reflective engraved metallic surfaces with smooth warm matte golden-ochre fill (#D9AE54), small clean pale-gold highlight areas (#F0CF80) and very thin muted amber outlines (#A67A36). Only two or three broad flat color tones, very mild contrast. Remove realistic reflections, fine etched grain, chrome-like bright edge streaks, noisy scratches, ribbing, photographic texture, heavy bevels, deep shadows and extrusion. The curls/leaves retain clean simplified drawn internal accent lines for definition; do not remove the ornament. Five long strands are softly highlighted flat graphic strokes rather than rounded metal wires or bars. No white-hot highlights, no gradient gloss, no glow. Keep all FIVE strands clearly separate and countable from left to right, FIVE curled end tips on the left and FIVE on the right. All decorative curls branch only outside the top and bottom strands; middle remains clear for item icons. Whole design fully inside image with generous margin. Same pure BLACK background and black gaps as reference, no scene or framing. No text, no music notes, no labels, no extra elements. ONE coherent golden ornamental staff graphic. Retain the ornate flowing design, reduce realism and flatten the rendering moderately."
+    }
+  ]
+}

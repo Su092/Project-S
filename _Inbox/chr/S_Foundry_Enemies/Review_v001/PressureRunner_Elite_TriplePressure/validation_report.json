@@ -1,0 +1,125 @@
+{
+  "asset": "PressureRunner_Elite_TriplePressure",
+  "checks": {
+    "SM_PressureRunner_Elite_TriplePressure_LOD0": {
+      "triangles": 2228,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_PressureRunner_Elite_TriplePressure_LOD1": {
+      "triangles": 1532,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_PressureRunner_Elite_TriplePressure_LOD2": {
+      "triangles": 748,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "textures_missing": []
+  },
+  "actions": {
+    "Idle_Pressure": {
+      "frames": [
+        1,
+        61
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Run_Unstable": {
+      "frames": [
+        1,
+        31
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Arm_Overload": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.3894183337688446,
+      "root_delta": 0.0
+    },
+    "Death_Disabled": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.5226871967315674,
+      "root_delta": 0.0
+    },
+    "Explode_Prep": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.3894183337688446,
+      "root_delta": 0.0
+    }
+  },
+  "normals_note": "Degenerate triangles / manifold edges measured; visual normals and Unity tangent basis require engine review.",
+  "roundtrip": {
+    "fbx_imported": true,
+    "dimensions": [
+      1.4500000476837158,
+      1.4000003933906555,
+      1.8500002608209272
+    ],
+    "dimension_error": [
+      4.768371586472142e-08,
+      3.9339065560639597e-07,
+      2.6082092707824245e-07
+    ],
+    "axis_test": "Blender inverse FBX roundtrip only; Unity +Z must be tested in Unity.",
+    "armatures": 1
+  },
+  "animation_fbx_imports": {
+    "Idle_Pressure": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 16
+    },
+    "Run_Unstable": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 16
+    },
+    "Arm_Overload": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 16
+    },
+    "Death_Disabled": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 16
+    },
+    "Explode_Prep": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 16
+    }
+  },
+  "technical_pass": true,
+  "verdict": "NO-SHIP: requires visual animation/LOD/collision and Unity verification; see pending items in qa_metrics.json"
+}

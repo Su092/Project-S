@@ -43,7 +43,7 @@ namespace S.EditorTools
             // 这里**不要**再拼 "Assets/Resources/UI/" + name —— 那是扁平布局的旧写法，
             // 素材一分类就会全部落空（表现为预制体里 sprite 全为 null）。
             var dir = S.View.UiAssets.DirOf(name);
-            string path = dir == null ? null : S.View.SRes.Root + dir + name + ".png";
+            string path = dir == null ? null : dir + name + ".png";
             var s = path == null ? null : AssetDatabase.LoadAssetAtPath<Sprite>(path);
             if (s == null) Debug.LogWarning($"[S] 预制体用图缺失: {name}.png（查得路径 {path ?? "未登记"}）");
             return s;
@@ -530,7 +530,7 @@ namespace S.EditorTools
             var vig = vrt.gameObject.AddComponent<Image>();
             vig.sprite = Sp("vignette_damage");
             vig.type = Image.Type.Simple;
-            vig.color = new Color(1f, 0.25f, 0.22f, 0f);
+            vig.color = new Color(1f, 1f, 1f, 0f);
             vig.raycastTarget = false;
             refs.DamageVignette = vig;
 
@@ -649,202 +649,7 @@ namespace S.EditorTools
 
         // ---------------- 背包 ----------------
 
-        static GameObject CreateInventory()
-        {
-            var root = Node("Inventory", null);
-            var rrt = (RectTransform)root.transform;
-            rrt.anchorMin = Vector2.zero; rrt.anchorMax = Vector2.one;
-            rrt.offsetMin = Vector2.zero; rrt.offsetMax = Vector2.zero;
-            var refs = root.AddComponent<InvRefs>();
-
-            Pic("Mask", root.transform, new Color(0.03f, 0.04f, 0.06f, 0.94f),
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, null, false, true);
-
-            Label("Title", root.transform, "配 件 改 装", 34, TextAnchor.MiddleLeft,
-                new Color(0.95f, 0.85f, 0.55f),
-                new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -70f), new Vector2(600f, 40f));
-
-            Label("Subtitle", root.transform,
-                "Tab / Esc 关闭   ·   悬停查看范围   ·   同种同级拖拽合成   ·   不同配件交换   ·   右键卸下",
-                17, TextAnchor.MiddleLeft, new Color(0.6f, 0.66f, 0.75f),
-                new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -98f), new Vector2(1200f, 26f));
-
-            // 左：链区
-            refs.ChainArea = Frame("ChainArea", root.transform,
-                new Vector2(0f, 0f), new Vector2(0.62f, 1f),
-                new Vector2(40f, 140f), new Vector2(-10f, -120f));
-
-            refs.ChainRowTemplate = LoadPrefab("ChainRow");
-            refs.GunTabTemplate = LoadPrefab("GunTab");
-
-            // 右：背包面板
-            var bagPanelRt = Frame("BagPanel", root.transform,
-                new Vector2(0.63f, 0f), new Vector2(1f, 1f),
-                new Vector2(10f, 60f), new Vector2(-40f, -120f));
-            var bagPanel = bagPanelRt.gameObject.AddComponent<Image>();
-            bagPanel.sprite = Sp("panel");
-            bagPanel.type = Image.Type.Sliced;
-            bagPanel.pixelsPerUnitMultiplier = 1f;
-            bagPanel.color = new Color(1f, 1f, 1f, 0.96f);
-            bagPanel.raycastTarget = true;
-
-            // 背包落点：拖回这里 = 从链卸下
-            var bagDrop = bagPanelRt.gameObject.AddComponent<SlotDropTarget>();
-            bagDrop.IsBagArea = true;
-            bagDrop.SlotIndex = -1;
-            bagDrop.ChainIndex = -1;
-            refs.BagDropPanel = bagDrop;
-
-            // 背包网格吃满面板（悬停详情改为配件正下方的 ItemTooltip 浮窗，
-            // 不再占背包底部常驻区）。Detail 节点仍生成以便旧引用不空，但默认隐藏。
-            const float detailH = 210f;
-
-            refs.BagGrid = Frame("Grid", bagPanelRt,
-                new Vector2(0f, 0f), new Vector2(1f, 1f),
-                new Vector2(12f, 12f), new Vector2(-12f, -46f));
-            var glg = refs.BagGrid.gameObject.AddComponent<GridLayoutGroup>();
-            // 背包格子与 ItemCard 的尺寸必须一致（116×100），
-            // 否则 GridLayoutGroup 会把卡片拉伸成细长条（旧版 150×44 就是因为这个）。
-            glg.cellSize = new Vector2(116f, 100f);
-            glg.spacing = new Vector2(8f, 8f);
-            glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            glg.constraintCount = 3;
-            glg.childAlignment = TextAnchor.UpperLeft;
-
-            Label("BagTitle", bagPanelRt, "背包", 20, TextAnchor.MiddleLeft,
-                new Color(0.8f, 0.85f, 0.95f),
-                new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(14f, -34f), new Vector2(200f, -6f));
-
-            // ---- 旧详情区节点（隐藏保留；运行时 InventoryView 也会再关一次）----
-            BuildDetailPanel(refs, bagPanelRt, detailH);
-            if (refs.Detail != null) refs.Detail.gameObject.SetActive(false);
-
-            // 底部提示
-            refs.Hint = Label("Hint", root.transform, "", 20, TextAnchor.MiddleCenter,
-                new Color(0.85f, 0.9f, 1f),
-                new Vector2(0f, 0f), new Vector2(1f, 0f), new Vector2(40f, 40f), new Vector2(-40f, 90f));
-
-            return root;
-        }
-
-        /// <summary>链区里的一行（一个配件位）。高度由运行时按枪的位数分配。</summary>
-        static GameObject CreateChainRow()
-        {
-            var root = Node("ChainRow", null);
-            var rt = (RectTransform)root.transform;
-            rt.anchorMin = new Vector2(0f, 1f);
-            rt.anchorMax = new Vector2(1f, 1f);
-            rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.offsetMin = new Vector2(0f, -150f);
-            rt.offsetMax = new Vector2(0f, 0f);
-            var refs = root.AddComponent<ChainRowRefs>();
-
-            refs.Background = root.AddComponent<Image>();
-            refs.Background.color = new Color(0.10f, 0.12f, 0.16f, 0.95f);
-            refs.Background.raycastTarget = true;
-
-            refs.Drop = root.AddComponent<SlotDropTarget>();
-
-            refs.RowLabel = Label("RowLabel", root.transform, "", 16, TextAnchor.UpperLeft,
-                new Color(0.6f, 0.65f, 0.72f),
-                new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(10f, -24f), new Vector2(240f, 0f));
-
-            // 行尾追加落点：空槽外观 + "＋"
-            var tailRt = Frame("Tail", root.transform,
-                new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(10f, -92f), new Vector2(70f, -8f));
-            var tailImg = tailRt.gameObject.AddComponent<Image>();
-            tailImg.sprite = Sp("slot_empty");
-            tailImg.type = Image.Type.Sliced;
-            tailImg.pixelsPerUnitMultiplier = 1f;
-            tailImg.color = new Color(1f, 1f, 1f, 0.85f);
-            tailImg.raycastTarget = true;
-            refs.Tail = tailRt;
-            refs.TailImage = tailImg;
-            refs.TailDrop = tailRt.gameObject.AddComponent<SlotDropTarget>();
-
-            Label("Plus", tailRt, "+", 30, TextAnchor.MiddleCenter, new Color(0.6f, 0.75f, 0.9f),
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-
-            return root;
-        }
-
-        /// <summary>
-        /// 融合式详情区（对齐原型 #inv-detail）：图标 + 名称 + 稀有度 + 作用域 + 数值 + 用法提示。
-        ///
-        /// 布局按**分带**排，不用像素猜：整块高 detailH，按上到下切成
-        /// 「标题 0–34 / 元信息 34–56 / 数值 56–118 / 提示 118–detailH」。
-        /// </summary>
-        static void BuildDetailPanel(InvRefs refs, Transform parent, float detailH)
-        {
-            var panelRt = Frame("Detail", parent,
-                new Vector2(0f, 0f), new Vector2(1f, 0f),
-                new Vector2(12f, 12f), new Vector2(-12f, 12f + detailH));
-            var bg = panelRt.gameObject.AddComponent<Image>();
-            bg.color = new Color(0.06f, 0.08f, 0.11f, 0.92f);
-            bg.raycastTarget = false;
-
-            // 左侧圆形图标（含稀有度色环，与卡片同一套形状）
-            var ringRt = Fixed("DetailRing", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(12f, -12f), new Vector2(72f, 72f));
-            var ring = ringRt.gameObject.AddComponent<Image>();
-            ring.sprite = Sp("icon_frame");
-            ring.type = Image.Type.Simple;
-            ring.preserveAspect = true;
-            ring.raycastTarget = false;
-            ring.color = new Color(0.35f, 0.40f, 0.48f, 0.45f);
-
-            var iconRt = Fixed("DetailIcon", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(18f, -18f), new Vector2(60f, 60f));
-            var icon = iconRt.gameObject.AddComponent<Image>();
-            icon.type = Image.Type.Simple;
-            icon.preserveAspect = true;
-            icon.raycastTarget = false;
-            icon.enabled = false;
-
-            // 标题（右侧文字区）
-            // ⚠ 这里必须用 Label（offsetMin/offsetMax 拉伸），不能用 LabelFixed。
-            // LabelFixed 的最后一个参数是 sizeDelta 尺寸，传负值是"缩小到 0 以下"，
-            // 实际渲染会把文字裁掉一截 —— 截图里提示行被切掉就是这个原因。
-            const float textLeft = 96f;
-            var title = Label("DetailTitle", panelRt, "—", 19, TextAnchor.UpperLeft,
-                Color.white, new Vector2(0f, 1f), new Vector2(1f, 1f),
-                new Vector2(textLeft, -32f), new Vector2(-12f, -10f));
-
-            var meta = Label("DetailMeta", panelRt, "", 13, TextAnchor.UpperLeft,
-                new Color(0.75f, 0.8f, 0.9f), new Vector2(0f, 1f), new Vector2(1f, 1f),
-                new Vector2(textLeft, -54f), new Vector2(-12f, -34f));
-
-            // 作用域色块 + 文字：色块是可读性手段，不是装饰（7 种作用域靠颜色分辨）
-            var chipRt = Fixed("ScopeChip", panelRt, new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(textLeft, -70f), new Vector2(6f, 14f));
-            var chip = chipRt.gameObject.AddComponent<Image>();
-            chip.raycastTarget = false;
-            chip.color = new Color(0f, 0f, 0f, 0f);
-
-            var scopeText = Label("DetailScope", panelRt, "", 13, TextAnchor.UpperLeft,
-                new Color(0.7f, 0.78f, 0.9f), new Vector2(0f, 1f), new Vector2(1f, 1f),
-                new Vector2(textLeft + 12f, -70f), new Vector2(-12f, -50f));
-
-            // 数值区：多行、向上对齐、允许换行
-            var stats = Label("DetailStats", panelRt, "", 14, TextAnchor.UpperLeft,
-                new Color(0.88f, 0.92f, 1f), new Vector2(0f, 0f), new Vector2(1f, 1f),
-                new Vector2(14f, 34f), new Vector2(-12f, -96f));
-            stats.horizontalOverflow = HorizontalWrapMode.Wrap;
-            stats.verticalOverflow = VerticalWrapMode.Truncate;
-
-            // 用法提示：贴着面板底部，两行以内
-            var hint = Label("DetailHint", panelRt, "", 12, TextAnchor.UpperLeft,
-                new Color(0.60f, 0.68f, 0.78f), new Vector2(0f, 0f), new Vector2(1f, 0f),
-                new Vector2(14f, 8f), new Vector2(-12f, 32f));
-            hint.horizontalOverflow = HorizontalWrapMode.Wrap;
-            hint.verticalOverflow = VerticalWrapMode.Truncate;
-
-            var detail = panelRt.gameObject.AddComponent<ItemDetailPanel>();
-            detail.Bind(icon, ring, title, meta, scopeText, chip, stats, hint);
-            refs.Detail = detail;
-        }
+        static GameObject CreateInventory() => ScoreUiLayout.Build(F(),Sp("score_page"),Sp("score_sort"),Sp("score_close"));
 
         /// <summary>背包上方的枪页签。</summary>
         static GameObject CreateGunTab()
@@ -904,6 +709,7 @@ namespace S.EditorTools
 
             refs.Root = root;
             refs.CardTemplate = LoadPrefab("OfferCard");
+            root.AddComponent<MusicOfferPresentation>();
             return root;
         }
 
@@ -1124,12 +930,11 @@ namespace S.EditorTools
             // 顺序即依赖：被引用的模板必须先落盘，后面创建预制体时才能 Load 到。
             names.Add(Save(CreateItemCard(), "ItemCard"));
             names.Add(Save(CreateOfferCard(), "OfferCard"));
-            names.Add(Save(CreateChainRow(), "ChainRow"));
             names.Add(Save(CreateGunTab(), "GunTab"));
             names.Add(Save(CreateMenu(), "Menu"));
-            names.Add(Save(CreateHud(), "HUD"));
+            names.Add(SHudV2Builder.BuildHud());
             names.Add(Save(CreateOffer(), "Offer"));
-            names.Add(Save(CreateInventory(), "Inventory"));
+            names.Add(Save(CreateInventory(), "ScoreInventory"));
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

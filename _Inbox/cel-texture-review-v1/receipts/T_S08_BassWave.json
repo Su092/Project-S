@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s08_basswave-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:35:54+0800",
+  "task_id": "task_01M7W1J6GHXPVQN0Q9NPW0RY60",
+  "result_url": "https://getapib.org/image/9998204836144331-32ecfec0-e0c2-4be4-aa97-9a4ab161e190-image_img_09cdb494f7904d04b6e74a1faa32a1be_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S08_BassWave.png",
+  "bytes": 2301151,
+  "sha256": "92b9aea2b568163c1741876e3848c3dd48a59e0a768a9ab71c36002a35d66406"
+}

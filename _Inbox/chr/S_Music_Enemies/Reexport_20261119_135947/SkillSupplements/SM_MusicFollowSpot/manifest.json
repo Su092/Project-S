@@ -1,0 +1,352 @@
+{
+  "assetId": "SM_MusicFollowSpot",
+  "version": "1.0.0",
+  "units": "m",
+  "status": "MODELED_AND_IMPORT_VERIFIED_PENDING_GAMEPLAY_VISUAL_ACCEPTANCE",
+  "boundsBlender": {
+    "min": [
+      -0.27300000190734863,
+      -0.38999998569488525,
+      -0.9539999961853027
+    ],
+    "max": [
+      0.27300000190734863,
+      0.3421843349933624,
+      0.0
+    ],
+    "size": [
+      0.5460000038146973,
+      0.7321842908859253,
+      0.9539999961853027
+    ]
+  },
+  "lods": [
+    {
+      "tris": 1732,
+      "budget": 1800,
+      "geometry": "PASS",
+      "intentionalOpenSurface": false
+    },
+    {
+      "tris": 866,
+      "budget": 900,
+      "geometry": "PASS",
+      "intentionalOpenSurface": false
+    },
+    {
+      "tris": 288,
+      "budget": 350,
+      "geometry": "PASS",
+      "intentionalOpenSurface": false
+    }
+  ],
+  "materials": [
+    "MAT_SM_MusicFollowSpot_Atlas",
+    "MAT_SM_MusicFollowSpot_Lens"
+  ],
+  "origin": "mount interface center",
+  "axes": {
+    "blender": "+Z up, -Y forward",
+    "unityTarget": "+Y up,+Z forward"
+  },
+  "export": {
+    "scale": 1,
+    "applyUnit": true,
+    "applyScalings": "FBX_ALL",
+    "applyTransform": false,
+    "forward": "-Z",
+    "up": "Y",
+    "leafBones": false,
+    "reason": "Blender bake_space_transform=True rotates bone-parented Empty sockets incorrectly in Unity. False matches existing enemy skeleton convention and passes measured +Z forward."
+  },
+  "animations": [
+    {
+      "name": "Idle",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "seconds": 1.0,
+      "loop": true,
+      "rootMotion": false
+    },
+    {
+      "name": "FocusIn",
+      "frames": [
+        0,
+        15
+      ],
+      "fps": 30,
+      "seconds": 0.5,
+      "loop": false,
+      "rootMotion": false
+    },
+    {
+      "name": "FocusOut",
+      "frames": [
+        0,
+        15
+      ],
+      "fps": 30,
+      "seconds": 0.5,
+      "loop": false,
+      "rootMotion": false
+    },
+    {
+      "name": "RigTest",
+      "frames": [
+        0,
+        60
+      ],
+      "fps": 30,
+      "seconds": 2.0,
+      "loop": false,
+      "rootMotion": false
+    }
+  ],
+  "textureSize": 1024,
+  "textureSpaces": {
+    "BC": "sRGB",
+    "ORM": "Linear R=AO G=Roughness B=Metallic",
+    "N": "Linear tangent normal",
+    "E": "Linear emission mask",
+    "Alpha": "Linear"
+  },
+  "texelDensity": "256 px/m, 256px/m face projection; equal-size flat-color islands share UV rectangles with 4px padding, all LODs packed in shared 1024 atlas",
+  "collision": "decorative by default; convex housing only",
+  "notes": [
+    "root > yaw > pitch, four additional rigid flap bones",
+    "Only lens emits; no beam geometry",
+    "Mount rod is disconnected mesh island bound to root; detachable in source"
+  ],
+  "pending": [
+    "目标游戏渲染管线的材质接线、透明双面与排序验收；未在实际战斗场景标记最终PASS。",
+    "LODGroup切换与动态追踪在目标项目中验收。"
+  ],
+  "mechanicalCheck": "mechanical_check.json",
+  "skeleton": [
+    {
+      "name": "root",
+      "parent": null,
+      "headBlender": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "yaw",
+      "parent": "root",
+      "headBlender": [
+        0.0,
+        0.0,
+        -0.25
+      ]
+    },
+    {
+      "name": "pitch",
+      "parent": "yaw",
+      "headBlender": [
+        0.0,
+        0.0,
+        -0.75
+      ]
+    },
+    {
+      "name": "Flap_T",
+      "parent": "pitch",
+      "headBlender": [
+        0.0,
+        -0.2800000011920929,
+        -0.5699999928474426
+      ]
+    },
+    {
+      "name": "Flap_B",
+      "parent": "pitch",
+      "headBlender": [
+        0.0,
+        -0.2800000011920929,
+        -0.9300000071525574
+      ]
+    },
+    {
+      "name": "Flap_L",
+      "parent": "pitch",
+      "headBlender": [
+        -0.18000000715255737,
+        -0.2800000011920929,
+        -0.75
+      ]
+    },
+    {
+      "name": "Flap_R",
+      "parent": "pitch",
+      "headBlender": [
+        0.18000000715255737,
+        -0.2800000011920929,
+        -0.75
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_HeadPivot",
+      "parentBone": "pitch",
+      "positionBlender": [
+        0.0,
+        0.0,
+        -0.75
+      ]
+    },
+    {
+      "name": "Socket_LightOrigin",
+      "parentBone": "pitch",
+      "positionBlender": [
+        0.0,
+        -0.2669999897480011,
+        -0.75
+      ]
+    },
+    {
+      "name": "Socket_Mount",
+      "parentBone": "root",
+      "positionBlender": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "mechanicalCheckScope": "All integer frames in RigTest/FocusIn/FocusOut, LOD0 head vs yoke; pivot/axle contact triangles outside |x| > 0.175m excluded. Not a complete all-component collision proof.",
+  "unityValidation": {
+    "version": "6000.6.4f1",
+    "measuredModel": {
+      "file": "Assets/Supplements/SM_MusicFollowSpot/Model/SM_MusicFollowSpot.fbx",
+      "size": {
+        "x": 0.5460000038146973,
+        "y": 0.9539997577667236,
+        "z": 0.7321841716766357
+      },
+      "min": {
+        "x": -0.27300000190734863,
+        "y": -0.9539997577667236,
+        "z": -0.34218427538871765
+      },
+      "max": {
+        "x": 0.27300000190734863,
+        "y": 0.0,
+        "z": 0.3899998962879181
+      },
+      "meshes": 6,
+      "unweighted": 0,
+      "tris": [
+        108,
+        60,
+        28,
+        1624,
+        806,
+        260
+      ],
+      "nodes": [
+        "SM_SM_MusicFollowSpot_Lens_LOD0",
+        "SM_SM_MusicFollowSpot_Lens_LOD1",
+        "SM_SM_MusicFollowSpot_Lens_LOD2",
+        "SM_SM_MusicFollowSpot_LOD0",
+        "SM_SM_MusicFollowSpot_LOD1",
+        "SM_SM_MusicFollowSpot_LOD2"
+      ],
+      "sockets": [
+        {
+          "name": "Socket_Mount",
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "forward": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        {
+          "name": "Socket_HeadPivot",
+          "position": {
+            "x": 0.0,
+            "y": -0.7499998807907104,
+            "z": -5.960464477539063e-08
+          },
+          "forward": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        {
+          "name": "Socket_LightOrigin",
+          "position": {
+            "x": 0.0,
+            "y": -0.7499998807907104,
+            "z": 0.2669999599456787
+          },
+          "forward": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        }
+      ],
+      "clips": []
+    },
+    "report": "unity_validation.json"
+  },
+  "textures": [
+    {
+      "file": "Textures/T_SM_MusicFollowSpot_BC.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SM_MusicFollowSpot_E.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_SM_MusicFollowSpot_N.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_SM_MusicFollowSpot_ORM.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    }
+  ],
+  "sha256": {
+    "Animations/SM_MusicFollowSpot_FocusIn.fbx": "88cfa9781f12eff4cc7ca8ffd231683a841f1cd92715cd663ec02f1259dfeed6",
+    "Animations/SM_MusicFollowSpot_FocusOut.fbx": "82c01d22ed54da04760de2d1f3ec46201f561360f6f83f287c1dabc723b74948",
+    "Animations/SM_MusicFollowSpot_Idle.fbx": "cc075d27b6a367a550a53a79ff26ce20144b9d2614351f66fa18e98e70526f50",
+    "Animations/SM_MusicFollowSpot_RigTest.fbx": "8f4e8d319847ec904f9cb324d6e2555fcfd7e725a374ccbafb47cff1cbdff207",
+    "Collision/SM_MusicFollowSpot_COL.fbx": "48525ef4dc9ea44562e6d829f9de48159e310dd92a16e573bc855513ac54f721",
+    "mechanical_check.json": "e9478a47f9f34933c5f7f212e267637c50e669a527dc729e595bcef3d1a7df80",
+    "Model/SM_MusicFollowSpot.fbx": "083009766e73e3e3d418e4c3d8fd5f704d2a358d0066337c5e0172fe4503e4a1",
+    "Preview/45.png": "e3a4016b19c9401920623398315c738fb8a1a27ebfaf2713a38bb4904dc1faa6",
+    "Preview/Back.png": "c54ae6b857f5159baa6fc771ddb066441bf59bc46af37409f8ba3ef326a74366",
+    "Preview/Front.png": "a492d01e5b7ab76fb156d6df6000645feef3e8f780209e497c37e6f3d85afde5",
+    "Preview/ScaleReference.png": "1071c01bd4eacf4c1b2b61e1453ac9f08d4b022f8a422f5bdb26beadbd281be7",
+    "Preview/Side.png": "dfb43794e700a7400b6e8915b13e9591c83c77c25b15b4fa67d25ac4ab49bcbd",
+    "Source/SM_MusicFollowSpot.blend": "87b736fb8cd5830c0c5baa392503301ab0247880522711594aa3cd58004144a3",
+    "Source/SM_MusicFollowSpot.blend1": "b863834ddbb2f477de2fd83b4fdd3f978b5309239f4f88f693deb38a0b7e823d",
+    "Textures/T_SM_MusicFollowSpot_BC.png": "53a2a36a2693b355a87b1e0eea3c6e0313ecf8e59791b8261d938d6fdf5c3d4e",
+    "Textures/T_SM_MusicFollowSpot_E.png": "8c235a6a986e29878ebf59ea04764cfc43f8e8cabff9d093de58216da20f457e",
+    "Textures/T_SM_MusicFollowSpot_N.png": "2a37097d002c7245b2a672ff0336249e5af2653458bc882bd86d30d9558ab784",
+    "Textures/T_SM_MusicFollowSpot_ORM.png": "1b00c3243372a673def24b1fc5c90a5206c3d12dbb45bf3484dbe73951757951",
+    "unity_validation.json": "af005e3711884c7a20991b6933548e8acad0d9c981c46aceb8bd210c02990abe"
+  }
+}

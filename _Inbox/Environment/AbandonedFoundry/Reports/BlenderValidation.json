@@ -1,0 +1,502 @@
+{
+  "modules": 51,
+  "checks": [
+    {
+      "key": "Floor_Concrete",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Floor_Metal",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Floor_Damaged",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Floor_Border",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Floor_Transition",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Floor_Drain",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_Straight4",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_InnerCorner",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_OuterCorner",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_EndCap",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_Pillar",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_TopCap",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_WideDoor8",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Wall_ClosedDoor",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Deck4",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Support",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Edge",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Stairs4x5",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Ramp4x8",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Landing",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_Rail4",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_RailCorner",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Platform_RailEnd",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_CrateLow",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_CrateHigh",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_CrateGroup",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_ShortWall",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_Cabinet",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_MachineBase",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_Barrel",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Cover_BarrelGroup",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_Quarter",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_Edge",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_Entry",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_EnergyBase",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_EnergyPillar",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_EnergyRuin",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_RingMark",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Core_LightStrip",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_PipeStraight",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_PipeElbow",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_PipeTee",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_PipeBracket",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_Vent",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_CableTray",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_WallLight",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_Sign",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Decor_Scrap",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Vista_Chimney",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Vista_Furnace",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    },
+    {
+      "key": "Vista_Factory",
+      "uv_channels": 2,
+      "degenerate_tris": 0,
+      "scale_applied": true
+    }
+  ],
+  "lod_target_exceptions": [
+    {
+      "key": "Floor_Concrete",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Floor_Metal",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Floor_Damaged",
+      "ratio": 0.25,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Floor_Border",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Floor_Transition",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_InnerCorner",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_OuterCorner",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_EndCap",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_Pillar",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_TopCap",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Wall_WideDoor8",
+      "ratio": 0.68,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Platform_Support",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Platform_Edge",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Platform_Ramp4x8",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Platform_Landing",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Platform_RailEnd",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_Quarter",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_Edge",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_Entry",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_EnergyRuin",
+      "ratio": 0.385,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_RingMark",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Core_LightStrip",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_PipeStraight",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_PipeElbow",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_PipeTee",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_PipeBracket",
+      "ratio": 0.636,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_CableTray",
+      "ratio": 0.22,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_WallLight",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_Sign",
+      "ratio": 1.0,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    },
+    {
+      "key": "Decor_Scrap",
+      "ratio": 0.636,
+      "reason": "Retained minimum structure / seam geometry, or secondary-detail removal; see measured manifest."
+    }
+  ],
+  "under_300_modules": [
+    "Floor_Concrete",
+    "Floor_Metal",
+    "Floor_Damaged",
+    "Floor_Border",
+    "Floor_Transition",
+    "Wall_InnerCorner",
+    "Wall_OuterCorner",
+    "Wall_EndCap",
+    "Wall_Pillar",
+    "Wall_TopCap",
+    "Wall_WideDoor8",
+    "Platform_Deck4",
+    "Platform_Support",
+    "Platform_Edge",
+    "Platform_Stairs4x5",
+    "Platform_Ramp4x8",
+    "Platform_Landing",
+    "Platform_Rail4",
+    "Platform_RailEnd",
+    "Cover_Barrel",
+    "Core_Quarter",
+    "Core_Edge",
+    "Core_Entry",
+    "Core_EnergyBase",
+    "Core_EnergyRuin",
+    "Core_RingMark",
+    "Core_LightStrip",
+    "Decor_PipeStraight",
+    "Decor_PipeElbow",
+    "Decor_PipeTee",
+    "Decor_PipeBracket",
+    "Decor_CableTray",
+    "Decor_WallLight",
+    "Decor_Sign",
+    "Decor_Scrap",
+    "Vista_Furnace",
+    "Vista_Factory"
+  ]
+}

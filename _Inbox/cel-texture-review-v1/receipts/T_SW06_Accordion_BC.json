@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_sw06_accordion_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:35:04+0800",
+  "task_id": "task_01M7W1GPX89GZK0HTM9P3245MD",
+  "result_url": "https://getapib.org/image/9998204836255390-4e3ffd0a-0631-426e-9613-0d719b3087a4-image_task_01M7W1HRZ0XRWQ9K81K8PXSBAT_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_SW06_Accordion_BC.png",
+  "bytes": 2589144,
+  "sha256": "866b4005132713db573c26f4bd4e0c62ee51da64f74f4f5051deda629095ec0e"
+}

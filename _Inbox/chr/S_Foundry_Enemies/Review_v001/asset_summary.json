@@ -1,0 +1,209 @@
+[
+  {
+    "asset": "SlagHound",
+    "dimensions_m": [
+      1.1,
+      1.65,
+      0.72
+    ],
+    "triangles": [
+      1472,
+      1376,
+      344
+    ],
+    "budget": [
+      3600,
+      1800,
+      800
+    ],
+    "bones": 17,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "FurnaceWarden",
+    "dimensions_m": [
+      1.65,
+      1.2,
+      2.45
+    ],
+    "triangles": [
+      1228,
+      1036,
+      364
+    ],
+    "budget": [
+      5200,
+      2600,
+      1200
+    ],
+    "bones": 12,
+    "materials": 1,
+    "texture": 2048,
+    "clip_count": 6,
+    "numerical_checks": true
+  },
+  {
+    "asset": "PressureRunner",
+    "dimensions_m": [
+      1.05,
+      1.1,
+      1.55
+    ],
+    "triangles": [
+      1740,
+      1236,
+      580
+    ],
+    "budget": [
+      3200,
+      1600,
+      700
+    ],
+    "bones": 14,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "RingSentry",
+    "dimensions_m": [
+      1.6,
+      0.9,
+      1.25
+    ],
+    "triangles": [
+      1768,
+      1216,
+      624
+    ],
+    "budget": [
+      4200,
+      2100,
+      900
+    ],
+    "bones": 6,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "SlagHound_Elite_MoldBreaker",
+    "dimensions_m": [
+      1.35,
+      1.95,
+      1
+    ],
+    "triangles": [
+      1692,
+      1596,
+      404
+    ],
+    "budget": [
+      4800,
+      2400,
+      1100
+    ],
+    "bones": 18,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "FurnaceWarden_Elite_TwinGate",
+    "dimensions_m": [
+      2,
+      1.45,
+      2.85
+    ],
+    "triangles": [
+      1360,
+      1168,
+      400
+    ],
+    "budget": [
+      6800,
+      3400,
+      1500
+    ],
+    "bones": 13,
+    "materials": 1,
+    "texture": 2048,
+    "clip_count": 6,
+    "numerical_checks": true
+  },
+  {
+    "asset": "PressureRunner_Elite_TriplePressure",
+    "dimensions_m": [
+      1.45,
+      1.4,
+      1.85
+    ],
+    "triangles": [
+      2228,
+      1532,
+      748
+    ],
+    "budget": [
+      4500,
+      2200,
+      1000
+    ],
+    "bones": 16,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "RingSentry_Elite_Crown",
+    "dimensions_m": [
+      2.05,
+      1.15,
+      1.65
+    ],
+    "triangles": [
+      2248,
+      1600,
+      784
+    ],
+    "budget": [
+      5600,
+      2800,
+      1300
+    ],
+    "bones": 6,
+    "materials": 1,
+    "texture": 1024,
+    "clip_count": 5,
+    "numerical_checks": true
+  },
+  {
+    "asset": "Boss_CrucibleSovereign",
+    "dimensions_m": [
+      5.6,
+      5,
+      5.8
+    ],
+    "triangles": [
+      4512,
+      3240,
+      1596
+    ],
+    "budget": [
+      18000,
+      9000,
+      4500
+    ],
+    "bones": 33,
+    "materials": 2,
+    "texture": 2048,
+    "clip_count": 14,
+    "numerical_checks": true
+  }
+]

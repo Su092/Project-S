@@ -13,76 +13,466 @@ MonoBehaviour:
   m_Name: S_Model
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_Model
-  m_GUID: d343817b7f62f2944b339b2242583fb4
+  m_GUID: 30ee752c52ca01349b61429b7123aee0
   m_SerializeEntries:
-  - m_GUID: 53c74e56a708cd046a880072aa1d5845
-    m_Address: model/Modle_Enemy_Crawler
+  - m_GUID: 013c2d94181888a48ac6532b7b0ff638
+    m_Address: model/SM_Theater_Lamp_ChandelierArm
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 65a40693fe8e579429e6d2cdf7b34212
-    m_Address: model/Modle_Prop_Crate
+  - m_GUID: 04d4fbea55d330140ba1ae31cbebbfcc
+    m_Address: model/SM_Theater_Floor_Walnut2
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6f42b1d9cd50b8644b821f803faea70a
-    m_Address: model/Modle_Enemy_Spitter
+  - m_GUID: 0c3c9f4cd96642c4693182ce20d088d8
+    m_Address: model/SM_Theater_Wall_Exterior4
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7d78e32e6d03248468c82d843209e797
-    m_Address: model/Modle_Enemy_Shield
+  - m_GUID: 0dc136a3ea8f45d4583f3b62748ac9a2
+    m_Address: model/SM_Theater_Lamp_ChandelierHub
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 891c3eb3772bbcd4598a5d12f47059a8
-    m_Address: model/Modle_Prop_Pillar
+  - m_GUID: 114e2e5d478ef5e469aea43b5d748087
+    m_Address: model/SM_Theater_Deco_Clerestory
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 937c12e986e4ace4ea32bb0dd61e1a21
-    m_Address: model/Modle_Gun_Single
+  - m_GUID: 15a262d546f59da4facea48ba1fbca8f
+    m_Address: model/SM_Theater_Seat_Single
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a558f7fa129f3bb41986d5f7ce9bd46e
-    m_Address: model/Modle_Prop_Wall
+  - m_GUID: 174e2d1571c953d47b60fa989ae86243
+    m_Address: model/SM_Theater_Lamp_Wall
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba041c3fce4ba194a8b9c680aa38c29f
-    m_Address: model/Modle_Boss_ForgeCore
+  - m_GUID: 184e92dc8e0cc914d9598c7a5dd84189
+    m_Address: model/SM_Theater_Arch_GalleryUpper8
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e247143df87df69488496a8cb76f1835
-    m_Address: model/Modle_Gun_Auto
+  - m_GUID: 1970296356766df4c9f989d391cd5bae
+    m_Address: model/SM_Theater_Rail_Corner2
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f2081fbe953d6714a8f2805c83516677
-    m_Address: model/Modle_Gun_Grenade
+  - m_GUID: 1fbb2e65f6fc3d745a439d1fea431936
+    m_Address: model/GrandTheater_Collisions
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f92b03bbb9372134d9fecffc6bca915f
-    m_Address: model/Modle_Enemy_Drone
+  - m_GUID: 21989641f27699047b6a57e726d60d89
+    m_Address: model/SM_Theater_Organ_Body
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fdb6b2902582e404a8457f99cf4540ce
-    m_Address: model/Modle_Prop_Barrel
+  - m_GUID: 264172210653f4c49999dc20ed27f8db
+    m_Address: model/SM_Theater_Stair_Flight20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2811e1056101bbc4481233fb134acadf
+    m_Address: model/SM_Theater_Deco_Banner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bd0414182b40e1458261916999cf134
+    m_Address: model/SM_Theater_Curtain_Side
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cf57e4195ec2b842a2fd8bd76efa08f
+    m_Address: model/SM_Theater_Prop_CaseSmall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2deffb9d6f345d84194e2603d2baa246
+    m_Address: model/SM_Theater_Stair_Stage8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e9ff987e394a6c439293d383b982a8b
+    m_Address: model/SM_Theater_Prop_Conductor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ecb86addaa505b468c47b957a88cd37
+    m_Address: model/SM_Theater_Roof_Vault4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3abfb3048f3017b4a85063d44d6d3473
+    m_Address: model/SM_Theater_Column_Pilaster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e3c118bdcc0fe443bc82be2f99013e2
+    m_Address: model/SM_Theater_Lamp_ChandelierRing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fca5992187bec44c99cbc32e784dee7
+    m_Address: model/SM_Theater_Lamp_Lantern
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4768c6717e70b7344bad65e4f01dd7c9
+    m_Address: model/SM_Theater_Deck_BoxPortal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47adddbff5d299a47a5ec5ab97dda098
+    m_Address: model/SM_Theater_Rail_Gallery2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50f0313fed09df2498e3fde2d02cf094
+    m_Address: model/SM_Theater_Floor_Stone4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 583629ec9cbf5e049b2775f9d495061f
+    m_Address: model/SM_Theater_Roof_Rib
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aef25d68dc3ca44fa337b3c0e5f565f
+    m_Address: model/SM_Theater_Deco_Lyre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b5eede45c6f0b24496b3f9359a4d746
+    m_Address: model/SM_Theater_Curtain_MainR
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5edf47d88b0cbb8408c775ab638baf61
+    m_Address: model/SM_Theater_Floor_Runner4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fbdfe001340bdf40934869b7efcc0c2
+    m_Address: model/SM_Theater_Deck_Edge2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66e9366226d25b94fb2d6c823f90e2d9
+    m_Address: model/SM_Theater_Curtain_Valance8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ac5791c7eb100f43a505648d2af32fc
+    m_Address: model/SM_Theater_Stage_ProsceniumPost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cca900ca9388d541a17babfc10bad83
+    m_Address: model/SM_Theater_Stage_Lip2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 714a3f6c17ccabc45a976d42e65bc367
+    m_Address: model/SM_Theater_Organ_PipesCenter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f60061b8a0cef54fa00b7fc7e06659b
+    m_Address: model/SM_Theater_Rail_Gallery4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f7c1b44686c9de4b8cd052227556e20
+    m_Address: model/SM_Theater_Roof_Transom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fed2ce66a00fee4caa93d495e4f9d92
+    m_Address: model/SM_Theater_Floor_Stone2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8000c21521c3fd644b513c47efe22322
+    m_Address: model/SM_Theater_Floor_Walnut4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 835fe81ed695dfc459157adce32ad0f0
+    m_Address: model/SM_Theater_Wall_Core4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85b713965f64f19449d35eecf4611d5f
+    m_Address: model/SM_Theater_Arch_GalleryLower8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8add1c5aaa74b9947b709b04286c6fed
+    m_Address: model/SM_Theater_Prop_Bench
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c0b3420cfbcd4a4cabc6ea972bc6a05
+    m_Address: model/SM_Theater_Deck_Return2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c8c787d5a80c5041b447f93470af753
+    m_Address: model/SM_Theater_Stage_Timber4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 971327216765f75498b933a112d366ca
+    m_Address: model/SM_Theater_Door_Side4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f626bf940024f54fb45765b9c78e3cb
+    m_Address: model/SM_Theater_Prop_CaseWide
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f8c5dfb9dfc97a48a5e4df499ea1cbc
+    m_Address: model/SM_Theater_Stage_Edge2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a53cc4b299480f842849a391799f5a6f
+    m_Address: model/SM_Theater_Prop_ProgramFrame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a61273982b41b294486ec16cbf9d0e9b
+    m_Address: model/SM_Theater_Wall_Lobby1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a63278aeb9639e04093809ef4e84790b
+    m_Address: model/SM_Theater_Stage_ProsceniumArc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a699483277756634a8b057e60fd347e2
+    m_Address: model/SM_Theater_Curtain_MainL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa347af4f83584d4b9c6a6abaf196e50
+    m_Address: model/SM_Theater_Organ_Plinth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaeb672bd85955a4286e0edced4b9266
+    m_Address: model/SM_Theater_Roof_Gable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afc850c40b6e57544b5f64189dbe662a
+    m_Address: model/SM_Theater_Door_Portal4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b339216979bd00046a914e6fcfef48b1
+    m_Address: model/SM_Theater_Organ_Console
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bac1fdf5135ffcc48b90bb0cfda79f80
+    m_Address: model/SM_Theater_Wall_Lobby4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb59b95b0f5e73442b939f31c9fbbf68
+    m_Address: model/SM_Theater_Deck_Gallery4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c26760bd026bb6e4b8608fbce58568a4
+    m_Address: model/SM_Theater_Deck_BalconyFace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5acf536a988c6d4a859b295fa0a7a3a
+    m_Address: model/SM_Theater_Organ_PipesSide
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6cb9164a9caeec41bf14f190a185013
+    m_Address: model/SM_Theater_Roof_Side4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7e5866094690e3469f98c47e26a22ac
+    m_Address: model/SM_Theater_Seat_EndDivider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccdb3e4cbd43e5f47b5648d57efe8f8a
+    m_Address: model/SM_Theater_Rail_Gallery1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce9aeacc747e14b429eb2208fffe8b3b
+    m_Address: model/SM_Theater_Prop_Stand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d080339085b4c334b8f67e83714b31f3
+    m_Address: model/SM_Theater_Stage_Lip4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1814dfc2203c714ebdfe9c51c718e24
+    m_Address: model/SM_Theater_Prop_InstrumentRack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dad2fc6347ed1244da7e471efde26599
+    m_Address: model/SM_Theater_Deck_StairTop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db7cc760244162b4cb9f40e4e59a1973
+    m_Address: model/SM_Theater_Door_ClosedDouble
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd16eaea32ac0d445ab117c590a96d90
+    m_Address: model/SM_Theater_Prop_Piano
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd8f44e5f30dded48a41834eb0487f12
+    m_Address: model/SM_Theater_Lamp_HangerStem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dda991d2e227fed4781b7bbd81ab528c
+    m_Address: model/SM_Theater_Rail_StairSlope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df0339f01e83d1044b97fc088f8aa458
+    m_Address: model/SM_Theater_Stair_SideRamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e32b9e13d1b20ce478cddd2ccb2c635b
+    m_Address: model/SM_Theater_Deck_StairTurn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec06403fb8658154eb36c0276f5dd5f8
+    m_Address: model/SM_Theater_Door_Grand8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee9ab84535af4c447b8e0ce709103ad7
+    m_Address: model/SM_Theater_Prop_TicketCounter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef75b8a581d1a9443a22654af46423fb
+    m_Address: model/SM_Theater_Organ_Crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef932a44eab3e1d45a30261d142a9839
+    m_Address: model/SM_Theater_Wall_Wainscot4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f920adb6b19289244b3e5faefdf6ed8c
+    m_Address: model/SM_Theater_Seat_Group4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f981dc0bcc82ff249a4aec39a013f68a
+    m_Address: model/SM_Theater_Wall_Scenery4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd1cf53a02475e14f9ae66b4fd92a3ed
+    m_Address: model/SM_Theater_Deck_Bridge4
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_Font
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_Font
-  m_GUID: d748f3f983b102f4ab8e5dd17160db4a
+  m_GUID: 23e7a0b12a3b4c041a064d7ce6659203
   m_SerializeEntries:
   - m_GUID: 4c2b8e71d6a94f0e8b3c5d7a1e9f2b64
     m_Address: font/UiRounded

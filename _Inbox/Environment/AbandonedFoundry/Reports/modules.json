@@ -1,0 +1,1104 @@
+{
+  "modules": [
+    {
+      "key": "Floor_Concrete",
+      "dimensions": [
+        4.0,
+        4.0,
+        0.25
+      ],
+      "pivot": "top joining corner (surface z=0)",
+      "tris0": 12,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Concrete"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Concrete_LOD0",
+      "lod1": "ENV_Foundry_Floor_Concrete_LOD1",
+      "collision": [
+        "COL_Foundry_Floor_Concrete_00_Both"
+      ],
+      "note": "Minimal planar module; LOD reduction exempt"
+    },
+    {
+      "key": "Floor_Metal",
+      "dimensions": [
+        4.0,
+        4.0,
+        0.25
+      ],
+      "pivot": "top joining corner (surface z=0)",
+      "tris0": 36,
+      "tris1": 36,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Metal_LOD0",
+      "lod1": "ENV_Foundry_Floor_Metal_LOD1",
+      "collision": [
+        "COL_Foundry_Floor_Metal_00_Both"
+      ],
+      "note": "Minimal planar module; LOD reduction exempt"
+    },
+    {
+      "key": "Floor_Damaged",
+      "dimensions": [
+        4.0,
+        4.0,
+        0.252
+      ],
+      "pivot": "top joining corner (surface z=0)",
+      "tris0": 48,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Concrete",
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Damaged_LOD0",
+      "lod1": "ENV_Foundry_Floor_Damaged_LOD1",
+      "collision": [
+        "COL_Foundry_Floor_Damaged_00_Both"
+      ],
+      "note": "Minimal planar module; LOD reduction exempt"
+    },
+    {
+      "key": "Floor_Border",
+      "dimensions": [
+        4.0,
+        0.25,
+        0.1
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 12,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Border_LOD0",
+      "lod1": "ENV_Foundry_Floor_Border_LOD1",
+      "collision": [],
+      "note": "flush decorative overlay, no movement collision"
+    },
+    {
+      "key": "Floor_Transition",
+      "dimensions": [
+        4.0,
+        0.25,
+        0.02
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 12,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Transition_LOD0",
+      "lod1": "ENV_Foundry_Floor_Transition_LOD1",
+      "collision": [],
+      "note": "flush decorative overlay, no movement collision"
+    },
+    {
+      "key": "Floor_Drain",
+      "dimensions": [
+        4.0,
+        0.5,
+        0.085
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 716,
+      "tris1": 364,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Floor_Drain_LOD0",
+      "lod1": "ENV_Foundry_Floor_Drain_LOD1",
+      "collision": [],
+      "note": "flush decorative overlay, no movement collision"
+    },
+    {
+      "key": "Wall_Straight4",
+      "dimensions": [
+        4.0,
+        1.045998215675354,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 242,
+      "tris1": 120,
+      "materials": [
+        "MAT_Foundry_Concrete",
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_Straight4_LOD0",
+      "lod1": "ENV_Foundry_Wall_Straight4_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_Straight4_00_Both"
+      ],
+      "note": "User revised wall: exact union, no internal coplanar overlap; UV0+UV1; exact static mesh collision; authoritative source Wall_Straight4_Revised.blend. 242 tris retained without artificial subdivision."
+    },
+    {
+      "key": "Wall_InnerCorner",
+      "dimensions": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 24,
+      "tris1": 24,
+      "materials": [
+        "MAT_Foundry_Concrete"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_InnerCorner_LOD0",
+      "lod1": "ENV_Foundry_Wall_InnerCorner_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_InnerCorner_00_Both",
+        "COL_Foundry_Wall_InnerCorner_01_Both"
+      ],
+      "note": "L footprint; rotate for inner/outer use. Minimal structure exception."
+    },
+    {
+      "key": "Wall_OuterCorner",
+      "dimensions": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 24,
+      "tris1": 24,
+      "materials": [
+        "MAT_Foundry_Concrete"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_OuterCorner_LOD0",
+      "lod1": "ENV_Foundry_Wall_OuterCorner_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_OuterCorner_00_Both",
+        "COL_Foundry_Wall_OuterCorner_01_Both"
+      ],
+      "note": "L footprint; rotate for inner/outer use. Minimal structure exception."
+    },
+    {
+      "key": "Wall_EndCap",
+      "dimensions": [
+        1.0,
+        1.0,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_EndCap_LOD0",
+      "lod1": "ENV_Foundry_Wall_EndCap_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_EndCap_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Wall_Pillar",
+      "dimensions": [
+        1.0,
+        1.0,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_Pillar_LOD0",
+      "lod1": "ENV_Foundry_Wall_Pillar_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_Pillar_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Wall_TopCap",
+      "dimensions": [
+        4.0,
+        1.0,
+        0.25
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_TopCap_LOD0",
+      "lod1": "ENV_Foundry_Wall_TopCap_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_TopCap_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Wall_WideDoor8",
+      "dimensions": [
+        8.0,
+        1.0,
+        4.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 100,
+      "tris1": 68,
+      "materials": [
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Concrete"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_WideDoor8_LOD0",
+      "lod1": "ENV_Foundry_Wall_WideDoor8_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_WideDoor8_00_Both",
+        "COL_Foundry_Wall_WideDoor8_01_Both",
+        "COL_Foundry_Wall_WideDoor8_02_Both"
+      ],
+      "note": "6m wide x 3m high OPEN passage"
+    },
+    {
+      "key": "Wall_ClosedDoor",
+      "dimensions": [
+        6.0,
+        0.56,
+        3.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 572,
+      "tris1": 316,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Wall_ClosedDoor_LOD0",
+      "lod1": "ENV_Foundry_Wall_ClosedDoor_LOD1",
+      "collision": [
+        "COL_Foundry_Wall_ClosedDoor_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_Deck4",
+      "dimensions": [
+        4.0,
+        4.0,
+        2.5
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 188,
+      "tris1": 92,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Deck4_LOD0",
+      "lod1": "ENV_Foundry_Platform_Deck4_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Deck4_00_Both",
+        "COL_Foundry_Platform_Deck4_01_Both",
+        "COL_Foundry_Platform_Deck4_02_Both",
+        "COL_Foundry_Platform_Deck4_03_Both",
+        "COL_Foundry_Platform_Deck4_04_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_Support",
+      "dimensions": [
+        0.5,
+        0.5,
+        2.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Support_LOD0",
+      "lod1": "ENV_Foundry_Platform_Support_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Support_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_Edge",
+      "dimensions": [
+        4.0,
+        0.25,
+        0.5
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Edge_LOD0",
+      "lod1": "ENV_Foundry_Platform_Edge_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Platform_Stairs4x5",
+      "dimensions": [
+        4.0,
+        5.0,
+        2.5
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 240,
+      "tris1": 120,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Stairs4x5_LOD0",
+      "lod1": "ENV_Foundry_Platform_Stairs4x5_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Stairs4x5_00_Shot",
+        "COL_Foundry_Platform_Stairs4x5_01_Shot",
+        "COL_Foundry_Platform_Stairs4x5_02_Shot",
+        "COL_Foundry_Platform_Stairs4x5_03_Shot",
+        "COL_Foundry_Platform_Stairs4x5_04_Shot",
+        "COL_Foundry_Platform_Stairs4x5_05_Shot",
+        "COL_Foundry_Platform_Stairs4x5_06_Shot",
+        "COL_Foundry_Platform_Stairs4x5_07_Shot",
+        "COL_Foundry_Platform_Stairs4x5_08_Shot",
+        "COL_Foundry_Platform_Stairs4x5_09_Shot",
+        "COL_Foundry_Platform_Stairs4x5_10_Move"
+      ],
+      "note": "10 x .25m risers; Move ramp vs Shot step colliders"
+    },
+    {
+      "key": "Platform_Ramp4x8",
+      "dimensions": [
+        4.0,
+        8.0,
+        2.5
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 8,
+      "tris1": 8,
+      "materials": [
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Ramp4x8_LOD0",
+      "lod1": "ENV_Foundry_Platform_Ramp4x8_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Ramp4x8_00_Both"
+      ],
+      "note": "17.35 degree slope; exact wedge collider; minimal geometry exception"
+    },
+    {
+      "key": "Platform_Landing",
+      "dimensions": [
+        4.0,
+        4.0,
+        0.25
+      ],
+      "pivot": "top joining corner",
+      "tris0": 12,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Landing_LOD0",
+      "lod1": "ENV_Foundry_Platform_Landing_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Landing_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_Rail4",
+      "dimensions": [
+        4.0,
+        0.25,
+        1.1
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 220,
+      "tris1": 124,
+      "materials": [
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_Rail4_LOD0",
+      "lod1": "ENV_Foundry_Platform_Rail4_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_Rail4_00_Both",
+        "COL_Foundry_Platform_Rail4_01_Both",
+        "COL_Foundry_Platform_Rail4_02_Both",
+        "COL_Foundry_Platform_Rail4_03_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_RailCorner",
+      "dimensions": [
+        4.0,
+        4.0,
+        1.1
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 308,
+      "tris1": 180,
+      "materials": [
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_RailCorner_LOD0",
+      "lod1": "ENV_Foundry_Platform_RailCorner_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_RailCorner_00_Both",
+        "COL_Foundry_Platform_RailCorner_01_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Platform_RailEnd",
+      "dimensions": [
+        0.25,
+        0.25,
+        1.1
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Platform_RailEnd_LOD0",
+      "lod1": "ENV_Foundry_Platform_RailEnd_LOD1",
+      "collision": [
+        "COL_Foundry_Platform_RailEnd_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_CrateLow",
+      "dimensions": [
+        2.0,
+        2.08,
+        1.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 396,
+      "tris1": 204,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_CrateLow_LOD0",
+      "lod1": "ENV_Foundry_Cover_CrateLow_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_CrateLow_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_CrateHigh",
+      "dimensions": [
+        2.0,
+        2.08,
+        2.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 396,
+      "tris1": 204,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_CrateHigh_LOD0",
+      "lod1": "ENV_Foundry_Cover_CrateHigh_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_CrateHigh_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_CrateGroup",
+      "dimensions": [
+        4.0,
+        2.08,
+        2.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 396,
+      "tris1": 204,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_CrateGroup_LOD0",
+      "lod1": "ENV_Foundry_Cover_CrateGroup_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_CrateGroup_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_ShortWall",
+      "dimensions": [
+        4.0,
+        1.08,
+        1.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 396,
+      "tris1": 204,
+      "materials": [
+        "MAT_Foundry_Concrete",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_ShortWall_LOD0",
+      "lod1": "ENV_Foundry_Cover_ShortWall_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_ShortWall_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_Cabinet",
+      "dimensions": [
+        2.0,
+        1.08,
+        2.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 480,
+      "tris1": 204,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_Cabinet_LOD0",
+      "lod1": "ENV_Foundry_Cover_Cabinet_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_Cabinet_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_MachineBase",
+      "dimensions": [
+        3.0,
+        2.08,
+        1.4
+      ],
+      "pivot": "bottom center",
+      "tris0": 456,
+      "tris1": 232,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_MachineBase_LOD0",
+      "lod1": "ENV_Foundry_Cover_MachineBase_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_MachineBase_00_Both",
+        "COL_Foundry_Cover_MachineBase_01_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_Barrel",
+      "dimensions": [
+        1.03,
+        1.03,
+        1.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 228,
+      "tris1": 108,
+      "materials": [
+        "MAT_Foundry_Rust",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_Barrel_LOD0",
+      "lod1": "ENV_Foundry_Cover_Barrel_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_Barrel_00_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Cover_BarrelGroup",
+      "dimensions": [
+        2.23,
+        2.03,
+        1.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 684,
+      "tris1": 324,
+      "materials": [
+        "MAT_Foundry_Rust",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Cover_BarrelGroup_LOD0",
+      "lod1": "ENV_Foundry_Cover_BarrelGroup_LOD1",
+      "collision": [
+        "COL_Foundry_Cover_BarrelGroup_00_Both",
+        "COL_Foundry_Cover_BarrelGroup_01_Both",
+        "COL_Foundry_Cover_BarrelGroup_02_Both"
+      ],
+      "note": ""
+    },
+    {
+      "key": "Core_Quarter",
+      "dimensions": [
+        9.0,
+        9.0,
+        0.25
+      ],
+      "pivot": "circle center at ground; quarter radial exception",
+      "tris0": 52,
+      "tris1": 52,
+      "materials": [
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_Quarter_LOD0",
+      "lod1": "ENV_Foundry_Core_Quarter_LOD1",
+      "collision": [
+        "COL_Foundry_Core_Quarter_00_Both"
+      ],
+      "note": "Preserve shared sector vertices at every LOD; minimum topology exception"
+    },
+    {
+      "key": "Core_Edge",
+      "dimensions": [
+        10.0,
+        10.0,
+        0.25
+      ],
+      "pivot": "circle center at ground; quarter radial exception",
+      "tris0": 74,
+      "tris1": 74,
+      "materials": [
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_Edge_LOD0",
+      "lod1": "ENV_Foundry_Core_Edge_LOD1",
+      "collision": [
+        "COL_Foundry_Core_Edge_00_Both"
+      ],
+      "note": "Preserve shared sector vertices at every LOD; minimum topology exception"
+    },
+    {
+      "key": "Core_Entry",
+      "dimensions": [
+        6.0,
+        1.0,
+        0.25
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 8,
+      "tris1": 8,
+      "materials": [
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_Entry_LOD0",
+      "lod1": "ENV_Foundry_Core_Entry_LOD1",
+      "collision": [
+        "COL_Foundry_Core_Entry_00_Both"
+      ],
+      "note": "optional straight entrance replaces corresponding edge segment"
+    },
+    {
+      "key": "Core_EnergyBase",
+      "dimensions": [
+        2.5,
+        2.5,
+        0.6
+      ],
+      "pivot": "bottom center",
+      "tris0": 184,
+      "tris1": 88,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_EnergyBase_LOD0",
+      "lod1": "ENV_Foundry_Core_EnergyBase_LOD1",
+      "collision": [
+        "COL_Foundry_Core_EnergyBase_00_Both",
+        "COL_Foundry_Core_EnergyBase_01_Both"
+      ],
+      "note": "independent replaceable prefab / collider hierarchy"
+    },
+    {
+      "key": "Core_EnergyPillar",
+      "dimensions": [
+        1.5,
+        1.5,
+        3.5
+      ],
+      "pivot": "bottom center",
+      "tris0": 508,
+      "tris1": 268,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Cyan"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_EnergyPillar_LOD0",
+      "lod1": "ENV_Foundry_Core_EnergyPillar_LOD1",
+      "collision": [
+        "COL_Foundry_Core_EnergyPillar_00_Both",
+        "COL_Foundry_Core_EnergyPillar_01_Both",
+        "COL_Foundry_Core_EnergyPillar_02_Both",
+        "COL_Foundry_Core_EnergyPillar_03_Both",
+        "COL_Foundry_Core_EnergyPillar_04_Both"
+      ],
+      "note": "independent replaceable prefab / collider hierarchy"
+    },
+    {
+      "key": "Core_EnergyRuin",
+      "dimensions": [
+        1.55,
+        1.1,
+        0.7
+      ],
+      "pivot": "bottom center",
+      "tris0": 104,
+      "tris1": 40,
+      "materials": [
+        "MAT_Foundry_Rust",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_EnergyRuin_LOD0",
+      "lod1": "ENV_Foundry_Core_EnergyRuin_LOD1",
+      "collision": [
+        "COL_Foundry_Core_EnergyRuin_00_Both",
+        "COL_Foundry_Core_EnergyRuin_01_Both"
+      ],
+      "note": "independent replaceable prefab / collider hierarchy"
+    },
+    {
+      "key": "Core_RingMark",
+      "dimensions": [
+        8.8,
+        8.8,
+        0.265
+      ],
+      "pivot": "circle center",
+      "tris0": 100,
+      "tris1": 100,
+      "materials": [
+        "MAT_Foundry_Orange"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_RingMark_LOD0",
+      "lod1": "ENV_Foundry_Core_RingMark_LOD1",
+      "collision": [],
+      "note": "decal-like ring; minimal topology exception"
+    },
+    {
+      "key": "Core_LightStrip",
+      "dimensions": [
+        4.0,
+        0.12,
+        0.03
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 12,
+      "tris1": 12,
+      "materials": [
+        "MAT_Foundry_Cyan"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Core_LightStrip_LOD0",
+      "lod1": "ENV_Foundry_Core_LightStrip_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_PipeStraight",
+      "dimensions": [
+        4.0,
+        0.7,
+        0.7
+      ],
+      "pivot": "pipe endpoint at ground datum",
+      "tris0": 44,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_PipeStraight_LOD0",
+      "lod1": "ENV_Foundry_Decor_PipeStraight_LOD1",
+      "collision": [],
+      "note": "overhead only; no collider; simple topology LOD exception"
+    },
+    {
+      "key": "Decor_PipeElbow",
+      "dimensions": [
+        1.383,
+        1.383,
+        0.7
+      ],
+      "pivot": "pipe endpoint at ground datum",
+      "tris0": 212,
+      "tris1": 212,
+      "materials": [
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_PipeElbow_LOD0",
+      "lod1": "ENV_Foundry_Decor_PipeElbow_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_PipeTee",
+      "dimensions": [
+        4.0,
+        2.35,
+        0.7
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 88,
+      "tris1": 88,
+      "materials": [
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_PipeTee_LOD0",
+      "lod1": "ENV_Foundry_Decor_PipeTee_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_PipeBracket",
+      "dimensions": [
+        1.5,
+        0.5,
+        2.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 88,
+      "tris1": 56,
+      "materials": [
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_PipeBracket_LOD0",
+      "lod1": "ENV_Foundry_Decor_PipeBracket_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_Vent",
+      "dimensions": [
+        2.0,
+        1.07,
+        1.5
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 440,
+      "tris1": 248,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_Vent_LOD0",
+      "lod1": "ENV_Foundry_Decor_Vent_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_CableTray",
+      "dimensions": [
+        4.0,
+        0.5,
+        0.3
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 200,
+      "tris1": 44,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_CableTray_LOD0",
+      "lod1": "ENV_Foundry_Decor_CableTray_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_WallLight",
+      "dimensions": [
+        0.5,
+        0.35,
+        1.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 56,
+      "tris1": 56,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Cyan"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_WallLight_LOD0",
+      "lod1": "ENV_Foundry_Decor_WallLight_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_Sign",
+      "dimensions": [
+        2.0,
+        0.13,
+        1.0
+      ],
+      "pivot": "bottom joining corner",
+      "tris0": 56,
+      "tris1": 56,
+      "materials": [
+        "MAT_Foundry_Trim",
+        "MAT_Foundry_Orange"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_Sign_LOD0",
+      "lod1": "ENV_Foundry_Decor_Sign_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Decor_Scrap",
+      "dimensions": [
+        1.15,
+        0.8,
+        0.3
+      ],
+      "pivot": "bottom center",
+      "tris0": 88,
+      "tris1": 56,
+      "materials": [
+        "MAT_Foundry_Rust",
+        "MAT_Foundry_Steel"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Decor_Scrap_LOD0",
+      "lod1": "ENV_Foundry_Decor_Scrap_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Vista_Chimney",
+      "dimensions": [
+        4.3,
+        4.3,
+        20.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 456,
+      "tris1": 216,
+      "materials": [
+        "MAT_Foundry_Concrete",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Vista_Chimney_LOD0",
+      "lod1": "ENV_Foundry_Vista_Chimney_LOD1",
+      "collision": [],
+      "note": "outside playable boundary"
+    },
+    {
+      "key": "Vista_Furnace",
+      "dimensions": [
+        8.0,
+        6.06,
+        12.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 148,
+      "tris1": 84,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Orange",
+        "MAT_Foundry_Rust"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Vista_Furnace_LOD0",
+      "lod1": "ENV_Foundry_Vista_Furnace_LOD1",
+      "collision": [],
+      "note": ""
+    },
+    {
+      "key": "Vista_Factory",
+      "dimensions": [
+        16.0,
+        10.05,
+        10.0
+      ],
+      "pivot": "bottom center",
+      "tris0": 220,
+      "tris1": 124,
+      "materials": [
+        "MAT_Foundry_Steel",
+        "MAT_Foundry_Trim"
+      ],
+      "density": "256 px/m planar; trim bands same metric UV",
+      "lod0": "ENV_Foundry_Vista_Factory_LOD0",
+      "lod1": "ENV_Foundry_Vista_Factory_LOD1",
+      "collision": [],
+      "note": ""
+    }
+  ]
+}

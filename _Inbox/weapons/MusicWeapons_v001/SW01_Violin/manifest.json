@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SW01_Violin",
+  "gunId": "rifle",
+  "revision": "v001",
+  "units": "m",
+  "sourceSpec": "琴体 X 0.24 × Y 0.10 × Z 0.60m；独立弓长 0.65m、宽 0.025m；琴颈沿 +Z、演奏面朝 +Y。",
+  "restBBoxBlender": [
+    [
+      -0.3252868056297302,
+      0.3252868056297302
+    ],
+    [
+      -0.5999999642372131,
+      0.00299999862909317
+    ],
+    [
+      -0.05250000208616257,
+      0.08299999684095383
+    ]
+  ],
+  "axis": {
+    "BlenderUp": "+Z",
+    "BlenderForward": "-Y",
+    "FBXForward": "-Z",
+    "FBXUp": "Y",
+    "UnityReadback": "measured; see unityReadback"
+  },
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "leafBones": false,
+    "bakeSpaceTransform": false,
+    "onlyDeform": false
+  },
+  "lods": [
+    {
+      "name": "SM_SW01_Violin_All_LOD0",
+      "triangles": 8368,
+      "budget": 12000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW01_Violin_All_LOD1",
+      "triangles": 5438,
+      "budget": 6000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW01_Violin_All_LOD2",
+      "triangles": 2342,
+      "budget": 2500,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tuning_peg",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.01679999940097332
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.5099999904632568
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "bow",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.27300000190734863
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.1679999977350235
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.06000000238418579
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_R",
+      "parent": "bow",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.06000000238418579
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.1679999977350235
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.07000000029802322
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "score_cartridge",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.06239999830722809
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.035999998450279236
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.05999999865889549
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.38999998569488525
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Output",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.41999998688697815
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.07999999821186066
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Aim",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.38999998569488525
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.07699999958276749
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Retune",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.36000001430511475
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.06000000238418579
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Stow",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.15000000596046448
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "state": "Idle",
+      "duration": 2,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Idle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Move",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Move.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Equip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Equip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Unequip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Unequip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireLoop",
+      "duration": 0.7,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_FireLoop.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireRecover",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_FireRecover.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Reload",
+      "duration": 1.5,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Reload.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": [
+        0.18,
+        0.42,
+        0.62,
+        0.82
+      ]
+    },
+    {
+      "state": "Inspect",
+      "duration": 3,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW01_Violin_Inspect.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    }
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_SW01_Violin_BC.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SW01_Violin_ORM.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    },
+    {
+      "file": "Textures/T_SW01_Violin_E.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    }
+  ],
+  "collisionOptional": true,
+  "validationStatus": {
+    "topologyBudgetWeights": "pass",
+    "UnityReadback": "pass",
+    "UVTexelDensity": "degraded",
+    "motionIntersections": "degraded",
+    "FPReview": "degraded",
+    "packedUV": "pass",
+    "FBXRoundTrip": "pass",
+    "rootMotionAndLoopEndpoints": "pass",
+    "referenceArtMatch": "degraded",
+    "dimensionsWithin2Percent": "degraded"
+  },
+  "limitations": [
+    "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+    "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+    "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+    "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+    "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+    "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+    "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+  ],
+  "inputs": [
+    {
+      "path": "Exports/SW01_Violin_Model.fbx",
+      "sha256": "0b0f5bdd34542d5362e0d645b41577bfcd61a919e3ce1f5bc387b17b817ac2f6"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Equip.fbx",
+      "sha256": "e5bfa86d9b77941fd5fec0f91399bde6479dbe92cd51bd7aa0178eba4de8916e"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_FireLoop.fbx",
+      "sha256": "dda8fe68bf4370b5b10f351de58dd46b4dc096cb4a8314c1dc0b288d5a6ef5a4"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_FireRecover.fbx",
+      "sha256": "207a4ce44de829487aa2fcafa2ca627562c4155435037e1b171ac3f9f95c7464"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Idle.fbx",
+      "sha256": "173bb1651c795d57f992f39128c07f74b76c475c1843b33452e86ab31cab4434"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Inspect.fbx",
+      "sha256": "8750625137d4ccc9da07213d6228675b3b80fd0f43861cfa8716c9aebb5cbc8d"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Move.fbx",
+      "sha256": "4e2621cd7e2ff104e1722cf8dee8ac97ca9d4962f6df86b8ab876ea919a0abe3"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Reload.fbx",
+      "sha256": "f9bccf03cd2a32c0418465cf8109d52f16891925d834e6a1a7fed0acf7d15461"
+    },
+    {
+      "path": "Animations/AN_SW01_Violin_Unequip.fbx",
+      "sha256": "56c3e8bd68f9c40938dc907039e961bce974f832f0e57c91afe4cc0f1cdf2d8a"
+    },
+    {
+      "path": "Textures/T_SW01_Violin_BC.png",
+      "sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943"
+    },
+    {
+      "path": "Textures/T_SW01_Violin_E.png",
+      "sha256": "39e8c3f3269ee48865ca1439b4851d5f9db92965b2e861752d2f4505f4384162"
+    },
+    {
+      "path": "Textures/T_SW01_Violin_ORM.png",
+      "sha256": "7595a73fb21b6363c5e01a34886a8ade65f76d3f687cd162ab6b5f2836997617"
+    },
+    {
+      "path": "Collision/SW01_Violin_Collision.fbx",
+      "sha256": "a185de5276e7448752256167fbc6f05892add74819cbbdea21230d8de6eb75a2"
+    }
+  ],
+  "videoSegments": [
+    {
+      "state": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0
+    },
+    {
+      "state": "FireLoop",
+      "startSeconds": 2.0,
+      "endSeconds": 2.6666666666666665
+    },
+    {
+      "state": "Reload",
+      "startSeconds": 2.6666666666666665,
+      "endSeconds": 4.133333333333334
+    },
+    {
+      "state": "Inspect",
+      "startSeconds": 4.133333333333334,
+      "endSeconds": 7.133333333333334
+    }
+  ],
+  "unityReadback": {
+    "assetId": "SW01_Violin",
+    "meshes": 3,
+    "triangles": [
+      8368,
+      5438,
+      2342
+    ],
+    "bones": [
+      "SW01_Violin_Model(Clone)",
+      "ARM_SW01_Violin",
+      "root",
+      "body",
+      "bow",
+      "Socket_Grip_R",
+      "score_cartridge",
+      "Socket_Grip_L",
+      "Socket_Output",
+      "tuning_peg",
+      "Socket_Aim",
+      "Socket_Retune",
+      "Socket_Stow",
+      "SM_SW01_Violin_All_LOD0",
+      "SM_SW01_Violin_All_LOD1",
+      "SM_SW01_Violin_All_LOD2"
+    ],
+    "bboxMin": {
+      "x": -0.3252868056297302,
+      "y": -0.052556462585926056,
+      "z": -0.0030510127544403076
+    },
+    "bboxMax": {
+      "x": 0.3252868056297302,
+      "y": 0.08312859386205673,
+      "z": 0.6000189781188965
+    },
+    "outputForward": {
+      "x": 8.74227694680485e-08,
+      "y": 1.1920928244535389e-07,
+      "z": 1.0
+    },
+    "outputUp": {
+      "x": 5.447336646428186e-15,
+      "y": 1.0,
+      "z": -1.1920928244535389e-07
+    },
+    "clips": [
+      {
+        "name": "AN_SW01_Violin_Equip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_FireLoop",
+        "duration": 0.7000000476837158,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_FireRecover",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_Idle",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_Inspect",
+        "duration": 3.000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_Move",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_Reload",
+        "duration": 1.5000001192092896,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW01_Violin_Unequip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      }
+    ],
+    "finiteBounds": true,
+    "clipDurationsMatch": true,
+    "socketAxesMatch": true
+  }
+}

@@ -1,0 +1,1268 @@
+{
+  "units": "Positions and directions in Unity meters. Blender Area power in watts; tune URP bake using the reference renders.",
+  "look": "Amber stage, cool gallery/stairs, restrained ambient. Preview exposure -0.23 AgX; no volumetrics.",
+  "toon": {
+    "thresholds": [
+      0.095,
+      0.31,
+      0.64
+    ],
+    "shadowMix": 0.32,
+    "preview": "EEVEE Shader-to-RGB ramp, no FBX shader transfer",
+    "unityFallback": "URP Lit; assign BaseColor, tangent Normal, Mask metallic/smoothness and AO. Continuous light response in fallback.",
+    "shadeTintsLinear": [
+      [
+        0.34,
+        0.41,
+        0.62
+      ],
+      [
+        0.64,
+        0.69,
+        0.84
+      ],
+      [
+        0.93,
+        0.86,
+        0.75
+      ],
+      [
+        1.15,
+        1.02,
+        0.83
+      ]
+    ]
+  },
+  "lights": [
+    {
+      "name": "LGT_Stage_Key",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -8,
+        12.5,
+        12.5
+      ],
+      "directionUnity": [
+        0.5139277577400208,
+        -0.5299879908561707,
+        0.6745302081108093
+      ],
+      "targetUnity": [
+        0,
+        4.25,
+        23
+      ],
+      "blenderW": 5208.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.63,
+        0.35
+      ],
+      "sourceDiameterM": 4.2,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stage_Center",
+      "blenderType": "AREA",
+      "positionUnity": [
+        7,
+        11.5,
+        15
+      ],
+      "directionUnity": [
+        -0.5179646015167236,
+        -0.4291706681251526,
+        0.7399494051933289
+      ],
+      "targetUnity": [
+        0,
+        5.7,
+        25
+      ],
+      "blenderW": 2912.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.7,
+        0.47
+      ],
+      "sourceDiameterM": 3.0,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stage_Rim",
+      "blenderType": "AREA",
+      "positionUnity": [
+        6,
+        13.6,
+        25.6
+      ],
+      "directionUnity": [
+        -0.3151455223560333,
+        -0.7311376333236694,
+        -0.6050794124603271
+      ],
+      "targetUnity": [
+        1,
+        2,
+        16
+      ],
+      "blenderW": 2100.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        0.49,
+        0.64,
+        1
+      ],
+      "sourceDiameterM": 4,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_0_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -8,
+        11.6,
+        -15.3
+      ],
+      "directionUnity": [
+        0.0,
+        -0.9973260760307312,
+        0.07307995855808258
+      ],
+      "targetUnity": [
+        -8,
+        0,
+        -14.450000000000001
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_0_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -23.0,
+        10.5,
+        -12.8
+      ],
+      "directionUnity": [
+        0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        -19.0,
+        6,
+        -14.3
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_0_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        8,
+        11.6,
+        -15.3
+      ],
+      "directionUnity": [
+        0.0,
+        -0.9973260760307312,
+        0.07307995855808258
+      ],
+      "targetUnity": [
+        8,
+        0,
+        -14.450000000000001
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_0_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        23.0,
+        10.5,
+        -12.8
+      ],
+      "directionUnity": [
+        -0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        19.0,
+        6,
+        -14.3
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_1_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -8,
+        11.6,
+        0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.9973260760307312,
+        0.07307992875576019
+      ],
+      "targetUnity": [
+        -8,
+        0,
+        0.85
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_1_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -23.0,
+        10.5,
+        2.5
+      ],
+      "directionUnity": [
+        0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        -19.0,
+        6,
+        1.0
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        8,
+        11.6,
+        0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.9973260760307312,
+        0.07307992875576019
+      ],
+      "targetUnity": [
+        8,
+        0,
+        0.85
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        23.0,
+        10.5,
+        2.5
+      ],
+      "directionUnity": [
+        -0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        19.0,
+        6,
+        1.0
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_2_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -9,
+        11.6,
+        8.1
+      ],
+      "directionUnity": [
+        0.08566036820411682,
+        -0.9936603307723999,
+        0.07281126081943512
+      ],
+      "targetUnity": [
+        -8,
+        0,
+        8.95
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_2_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -23.0,
+        10.5,
+        10.6
+      ],
+      "directionUnity": [
+        0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        -19.0,
+        6,
+        9.1
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Hall_2_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        9,
+        11.6,
+        8.1
+      ],
+      "directionUnity": [
+        -0.08566036820411682,
+        -0.9936603307723999,
+        0.07281126081943512
+      ],
+      "targetUnity": [
+        8,
+        0,
+        8.95
+      ],
+      "blenderW": 1624.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.76,
+        0.56
+      ],
+      "sourceDiameterM": 3.7,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Gallery_2_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        23.0,
+        10.5,
+        10.6
+      ],
+      "directionUnity": [
+        -0.6446583867073059,
+        -0.7252407073974609,
+        -0.2417469024658203
+      ],
+      "targetUnity": [
+        19.0,
+        6,
+        9.1
+      ],
+      "blenderW": 756.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.47,
+        0.62,
+        1
+      ],
+      "sourceDiameterM": 3.1,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Entrance_Pendant",
+      "blenderType": "AREA",
+      "positionUnity": [
+        0,
+        10.2,
+        -30.4
+      ],
+      "directionUnity": [
+        0.0,
+        -0.9907116293907166,
+        0.13597999513149261
+      ],
+      "targetUnity": [
+        0,
+        0,
+        -29
+      ],
+      "blenderW": 3164.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.75,
+        0.47
+      ],
+      "sourceDiameterM": 5.6,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Entrance_Fill",
+      "blenderType": "AREA",
+      "positionUnity": [
+        0,
+        4.6,
+        -27
+      ],
+      "directionUnity": [
+        0.0,
+        -0.38461533188819885,
+        0.9230769872665405
+      ],
+      "targetUnity": [
+        0,
+        2.85,
+        -22.8
+      ],
+      "blenderW": 1036.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.61,
+        0.71,
+        1
+      ],
+      "sourceDiameterM": 4.25,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Entrance_Wing_-1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -17,
+        8.0,
+        -30.4
+      ],
+      "directionUnity": [
+        0.5136383771896362,
+        -0.821821391582489,
+        0.24654637277126312
+      ],
+      "targetUnity": [
+        -12,
+        0,
+        -28
+      ],
+      "blenderW": 1960.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.73,
+        0.51
+      ],
+      "sourceDiameterM": 4.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_-1_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -26,
+        4.8,
+        -17
+      ],
+      "directionUnity": [
+        0.5219166874885559,
+        -0.8350667357444763,
+        0.1739722341299057
+      ],
+      "targetUnity": [
+        -23,
+        0,
+        -16
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.69,
+        0.76,
+        1
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_-1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -21,
+        4.8,
+        2.7
+      ],
+      "directionUnity": [
+        -0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        -23,
+        0,
+        3.7
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_-1_2",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -21,
+        4.8,
+        15.5
+      ],
+      "directionUnity": [
+        -0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        -23,
+        0,
+        16.5
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_-1_3",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -26,
+        4.8,
+        24.3
+      ],
+      "directionUnity": [
+        0.5219166874885559,
+        -0.8350667357444763,
+        0.1739722341299057
+      ],
+      "targetUnity": [
+        -23,
+        0,
+        25.3
+      ],
+      "blenderW": 980.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.69,
+        0.76,
+        1
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_-1_4",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -21,
+        4.8,
+        32
+      ],
+      "directionUnity": [
+        -0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        -23,
+        0,
+        33
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stair_-1_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -29.3,
+        9.4,
+        -15
+      ],
+      "directionUnity": [
+        0.16967743635177612,
+        -0.965856671333313,
+        -0.19578176736831665
+      ],
+      "targetUnity": [
+        -28,
+        2,
+        -16.5
+      ],
+      "blenderW": 1008.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.78,
+        0.5
+      ],
+      "sourceDiameterM": 2.9,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stair_-1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -29.3,
+        9.4,
+        24.5
+      ],
+      "directionUnity": [
+        0.16967743635177612,
+        -0.965856671333313,
+        -0.19578176736831665
+      ],
+      "targetUnity": [
+        -28,
+        2,
+        23.0
+      ],
+      "blenderW": 1008.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.78,
+        0.5
+      ],
+      "sourceDiameterM": 2.9,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Entrance_Wing_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        17,
+        8.0,
+        -30.4
+      ],
+      "directionUnity": [
+        -0.5136383771896362,
+        -0.821821391582489,
+        0.24654637277126312
+      ],
+      "targetUnity": [
+        12,
+        0,
+        -28
+      ],
+      "blenderW": 1960.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.73,
+        0.51
+      ],
+      "sourceDiameterM": 4.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 28,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_1_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        26,
+        4.8,
+        -17
+      ],
+      "directionUnity": [
+        -0.5219166874885559,
+        -0.8350667357444763,
+        0.1739722341299057
+      ],
+      "targetUnity": [
+        23,
+        0,
+        -16
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.69,
+        0.76,
+        1
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        21,
+        4.8,
+        2.7
+      ],
+      "directionUnity": [
+        0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        23,
+        0,
+        3.7
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_1_2",
+      "blenderType": "AREA",
+      "positionUnity": [
+        21,
+        4.8,
+        15.5
+      ],
+      "directionUnity": [
+        0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        23,
+        0,
+        16.5
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_1_3",
+      "blenderType": "AREA",
+      "positionUnity": [
+        26,
+        4.8,
+        24.3
+      ],
+      "directionUnity": [
+        -0.5219166874885559,
+        -0.8350667357444763,
+        0.1739722341299057
+      ],
+      "targetUnity": [
+        23,
+        0,
+        25.3
+      ],
+      "blenderW": 980.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.69,
+        0.76,
+        1
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Passage_1_4",
+      "blenderType": "AREA",
+      "positionUnity": [
+        21,
+        4.8,
+        32
+      ],
+      "directionUnity": [
+        0.3776947855949402,
+        -0.9064674973487854,
+        0.1888473927974701
+      ],
+      "targetUnity": [
+        23,
+        0,
+        33
+      ],
+      "blenderW": 588.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.78,
+        0.55
+      ],
+      "sourceDiameterM": 2.65,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stair_1_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        29.3,
+        9.4,
+        -15
+      ],
+      "directionUnity": [
+        -0.16967743635177612,
+        -0.965856671333313,
+        -0.19578176736831665
+      ],
+      "targetUnity": [
+        28,
+        2,
+        -16.5
+      ],
+      "blenderW": 1008.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.78,
+        0.5
+      ],
+      "sourceDiameterM": 2.9,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Stair_1_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        29.3,
+        9.4,
+        24.5
+      ],
+      "directionUnity": [
+        -0.16967743635177612,
+        -0.965856671333313,
+        -0.19578176736831665
+      ],
+      "targetUnity": [
+        28,
+        2,
+        23.0
+      ],
+      "blenderW": 1008.0,
+      "blenderShadows": true,
+      "linearRGB": [
+        1,
+        0.78,
+        0.5
+      ],
+      "sourceDiameterM": 2.9,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Backstage_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -14,
+        4.6,
+        33.5
+      ],
+      "directionUnity": [
+        0.0,
+        -0.7627570033073425,
+        -0.6466852426528931
+      ],
+      "targetUnity": [
+        -14,
+        0,
+        29.6
+      ],
+      "blenderW": 700.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.68,
+        0.47
+      ],
+      "sourceDiameterM": 2.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Bridge_0",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -14,
+        11.8,
+        34.0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.8232128024101257,
+        -0.5677329301834106
+      ],
+      "targetUnity": [
+        -14,
+        6,
+        30
+      ],
+      "blenderW": 481.6000061035156,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.58,
+        0.68,
+        1
+      ],
+      "sourceDiameterM": 2.8,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Backstage_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -4.5,
+        4.6,
+        33.5
+      ],
+      "directionUnity": [
+        0.0,
+        -0.7627570033073425,
+        -0.6466852426528931
+      ],
+      "targetUnity": [
+        -4.5,
+        0,
+        29.6
+      ],
+      "blenderW": 700.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.68,
+        0.47
+      ],
+      "sourceDiameterM": 2.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Bridge_1",
+      "blenderType": "AREA",
+      "positionUnity": [
+        -4.5,
+        11.8,
+        34.0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.8232128024101257,
+        -0.5677329301834106
+      ],
+      "targetUnity": [
+        -4.5,
+        6,
+        30
+      ],
+      "blenderW": 481.6000061035156,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.58,
+        0.68,
+        1
+      ],
+      "sourceDiameterM": 2.8,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Backstage_2",
+      "blenderType": "AREA",
+      "positionUnity": [
+        4.5,
+        4.6,
+        33.5
+      ],
+      "directionUnity": [
+        0.0,
+        -0.7627570033073425,
+        -0.6466852426528931
+      ],
+      "targetUnity": [
+        4.5,
+        0,
+        29.6
+      ],
+      "blenderW": 700.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.68,
+        0.47
+      ],
+      "sourceDiameterM": 2.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Bridge_2",
+      "blenderType": "AREA",
+      "positionUnity": [
+        4.5,
+        11.8,
+        34.0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.8232128024101257,
+        -0.5677329301834106
+      ],
+      "targetUnity": [
+        4.5,
+        6,
+        30
+      ],
+      "blenderW": 481.6000061035156,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.58,
+        0.68,
+        1
+      ],
+      "sourceDiameterM": 2.8,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Backstage_3",
+      "blenderType": "AREA",
+      "positionUnity": [
+        14,
+        4.6,
+        33.5
+      ],
+      "directionUnity": [
+        0.0,
+        -0.7627570033073425,
+        -0.6466852426528931
+      ],
+      "targetUnity": [
+        14,
+        0,
+        29.6
+      ],
+      "blenderW": 700.0,
+      "blenderShadows": false,
+      "linearRGB": [
+        1,
+        0.68,
+        0.47
+      ],
+      "sourceDiameterM": 2.5,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    },
+    {
+      "name": "LGT_Bridge_3",
+      "blenderType": "AREA",
+      "positionUnity": [
+        14,
+        11.8,
+        34.0
+      ],
+      "directionUnity": [
+        0.0,
+        -0.8232128024101257,
+        -0.5677329301834106
+      ],
+      "targetUnity": [
+        14,
+        6,
+        30
+      ],
+      "blenderW": 481.6000061035156,
+      "blenderShadows": false,
+      "linearRGB": [
+        0.58,
+        0.68,
+        1
+      ],
+      "sourceDiameterM": 2.8,
+      "unityBakeMode": "Baked",
+      "unityRangeM": 13,
+      "spotAngleDegrees": null
+    }
+  ]
+}

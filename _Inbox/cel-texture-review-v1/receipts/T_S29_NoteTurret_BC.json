@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s29_noteturret_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:39:55+0800",
+  "task_id": "task_01M7W1SHYPVHPTVN0321N9CV75",
+  "result_url": "https://getapib.org/image/9998204835951746-e92c96f4-66be-4fcb-a920-fe6dcee57243-image_img_7b3bb434cbda43a5b2014d3d6c86b38a_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteTurret_BC.png",
+  "bytes": 2809208,
+  "sha256": "b63f673f588919f4ce31bcf223cbba6a51e759c435a82f468c3a2b54154bee28"
+}

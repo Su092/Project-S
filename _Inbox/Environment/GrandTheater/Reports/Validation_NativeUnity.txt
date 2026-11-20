@@ -1,0 +1,5 @@
+Unity 6000.6.4f1
+URP shader Universal Render Pipeline/Lit
+modules=76 all LOD0/LOD1 UV0/UV1 present and in range
+scene=Assets/GrandTheater/GrandTheater_Walkthrough.unity LODGroups=1191 renderer materials=8 colliders=1135 controller excludes shot-only layer
+matched exchange layout 14 sampled world bounds with max error 0.000004 m

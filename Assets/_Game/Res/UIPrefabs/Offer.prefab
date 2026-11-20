@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636134846082388463}
   - component: {fileID: 5169368358266092917}
+  - component: {fileID: 3330401786201375206}
   m_Layer: 0
   m_Name: Offer
   m_TagString: Untagged
@@ -55,6 +56,18 @@ MonoBehaviour:
   Title: {fileID: 8965368352283284719}
   CardArea: {fileID: 3679182930213029699}
   CardTemplate: {fileID: 15265251169429079, guid: cb5a435ad21ee754895c1894e7e82fb5, type: 3}
+--- !u!114 &3330401786201375206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133425732695709442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f73762c0ac4263499de55385dbf5492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S.View.MusicOfferPresentation
 --- !u!1 &2784564197916361008
 GameObject:
   m_ObjectHideFlags: 0

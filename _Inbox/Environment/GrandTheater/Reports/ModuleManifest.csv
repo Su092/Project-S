@@ -1,0 +1,77 @@
+﻿ModuleID,Category,SizeX_m,SizeY_m,SizeZ_m,LOD0_Tris,LOD1_Tris,LOD1_Ratio,Pivot,Materials,Slots,CollisionPolicy,LOD_Exception
+SM_Theater_Floor_Stone4,Floor,4.0,0.39,4.0,12,12,1.0,top southwest corner,MAT_Theater_Stone,1,Both,Simple or structural topology retained
+SM_Theater_Floor_Stone2,Floor,2.0,0.39,4.0,12,12,1.0,top southwest corner,MAT_Theater_Stone,1,Both,Simple or structural topology retained
+SM_Theater_Floor_Walnut4,Floor,4.0,0.39,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Floor_Walnut2,Floor,2.0,0.39,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Deck_Gallery4,Floor,4.0,0.45,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Deck_Edge2,Floor,2.0,0.45,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Deck_Return2,Floor,2.0,0.45,2.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Deck_Bridge4,Floor,4.0,0.52,4.0,12,12,1.0,top southwest corner,MAT_Theater_Midnight,1,Both,Simple or structural topology retained
+SM_Theater_Deck_StairTop,Floor,4.0,0.45,2.5,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Deck_StairTurn,Floor,7.5,0.42,2.5,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Stage_Timber4,Floor,4.0,1.2,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Stage_Edge2,Floor,2.0,1.2,4.0,12,12,1.0,top southwest corner,MAT_Theater_Walnut,1,Both,Simple or structural topology retained
+SM_Theater_Wall_Exterior4,Wall,4.0,6.0,0.61,84,48,0.571,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Midnight;MAT_Theater_Brass,3,Wall,
+SM_Theater_Wall_Lobby4,Wall,4.0,6.0,0.71,84,48,0.571,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Midnight;MAT_Theater_Brass,3,Wall,
+SM_Theater_Wall_Lobby1,Wall,1.0,6.0,0.71,84,48,0.571,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Midnight;MAT_Theater_Brass,3,Wall,
+SM_Theater_Wall_Scenery4,Wall,4.0,6.0,0.66,84,48,0.571,"bottom left, depth center",MAT_Theater_Midnight;MAT_Theater_Brass,2,Wall,
+SM_Theater_Wall_Wainscot4,Wall,4.0,1.2,0.36,84,48,0.571,"bottom left, depth center",MAT_Theater_Midnight;MAT_Theater_Brass,2,Wall,
+SM_Theater_Wall_Core4,Wall,4.0,3.0,0.45,84,48,0.571,"bottom left, depth center",MAT_Theater_Midnight;MAT_Theater_Brass,2,Wall,
+SM_Theater_Door_Grand8,Portal,8.23,6.0,0.96,684,312,0.456,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Door_Portal4,Portal,4.11,6.0,0.94,684,312,0.456,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Door_Side4,Portal,4.23,5.55,0.9,684,312,0.456,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Door_ClosedDouble,Portal,4.0,4.25,0.6922,288,96,0.333,"bottom left, depth center",MAT_Theater_Midnight;MAT_Theater_Brass,2,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Arch_GalleryLower8,Portal,8.0,5.52,1.16,816,372,0.456,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Arch_GalleryUpper8,Portal,8.0,5.64,1.16,816,372,0.456,"bottom left, depth center",MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Column_Pilaster,Portal,0.92,4.0,0.86,192,72,0.375,foot center,MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Roof_Vault4,Roof,48.0,6.282,4.0,432,288,0.667,"spring at local Y=0; x centered for vault, top southwest for side wing",MAT_Theater_Midnight,1,Shot,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Roof_Rib,Roof,48.0,6.397,0.34,576,288,0.5,"spring at local Y=0; x centered for vault, top southwest for side wing",MAT_Theater_Ivory;MAT_Theater_Brass,2,Shot,
+SM_Theater_Roof_Gable,Roof,48.0,18.04,0.44,288,288,1.0,"spring at local Y=0; x centered for vault, top southwest for side wing",MAT_Theater_Ivory,1,Shot,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Roof_Transom,Roof,48.0,12.04,0.36,288,288,1.0,"spring at local Y=0; x centered for vault, top southwest for side wing",MAT_Theater_Midnight,1,Shot,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Roof_Side4,Roof,8.0,0.42,4.0,36,24,0.667,"spring at local Y=0; x centered for vault, top southwest for side wing",MAT_Theater_Midnight;MAT_Theater_Brass,2,Shot,Simple or structural topology retained
+SM_Theater_Rail_Gallery4,Rail,4.0,1.12,0.38,344,168,0.488,left end at floor,MAT_Theater_Midnight;MAT_Theater_Brass,2,Rail,
+SM_Theater_Rail_Gallery2,Rail,2.0,1.12,0.38,184,96,0.522,left end at floor,MAT_Theater_Midnight;MAT_Theater_Brass,2,Rail,
+SM_Theater_Rail_Gallery1,Rail,1.0,1.12,0.38,104,60,0.577,left end at floor,MAT_Theater_Midnight;MAT_Theater_Brass,2,Rail,
+SM_Theater_Rail_Corner2,Rail,2.19,1.12,2.19,368,192,0.522,inside corner at floor,MAT_Theater_Midnight;MAT_Theater_Brass,2,Rail,
+SM_Theater_Rail_StairSlope,Rail,0.12,4.0987,6.448,348,140,0.402,"bottom rail line, forward +Z",MAT_Theater_Brass,1,RailSlope,
+SM_Theater_Stair_Flight20,Stair,3.0,3.166,6.4,480,240,0.5,lower start corner,MAT_Theater_Walnut;MAT_Theater_Brass,2,Stair20,
+SM_Theater_Stair_Stage8,Stair,4.0,1.366,2.56,192,96,0.5,lower start corner,MAT_Theater_Walnut;MAT_Theater_Brass,2,Stair8,
+SM_Theater_Stair_SideRamp,Stair,4.0,1.4057,8.0039,36,12,0.333,lower start corner,MAT_Theater_Walnut;MAT_Theater_Brass,2,Ramp,Simple or structural topology retained
+SM_Theater_Seat_Single,Seating,0.83,1.13,0.62,144,72,0.5,foot center,MAT_Theater_Wine;MAT_Theater_Walnut,2,Both,
+SM_Theater_Seat_Group4,Seating,3.35,1.13,0.62,576,288,0.5,foot center,MAT_Theater_Wine;MAT_Theater_Walnut,2,Both,
+SM_Theater_Seat_EndDivider,Seating,4.08,1.17,0.43,72,36,0.5,bottom left,MAT_Theater_Midnight;MAT_Theater_Brass;MAT_Theater_Trim,3,Both,
+SM_Theater_Deck_BalconyFace,Gallery,4.0,0.675,0.44,48,24,0.5,"top left, depth center",MAT_Theater_Ivory;MAT_Theater_Trim;MAT_Theater_Brass,3,Both,
+SM_Theater_Deck_BoxPortal,Gallery,4.0,3.99,0.56,216,120,0.556,"bottom left, depth center",MAT_Theater_Midnight;MAT_Theater_Brass;MAT_Theater_Ivory,3,Both,
+SM_Theater_Stage_Lip4,Stage,4.0,1.21,0.32,48,36,0.75,"top left, depth center",MAT_Theater_Walnut;MAT_Theater_Trim;MAT_Theater_Brass,3,Both,Simple or structural topology retained
+SM_Theater_Stage_Lip2,Stage,2.0,1.21,0.32,48,36,0.75,"top left, depth center",MAT_Theater_Walnut;MAT_Theater_Trim;MAT_Theater_Brass,3,Both,Simple or structural topology retained
+SM_Theater_Stage_ProsceniumPost,Stage,1.9,6.57,1.357,216,72,0.333,foot center,MAT_Theater_Ivory;MAT_Theater_Brass;MAT_Theater_Trim,3,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Stage_ProsceniumArc,Stage,27.74,6.1988,1.14,1104,468,0.424,centerline at spring,MAT_Theater_Ivory;MAT_Theater_Brass,2,Both,
+SM_Theater_Deco_Lyre,Decor,2.2874,2.3,0.299,748,396,0.529,bottom of medallion,MAT_Theater_Midnight;MAT_Theater_Brass,2,None,
+SM_Theater_Curtain_MainL,Stage,4.7,11.7,0.5684,768,384,0.5,foot center at lower folds,MAT_Theater_Wine;MAT_Theater_Brass,2,None,
+SM_Theater_Curtain_MainR,Stage,4.7,11.7,0.5684,768,384,0.5,foot center at lower folds,MAT_Theater_Wine;MAT_Theater_Brass,2,None,
+SM_Theater_Curtain_Side,Stage,2.8542,8.9,0.596,576,288,0.5,foot center,MAT_Theater_Wine;MAT_Theater_Brass,2,None,
+SM_Theater_Curtain_Valance8,Stage,8.0327,3.6513,0.6103,480,240,0.5,left at swag baseline,MAT_Theater_Wine;MAT_Theater_Brass,2,None,
+SM_Theater_Organ_Body,Organ,10.8,6.92,1.45,172,108,0.628,foot center,MAT_Theater_Midnight;MAT_Theater_Brass,2,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Organ_Plinth,Organ,12.12,0.81,2.52,168,36,0.214,foot center,MAT_Theater_Walnut;MAT_Theater_Brass,2,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Organ_Crown,Organ,11.2,2.36,1.08,292,148,0.507,foot center,MAT_Theater_Midnight;MAT_Theater_Brass,2,Shot,
+SM_Theater_Organ_Console,Organ,2.64,1.185,1.22,336,192,0.571,foot center,MAT_Theater_Walnut;MAT_Theater_Ivory,2,Both,
+SM_Theater_Organ_PipesCenter,Organ,4.5718,7.59,0.8195,3096,1584,0.512,foot center,MAT_Theater_Brass;MAT_Theater_Midnight,2,Shot,
+SM_Theater_Organ_PipesSide,Organ,2.98,5.19,0.6193,2408,1232,0.512,foot center,MAT_Theater_Brass;MAT_Theater_Midnight,2,Shot,
+SM_Theater_Prop_Piano,Prop,1.72,1.107,2.5993,576,252,0.438,foot center,MAT_Theater_Midnight;MAT_Theater_Ivory;MAT_Theater_Brass,3,Both,
+SM_Theater_Prop_Stand,Prop,0.6146,1.4781,0.5695,228,76,0.333,foot center,MAT_Theater_Midnight;MAT_Theater_Ivory,2,None,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Prop_InstrumentRack,Prop,1.788,1.4105,0.9957,212,72,0.34,foot center,MAT_Theater_Walnut;MAT_Theater_Brass,2,Both,"Silhouette, surface fit or repeating parts retained"
+SM_Theater_Prop_Conductor,Prop,1.72,0.26,1.72,152,36,0.237,foot center,MAT_Theater_Walnut;MAT_Theater_Brass,2,Both,Simple or structural topology retained
+SM_Theater_Prop_CaseWide,Prop,2.0,0.94,1.073,84,48,0.571,foot center,MAT_Theater_Walnut;MAT_Theater_Midnight;MAT_Theater_Brass,3,Both,
+SM_Theater_Prop_CaseSmall,Prop,1.18,0.94,1.073,84,48,0.571,foot center,MAT_Theater_Walnut;MAT_Theater_Midnight;MAT_Theater_Brass,3,Both,
+SM_Theater_Prop_Bench,Prop,3.32,1.04,0.8,96,48,0.5,foot center,MAT_Theater_Walnut;MAT_Theater_Brass,2,Both,
+SM_Theater_Prop_TicketCounter,Prop,4.12,1.32,1.12,72,36,0.5,foot center,MAT_Theater_Midnight;MAT_Theater_Trim;MAT_Theater_Brass,3,Both,
+SM_Theater_Prop_ProgramFrame,Decor,1.56,1.97,0.38,524,284,0.542,bottom center,MAT_Theater_Midnight;MAT_Theater_Trim;MAT_Theater_Brass,3,None,
+SM_Theater_Deco_Banner,Decor,2.2043,3.7,0.1871,132,44,0.333,"bottom center, excluding point",MAT_Theater_Trim;MAT_Theater_Brass,2,None,Simple or structural topology retained
+SM_Theater_Deco_Clerestory,Decor,3.0,3.47,0.219,296,140,0.473,bottom left,MAT_Theater_Midnight;MAT_Theater_Trim;MAT_Theater_Brass,3,None,
+SM_Theater_Lamp_Lantern,Fixture,0.54,0.98,0.54,236,132,0.559,foot center,MAT_Theater_Brass;MAT_Theater_Lamp,2,None,
+SM_Theater_Lamp_Wall,Fixture,0.54,1.2099,0.64,304,168,0.553,base center,MAT_Theater_Brass;MAT_Theater_Lamp,2,None,
+SM_Theater_Lamp_HangerStem,Fixture,0.172,1.0,0.1636,72,40,0.556,bottom of suspension rod,MAT_Theater_Brass,1,None,
+SM_Theater_Lamp_ChandelierHub,Fixture,0.92,3.525,0.92,536,224,0.418,assembly anchor,MAT_Theater_Brass,1,None,
+SM_Theater_Lamp_ChandelierRing,Fixture,2.8786,0.394,2.8786,864,432,0.5,assembly anchor,MAT_Theater_Brass;MAT_Theater_Lamp,2,None,
+SM_Theater_Lamp_ChandelierArm,Fixture,1.7855,0.5716,0.137,208,100,0.481,assembly anchor,MAT_Theater_Brass;MAT_Theater_Lamp,2,None,
+SM_Theater_Floor_Runner4,Decor,4.0,0.012,4.0,12,12,1.0,top southwest corner,MAT_Theater_Trim,1,None,Simple or structural topology retained

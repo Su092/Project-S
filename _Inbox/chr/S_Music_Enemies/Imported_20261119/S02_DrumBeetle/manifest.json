@@ -1,0 +1,1380 @@
+{
+  "schemaVersion": 1,
+  "assetId": "S02_DrumBeetle",
+  "conceptNumber": "02",
+  "category": "Common",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 1.08,
+  "measuredBounds": {
+    "min": [
+      -0.9396418929100037,
+      -0.830134391784668,
+      0.0
+    ],
+    "max": [
+      0.9396418929100037,
+      0.7384744882583618,
+      1.0800000429153442
+    ]
+  },
+  "units": "m",
+  "blenderAxes": "+Z up, -Y forward",
+  "unityAxes": "+Y up, +Z forward (target)",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "addLeafBones": false,
+    "allActions": false
+  },
+  "variants": [
+    "Base"
+  ],
+  "lods": [
+    {
+      "variant": "Base",
+      "level": 0,
+      "file": "Exports/S02_DrumBeetle_Model.fbx",
+      "tris": 5790,
+      "budget": 6000,
+      "nodes": [
+        "SM_S02_DrumBeetle_TensionLug_LOD0",
+        "SM_S02_DrumBeetle_DrumStud_LOD0",
+        "SM_S02_DrumBeetle_Head_LOD0",
+        "SM_S02_DrumBeetle_EyeSocket_LOD0",
+        "SM_S02_DrumBeetle_Eye_LOD0",
+        "SM_S02_DrumBeetle_LForeUpper_LOD0",
+        "SM_S02_DrumBeetle_LForeUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_LForeShin_LOD0",
+        "SM_S02_DrumBeetle_LForeShinJoint_LOD0",
+        "SM_S02_DrumBeetle_LForeFoot_LOD0",
+        "SM_S02_DrumBeetle_LForeFootJoint_LOD0",
+        "SM_S02_DrumBeetle_LForeSole_LOD0",
+        "SM_S02_DrumBeetle_Mallet_LOD0",
+        "SM_S02_DrumBeetle_LMidUpper_LOD0",
+        "SM_S02_DrumBeetle_LMidUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_LMidShin_LOD0",
+        "SM_S02_DrumBeetle_LMidShinJoint_LOD0",
+        "SM_S02_DrumBeetle_LMidFoot_LOD0",
+        "SM_S02_DrumBeetle_LMidFootJoint_LOD0",
+        "SM_S02_DrumBeetle_LMidSole_LOD0",
+        "SM_S02_DrumBeetle_LHindUpper_LOD0",
+        "SM_S02_DrumBeetle_LHindUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_LHindShin_LOD0",
+        "SM_S02_DrumBeetle_LHindShinJoint_LOD0",
+        "SM_S02_DrumBeetle_LHindFoot_LOD0",
+        "SM_S02_DrumBeetle_LHindFootJoint_LOD0",
+        "SM_S02_DrumBeetle_LHindSole_LOD0",
+        "SM_S02_DrumBeetle_RForeUpper_LOD0",
+        "SM_S02_DrumBeetle_RForeUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_RForeShin_LOD0",
+        "SM_S02_DrumBeetle_RForeShinJoint_LOD0",
+        "SM_S02_DrumBeetle_RForeFoot_LOD0",
+        "SM_S02_DrumBeetle_RForeFootJoint_LOD0",
+        "SM_S02_DrumBeetle_RForeSole_LOD0",
+        "SM_S02_DrumBeetle_RMidUpper_LOD0",
+        "SM_S02_DrumBeetle_RMidUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_RMidShin_LOD0",
+        "SM_S02_DrumBeetle_RMidShinJoint_LOD0",
+        "SM_S02_DrumBeetle_RMidFoot_LOD0",
+        "SM_S02_DrumBeetle_RMidFootJoint_LOD0",
+        "SM_S02_DrumBeetle_RMidSole_LOD0",
+        "SM_S02_DrumBeetle_RHindUpper_LOD0",
+        "SM_S02_DrumBeetle_RHindUpperJoint_LOD0",
+        "SM_S02_DrumBeetle_RHindShin_LOD0",
+        "SM_S02_DrumBeetle_RHindShinJoint_LOD0",
+        "SM_S02_DrumBeetle_RHindFoot_LOD0",
+        "SM_S02_DrumBeetle_RHindFootJoint_LOD0",
+        "SM_S02_DrumBeetle_RHindSole_LOD0",
+        "SM_S02_DrumBeetle_DrumShell_LOD0",
+        "SM_S02_DrumBeetle_LowerRim_LOD0",
+        "SM_S02_DrumBeetle_UpperRim_LOD0",
+        "SM_S02_DrumBeetle_DrumHead_LOD0"
+      ],
+      "unityTris": 5790,
+      "unityHeightMeters": 1.0805962085723877
+    },
+    {
+      "variant": "Base",
+      "level": 1,
+      "file": "Exports/S02_DrumBeetle_Model.fbx",
+      "tris": 2886,
+      "budget": 3000,
+      "nodes": [
+        "SM_S02_DrumBeetle_TensionLug_LOD1",
+        "SM_S02_DrumBeetle_DrumStud_LOD1",
+        "SM_S02_DrumBeetle_Head_LOD1",
+        "SM_S02_DrumBeetle_EyeSocket_LOD1",
+        "SM_S02_DrumBeetle_Eye_LOD1",
+        "SM_S02_DrumBeetle_LForeUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_LForeShin_LOD1",
+        "SM_S02_DrumBeetle_LForeShinJoint_LOD1",
+        "SM_S02_DrumBeetle_LForeFoot_LOD1",
+        "SM_S02_DrumBeetle_LForeFootJoint_LOD1",
+        "SM_S02_DrumBeetle_LForeSole_LOD1",
+        "SM_S02_DrumBeetle_Mallet_LOD1",
+        "SM_S02_DrumBeetle_LMidUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_LMidShin_LOD1",
+        "SM_S02_DrumBeetle_LMidShinJoint_LOD1",
+        "SM_S02_DrumBeetle_LMidFoot_LOD1",
+        "SM_S02_DrumBeetle_LMidFootJoint_LOD1",
+        "SM_S02_DrumBeetle_LMidSole_LOD1",
+        "SM_S02_DrumBeetle_LHindUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_LHindShin_LOD1",
+        "SM_S02_DrumBeetle_LHindShinJoint_LOD1",
+        "SM_S02_DrumBeetle_LHindFoot_LOD1",
+        "SM_S02_DrumBeetle_LHindFootJoint_LOD1",
+        "SM_S02_DrumBeetle_LHindSole_LOD1",
+        "SM_S02_DrumBeetle_RForeUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_RForeShin_LOD1",
+        "SM_S02_DrumBeetle_RForeShinJoint_LOD1",
+        "SM_S02_DrumBeetle_RForeFoot_LOD1",
+        "SM_S02_DrumBeetle_RForeFootJoint_LOD1",
+        "SM_S02_DrumBeetle_RForeSole_LOD1",
+        "SM_S02_DrumBeetle_RMidUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_RMidShin_LOD1",
+        "SM_S02_DrumBeetle_RMidShinJoint_LOD1",
+        "SM_S02_DrumBeetle_RMidFoot_LOD1",
+        "SM_S02_DrumBeetle_DrumShell_LOD1",
+        "SM_S02_DrumBeetle_RMidFootJoint_LOD1",
+        "SM_S02_DrumBeetle_RMidSole_LOD1",
+        "SM_S02_DrumBeetle_RHindUpperJoint_LOD1",
+        "SM_S02_DrumBeetle_RHindShin_LOD1",
+        "SM_S02_DrumBeetle_RHindShinJoint_LOD1",
+        "SM_S02_DrumBeetle_RHindFoot_LOD1",
+        "SM_S02_DrumBeetle_RHindFootJoint_LOD1",
+        "SM_S02_DrumBeetle_RHindSole_LOD1",
+        "SM_S02_DrumBeetle_LowerRim_LOD1",
+        "SM_S02_DrumBeetle_UpperRim_LOD1",
+        "SM_S02_DrumBeetle_DrumHead_LOD1",
+        "SM_S02_DrumBeetle_LForeUpper_LOD1",
+        "SM_S02_DrumBeetle_LMidUpper_LOD1",
+        "SM_S02_DrumBeetle_LHindUpper_LOD1",
+        "SM_S02_DrumBeetle_RForeUpper_LOD1",
+        "SM_S02_DrumBeetle_RMidUpper_LOD1",
+        "SM_S02_DrumBeetle_RHindUpper_LOD1"
+      ],
+      "unityTris": 2886,
+      "unityHeightMeters": 1.0805962085723877
+    },
+    {
+      "variant": "Base",
+      "level": 2,
+      "file": "Exports/S02_DrumBeetle_Model.fbx",
+      "tris": 1158,
+      "budget": 1200,
+      "nodes": [
+        "SM_S02_DrumBeetle_TensionLug_LOD2",
+        "SM_S02_DrumBeetle_DrumStud_LOD2",
+        "SM_S02_DrumBeetle_Head_LOD2",
+        "SM_S02_DrumBeetle_EyeSocket_LOD2",
+        "SM_S02_DrumBeetle_Eye_LOD2",
+        "SM_S02_DrumBeetle_LForeSole_LOD2",
+        "SM_S02_DrumBeetle_Mallet_LOD2",
+        "SM_S02_DrumBeetle_LMidFoot_LOD2",
+        "SM_S02_DrumBeetle_LMidSole_LOD2",
+        "SM_S02_DrumBeetle_LHindShin_LOD2",
+        "SM_S02_DrumBeetle_LHindFoot_LOD2",
+        "SM_S02_DrumBeetle_LHindSole_LOD2",
+        "SM_S02_DrumBeetle_RForeSole_LOD2",
+        "SM_S02_DrumBeetle_RMidFoot_LOD2",
+        "SM_S02_DrumBeetle_RMidSole_LOD2",
+        "SM_S02_DrumBeetle_RHindShin_LOD2",
+        "SM_S02_DrumBeetle_RHindSole_LOD2",
+        "SM_S02_DrumBeetle_DrumShell_LOD2",
+        "SM_S02_DrumBeetle_LowerRim_LOD2",
+        "SM_S02_DrumBeetle_UpperRim_LOD2",
+        "SM_S02_DrumBeetle_DrumHead_LOD2",
+        "SM_S02_DrumBeetle_LForeUpper_LOD2",
+        "SM_S02_DrumBeetle_LForeShin_LOD2",
+        "SM_S02_DrumBeetle_LForeFoot_LOD2",
+        "SM_S02_DrumBeetle_LMidUpper_LOD2",
+        "SM_S02_DrumBeetle_LMidShin_LOD2",
+        "SM_S02_DrumBeetle_LHindUpper_LOD2",
+        "SM_S02_DrumBeetle_RForeUpper_LOD2",
+        "SM_S02_DrumBeetle_RForeShin_LOD2",
+        "SM_S02_DrumBeetle_RForeFoot_LOD2",
+        "SM_S02_DrumBeetle_RMidUpper_LOD2",
+        "SM_S02_DrumBeetle_RMidShin_LOD2",
+        "SM_S02_DrumBeetle_RHindUpper_LOD2",
+        "SM_S02_DrumBeetle_RHindFoot_LOD2"
+      ],
+      "unityTris": 1158,
+      "unityHeightMeters": 1.0805962085723877
+    }
+  ],
+  "rootPath": "ARM_S02_DrumBeetle/root",
+  "materials": [
+    "MAT_S02_DrumBeetle_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S02_DrumBeetle_BC.png",
+      "space": "sRGB",
+      "channels": "BaseColor"
+    },
+    {
+      "file": "Textures/T_S02_DrumBeetle_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S02_DrumBeetle_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S02_DrumBeetle/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S02_DrumBeetle/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5861446261405945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/LForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.3526211380958557
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeShin",
+      "path": "ARM_S02_DrumBeetle/root/body/LForeUpper/LForeShin",
+      "parent": "LForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.3526211380958557
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/LForeUpper/LForeShin/LForeFoot",
+      "parent": "LForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.40551429986953735
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Mallet_L",
+      "path": "ARM_S02_DrumBeetle/root/body/LForeUpper/LForeShin/LForeFoot/Socket_Mallet_L",
+      "parent": "LForeFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.7316887974739075
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.6699801087379456
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.10569831728935242
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LMidUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/LMidUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.044077642261981964
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LMidShin",
+      "path": "ARM_S02_DrumBeetle/root/body/LMidUpper/LMidShin",
+      "parent": "LMidUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.044077642261981964
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LMidFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/LMidUpper/LMidShin/LMidFoot",
+      "parent": "LMidShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.008815526962280273
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/LHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.37025216221809387
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindShin",
+      "path": "ARM_S02_DrumBeetle/root/body/LHindUpper/LHindShin",
+      "parent": "LHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.37025216221809387
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/LHindUpper/LHindShin/LHindFoot",
+      "parent": "LHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.3173590302467346
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/RForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.3526211380958557
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeShin",
+      "path": "ARM_S02_DrumBeetle/root/body/RForeUpper/RForeShin",
+      "parent": "RForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.3526211380958557
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/RForeUpper/RForeShin/RForeFoot",
+      "parent": "RForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.40551429986953735
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Mallet_R",
+      "path": "ARM_S02_DrumBeetle/root/body/RForeUpper/RForeShin/RForeFoot/Socket_Mallet_R",
+      "parent": "RForeFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7316887974739075
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.6699801087379456
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.10569831728935242
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RMidUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/RMidUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.044077642261981964
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RMidShin",
+      "path": "ARM_S02_DrumBeetle/root/body/RMidUpper/RMidShin",
+      "parent": "RMidUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.044077642261981964
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RMidFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/RMidUpper/RMidShin/RMidFoot",
+      "parent": "RMidShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.008815526962280273
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindUpper",
+      "path": "ARM_S02_DrumBeetle/root/body/RHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.37906771898269653
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.37025216221809387
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4450961649417877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindShin",
+      "path": "ARM_S02_DrumBeetle/root/body/RHindUpper/RHindShin",
+      "parent": "RHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6964267492294312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.37025216221809387
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5156204104423523
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindFoot",
+      "path": "ARM_S02_DrumBeetle/root/body/RHindUpper/RHindShin/RHindFoot",
+      "parent": "RHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7845820188522339
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.3173590302467346
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.24233901500701904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S02_DrumBeetle/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5861446261405945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Mallet_L",
+      "path": "ARM_S02_DrumBeetle/root/body/LForeUpper/LForeShin/LForeFoot/Socket_Mallet_L",
+      "parent": "LForeFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.7316887974739075
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.6699801087379456
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.10569831728935242
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": -0.052893221378326416,
+        "y": -0.2644658088684082,
+        "z": -0.13664069771766663
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Mallet_R",
+      "path": "ARM_S02_DrumBeetle/root/body/RForeUpper/RForeShin/RForeFoot/Socket_Mallet_R",
+      "parent": "RForeFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7316887974739075
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.6699801087379456
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.10569831728935242
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.052893221378326416,
+        "y": -0.2644658088684082,
+        "z": -0.13664069771766663
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S02_DrumBeetle/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5861446261405945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S02_DrumBeetle_Movement_COL",
+      "shape": "convex",
+      "purpose": "Movement",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.5861446261405945
+      ],
+      "size": [
+        0.7517134547233582,
+        0.7215600609779358,
+        0.47520002722740173
+      ]
+    },
+    {
+      "node": "SM_S02_DrumBeetle_Hurt_COL",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.5861446261405945
+      ],
+      "size": [
+        1.052398920059204,
+        0.9411653280258179,
+        0.6048000454902649
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S02_DrumBeetle_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S02_DrumBeetle_Spawn.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9396418929100037,
+          -0.830134391784668,
+          -0.3054807186126709
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7895130515098572,
+          1.1196503639221191
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.1322329044342041,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.1322329044342041
+      }
+    },
+    {
+      "clip": "AN_S02_DrumBeetle_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S02_DrumBeetle_Idle.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9396418929100037,
+          -0.830134391784668,
+          -0.0005965707823634148
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7384744882583618,
+          1.1117359399795532
+        ]
+      },
+      "unityCheck": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 0.0,
+        "maxBoneTravel": 0.031735897064208984,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S02_DrumBeetle_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S02_DrumBeetle_Hit.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9888079762458801,
+          -0.9278388023376465,
+          -0.17185065150260925
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7388121485710144,
+          1.0800000429153442
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.347187042236328,
+        "maxBoneTravel": 1.268788167863022e-07,
+        "loopAngle": 0.37114977836608887,
+        "loopTravel": 2.0816681711721685e-17
+      }
+    },
+    {
+      "clip": "AN_S02_DrumBeetle_Move",
+      "durationSec": 0.8,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.4
+      },
+      "file": "Exports/AN_S02_DrumBeetle_Move.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9396418929100037,
+          -0.8933785557746887,
+          -0.0005965707823634148
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7384744882583618,
+          1.1117359399795532
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 20.626487731933594,
+        "maxBoneTravel": 0.031735897064208984,
+        "loopAngle": 0.0,
+        "loopTravel": 5.551115123125783e-17
+      }
+    },
+    {
+      "clip": "AN_S02_DrumBeetle_Attack_Primary",
+      "durationSec": 0.9,
+      "loop": false,
+      "markersSec": {
+        "Strike": 0.45
+      },
+      "file": "Exports/AN_S02_DrumBeetle_Attack_Primary.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 27.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9396418929100037,
+          -1.0673489570617676,
+          -0.16580182313919067
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7384744882583618,
+          1.0800000429153442
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.9000000357627869,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 33.286502838134766,
+        "maxBoneTravel": 0.23721455037593842,
+        "loopAngle": 0.0,
+        "loopTravel": 3.569717000006137e-33
+      }
+    },
+    {
+      "clip": "AN_S02_DrumBeetle_Death",
+      "durationSec": 0.4,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 0.4
+      },
+      "file": "Exports/AN_S02_DrumBeetle_Death.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 12.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.1175954341888428,
+          -0.830134391784668,
+          -0.932036280632019
+        ],
+        "max": [
+          0.9396418929100037,
+          0.7384744882583618,
+          1.0800000429153442
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.40000003576278687,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 58.254337310791016,
+        "maxBoneTravel": 0.3935251533985138,
+        "loopAngle": 58.21699523925781,
+        "loopTravel": 0.3935251533985138
+      }
+    }
+  ],
+  "derivatives": [],
+  "validationStatus": {
+    "modelImport": "verified",
+    "heightAndPolyBudgets": "verified",
+    "avatarClipSampling": "verified",
+    "loopEndpoints": "verified",
+    "collisionGeometry": "verified",
+    "conceptBoardComparison": "pending",
+    "targetURPAndCombatReview": "pending"
+  },
+  "unityVersion": "6000.6.4f1",
+  "sourceQA": {
+    "roots": [
+      "root"
+    ],
+    "images": [
+      {
+        "file": "//..\\Textures\\T_S02_DrumBeetle_BC.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S02_DrumBeetle_E.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S02_DrumBeetle_ORM.png",
+        "exists": true
+      }
+    ],
+    "contacts": [],
+    "variantBody": {},
+    "restBoneCount": 23
+  },
+  "materialNotes": "Shared UV0 atlas with intentional reuse by surface type. Flat tangent normal (0.5,0.5,1). BC sRGB. ORM and E linear. Warm emission tint is controlled separately.",
+  "unityBoundsMeters": {
+    "width": 1.8792836666107178,
+    "height": 1.0805962085723877,
+    "depth": 1.5686085224151611
+  }
+}

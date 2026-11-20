@@ -1,0 +1,251 @@
+{
+  "asset": "Boss_CrucibleSovereign",
+  "checks": {
+    "SM_Boss_CrucibleSovereign_LOD0": {
+      "triangles": 4512,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 2,
+      "negative_scale": false
+    },
+    "SM_Boss_CrucibleSovereign_LOD1": {
+      "triangles": 3240,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 2,
+      "negative_scale": false
+    },
+    "SM_Boss_CrucibleSovereign_LOD2": {
+      "triangles": 1596,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 2,
+      "negative_scale": false
+    },
+    "textures_missing": []
+  },
+  "actions": {
+    "Idle": {
+      "frames": [
+        1,
+        61
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Walk": {
+      "frames": [
+        1,
+        31
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Turn_L": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0033075809478759766,
+      "root_delta": 0.0
+    },
+    "Turn_R": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0033075809478759766,
+      "root_delta": 0.0
+    },
+    "Volley": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "TrackingFire": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Shockwave": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "SpikeCast": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Summon": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 9.797174158936853e-17,
+      "root_delta": 0.0
+    },
+    "Shield_Close": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.5999999046325684,
+      "root_delta": 0.0
+    },
+    "Shield_Open": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.5999999046325684,
+      "root_delta": 0.0
+    },
+    "Stagger": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 1.32590341689531e-18,
+      "root_delta": 0.0
+    },
+    "PhaseTransition": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.5999999046325684,
+      "root_delta": 0.0
+    },
+    "Death": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.8785109519958496,
+      "root_delta": 0.0
+    }
+  },
+  "normals_note": "Degenerate triangles / manifold edges measured; visual normals and Unity tangent basis require engine review.",
+  "roundtrip": {
+    "fbx_imported": true,
+    "dimensions": [
+      5.599999904632568,
+      5.000000476837158,
+      5.800000598036547
+    ],
+    "dimension_error": [
+      9.536743128535363e-08,
+      4.76837158203125e-07,
+      5.980365473945426e-07
+    ],
+    "axis_test": "Blender inverse FBX roundtrip only; Unity +Z must be tested in Unity.",
+    "armatures": 1
+  },
+  "animation_fbx_imports": {
+    "Idle": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Walk": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Turn_L": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Turn_R": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Volley": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "TrackingFire": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Shockwave": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "SpikeCast": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Summon": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Shield_Close": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Shield_Open": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Stagger": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "PhaseTransition": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    },
+    "Death": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 33
+    }
+  },
+  "technical_pass": true,
+  "verdict": "NO-SHIP: requires visual animation/LOD/collision and Unity verification; see pending items in qa_metrics.json"
+}

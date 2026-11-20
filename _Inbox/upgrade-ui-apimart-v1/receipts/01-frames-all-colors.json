@@ -1,0 +1,14 @@
+{
+  "id": "s-upgrade-apimart-v1-frames",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-19T17:14:34+0800",
+  "task_id": "task_01M7SHC7NQBKM7827DMDNAH60Y",
+  "result_url": "https://getapib.org/image/9998204920301827-004d2f34-5c1d-49ab-8889-e422c0b7339d-image_task_01M7SHCX9RNZZE3V0YBY4PBKMM_0.png",
+  "width": 2048,
+  "height": 1360,
+  "mode": "RGBA",
+  "out": "_Inbox/upgrade-ui-apimart-v1/01-frames-all-colors.png",
+  "bytes": 1660830,
+  "sha256": "38e7050793275aef147126f3235e01fe548f14eb2d73290b0be6818ec624fae4"
+}

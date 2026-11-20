@@ -1,0 +1,997 @@
+{
+  "schemaVersion": 2,
+  "assetId": "S11_CymbalMoth",
+  "revision": "v002",
+  "conceptSource": "ConceptReview_v002/S11_CymbalMoth/S11_CymbalMoth.blend",
+  "conceptNumber": "11",
+  "category": "Common",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 1.44,
+  "units": "m",
+  "blenderAxes": "+Z up / -Y front",
+  "unityAxes": "+Y up / +Z front",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "leafBones": false
+  },
+  "rootPath": "ARM_S11_CymbalMoth/root",
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S11_CymbalMoth/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S11_CymbalMoth/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5517036318778992
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Abdomen_01",
+      "path": "ARM_S11_CymbalMoth/root/body/Abdomen_01",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0678904578089714
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.48381316661834717
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Abdomen_02",
+      "path": "ARM_S11_CymbalMoth/root/body/Abdomen_01/Abdomen_02",
+      "parent": "Abdomen_01",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.11315076053142548
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.3631190359592438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Abdomen_03",
+      "path": "ARM_S11_CymbalMoth/root/body/Abdomen_01/Abdomen_02/Abdomen_03",
+      "parent": "Abdomen_02",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.15841105580329895
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.242424875497818
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LWingHinge",
+      "path": "ARM_S11_CymbalMoth/root/body/LWingHinge",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.12069413810968399
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.015086766332387924
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6648543477058411
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Wing_L",
+      "path": "ARM_S11_CymbalMoth/root/body/LWingHinge/Socket_Wing_L",
+      "parent": "LWingHinge",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.4978633522987366
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.022630151361227036
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7704617977142334
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LAntenna",
+      "path": "ARM_S11_CymbalMoth/root/body/LAntenna",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.07543384283781052
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15086768567562103
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8836124539375305
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RWingHinge",
+      "path": "ARM_S11_CymbalMoth/root/body/RWingHinge",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.12069413810968399
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.015086766332387924
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6648543477058411
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Wing_R",
+      "path": "ARM_S11_CymbalMoth/root/body/RWingHinge/Socket_Wing_R",
+      "parent": "RWingHinge",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.4978633522987366
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.022630151361227036
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7704617977142334
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RAntenna",
+      "path": "ARM_S11_CymbalMoth/root/body/RAntenna",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.07543384283781052
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15086768567562103
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8836124539375305
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S11_CymbalMoth/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5517036318778992
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Wing_L",
+      "path": "ARM_S11_CymbalMoth/root/body/LWingHinge/Socket_Wing_L",
+      "parent": "LWingHinge",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.4978633522987366
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.022630151361227036
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7704617977142334
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.3771692216396332,
+        "y": 0.007543385028839111,
+        "z": 0.10560745000839233
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Wing_R",
+      "path": "ARM_S11_CymbalMoth/root/body/RWingHinge/Socket_Wing_R",
+      "parent": "RWingHinge",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.4978633522987366
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.022630151361227036
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7704617977142334
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": -0.3771692216396332,
+        "y": 0.007543385028839111,
+        "z": 0.10560745000839233
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S11_CymbalMoth/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5517036318778992
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "variants": [
+    "Base"
+  ],
+  "lods": [
+    {
+      "file": "Exports/S11_CymbalMoth_Model.fbx",
+      "variant": "Base",
+      "level": 0,
+      "tris": 5802,
+      "budget": 6000,
+      "nodes": [
+        "SM_S11_CymbalMoth_Thorax_LOD0",
+        "SM_S11_CymbalMoth_Head_LOD0",
+        "SM_S11_CymbalMoth_Abdomen_01_LOD0",
+        "SM_S11_CymbalMoth_Abdomen_02_LOD0",
+        "SM_S11_CymbalMoth_Abdomen_03_LOD0",
+        "SM_S11_CymbalMoth_HammeredCymbal_LOD0",
+        "SM_S11_CymbalMoth_TurnedGroove_LOD0",
+        "SM_S11_CymbalMoth_IvoryRuff_LOD0",
+        "SM_S11_CymbalMoth_AntennaQuillShaft_LOD0",
+        "SM_S11_CymbalMoth_AntennaQuill_LOD0",
+        "SM_S11_CymbalMoth_TrailingSilk_LOD0",
+        "SM_S11_CymbalMoth_SilkPoint_LOD0",
+        "SM_S11_CymbalMoth_Talons_LOD0",
+        "SM_S11_CymbalMoth_SlitEye_LOD0",
+        "SM_S11_CymbalMoth_CymbalScroll_LOD0",
+        "SM_S11_CymbalMoth_CymbalLeaf_LOD0",
+        "SM_S11_CymbalMoth_CollarPlume_LOD0"
+      ],
+      "unityTris": 5802,
+      "unityHeightMeters": 1.4400031566619873
+    },
+    {
+      "file": "Exports/S11_CymbalMoth_Model.fbx",
+      "variant": "Base",
+      "level": 1,
+      "tris": 2890,
+      "budget": 3000,
+      "nodes": [
+        "SM_S11_CymbalMoth_Thorax_LOD1",
+        "SM_S11_CymbalMoth_Head_LOD1",
+        "SM_S11_CymbalMoth_Abdomen_01_LOD1",
+        "SM_S11_CymbalMoth_Abdomen_02_LOD1",
+        "SM_S11_CymbalMoth_Abdomen_03_LOD1",
+        "SM_S11_CymbalMoth_HammeredCymbal_LOD1",
+        "SM_S11_CymbalMoth_TurnedGroove_LOD1",
+        "SM_S11_CymbalMoth_IvoryRuff_LOD1",
+        "SM_S11_CymbalMoth_AntennaQuillShaft_LOD1",
+        "SM_S11_CymbalMoth_AntennaQuill_LOD1",
+        "SM_S11_CymbalMoth_TrailingSilk_LOD1",
+        "SM_S11_CymbalMoth_SilkPoint_LOD1",
+        "SM_S11_CymbalMoth_Talons_LOD1",
+        "SM_S11_CymbalMoth_SlitEye_LOD1",
+        "SM_S11_CymbalMoth_CymbalScroll_LOD1",
+        "SM_S11_CymbalMoth_CymbalLeaf_LOD1",
+        "SM_S11_CymbalMoth_CollarPlume_LOD1"
+      ],
+      "unityTris": 2890,
+      "unityHeightMeters": 1.4400031566619873
+    },
+    {
+      "file": "Exports/S11_CymbalMoth_Model.fbx",
+      "variant": "Base",
+      "level": 2,
+      "tris": 1144,
+      "budget": 1200,
+      "nodes": [
+        "SM_S11_CymbalMoth_Thorax_LOD2",
+        "SM_S11_CymbalMoth_Head_LOD2",
+        "SM_S11_CymbalMoth_Abdomen_01_LOD2",
+        "SM_S11_CymbalMoth_Abdomen_02_LOD2",
+        "SM_S11_CymbalMoth_Abdomen_03_LOD2",
+        "SM_S11_CymbalMoth_HammeredCymbal_LOD2",
+        "SM_S11_CymbalMoth_TurnedGroove_LOD2",
+        "SM_S11_CymbalMoth_IvoryRuff_LOD2",
+        "SM_S11_CymbalMoth_AntennaQuillShaft_LOD2",
+        "SM_S11_CymbalMoth_AntennaQuill_LOD2",
+        "SM_S11_CymbalMoth_TrailingSilk_LOD2",
+        "SM_S11_CymbalMoth_SilkPoint_LOD2",
+        "SM_S11_CymbalMoth_Talons_LOD2",
+        "SM_S11_CymbalMoth_SlitEye_LOD2",
+        "SM_S11_CymbalMoth_CymbalScroll_LOD2",
+        "SM_S11_CymbalMoth_CymbalLeaf_LOD2",
+        "SM_S11_CymbalMoth_CollarPlume_LOD2"
+      ],
+      "unityTris": 1144,
+      "unityHeightMeters": 1.4400031566619873
+    }
+  ],
+  "materials": [
+    "MAT_S11_CymbalMoth_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S11_CymbalMoth_BC.png",
+      "space": "sRGB",
+      "channels": "Base Color"
+    },
+    {
+      "file": "Textures/T_S11_CymbalMoth_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S11_CymbalMoth_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S11_CymbalMoth_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S11_CymbalMoth_Spawn.fbx",
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.15000000596046448,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.15000000596046448
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8997458219528198,
+          -0.4003790616989136,
+          -0.1659596860408783
+        ],
+        "max": [
+          0.8997458219528198,
+          0.3896975517272949,
+          1.452032208442688
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S11_CymbalMoth_Idle.fbx",
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 5.729557037353516,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8997458219528198,
+          -0.32210248708724976,
+          -0.009970245882868767
+        ],
+        "max": [
+          0.8997458219528198,
+          0.31067514419555664,
+          1.4892189502716064
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S11_CymbalMoth_Hit.fbx",
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.347187042236328,
+        "maxBoneTravel": 1.4161004457946547e-07,
+        "loopAngle": 2.330329418182373,
+        "loopTravel": 4.1359030627651384e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8959386944770813,
+          -0.3377233147621155,
+          -0.006149866618216038
+        ],
+        "max": [
+          0.912051260471344,
+          0.35819387435913086,
+          1.485403060913086
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Fly",
+      "durationSec": 0.8,
+      "loop": true,
+      "markersSec": {
+        "WingBeat": 0.4
+      },
+      "file": "Exports/AN_S11_CymbalMoth_Fly.fbx",
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 22.345340728759766,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 2.0679515313825692e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9184666275978088,
+          -0.32210248708724976,
+          -0.034792184829711914
+        ],
+        "max": [
+          0.9184666275978088,
+          0.3026813864707947,
+          1.5275861024856567
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Turn_L",
+      "durationSec": 0.5,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S11_CymbalMoth_Turn_L.fbx",
+      "frameStart": 0,
+      "frameEnd": 15.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.5,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 30.35592269897461,
+        "maxBoneTravel": 8.97168703772877e-08,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.9614173173904419,
+          -0.32210248708724976,
+          -0.10875192284584045
+        ],
+        "max": [
+          0.8927674293518066,
+          0.31051528453826904,
+          1.5115405321121216
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Turn_R",
+      "durationSec": 0.5,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S11_CymbalMoth_Turn_R.fbx",
+      "frameStart": 0,
+      "frameEnd": 15.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.5,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 30.35592269897461,
+        "maxBoneTravel": 8.97168703772877e-08,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8927674293518066,
+          -0.32210248708724976,
+          -0.10877083241939545
+        ],
+        "max": [
+          0.9614173173904419,
+          0.31051528453826904,
+          1.5115405321121216
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Attack_Primary",
+      "durationSec": 0.9,
+      "loop": false,
+      "markersSec": {
+        "Clash": 0.45
+      },
+      "file": "Exports/AN_S11_CymbalMoth_Attack_Primary.fbx",
+      "frameStart": 0,
+      "frameEnd": 27.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.9000000357627869,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 70.93815612792969,
+        "maxBoneTravel": 0.26908716559410095,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8978862166404724,
+          -1.0154668092727661,
+          -0.025347718968987465
+        ],
+        "max": [
+          0.8978862166404724,
+          0.28156590461730957,
+          1.504952311515808
+        ]
+      }
+    },
+    {
+      "clip": "AN_S11_CymbalMoth_Death",
+      "durationSec": 0.4,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 0.4
+      },
+      "file": "Exports/AN_S11_CymbalMoth_Death.fbx",
+      "frameStart": 0,
+      "frameEnd": 12.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.40000003576278687,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 58.254337310791016,
+        "maxBoneTravel": 0.39722660183906555,
+        "loopAngle": 58.21699523925781,
+        "loopTravel": 0.39722660183906555
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8927674293518066,
+          -0.39817357063293457,
+          -0.5670404434204102
+        ],
+        "max": [
+          0.9231728315353394,
+          0.37801769375801086,
+          1.4452588558197021
+        ]
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S11_CymbalMoth_Movement_COL",
+      "bindBone": "body",
+      "shape": "convex",
+      "purpose": "Movement",
+      "center": [
+        0.0,
+        0.0,
+        0.5517036318778992
+      ],
+      "size": [
+        0.6070818305015564,
+        0.2394062578678131,
+        0.6048014760017395
+      ]
+    },
+    {
+      "node": "SM_S11_CymbalMoth_Hurt_COL",
+      "bindBone": "body",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "center": [
+        0.0,
+        0.0,
+        0.5517036318778992
+      ],
+      "size": [
+        0.8213460445404053,
+        0.2992578148841858,
+        0.8352020382881165
+      ]
+    }
+  ],
+  "derivatives": [],
+  "validationStatus": {
+    "geometryHeightLodWeightsUv": "verified",
+    "textureAndAvatarImport": "verified",
+    "clipDurationRateBindingsAndRoot": "verified",
+    "colliderMeshCount": "verified",
+    "targetURPPlaytest": "pending"
+  },
+  "measuredBounds": {
+    "min": [
+      -0.8927674293518066,
+      -0.32210248708724976,
+      1.8276508853887208e-05
+    ],
+    "max": [
+      0.8927674293518066,
+      0.2764131426811218,
+      1.4400217533111572
+    ]
+  },
+  "source": "Source/S11_CymbalMoth.blend",
+  "unityVersion": "6000.6.4f1",
+  "unityBoundsMeters": {
+    "height": 1.4400031566619873,
+    "width": 1.7855348587036133,
+    "depth": 0.5985153913497925
+  },
+  "sourceVerification": {
+    "source": "ConceptReview_v002/S11_CymbalMoth/S11_CymbalMoth.blend",
+    "sourceSha256": "ad729e2f8753150e74da21da19a5870e7fd1bd34bc401235131e701a41d70c1e",
+    "matchingSourcePartsPerAppearance": {
+      "Base": 17
+    }
+  }
+}

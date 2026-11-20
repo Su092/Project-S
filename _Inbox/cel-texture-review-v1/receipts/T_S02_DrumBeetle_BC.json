@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s02_drumbeetle_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:37:37+0800",
+  "task_id": "task_01M7W1NAV6N3XM0MABG6YNFAJA",
+  "result_url": "https://getapib.org/image/9998204836111761-c8eaa93c-c8a2-4c4f-99a4-aface28bd521-image_task_01M7W1P6261R9GG4D5HMS5F1SV_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S02_DrumBeetle_BC.png",
+  "bytes": 1369438,
+  "sha256": "2c0895b9608aca62d138deb569788bcd7a1862e2ba746980e590651c6d21e2c6"
+}

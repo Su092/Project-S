@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-01_film_cel",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/01_film_cel.png",
+  "submitted_at": "2026-11-18T15:39:18+0800",
+  "task_id": "task_01M7PSH35T43A0Q88SZSQ5FWWV",
+  "result_url": "https://getapib.org/f/image/9729155964499208-bba9078e-e05d-461f-bdcb-af700d71b55f-image_3AZJGHFHABFT59DYHJ1KFP9RAG_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2594661,
+  "sha256": "563275d3ddfaab8d832d0ddf4e28c3edc9cbcac2c6c5e7519c1bf16f5534a9b3",
+  "completed_at": "2026-11-18T15:40:21+0800"
+}

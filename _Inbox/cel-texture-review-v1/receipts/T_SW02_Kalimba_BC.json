@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_sw02_kalimba_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:34:05+0800",
+  "task_id": "task_01M7W1EX8T9N51EC4JMXR733RC",
+  "result_url": "https://getapib.org/image/9998204836297187-02dc2e31-083a-4ff7-ae2c-20de478ca342-image_task_01M7W1GGY19ZG04H6AKQ3VSH7B_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_SW02_Kalimba_BC.png",
+  "bytes": 2373178,
+  "sha256": "7a1286907dd5437d1dd4515bc4657e72171dcf427810069d2628a2c1c6f6b224"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "s-hud-music-08_notes",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/08_notes.png",
+  "submitted_at": "2026-11-18T15:54:22+0800",
+  "task_id": "task_01M7PTCNRJQ9A1YKHB6WR3TA4W",
+  "result_url": "https://getapib.org/image/9998205011500613-a26d1ce3-0723-4549-bcaf-5ae9ed914261-image_task_01M7PTDQWGXMWJDBTR1J6XRWWK_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 1421653,
+  "sha256": "d598fd7fcc8ec4da738e600af9ef3d71dbdc3899c840c9d6275dcacdb10a92b3",
+  "completed_at": "2026-11-18T15:55:29+0800"
+}

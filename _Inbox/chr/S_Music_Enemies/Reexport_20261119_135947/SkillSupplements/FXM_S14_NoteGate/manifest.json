@@ -1,0 +1,180 @@
+{
+  "assetId": "FXM_S14_NoteGate",
+  "version": "1.0.0",
+  "units": "m",
+  "status": "MODELED_AND_IMPORT_VERIFIED_PENDING_GAMEPLAY_VISUAL_ACCEPTANCE",
+  "boundsBlender": {
+    "min": [
+      -1.100000023841858,
+      -0.17499999701976776,
+      0.0
+    ],
+    "max": [
+      1.100000023841858,
+      0.17499999701976776,
+      3.6000001430511475
+    ],
+    "size": [
+      2.200000047683716,
+      0.3499999940395355,
+      3.6000001430511475
+    ]
+  },
+  "lods": [
+    {
+      "tris": 482,
+      "budget": 1200,
+      "geometry": "PASS",
+      "intentionalOpenSurface": true
+    },
+    {
+      "tris": 238,
+      "budget": 600,
+      "geometry": "PASS",
+      "intentionalOpenSurface": true
+    },
+    {
+      "tris": 180,
+      "budget": 200,
+      "geometry": "PASS",
+      "intentionalOpenSurface": true
+    }
+  ],
+  "materials": [
+    "MAT_FXM_S14_NoteGate_Atlas",
+    "MAT_FXM_S14_NoteGate_Curtain"
+  ],
+  "origin": "bottom center",
+  "axes": {
+    "blender": "+Z up, -Y forward",
+    "unityTarget": "+Y up,+Z forward"
+  },
+  "export": {
+    "scale": 1,
+    "applyUnit": true,
+    "applyScalings": "FBX_ALL",
+    "applyTransform": true,
+    "forward": "-Z",
+    "up": "Y",
+    "leafBones": false
+  },
+  "animations": [],
+  "textureSize": 1024,
+  "textureSpaces": {
+    "BC": "sRGB",
+    "ORM": "Linear R=AO G=Roughness B=Metallic",
+    "N": "Linear tangent normal",
+    "E": "Linear emission mask",
+    "Alpha": "Linear"
+  },
+  "texelDensity": "Flat-color core atlas uses intentional swatch overlap; curtain uses full 1024 texture.",
+  "collision": "dimension reference only; never blocking",
+  "notes": [
+    "Single curtain surface, double-sided shader, alpha blend/dither configured in engine; no overlapping curtain layers.",
+    "Static usable version; optional spawn/travel/dissolve clips omitted.",
+    "Reuses delivered MarchingNote mesh; source textures unchanged."
+  ],
+  "pending": [
+    "目标游戏渲染管线的材质接线、透明双面与排序验收；未在实际战斗场景标记最终PASS。",
+    "LODGroup切换与动态追踪在目标项目中验收。"
+  ],
+  "unityValidation": {
+    "version": "6000.6.4f1",
+    "measuredModel": {
+      "file": "Assets/Supplements/FXM_S14_NoteGate/Model/FXM_S14_NoteGate.fbx",
+      "size": {
+        "x": 2.200000047683716,
+        "y": 3.6000001430511475,
+        "z": 0.3499999940395355
+      },
+      "min": {
+        "x": -1.100000023841858,
+        "y": 0.0,
+        "z": -0.17499999701976776
+      },
+      "max": {
+        "x": 1.100000023841858,
+        "y": 3.6000001430511475,
+        "z": 0.17499999701976776
+      },
+      "meshes": 6,
+      "unweighted": 0,
+      "tris": [
+        2,
+        2,
+        2,
+        480,
+        236,
+        178
+      ],
+      "nodes": [
+        "SM_FXM_S14_NoteGate_Curtain_LOD0",
+        "SM_FXM_S14_NoteGate_Curtain_LOD1",
+        "SM_FXM_S14_NoteGate_Curtain_LOD2",
+        "SM_FXM_S14_NoteGate_LOD0",
+        "SM_FXM_S14_NoteGate_LOD1",
+        "SM_FXM_S14_NoteGate_LOD2"
+      ],
+      "sockets": [],
+      "clips": []
+    },
+    "report": "unity_validation.json"
+  },
+  "textures": [
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_Alpha.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_BC.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_Curtain.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_E.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_N.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    },
+    {
+      "file": "Textures/T_FXM_S14_NoteGate_ORM.png",
+      "width": 1024,
+      "height": 1024,
+      "colorSpace": "Linear"
+    }
+  ],
+  "sha256": {
+    "Collision/FXM_S14_NoteGate_COL.fbx": "3495d9ca66eb8e9e4c6161b5fb1bc76bf93c6fb2b7ce95eadee8fbaf99d17f2f",
+    "Model/FXM_S14_NoteGate.fbx": "035ed1255f33ee95354feadebcdc28c40eef7e9bbcf71dc9073c92f357e0acfd",
+    "Preview/45.png": "3b977b20b186f69bd9cf7e20c6f4dc71289f1df7b707328d55958422280160e6",
+    "Preview/Back.png": "a9997731eb566d162075602c8962063cbf4687e68b7013b8d924f185e663d9e9",
+    "Preview/Distance_10m.png": "522f1bb6a863172338a59eea95dc2e3fd8cc0647f4000292bf92a88738ff5ee0",
+    "Preview/Distance_20m.png": "cc372d52e3258e0710feb0493eb7ee764f16b4e8a44bff720b0af3152c897ecc",
+    "Preview/Front.png": "ad722bc55782507699755006b5e242c5d812898b6c95727d56eb27e84e147480",
+    "Preview/ScaleReference.png": "5325a42a0ef818ce2fb35767c4b3fc9ab0c288fbabafa226b1e84a7c94cafa50",
+    "Preview/Side.png": "3130fb3305404b1e093d2a226faeec79f483313e621a007a1e8eb6767eedacaf",
+    "Source/FXM_S14_NoteGate.blend": "d5e21b2c0bbcab69ee06626aba3640a3a1e847f3c2cd89f08b8cb789a4a87955",
+    "Textures/T_FXM_S14_NoteGate_Alpha.png": "8b80365c96a31e498cdc873365b7ae01702f84fe0edd2d29a915e9abc739d6a7",
+    "Textures/T_FXM_S14_NoteGate_BC.png": "06da2786a6a0ca1d2a2e26650dc6a7a51cbe5e6c6c108151fcea97f1d93d15f5",
+    "Textures/T_FXM_S14_NoteGate_Curtain.png": "2e82479624334a70b31afa77d3270bd796ecdeba48dbb7743841b3a73c3f217d",
+    "Textures/T_FXM_S14_NoteGate_E.png": "cce8e83e8f15a53cb7bbc81a44c4386aa21040c6060332f1cac739029e67ebba",
+    "Textures/T_FXM_S14_NoteGate_N.png": "2a37097d002c7245b2a672ff0336249e5af2653458bc882bd86d30d9558ab784",
+    "Textures/T_FXM_S14_NoteGate_ORM.png": "a9a5feed79d19eecc54f72aacade776ec55d9d49c000d63ff463112fad3727e2",
+    "unity_validation.json": "3b217e6f2ec42d2fad15315edc4a306650e21812e372d501cc4108092488342e"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "asset": "FurnaceWarden",
+  "target_dimensions": [
+    1.65,
+    1.2,
+    2.45
+  ],
+  "triangles": [
+    1228,
+    1036,
+    364
+  ],
+  "bone_count": 12,
+  "materials": 1,
+  "texture_resolution": 2048,
+  "clips": [
+    "Idle_Guard",
+    "Walk_Heavy",
+    "Attack_Ram",
+    "Hit_Front",
+    "Hit_Back",
+    "Death"
+  ],
+  "axis_blender": "Z up, -Y forward",
+  "root": [
+    0,
+    0,
+    0
+  ],
+  "flight_pivot": false,
+  "status": "TECHNICAL_PASS_PENDING_VISUAL_AND_UNITY_QA",
+  "unverified": [
+    "Unity URP import/axes/normal map/Animator",
+    "joint intersections over every frame",
+    "foot contact under gameplay movement",
+    "LOD popping in engine",
+    "unique texel density: shared construction trim UVs",
+    "platform occupancy in actual skill states"
+  ],
+  "proxy_count": 25,
+  "actual_dimensions": [
+    1.65,
+    1.2,
+    2.45
+  ]
+}

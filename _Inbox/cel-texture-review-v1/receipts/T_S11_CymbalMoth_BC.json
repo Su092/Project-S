@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s11_cymbalmoth_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:44+0800",
+  "task_id": "task_01M7W1QC13VC93M4SN5F5PACPV",
+  "result_url": "https://getapib.org/image/9998204836043420-da074332-3ecb-49d5-b6c7-ba561c0b0d00-image_task_01M7W1R8S8SVCS70Q9WRW1SYS3_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S11_CymbalMoth_BC.png",
+  "bytes": 1373969,
+  "sha256": "107c2b0fc4bea18d4dace434713c708b4580b9d3c71a80f0d02dc22dfebaaff3"
+}

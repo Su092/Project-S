@@ -1,0 +1,12 @@
+{
+  "T_S08_BassWave": {
+    "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+    "receipt": "fx-color-revision/receipts/T_S08_BassWave.json",
+    "note": "特效仅重绘 RGB 色场，批准入库时必须恢复原始透明通道；首版透明棋盘/轮廓烘焙问题已另行修正。"
+  },
+  "T_S21_VentGust": {
+    "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+    "receipt": "fx-color-revision/receipts/T_S21_VentGust.json",
+    "note": "特效仅重绘 RGB 色场，批准入库时必须恢复原始透明通道；首版透明棋盘/轮廓烘焙问题已另行修正。"
+  }
+}

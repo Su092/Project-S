@@ -32,7 +32,7 @@ namespace S.Core
         public bool ReachedMaxLevel => Level >= MaxLevel;
 
         public readonly List<ChainItem> Bag = new List<ChainItem>();
-        public int BagCapacity = 44;
+        public int BagCapacity = 15;
 
         /// <summary>本局已出现过的史诗件（记录用途，允许再次抽取用于合成）。</summary>
         public readonly HashSet<string> UsedEpics = new HashSet<string>();
@@ -45,7 +45,7 @@ namespace S.Core
         readonly int _salvageRare;
         readonly int _salvageEpic;
 
-        public RunState(SData data, uint seed, int bagCapacity = 44)
+        public RunState(SData data, uint seed, int bagCapacity = 0)
         {
             _data = data;
             Seed = seed;
@@ -54,7 +54,7 @@ namespace S.Core
             // 这些系数原先写死在这里。搬进 Player.tsv 后仍要走默认值：
             // 断言用的 SData 可能是手工拼的最小集，缺字段不该让规则变成 0。
             var p = data != null ? data.Player : null;
-            BagCapacity = bagCapacity > 0 ? bagCapacity : (p != null && p.BagSize > 0 ? p.BagSize : 44);
+            BagCapacity = bagCapacity > 0 ? bagCapacity : (p != null && p.BagSize > 0 ? p.BagSize : 15);
             _hpScalePerThreat = p != null && p.HpScalePerThreat > 0f ? p.HpScalePerThreat : 0.008f;
             _dmgScalePerThreat = p != null && p.DmgScalePerThreat > 0f ? p.DmgScalePerThreat : 0.004f;
             _huntAtThreat = p != null && p.HuntAtThreat > 0f ? p.HuntAtThreat : 88f;

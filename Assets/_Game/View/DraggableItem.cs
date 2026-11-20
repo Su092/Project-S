@@ -30,7 +30,7 @@ namespace S.View
 
         public void OnBeginDrag(PointerEventData e)
         {
-            if (Owner == null) return;
+            if (Owner == null || !Owner.CanEditAttachments) return;
             WasDropped = false;
             _dragLayer = Owner.DragLayer;
 

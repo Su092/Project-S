@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: S_Mat
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_Mat
-  m_GUID: 05b76d20487d49c4dadf7979bee588f9
+  m_GUID: f6818f103aad0a54b87b45a997c3bd2f
   m_SerializeEntries:
+  - m_GUID: 7246f61368fab954095c2f7ce171a3ae
+    m_Address: mat/MAT_MusicSpotBeam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_mat
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d138ffa172b2c9c43a13d192e5d4719d
     m_Address: mat/mat_ui_additive
     m_ReadOnly: 0

@@ -1,0 +1,23 @@
+{
+  "id": "s-hud-music-05_instruments",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/05_instruments.png",
+  "submitted_at": "2026-11-18T15:55:26+0800",
+  "previous_attempt": {
+    "error": "SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)",
+    "submitted_at": "2026-11-18T15:53:30+0800",
+    "verification": "Logs/python-ssl-handshake-evidence.txt; TLS handshake failed before HTTP bytes"
+  },
+  "task_id": "task_01M7PTEMDSHG2573TZV2FQWV6Y",
+  "result_url": "https://getapib.org/image/9998205011435402-25aa53b2-22a4-4141-a55e-1ed4748c0682-image_task_01M7PTFQGRZ4HNDMSTKDCBAQSR_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 2282699,
+  "sha256": "1b0a790f5bbde19494480440d5f7a96ef10dfbac17f453b51d8ea2243150bf57",
+  "completed_at": "2026-11-18T15:56:15+0800"
+}

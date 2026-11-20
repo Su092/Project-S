@@ -1,0 +1,5 @@
+NVIDIA GeForce RTX 4060
+Entrance chroma=443011 pink=0 lit=747705
+Auditorium chroma=605016 pink=0 lit=748000
+Balcony chroma=506447 pink=0 lit=747397
+Backstage chroma=535977 pink=0 lit=747987

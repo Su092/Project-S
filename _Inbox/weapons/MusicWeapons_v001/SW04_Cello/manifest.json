@@ -1,0 +1,808 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SW04_Cello",
+  "gunId": "sniper",
+  "revision": "v001",
+  "units": "m",
+  "sourceSpec": "便携琴体 X 0.36 × Y 0.18 × Z 0.92m；弓长 0.72m；尾针收起；琴颈沿 +Z、演奏面朝 +Y。",
+  "restBBoxBlender": [
+    [
+      -0.36025917530059814,
+      0.36025917530059814
+    ],
+    [
+      -0.9200000166893005,
+      0.0029948267620056868
+    ],
+    [
+      -0.13699999451637268,
+      0.1785999983549118
+    ]
+  ],
+  "axis": {
+    "BlenderUp": "+Z",
+    "BlenderForward": "-Y",
+    "FBXForward": "-Z",
+    "FBXUp": "Y",
+    "UnityReadback": "measured; see unityReadback"
+  },
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "leafBones": false,
+    "bakeSpaceTransform": false,
+    "onlyDeform": false
+  },
+  "lods": [
+    {
+      "name": "SM_SW04_Cello_All_LOD0",
+      "triangles": 9528,
+      "budget": 16000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW04_Cello_All_LOD1",
+      "triangles": 6192,
+      "budget": 8000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW04_Cello_All_LOD2",
+      "triangles": 2666,
+      "budget": 3000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tuning_peg",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.025200000032782555
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.7820000052452087
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "bow",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.30239999294281006
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.25760000944137573
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.1080000028014183
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_R",
+      "parent": "bow",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.09000000357627869
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.25760000944137573
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.12600000202655792
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "aim_ring",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.5795999765396118
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.11700000613927841
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "endpin",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.014999999664723873
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          -0.019999999552965164
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "strap",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.1080000028014183
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.4415999948978424
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          -0.10000000149011612
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.09000000357627869
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.5979999899864197
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Output",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.6439999938011169
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.14399999380111694
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Aim",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.5979999899864197
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.13860000669956207
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Retune",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.5519999861717224
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.1080000028014183
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Stow",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.23000000417232513
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "state": "Idle",
+      "duration": 2,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Idle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Move",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Move.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Equip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Equip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Unequip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Unequip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Fire",
+      "duration": 0.85,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Fire.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireRecover",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_FireRecover.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Reload",
+      "duration": 2.2,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Reload.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": [
+        0.18,
+        0.42,
+        0.62,
+        0.82
+      ]
+    },
+    {
+      "state": "Inspect",
+      "duration": 3,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_Inspect.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "AimIn",
+      "duration": 0.2,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_AimIn.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "AimIdle",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_AimIdle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "AimOut",
+      "duration": 0.2,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW04_Cello_AimOut.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    }
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_SW04_Cello_BC.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SW04_Cello_ORM.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    },
+    {
+      "file": "Textures/T_SW04_Cello_E.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    }
+  ],
+  "collisionOptional": true,
+  "validationStatus": {
+    "topologyBudgetWeights": "pass",
+    "UnityReadback": "pass",
+    "UVTexelDensity": "degraded",
+    "motionIntersections": "degraded",
+    "FPReview": "degraded",
+    "packedUV": "pass",
+    "FBXRoundTrip": "pass",
+    "rootMotionAndLoopEndpoints": "pass",
+    "referenceArtMatch": "degraded",
+    "dimensionsWithin2Percent": "degraded"
+  },
+  "limitations": [
+    "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+    "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+    "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+    "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+    "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+    "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+    "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+  ],
+  "inputs": [
+    {
+      "path": "Exports/SW04_Cello_Model.fbx",
+      "sha256": "bf097fda918741a901245e78973abc4a1bdb5b8d69f0ba565fb1a563592ce698"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_AimIdle.fbx",
+      "sha256": "e9614486c0e95b93347d67f65efadc3c2c6a42b5dccfa1979fe917a2148107ab"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_AimIn.fbx",
+      "sha256": "dcdfbf38bca99dec44075c301007f63c02a184605a035dd94c35b38b106d0195"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_AimOut.fbx",
+      "sha256": "c2781ec663b5be9864b00579536514bae9e8937616e26fd8fa6cb316fb704f86"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Equip.fbx",
+      "sha256": "4153969b9d84339fc9da4891df9189dc7d08383d3a9851df7bbfbf06933296a5"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Fire.fbx",
+      "sha256": "312ac1ac1acf0445ad93f1f45f112bb18427805c8ca1fa1b41a02290617f0b88"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_FireRecover.fbx",
+      "sha256": "a3b3114478f96e2e6d59ee9820c0072bae5a8480be6d87ce5d2eec4699a61349"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Idle.fbx",
+      "sha256": "7bf47d3d04a004623bd77bc6c6aa3d602fdbd9be34f41219c9a50c4e4dfcabeb"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Inspect.fbx",
+      "sha256": "c3a501c22e89275637b0e124c4ae7be7c3716324f734eadf6245adbd9153baae"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Move.fbx",
+      "sha256": "ce088bae7e8d234a7c1725501fe74945bb74c862238aeb13800953d2e151535b"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Reload.fbx",
+      "sha256": "f270c42e8b60a28aa160b324571f83444c6381507237f21162e4787ab2394124"
+    },
+    {
+      "path": "Animations/AN_SW04_Cello_Unequip.fbx",
+      "sha256": "378dd56a3aeb40fba1101953626119eb21b12cb806e1e9ebca3142718b1d2ffe"
+    },
+    {
+      "path": "Textures/T_SW04_Cello_BC.png",
+      "sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9"
+    },
+    {
+      "path": "Textures/T_SW04_Cello_E.png",
+      "sha256": "eeb1df170ce43268aa4fe2978b4c27e5fdf7aecc423186c9062e3cc95e6b8aeb"
+    },
+    {
+      "path": "Textures/T_SW04_Cello_ORM.png",
+      "sha256": "fa5800bc40687e464a3b9f76879e064ce45b9fba5a88fd45abbffadad1884f72"
+    },
+    {
+      "path": "Collision/SW04_Cello_Collision.fbx",
+      "sha256": "d2c0a4052620d24894b840ed1eea44931abd33a9d5b9d5e45e371897100e4e6e"
+    }
+  ],
+  "videoSegments": [
+    {
+      "state": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0
+    },
+    {
+      "state": "Fire",
+      "startSeconds": 2.0,
+      "endSeconds": 2.8666666666666667
+    },
+    {
+      "state": "Reload",
+      "startSeconds": 2.8666666666666667,
+      "endSeconds": 5.066666666666666
+    },
+    {
+      "state": "Inspect",
+      "startSeconds": 5.066666666666666,
+      "endSeconds": 8.066666666666666
+    }
+  ],
+  "unityReadback": {
+    "assetId": "SW04_Cello",
+    "meshes": 3,
+    "triangles": [
+      9528,
+      6192,
+      2666
+    ],
+    "bones": [
+      "SW04_Cello_Model(Clone)",
+      "ARM_SW04_Cello",
+      "root",
+      "body",
+      "aim_ring",
+      "bow",
+      "Socket_Grip_R",
+      "endpin",
+      "Socket_Grip_L",
+      "Socket_Output",
+      "strap",
+      "tuning_peg",
+      "Socket_Aim",
+      "Socket_Retune",
+      "Socket_Stow",
+      "SM_SW04_Cello_All_LOD0",
+      "SM_SW04_Cello_All_LOD1",
+      "SM_SW04_Cello_All_LOD2"
+    ],
+    "bboxMin": {
+      "x": -0.36025917530059814,
+      "y": -0.13729438185691833,
+      "z": -0.002994835376739502
+    },
+    "bboxMax": {
+      "x": 0.36025917530059814,
+      "y": 0.17860010266304016,
+      "z": 0.9204123616218567
+    },
+    "outputForward": {
+      "x": 8.74227694680485e-08,
+      "y": 1.1920928244535389e-07,
+      "z": 1.0
+    },
+    "outputUp": {
+      "x": 5.447336646428186e-15,
+      "y": 1.0,
+      "z": -1.1920928244535389e-07
+    },
+    "clips": [
+      {
+        "name": "AN_SW04_Cello_AimIdle",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_AimIn",
+        "duration": 0.20000001788139343,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_AimOut",
+        "duration": 0.20000001788139343,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Equip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Fire",
+        "duration": 0.8500000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_FireRecover",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Idle",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Inspect",
+        "duration": 3.000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Move",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Reload",
+        "duration": 2.200000047683716,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW04_Cello_Unequip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      }
+    ],
+    "finiteBounds": true,
+    "clipDurationsMatch": true,
+    "socketAxesMatch": true
+  }
+}

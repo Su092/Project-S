@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s03_hornhound_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:37:55+0800",
+  "task_id": "task_01M7W1NWDP5Y6SHG0JSZD1Y368",
+  "result_url": "https://getapib.org/image/9998204836084816-f4f55c58-0fba-42d0-915c-1957d0ccfdbf-image_task_01M7W1Q0DKF94GS1J5X2NP49J2_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S03_HornHound_BC.png",
+  "bytes": 1365284,
+  "sha256": "075dbd74a093a9c9f87651ce2f1595548ad255700a6bfd3fefc5674bef517e21"
+}

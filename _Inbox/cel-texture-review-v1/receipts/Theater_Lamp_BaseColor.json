@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_lamp_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:41:43+0800",
+  "task_id": "task_01M7W1WTXJZ8GKA52VBEQ75TKK",
+  "result_url": "https://getapib.org/image/9998204835861491-85961a9b-b45a-476c-ba31-54aaee5b94d1-image_task_01M7W1XTD29AJ42FV8E1TZT0CJ_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Lamp_BaseColor.png",
+  "bytes": 1273396,
+  "sha256": "f96263c07a87f0da1c8ab4ef50f2c96b210a3254ac3752bd1b9a3b02160dc1e4"
+}

@@ -1,0 +1,19 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "直接参考用户图片 #8：亮金线芯、金色边缘 Bloom、少量微粒",
+  "referenceSource": "C:\\Users\\Administrator\\.panghu-one-v2\\dsh-home\\attachments\\v1\\objects\\1f\\1fa86330f082e87a42a2e8e28c61aa5078fb8ca95a524c4263878cb6d56d1857",
+  "jobs": [
+    {
+      "name": "03-gold-staff-bloom",
+      "id": "s-upgrade-apimart-v6-staff-bloom",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v6/03-gold-staff-bloom.png",
+      "reference_local": "_Inbox/upgrade-ui-apimart-v6/reference-user.png",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v5/receipts/03-gold-staff-spider-silk.json",
+      "no_global_style": true,
+      "prompt": "Create a raw game UI golden musical staff VFX texture, using TWO reference images. IMAGE 1 (the user's screenshot of bright yellow-gold light threads over dark rock) is the authoritative LIGHTING / COLOR / MATERIAL reference. Match its intensely luminous pale-yellow-gold line core and soft golden edge bloom closely. IMAGE 2 (five gold strands on black) is ONLY a guide for the horizontal five-line arrangement and gentle shallow S curve; replace its dull bronze/metallic rendering with IMAGE 1's radiant bright gold light. Draw exactly FIVE continuous slender parallel glowing threads, full width, FIVE separate ends left and FIVE separate ends right, four visible black gaps. Central curve is graceful and shallow, all five evenly spaced, never intersect. Each thread has a very narrow bright light-yellow champagne core, saturated bright golden shoulder, and a soft restrained warm yellow BLOOM halo that smoothly fades into black around the edge. Bloom radius about 3-5 times the core thickness, delicate and clear, not a broad fog bank. Lines feel weightless magical luminous silk/energy strings, flat illustrated fantasy VFX, NOT solid 3D metal bars, not beveled rods. Keep core brightness consistent along length, slight natural flowing variation. Add a SMALL sparse scattering of tiny dim golden dust motes around the outside of the five-line group like IMAGE 1, no giant lens flare or starbursts. Keep the central region readable with clean gaps, so three UI reward icons can move along it. All five lines extend from x=4% to x=96%, shallow S wave with full design contained between y=25% and y=75%, generous black margin. No spiderweb cross-connections, no floral ornaments, no leafy scrolls, no thick curls, no brass engraving, no notes, no text. Do NOT copy IMAGE 1's rocky background, character or scene: pure BLACK background only, with intentional golden edge bloom and sparse tiny golden dust. Exactly one coherent FIVE-LINE musical staff. Bright GOLD / luminous YELLOW rather than orange copper, pale champagne cores rather than opaque white strips. This is the raw first-pass image; keep bloom visible against black for later additive blending."
+    }
+  ]
+}

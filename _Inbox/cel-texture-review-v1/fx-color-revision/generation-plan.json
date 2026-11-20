@@ -1,0 +1,31 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "review_only": true,
+  "import_authorized": false,
+  "reason": "Correct alpha/checkerboard baked into RGB on first generation; preserve original alpha separately after approval.",
+  "jobs": [
+    {
+      "name": "T_S08_BassWave",
+      "id": "s-cel-t_s08_basswave-rgb-revision-20261120-v2",
+      "size": "1:1",
+      "resolution": "2k",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "out": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+      "no_global_style": true,
+      "source_sha256": "2297898054c46876b8e0118547826a89e66777f6f6b1c964000eb12acd3c334e",
+      "prompt": "Create a MODEL EFFECT RGB BASE-COLOR TEXTURE using the attached original texture as its color reference. IMPORTANT: this original texture has a wave-shaped alpha mask but its RGB COLOR CHANNELS are a uniform light golden-peach paint. We will preserve its original alpha mask separately in the game. Your output must therefore be ONLY the RGB PAINT FIELD, covering 100 percent of the entire square canvas with the same flat uniform warm light cel-animation gold/ivory #F7CD86. IGNORE the wave-shaped transparency when painting. Do NOT draw the wave, do NOT draw any symbol, do NOT include transparency, no checkerboard, no black background, no white background, no borders. All 2048x2048 pixels are clean uniform warm gold paint matching the source RGB, no gradient, no texture, no light bloom, no text. This output is a uniform material color channel, not a VFX illustration. The alpha shape and falloff belong to the original separate channel and must NOT be baked into this RGB painting."
+    },
+    {
+      "name": "T_S21_VentGust",
+      "id": "s-cel-t_s21_ventgust-rgb-revision-20261120-v2",
+      "size": "1:1",
+      "resolution": "2k",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "out": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+      "no_global_style": true,
+      "source_sha256": "7d3d2a5209f8099118e4db7e290749525379756bd014305b6b7da031de51abd9",
+      "prompt": "Create a MODEL EFFECT RGB BASE-COLOR TEXTURE using the attached original texture as its color reference. IMPORTANT: this original texture has a wave-shaped alpha mask but its RGB COLOR CHANNELS are a uniform light golden-peach paint. We will preserve its original alpha mask separately in the game. Your output must therefore be ONLY the RGB PAINT FIELD, covering 100 percent of the entire square canvas with the same flat uniform warm light cel-animation gold/ivory #F7CD86. IGNORE the wave-shaped transparency when painting. Do NOT draw the wave, do NOT draw any symbol, do NOT include transparency, no checkerboard, no black background, no white background, no borders. All 2048x2048 pixels are clean uniform warm gold paint matching the source RGB, no gradient, no texture, no light bloom, no text. This output is a uniform material color channel, not a VFX illustration. The alpha shape and falloff belong to the original separate channel and must NOT be baked into this RGB painting."
+    }
+  ]
+}

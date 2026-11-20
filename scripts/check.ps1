@@ -10,7 +10,7 @@
 # 判据：每个任务都必须打印 "RESULT ..." 行；任何 RESULT 含 FAIL 或退出码非 0 都视为失败。
 
 param(
-    [ValidateSet("all", "tests", "setup", "assets", "ui", "build", "smoke", "shots")]
+    [ValidateSet("all", "tests", "setup", "assets", "ui", "build", "smoke", "shots", "map", "enemies")]
     [string]$Task = "all"
 )
 
@@ -107,6 +107,7 @@ function Invoke-UnityMethod($method, $logName, [switch]$NoQuit) {
         "-logFile", "`"$log`""
     )
     $p = Start-Process -FilePath $Unity -PassThru -NoNewWindow -ArgumentList $args
+    $unityProcessHandle = $p.Handle  # Keep process handle alive so PS 5.1 retains ExitCode.
     $p.WaitForExit(1800000) | Out-Null
     if (-not $p.HasExited) { $p.Kill(); throw "Unity 超时: $method" }
 
@@ -310,6 +311,18 @@ function Task-Smoke {
     }
 }
 
+function Task-Map {
+    Write-Section "map - Foundry prefab, spawn markers, traversal and collision"
+    $r = Invoke-UnityMethod "S.EditorTools.SFoundryMapBuilder.Validate" "foundry-map-batch.log"
+    $result = Select-String -Path $r.Log -Pattern "RESULT Foundry map (\d+)/(\d+) passed" | Select-Object -Last 1
+    if ($r.Exit -eq 0 -and $result -and $result.Matches[0].Groups[1].Value -eq $result.Matches[0].Groups[2].Value) {
+        Write-Host "RESULT map OK" -ForegroundColor Green
+    } else {
+        $script:Failed += "map"
+        Write-Host "RESULT map FAIL" -ForegroundColor Red
+    }
+}
+
 function Task-Build {
     Write-Section "build — 打包 Windows x64"
 
@@ -445,12 +458,27 @@ function Task-Shots {
     }
 }
 
+function Task-Enemies {
+    Write-Section "enemies - Foundry character prefab validation"
+    $r = Invoke-UnityMethod "S.EditorTools.SEnemyImporter.Validate" "enemy-import-batch.log"
+    $report = Join-Path $LogDir "enemy-import-check.log"
+    $result = if (Test-Path $report) { Select-String -Path $report -Pattern "RESULT Enemy import ([0-9]+)/([0-9]+) passed" | Select-Object -Last 1 }
+    if ($r.Exit -eq 0 -and $result -and $result.Matches[0].Groups[1].Value -eq $result.Matches[0].Groups[2].Value) {
+        Write-Host $result.Line
+    } else {
+        $script:Failed += "enemies"
+        Write-Host "RESULT enemies FAIL"
+    }
+}
+
 switch ($Task) {
     "tests"  { Task-Tests }
     "setup"  { Task-Setup }
     "assets" { Task-Assets }
     # ui 单独一条，不进 all：只在改素材时需要，且要重导 32 张图，拖慢全量。
     "ui"     { Task-Ui }
+    "map"    { Task-Map }
+    "enemies" { Task-Enemies }
     "build"  { Task-Build }
     "shots"  { Task-Shots }
     "smoke"  { Task-Smoke }

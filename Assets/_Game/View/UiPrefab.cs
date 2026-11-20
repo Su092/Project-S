@@ -25,7 +25,7 @@ namespace S.View
 
         public const string Menu = "Menu";
         public const string Hud = "HUD";
-        public const string Inventory = "Inventory";
+        public const string Inventory = "ScoreInventory";
         public const string Offer = "Offer";
         public const string ItemCard = "ItemCard";
         public const string OfferCard = "OfferCard";

@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_walnut_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:43:17+0800",
+  "task_id": "task_01M7W1ZQVC1B0Y9K4Y0MRZAYAJ",
+  "result_url": "https://getapib.org/image/9998204835750622-861f512e-2272-4c96-aeac-0407bd0b4c08-image_task_01M7W216Q75VGPN00A1XWYN1WF_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Walnut_BaseColor.png",
+  "bytes": 2236836,
+  "sha256": "848062435f93c17c6c833c64ebbee1b92991c81a52790328d37755091fde613d"
+}

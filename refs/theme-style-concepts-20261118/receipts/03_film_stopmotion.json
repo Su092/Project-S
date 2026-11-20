@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-03_film_stopmotion",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/03_film_stopmotion.png",
+  "submitted_at": "2026-11-18T15:39:18+0800",
+  "task_id": "task_01M7PSH3611D6JYM02GNV4W5S9",
+  "result_url": "https://getapib.org/f/image/7037452282801188-ad287e68-153c-4140-925e-32b03f5613ce-image_0A3QTGCX2X1SHNMPKH129ZHASN_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2711000,
+  "sha256": "4bd709a659958e992975528715b2c5220d46095a5673c3f74a380e888515b7de",
+  "completed_at": "2026-11-18T15:40:19+0800"
+}

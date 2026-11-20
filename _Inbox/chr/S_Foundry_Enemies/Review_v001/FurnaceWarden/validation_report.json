@@ -1,0 +1,139 @@
+{
+  "asset": "FurnaceWarden",
+  "checks": {
+    "SM_FurnaceWarden_LOD0": {
+      "triangles": 1228,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_FurnaceWarden_LOD1": {
+      "triangles": 1036,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_FurnaceWarden_LOD2": {
+      "triangles": 364,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "textures_missing": []
+  },
+  "actions": {
+    "Idle_Guard": {
+      "frames": [
+        1,
+        61
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Walk_Heavy": {
+      "frames": [
+        1,
+        31
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Attack_Ram": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Hit_Front": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 1.32590341689531e-18,
+      "root_delta": 0.0
+    },
+    "Hit_Back": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 1.32590341689531e-18,
+      "root_delta": 0.0
+    },
+    "Death": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.5226871967315674,
+      "root_delta": 0.0
+    }
+  },
+  "normals_note": "Degenerate triangles / manifold edges measured; visual normals and Unity tangent basis require engine review.",
+  "roundtrip": {
+    "fbx_imported": true,
+    "dimensions": [
+      1.6500000953674316,
+      1.2000004649162292,
+      2.450000145436128
+    ],
+    "dimension_error": [
+      9.536743172944284e-08,
+      4.649162292924558e-07,
+      1.454361280295302e-07
+    ],
+    "axis_test": "Blender inverse FBX roundtrip only; Unity +Z must be tested in Unity.",
+    "armatures": 1
+  },
+  "animation_fbx_imports": {
+    "Idle_Guard": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    },
+    "Walk_Heavy": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    },
+    "Attack_Ram": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    },
+    "Hit_Front": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    },
+    "Hit_Back": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    },
+    "Death": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 12
+    }
+  },
+  "technical_pass": true,
+  "verdict": "NO-SHIP: requires visual animation/LOD/collision and Unity verification; see pending items in qa_metrics.json"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_midnight_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:42:10+0800",
+  "task_id": "task_01M7W1XPDYQDDGZTGE8137TQ06",
+  "result_url": "https://getapib.org/image/9998204835812130-6eb66909-caaf-4073-9adb-11b7e044a679-image_task_01M7W1ZA43C3EQMQRWW908JW7H_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Midnight_BaseColor.png",
+  "bytes": 1611152,
+  "sha256": "8ecec9eae5f23cc0530e47b0116d44c26af7d0724a60d4a806e0e7beca40198c"
+}

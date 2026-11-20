@@ -1,0 +1,1281 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SW02_Kalimba",
+  "gunId": "smg",
+  "revision": "v001",
+  "units": "m",
+  "sourceSpec": "X 0.25 × Y 0.055 × Z 0.19m，不含自由垂落腕带；演奏面朝 +Y，音舌自由端靠玩家（-Z）。",
+  "restBBoxBlender": [
+    [
+      -0.125,
+      0.125
+    ],
+    [
+      -0.1899999976158142,
+      0.09000000357627869
+    ],
+    [
+      -0.03700000047683716,
+      0.05450000241398811
+    ]
+  ],
+  "axis": {
+    "BlenderUp": "+Z",
+    "BlenderForward": "-Y",
+    "FBXForward": "-Z",
+    "FBXUp": "Y",
+    "UnityReadback": "measured; see unityReadback"
+  },
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "leafBones": false,
+    "bakeSpaceTransform": false,
+    "onlyDeform": false
+  },
+  "lods": [
+    {
+      "name": "SM_SW02_Kalimba_All_LOD0",
+      "triangles": 5448,
+      "budget": 10000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW02_Kalimba_All_LOD1",
+      "triangles": 3540,
+      "budget": 5000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW02_Kalimba_All_LOD2",
+      "triangles": 1524,
+      "budget": 2000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "strap_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.10499999672174454
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.014999999664723873
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "strap_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.10499999672174454
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.014999999664723873
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_01",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.09440000355243683
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_02",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.08259999752044678
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_03",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.07079999893903732
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_04",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.05900000035762787
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_05",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.047200001776218414
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_06",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.03539999946951866
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_07",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.023600000888109207
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_08",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.011800000444054604
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_09",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_10",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.011800000444054604
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_11",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.023600000888109207
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_12",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.03539999946951866
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_13",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.047200001776218414
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_14",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.05900000035762787
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_15",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.07079999893903732
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_16",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.08259999752044678
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tine_17",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.09440000355243683
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15399999916553497
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.03200000524520874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tuning_cam",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.15600000321865082
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.046000003814697266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.0625
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.12349999696016312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0625
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.053199999034404755
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.03850000351667404
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Output",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.13300000131130219
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.04399999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Thumb_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.054999999701976776
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.07000000029802322
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.03500000387430191
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Thumb_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.054999999701976776
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.07000000029802322
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.03500000387430191
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Aim",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.12349999696016312
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.04235000163316727
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Retune",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.11400000005960464
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.032999999821186066
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Stow",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          -0.04749999940395355
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "state": "Idle",
+      "duration": 2,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Idle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Move",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Move.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Equip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Equip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Unequip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Unequip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireLoop",
+      "duration": 0.3,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_FireLoop.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireRecover",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_FireRecover.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Reload",
+      "duration": 1.7,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Reload.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": [
+        0.18,
+        0.42,
+        0.62,
+        0.82
+      ]
+    },
+    {
+      "state": "Inspect",
+      "duration": 3,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW02_Kalimba_Inspect.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    }
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_SW02_Kalimba_BC.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SW02_Kalimba_ORM.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    },
+    {
+      "file": "Textures/T_SW02_Kalimba_E.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    }
+  ],
+  "collisionOptional": true,
+  "validationStatus": {
+    "topologyBudgetWeights": "pass",
+    "UnityReadback": "pass",
+    "UVTexelDensity": "degraded",
+    "motionIntersections": "degraded",
+    "FPReview": "degraded",
+    "packedUV": "pass",
+    "FBXRoundTrip": "pass",
+    "rootMotionAndLoopEndpoints": "pass",
+    "referenceArtMatch": "degraded",
+    "dimensionsWithin2Percent": "degraded"
+  },
+  "limitations": [
+    "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+    "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+    "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+    "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+    "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+    "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+    "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+  ],
+  "inputs": [
+    {
+      "path": "Exports/SW02_Kalimba_Model.fbx",
+      "sha256": "99503ad8dde1e4efab22cab5b40b918501c40c4833597d62ed2857454a5fb429"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Equip.fbx",
+      "sha256": "2599c290dbeb0504c379d28c26a11b1254ea104b62927b5bbe8eed1aecd1883f"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_FireLoop.fbx",
+      "sha256": "54a9d8be83e6fd211e811a1c14d06ad60ba793fd8d9b77338b013659e8651026"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_FireRecover.fbx",
+      "sha256": "f67aa5356b2db7756469a7735123666377f29f27124c087bce4b22d58af1622c"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Idle.fbx",
+      "sha256": "db694c2633eb3c6b2ea8b8ca32a02052a7e99d8f39ba3c47990ce3d6b7c02c0c"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Inspect.fbx",
+      "sha256": "ac715fef8d5a75b010f42767428311d1da6ea98a2da156ac71cec83ea0f0ecce"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Move.fbx",
+      "sha256": "6a97f075c17bf37832d5e52a71f7a1b94696dc0ea01f7669f42a6d7e0e193c86"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Reload.fbx",
+      "sha256": "127a47efd7f02662372734c4041bed90fe9096b09e96bd91c103de62a949b709"
+    },
+    {
+      "path": "Animations/AN_SW02_Kalimba_Unequip.fbx",
+      "sha256": "393580740b34e5bec0b2108fd903e2d40b498c39efc41623d2bf2045c88719bb"
+    },
+    {
+      "path": "Textures/T_SW02_Kalimba_BC.png",
+      "sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7"
+    },
+    {
+      "path": "Textures/T_SW02_Kalimba_E.png",
+      "sha256": "b26ce9c02424849ea5390ba556082ca038de53aa23a6e0472ff900240ded5854"
+    },
+    {
+      "path": "Textures/T_SW02_Kalimba_ORM.png",
+      "sha256": "a48289c4f21d8dbc5ba37a55972ddbecd9432023cd0ec313706e2650d7f1947a"
+    },
+    {
+      "path": "Collision/SW02_Kalimba_Collision.fbx",
+      "sha256": "b0d70163141b695d01ad04f58607d4bb25d178dac4073640424325c6d1690eb5"
+    }
+  ],
+  "videoSegments": [
+    {
+      "state": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0
+    },
+    {
+      "state": "FireLoop",
+      "startSeconds": 2.0,
+      "endSeconds": 2.2666666666666666
+    },
+    {
+      "state": "Reload",
+      "startSeconds": 2.2666666666666666,
+      "endSeconds": 4.0
+    },
+    {
+      "state": "Inspect",
+      "startSeconds": 4.0,
+      "endSeconds": 7.0
+    }
+  ],
+  "unityReadback": {
+    "assetId": "SW02_Kalimba",
+    "meshes": 3,
+    "triangles": [
+      5448,
+      3540,
+      1524
+    ],
+    "bones": [
+      "SW02_Kalimba_Model(Clone)",
+      "ARM_SW02_Kalimba",
+      "root",
+      "body",
+      "Socket_Grip_L",
+      "Socket_Grip_R",
+      "Socket_Output",
+      "Socket_Thumb_L",
+      "Socket_Thumb_R",
+      "strap_L",
+      "strap_R",
+      "tine_01",
+      "tine_02",
+      "tine_03",
+      "tine_04",
+      "tine_05",
+      "tine_06",
+      "tine_07",
+      "tine_08",
+      "tine_09",
+      "tine_10",
+      "tine_11",
+      "tine_12",
+      "tine_13",
+      "tine_14",
+      "tine_15",
+      "tine_16",
+      "tine_17",
+      "tuning_cam",
+      "Socket_Aim",
+      "Socket_Retune",
+      "Socket_Stow",
+      "SM_SW02_Kalimba_All_LOD0",
+      "SM_SW02_Kalimba_All_LOD1",
+      "SM_SW02_Kalimba_All_LOD2"
+    ],
+    "bboxMin": {
+      "x": -0.125,
+      "y": -0.0370250828564167,
+      "z": -0.09007494896650314
+    },
+    "bboxMax": {
+      "x": 0.125,
+      "y": 0.05450000986456871,
+      "z": 0.18999996781349182
+    },
+    "outputForward": {
+      "x": 8.74227694680485e-08,
+      "y": 1.1920928244535389e-07,
+      "z": 1.0
+    },
+    "outputUp": {
+      "x": 5.447336646428186e-15,
+      "y": 1.0,
+      "z": -1.1920928244535389e-07
+    },
+    "clips": [
+      {
+        "name": "AN_SW02_Kalimba_Equip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_FireLoop",
+        "duration": 0.30000001192092896,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_FireRecover",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_Idle",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_Inspect",
+        "duration": 3.000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_Move",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_Reload",
+        "duration": 1.7000000476837158,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW02_Kalimba_Unequip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      }
+    ],
+    "finiteBounds": true,
+    "clipDurationsMatch": true,
+    "socketAxesMatch": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-06_music_deco",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/06_music_deco.png",
+  "submitted_at": "2026-11-18T15:40:21+0800",
+  "task_id": "task_01M7PSK0DG289AWCR2RBB2NHJA",
+  "result_url": "https://getapib.org/f/image/7837235735523766-10cfddca-e027-449a-b23c-9e7a978c6571-image_420CT9EDWEX4E8QD3EN0HM4ST0_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2505207,
+  "sha256": "d824a62f310f77d686ff7c118c3087f55253d65bc2e17f463634f2eed8d5ebaa",
+  "completed_at": "2026-11-18T15:41:22+0800"
+}

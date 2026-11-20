@@ -1,0 +1,56 @@
+{
+  "input_backup": "E:\\S\\_Inbox\\Environment\\AbandonedFoundry\\Source\\WallRevision_Backup.blend",
+  "parts_before": 6,
+  "operation": "Exact union removes interior overlaps while retaining edited exterior",
+  "objects": [
+    {
+      "name": "ENV_Foundry_Wall_Straight4_LOD0",
+      "tris": 242,
+      "zero_area_tris": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0,
+      "dimensions": [
+        4.0,
+        1.045998215675354,
+        4.0
+      ],
+      "uv": [
+        "UV0",
+        "UV1"
+      ]
+    },
+    {
+      "name": "ENV_Foundry_Wall_Straight4_LOD1",
+      "tris": 120,
+      "zero_area_tris": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0,
+      "dimensions": [
+        4.0,
+        1.028662085533142,
+        4.0
+      ],
+      "uv": [
+        "UV0",
+        "UV1"
+      ]
+    },
+    {
+      "name": "COL_Foundry_Wall_Straight4_00_Both",
+      "tris": 242,
+      "zero_area_tris": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0,
+      "dimensions": [
+        4.0,
+        1.045998215675354,
+        4.0
+      ],
+      "uv": [
+        "UV0",
+        "UV1"
+      ]
+    }
+  ],
+  "lod_ratio": 0.49586776859504134
+}

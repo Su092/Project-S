@@ -57,11 +57,11 @@ namespace LoadoutTests
             var fullSlots=new SlotState(2);var incoming=data.MakeItem("std");fullSlots.Cells[0]=incoming;
             Check("满背包仍可合成且不会溢出",ItemFusion.TryMerge(full,fullSlots,incoming,full[10],out var upgraded,out _) &&
                 full.Count==44 && full[10]==upgraded && fullSlots.Cells[0]==null);
-            var one=data.MakeItem("dmg");var two=Level("dmg",2);var five=Level("dmg",5);
+            var one=data.MakeItem("dmg");var two=Level("dmg",2);var five=Level("dmg",3);
             Check("不同配件不合成",!ItemFusion.CanMerge(one,data.MakeItem("pierce"),out _));
             Check("不同等级不合成",!ItemFusion.CanMerge(one,two,out _));
             Check("自身拖放不合成",!ItemFusion.CanMerge(one,one,out _));
-            Check("最高等级五级",five.Level==5 && !ItemFusion.CanMerge(five,Level("dmg",5),out _));
+            Check("最高等级三级",five.Level==3 && !ItemFusion.CanMerge(five,Level("dmg",3),out _));
             var bagInvalid=new List<ChainItem>{one,two};
             Check("失败事务保留所有实例",!ItemFusion.TryMerge(bagInvalid,null,one,two,out _,out _) && bagInvalid[0]==one && bagInvalid[1]==two);
             var missing=data.MakeItem("dmg");
@@ -73,7 +73,7 @@ namespace LoadoutTests
             Check("二级子弹和二级增幅真实结算为31.5伤害",Near(cast.Projectiles[0].Damage,31.5f) && cast.AmmoCost==2);
             var grenade=Level("grenade",2);
             Check("榴弹升级同时强化爆炸且耗弹不涨",Near(grenade.EffectiveBullet.ExplodeDmg,57f) && grenade.EffectiveBullet.Cost==3);
-            var heavy=Level("heavy",5).EffectiveMod;
+            var heavy=Level("heavy",3).EffectiveMod;
             Check("升级保留负面代价而不放大",Near(heavy.SpeedMulAdd,-.4f) && heavy.Cost==1 && Near(heavy.Delay,.1f));
             var magSlots=new SlotState(8);magSlots.Cells[0]=Level("g_mag",2);
             Check("全枪配件等级参与结算",Loadout.ResolveGun(gun,magSlots).Mag==52);
@@ -85,8 +85,8 @@ namespace LoadoutTests
             Check("合成预览移除来源但不改原布局",probe.Cells[0]==null && probe.Cells[2].Level==2 && original.Cells[0].Level==1 && original.Cells[2].Level==1);
             foreach(var id in data.RollPool())
             {
-                var item=Level(id,5);
-                Check(id+" 支持合成至五级且保留作用域/形态",item!=null && item.Id==id && item.Level==5 &&
+                var item=Level(id,3);
+                Check(id+" 支持合成至三级且保留作用域/形态",item!=null && item.Id==id && item.Level==3 &&
                     (item.IsBullet ? item.EffectiveBullet.Kind==data.Bullets[id].Kind : item.EffectiveMod.Scope==data.Modifiers[id].Scope));
             }
             var run=new RunState(data,9001);bool duplicateEpic=false;var seen=new HashSet<string>();bool unique=true;

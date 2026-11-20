@@ -68,6 +68,36 @@ namespace S.Core
             _bossPhase = bossPhase;
         }
 
+        /// <summary>
+        /// 从配置创建一局独立的时间轴；不复制计时、精英次数和 Boss 入场状态。
+        /// SDataLoader 跨场景缓存配置，GameRoot 必须使用此副本，不能直接 Tick 模板。
+        /// 同时复制可变的阶段、敌人池和精英参数，避免局内修改污染后续对局。
+        /// </summary>
+        public RunDirector CreateRun()
+        {
+            var phases = new List<Phase>(_phases.Count);
+            foreach (var phase in _phases) phases.Add(CopyPhase(phase));
+            return new RunDirector(phases, CopyPhase(_bossPhase))
+            {
+                BossAt = BossAt,
+                ThreatFullAt = ThreatFullAt,
+                Elite = new EliteDef
+                {
+                    HpMul = Elite.HpMul, DmgMul = Elite.DmgMul,
+                    SpeedMul = Elite.SpeedMul, XpMul = Elite.XpMul,
+                    Scale = Elite.Scale, HealOnKill = Elite.HealOnKill,
+                    FirstAt = Elite.FirstAt, Interval = Elite.Interval,
+                },
+            };
+        }
+
+        static Phase CopyPhase(Phase phase) => phase == null ? null : new Phase
+        {
+            At = phase.At, Name = phase.Name,
+            Pool = phase.Pool == null ? null : (string[])phase.Pool.Clone(),
+            Concurrency = phase.Concurrency, Interval = phase.Interval,
+        };
+
         // ---------------- 阶段 ----------------
 
         /// <summary>

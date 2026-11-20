@@ -88,3 +88,9 @@ Desktop.ini
 
 # ---- 运行产物：截图与模型对照图（check.ps1 -Task shots / assets 生成）----
 /Shots/
+
+# Local editor backup generations and one-off console repair snapshots
+*.blend1
+*.blend2
+/_Inbox/console-fix-backup/
+/_Inbox/cel-texture-review-v1/comparison/*/models-initial/

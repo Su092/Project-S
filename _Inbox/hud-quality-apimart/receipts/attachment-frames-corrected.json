@@ -1,0 +1,14 @@
+{
+  "id": "s-hud-attachment-frames-corrected-20261120",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T10:29:10+0800",
+  "task_id": "task_01M7VCJNKKGPVP2NBBVYX0CCZM",
+  "result_url": "https://getapib.org/image/9998204858211906-7bea181b-5115-4b27-b9f7-0c2edb948456-image_img_6799f6d8afb34401aa4cabb38f379f9b_0.png",
+  "width": 2560,
+  "height": 864,
+  "mode": "RGB",
+  "out": "_Inbox/hud-quality-apimart/attachment-frames-corrected.png",
+  "bytes": 1749466,
+  "sha256": "9079c5ea3822620ea3c5b24a70d149bb95361fccc0a5ee3717d6eb828e5e496b"
+}

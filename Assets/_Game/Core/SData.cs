@@ -36,7 +36,7 @@ namespace S.Core
         public float CapsuleHeight = 1.8f;
         public float IFrames = 0.25f;
         public int GunSlots = 2;
-        public int BagSize = 44;
+        public int BagSize = 15;
         public float HealPickup = 35f;
 
         /// <summary>升级所需经验公式：`A·L² + B·L + C`（默认 2/5/8，与原 RunState.NeedFor 一致）。</summary>

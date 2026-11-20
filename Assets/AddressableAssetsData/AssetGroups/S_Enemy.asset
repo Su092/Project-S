@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: S_Enemy
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: S_Enemy
+  m_GUID: d7dbc1a94f04bb24698908d006a704d6
+  m_SerializeEntries:
+  - m_GUID: 0377f80e192ef294e8698db5c904d5d3
+    m_Address: enemy/S16_MusicBoxBallerina
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04533292e75715c49b4c27536d79396e
+    m_Address: enemy/SlagHound_Elite_MoldBreaker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a65be4d9bdf893429cb2309944dc138
+    m_Address: enemy/S19_CastanetFish
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e11568f656d1e146916652badfe50db
+    m_Address: enemy/RingSentry_Elite_Crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12144a7fabd05eb49bb2d856b8283647
+    m_Address: enemy/S03_HornHound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 136e08b9b03c48a4cb92d05bd32e4ad1
+    m_Address: enemy/S14_XylophoneStegosaur_Ebony
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19679c02ec82b08478152d384526a229
+    m_Address: enemy/S21_BagpipeBoar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 201813283f2923e499908922c5d45b69
+    m_Address: enemy/FXM_S14_MarchingNote
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f29e7db8567c6418eff715db00b77c
+    m_Address: enemy/S21_BagpipeBoar_Ceremony
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 288084904ba4ccd46b30d5c3cfa73865
+    m_Address: enemy/FXM_S14_NoteGate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29cec2a44c7b26640bc70ec9cc8b02bc
+    m_Address: enemy/S02_DrumBeetle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3780cbdd4c821624093b5cd39f40cb5f
+    m_Address: enemy/FXM_S14_FallingNote
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3be13cdf9c10cd1448828cb59a7731f0
+    m_Address: enemy/S14_XylophoneStegosaur_Redwood
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e2843c62f48a5d4bb6552689e840ded
+    m_Address: enemy/FXM_S16_PluckedNote
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40bcfa12c0edb56428881fe253f2337d
+    m_Address: enemy/FXM_S29_HornShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4307bf0975df4584fa380072f33316e6
+    m_Address: enemy/FXM_S29_ClampShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49ba6183c5715e04a91486e7d3fd9128
+    m_Address: enemy/SM_MusicFollowSpot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536a63330153c4b468729a87246465c8
+    m_Address: enemy/FXM_S08_BassWave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c11b777f08c5194eae9a7a0ef9ab6e1
+    m_Address: enemy/S07_LostScoreGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70f52f1e727c049458985b94d62cb373
+    m_Address: enemy/PressureRunner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71356dd5c2b50674181e242308a4b791
+    m_Address: enemy/PressureRunner_Elite_TriplePressure
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83da2fe60ae77d14cacb0c3948546a28
+    m_Address: enemy/SlagHound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8687b0c14863e9541a0b436338b67a05
+    m_Address: enemy/FXM_S29_NoteShot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88c8c4c968d89e642a76638c12f8fb44
+    m_Address: enemy/FXM_S21_VentGust
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d9cea9234041f84daa86aff1857008d
+    m_Address: enemy/S08_MetronomeGuard_Ceremonial
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f3b88ba53411d441a1d5079cdd6e98f
+    m_Address: enemy/RingSentry
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abd169a590362f142af82d03bcf39345
+    m_Address: enemy/S29_NoteTurret
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aede9f1aab5719c4f85d33c8fb1a9278
+    m_Address: enemy/FurnaceWarden_Elite_TwinGate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c02b0725d830d4248b68600067721cb5
+    m_Address: enemy/S14_XylophoneStegosaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c651102414dc1984ea1a89059a438ad1
+    m_Address: enemy/Boss_CrucibleSovereign
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d68542bdb84fb484f81a970407cd3bde
+    m_Address: enemy/S29_WanderingConductor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d72973bbd30745841910afcbffabab6e
+    m_Address: enemy/S21_BagpipeBoar_Parade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddc4adb30d4d1e3448d920cf2325a5c2
+    m_Address: enemy/S08_MetronomeGuard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e103f63fbc6aa6f4895070bb5ee4c27d
+    m_Address: enemy/S08_MetronomeGuard_Rehearsal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4279ae85b7aff44ea99faad023f80bc
+    m_Address: enemy/FXM_S29_CoreShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4e3e7035718be44c9cfa0e5bc698592
+    m_Address: enemy/FurnaceWarden
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7307cb312fd3a54aaa7a9e1d325730c
+    m_Address: enemy/S11_CymbalMoth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f797bf594b41c764f94847d3c2ee00d8
+    m_Address: enemy/FXM_S29_HousingShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 822063efaaa2f1249bc7501b8910d190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ec5ed2b1838c5504d8942467bb7e923d, type: 2}
+    - {fileID: 11400000, guid: e86fca93e25aedb478d28a2a407c8475, type: 2}

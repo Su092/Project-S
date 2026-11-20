@@ -39,6 +39,8 @@ namespace S.View
         public const string PrefixFont = "font/";
         public const string PrefixCfg = "cfg/";
         public const string PrefixMat = "mat/";
+        public const string PrefixMap = "map/";
+        public const string PrefixEnemy = "enemy/";
 
         static readonly Dictionary<string, Object> s_map = new Dictionary<string, Object>();
         /// <summary>按 Addressables 地址建立的索引（ui/panel → Sprite）。
@@ -80,6 +82,8 @@ namespace S.View
             LoadBatch<Object>(Req.Font);
             LoadBatch<Object>(Req.Cfg);
             LoadBatch<Object>(Req.Mat);
+            LoadBatch<GameObject>(Req.Map);
+            LoadBatch<GameObject>(Req.Enemy);
 
             s_loaded = true;
             Debug.Log($"[S][Res] 预加载完成：{s_map.Count} 件（Sprite {CountOf<Sprite>()} / " +
@@ -182,5 +186,7 @@ namespace S.View
         public const string Font = "s_font";
         public const string Cfg = "s_cfg";
         public const string Mat = "s_mat";
+        public const string Map = "s_map";
+        public const string Enemy = "s_enemy";
     }
 }

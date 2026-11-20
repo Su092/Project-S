@@ -6,16 +6,7 @@ using S.Core;
 
 namespace S.View
 {
-    /// <summary>
-    /// 改装台 / 背包（对齐 MODCORE 原型的 #inventory）。
-    ///
-    /// 布局与原型一致：左侧是枪械面板（页签 + 属性摘要 + **槽位网格**），
-    /// 右侧是背包网格 + 分解框 + 详情卡。
-    ///
-    /// 与旧版的结构差异：**一格一件**。旧版一格是一条可叠多件的「链」，
-    /// 新版把「作用范围」交给配件自身（7 种作用域），格子只负责提供位置。
-    /// 这样玩家看的是「这张牌放在这个位置会影响谁」，而不是「这条链怎么排序」。
-    /// </summary>
+    /// <summary>Fixed-device sheet music inventory and queued upgrade reward presentation.</summary>
     public sealed class InventoryView : MonoBehaviour
     {
         public bool Open { get; private set; }
@@ -29,7 +20,7 @@ namespace S.View
         /// </summary>
         public ItemDetailPanel DetailPanel => _inv != null ? _inv.Detail : null;
         public bool IsOfferVisible => _offerRoot != null && _offerRoot.activeInHierarchy;
-        public int VisibleCardCount => _bagGrid != null ? _bagGrid.childCount : 0;
+        public int VisibleCardCount => _bagGrid != null ? _bagGrid.GetComponentsInChildren<DraggableItem>().Length : 0;
 
         static string ItemName(ChainItem it) => it == null ? "（空）" : it.Name;
 
@@ -84,14 +75,20 @@ namespace S.View
         RectTransform _dragLayer;
 
         GameObject _bagRoot, _offerRoot;
+        ScoreWorkbench _workbench;
+        public bool RewardsDeferred { get; private set; }
+        public bool CanEditAttachments => IsBagVisible && _workbench && _workbench.InRange(_root);
+        public ScoreWorkbench ActiveWorkbench => _workbench;
         InvRefs _inv;
         OfferRefs _offerRefs;
+        MusicOfferPresentation _musicOffer;
+        public MusicOfferPresentation OfferPresentation => _musicOffer;
         RectTransform _chainArea;
         RectTransform _bagGrid;
         Text _hint;
-        Text _gunSummary;
 
         int _viewGun;
+        bool _lastExpanded;
         readonly List<GameObject> _cloneSpawned = new List<GameObject>();
 
         // 范围预览不修改真实装配；选中持久保留，悬停临时覆盖，拖拽优先。
@@ -131,7 +128,7 @@ namespace S.View
             _canvas.sortingOrder = 20;
             var scaler = go.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1600f, 900f);
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.matchWidthOrHeight = 0.5f;
             go.AddComponent<GraphicRaycaster>();
 
@@ -147,16 +144,19 @@ namespace S.View
 
         void BuildBag()
         {
-            _bagRoot = UiPrefab.Spawn("Inventory", _canvas.transform);
+            _bagRoot = UiPrefab.Spawn("ScoreInventory", _canvas.transform);
             if (_bagRoot == null) return;
 
             _inv = _bagRoot.GetComponent<InvRefs>();
             if (_inv == null)
             {
-                Debug.LogError("[S] Inventory.prefab 缺少 InvRefs（引用表未配置）");
+                Debug.LogError("[S] ScoreInventory.prefab 缺少 InvRefs（引用表未配置）");
                 return;
             }
 
+            var page=_bagRoot.transform.Find("ScorePage").GetComponent<Image>();
+            page.sprite=UiAssets.Named("score_page");page.color=Color.white;
+            ScoreUiLayout.ApplyControlArt(_inv,UiAssets.Named("score_sort"),UiAssets.Named("score_close"));
             _chainArea = _inv.ChainArea;
             _bagGrid = _inv.BagGrid;
             _hint = _inv.Hint;
@@ -171,8 +171,9 @@ namespace S.View
             // 悬停详情改到配件正下方的浮动提示；背包底常驻详情区收回，网格吃满高度。
             if (_inv.Detail != null)
                 _inv.Detail.gameObject.SetActive(false);
-            if (_bagGrid != null)
-                _bagGrid.offsetMin = new Vector2(_bagGrid.offsetMin.x, 12f);
+            _inv.CloseButton.onClick.AddListener(Close);
+            _inv.SortButton.onClick.AddListener(SortScore);
+            _dragLayer.SetAsLastSibling();
         }
 
         void BuildOffer()
@@ -181,6 +182,8 @@ namespace S.View
             if (_offerRoot == null) return;
 
             _offerRefs = _offerRoot.GetComponent<OfferRefs>();
+            _musicOffer = _offerRoot.GetComponent<MusicOfferPresentation>();
+            if (!_musicOffer) _musicOffer = _offerRoot.AddComponent<MusicOfferPresentation>();
             if (_offerRefs == null)
                 Debug.LogError("[S] Offer.prefab 缺少 OfferRefs（引用表未配置）");
 
@@ -192,6 +195,7 @@ namespace S.View
         void CloseUi()
         {
             Open = false;
+            _workbench = null;
             ClearScopeSelection();
             _dragging = null;
             _hoverSlot = -1;
@@ -214,21 +218,47 @@ namespace S.View
 
         public void OpenBag()
         {
+            // Legacy callers cannot bypass the fixed map device.
+            var station = _root.NearbyWorkbench;
+            if (!station || !_root.TryOpenScoreWorkbench(station))
+                _root.HudToast("请前往调律谱架装配配件");
+        }
+
+        public bool OpenAtWorkbench(ScoreWorkbench station)
+        {
+            if (!station || !station.InRange(_root) || !_root.RunStarted || _root.RunEnded ||
+                _root.Paused || Open || !_bagRoot) return false;
+            _root.ExpandAttachmentPreview();
+            _workbench = station;
+            _viewGun = _root.Weapons.ActiveIndex;
             _offerMode = false;
             _offerRoot.SetActive(false);
             _bagRoot.SetActive(true);
             Open = true;
             _root.SetPaused(true);
             Refresh();
+            return true;
+        }
+
+        public bool ResumeDeferredOffers()
+        {
+            RewardsDeferred = false;
+            if (_offer == null) return false;
+            ShowOffers(_offer);
+            return true;
         }
 
         public void Close()
         {
-            // Tab/Esc 可暂时整理背包，但未领取的奖励必须保留。
-            if (_offer != null)
+            if (_offerMode && _musicOffer != null && _musicOffer.Busy) return;
+            if (_offerMode && _offer != null)
             {
-                if (_offerMode) { OpenBag(); _root.HudToast("整理完成后按 Tab 返回奖励选择"); }
-                else ShowOffers(_offer);
+                // Keep this exact reward set; the player must travel to a device to rearrange.
+                RewardsDeferred = true;
+                _offerMode = false;
+                CloseUi();
+                _root.ResumeAfterDeferredOffer();
+                _root.HudToast("奖励已保留 · 前往调律谱架整理后继续领取");
                 return;
             }
             CloseUi();
@@ -237,7 +267,7 @@ namespace S.View
 
         public void DismissForTest()
         {
-            _offer = null; _offerMode = false;
+            _offer = null; _offerMode = false; RewardsDeferred = false;
             CloseUi();
         }
 
@@ -333,280 +363,104 @@ namespace S.View
         /// </summary>
         void RefreshChain()
         {
-            _hoveredItem = null;
-            _previewSlot = -1;
-            _rangeFrames.Clear();
-            _rangeLabels.Clear();
-            ClearSpawned();
-
-            for (int i = _chainArea.childCount - 1; i >= 0; i--)
+            _hoveredItem=null; _previewSlot=-1;
+            _rangeFrames.Clear();_rangeLabels.Clear();ClearSpawned();
+            for(int i=_chainArea.childCount-1;i>=0;i--)
+            { var ch=_chainArea.GetChild(i);ch.gameObject.SetActive(false);Destroy(ch.gameObject); }
+            var guns=_root.Weapons.AllGuns;
+            if(guns.Count==0)return;
+            _viewGun=Mathf.Clamp(_viewGun,0,guns.Count-1);
+            for(int row=0;row<guns.Count;row++)
             {
-                var ch = _chainArea.GetChild(i);
-                if (ch.name == "GunSummary") continue;
-                ch.gameObject.SetActive(false);
-                Destroy(ch.gameObject);
-            }
-
-            var guns = _root.Weapons != null ? _root.Weapons.AllGuns : null;
-            if (guns == null || guns.Count == 0) return;
-
-            _viewGun = Mathf.Clamp(_viewGun, 0, guns.Count - 1);
-            var g = guns[_viewGun];
-
-            // 枪页签
-            if (_inv != null && _inv.GunTabTemplate != null)
-            {
-                for (int gi = 0; gi < guns.Count; gi++)
+                int gi=row;var gun=guns[gi];
+                var badge=ScoreUiLayout.Image("Instrument_"+gi,_chainArea,ScoreUiLayout.TL,ScoreUiLayout.TL,
+                    new Vector2(0,-row*100-4),new Vector2(72,72),new Color(.12f,.16f,.23f,1),UiAssets.Named("hud_music_badge_mask"));
+                badge.preserveAspect=true;badge.raycastTarget=true;
+                ScoreUiLayout.Image("Frame",badge.transform,ScoreUiLayout.C,ScoreUiLayout.C,
+                    Vector2.zero,new Vector2(72,72),Color.white,UiAssets.Named("hud_portrait_frame")).preserveAspect=true;
+                var icon=ScoreUiLayout.Image("Icon",badge.transform,ScoreUiLayout.C,ScoreUiLayout.C,
+                    Vector2.zero,new Vector2(58,48),Color.white,UiAssets.Named("hud_gun_"+gun.Base.Id));
+                icon.preserveAspect=true;
+                var button=badge.gameObject.AddComponent<Button>();button.targetGraphic=icon;
+                button.onClick.AddListener(()=>{_viewGun=gi;ClearScopeSelection();RefreshHint();});
+                float step=75;
+                var rail=ScoreUiLayout.Image("Rail_"+gi,_chainArea,ScoreUiLayout.TL,ScoreUiLayout.TL,
+                    new Vector2(80,-row*100),new Vector2(gun.Slots.Length*step+15,80),new Color(.06f,.09f,.14f,.72f));
+                ScoreUiLayout.ApplyPreviewRail(rail,UiAssets.Named("score_preview_rail"));
+                rail.gameObject.SetActive(_root.AttachmentPreviewExpanded);
+                for(int si=0;si<gun.Slots.Length;si++)
                 {
-                    int idx = gi;
-                    var tab = Instantiate(_inv.GunTabTemplate, _chainArea);
-                    tab.name = "Tab" + gi;
-                    tab.SetActive(true);
-                    _cloneSpawned.Add(tab);
-
-                    var trt = (RectTransform)tab.transform;
-                    trt.anchorMin = new Vector2(0f, 1f);
-                    trt.anchorMax = new Vector2(0f, 1f);
-                    trt.pivot = new Vector2(0f, 1f);
-                    trt.anchoredPosition = new Vector2(gi * 230f, 0f);
-                    trt.sizeDelta = new Vector2(220f, 52f);
-
-                    var trefs = tab.GetComponent<GunTabRefs>();
-                    if (trefs == null) continue;
-
-                    if (trefs.Background != null)
-                        trefs.Background.color = gi == _viewGun
-                            ? new Color(0.28f, 0.38f, 0.52f)
-                            : new Color(0.14f, 0.17f, 0.22f);
-
-                    if (trefs.Button != null)
+                    var slot=ScoreUiLayout.Image("Slot_"+gi+"_"+si,rail.transform,ScoreUiLayout.TL,ScoreUiLayout.TL,
+                        new Vector2(9+si*step,-6),new Vector2(68,68),Color.white,UiAssets.Named("hud_attachment_read_ring"));
+                    slot.raycastTarget=true;slot.rectTransform.localScale=Vector3.one;
+                    var drop=slot.gameObject.AddComponent<SlotDropTarget>();drop.Owner=this;drop.SlotIndex=si;drop.GunIndex=gi;
+                    var item=gun.Slots.Cells[si];
+                    if(item!=null)
                     {
-                        trefs.Button.onClick.RemoveAllListeners();
-                        trefs.Button.onClick.AddListener(() => { ClearScopeSelection(); _viewGun = idx; Refresh(); });
+                        slot.sprite=null;slot.color=new Color(1,1,1,0);
+                        MakeCard(slot.transform,item,Vector2.zero,new Vector2(68,68),si,gi);
                     }
-
-                    if (trefs.Label != null)
-                        trefs.Label.text = $"{guns[idx].Base.Name}  ({guns[idx].Slots.Length}槽)";
+                    else ScoreUiLayout.Text("Empty",slot.transform,UiKit.Font,(si+1).ToString(),ScoreUiLayout.C,ScoreUiLayout.C,
+                        Vector2.zero,new Vector2(50,24),15).color=new Color(.8f,.8f,.85f);
+                    BuildRangeFrame(slot.transform);
                 }
-            }
-
-            // 属性摘要
-            if (_gunSummary == null)
-            {
-                var sgo = new GameObject("GunSummary", typeof(RectTransform));
-                sgo.transform.SetParent(_chainArea, false);
-                var srt = (RectTransform)sgo.transform;
-                srt.anchorMin = new Vector2(0f, 1f); srt.anchorMax = new Vector2(1f, 1f);
-                srt.pivot = new Vector2(0.5f, 1f);
-                srt.offsetMin = new Vector2(2f, -80f); srt.offsetMax = new Vector2(-2f, -52f);
-                _gunSummary = sgo.AddComponent<Text>();
-                _gunSummary.font = UiKit.Font;
-                _gunSummary.fontSize = 16;
-                _gunSummary.alignment = TextAnchor.MiddleLeft;
-                _gunSummary.horizontalOverflow = HorizontalWrapMode.Overflow;
-                _gunSummary.verticalOverflow = VerticalWrapMode.Overflow;
-                _gunSummary.raycastTarget = false;
-            }
-            _gunSummary.color = new Color(0.6f, 0.7f, 0.85f);
-            _gunSummary.text =
-                $"弹匣 {g.Ammo}/{g.Stats.Mag}   击发 {1f / Mathf.Max(0.01f, g.Stats.ShotInterval(0f)):0.0}/s   " +
-                $"换弹 {g.Stats.Reload:0.0}s   读取 {g.Stats.CastCount} 发   散射 {g.Base.SpreadBase:0.00}°";
-
-            // 槽位网格
-            var gridRoot = new GameObject("SlotGrid", typeof(RectTransform));
-            gridRoot.transform.SetParent(_chainArea, false);
-            var grt = (RectTransform)gridRoot.transform;
-            grt.anchorMin = new Vector2(0f, 1f); grt.anchorMax = new Vector2(1f, 1f);
-            grt.pivot = new Vector2(0.5f, 1f);
-            grt.offsetMin = new Vector2(0f, -560f);
-            grt.offsetMax = new Vector2(0f, -92f);
-            _cloneSpawned.Add(gridRoot);
-
-            // 槽位网格：列宽按「左侧区域实际宽度」算，不能写死。
-            // 区域宽度 = 屏宽 × 0.62 − 两侧内边距（40 + 10），1600 参考宽下约 942px。
-            // 写死 5 列 × 124px 时一行占 670px 看似没问题，但只要显示器更窄或
-            // 换到 1280 参考宽就会溢出到背包面板上，且这种溢出在截图里很像是「卡片没对齐」。
-            var area = (RectTransform)_chainArea;
-            float areaW = area != null && area.rect.width > 1f ? area.rect.width : 940f;
-            const int cols = 5;
-            const float gap = 10f;
-            float cellW = Mathf.Floor((areaW - 8f - gap * (cols - 1)) / cols);
-            cellW = Mathf.Clamp(cellW, 96f, 140f);
-
-            var grid = gridRoot.AddComponent<GridLayoutGroup>();
-            grid.cellSize = new Vector2(cellW, 108f);
-            grid.spacing = new Vector2(gap, gap);
-            grid.padding = new RectOffset(4, 4, 4, 4);
-            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            grid.constraintCount = cols;
-
-            int nextCell = g.PeekNextCell();
-
-            for (int si = 0; si < g.Slots.Length; si++)
-            {
-                var cellGo = new GameObject("Slot" + si, typeof(RectTransform));
-                cellGo.transform.SetParent(gridRoot.transform, false);
-
-                var bg = cellGo.AddComponent<Image>();
-                bool isNext = nextCell == si;
-                bg.color = isNext
-                    ? new Color(0.20f, 0.30f, 0.42f, 0.98f)
-                    : new Color(0.10f, 0.12f, 0.16f, 0.95f);
-
-                var drop = cellGo.AddComponent<SlotDropTarget>();
-                drop.Owner = this;
-                drop.SlotIndex = si;
-                drop.ChainIndex = -1;
-
-                var it = g.Slots.Cells[si];
-
-                // 格号
-                var idxGo = new GameObject("Idx", typeof(RectTransform));
-                idxGo.transform.SetParent(cellGo.transform, false);
-                var irt = (RectTransform)idxGo.transform;
-                irt.anchorMin = new Vector2(0f, 1f); irt.anchorMax = new Vector2(0f, 1f);
-                irt.pivot = new Vector2(0f, 1f);
-                irt.anchoredPosition = new Vector2(6f, -2f);
-                irt.sizeDelta = new Vector2(40f, 16f);
-                var idxText = idxGo.AddComponent<Text>();
-                idxText.font = UiKit.Font;
-                idxText.fontSize = 11;
-                idxText.color = isNext ? new Color(1f, 0.85f, 0.4f) : new Color(0.5f, 0.56f, 0.64f);
-                idxText.alignment = TextAnchor.UpperLeft;
-                idxText.raycastTarget = false;
-                idxText.text = isNext ? $"{si + 1}▶" : (si + 1).ToString();
-
-                if (it != null)
-                {
-                    var card = MakeCard(cellGo.transform, it, new Vector2(4f, 4f),
-                        new Vector2(cellW - 8f, 100f), fromSlot: si, fromChain: -1);
-
-                    // 卡片自身处理合成；空格/边框由父槽位的 SlotDropTarget 接收。
-                }
-                else
-                {
-                    // 空格提示：告诉玩家这里可以放什么
-                    var hintGo = new GameObject("Empty", typeof(RectTransform));
-                    hintGo.transform.SetParent(cellGo.transform, false);
-                    var hrt = (RectTransform)hintGo.transform;
-                    hrt.anchorMin = Vector2.zero; hrt.anchorMax = Vector2.one;
-                    hrt.offsetMin = new Vector2(4f, 4f); hrt.offsetMax = new Vector2(-4f, -4f);
-                    var ht = hintGo.AddComponent<Text>();
-                    ht.font = UiKit.Font;
-                    ht.fontSize = 13;
-                    ht.color = new Color(0.35f, 0.40f, 0.48f);
-                    ht.alignment = TextAnchor.MiddleCenter;
-                    ht.raycastTarget = false;
-                    ht.text = "空";
-                }
-
-                BuildRangeFrame(cellGo.transform);
             }
         }
 
         void RefreshBag()
         {
-            if (_bagGrid == null) return;
-
-            for (int i = _bagGrid.childCount - 1; i >= 0; i--)
+            if(!_bagGrid)return;
+            for(int i=_bagGrid.childCount-1;i>=0;i--)
+            {var old=_bagGrid.GetChild(i).gameObject;old.SetActive(false);Destroy(old);}
+            int columns=8;
+            float width=_bagGrid.rect.width>10?_bagGrid.rect.width:1100;
+            float step=width/columns;
+            int rows=Mathf.Max(4,Mathf.CeilToInt(_root.Run.Bag.Count/(float)columns));
+            _bagGrid.sizeDelta=new Vector2(0,rows*116);
+            for(int i=0;i<_root.Run.Bag.Count;i++)
             {
-                var card = _bagGrid.GetChild(i).gameObject;
-                card.SetActive(false);
-                Destroy(card);
+                var item=_root.Run.Bag[i];if(item==null)continue;
+                MakeCard(_bagGrid,item,new Vector2(i%columns*step+(step-90)*.5f,-i/columns*116),
+                    new Vector2(90,100),-1,-1);
             }
+        }
 
-            var bag = _root.Run.Bag;
-            for (int i = 0; i < bag.Count; i++)
-            {
-                var item = bag[i];
-                // 背包卡片尺寸与槽位卡一致（116×100），由 GridLayoutGroup 排布，
-                // 这里只给左上锚点让布局组接管位置。
-                MakeCard(_bagGrid, item, Vector2.zero, new Vector2(116f, 100f),
-                    fromSlot: -1, fromChain: -1);
-            }
+        public void SortScore()
+        {
+            if(!CanEditAttachments || _dragging!=null)return;
+            ScoreInventoryRules.Sort(_root.Run.Bag,_data);
+            ClearScopeSelection();Refresh();
+            _root.HudToast("曲谱已整理");
         }
 
         void RefreshHint()
         {
-            if (_hint == null) return;
-            int filled = ChainRowCount;
-            var g = CurrentGun();
-            int total = g != null ? g.Slots.Length : 0;
-            _hint.text =
-                $"背包 {_root.Run.Bag.Count}/{_root.Run.BagCapacity}    ·    " +
-                $"已装 {filled}/{total}    ·    " +
-                "同种同级拖到一起合成（最高 Lv.5） · 悬停查看范围 · 不同配件拖放交换 · 右键卸下";
+            if(!_hint)return;
+            _hint.text="";
+            _hint.gameObject.SetActive(false);
         }
 
         /// <summary>造一张配件卡（背包与槽位共用）。</summary>
-        GameObject MakeCard(Transform parent, ChainItem item, Vector2 pos, Vector2 size,
-            int fromSlot, int fromChain)
+        GameObject MakeCard(Transform parent,ChainItem item,Vector2 pos,Vector2 size,int fromSlot,int fromChain)
         {
-            var prefab = UiPrefab.Load("ItemCard");
-            GameObject card;
-            if (prefab != null)
-            {
-                card = Instantiate(prefab, parent);
-                card.name = "Card_" + item.Id;
-                card.SetActive(true);
-            }
-            else
-            {
-                card = new GameObject("Card_" + item.Id, typeof(RectTransform));
-                card.transform.SetParent(parent, false);
-                var bg = card.AddComponent<Image>();
-                bg.color = new Color(0.10f, 0.14f, 0.20f, 0.95f);
-            }
-
-            var rt = (RectTransform)card.transform;
-            rt.anchorMin = new Vector2(0f, 1f);
-            rt.anchorMax = new Vector2(0f, 1f);
-            rt.pivot = new Vector2(0f, 1f);
-            rt.anchoredPosition = pos;
-            rt.sizeDelta = size;
-
-            var refs = card.GetComponent<CardRefs>();
-            if (refs != null)
-            {
-                if (refs.Background != null)
-                    refs.Background.color = new Color(0.08f, 0.10f, 0.14f, 0.96f);
-
-                // 稀有度靠顶部色带（原型 .mod 的 border-top 就是这个语义）
-                if (refs.Tag != null)
-                    refs.Tag.color = RarityColor(item.Rarity);
-
-                // 作用域色标：子弹给暖橙，被动件给各自作用域色
-                if (refs.Inner != null)
-                    refs.Inner.color = item.IsBullet
-                        ? new Color(1f, 0.70f, 0.28f, 0.9f)
-                        : ItemTooltip.ScopeColor(item.Mod.Scope);
-
-                if (refs.Label != null)
-                {
-                    // 名称就是名称：不要拼图标的单字（「标 标准弹」里的「标」在窄卡片里
-                    // 会被挤成孤零零一行，看起来像排版错位）。图标本身已经画了同样意思。
-                    refs.Label.text = item.Name;
-                    refs.Label.fontSize = 13;
-                    refs.Label.color = Color.white;
-                }
-
-                if (refs.IconNode != null) refs.IconNode.Bind(item, 52f, showRing: true, badge: "Lv." + item.Level, showScope: true);
-            }
-
-            // 拖拽与悬停
-            var drag = card.AddComponent<DraggableItem>();
-            drag.Owner = this;
-            drag.Item = item;
-            drag.FromSlot = fromSlot;
-            drag.FromChain = fromChain;
-
-            var hover = card.AddComponent<ItemHover>();
-            hover.Item = item;
-            hover.Owner = this;
-            hover.Tooltip = ItemTooltip.Instance;
-            // 浮窗钉在本卡片正下方（ItemHover → ItemTooltip.ShowUnder）
-
-            return card;
+            var rt=ScoreUiLayout.Node("Card_"+item.Id,parent,ScoreUiLayout.TL,ScoreUiLayout.TL,pos,size);
+            var bg=rt.gameObject.AddComponent<Image>();bg.color=new Color(1,1,1,0);bg.raycastTarget=true;
+            var refs=rt.gameObject.AddComponent<CardRefs>();refs.Background=bg;
+            float diameter=fromSlot>=0?68:64;
+            var ring=ScoreUiLayout.Image("Border",rt,new Vector2(.5f,1),new Vector2(.5f,1),Vector2.zero,
+                new Vector2(diameter,diameter),Color.white,UiAssets.Named(HudV2View.QualityFrame(item)));
+            var clip=ScoreUiLayout.Image("Clip",ring.transform,ScoreUiLayout.C,ScoreUiLayout.C,Vector2.zero,
+                Vector2.one*(diameter-12),Color.white,UiAssets.Named("hud_map_mask"));
+            clip.gameObject.AddComponent<Mask>().showMaskGraphic=false;
+            var icon=ScoreUiLayout.Image("Icon",clip.transform,ScoreUiLayout.C,ScoreUiLayout.C,Vector2.zero,
+                Vector2.one*(diameter-6),Color.white,UiAssets.ItemIcon(item.Id));icon.preserveAspect=true;
+            refs.Label=ScoreUiLayout.Text("Label",rt,UiKit.Font,fromSlot>=0?"":item.Name,
+                new Vector2(.5f,0),new Vector2(.5f,0),Vector2.zero,new Vector2(size.x+6,fromSlot>=0?18:34),fromSlot>=0?12:14);
+            refs.Label.color=new Color(.12f,.15f,.2f);
+            refs.Label.gameObject.SetActive(fromSlot<0);
+            var drag=rt.gameObject.AddComponent<DraggableItem>();drag.Owner=this;drag.Item=item;drag.FromSlot=fromSlot;drag.FromChain=fromChain;
+            var hover=rt.gameObject.AddComponent<ItemHover>();hover.Item=item;hover.Owner=this;hover.Tooltip=ItemTooltip.Instance;
+            return rt.gameObject;
         }
 
         public static Color RarityColor(Rarity r) => r switch
@@ -671,13 +525,16 @@ namespace S.View
 
         void PaintRangeCell(int cell, Color color, string label)
         {
-            if (cell < 0 || cell >= _rangeFrames.Count || _rangeFrames[cell] == null) return;
-            var frame = _rangeFrames[cell];
+            if (cell < 0) return;
+            var target = _chainArea.Find("Rail_"+_viewGun+"/Slot_"+_viewGun+"_"+cell);
+            if(target==null)return;
+            var range=target.Find("EffectRange");
+            if(!range){BuildRangeFrame(target);range=target.Find("EffectRange");}
+            var frame = range.GetComponent<Image>();
             frame.gameObject.SetActive(true);
             frame.color = new Color(color.r, color.g, color.b, 0.12f);
             for (int i = 0; i < 4; i++) frame.transform.GetChild(i).GetComponent<Image>().color = color;
-            _rangeLabels[cell].text = label;
-            _rangeLabels[cell].color = color;
+            var rangeText=frame.GetComponentInChildren<Text>(true);rangeText.text=label;rangeText.color=color;
         }
 
         void ClearRangeFrames()
@@ -699,6 +556,7 @@ namespace S.View
         public void BeginItemHover(ItemHover card)
         {
             if (_dragging != null || !IsBagVisible) return;
+            if(card.TryGetComponent<DraggableItem>(out var d) && d.FromChain>=0) _viewGun=d.FromChain;
             _hoveredItem = card;
             RefreshScopePreview();
         }
@@ -710,25 +568,41 @@ namespace S.View
             if (_dragging == null) RefreshScopePreview();
         }
 
-        public void PreviewSlot(int cell, bool entering)
+        public void PreviewSlot(int cell, bool entering) => PreviewSlot(cell, entering, _viewGun);
+        public void PreviewSlot(int cell, bool entering, int gunIndex)
         {
             if (!IsBagVisible) return;
-            if (entering) _previewSlot = cell;
+            if (entering) { _viewGun=gunIndex; _previewSlot = cell; }
             else if (_previewSlot == cell) _previewSlot = -1;
             if (_dragging == null) RefreshScopePreview();
         }
 
-        public void HandleItemClick(DraggableItem card, PointerEventData.InputButton button)
+        public void HandleItemClick(DraggableItem card,PointerEventData.InputButton button)
         {
-            if (card == null || _dragging != null || !IsBagVisible) return;
-            if (button == PointerEventData.InputButton.Right)
+            if(card==null||_dragging!=null||!CanEditAttachments)return;
+            if(button==PointerEventData.InputButton.Right)
             {
-                if (card.FromSlot >= 0) { UnequipToBag(card.FromSlot); Refresh(); }
+                if(card.FromSlot>=0) MoveItem(card.Item,-1,-1,null);
                 return;
             }
-            if (button != PointerEventData.InputButton.Left) return;
-            _selectedItem = card.Item;
-            RefreshScopePreview();
+            if(button!=PointerEventData.InputButton.Left)return;
+            if(card.FromSlot<0)
+            {
+                if(ScoreInventoryRules.FillFirst(_root.Run.Bag,_root.Weapons.AllGuns,card.Item,_viewGun,out string reason))
+                {ClearScopeSelection();Refresh();}
+                else _root.HudToast(reason??"没有可用槽位");
+            }
+            else {_viewGun=card.FromChain;_selectedItem=card.Item;RefreshScopePreview();}
+        }
+
+        bool MoveItem(ChainItem item,int gun,int slot,ChainItem bagTarget)
+        {
+            if(!CanEditAttachments)return false;
+            bool ok=ScoreInventoryRules.Move(_root.Run.Bag,_root.Run.BagCapacity,_root.Weapons.AllGuns,
+                item,gun,slot,bagTarget,out string reason);
+            if(ok){ClearScopeSelection();Refresh();}
+            else _root.HudToast(reason??"无法装配");
+            return ok;
         }
 
         void RefreshScopePreview()
@@ -801,11 +675,13 @@ namespace S.View
                 {
                     var dt = hits[i].gameObject.GetComponentInParent<SlotDropTarget>();
                     if (dt == null || dt.IsBagArea) continue;
+                    _viewGun = dt.GunIndex;
                     targetSlot = dt.SlotIndex;
                     break;
                 }
             }
 
+            g = CurrentGun();
             _hoverSlot = targetSlot;
             RefreshScopePreview();
 
@@ -922,139 +798,32 @@ namespace S.View
                    $"本次期望 {cast.ExpectedDamage:0.#}    耗弹 {cast.AmmoCost}";
         }
 
-        public void NotifyDragEnd(DraggableItem it, PointerEventData e)
+        public void NotifyDragEnd(DraggableItem it,PointerEventData e)
         {
-            if (it != null && !it.WasDropped && it.FromSlot >= 0)
-            {
-                int actual = FindItemCell(it.Item);
-                if (actual >= 0) UnequipToBag(actual);
-            }
-            _dragging = null;
-            _hoverSlot = -1;
-            ItemTooltip.Instance?.Hide();
-            // 拖拽卡已 SetParent 到 DragLayer，Refresh 只清槽位/背包子节点，清不掉它。
-            // 必须先毁拖影，再 Refresh 重建 —— 否则游戏画面会残留配件卡。
-            if (it != null) Destroy(it.gameObject);
+            _dragging=null;_hoverSlot=-1;ItemTooltip.Instance?.Hide();
+            if(it)Destroy(it.gameObject);
             ClearDragLayer();
-            Refresh();
+            if(IsBagVisible)Refresh();
         }
-
         public void UnequipToBag(int slotIndex)
         {
-            var g = CurrentGun();
-            if (g == null || slotIndex < 0 || slotIndex >= g.Slots.Length) return;
-
-            var it = g.Slots.Cells[slotIndex];
-            if (it == null) return;
-            if (_root.Run.Bag.Count >= _root.Run.BagCapacity)
-            {
-                _root.HudToast("背包已满，无法卸下");
-                return;
-            }
-
-            g.Slots.Cells[slotIndex] = null;
-            _root.Run.Bag.Add(it);
-            g.Recalc();
+            var g=CurrentGun();
+            if(g!=null&&slotIndex>=0&&slotIndex<g.Slots.Length)MoveItem(g.Slots.Cells[slotIndex],-1,-1,null);
         }
-
-        /// <summary>
-        /// 放下：从背包/其它槽位移到目标槽位。
-        /// 目标已有件时**交换**（原型行为）—— 直接覆盖会让玩家无意中丢掉配件，
-        /// 而配件是唯一资源，误丢的代价太高。
-        /// </summary>
-        bool TryHandleFusion(DraggableItem src, ChainItem target)
+        public void HandleItemDrop(DraggableItem src,DraggableItem target)
         {
-            if (src == null || src.Item == null || target == null ||
-                src.Item.Id != target.Id || src.Item.IsBullet != target.IsBullet) return false;
-            if (src.WasDropped) return true;
-            src.WasDropped = true; // 合成不合法时也保留原位，不能触发拖拽结束时的卸下。
-            if (ReferenceEquals(src.Item, target)) return true;
-            var gun = CurrentGun();
-            if (!ItemFusion.TryMerge(_root.Run.Bag, gun?.Slots, src.Item, target, out var merged, out string reason))
-            { _root.HudToast(reason); return true; }
-            gun?.Recalc();
-            _dragging = null;
-            ClearScopeSelection();
-            _selectedItem = merged;
-            ItemTooltip.Instance?.Hide();
-            _root.HudToast("合成成功：" + merged.Name);
-            SfxBank.Instance?.PlayUiClick();
-            Refresh();
-            return true;
+            if(!CanEditAttachments||src==null||target==null||src.WasDropped||src.Owner!=this||target.Owner!=this)return;
+            src.WasDropped=true;
+            MoveItem(src.Item,target.FromSlot>=0?target.FromChain:-1,target.FromSlot,target.FromSlot<0?target.Item:null);
         }
-
-        public void HandleItemDrop(DraggableItem src, DraggableItem target)
+        public void HandleDrop(DraggableItem src,SlotDropTarget dst)
         {
-            if (src == null || target == null || src.WasDropped || target.Owner != this || src.Owner != this) return;
-            if (TryHandleFusion(src, target.Item)) return;
-            if (target.FromSlot >= 0)
-            {
-                var slot = target.GetComponentInParent<SlotDropTarget>();
-                if (slot != null) HandleDrop(src, slot);
-            }
-            else
-            {
-                src.WasDropped = true;
-                int cell = FindItemCell(src.Item);
-                if (cell >= 0) UnequipToBag(cell);
-                Refresh();
-            }
+            if(!CanEditAttachments||src==null||dst==null||src.WasDropped||src.Owner!=this||dst.Owner!=this)return;
+            src.WasDropped=true;
+            MoveItem(src.Item,dst.IsBagArea?-1:dst.GunIndex,dst.SlotIndex,null);
         }
-
-        public void HandleDrop(DraggableItem src, SlotDropTarget dst)
-        {
-            var g = CurrentGun();
-            if (g == null || src == null) return;
-
-            if (src.WasDropped) return;
-            if (src.FromSlot >= 0 ? FindItemCell(src.Item) != src.FromSlot : !_root.Run.Bag.Contains(src.Item))
-            { src.WasDropped = true; return; }
-            if (dst.IsBagArea)
-            {
-                src.WasDropped = true;
-                if (src.FromSlot >= 0) UnequipToBag(src.FromSlot);
-                return;
-            }
-
-            int to = dst.SlotIndex;
-            if (to < 0 || to >= g.Slots.Length) return;
-            if (src.FromSlot == to) { src.WasDropped = true; return; }
-
-            var moving = src.Item;
-            var displaced = g.Slots.Cells[to];
-            if (TryHandleFusion(src, displaced)) return;
-
-            // 从背包来：校验目标格能否接受这个件
-            if (src.FromSlot < 0)
-            {
-                var verdict = Loadout.Validate(g.Slots, to, moving, out string reason);
-                if (verdict != Loadout.DropResult.Ok && moving.IsBullet == false)
-                {
-                    _root.HudToast(reason ?? "无法放置");
-                    return;
-                }
-                _root.Run.RemoveFromBag(moving);
-                g.Slots.Cells[to] = moving;
-
-                if (displaced != null) _root.Run.Bag.Add(displaced);
-            }
-            else
-            {
-                // 枪内移动：直接交换
-                g.Slots.Cells[src.FromSlot] = displaced;
-                g.Slots.Cells[to] = moving;
-            }
-
-            src.WasDropped = true;
-            g.Recalc();
-            Refresh();
-        }
-
         public void HandleSlotClick(int slotIndex)
-        {
-            _previewSlot = slotIndex;
-            RefreshScopePreview();
-        }
+        { _previewSlot=slotIndex;RefreshScopePreview(); }
 
         // ---------------- 三选一 ----------------
 
@@ -1064,6 +833,8 @@ namespace S.View
 
             ClearScopeSelection();
             _offer = offers;
+            RewardsDeferred = false;
+            _workbench = null;
             _offerMode = true;
             ClearDragLayer();
             ItemTooltip.Instance?.Hide();
@@ -1080,6 +851,7 @@ namespace S.View
                 return;
             }
 
+            _musicOffer.ResetPresentation();
             // 清掉上一轮克隆的卡片
             for (int i = _offerCards.Count - 1; i >= 0; i--)
                 if (_offerCards[i] != null) { _offerCards[i].SetActive(false); Destroy(_offerCards[i]); }
@@ -1119,25 +891,31 @@ namespace S.View
                     c.Button.onClick.AddListener(() => PickOffer(idx));
                 }
             }
+            var hud = _root.GetComponentInChildren<HudV2View>(true);
+            _musicOffer.Prepare(_offerRefs, _offerCards, offers, _data, hud && hud.CurrentWeapon ? hud.CurrentWeapon.rectTransform : null);
         }
 
         void PickOffer(int idx)
         {
-            if (_offer == null || idx < 0 || idx >= _offer.Count) return;
-
+            if (_offer == null || idx < 0 || idx >= _offer.Count || !_musicOffer.CanChoose) return;
             if (!_root.TryPickOffer(_offer[idx])) return;
-            _offer = null;
-            _offerMode = false;
-            _offerRoot.SetActive(false);
-
-            if (_root.HasPendingOffers) _root.PopOfferIfAny();
-            else Close();
+            // Commit once, then keep battle paused until both reward flight and staff exit finish.
+            _musicOffer.Choose(idx, () =>
+            {
+                _offer = null;
+                _offerMode = false;
+                _offerRoot.SetActive(false);
+                if (_root.HasPendingOffers) _root.PopOfferIfAny();
+                else Close();
+            });
         }
 
         void Update()
         {
-            // 三选一没有键盘快捷键：必须点击（原型同）。
-            // 这里只处理 Esc 关闭背包。
+            if (IsBagVisible && !CanEditAttachments) { Close(); return; }
+            if(IsBagVisible && UnityEngine.InputSystem.Keyboard.current?.rKey.wasPressedThisFrame==true)SortScore();
+            if(IsBagVisible && _lastExpanded!=_root.AttachmentPreviewExpanded)
+            { _lastExpanded=_root.AttachmentPreviewExpanded;RefreshChain(); }
         }
     }
 }

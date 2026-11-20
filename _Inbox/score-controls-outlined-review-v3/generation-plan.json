@@ -1,0 +1,37 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "review_only": true,
+  "import_authorized": false,
+  "jobs": [
+    {
+      "name": "sort-outlined",
+      "size": "1:1",
+      "reference_local": "_Inbox/score-hud-apimart-review-v2/sort-recycle.png",
+      "prompt": "Production-ready standalone game UI asset for an elegant classical music theater game. Flat clean illustrated finish, orthographic front view, no perspective. Render on uniform pure black #000000 technical background for later transparency extraction. The black background is NOT part of the asset. No text, no labels, no watermark. Redraw ONLY the three curved arrows circular clockwise recycle/organize glyph in the reference. Keep its balanced circular shape, three separated arrowheads, large hollow center, same warm ivory fill #EEE8D8 and subtle antique gold edge. ADD a crisp continuous DARK INK NAVY #283447 OUTLINE around EVERY outer and inner edge of each arrow, including arrowheads. Dark outline width 5 percent of overall glyph diameter, bold enough to remain clear at 32px on pale ivory parchment. Outline must be distinctly navy, never pure black. Simple flat edges, no shadow, no glow. Glyph centered at 70 percent canvas width. NO button rectangle, NO filled disk, NO surrounding ring, NO background tile. Only three outlined arrow shapes.",
+      "id": "s-sort-outlined-review-20261120-v3",
+      "resolution": "2k",
+      "out": "_Inbox/score-controls-outlined-review-v3/sort-outlined.png",
+      "no_global_style": true
+    },
+    {
+      "name": "close-outlined",
+      "size": "1:1",
+      "reference_local": "_Inbox/score-hud-apimart-review-v2/close-ivory.png",
+      "prompt": "Production-ready standalone game UI asset for an elegant classical music theater game. Flat clean illustrated finish, orthographic front view, no perspective. Render on uniform pure black #000000 technical background for later transparency extraction. The black background is NOT part of the asset. No text, no labels, no watermark. Redraw ONLY the single symmetrical diagonal X close glyph in the reference, two warm ivory #EEE8D8 strokes with gently rounded ends. ADD a crisp continuous DARK INK NAVY #283447 OUTLINE following the entire X silhouette and its four concave corners, 5 percent of overall X width, bold enough to be unmistakably visible at 24px over pale ivory parchment. Navy outline must not be pure black. Warm ivory fill, very faint antique gold inner edge. Full X centered occupying 65 percent canvas width. NO square button base, NO ring, NO badge, NO background tile, NO drop shadow, NO glow. ONLY one outlined X.",
+      "id": "s-close-outlined-review-20261120-v3",
+      "resolution": "2k",
+      "out": "_Inbox/score-controls-outlined-review-v3/close-outlined.png",
+      "no_global_style": true
+    },
+    {
+      "name": "slot-preview-rail",
+      "size": "21:9",
+      "prompt": "Production-ready standalone game UI asset for an elegant classical music theater game. Flat clean illustrated finish, orthographic front view, no perspective. Render on uniform pure black #000000 technical background for later transparency extraction. The black background is NOT part of the asset. No text, no labels, no watermark. Exactly ONE minimal EMPTY HORIZONTAL GAME HUD SLOT PREVIEW BACKPLATE, shared by instrument attachment slots and a 15-slot backpack preview. Full plate has width to height ratio 14.25:1 (1140 by 80 layout units), centered and occupies 90 percent of canvas width. It is a very long low rectangle, with tiny rounded corners radius 12 percent of its HEIGHT, smooth quiet desaturated midnight navy interior #172337, a very thin muted antique brass #A28F67 single outline about 1.2 percent of plate HEIGHT. Very subtle lighter inner rim, flat center uniform color easy to stretch horizontally with nine-slicing. Absolutely no ornate corners, no flowers, no scrollwork, no screws, no divisions, no circles or item slots, no symbols, no text, no musical notes, no neon, no sci-fi details, no embossed bulky bezel. No large drop shadow, no glow. Leave black negative space outside the single plate; entire plate including both ends clearly visible.",
+      "id": "s-slot-preview-rail-review-20261120-v3",
+      "resolution": "2k",
+      "out": "_Inbox/score-controls-outlined-review-v3/slot-preview-rail.png",
+      "no_global_style": true
+    }
+  ]
+}

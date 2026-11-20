@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_fxm_s14_notegate_curtain-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:36:25+0800",
+  "task_id": "task_01M7W1K5DJTMA058KX4965XFY4",
+  "result_url": "https://getapib.org/image/9998204836180198-50185c26-e070-402c-ab75-922199c3579e-image_task_01M7W1M39QPVWYZN33A74TQGM0_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_Curtain.png",
+  "bytes": 1337461,
+  "sha256": "84bd2ddaf5735c57b79d48a9292f1888508295b6f288ed0a550cc41265eaa15e"
+}

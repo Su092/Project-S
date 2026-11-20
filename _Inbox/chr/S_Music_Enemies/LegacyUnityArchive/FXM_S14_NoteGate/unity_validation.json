@@ -1,0 +1,71 @@
+{
+  "unity": "6000.6.4f1",
+  "entries": [
+    {
+      "file": "Assets/Supplements/FXM_S14_NoteGate/Collision/FXM_S14_NoteGate_COL.fbx",
+      "size": {
+        "x": 2.200000047683716,
+        "y": 3.5999999046325684,
+        "z": 0.3499999940395355
+      },
+      "min": {
+        "x": -1.100000023841858,
+        "y": 0.0,
+        "z": -0.17499999701976776
+      },
+      "max": {
+        "x": 1.100000023841858,
+        "y": 3.5999999046325684,
+        "z": 0.17499999701976776
+      },
+      "meshes": 1,
+      "unweighted": 0,
+      "tris": [
+        12
+      ],
+      "nodes": [
+        "FXM_S14_NoteGate_COL(Clone)"
+      ],
+      "sockets": [],
+      "clips": []
+    },
+    {
+      "file": "Assets/Supplements/FXM_S14_NoteGate/Model/FXM_S14_NoteGate.fbx",
+      "size": {
+        "x": 2.200000047683716,
+        "y": 3.6000001430511475,
+        "z": 0.3499999940395355
+      },
+      "min": {
+        "x": -1.100000023841858,
+        "y": 0.0,
+        "z": -0.17499999701976776
+      },
+      "max": {
+        "x": 1.100000023841858,
+        "y": 3.6000001430511475,
+        "z": 0.17499999701976776
+      },
+      "meshes": 6,
+      "unweighted": 0,
+      "tris": [
+        2,
+        2,
+        2,
+        480,
+        236,
+        178
+      ],
+      "nodes": [
+        "SM_FXM_S14_NoteGate_Curtain_LOD0",
+        "SM_FXM_S14_NoteGate_Curtain_LOD1",
+        "SM_FXM_S14_NoteGate_Curtain_LOD2",
+        "SM_FXM_S14_NoteGate_LOD0",
+        "SM_FXM_S14_NoteGate_LOD1",
+        "SM_FXM_S14_NoteGate_LOD2"
+      ],
+      "sockets": [],
+      "clips": []
+    }
+  ]
+}

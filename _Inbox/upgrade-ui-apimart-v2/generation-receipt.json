@@ -1,0 +1,30 @@
+[
+  {
+    "id": "s-upgrade-apimart-v2-frames",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-19T17:18:01+0800",
+    "task_id": "task_01M7SHJJEK649Q4A1FSBVT5M1V",
+    "result_url": "https://getapib.org/image/9998204920089520-7bf46bd0-b983-4077-bf61-b68501441560-image_task_01M7SHKCFRMFE7GF510N938ZG5_0.png",
+    "width": 1360,
+    "height": 2048,
+    "mode": "RGBA",
+    "out": "_Inbox/upgrade-ui-apimart-v2/01-frames-four-colors.png",
+    "bytes": 1655170,
+    "sha256": "36027d3e9305adc69b71fa090b83e906e35f38d4c8d4f31da7992bc815670df3"
+  },
+  {
+    "id": "s-upgrade-apimart-v2-staff",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-19T17:18:01+0800",
+    "task_id": "task_01M7SHJJC0CYVZDT3YZ1MMSX4B",
+    "result_url": "https://getapib.org/image/9998204920085363-dfd554c5-d7c5-4103-994d-ad4ee38f6ffd-image_task_01M7SHKGN6ZBKGPVS2PJMX76SF_0.png",
+    "width": 3072,
+    "height": 1024,
+    "mode": "RGBA",
+    "out": "_Inbox/upgrade-ui-apimart-v2/03-gold-staff-layered.png",
+    "bytes": 517414,
+    "sha256": "db1a8c9e2f2559c88f88f78fe6363c952ee1510b46606c6946ef18e00b68b0e8"
+  }
+]

@@ -15,7 +15,11 @@
   <ItemGroup>
     <!-- 只编译当前有效的断言文件；旧版算例（依赖已作废的链式触发 API）已移除 -->
     <Compile Include="..\..\Assets\_Game\Core\ItemFusion.cs" Link="Core\ItemFusion.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\ScoreInventoryRules.cs" Link="Core\ScoreInventoryRules.cs" />
+    <Compile Include="ScoreCases.cs" />
     <Compile Include="FusionCases.cs" Link="tests\FusionCases.cs" />
+    <Compile Include="..\..\Assets\_Game\Core\MusicCombatRules.cs" Link="Core\MusicCombatRules.cs" />
+    <Compile Include="MusicCombatCases.cs" />
     <Compile Include="Program.cs" Link="tests\Program.cs" />
     <Compile Include="Bench.cs" Link="tests\Bench.cs" />
     <Compile Include="XpBench.cs" Link="tests\XpBench.cs" />

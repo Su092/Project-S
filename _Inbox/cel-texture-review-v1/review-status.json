@@ -1,0 +1,572 @@
+[
+  {
+    "number": 1,
+    "name": "T_SW01_Violin_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW01_Violin_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 2,
+    "name": "T_SW02_Kalimba_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW02_Kalimba_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 3,
+    "name": "T_SW03_FrameDrum_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW03_FrameDrum_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 4,
+    "name": "T_SW04_Cello_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW04_Cello_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 5,
+    "name": "T_SW05_Harp_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW05_Harp_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 6,
+    "name": "T_SW06_Accordion_BC",
+    "category": "乐器",
+    "source": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SW06_Accordion_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      255
+    ]
+  },
+  {
+    "number": 7,
+    "name": "T_S08_BassWave",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+    "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      254
+    ]
+  },
+  {
+    "number": 8,
+    "name": "T_S14_NoteAtlas",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_NoteAtlas.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "number": 9,
+    "name": "T_FXM_S14_NoteGate_BC",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGB",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "number": 10,
+    "name": "T_FXM_S14_NoteGate_Curtain",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_Curtain.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      56,
+      230
+    ]
+  },
+  {
+    "number": 11,
+    "name": "T_S16_NoteAtlas",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_NoteAtlas.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "number": 12,
+    "name": "T_S21_VentGust",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+    "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      0,
+      254
+    ]
+  },
+  {
+    "number": 13,
+    "name": "T_S29_NoteAtlas",
+    "category": "特效模型",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteAtlas.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "number": 14,
+    "name": "T_S02_DrumBeetle_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S02_DrumBeetle_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 15,
+    "name": "T_S03_HornHound_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S03_HornHound_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 16,
+    "name": "T_S07_LostScoreGhost_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S07_LostScoreGhost_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 17,
+    "name": "T_S08_MetronomeGuard_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S08_MetronomeGuard_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGB",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 18,
+    "name": "T_S11_CymbalMoth_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S11_CymbalMoth_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 19,
+    "name": "T_S14_XylophoneStegosaur_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_XylophoneStegosaur_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 20,
+    "name": "T_S16_MusicBoxBallerina_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_MusicBoxBallerina_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGB",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 21,
+    "name": "T_S19_CastanetFish_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S19_CastanetFish_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 22,
+    "name": "T_S21_BagpipeBoar_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S21_BagpipeBoar_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 23,
+    "name": "T_S29_NoteTurret_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteTurret_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGB",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 24,
+    "name": "T_S29_WanderingConductor_BC",
+    "category": "敌人",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_WanderingConductor_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 25,
+    "name": "T_SM_MusicFollowSpot_BC",
+    "category": "装置",
+    "source": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/T_SM_MusicFollowSpot_BC.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "number": 26,
+    "name": "Theater_Brass_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Brass_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 27,
+    "name": "Theater_Ivory_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Ivory_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 28,
+    "name": "Theater_Lamp_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Lamp_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 29,
+    "name": "Theater_Midnight_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Midnight_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 30,
+    "name": "Theater_Stone_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Stone_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGB",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 31,
+    "name": "Theater_Trim_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Trim_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 32,
+    "name": "Theater_Walnut_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Walnut_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  },
+  {
+    "number": 33,
+    "name": "Theater_Wine_BaseColor",
+    "category": "剧院场景",
+    "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+    "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Wine_BaseColor.png",
+    "status": "completed",
+    "source_unchanged": true,
+    "generated_size": [
+      2048,
+      2048
+    ],
+    "generated_mode": "RGBA",
+    "review_status": "已批准入库并完成固定视角渲染对比",
+    "source_alpha_range": null
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "id": "s-score-bag-icon-review-20261120",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:22:46+0800",
+  "task_id": "task_01M7VFMT158E31EC3JYZ7MR9YC",
+  "result_url": "https://getapib.org/image/9998204855010010-7c4a0b2f-689c-409b-91fe-6b19fd041201-image_task_01M7VFNEH9B8M10WEE5HM7CX6G_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/score-workbench-apimart-review/score-bag-icon.png",
+  "bytes": 2494100,
+  "sha256": "986b75bbc357235525d6189febf033912522328cc0957757215b6a4d7cc168f6"
+}

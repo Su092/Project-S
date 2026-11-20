@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s19_castanetfish_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:39:25+0800",
+  "task_id": "task_01M7W1RKZB6EPAWDW6EXNVRAN5",
+  "result_url": "https://getapib.org/image/9998204835993042-9db85de3-d3a7-4249-9edb-314e3d2c4ece-image_task_01M7W1SSXZW5PZ52RZA46J434F_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S19_CastanetFish_BC.png",
+  "bytes": 1346442,
+  "sha256": "8e93f2bb26f4aec4f6830d9e9ca1e4293ba48a5a0feaaaffba51ef7e05df1208"
+}

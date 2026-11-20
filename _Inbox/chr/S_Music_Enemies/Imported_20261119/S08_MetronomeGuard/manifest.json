@@ -1,0 +1,1814 @@
+{
+  "schemaVersion": 1,
+  "assetId": "S08_MetronomeGuard",
+  "conceptNumber": "08",
+  "category": "Elite",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 2.88,
+  "measuredBounds": {
+    "min": [
+      -1.2011001110076904,
+      -0.9615932106971741,
+      0.0
+    ],
+    "max": [
+      1.2011001110076904,
+      0.38952091336250305,
+      2.880000114440918
+    ]
+  },
+  "units": "m",
+  "blenderAxes": "+Z up, -Y forward",
+  "unityAxes": "+Y up, +Z forward (target)",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "addLeafBones": false,
+    "allActions": false
+  },
+  "variants": [
+    "Base",
+    "Rehearsal",
+    "Ceremonial"
+  ],
+  "lods": [
+    {
+      "variant": "Base",
+      "level": 0,
+      "file": "Exports/S08_MetronomeGuard_Model.fbx",
+      "tris": 6872,
+      "budget": 12000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_LLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_LLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_LLegShin_LOD0",
+        "SM_S08_MetronomeGuard_LLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_LLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_LLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_LLegSole_LOD0",
+        "SM_S08_MetronomeGuard_Arm_LOD0",
+        "SM_S08_MetronomeGuard_Hinge_LOD0",
+        "SM_S08_MetronomeGuard_Forearm_LOD0",
+        "SM_S08_MetronomeGuard_Hand_LOD0",
+        "SM_S08_MetronomeGuard_Glove_LOD0",
+        "SM_S08_MetronomeGuard_Baton_LOD0",
+        "SM_S08_MetronomeGuard_BatonTip_LOD0",
+        "SM_S08_MetronomeGuard_RLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_RLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_RLegShin_LOD0",
+        "SM_S08_MetronomeGuard_RLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_RLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_RLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_RLegSole_LOD0",
+        "SM_S08_MetronomeGuard_WoodShell_LOD0",
+        "SM_S08_MetronomeGuard_Dial_LOD0",
+        "SM_S08_MetronomeGuard_TempoMark_LOD0",
+        "SM_S08_MetronomeGuard_Pendulum_LOD0",
+        "SM_S08_MetronomeGuard_Weight_LOD0",
+        "SM_S08_MetronomeGuard_Mask_LOD0",
+        "SM_S08_MetronomeGuard_EyeSocket_LOD0",
+        "SM_S08_MetronomeGuard_Eye_LOD0"
+      ],
+      "unityTris": 6872,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Base",
+      "level": 1,
+      "file": "Exports/S08_MetronomeGuard_Model.fbx",
+      "tris": 3384,
+      "budget": 6000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_LLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_LLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_LLegShin_LOD1",
+        "SM_S08_MetronomeGuard_LLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_LLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_LLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_LLegSole_LOD1",
+        "SM_S08_MetronomeGuard_Arm_LOD1",
+        "SM_S08_MetronomeGuard_Hinge_LOD1",
+        "SM_S08_MetronomeGuard_Forearm_LOD1",
+        "SM_S08_MetronomeGuard_Hand_LOD1",
+        "SM_S08_MetronomeGuard_Glove_LOD1",
+        "SM_S08_MetronomeGuard_Baton_LOD1",
+        "SM_S08_MetronomeGuard_BatonTip_LOD1",
+        "SM_S08_MetronomeGuard_RLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_RLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_RLegShin_LOD1",
+        "SM_S08_MetronomeGuard_RLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_RLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_RLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_RLegSole_LOD1",
+        "SM_S08_MetronomeGuard_WoodShell_LOD1",
+        "SM_S08_MetronomeGuard_Dial_LOD1",
+        "SM_S08_MetronomeGuard_TempoMark_LOD1",
+        "SM_S08_MetronomeGuard_Pendulum_LOD1",
+        "SM_S08_MetronomeGuard_Weight_LOD1",
+        "SM_S08_MetronomeGuard_Mask_LOD1",
+        "SM_S08_MetronomeGuard_EyeSocket_LOD1",
+        "SM_S08_MetronomeGuard_Eye_LOD1"
+      ],
+      "unityTris": 3384,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Base",
+      "level": 2,
+      "file": "Exports/S08_MetronomeGuard_Model.fbx",
+      "tris": 1224,
+      "budget": 2400,
+      "nodes": [
+        "SM_S08_MetronomeGuard_LLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_LLegShin_LOD2",
+        "SM_S08_MetronomeGuard_LLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_LLegSole_LOD2",
+        "SM_S08_MetronomeGuard_Arm_LOD2",
+        "SM_S08_MetronomeGuard_Hinge_LOD2",
+        "SM_S08_MetronomeGuard_Forearm_LOD2",
+        "SM_S08_MetronomeGuard_Hand_LOD2",
+        "SM_S08_MetronomeGuard_Glove_LOD2",
+        "SM_S08_MetronomeGuard_Baton_LOD2",
+        "SM_S08_MetronomeGuard_BatonTip_LOD2",
+        "SM_S08_MetronomeGuard_RLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_RLegShin_LOD2",
+        "SM_S08_MetronomeGuard_RLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_RLegSole_LOD2",
+        "SM_S08_MetronomeGuard_WoodShell_LOD2",
+        "SM_S08_MetronomeGuard_Dial_LOD2",
+        "SM_S08_MetronomeGuard_TempoMark_LOD2",
+        "SM_S08_MetronomeGuard_Pendulum_LOD2",
+        "SM_S08_MetronomeGuard_Weight_LOD2",
+        "SM_S08_MetronomeGuard_Mask_LOD2",
+        "SM_S08_MetronomeGuard_EyeSocket_LOD2",
+        "SM_S08_MetronomeGuard_Eye_LOD2"
+      ],
+      "unityTris": 1224,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Rehearsal",
+      "level": 0,
+      "file": "Exports/S08_MetronomeGuard_Rehearsal_Model.fbx",
+      "tris": 6884,
+      "budget": 12000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Rehearsal_LLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegShin_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegSole_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Arm_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Hinge_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Forearm_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Hand_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Glove_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Baton_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_BatonTip_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegShin_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegSole_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_WoodShell_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Dial_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_TempoMark_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Pendulum_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Weight_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Mask_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_EyeSocket_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Eye_LOD0",
+        "SM_S08_MetronomeGuard_Rehearsal_Cornice_LOD0"
+      ],
+      "unityTris": 6884,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Rehearsal",
+      "level": 1,
+      "file": "Exports/S08_MetronomeGuard_Rehearsal_Model.fbx",
+      "tris": 3396,
+      "budget": 6000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Rehearsal_LLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegShin_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegSole_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Arm_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Hinge_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Forearm_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Hand_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Glove_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Baton_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_BatonTip_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegShin_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegSole_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_WoodShell_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Dial_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_TempoMark_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Pendulum_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Weight_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Mask_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_EyeSocket_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Eye_LOD1",
+        "SM_S08_MetronomeGuard_Rehearsal_Cornice_LOD1"
+      ],
+      "unityTris": 3396,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Rehearsal",
+      "level": 2,
+      "file": "Exports/S08_MetronomeGuard_Rehearsal_Model.fbx",
+      "tris": 1236,
+      "budget": 2400,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Rehearsal_LLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegShin_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_LLegSole_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Arm_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Hinge_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Forearm_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Hand_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Glove_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Baton_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_BatonTip_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegShin_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_RLegSole_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_WoodShell_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Dial_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_TempoMark_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Pendulum_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Weight_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Mask_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_EyeSocket_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Eye_LOD2",
+        "SM_S08_MetronomeGuard_Rehearsal_Cornice_LOD2"
+      ],
+      "unityTris": 1236,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Ceremonial",
+      "level": 0,
+      "file": "Exports/S08_MetronomeGuard_Ceremonial_Model.fbx",
+      "tris": 6970,
+      "budget": 12000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Ceremonial_LLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegShin_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegSole_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Arm_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Hinge_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Forearm_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Hand_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Glove_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Baton_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_BatonTip_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegUpper_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegUpperJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegShin_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegShinJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegFoot_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegFootJoint_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegSole_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_WoodShell_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Dial_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_TempoMark_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Pendulum_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_OpenWeight_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Mask_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_EyeSocket_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Eye_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Epaulette_LOD0",
+        "SM_S08_MetronomeGuard_Ceremonial_Sash_LOD0"
+      ],
+      "unityTris": 6970,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Ceremonial",
+      "level": 1,
+      "file": "Exports/S08_MetronomeGuard_Ceremonial_Model.fbx",
+      "tris": 3474,
+      "budget": 6000,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Ceremonial_LLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegShin_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegSole_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Arm_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Hinge_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Forearm_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Hand_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Glove_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Baton_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_BatonTip_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegUpper_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegUpperJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegShin_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegShinJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegFoot_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegFootJoint_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegSole_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_WoodShell_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Dial_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_TempoMark_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Pendulum_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_OpenWeight_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Mask_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_EyeSocket_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Eye_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Epaulette_LOD1",
+        "SM_S08_MetronomeGuard_Ceremonial_Sash_LOD1"
+      ],
+      "unityTris": 3474,
+      "unityHeightMeters": 2.8799996376037598
+    },
+    {
+      "variant": "Ceremonial",
+      "level": 2,
+      "file": "Exports/S08_MetronomeGuard_Ceremonial_Model.fbx",
+      "tris": 1296,
+      "budget": 2400,
+      "nodes": [
+        "SM_S08_MetronomeGuard_Ceremonial_LLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegShin_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_LLegSole_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Arm_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Hinge_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Forearm_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Hand_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Glove_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Baton_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_BatonTip_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegUpper_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegShin_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegFoot_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_RLegSole_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_WoodShell_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Dial_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_TempoMark_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Pendulum_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_OpenWeight_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Mask_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_EyeSocket_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Eye_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Epaulette_LOD2",
+        "SM_S08_MetronomeGuard_Ceremonial_Sash_LOD2"
+      ],
+      "unityTris": 1296,
+      "unityHeightMeters": 2.8799996376037598
+    }
+  ],
+  "rootPath": "ARM_S08_MetronomeGuard/root",
+  "materials": [
+    "MAT_S08_MetronomeGuard_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S08_MetronomeGuard_BC.png",
+      "space": "sRGB",
+      "channels": "BaseColor"
+    },
+    {
+      "file": "Textures/T_S08_MetronomeGuard_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S08_MetronomeGuard_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S08_MetronomeGuard/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S08_MetronomeGuard/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.287279486656189
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegUpper",
+      "path": "ARM_S08_MetronomeGuard/root/body/LLegUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.22753149271011353
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.1914767026901245
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegShin",
+      "path": "ARM_S08_MetronomeGuard/root/body/LLegUpper/LLegShin",
+      "parent": "LLegUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.25148218870162964
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.041913703083992004
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6645616888999939
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegFoot",
+      "path": "ARM_S08_MetronomeGuard/root/body/LLegUpper/LLegShin/LLegFoot",
+      "parent": "LLegShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.2634575366973877
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.20949876308441162
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LArm",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5628410577774048
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.9818493127822876
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForearm",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm/LForearm",
+      "parent": "LArm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.8382739424705505
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.04790136218070984
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6465396881103516
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHand",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm/LForearm/LHand",
+      "parent": "LForearm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.946052074432373
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2634575366973877
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.4070329666137695
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LBaton",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm/LForearm/LHand/LBaton",
+      "parent": "LHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.9819780588150024
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2874082326889038
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3351808786392212
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Baton_L",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm/LForearm/LHand/LBaton/Socket_Baton_L",
+      "parent": "LBaton",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.101731538772583
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.8622245788574219
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.742342472076416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegUpper",
+      "path": "ARM_S08_MetronomeGuard/root/body/RLegUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.22753149271011353
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.1914767026901245
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegShin",
+      "path": "ARM_S08_MetronomeGuard/root/body/RLegUpper/RLegShin",
+      "parent": "RLegUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.25148218870162964
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.041913703083992004
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6645616888999939
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegFoot",
+      "path": "ARM_S08_MetronomeGuard/root/body/RLegUpper/RLegShin/RLegFoot",
+      "parent": "RLegShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.2634575366973877
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.20949876308441162
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RArm",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.5628410577774048
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.9818493127822876
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForearm",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm/RForearm",
+      "parent": "RArm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.8382739424705505
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.04790136218070984
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6465396881103516
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHand",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm/RForearm/RHand",
+      "parent": "RForearm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.946052074432373
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2634575366973877
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.4070329666137695
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RBaton",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm/RForearm/RHand/RBaton",
+      "parent": "RHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.9819780588150024
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2874082326889038
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3351808786392212
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Baton_R",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm/RForearm/RHand/RBaton/Socket_Baton_R",
+      "parent": "RBaton",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.101731538772583
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.8622245788574219
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.742342472076416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "pendulum",
+      "path": "ARM_S08_MetronomeGuard/root/body/pendulum",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.43111228942871094
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.2513535022735596
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_WaveOrigin",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_WaveOrigin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.7903726100921631
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.017893314361572266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.2692575454711914
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.287279486656189
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Baton_L",
+      "path": "ARM_S08_MetronomeGuard/root/body/LArm/LForearm/LHand/LBaton/Socket_Baton_L",
+      "parent": "LBaton",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.101731538772583
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.8622245788574219
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.742342472076416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.11975347995758057,
+        "y": -0.5748163461685181,
+        "z": 0.4071615934371948
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Baton_R",
+      "path": "ARM_S08_MetronomeGuard/root/body/RArm/RForearm/RHand/RBaton/Socket_Baton_R",
+      "parent": "RBaton",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.101731538772583
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.8622245788574219
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.742342472076416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": -0.11975347995758057,
+        "y": -0.5748163461685181,
+        "z": 0.4071615934371948
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_WaveOrigin",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_WaveOrigin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.7903726100921631
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.017893314361572266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -0.7903726100921631,
+        "z": -1.2693861722946167
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.2692575454711914
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.9819780588150024
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S08_MetronomeGuard/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.287279486656189
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S08_MetronomeGuard_Movement_COL",
+      "shape": "convex",
+      "purpose": "Movement",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        1.287279486656189
+      ],
+      "size": [
+        0.9608801007270813,
+        0.6215125322341919,
+        1.267199993133545
+      ]
+    },
+    {
+      "node": "SM_S08_MetronomeGuard_Hurt_COL",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        1.287279486656189
+      ],
+      "size": [
+        1.3452321290969849,
+        0.8106684684753418,
+        1.6128000020980835
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S08_MetronomeGuard_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Spawn.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2615935802459717,
+          -1.0578784942626953,
+          -0.22070592641830444
+        ],
+        "max": [
+          1.2615935802459717,
+          0.5113189220428467,
+          2.882591724395752
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 24.064226150512695,
+        "maxBoneTravel": 0.17963016033172607,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.17963016033172607
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S08_MetronomeGuard_Idle.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2617518901824951,
+          -0.9635715484619141,
+          0.0
+        ],
+        "max": [
+          1.2617518901824951,
+          0.38952091336250305,
+          2.9231114387512207
+        ]
+      },
+      "unityCheck": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 24.064226150512695,
+        "maxBoneTravel": 0.043111205101013184,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S08_MetronomeGuard_Hit.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2285211086273193,
+          -0.9615932106971741,
+          -0.0027216151356697083
+        ],
+        "max": [
+          1.2882336378097534,
+          0.7482327222824097,
+          2.8955507278442383
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 24.013450622558594,
+        "maxBoneTravel": 3.0181749366420263e-07,
+        "loopAngle": 9.7877779006958,
+        "loopTravel": 2.0679515313825692e-24
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Walk",
+      "durationSec": 1.0,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.5
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Walk.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2011001110076904,
+          -0.9639742374420166,
+          0.0
+        ],
+        "max": [
+          1.2011001110076904,
+          0.38952091336250305,
+          2.9231114387512207
+        ]
+      },
+      "unityCheck": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 24.0631103515625,
+        "maxBoneTravel": 0.043111205101013184,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Sweep_Windup",
+      "durationSec": 0.9,
+      "loop": false,
+      "markersSec": {
+        "WarningStart": 0
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Sweep_Windup.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 27.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.6866395473480225,
+          -0.9615932106971741,
+          0.0
+        ],
+        "max": [
+          1.737316370010376,
+          0.7444510459899902,
+          2.880000114440918
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.9000000357627869,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 70.91976928710938,
+        "maxBoneTravel": 3.7490562476705236e-07,
+        "loopAngle": 70.91976928710938,
+        "loopTravel": 1.832600560192077e-07
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Sweep_Strike",
+      "durationSec": 0.35,
+      "loop": false,
+      "markersSec": {
+        "Strike": 0.0
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Sweep_Strike.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 10.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.6610162258148193,
+          -1.4907132387161255,
+          0.0
+        ],
+        "max": [
+          1.6872748136520386,
+          0.4831160306930542,
+          2.880000114440918
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.3499999940395355,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 107.81294250488281,
+        "maxBoneTravel": 3.356070976678893e-07,
+        "loopAngle": 106.57015991210938,
+        "loopTravel": 3.356070976678893e-07
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Sweep_Recover",
+      "durationSec": 1.0,
+      "loop": false,
+      "markersSec": {
+        "RecoverEnd": 1.0
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Sweep_Recover.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.7697358131408691,
+          -1.4239305257797241,
+          0.0
+        ],
+        "max": [
+          1.7582496404647827,
+          0.38952091336250305,
+          2.880000114440918
+        ]
+      },
+      "unityCheck": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 75.13998413085938,
+        "maxBoneTravel": 3.2954082485048275e-07,
+        "loopAngle": 75.13998413085938,
+        "loopTravel": 1.7377590211253846e-07
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Slam_Windup",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "WarningStart": 0
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Slam_Windup.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2011001110076904,
+          -0.9615932106971741,
+          0.0
+        ],
+        "max": [
+          1.2011001110076904,
+          0.38952091336250305,
+          3.184239625930786
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 102.95619201660156,
+        "maxBoneTravel": 3.318698418297572e-07,
+        "loopAngle": 102.95619201660156,
+        "loopTravel": 1.794337407545754e-07
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Slam_Strike",
+      "durationSec": 0.3,
+      "loop": false,
+      "markersSec": {
+        "WaveRelease": 0.15
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Slam_Strike.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 9.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.28668212890625,
+          -0.9615932106971741,
+          -0.7257405519485474
+        ],
+        "max": [
+          1.28668212890625,
+          0.38952091336250305,
+          3.184239625930786
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.30000001192092896,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 164.853515625,
+        "maxBoneTravel": 0.7664218544960022,
+        "loopAngle": 155.12405395507812,
+        "loopTravel": 0.7664218544960022
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Slam_Recover",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "RecoverEnd": 0.8
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Slam_Recover.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2022112607955933,
+          -0.9615932106971741,
+          -0.7257405519485474
+        ],
+        "max": [
+          1.2022112607955933,
+          0.38952091336250305,
+          2.880000114440918
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 119.1438980102539,
+        "maxBoneTravel": 0.7664218544960022,
+        "loopAngle": 119.1438980102539,
+        "loopTravel": 0.7664218544960022
+      }
+    },
+    {
+      "clip": "AN_S08_MetronomeGuard_Death",
+      "durationSec": 1.5,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 1.5
+      },
+      "file": "Exports/AN_S08_MetronomeGuard_Death.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 45.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2881183624267578,
+          -0.969357967376709,
+          -0.8493940234184265
+        ],
+        "max": [
+          1.2188509702682495,
+          0.8391508460044861,
+          2.880000114440918
+        ]
+      },
+      "unityCheck": {
+        "duration": 1.5000001192092896,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 50.42277145385742,
+        "maxBoneTravel": 0.9484471082687378,
+        "loopAngle": 50.4202880859375,
+        "loopTravel": 0.9484471082687378
+      }
+    }
+  ],
+  "derivatives": [
+    "Derivatives/FXM_S08_BassWave/manifest.json",
+    "Derivatives/Textures/T_S08_BassWave.png",
+    "Derivatives/Textures/T_S08_SweepSector.png"
+  ],
+  "validationStatus": {
+    "modelImport": "verified",
+    "heightAndPolyBudgets": "verified",
+    "avatarClipSampling": "verified",
+    "loopEndpoints": "verified",
+    "collisionGeometry": "verified",
+    "conceptBoardComparison": "pending",
+    "targetURPAndCombatReview": "pending"
+  },
+  "unityVersion": "6000.6.4f1",
+  "sourceQA": {
+    "roots": [
+      "root"
+    ],
+    "images": [
+      {
+        "file": "//..\\Textures\\T_S08_MetronomeGuard_BC.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S08_MetronomeGuard_E.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S08_MetronomeGuard_ORM.png",
+        "exists": true
+      }
+    ],
+    "contacts": [],
+    "variantBody": {},
+    "restBoneCount": 22
+  },
+  "materialNotes": "Shared UV0 atlas with intentional reuse by surface type. Flat tangent normal (0.5,0.5,1). BC sRGB. ORM and E linear. Warm emission tint is controlled separately.",
+  "unityBoundsMeters": {
+    "width": 2.402200222015381,
+    "height": 2.8799996376037598,
+    "depth": 1.3511137962341309
+  }
+}

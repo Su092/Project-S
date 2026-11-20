@@ -1,0 +1,52 @@
+axis Axis_Right_1m (1.000, 0.000, 0.000)
+axis Axis_Up_1m (0.000, 1.000, 0.000)
+axis Axis_Stage_1m (0.000, 0.000, 1.000)
+axis asymmetry (0.250, 0.500, 0.750) opposite handed yaw baked, vertex error 0.000000 positive scale (1.000, 1.000, 1.000)
+route L1_AuditoriumLoop samples=726 issues=0 supportDeviationM=0.00000
+controller L1_AuditoriumLoop reverse=False issues=0 maxHorizontalM=0.00000
+controller L1_AuditoriumLoop reverse=True issues=0 maxHorizontalM=0.00000
+route L1_BackstageLoop samples=709 issues=0 supportDeviationM=0.00000
+controller L1_BackstageLoop reverse=False issues=0 maxHorizontalM=0.00000
+controller L1_BackstageLoop reverse=True issues=0 maxHorizontalM=0.00000
+route L2_FullLoop samples=940 issues=0 supportDeviationM=0.02500
+controller L2_FullLoop reverse=False issues=0 maxHorizontalM=0.00000
+controller L2_FullLoop reverse=True issues=0 maxHorizontalM=0.00000
+route Stage_WestSteps samples=57 issues=0 supportDeviationM=0.00000
+controller Stage_WestSteps reverse=False issues=0 maxHorizontalM=0.01292
+controller Stage_WestSteps reverse=True issues=0 maxHorizontalM=0.00000
+route Stage_EastSteps samples=57 issues=0 supportDeviationM=0.00000
+controller Stage_EastSteps reverse=False issues=0 maxHorizontalM=0.01292
+controller Stage_EastSteps reverse=True issues=0 maxHorizontalM=0.00000
+route Stage_WestRamp samples=86 issues=0 supportDeviationM=0.00000
+controller Stage_WestRamp reverse=False issues=0 maxHorizontalM=0.00000
+controller Stage_WestRamp reverse=True issues=0 maxHorizontalM=0.00000
+route Stage_EastRamp samples=86 issues=0 supportDeviationM=0.00000
+controller Stage_EastRamp reverse=False issues=0 maxHorizontalM=0.00000
+controller Stage_EastRamp reverse=True issues=0 maxHorizontalM=0.00000
+route Stair_West_Rear samples=192 issues=0 supportDeviationM=0.00000
+controller Stair_West_Rear reverse=False issues=0 maxHorizontalM=0.01292
+controller Stair_West_Rear reverse=True issues=0 maxHorizontalM=0.00000
+route Stair_West_Front samples=192 issues=0 supportDeviationM=0.00000
+controller Stair_West_Front reverse=False issues=0 maxHorizontalM=0.01292
+controller Stair_West_Front reverse=True issues=0 maxHorizontalM=0.00000
+route Stair_East_Rear samples=192 issues=0 supportDeviationM=0.00000
+controller Stair_East_Rear reverse=False issues=0 maxHorizontalM=0.01292
+controller Stair_East_Rear reverse=True issues=0 maxHorizontalM=0.00000
+route Stair_East_Front samples=192 issues=0 supportDeviationM=0.00000
+controller Stair_East_Front reverse=False issues=0 maxHorizontalM=0.01292
+controller Stair_East_Front reverse=True issues=0 maxHorizontalM=0.00000
+route Box_West samples=51 issues=0 supportDeviationM=0.00000
+controller Box_West reverse=False issues=0 maxHorizontalM=0.00000
+controller Box_West reverse=True issues=0 maxHorizontalM=0.00000
+route Box_East samples=51 issues=0 supportDeviationM=0.00000
+controller Box_East reverse=False issues=0 maxHorizontalM=0.00000
+controller Box_East reverse=True issues=0 maxHorizontalM=0.00000
+intentional skipped types: Curtain_MainL=77, Curtain_MainR=77, Curtain_Side=158, Curtain_Valance8=15, Deco_Banner=5, Deco_Clerestory=126, Deco_Lyre=3, Floor_Runner4=19, Lamp_ChandelierArm=6, Lamp_ChandelierHub=2, Lamp_ChandelierRing=2, Lamp_HangerStem=2, Lamp_Lantern=18, Lamp_Wall=45, Prop_ProgramFrame=6, Prop_Stand=2
+shot samples=9720 prematureOver6cm=0 visibleSkippedOver6cm=563 maxPrematureM=0.00000
+frustum Entrance LOD0 conservativeTris=119072
+frustum Auditorium LOD0 conservativeTris=93548
+frustum Stage LOD0 conservativeTris=26424
+frustum Balcony LOD0 conservativeTris=102436
+frustum Backstage LOD0 conservativeTris=51736
+scene tris=205432 uniqueMeshes=70 instances=1191
+problems=0

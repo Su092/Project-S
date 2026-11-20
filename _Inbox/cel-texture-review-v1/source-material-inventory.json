@@ -1,0 +1,154 @@
+[
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW01_Violin\\MAT_SW01_Violin.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW01_Violin\\T_SW01_Violin_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW02_Kalimba\\MAT_SW02_Kalimba.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW02_Kalimba\\T_SW02_Kalimba_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW03_FrameDrum\\MAT_SW03_FrameDrum.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW03_FrameDrum\\T_SW03_FrameDrum_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW04_Cello\\MAT_SW04_Cello.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW04_Cello\\T_SW04_Cello_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW05_Harp\\MAT_SW05_Harp.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW05_Harp\\T_SW05_Harp_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Weapons\\Music\\SW06_Accordion\\MAT_SW06_Accordion.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Weapons\\Music\\SW06_Accordion\\T_SW06_Accordion_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S08_BassWave\\MAT_FXM_S08_BassWave.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S08_BassWave.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S14_FallingNote\\MAT_FXM_S14_FallingNote.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S14_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S14_MarchingNote\\MAT_FXM_S14_MarchingNote.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S14_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S14_NoteGate\\MAT_FXM_S14_NoteGate.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\FXM_S14_NoteGate\\T_FXM_S14_NoteGate_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S14_NoteGate\\MAT_FXM_S14_NoteGate_Accent.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\FXM_S14_NoteGate\\T_FXM_S14_NoteGate_Curtain.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S16_PluckedNote\\MAT_FXM_S16_PluckedNote.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S16_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S21_VentGust\\MAT_FXM_S21_VentGust.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S21_VentGust.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S29_ClampShard\\MAT_FXM_S29_ClampShard.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S29_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S29_CoreShard\\MAT_FXM_S29_CoreShard.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S29_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S29_HornShard\\MAT_FXM_S29_HornShard.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S29_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S29_HousingShard\\MAT_FXM_S29_HousingShard.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S29_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\FXM_S29_NoteShot\\MAT_FXM_S29_NoteShot.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\Shared\\T_S29_NoteAtlas.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S02_DrumBeetle\\MAT_S02_DrumBeetle.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S02_DrumBeetle\\T_S02_DrumBeetle_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S03_HornHound\\MAT_S03_HornHound.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S03_HornHound\\T_S03_HornHound_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S07_LostScoreGhost\\MAT_S07_LostScoreGhost.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S07_LostScoreGhost\\T_S07_LostScoreGhost_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S08_MetronomeGuard\\MAT_S08_MetronomeGuard.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S08_MetronomeGuard\\T_S08_MetronomeGuard_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S11_CymbalMoth\\MAT_S11_CymbalMoth.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S11_CymbalMoth\\T_S11_CymbalMoth_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S14_XylophoneStegosaur\\MAT_S14_XylophoneStegosaur.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S14_XylophoneStegosaur\\T_S14_XylophoneStegosaur_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S16_MusicBoxBallerina\\MAT_S16_MusicBoxBallerina.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S16_MusicBoxBallerina\\T_S16_MusicBoxBallerina_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S19_CastanetFish\\MAT_S19_CastanetFish.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S19_CastanetFish\\T_S19_CastanetFish_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S21_BagpipeBoar\\MAT_S21_BagpipeBoar.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S21_BagpipeBoar\\T_S21_BagpipeBoar_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S29_NoteTurret\\MAT_S29_NoteTurret.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S29_NoteTurret\\T_S29_NoteTurret_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\S29_WanderingConductor\\MAT_S29_WanderingConductor.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\S29_WanderingConductor\\T_S29_WanderingConductor_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Enemies\\Music\\SM_MusicFollowSpot\\MAT_SM_MusicFollowSpot.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Enemies\\Music\\SM_MusicFollowSpot\\T_SM_MusicFollowSpot_BC.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Brass.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Brass_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Ivory.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Ivory_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Lamp.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Lamp_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Midnight.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Midnight_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Stone.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Stone_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Trim.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Trim\\Theater_Trim_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Walnut.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Walnut_BaseColor.png"
+  },
+  {
+    "material": "Assets\\_Game\\Res\\Material\\Environment\\GrandTheater\\MAT_Theater_Wine.mat",
+    "texture": "Assets\\_Game\\Res\\Texture\\Environment\\GrandTheater\\Tile\\Theater_Wine_BaseColor.png"
+  }
+]

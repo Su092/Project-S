@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_UiPrefab
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: S_UiPrefab
-  m_GUID: 373575eb0d95b7d479ebe7710c6a8d43
+  m_GUID: 45cd23b5dbc2e514d807c2a20cf97c3f
   m_SerializeEntries:
   - m_GUID: 022c0ebcb2fb1654cbe0259cfc5e2a01
     m_Address: uiprefab/HUD
@@ -39,14 +39,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_uiprefab
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8f3c5024ef12a04469c42764d4bb2de3
-    m_Address: uiprefab/ChainRow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_uiprefab
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b753a478403292e4ca938b0d7e83db14
-    m_Address: uiprefab/Inventory
+    m_Address: uiprefab/ScoreInventory
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_uiprefab

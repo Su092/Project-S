@@ -1,0 +1,307 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>赛璐璐贴图审核</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101722;color:#e8e3d7;font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif}header{padding:32px max(24px,5vw) 20px;background:#192331;border-bottom:1px solid #435166}h1{margin:0;font-size:30px}header p{max-width:1000px;color:#b9c5d5;margin:10px 0}.stats{color:#e9c989;font-size:16px}.toolbar{position:sticky;top:0;z-index:5;background:#182231ee;padding:14px max(24px,5vw);display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid #38475b}button,input[type=search]{font:inherit;padding:7px 12px;background:#253449;border:1px solid #4c6079;border-radius:6px;color:#f3ead9}button{cursor:pointer}button.active{background:#c5a971;color:#101722}main{padding:24px max(24px,5vw);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}article{background:#192330;border:1px solid #354457;border-radius:12px;padding:18px;overflow:hidden}.cardhead{display:flex;align-items:center;justify-content:space-between;gap:10px}.cardhead h2{margin:0;font-size:18px;overflow-wrap:anywhere}.cardhead span{white-space:nowrap;color:#e5c581;font-size:13px}.file{font-size:12px;color:#95a6bc;overflow-wrap:anywhere}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}figure{margin:0}figure img,.overlay{background:#080a0e;aspect-ratio:1;width:100%;object-fit:contain;border:1px solid #334153}figcaption{font-size:12px;color:#b6c4d6;margin-top:7px}.note{font-size:12px;color:#abb9ca}.links{display:flex;gap:18px}a{color:#dfbd7a}article[hidden]{display:none}.overlay{position:relative;display:none}.overlay img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.newlayer{opacity:.5}.blend{display:none;font-size:13px;margin:12px 0}.blend input{width:60%;vertical-align:middle}body.compare .pair{display:none}body.compare .overlay{display:block}body.compare .blend{display:block}@media(max-width:1000px){main{grid-template-columns:1fr}}footer{padding:15px 5vw 40px;color:#9fafc5}
+</style>
+<header><h1>全模型 · 赛璐璐贴图审核</h1><div class="stats">33 / 33 张已生成 · 原图校验 全部一致</div><p>每张新图均由 APIMart 使用对应原贴图作为参考生成。已批准入库，游戏贴图已替换；原图展示来自备份。<a href="comparison/index.html">查看实际渲染前后对比</a>。</p><p>查看色块、纹理简化和材质配色；切换“叠加检查”可检查布局漂移。图生图结果不能保证逐像素 UV 对齐，模型渲染对比已另行保存；此页新图仍展示 APIMart 原始输出。</p></header>
+<div class="toolbar"><button class="active" data-filter="all">全部</button><button data-filter="instruments">乐器</button><button data-filter="enemies">敌人</button><button data-filter="devices">装置</button><button data-filter="effects">特效模型</button><button data-filter="environment">剧院场景</button><input id="search" type="search" placeholder="搜索文件名或类别"><button id="mode">叠加检查</button></div><main><article data-group="instruments" data-search="小提琴 T_SW01_Violin_BC 乐器">
+ <div class="cardhead"><h2>01 · 小提琴</h2><span>乐器</span></div>
+ <p class="file">T_SW01_Violin_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW01_Violin_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW01_Violin_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png" target="_blank">打开原图</a><a href="generated/T_SW01_Violin_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="instruments" data-search="拇指琴 T_SW02_Kalimba_BC 乐器">
+ <div class="cardhead"><h2>02 · 拇指琴</h2><span>乐器</span></div>
+ <p class="file">T_SW02_Kalimba_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW02_Kalimba_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW02_Kalimba_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png" target="_blank">打开原图</a><a href="generated/T_SW02_Kalimba_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="instruments" data-search="手鼓 T_SW03_FrameDrum_BC 乐器">
+ <div class="cardhead"><h2>03 · 手鼓</h2><span>乐器</span></div>
+ <p class="file">T_SW03_FrameDrum_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW03_FrameDrum_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW03_FrameDrum_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png" target="_blank">打开原图</a><a href="generated/T_SW03_FrameDrum_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="instruments" data-search="大提琴 T_SW04_Cello_BC 乐器">
+ <div class="cardhead"><h2>04 · 大提琴</h2><span>乐器</span></div>
+ <p class="file">T_SW04_Cello_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW04_Cello_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW04_Cello_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png" target="_blank">打开原图</a><a href="generated/T_SW04_Cello_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="instruments" data-search="竖琴 T_SW05_Harp_BC 乐器">
+ <div class="cardhead"><h2>05 · 竖琴</h2><span>乐器</span></div>
+ <p class="file">T_SW05_Harp_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW05_Harp_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW05_Harp_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png" target="_blank">打开原图</a><a href="generated/T_SW05_Harp_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="instruments" data-search="手风琴 T_SW06_Accordion_BC 乐器">
+ <div class="cardhead"><h2>06 · 手风琴</h2><span>乐器</span></div>
+ <p class="file">T_SW06_Accordion_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SW06_Accordion_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SW06_Accordion_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png" target="_blank">打开原图</a><a href="generated/T_SW06_Accordion_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_S08_BassWave T_S08_BassWave 特效模型">
+ <div class="cardhead"><h2>07 · T_S08_BassWave</h2><span>特效模型</span></div>
+ <p class="file">T_S08_BassWave</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png" alt="原贴图"><figcaption>原贴图 · 512×512</figcaption></figure>
+ <figure><img loading="lazy" src="fx-color-revision/generated/T_S08_BassWave.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png" alt="原图底层"><img loading="lazy" class="newlayer" src="fx-color-revision/generated/T_S08_BassWave.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">特效仅重绘 RGB 色场，批准入库时必须恢复原始透明通道；首版透明棋盘/轮廓烘焙问题已另行修正。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png" target="_blank">打开原图</a><a href="fx-color-revision/generated/T_S08_BassWave.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_S14_NoteAtlas T_S14_NoteAtlas 特效模型">
+ <div class="cardhead"><h2>08 · T_S14_NoteAtlas</h2><span>特效模型</span></div>
+ <p class="file">T_S14_NoteAtlas</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png" alt="原贴图"><figcaption>原贴图 · 512×512</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S14_NoteAtlas.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S14_NoteAtlas.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png" target="_blank">打开原图</a><a href="generated/T_S14_NoteAtlas.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_FXM_S14_NoteGate_BC T_FXM_S14_NoteGate_BC 特效模型">
+ <div class="cardhead"><h2>09 · T_FXM_S14_NoteGate_BC</h2><span>特效模型</span></div>
+ <p class="file">T_FXM_S14_NoteGate_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_FXM_S14_NoteGate_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_FXM_S14_NoteGate_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png" target="_blank">打开原图</a><a href="generated/T_FXM_S14_NoteGate_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_FXM_S14_NoteGate_Curtain T_FXM_S14_NoteGate_Curtain 特效模型">
+ <div class="cardhead"><h2>10 · T_FXM_S14_NoteGate_Curtain</h2><span>特效模型</span></div>
+ <p class="file">T_FXM_S14_NoteGate_Curtain</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_FXM_S14_NoteGate_Curtain.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_FXM_S14_NoteGate_Curtain.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">含透明通道：入库前需检查/恢复透明覆盖。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png" target="_blank">打开原图</a><a href="generated/T_FXM_S14_NoteGate_Curtain.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_S16_NoteAtlas T_S16_NoteAtlas 特效模型">
+ <div class="cardhead"><h2>11 · T_S16_NoteAtlas</h2><span>特效模型</span></div>
+ <p class="file">T_S16_NoteAtlas</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png" alt="原贴图"><figcaption>原贴图 · 512×512</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S16_NoteAtlas.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S16_NoteAtlas.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png" target="_blank">打开原图</a><a href="generated/T_S16_NoteAtlas.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_S21_VentGust T_S21_VentGust 特效模型">
+ <div class="cardhead"><h2>12 · T_S21_VentGust</h2><span>特效模型</span></div>
+ <p class="file">T_S21_VentGust</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png" alt="原贴图"><figcaption>原贴图 · 512×512</figcaption></figure>
+ <figure><img loading="lazy" src="fx-color-revision/generated/T_S21_VentGust.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png" alt="原图底层"><img loading="lazy" class="newlayer" src="fx-color-revision/generated/T_S21_VentGust.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">特效仅重绘 RGB 色场，批准入库时必须恢复原始透明通道；首版透明棋盘/轮廓烘焙问题已另行修正。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png" target="_blank">打开原图</a><a href="fx-color-revision/generated/T_S21_VentGust.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="effects" data-search="T_S29_NoteAtlas T_S29_NoteAtlas 特效模型">
+ <div class="cardhead"><h2>13 · T_S29_NoteAtlas</h2><span>特效模型</span></div>
+ <p class="file">T_S29_NoteAtlas</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png" alt="原贴图"><figcaption>原贴图 · 512×512</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S29_NoteAtlas.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S29_NoteAtlas.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png" target="_blank">打开原图</a><a href="generated/T_S29_NoteAtlas.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S02_DrumBeetle_BC T_S02_DrumBeetle_BC 敌人">
+ <div class="cardhead"><h2>14 · T_S02_DrumBeetle_BC</h2><span>敌人</span></div>
+ <p class="file">T_S02_DrumBeetle_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S02_DrumBeetle_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S02_DrumBeetle_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png" target="_blank">打开原图</a><a href="generated/T_S02_DrumBeetle_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S03_HornHound_BC T_S03_HornHound_BC 敌人">
+ <div class="cardhead"><h2>15 · T_S03_HornHound_BC</h2><span>敌人</span></div>
+ <p class="file">T_S03_HornHound_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S03_HornHound_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S03_HornHound_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png" target="_blank">打开原图</a><a href="generated/T_S03_HornHound_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S07_LostScoreGhost_BC T_S07_LostScoreGhost_BC 敌人">
+ <div class="cardhead"><h2>16 · T_S07_LostScoreGhost_BC</h2><span>敌人</span></div>
+ <p class="file">T_S07_LostScoreGhost_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S07_LostScoreGhost_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S07_LostScoreGhost_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png" target="_blank">打开原图</a><a href="generated/T_S07_LostScoreGhost_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S08_MetronomeGuard_BC T_S08_MetronomeGuard_BC 敌人">
+ <div class="cardhead"><h2>17 · T_S08_MetronomeGuard_BC</h2><span>敌人</span></div>
+ <p class="file">T_S08_MetronomeGuard_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S08_MetronomeGuard_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S08_MetronomeGuard_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png" target="_blank">打开原图</a><a href="generated/T_S08_MetronomeGuard_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S11_CymbalMoth_BC T_S11_CymbalMoth_BC 敌人">
+ <div class="cardhead"><h2>18 · T_S11_CymbalMoth_BC</h2><span>敌人</span></div>
+ <p class="file">T_S11_CymbalMoth_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S11_CymbalMoth_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S11_CymbalMoth_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png" target="_blank">打开原图</a><a href="generated/T_S11_CymbalMoth_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S14_XylophoneStegosaur_BC T_S14_XylophoneStegosaur_BC 敌人">
+ <div class="cardhead"><h2>19 · T_S14_XylophoneStegosaur_BC</h2><span>敌人</span></div>
+ <p class="file">T_S14_XylophoneStegosaur_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S14_XylophoneStegosaur_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S14_XylophoneStegosaur_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png" target="_blank">打开原图</a><a href="generated/T_S14_XylophoneStegosaur_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S16_MusicBoxBallerina_BC T_S16_MusicBoxBallerina_BC 敌人">
+ <div class="cardhead"><h2>20 · T_S16_MusicBoxBallerina_BC</h2><span>敌人</span></div>
+ <p class="file">T_S16_MusicBoxBallerina_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S16_MusicBoxBallerina_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S16_MusicBoxBallerina_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png" target="_blank">打开原图</a><a href="generated/T_S16_MusicBoxBallerina_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S19_CastanetFish_BC T_S19_CastanetFish_BC 敌人">
+ <div class="cardhead"><h2>21 · T_S19_CastanetFish_BC</h2><span>敌人</span></div>
+ <p class="file">T_S19_CastanetFish_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S19_CastanetFish_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S19_CastanetFish_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png" target="_blank">打开原图</a><a href="generated/T_S19_CastanetFish_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S21_BagpipeBoar_BC T_S21_BagpipeBoar_BC 敌人">
+ <div class="cardhead"><h2>22 · T_S21_BagpipeBoar_BC</h2><span>敌人</span></div>
+ <p class="file">T_S21_BagpipeBoar_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S21_BagpipeBoar_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S21_BagpipeBoar_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png" target="_blank">打开原图</a><a href="generated/T_S21_BagpipeBoar_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S29_NoteTurret_BC T_S29_NoteTurret_BC 敌人">
+ <div class="cardhead"><h2>23 · T_S29_NoteTurret_BC</h2><span>敌人</span></div>
+ <p class="file">T_S29_NoteTurret_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S29_NoteTurret_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S29_NoteTurret_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png" target="_blank">打开原图</a><a href="generated/T_S29_NoteTurret_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="enemies" data-search="T_S29_WanderingConductor_BC T_S29_WanderingConductor_BC 敌人">
+ <div class="cardhead"><h2>24 · T_S29_WanderingConductor_BC</h2><span>敌人</span></div>
+ <p class="file">T_S29_WanderingConductor_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png" alt="原贴图"><figcaption>原贴图 · 2048×2048</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_S29_WanderingConductor_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_S29_WanderingConductor_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png" target="_blank">打开原图</a><a href="generated/T_S29_WanderingConductor_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="devices" data-search="T_SM_MusicFollowSpot_BC T_SM_MusicFollowSpot_BC 装置">
+ <div class="cardhead"><h2>25 · T_SM_MusicFollowSpot_BC</h2><span>装置</span></div>
+ <p class="file">T_SM_MusicFollowSpot_BC</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/T_SM_MusicFollowSpot_BC.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/T_SM_MusicFollowSpot_BC.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png" target="_blank">打开原图</a><a href="generated/T_SM_MusicFollowSpot_BC.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="黄铜 Theater_Brass_BaseColor 剧院场景">
+ <div class="cardhead"><h2>26 · 黄铜</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Brass_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Brass_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Brass_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Brass_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="象牙白墙面 Theater_Ivory_BaseColor 剧院场景">
+ <div class="cardhead"><h2>27 · 象牙白墙面</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Ivory_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Ivory_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Ivory_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Ivory_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="灯罩 Theater_Lamp_BaseColor 剧院场景">
+ <div class="cardhead"><h2>28 · 灯罩</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Lamp_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Lamp_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Lamp_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Lamp_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="深蓝饰面 Theater_Midnight_BaseColor 剧院场景">
+ <div class="cardhead"><h2>29 · 深蓝饰面</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Midnight_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Midnight_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Midnight_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Midnight_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="石材 Theater_Stone_BaseColor 剧院场景">
+ <div class="cardhead"><h2>30 · 石材</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Stone_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Stone_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Stone_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Stone_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="建筑饰边 Theater_Trim_BaseColor 剧院场景">
+ <div class="cardhead"><h2>31 · 建筑饰边</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Trim_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Trim_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Trim_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Trim_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="胡桃木 Theater_Walnut_BaseColor 剧院场景">
+ <div class="cardhead"><h2>32 · 胡桃木</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Walnut_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Walnut_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Walnut_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Walnut_BaseColor.png" target="_blank">打开新图</a></div>
+ </article>
+<article data-group="environment" data-search="酒红饰面 Theater_Wine_BaseColor 剧院场景">
+ <div class="cardhead"><h2>33 · 酒红饰面</h2><span>剧院场景</span></div>
+ <p class="file">Theater_Wine_BaseColor</p><div class="pair">
+ <figure><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png" alt="原贴图"><figcaption>原贴图 · 1024×1024</figcaption></figure>
+ <figure><img loading="lazy" src="generated/Theater_Wine_BaseColor.png" alt="APIMart 新贴图" onerror="this.style.opacity=.1"><figcaption>赛璐璐重绘 · 2048×2048</figcaption></figure></div>
+ <div class="overlay"><img loading="lazy" src="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png" alt="原图底层"><img loading="lazy" class="newlayer" src="generated/Theater_Wine_BaseColor.png" alt="新图叠层"></div>
+ <label class="blend">新图透明度 <input type="range" min="0" max="100" value="50" oninput="this.closest('article').querySelector('.newlayer').style.opacity=this.value/100"></label>
+ <p class="note">入库前需验证 UV / 色板分区 / 平铺接缝。</p><div class="links"><a href="backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png" target="_blank">打开原图</a><a href="generated/Theater_Wine_BaseColor.png" target="_blank">打开新图</a></div>
+ </article></main><footer>数据贴图（法线、ORM、发光等）未重绘。原图校验与任务回执保存在当前目录；原图已备份。正式入库使用原尺寸，并逐像素保留原透明通道，材质与资源 GUID 未变。</footer>
+<script>
+let group='all';function filter(){let q=document.querySelector('#search').value.toLowerCase();document.querySelectorAll('article').forEach(c=>c.hidden=!(group==='all'||c.dataset.group===group)||!c.dataset.search.toLowerCase().includes(q))}
+document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{group=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));filter()});
+document.querySelector('#search').oninput=filter;document.querySelector('#mode').onclick=function(){let on=document.body.classList.toggle('compare');this.textContent=on?'并排对比':'叠加检查';this.classList.toggle('active',on)};
+</script></html>

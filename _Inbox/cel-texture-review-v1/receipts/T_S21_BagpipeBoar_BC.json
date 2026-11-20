@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s21_bagpipeboar_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:39:43+0800",
+  "task_id": "task_01M7W1S5YNQVVBPY7GJ8SM4BHG",
+  "result_url": "https://getapib.org/image/9998204835967659-2f751307-44ba-4601-8836-cb4d8d9c894e-image_task_01M7W1TJS4ZNW3E9BWEM7K2D62_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S21_BagpipeBoar_BC.png",
+  "bytes": 3918399,
+  "sha256": "1913ec642893452f32689718f081fadde64b587d920db5f3a97184f3af49759c"
+}

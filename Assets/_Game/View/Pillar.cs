@@ -12,6 +12,8 @@ namespace S.View
         public int Index;
         public float Hp;
         public float MaxHp;
+        public GameObject IntactVisual;
+        public GameObject BrokenVisual;
 
         public bool Alive => Hp > 0f;
 
@@ -21,7 +23,7 @@ namespace S.View
 
         void Awake()
         {
-            _renderers = GetComponentsInChildren<Renderer>();
+            _renderers = IntactVisual ? IntactVisual.GetComponentsInChildren<Renderer>(true) : GetComponentsInChildren<Renderer>();
             _baseScale = transform.localScale;
         }
 
@@ -64,6 +66,14 @@ namespace S.View
             _broken = true;
             foreach (var col in GetComponentsInChildren<Collider>())
                 col.enabled = false;
+
+            if (IntactVisual && BrokenVisual)
+            {
+                IntactVisual.SetActive(false);
+                BrokenVisual.SetActive(true);
+                foreach (var col in BrokenVisual.GetComponentsInChildren<Collider>()) col.enabled = true;
+                return;
+            }
 
             // 倒塌：压扁 + 变暗，然后移除
             transform.localScale = new Vector3(_baseScale.x * 1.4f, _baseScale.y * 0.12f, _baseScale.z * 1.4f);

@@ -20,6 +20,7 @@ namespace S.EditorTools
 
             var go = new GameObject("S");
             go.AddComponent<S.App.Bootstrap>();
+            STheaterMapBuilder.AttachToScene(scene);
 
             System.IO.Directory.CreateDirectory("Assets/Scenes");
             EditorSceneManager.SaveScene(scene, ScenePath);

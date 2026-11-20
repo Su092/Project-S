@@ -1,0 +1,14 @@
+{
+  "id": "s-score-page-review-20261120",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:22:46+0800",
+  "task_id": "task_01M7VFMT0TGJ2RC16FK6TTSH33",
+  "result_url": "https://getapib.org/image/9998204855000122-dfaa297c-860c-4853-a089-044854460f40-image_img_8a65772b4f1c49e087db7e8cbc86159f_0.png",
+  "width": 2048,
+  "height": 1360,
+  "mode": "RGB",
+  "out": "_Inbox/score-workbench-apimart-review/score-page.png",
+  "bytes": 3708953,
+  "sha256": "3ccb338bdb69c22a8b480af2fc166ff1f8ac69f403cb99fbd48696414edb4808"
+}

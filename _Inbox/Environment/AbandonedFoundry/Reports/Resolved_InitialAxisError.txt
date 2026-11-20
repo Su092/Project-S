@@ -1,0 +1,3 @@
+System.Exception: FBX axis convention mismatch: (-2.00, -0.13, -2.00)
+  at FoundryDelivery.FoundryAssembly.Build () [0x006d3] in E:\S\Assets\FoundryTools\Editor\FoundryAssembly.cs:90 
+  at FoundryDelivery.FoundryAssembly.Poll () [0x0004d] in E:\S\Assets\FoundryTools\Editor\FoundryAssembly.cs:29 

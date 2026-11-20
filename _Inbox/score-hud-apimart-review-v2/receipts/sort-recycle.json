@@ -1,0 +1,14 @@
+{
+  "id": "s-sort-recycle-review-20261120-v2",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:40:41+0800",
+  "task_id": "task_01M7VGNM7TTSVYHP2QG7E200DC",
+  "result_url": "https://getapib.org/image/9998204853936513-7e37d06c-a211-4539-a775-6672ead89d84-image_task_01M7VGP700T1XDV37FEDFCD2SZ_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/score-hud-apimart-review-v2/sort-recycle.png",
+  "bytes": 880969,
+  "sha256": "8777148cf67ccf58035fc4b008d67b2f9c77c5a6cd33f90c304db0bec9114a64"
+}

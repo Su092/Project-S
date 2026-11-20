@@ -77,7 +77,7 @@ namespace S.App
             weapons.Init(data);
             weapons.RefreshGunModel();
 
-            if (SAssets.Model("Modle_Gun_Auto") == null)
+            if (SAssets.Model(weapons.ActiveGunModel) == null)
             {
                 // 回退：方块枪
                 var box = GameObject.CreatePrimitive(PrimitiveType.Cube);

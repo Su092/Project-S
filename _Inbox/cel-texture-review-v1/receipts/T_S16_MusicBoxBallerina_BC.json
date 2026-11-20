@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s16_musicboxballerina_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:39:06+0800",
+  "task_id": "task_01M7W1R2127W59ENC9VMFGHTSH",
+  "result_url": "https://getapib.org/image/9998204836012910-c93124df-fd69-49d9-be84-9465cd77948d-image_img_6a1da416fcd9431e93427018eff9b589_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S16_MusicBoxBallerina_BC.png",
+  "bytes": 2640702,
+  "sha256": "980b6d7c1ce8443679a1a9ae1c06ca8edccc0a775aed83776e05c605a821463b"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "s-upgrade-apimart-v3-staff-five",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-19T17:26:14+0800",
+  "task_id": "task_01M7SJ1M55HX6GFXNSJG17QEVT",
+  "result_url": "https://getapib.org/image/9998204919597354-3635d20f-1948-462c-b930-bb546c04efe6-image_task_01M7SJ2CYET494GQF8ETFKXKWV_0.png",
+  "width": 3072,
+  "height": 1024,
+  "mode": "RGBA",
+  "out": "_Inbox/upgrade-ui-apimart-v3/03b-gold-staff-ornamental-five.png",
+  "bytes": 1302468,
+  "sha256": "84638a3fee0821644b77597e0f665903418020fce72a7fa8a604d8e223cecc3e"
+}

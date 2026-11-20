@@ -1,0 +1,18 @@
+{
+  "id": "s-hud-music-03_combat",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/03_combat.png",
+  "submitted_at": "2026-11-18T15:53:25+0800",
+  "task_id": "task_01M7PTB7FH7KFYSYWT6PSZJPN9",
+  "result_url": "https://getapib.org/image/9998205011554101-bc30f96c-9648-4f5d-a521-bb7cca827192-image_task_01M7PTC3PTA35SANTGN3F1NP5R_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 833212,
+  "sha256": "ee0ff802b021924aae8f213dbaabdd1bea3a04402e44f8b0f7fadde78c9f2168",
+  "completed_at": "2026-11-18T15:54:26+0800"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-02_music_cel",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/02_music_cel.png",
+  "submitted_at": "2026-11-18T15:39:18+0800",
+  "task_id": "task_01M7PSH3643T7HM1BWQ97AS312",
+  "result_url": "https://getapib.org/f/image/1376913782032182-a21a2a92-5670-4502-83ff-95289705eb88-image_06D4ZG4FXRDPPWNH354D9CR47A_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2406294,
+  "sha256": "a0a22422a3b4148f66ddb03e96831dc3620bc970a22b78fe2528a66e7cd317ca",
+  "completed_at": "2026-11-18T15:40:21+0800"
+}

@@ -1,0 +1,81 @@
+{
+  "source_sha256": "d20e6e3c609048c6fd27e9dec82d6cdd576764819377196107c08495bd3d1cb5",
+  "source_size": [
+    2048,
+    2048
+  ],
+  "assets": [
+    {
+      "name": "T_MusicWarningRing",
+      "cell": [
+        0,
+        0
+      ],
+      "alpha_crop": [
+        37,
+        21,
+        998,
+        976
+      ],
+      "size": [
+        961,
+        955
+      ],
+      "flood_then_crop": true
+    },
+    {
+      "name": "T_MusicWarningLane",
+      "cell": [
+        1,
+        0
+      ],
+      "alpha_crop": [
+        378,
+        3,
+        649,
+        1011
+      ],
+      "size": [
+        271,
+        1008
+      ],
+      "flood_then_crop": true
+    },
+    {
+      "name": "T_MusicSpotBeam",
+      "cell": [
+        0,
+        1
+      ],
+      "alpha_crop": [
+        303,
+        16,
+        725,
+        992
+      ],
+      "size": [
+        976,
+        422
+      ],
+      "flood_then_crop": true
+    },
+    {
+      "name": "T_MusicImpact",
+      "cell": [
+        1,
+        1
+      ],
+      "alpha_crop": [
+        178,
+        197,
+        851,
+        833
+      ],
+      "size": [
+        673,
+        636
+      ],
+      "flood_then_crop": true
+    }
+  ]
+}

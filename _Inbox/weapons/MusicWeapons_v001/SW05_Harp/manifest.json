@@ -1,0 +1,909 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SW05_Harp",
+  "gunId": "beam",
+  "revision": "v001",
+  "units": "m",
+  "sourceSpec": "X 0.34 × Y 0.44 × Z 0.12m；框架位于 XY 平面，演奏面朝玩家（-Z），根节点发射方向 +Z。",
+  "restBBoxBlender": [
+    [
+      -0.16200000047683716,
+      0.16099977493286133
+    ],
+    [
+      -0.07999999821186066,
+      0.057499997317790985
+    ],
+    [
+      -0.05999999865889549,
+      0.4269999861717224
+    ]
+  ],
+  "axis": {
+    "BlenderUp": "+Z",
+    "BlenderForward": "-Y",
+    "FBXForward": "-Z",
+    "FBXUp": "Y",
+    "UnityReadback": "measured; see unityReadback"
+  },
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "leafBones": false,
+    "bakeSpaceTransform": false,
+    "onlyDeform": false
+  },
+  "lods": [
+    {
+      "name": "SM_SW05_Harp_All_LOD0",
+      "triangles": 7612,
+      "budget": 14000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW05_Harp_All_LOD1",
+      "triangles": 4946,
+      "budget": 7000,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    },
+    {
+      "name": "SM_SW05_Harp_All_LOD2",
+      "triangles": 2130,
+      "budget": 2500,
+      "degenerate": 0,
+      "loose": 0,
+      "weightsNormalized": true,
+      "UV": true
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "tuning_comb",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.3449999988079071
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_01",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          -0.10499999672174454
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.21638962626457214
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_02",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          -0.07000000029802322
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.20909009873867035
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_03",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          -0.03500000014901161
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.2042127102613449
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_04",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          1.3877787807814457e-17
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.20250000059604645
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_05",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.03500000014901161
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.2042127102613449
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_06",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.07000000029802322
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.20909009873867035
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "string_07",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.10499999672174454
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.01799999736249447
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.21638962626457214
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "strap",
+      "parent": "body",
+      "matrix": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          -0.0430000014603138
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03500000014901161
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_L",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          -0.08500000089406967
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.28600001335144043
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Grip_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.08500000089406967
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.08399999886751175
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.12319999933242798
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Output",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.09600000083446503
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.30799999833106995
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Finger_R",
+      "parent": "body",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.029999999329447746
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.02500000037252903
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.20000000298023224
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Aim",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.09239999949932098
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.28600001335144043
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Retune",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.07199999690055847
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.2639999985694885
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Stow",
+      "parent": "root",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.10999999940395355
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "state": "Idle",
+      "duration": 2,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Idle.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Move",
+      "duration": 1,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Move.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Equip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Equip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Unequip",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Unequip.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireLoop",
+      "duration": 0.3,
+      "loop": true,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_FireLoop.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "FireRecover",
+      "duration": 0.15,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_FireRecover.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    },
+    {
+      "state": "Reload",
+      "duration": 2.0,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Reload.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": [
+        0.18,
+        0.42,
+        0.62,
+        0.82
+      ]
+    },
+    {
+      "state": "Inspect",
+      "duration": 3,
+      "loop": false,
+      "fps": 60,
+      "file": "Animations/AN_SW05_Harp_Inspect.fbx",
+      "rootMotion": false,
+      "normalizedMarkers": []
+    }
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_SW05_Harp_BC.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "sRGB"
+    },
+    {
+      "file": "Textures/T_SW05_Harp_ORM.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    },
+    {
+      "file": "Textures/T_SW05_Harp_E.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorSpace": "linear"
+    }
+  ],
+  "collisionOptional": true,
+  "validationStatus": {
+    "topologyBudgetWeights": "pass",
+    "UnityReadback": "pass",
+    "UVTexelDensity": "degraded",
+    "motionIntersections": "degraded",
+    "FPReview": "degraded",
+    "packedUV": "pass",
+    "FBXRoundTrip": "pass",
+    "rootMotionAndLoopEndpoints": "pass",
+    "referenceArtMatch": "degraded",
+    "dimensionsWithin2Percent": "degraded"
+  },
+  "limitations": [
+    "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+    "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+    "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+    "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+    "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+    "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+    "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+  ],
+  "inputs": [
+    {
+      "path": "Exports/SW05_Harp_Model.fbx",
+      "sha256": "dbf6f7be5555be12eec88bbd45dc97f146aea4ea30307773cd39c97188626c71"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Equip.fbx",
+      "sha256": "2a10d564d6d87f6715e6d5480d89645f51cd221345cf86b9beeb7e0fd6299b76"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_FireLoop.fbx",
+      "sha256": "8e7351df85bca68bc355bf509c200f2a74d310500ba0e7aaa31f7bbce50d7cc7"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_FireRecover.fbx",
+      "sha256": "05980bd9ffb8b88a9c8f297361c0f16a4eb7381f2ac5c9f445b8d8cac7414081"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Idle.fbx",
+      "sha256": "77b28a643669a3ed2f021e3dae0cf5aae7a6f1d7f494e8472dabae189398f034"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Inspect.fbx",
+      "sha256": "cb46eb67c8e969a5f7649f92424085acce7524fc6cf07ba14da6db3b5eb3ee1c"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Move.fbx",
+      "sha256": "b60d3fb271938db0c7746656db1238c42eac1503cfa649970727cb2cdfdeaeb2"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Reload.fbx",
+      "sha256": "7820816975be445f0dc768ce8070b07b45c289c50e336e6520e41fc9f1cc54b3"
+    },
+    {
+      "path": "Animations/AN_SW05_Harp_Unequip.fbx",
+      "sha256": "e0cbaff9408eafc873641b8436325b4ddd79864347e55261c3c23f07789ba5a5"
+    },
+    {
+      "path": "Textures/T_SW05_Harp_BC.png",
+      "sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f"
+    },
+    {
+      "path": "Textures/T_SW05_Harp_E.png",
+      "sha256": "b1708f0611ff391eba53e75d91964c9deb01a7af8bfb35228bdb01cc2ca2e881"
+    },
+    {
+      "path": "Textures/T_SW05_Harp_ORM.png",
+      "sha256": "7c57423de878c5bcfabc2297bbe1ea8b996d2167a817c6cf83ae4d976d55c3b8"
+    },
+    {
+      "path": "Collision/SW05_Harp_Collision.fbx",
+      "sha256": "539021b8e4c1a1c35de9292c29f8234a8d2365e0cda46e6f00a856fa7d961d5c"
+    }
+  ],
+  "videoSegments": [
+    {
+      "state": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0
+    },
+    {
+      "state": "FireLoop",
+      "startSeconds": 2.0,
+      "endSeconds": 2.2666666666666666
+    },
+    {
+      "state": "Reload",
+      "startSeconds": 2.2666666666666666,
+      "endSeconds": 4.266666666666667
+    },
+    {
+      "state": "Inspect",
+      "startSeconds": 4.266666666666667,
+      "endSeconds": 7.266666666666667
+    }
+  ],
+  "unityReadback": {
+    "assetId": "SW05_Harp",
+    "meshes": 3,
+    "triangles": [
+      7612,
+      4946,
+      2130
+    ],
+    "bones": [
+      "SW05_Harp_Model(Clone)",
+      "ARM_SW05_Harp",
+      "root",
+      "body",
+      "Socket_Finger_R",
+      "Socket_Grip_L",
+      "Socket_Grip_R",
+      "Socket_Output",
+      "strap",
+      "string_01",
+      "string_02",
+      "string_03",
+      "string_04",
+      "string_05",
+      "string_06",
+      "string_07",
+      "tuning_comb",
+      "Socket_Aim",
+      "Socket_Retune",
+      "Socket_Stow",
+      "SM_SW05_Harp_All_LOD0",
+      "SM_SW05_Harp_All_LOD1",
+      "SM_SW05_Harp_All_LOD2"
+    ],
+    "bboxMin": {
+      "x": -0.16099977493286133,
+      "y": -0.06008926033973694,
+      "z": -0.057999905198812485
+    },
+    "bboxMax": {
+      "x": 0.1622602641582489,
+      "y": 0.4270232617855072,
+      "z": 0.07999998331069946
+    },
+    "outputForward": {
+      "x": 6.357302595461078e-08,
+      "y": -3.387851383675275e-22,
+      "z": 1.0
+    },
+    "outputUp": {
+      "x": 1.0658141036401503e-14,
+      "y": 1.0,
+      "z": -3.387851383675275e-22
+    },
+    "clips": [
+      {
+        "name": "AN_SW05_Harp_Equip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_FireLoop",
+        "duration": 0.30000001192092896,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_FireRecover",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_Idle",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_Inspect",
+        "duration": 3.000000238418579,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_Move",
+        "duration": 1.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_Reload",
+        "duration": 2.0,
+        "fps": 60.0
+      },
+      {
+        "name": "AN_SW05_Harp_Unequip",
+        "duration": 0.15000000596046448,
+        "fps": 60.0
+      }
+    ],
+    "finiteBounds": true,
+    "clipDurationsMatch": true,
+    "socketAxesMatch": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "s-upgrade-apimart-v8-notes-clean",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-19T17:36:14+0800",
+  "task_id": "task_01M7SJKYDP3CQ4W89P1RX8ARV2",
+  "result_url": "https://getapib.org/image/9998204918997705-131b5278-d6ad-4b57-b95e-5581c9352e54-image_task_01M7SJMPQ4DNC84NAC1A41VGH1_0.png",
+  "width": 2048,
+  "height": 1360,
+  "mode": "RGBA",
+  "out": "_Inbox/upgrade-ui-apimart-v8/02-gold-notes-clean.png",
+  "bytes": 597796,
+  "sha256": "1e9c03e3f2e96a0dbf2bb29f2f40a3696277a53f52dcfcfe0eb710325afd467f"
+}

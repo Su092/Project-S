@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s08_basswave-rgb-revision-20261120-v2",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:47+0800",
+  "task_id": "task_01M7W1QF55HPG9FJQM5NF184DQ",
+  "result_url": "https://getapib.org/image/9998204836036378-44d74be1-35cd-4ba2-9569-c75fc09744c5-image_task_01M7W1RFPZ6R00XXH7WHWRQKVM_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+  "bytes": 1298030,
+  "sha256": "0aad42c88b727d9dacc3d195e020e104148ec8f7ca079d302ecee4b27c880099"
+}

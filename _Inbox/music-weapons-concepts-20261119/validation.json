@@ -1,0 +1,56 @@
+[
+  {
+    "id": "s-music-weapons-20261119-rifle",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/01_violin.png",
+    "decoded": true,
+    "sha256": "8d8bfa98c871b2b691efdb60e2d46364068b27771220f0d90fea2f0ae1a42b55",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-smg",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/02_flute.png",
+    "decoded": true,
+    "sha256": "0cab9268d194f5b157079158a03415c91bf5de940433779c4a916b6cbe0101d9",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-shotgun",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/03_frame_drum.png",
+    "decoded": true,
+    "sha256": "dc5791b0765434fef1a3b58ff49a83d5814520f76d504b74098e3c8d08a5a7e1",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-sniper",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/04_cello.png",
+    "decoded": true,
+    "sha256": "50a339f8c4af54fb24da5b469546e938300420f04d20b1891d07a8ff77d5ab41",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-beam",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/05_harp.png",
+    "decoded": true,
+    "sha256": "0d80b56e4108cd7b5eed5c32faa41e9fb0bd01d79ba47624901ffea77fe603db",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-launcher",
+    "file": "_Inbox/music-weapons-concepts-20261119/images/06_french_horn.png",
+    "decoded": true,
+    "sha256": "e65520ea28ece831d42c296e2983b6e49240216fe6206cba8407ab7fc08abe5f",
+    "width": 1536,
+    "height": 1024,
+    "visually_reviewed": true
+  }
+]

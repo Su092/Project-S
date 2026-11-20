@@ -42,7 +42,6 @@ namespace S.View
         float _vy;
         float _sprintLeft;
         float _sprintCd;
-        bool _grounded;
 
         // 供 HUD/Audio 读取
         public bool IsSprinting => _sprintLeft > 0f;
@@ -52,6 +51,7 @@ namespace S.View
         void Awake()
         {
             _cc = GetComponent<CharacterController>();
+            WorldPhysics.ConfigureActor(gameObject);
             if (Cam == null) Cam = GetComponentInChildren<Camera>();
             if (CameraPivot == null) CameraPivot = Cam != null ? Cam.transform.parent : transform;
         }
@@ -73,7 +73,7 @@ namespace S.View
         {
             if (InputLocked) return false;
             var root = GameRoot.Instance;
-            if (root != null && (root.Paused || root.InventoryOpen)) return false;
+            if (root != null && (root.Paused || root.InventoryOpen || root.HudPointerHeld)) return false;
             return true;
         }
 
@@ -101,7 +101,8 @@ namespace S.View
             if (kb == null || mouse == null || Cam == null) return;
 
             // ---- 视角 ----
-            Vector2 look = mouse.delta.ReadValue() * MouseSensitivity;
+            Vector2 look = GameRoot.Instance != null && GameRoot.Instance.HudPointerHeld
+                ? Vector2.zero : mouse.delta.ReadValue() * MouseSensitivity;
             transform.Rotate(0f, look.x, 0f, Space.Self);
             _pitch = Mathf.Clamp(_pitch - look.y, -88f, 88f);
             CameraPivot.localEulerAngles = new Vector3(_pitch, 0f, 0f);
@@ -113,28 +114,8 @@ namespace S.View
             Vector3 dir = transform.right * x + transform.forward * z;
             if (dir.sqrMagnitude > 1f) dir.Normalize();
 
-            // 冲刺
-            bool wantSprint = kb.leftShiftKey.isPressed && z > 0.1f;
-            if (wantSprint && _sprintCd <= 0f && _sprintLeft <= 0f && _grounded)
-            {
-                _sprintLeft = SprintTime;
-                _sprintCd = SprintCooldown + SprintTime;
-            }
-
-            float speed = _sprintLeft > 0f ? SprintSpeed : WalkSpeed;
-            _cc.Move(dir * speed * dt);
-
-            // ---- 跳跃与重力 ----
-            _grounded = _cc.isGrounded;
-            if (_grounded && _vy < 0f) _vy = -2f;
-
-            if (_grounded && kb.spaceKey.wasPressedThisFrame)
-                _vy = Mathf.Sqrt(2f * Gravity * JumpHeight);
-
-            _vy -= Gravity * dt;
-            _cc.Move(Vector3.up * _vy * dt);
-
-            if (_grounded && _vy < 0f) _vy = -2f;
+            MovePlayer(dir, kb.leftShiftKey.isPressed && z > 0.1f,
+                kb.spaceKey.wasPressedThisFrame, dt);
         }
 
         /// <summary>由 Bootstrap 用 Player.tsv 的数值初始化。</summary>
@@ -162,27 +143,32 @@ namespace S.View
             CameraPivot.localEulerAngles = new Vector3(_pitch, 0f, 0f);
             AiLookDelta = Vector2.zero;
 
-            if (AiWantsSprint && _sprintCd <= 0f && _sprintLeft <= 0f && _grounded)
+            var move = AiMove;
+            move.y = 0f;
+            if (move.sqrMagnitude > 1f) move.Normalize();
+            MovePlayer(move, AiWantsSprint, AiWantsJump, dt);
+            AiWantsJump = false;
+        }
+
+        // isGrounded describes the preceding Move. Do not overwrite it with a
+        // horizontal/zero-distance Move before checking jump: standing still
+        // can lose the Below flag even though the previous gravity step landed.
+        void MovePlayer(Vector3 direction, bool wantSprint, bool wantJump, float dt)
+        {
+            bool grounded = _cc.isGrounded;
+            if (grounded && _vy < 0f) _vy = -2f;
+            if (wantSprint && _sprintCd <= 0f && _sprintLeft <= 0f && grounded)
             {
                 _sprintLeft = SprintTime;
                 _sprintCd = SprintCooldown + SprintTime;
             }
-
-            var move = AiMove;
-            move.y = 0f;
-            if (move.sqrMagnitude > 1f) move.Normalize();
-
-            float speed = _sprintLeft > 0f ? SprintSpeed : WalkSpeed;
-            _cc.Move(move * speed * dt);
-
-            _grounded = _cc.isGrounded;
-            if (_grounded && _vy < 0f) _vy = -2f;
-            if (_grounded && AiWantsJump) _vy = Mathf.Sqrt(2f * Gravity * JumpHeight);
-            AiWantsJump = false;
+            if (grounded && wantJump) _vy = Mathf.Sqrt(2f * Gravity * JumpHeight);
 
             _vy -= Gravity * dt;
-            _cc.Move(Vector3.up * _vy * dt);
-            if (_grounded && _vy < 0f) _vy = -2f;
+            float speed = _sprintLeft > 0f ? SprintSpeed : WalkSpeed;
+            var flags = _cc.Move((direction * speed + Vector3.up * _vy) * dt);
+            if ((flags & CollisionFlags.Below) != 0 && _vy < 0f) _vy = -2f;
+            if ((flags & CollisionFlags.Above) != 0 && _vy > 0f) _vy = 0f;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace S.View
             if (_life <= 0f) { Destroy(gameObject); return; }
 
             float step = SpeedOf * dt;
-            if (Physics.SphereCast(transform.position, 0.14f, _dir, out var hit, step, ~0, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(transform.position, 0.14f, _dir, out var hit, step, WorldPhysics.ShotMask, QueryTriggerInteraction.Ignore))
             {
                 var root = GameRoot.Instance;
                 if (root != null && root.PlayerTransform != null)

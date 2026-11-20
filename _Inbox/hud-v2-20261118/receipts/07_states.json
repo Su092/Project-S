@@ -1,0 +1,30 @@
+{
+  "id": "s-hud-v2-20261118-07_states",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-v2-20261118/raw/07_states.png",
+  "submitted_at": "2026-11-18T14:30:08+0800",
+  "connection_attempts": [
+    {
+      "status": "direct_tls_reset",
+      "error": "ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。",
+      "note": "Direct pinned route reproduced TLS handshake reset before HTTP. Existing Windows proxy TLS verified; retry using proxy plus pinned IP and verified SNI."
+    },
+    {
+      "status": "local_tunnel_setup_error",
+      "error": "RuntimeError: Can't set up tunnel for established connection",
+      "note": "Local Python exception before HTTP or TLS; no generation submitted."
+    }
+  ],
+  "task_id": "task_01M7PNJDRREW4H7VWQS03QDZYH",
+  "result_url": "https://getapib.org/image/9998205016559763-b8ad3370-67fa-44d2-9e21-5a992d24300b-image_task_01M7PNKBANE123ENGDVCMAE24N_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 768126,
+  "sha256": "b9d254f212b6d35f83f24894773e3b9e81f2b93bc30583f377fa83a60f12f46c",
+  "completed_at": "2026-11-18T14:30:51+0800"
+}

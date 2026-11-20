@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s07_lostscoreghost_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:14+0800",
+  "task_id": "task_01M7W1PETRM35NT25T31NHTPSS",
+  "result_url": "https://getapib.org/image/9998204836068948-7863c909-55fc-44e1-9266-70ccf9314c7c-image_task_01M7W1QFVAXSFDA6JNYBZZR8YE_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S07_LostScoreGhost_BC.png",
+  "bytes": 2229514,
+  "sha256": "a74e75f99ae6654427ba77e77ae6817577e2d2648ce5c442a780428c024c4db8"
+}

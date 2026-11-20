@@ -1,0 +1,18 @@
+{
+  "id": "s-hud-music-07_states",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/07_states.png",
+  "submitted_at": "2026-11-18T15:53:40+0800",
+  "task_id": "task_01M7PTBMD7KQD0KGSZ0314R07S",
+  "result_url": "https://getapib.org/image/9998205011542772-b1a537bb-a815-44b2-80fe-c8cf0ea61f42-image_task_01M7PTCEPVGBSW1QMX9TV50291_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 1060382,
+  "sha256": "abdd8159fbecb76757f5b1c4ea7bfa4054c98fdf3a8bcf2eec110fdf083208ed",
+  "completed_at": "2026-11-18T15:54:28+0800"
+}

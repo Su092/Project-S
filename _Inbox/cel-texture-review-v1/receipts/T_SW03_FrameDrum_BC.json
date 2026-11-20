@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_sw03_framedrum_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:34:05+0800",
+  "task_id": "task_01M7W1EX8KF6N9PYNMDHF23ER4",
+  "result_url": "https://getapib.org/image/9998204836306511-7f652ccf-04d1-46a6-bf09-116bca973dc8-image_task_01M7W1G7KH949EN4GYG7E5877Q_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_SW03_FrameDrum_BC.png",
+  "bytes": 2263157,
+  "sha256": "c764cbcc65eca61b8b8f5adbe771efb012653ca0b35469c4d82a337c32a89be8"
+}

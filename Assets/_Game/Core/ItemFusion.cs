@@ -6,14 +6,14 @@ namespace S.Core
     /// <summary>同种同级二合一。事务只消费来源，成品保留在目标位置，不需要额外背包空间。</summary>
     public static class ItemFusion
     {
-        public const int MaxLevel = 5;
+        public const int MaxLevel = 3;
         public static bool CanMerge(ChainItem a, ChainItem b, out string reason)
         {
             reason = null;
             if (a == null || b == null || ReferenceEquals(a, b)) reason = "请选择两个不同的配件";
             else if (a.Id != b.Id || a.IsBullet != b.IsBullet) reason = "仅相同种类的配件可以合成";
             else if (a.Level != b.Level) reason = "需要两个同等级配件";
-            else if (a.Level >= MaxLevel) reason = "已达到最高等级 Lv.5";
+            else if (a.Level >= MaxLevel) reason = $"已达到最高等级 Lv.{MaxLevel}";
             return reason == null;
         }
         public static ChainItem Preview(ChainItem source, ChainItem target) =>

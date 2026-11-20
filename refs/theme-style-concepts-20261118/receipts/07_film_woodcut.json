@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-07_film_woodcut",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/07_film_woodcut.png",
+  "submitted_at": "2026-11-18T15:41:22+0800",
+  "task_id": "task_01M7PSMW55R1QP7E883PN8VACZ",
+  "result_url": "https://getapib.org/f/image/4445661322518920-b39664ad-4f8c-4c37-bd66-cfe97305494a-image_09KSVWJWJ2MDQ3ZZ18NVRX1QQ4_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2687349,
+  "sha256": "fff52c49a4e07d0fd19bf136a1cd87aad2526c116298096a68c55640bd64a2ec",
+  "completed_at": "2026-11-18T15:42:14+0800"
+}

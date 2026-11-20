@@ -1,0 +1,5698 @@
+{
+  "assets": [
+    {
+      "schemaVersion": 1,
+      "assetId": "SW01_Violin",
+      "gunId": "rifle",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "琴体 X 0.24 × Y 0.10 × Z 0.60m；独立弓长 0.65m、宽 0.025m；琴颈沿 +Z、演奏面朝 +Y。",
+      "restBBoxBlender": [
+        [
+          -0.3252868056297302,
+          0.3252868056297302
+        ],
+        [
+          -0.5999999642372131,
+          0.00299999862909317
+        ],
+        [
+          -0.05250000208616257,
+          0.08299999684095383
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW01_Violin_All_LOD0",
+          "triangles": 8368,
+          "budget": 12000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW01_Violin_All_LOD1",
+          "triangles": 5438,
+          "budget": 6000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW01_Violin_All_LOD2",
+          "triangles": 2342,
+          "budget": 2500,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_peg",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.01679999940097332
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.5099999904632568
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bow",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.27300000190734863
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.1679999977350235
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.06000000238418579
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "bow",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.06000000238418579
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.1679999977350235
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.07000000029802322
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "score_cartridge",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.06239999830722809
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.035999998450279236
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.05999999865889549
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.38999998569488525
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.41999998688697815
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.07999999821186066
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.38999998569488525
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.07699999958276749
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.36000001430511475
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.06000000238418579
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.15000000596046448
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireLoop",
+          "duration": 0.7,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_FireLoop.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 1.5,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW01_Violin_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW01_Violin_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW01_Violin_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW01_Violin_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW01_Violin_Model.fbx",
+          "sha256": "0b0f5bdd34542d5362e0d645b41577bfcd61a919e3ce1f5bc387b17b817ac2f6"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Equip.fbx",
+          "sha256": "e5bfa86d9b77941fd5fec0f91399bde6479dbe92cd51bd7aa0178eba4de8916e"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_FireLoop.fbx",
+          "sha256": "dda8fe68bf4370b5b10f351de58dd46b4dc096cb4a8314c1dc0b288d5a6ef5a4"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_FireRecover.fbx",
+          "sha256": "207a4ce44de829487aa2fcafa2ca627562c4155435037e1b171ac3f9f95c7464"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Idle.fbx",
+          "sha256": "173bb1651c795d57f992f39128c07f74b76c475c1843b33452e86ab31cab4434"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Inspect.fbx",
+          "sha256": "8750625137d4ccc9da07213d6228675b3b80fd0f43861cfa8716c9aebb5cbc8d"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Move.fbx",
+          "sha256": "4e2621cd7e2ff104e1722cf8dee8ac97ca9d4962f6df86b8ab876ea919a0abe3"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Reload.fbx",
+          "sha256": "f9bccf03cd2a32c0418465cf8109d52f16891925d834e6a1a7fed0acf7d15461"
+        },
+        {
+          "path": "Animations/AN_SW01_Violin_Unequip.fbx",
+          "sha256": "56c3e8bd68f9c40938dc907039e961bce974f832f0e57c91afe4cc0f1cdf2d8a"
+        },
+        {
+          "path": "Textures/T_SW01_Violin_BC.png",
+          "sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943"
+        },
+        {
+          "path": "Textures/T_SW01_Violin_E.png",
+          "sha256": "39e8c3f3269ee48865ca1439b4851d5f9db92965b2e861752d2f4505f4384162"
+        },
+        {
+          "path": "Textures/T_SW01_Violin_ORM.png",
+          "sha256": "7595a73fb21b6363c5e01a34886a8ade65f76d3f687cd162ab6b5f2836997617"
+        },
+        {
+          "path": "Collision/SW01_Violin_Collision.fbx",
+          "sha256": "a185de5276e7448752256167fbc6f05892add74819cbbdea21230d8de6eb75a2"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "FireLoop",
+          "startSeconds": 2.0,
+          "endSeconds": 2.6666666666666665
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.6666666666666665,
+          "endSeconds": 4.133333333333334
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 4.133333333333334,
+          "endSeconds": 7.133333333333334
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW01_Violin",
+        "meshes": 3,
+        "triangles": [
+          8368,
+          5438,
+          2342
+        ],
+        "bones": [
+          "SW01_Violin_Model(Clone)",
+          "ARM_SW01_Violin",
+          "root",
+          "body",
+          "bow",
+          "Socket_Grip_R",
+          "score_cartridge",
+          "Socket_Grip_L",
+          "Socket_Output",
+          "tuning_peg",
+          "Socket_Aim",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW01_Violin_All_LOD0",
+          "SM_SW01_Violin_All_LOD1",
+          "SM_SW01_Violin_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.3252868056297302,
+          "y": -0.052556462585926056,
+          "z": -0.0030510127544403076
+        },
+        "bboxMax": {
+          "x": 0.3252868056297302,
+          "y": 0.08312859386205673,
+          "z": 0.6000189781188965
+        },
+        "outputForward": {
+          "x": 8.74227694680485e-08,
+          "y": 1.1920928244535389e-07,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 5.447336646428186e-15,
+          "y": 1.0,
+          "z": -1.1920928244535389e-07
+        },
+        "clips": [
+          {
+            "name": "AN_SW01_Violin_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_FireLoop",
+            "duration": 0.7000000476837158,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_Reload",
+            "duration": 1.5000001192092896,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW01_Violin_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "assetId": "SW02_Kalimba",
+      "gunId": "smg",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "X 0.25 × Y 0.055 × Z 0.19m，不含自由垂落腕带；演奏面朝 +Y，音舌自由端靠玩家（-Z）。",
+      "restBBoxBlender": [
+        [
+          -0.125,
+          0.125
+        ],
+        [
+          -0.1899999976158142,
+          0.09000000357627869
+        ],
+        [
+          -0.03700000047683716,
+          0.05450000241398811
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW02_Kalimba_All_LOD0",
+          "triangles": 5448,
+          "budget": 10000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW02_Kalimba_All_LOD1",
+          "triangles": 3540,
+          "budget": 5000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW02_Kalimba_All_LOD2",
+          "triangles": 1524,
+          "budget": 2000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.014999999664723873
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.014999999664723873
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_01",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.09440000355243683
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_02",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.08259999752044678
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_03",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.07079999893903732
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_04",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.05900000035762787
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_05",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.047200001776218414
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_06",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.03539999946951866
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_07",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.023600000888109207
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_08",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.011800000444054604
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_09",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_10",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.011800000444054604
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_11",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.023600000888109207
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_12",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.03539999946951866
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_13",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.047200001776218414
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_14",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.05900000035762787
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_15",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.07079999893903732
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_16",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.08259999752044678
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tine_17",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.09440000355243683
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15399999916553497
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.03200000524520874
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_cam",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.15600000321865082
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.046000003814697266
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.0625
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.12349999696016312
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0625
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.053199999034404755
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.03850000351667404
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.13300000131130219
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.04399999976158142
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Thumb_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.054999999701976776
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.07000000029802322
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.03500000387430191
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Thumb_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.054999999701976776
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.07000000029802322
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.03500000387430191
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.12349999696016312
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.04235000163316727
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.11400000005960464
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.032999999821186066
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.04749999940395355
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireLoop",
+          "duration": 0.3,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_FireLoop.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 1.7,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW02_Kalimba_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW02_Kalimba_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW02_Kalimba_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW02_Kalimba_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW02_Kalimba_Model.fbx",
+          "sha256": "99503ad8dde1e4efab22cab5b40b918501c40c4833597d62ed2857454a5fb429"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Equip.fbx",
+          "sha256": "2599c290dbeb0504c379d28c26a11b1254ea104b62927b5bbe8eed1aecd1883f"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_FireLoop.fbx",
+          "sha256": "54a9d8be83e6fd211e811a1c14d06ad60ba793fd8d9b77338b013659e8651026"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_FireRecover.fbx",
+          "sha256": "f67aa5356b2db7756469a7735123666377f29f27124c087bce4b22d58af1622c"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Idle.fbx",
+          "sha256": "db694c2633eb3c6b2ea8b8ca32a02052a7e99d8f39ba3c47990ce3d6b7c02c0c"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Inspect.fbx",
+          "sha256": "ac715fef8d5a75b010f42767428311d1da6ea98a2da156ac71cec83ea0f0ecce"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Move.fbx",
+          "sha256": "6a97f075c17bf37832d5e52a71f7a1b94696dc0ea01f7669f42a6d7e0e193c86"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Reload.fbx",
+          "sha256": "127a47efd7f02662372734c4041bed90fe9096b09e96bd91c103de62a949b709"
+        },
+        {
+          "path": "Animations/AN_SW02_Kalimba_Unequip.fbx",
+          "sha256": "393580740b34e5bec0b2108fd903e2d40b498c39efc41623d2bf2045c88719bb"
+        },
+        {
+          "path": "Textures/T_SW02_Kalimba_BC.png",
+          "sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7"
+        },
+        {
+          "path": "Textures/T_SW02_Kalimba_E.png",
+          "sha256": "b26ce9c02424849ea5390ba556082ca038de53aa23a6e0472ff900240ded5854"
+        },
+        {
+          "path": "Textures/T_SW02_Kalimba_ORM.png",
+          "sha256": "a48289c4f21d8dbc5ba37a55972ddbecd9432023cd0ec313706e2650d7f1947a"
+        },
+        {
+          "path": "Collision/SW02_Kalimba_Collision.fbx",
+          "sha256": "b0d70163141b695d01ad04f58607d4bb25d178dac4073640424325c6d1690eb5"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "FireLoop",
+          "startSeconds": 2.0,
+          "endSeconds": 2.2666666666666666
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.2666666666666666,
+          "endSeconds": 4.0
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 4.0,
+          "endSeconds": 7.0
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW02_Kalimba",
+        "meshes": 3,
+        "triangles": [
+          5448,
+          3540,
+          1524
+        ],
+        "bones": [
+          "SW02_Kalimba_Model(Clone)",
+          "ARM_SW02_Kalimba",
+          "root",
+          "body",
+          "Socket_Grip_L",
+          "Socket_Grip_R",
+          "Socket_Output",
+          "Socket_Thumb_L",
+          "Socket_Thumb_R",
+          "strap_L",
+          "strap_R",
+          "tine_01",
+          "tine_02",
+          "tine_03",
+          "tine_04",
+          "tine_05",
+          "tine_06",
+          "tine_07",
+          "tine_08",
+          "tine_09",
+          "tine_10",
+          "tine_11",
+          "tine_12",
+          "tine_13",
+          "tine_14",
+          "tine_15",
+          "tine_16",
+          "tine_17",
+          "tuning_cam",
+          "Socket_Aim",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW02_Kalimba_All_LOD0",
+          "SM_SW02_Kalimba_All_LOD1",
+          "SM_SW02_Kalimba_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.125,
+          "y": -0.0370250828564167,
+          "z": -0.09007494896650314
+        },
+        "bboxMax": {
+          "x": 0.125,
+          "y": 0.05450000986456871,
+          "z": 0.18999996781349182
+        },
+        "outputForward": {
+          "x": 8.74227694680485e-08,
+          "y": 1.1920928244535389e-07,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 5.447336646428186e-15,
+          "y": 1.0,
+          "z": -1.1920928244535389e-07
+        },
+        "clips": [
+          {
+            "name": "AN_SW02_Kalimba_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_FireLoop",
+            "duration": 0.30000001192092896,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_Reload",
+            "duration": 1.7000000476837158,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW02_Kalimba_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "assetId": "SW03_FrameDrum",
+      "gunId": "shotgun",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "鼓面直径 0.34m，鼓圈厚 0.085m，演奏面朝 +Y；背面握柄可向 -Y 额外伸出 0.055m。",
+      "restBBoxBlender": [
+        [
+          -0.17000000178813934,
+          0.1826031655073166
+        ],
+        [
+          -0.3400000035762787,
+          0.0
+        ],
+        [
+          -0.12200000137090683,
+          0.0494999997317791
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW03_FrameDrum_All_LOD0",
+          "triangles": 9148,
+          "budget": 10000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW03_FrameDrum_All_LOD1",
+          "triangles": 4848,
+          "budget": 5000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW03_FrameDrum_All_LOD2",
+          "triangles": 1746,
+          "budget": 1800,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "membrane",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.17000000178813934
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.039000004529953
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.27000001072883606
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.08500000089406967
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_lever",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.14000000059604645
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.2800000011920929
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.009999999776482582
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.08500000089406967
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.22100000083446503
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.08500000089406967
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.09520000219345093
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.05950000137090683
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.23800000548362732
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.06800000369548798
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Palm_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.11999999731779099
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.04100000113248825
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.22100000083446503
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.06544999778270721
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.20399999618530273
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.050999999046325684
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.08500000089406967
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Fire",
+          "duration": 0.6,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Fire.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 1.9,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW03_FrameDrum_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW03_FrameDrum_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW03_FrameDrum_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW03_FrameDrum_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW03_FrameDrum_Model.fbx",
+          "sha256": "221865a0d1266d7d62c604971b276d43a6d510bb15a7681dc0854efe0530b526"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Equip.fbx",
+          "sha256": "11078337657f644b0efeff750405918a1e3a29f5f90f37a1f117750c1956ccc4"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Fire.fbx",
+          "sha256": "454d10a9cb5ceff991ea162930e64a025aedc5f5d379414208b9a5c902123ff5"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_FireRecover.fbx",
+          "sha256": "8426f6fc9e7473cd9e42732c0cad813556206105ad042af1ead45b61d57688f7"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Idle.fbx",
+          "sha256": "0d46161aa8657cf9fe34d56b6f10e516cab866159241e053ae89f2b62cd2c97b"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Inspect.fbx",
+          "sha256": "57be206b5456eb14413422aa8dc35b07abfce97935d365b213f8ccfa84799316"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Move.fbx",
+          "sha256": "c6f17332814407dbb70ff8c55b6bd682e8db2c17d4dd69ce0c2e93f2aa569264"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Reload.fbx",
+          "sha256": "c5a9dedc99b2328484170a9b189cd8e3e328d23bc8e37558984ddedfacbad659"
+        },
+        {
+          "path": "Animations/AN_SW03_FrameDrum_Unequip.fbx",
+          "sha256": "bce4af1cfa2c23238cd284115d440844bd272cf6834736ac02ed50b8d8df3883"
+        },
+        {
+          "path": "Textures/T_SW03_FrameDrum_BC.png",
+          "sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36"
+        },
+        {
+          "path": "Textures/T_SW03_FrameDrum_E.png",
+          "sha256": "3732e44570b951b4dd54dd7c303449f213994f1512b98342dfdfb7b11802444b"
+        },
+        {
+          "path": "Textures/T_SW03_FrameDrum_ORM.png",
+          "sha256": "9edb83e460830d3d0104aede473622c6305d3478ea7d6c0fe52067d170d7a854"
+        },
+        {
+          "path": "Collision/SW03_FrameDrum_Collision.fbx",
+          "sha256": "2108d84dcbabaa82d578e0965953939bfd829c3bc7b8ea18cf250c66ba6bf8ba"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "Fire",
+          "startSeconds": 2.0,
+          "endSeconds": 2.6
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.6,
+          "endSeconds": 4.466666666666667
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 4.466666666666667,
+          "endSeconds": 7.466666666666667
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW03_FrameDrum",
+        "meshes": 3,
+        "triangles": [
+          9148,
+          4848,
+          1746
+        ],
+        "bones": [
+          "SW03_FrameDrum_Model(Clone)",
+          "ARM_SW03_FrameDrum",
+          "root",
+          "body",
+          "membrane",
+          "Socket_Grip_L",
+          "Socket_Grip_R",
+          "Socket_Output",
+          "Socket_Palm_R",
+          "strap",
+          "tuning_lever",
+          "Socket_Aim",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW03_FrameDrum_All_LOD0",
+          "SM_SW03_FrameDrum_All_LOD1",
+          "SM_SW03_FrameDrum_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.1826031655073166,
+          "y": -0.12229455262422562,
+          "z": 0.0
+        },
+        "bboxMax": {
+          "x": 0.17000003159046173,
+          "y": 0.04950007051229477,
+          "z": 0.3399999141693115
+        },
+        "outputForward": {
+          "x": 8.74227694680485e-08,
+          "y": 1.1920928244535389e-07,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 5.447336646428186e-15,
+          "y": 1.0,
+          "z": -1.1920928244535389e-07
+        },
+        "clips": [
+          {
+            "name": "AN_SW03_FrameDrum_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Fire",
+            "duration": 0.6000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Reload",
+            "duration": 1.9000000953674316,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW03_FrameDrum_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "assetId": "SW04_Cello",
+      "gunId": "sniper",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "便携琴体 X 0.36 × Y 0.18 × Z 0.92m；弓长 0.72m；尾针收起；琴颈沿 +Z、演奏面朝 +Y。",
+      "restBBoxBlender": [
+        [
+          -0.36025917530059814,
+          0.36025917530059814
+        ],
+        [
+          -0.9200000166893005,
+          0.0029948267620056868
+        ],
+        [
+          -0.13699999451637268,
+          0.1785999983549118
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW04_Cello_All_LOD0",
+          "triangles": 9528,
+          "budget": 16000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW04_Cello_All_LOD1",
+          "triangles": 6192,
+          "budget": 8000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW04_Cello_All_LOD2",
+          "triangles": 2666,
+          "budget": 3000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_peg",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.025200000032782555
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.7820000052452087
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bow",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.30239999294281006
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.25760000944137573
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.1080000028014183
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "bow",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.09000000357627869
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.25760000944137573
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.12600000202655792
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "aim_ring",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.5795999765396118
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.11700000613927841
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "endpin",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.014999999664723873
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.019999999552965164
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.1080000028014183
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.4415999948978424
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.10000000149011612
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.09000000357627869
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.5979999899864197
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.6439999938011169
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.14399999380111694
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.5979999899864197
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.13860000669956207
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.5519999861717224
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.1080000028014183
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              -0.23000000417232513
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Fire",
+          "duration": 0.85,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Fire.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 2.2,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "AimIn",
+          "duration": 0.2,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_AimIn.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "AimIdle",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_AimIdle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "AimOut",
+          "duration": 0.2,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW04_Cello_AimOut.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW04_Cello_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW04_Cello_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW04_Cello_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW04_Cello_Model.fbx",
+          "sha256": "bf097fda918741a901245e78973abc4a1bdb5b8d69f0ba565fb1a563592ce698"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_AimIdle.fbx",
+          "sha256": "e9614486c0e95b93347d67f65efadc3c2c6a42b5dccfa1979fe917a2148107ab"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_AimIn.fbx",
+          "sha256": "dcdfbf38bca99dec44075c301007f63c02a184605a035dd94c35b38b106d0195"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_AimOut.fbx",
+          "sha256": "c2781ec663b5be9864b00579536514bae9e8937616e26fd8fa6cb316fb704f86"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Equip.fbx",
+          "sha256": "4153969b9d84339fc9da4891df9189dc7d08383d3a9851df7bbfbf06933296a5"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Fire.fbx",
+          "sha256": "312ac1ac1acf0445ad93f1f45f112bb18427805c8ca1fa1b41a02290617f0b88"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_FireRecover.fbx",
+          "sha256": "a3b3114478f96e2e6d59ee9820c0072bae5a8480be6d87ce5d2eec4699a61349"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Idle.fbx",
+          "sha256": "7bf47d3d04a004623bd77bc6c6aa3d602fdbd9be34f41219c9a50c4e4dfcabeb"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Inspect.fbx",
+          "sha256": "c3a501c22e89275637b0e124c4ae7be7c3716324f734eadf6245adbd9153baae"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Move.fbx",
+          "sha256": "ce088bae7e8d234a7c1725501fe74945bb74c862238aeb13800953d2e151535b"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Reload.fbx",
+          "sha256": "f270c42e8b60a28aa160b324571f83444c6381507237f21162e4787ab2394124"
+        },
+        {
+          "path": "Animations/AN_SW04_Cello_Unequip.fbx",
+          "sha256": "378dd56a3aeb40fba1101953626119eb21b12cb806e1e9ebca3142718b1d2ffe"
+        },
+        {
+          "path": "Textures/T_SW04_Cello_BC.png",
+          "sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9"
+        },
+        {
+          "path": "Textures/T_SW04_Cello_E.png",
+          "sha256": "eeb1df170ce43268aa4fe2978b4c27e5fdf7aecc423186c9062e3cc95e6b8aeb"
+        },
+        {
+          "path": "Textures/T_SW04_Cello_ORM.png",
+          "sha256": "fa5800bc40687e464a3b9f76879e064ce45b9fba5a88fd45abbffadad1884f72"
+        },
+        {
+          "path": "Collision/SW04_Cello_Collision.fbx",
+          "sha256": "d2c0a4052620d24894b840ed1eea44931abd33a9d5b9d5e45e371897100e4e6e"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "Fire",
+          "startSeconds": 2.0,
+          "endSeconds": 2.8666666666666667
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.8666666666666667,
+          "endSeconds": 5.066666666666666
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 5.066666666666666,
+          "endSeconds": 8.066666666666666
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW04_Cello",
+        "meshes": 3,
+        "triangles": [
+          9528,
+          6192,
+          2666
+        ],
+        "bones": [
+          "SW04_Cello_Model(Clone)",
+          "ARM_SW04_Cello",
+          "root",
+          "body",
+          "aim_ring",
+          "bow",
+          "Socket_Grip_R",
+          "endpin",
+          "Socket_Grip_L",
+          "Socket_Output",
+          "strap",
+          "tuning_peg",
+          "Socket_Aim",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW04_Cello_All_LOD0",
+          "SM_SW04_Cello_All_LOD1",
+          "SM_SW04_Cello_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.36025917530059814,
+          "y": -0.13729438185691833,
+          "z": -0.002994835376739502
+        },
+        "bboxMax": {
+          "x": 0.36025917530059814,
+          "y": 0.17860010266304016,
+          "z": 0.9204123616218567
+        },
+        "outputForward": {
+          "x": 8.74227694680485e-08,
+          "y": 1.1920928244535389e-07,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 5.447336646428186e-15,
+          "y": 1.0,
+          "z": -1.1920928244535389e-07
+        },
+        "clips": [
+          {
+            "name": "AN_SW04_Cello_AimIdle",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_AimIn",
+            "duration": 0.20000001788139343,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_AimOut",
+            "duration": 0.20000001788139343,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Fire",
+            "duration": 0.8500000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Reload",
+            "duration": 2.200000047683716,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW04_Cello_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "assetId": "SW05_Harp",
+      "gunId": "beam",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "X 0.34 × Y 0.44 × Z 0.12m；框架位于 XY 平面，演奏面朝玩家（-Z），根节点发射方向 +Z。",
+      "restBBoxBlender": [
+        [
+          -0.16200000047683716,
+          0.16099977493286133
+        ],
+        [
+          -0.07999999821186066,
+          0.057499997317790985
+        ],
+        [
+          -0.05999999865889549,
+          0.4269999861717224
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW05_Harp_All_LOD0",
+          "triangles": 7612,
+          "budget": 14000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW05_Harp_All_LOD1",
+          "triangles": 4946,
+          "budget": 7000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW05_Harp_All_LOD2",
+          "triangles": 2130,
+          "budget": 2500,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_comb",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.3449999988079071
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_01",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.10499999672174454
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.21638962626457214
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_02",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.07000000029802322
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.20909009873867035
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_03",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.03500000014901161
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.2042127102613449
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_04",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              1.3877787807814457e-17
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.20250000059604645
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_05",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.03500000014901161
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.2042127102613449
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_06",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.07000000029802322
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.20909009873867035
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "string_07",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.01799999736249447
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.21638962626457214
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap",
+          "parent": "body",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.0430000014603138
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.03500000014901161
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.08500000089406967
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.28600001335144043
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.08500000089406967
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.08399999886751175
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.12319999933242798
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.09600000083446503
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.30799999833106995
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Finger_R",
+          "parent": "body",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.029999999329447746
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.02500000037252903
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.20000000298023224
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.09239999949932098
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.28600001335144043
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.07199999690055847
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.2639999985694885
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.10999999940395355
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireLoop",
+          "duration": 0.3,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_FireLoop.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 2.0,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW05_Harp_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW05_Harp_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW05_Harp_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW05_Harp_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW05_Harp_Model.fbx",
+          "sha256": "dbf6f7be5555be12eec88bbd45dc97f146aea4ea30307773cd39c97188626c71"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Equip.fbx",
+          "sha256": "2a10d564d6d87f6715e6d5480d89645f51cd221345cf86b9beeb7e0fd6299b76"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_FireLoop.fbx",
+          "sha256": "8e7351df85bca68bc355bf509c200f2a74d310500ba0e7aaa31f7bbce50d7cc7"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_FireRecover.fbx",
+          "sha256": "05980bd9ffb8b88a9c8f297361c0f16a4eb7381f2ac5c9f445b8d8cac7414081"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Idle.fbx",
+          "sha256": "77b28a643669a3ed2f021e3dae0cf5aae7a6f1d7f494e8472dabae189398f034"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Inspect.fbx",
+          "sha256": "cb46eb67c8e969a5f7649f92424085acce7524fc6cf07ba14da6db3b5eb3ee1c"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Move.fbx",
+          "sha256": "b60d3fb271938db0c7746656db1238c42eac1503cfa649970727cb2cdfdeaeb2"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Reload.fbx",
+          "sha256": "7820816975be445f0dc768ce8070b07b45c289c50e336e6520e41fc9f1cc54b3"
+        },
+        {
+          "path": "Animations/AN_SW05_Harp_Unequip.fbx",
+          "sha256": "e0cbaff9408eafc873641b8436325b4ddd79864347e55261c3c23f07789ba5a5"
+        },
+        {
+          "path": "Textures/T_SW05_Harp_BC.png",
+          "sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f"
+        },
+        {
+          "path": "Textures/T_SW05_Harp_E.png",
+          "sha256": "b1708f0611ff391eba53e75d91964c9deb01a7af8bfb35228bdb01cc2ca2e881"
+        },
+        {
+          "path": "Textures/T_SW05_Harp_ORM.png",
+          "sha256": "7c57423de878c5bcfabc2297bbe1ea8b996d2167a817c6cf83ae4d976d55c3b8"
+        },
+        {
+          "path": "Collision/SW05_Harp_Collision.fbx",
+          "sha256": "539021b8e4c1a1c35de9292c29f8234a8d2365e0cda46e6f00a856fa7d961d5c"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "FireLoop",
+          "startSeconds": 2.0,
+          "endSeconds": 2.2666666666666666
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.2666666666666666,
+          "endSeconds": 4.266666666666667
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 4.266666666666667,
+          "endSeconds": 7.266666666666667
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW05_Harp",
+        "meshes": 3,
+        "triangles": [
+          7612,
+          4946,
+          2130
+        ],
+        "bones": [
+          "SW05_Harp_Model(Clone)",
+          "ARM_SW05_Harp",
+          "root",
+          "body",
+          "Socket_Finger_R",
+          "Socket_Grip_L",
+          "Socket_Grip_R",
+          "Socket_Output",
+          "strap",
+          "string_01",
+          "string_02",
+          "string_03",
+          "string_04",
+          "string_05",
+          "string_06",
+          "string_07",
+          "tuning_comb",
+          "Socket_Aim",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW05_Harp_All_LOD0",
+          "SM_SW05_Harp_All_LOD1",
+          "SM_SW05_Harp_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.16099977493286133,
+          "y": -0.06008926033973694,
+          "z": -0.057999905198812485
+        },
+        "bboxMax": {
+          "x": 0.1622602641582489,
+          "y": 0.4270232617855072,
+          "z": 0.07999998331069946
+        },
+        "outputForward": {
+          "x": 6.357302595461078e-08,
+          "y": -3.387851383675275e-22,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 1.0658141036401503e-14,
+          "y": 1.0,
+          "z": -3.387851383675275e-22
+        },
+        "clips": [
+          {
+            "name": "AN_SW05_Harp_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_FireLoop",
+            "duration": 0.30000001192092896,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_Reload",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW05_Harp_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "assetId": "SW06_Accordion",
+      "gunId": "launcher",
+      "revision": "v001",
+      "units": "m",
+      "sourceSpec": "半展开 X 0.50 × Y 0.27 × Z 0.19m；收合宽0.40m、最大展开宽0.64m；沿X拉合，控制面朝玩家（-Z）。",
+      "restBBoxBlender": [
+        [
+          -0.25099998712539673,
+          0.25099998712539673
+        ],
+        [
+          -0.1525000035762787,
+          0.1459999978542328
+        ],
+        [
+          0.0,
+          0.281000018119812
+        ]
+      ],
+      "axis": {
+        "BlenderUp": "+Z",
+        "BlenderForward": "-Y",
+        "FBXForward": "-Z",
+        "FBXUp": "Y",
+        "UnityReadback": "measured; see unityReadback"
+      },
+      "exportSettings": {
+        "scale": 1,
+        "applyUnit": true,
+        "leafBones": false,
+        "bakeSpaceTransform": false,
+        "onlyDeform": false
+      },
+      "lods": [
+        {
+          "name": "SM_SW06_Accordion_All_LOD0",
+          "triangles": 7532,
+          "budget": 18000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW06_Accordion_All_LOD1",
+          "triangles": 4894,
+          "budget": 9000,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        },
+        {
+          "name": "SM_SW06_Accordion_All_LOD2",
+          "triangles": 2108,
+          "budget": 3500,
+          "degenerate": 0,
+          "loose": 0,
+          "weightsNormalized": true,
+          "UV": true
+        }
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "housing_L",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.1899999976158142
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap_L",
+          "parent": "housing_L",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.1899999976158142
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.08500000089406967
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.23499999940395355
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bass_01",
+          "parent": "housing_L",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.210999995470047
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.09200000017881393
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bass_02",
+          "parent": "housing_L",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.17399999499320984
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.09200000017881393
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "score_roll",
+          "parent": "housing_L",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.1899999976158142
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10000000149011612
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.034999996423721313
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_L",
+          "parent": "housing_L",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              -0.125
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.17550000548362732
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "housing_R",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.1899999976158142
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "strap_R",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.1899999976158142
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              -0.08500000089406967
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.23499999940395355
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "key_01",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.17299999296665192
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.034999996423721313
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "key_02",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.17299999296665192
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.05300000309944153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "key_03",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.17299999296665192
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.07100000232458115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "key_04",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.17299999296665192
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.10499999672174454
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.08900000154972076
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "tuning_latch",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.17000000178813934
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.27300000190734863
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Grip_R",
+          "parent": "housing_R",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.125
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.13300000131130219
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.07559999823570251
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_01",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.12999999523162842
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_02",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.10400000214576721
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_03",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.07800000160932541
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_04",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.052000001072883606
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_05",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              -0.026000000536441803
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_06",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_07",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.026000000536441803
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_08",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.052000001072883606
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_09",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.07800000160932541
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_10",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.10400000214576721
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "bellows_11",
+          "parent": "root",
+          "matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.12999999523162842
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.13500000536441803
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Output",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.15199999511241913
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.1889999955892563
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Aim",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.14630000293254852
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.17550000548362732
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Retune",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.11400000005960464
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.16200000047683716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Socket_Stow",
+          "parent": "root",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              -8.742277657347586e-08,
+              0.0
+            ],
+            [
+              -8.742277657347586e-08,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.06750000268220901
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "state": "Idle",
+          "duration": 2,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Idle.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Move",
+          "duration": 1,
+          "loop": true,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Move.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Equip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Equip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Unequip",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Unequip.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Fire",
+          "duration": 0.7,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Fire.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "FireRecover",
+          "duration": 0.15,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_FireRecover.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        },
+        {
+          "state": "Reload",
+          "duration": 2.4,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Reload.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": [
+            0.18,
+            0.42,
+            0.62,
+            0.82
+          ]
+        },
+        {
+          "state": "Inspect",
+          "duration": 3,
+          "loop": false,
+          "fps": 60,
+          "file": "Animations/AN_SW06_Accordion_Inspect.fbx",
+          "rootMotion": false,
+          "normalizedMarkers": []
+        }
+      ],
+      "textures": [
+        {
+          "file": "Textures/T_SW06_Accordion_BC.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "sRGB"
+        },
+        {
+          "file": "Textures/T_SW06_Accordion_ORM.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        },
+        {
+          "file": "Textures/T_SW06_Accordion_E.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "colorSpace": "linear"
+        }
+      ],
+      "collisionOptional": true,
+      "validationStatus": {
+        "topologyBudgetWeights": "pass",
+        "UnityReadback": "pass",
+        "UVTexelDensity": "degraded",
+        "motionIntersections": "degraded",
+        "FPReview": "degraded",
+        "packedUV": "pass",
+        "FBXRoundTrip": "pass",
+        "rootMotionAndLoopEndpoints": "pass",
+        "referenceArtMatch": "degraded",
+        "dimensionsWithin2Percent": "degraded"
+      },
+      "limitations": [
+        "UV0 independently packed with 8px bake padding, no mirrored text. Texel density uniformity and every island-to-island margin not quantitatively audited.",
+        "Unity import geometry/animation/axis readback executed in an isolated project; runtime cel shader and IK integration remain unverified.",
+        "Swept-volume collision, wall-thickness and first-person multi-FOV checks require further verification.",
+        "FP 60 degree stills rendered at Idle/Fire/Reload; 21:9 and zoom-FOV occlusion testing remain pending.",
+        "Decorative carving, scroll silhouette and cel-shaded appearance are simplified relative to concept art; further art-direction refinement remains.",
+        "Body-only dimensions within 2% and maximum accordion extension are not fully audited.",
+        "First-person playing surface is too foreshortened on horizontal instruments; final weapon holding offset/angle and shared player hands need engine review."
+      ],
+      "inputs": [
+        {
+          "path": "Exports/SW06_Accordion_Model.fbx",
+          "sha256": "06cf0ff82bacf3719c867cfc99e6798be623c34f90c36f865518e476749128e5"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Equip.fbx",
+          "sha256": "20f914a71d1a0e1caf3fc38e29e8d8ec94ecaa0952be7b100a6e75c13a0e49f6"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Fire.fbx",
+          "sha256": "a77389eb9e13fba64c5ad4435485e51c39a23619d4c27b487bd492eb619c80dc"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_FireRecover.fbx",
+          "sha256": "1ad0d193fc58069a524ac8926d593a55817c494bd58a14a3f20057b79ac621de"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Idle.fbx",
+          "sha256": "5beaab73f3b2835cb4f0ba82b7d697f8099783df4af8e7d58307e308d28270c3"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Inspect.fbx",
+          "sha256": "d203490e376acdb3db00ddc7ae25fd471c1c33364ebabd3de3750e897e701abf"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Move.fbx",
+          "sha256": "e57c08d7b6a8c0aac7fcdd0cec56d8190cd05031269db87950fd0aed49159f1d"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Reload.fbx",
+          "sha256": "19d46a3065812161990529f7a4dfe63195711500711a034bb0d83a209a3532c5"
+        },
+        {
+          "path": "Animations/AN_SW06_Accordion_Unequip.fbx",
+          "sha256": "cb6a98237fa46f938eee2f9391f8c1adf3774c87ee77429335454321d9ee7c79"
+        },
+        {
+          "path": "Textures/T_SW06_Accordion_BC.png",
+          "sha256": "16ba9c39f844285f14546aebe3c9edf21a4ad2ab5fcf4086dad34e43530d3dea"
+        },
+        {
+          "path": "Textures/T_SW06_Accordion_E.png",
+          "sha256": "b24ae244ec9219c1cf55960afe570a79b53f258042e31bc22138760656f8bf27"
+        },
+        {
+          "path": "Textures/T_SW06_Accordion_ORM.png",
+          "sha256": "e4ec648899772f8600d3ddcd80e22dc9a62f0b5e5e0335bcfaa8b0f99eb269c8"
+        },
+        {
+          "path": "Collision/SW06_Accordion_Collision.fbx",
+          "sha256": "6227e41ce298ba0f00f40d5218b241d5f40fa3740118a9098451f201fa3bc2e6"
+        }
+      ],
+      "videoSegments": [
+        {
+          "state": "Idle",
+          "startSeconds": 0.0,
+          "endSeconds": 2.0
+        },
+        {
+          "state": "Fire",
+          "startSeconds": 2.0,
+          "endSeconds": 2.6666666666666665
+        },
+        {
+          "state": "Reload",
+          "startSeconds": 2.6666666666666665,
+          "endSeconds": 5.066666666666666
+        },
+        {
+          "state": "Inspect",
+          "startSeconds": 5.066666666666666,
+          "endSeconds": 8.066666666666666
+        }
+      ],
+      "unityReadback": {
+        "assetId": "SW06_Accordion",
+        "meshes": 3,
+        "triangles": [
+          7532,
+          4894,
+          2108
+        ],
+        "bones": [
+          "SW06_Accordion_Model(Clone)",
+          "ARM_SW06_Accordion",
+          "root",
+          "bellows_01",
+          "bellows_02",
+          "bellows_03",
+          "bellows_04",
+          "bellows_05",
+          "bellows_06",
+          "bellows_07",
+          "bellows_08",
+          "bellows_09",
+          "bellows_10",
+          "bellows_11",
+          "housing_L",
+          "bass_01",
+          "bass_02",
+          "score_roll",
+          "Socket_Grip_L",
+          "strap_L",
+          "housing_R",
+          "key_01",
+          "key_02",
+          "key_03",
+          "key_04",
+          "Socket_Grip_R",
+          "strap_R",
+          "tuning_latch",
+          "Socket_Aim",
+          "Socket_Output",
+          "Socket_Retune",
+          "Socket_Stow",
+          "SM_SW06_Accordion_All_LOD0",
+          "SM_SW06_Accordion_All_LOD1",
+          "SM_SW06_Accordion_All_LOD2"
+        ],
+        "bboxMin": {
+          "x": -0.25119996070861816,
+          "y": 0.0,
+          "z": -0.1459999531507492
+        },
+        "bboxMax": {
+          "x": 0.25119996070861816,
+          "y": 0.28099995851516724,
+          "z": 0.15254659950733185
+        },
+        "outputForward": {
+          "x": 6.357302595461078e-08,
+          "y": -3.387851383675275e-22,
+          "z": 1.0
+        },
+        "outputUp": {
+          "x": 1.0658141036401503e-14,
+          "y": 1.0,
+          "z": -3.387851383675275e-22
+        },
+        "clips": [
+          {
+            "name": "AN_SW06_Accordion_Equip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Fire",
+            "duration": 0.7000000476837158,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_FireRecover",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Idle",
+            "duration": 2.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Inspect",
+            "duration": 3.000000238418579,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Move",
+            "duration": 1.0,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Reload",
+            "duration": 2.4000000953674316,
+            "fps": 60.0
+          },
+          {
+            "name": "AN_SW06_Accordion_Unequip",
+            "duration": 0.15000000596046448,
+            "fps": 60.0
+          }
+        ],
+        "finiteBounds": true,
+        "clipDurationsMatch": true,
+        "socketAxesMatch": true
+      }
+    }
+  ]
+}

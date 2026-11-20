@@ -1,0 +1,44 @@
+[
+  {
+    "id": "s-close-outlined-review-20261120-v3",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T11:59:43+0800",
+    "task_id": "task_01M7VHRK951S9ZZACMVGYS4GPS",
+    "result_url": "https://getapib.org/image/9998204852780173-02d8e9a0-8406-41e9-8412-adf8ee1773ea-image_task_01M7VHSG1F51QYT2SRMJ0Y1158_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "out": "_Inbox/score-controls-outlined-review-v3/close-outlined.png",
+    "bytes": 927984,
+    "sha256": "3bcd95ff09bb1b139af38d655d8b7a342c6a1cdfb0a322fe5eab1165c7ddbc5b"
+  },
+  {
+    "id": "s-slot-preview-rail-review-20261120-v3",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T11:59:43+0800",
+    "task_id": "task_01M7VHRFEPCA5V03CK7RYW0M35",
+    "result_url": "https://getapib.org/image/9998204852793455-472793fe-4b4e-458d-81e7-f81343d9a9b8-image_task_01M7VHS38QR4Y5TKERKDSZ699E_0.png",
+    "width": 2688,
+    "height": 1152,
+    "mode": "RGBA",
+    "out": "_Inbox/score-controls-outlined-review-v3/slot-preview-rail.png",
+    "bytes": 494074,
+    "sha256": "7e88d2a3570422420b6a8a0a0e74e7d7d31668e52b9ab8df28566c8fa8273031"
+  },
+  {
+    "id": "s-sort-outlined-review-20261120-v3",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T11:59:43+0800",
+    "task_id": "task_01M7VHRGGE4NKZXT62K0X37PVB",
+    "result_url": "https://getapib.org/image/9998204852774994-4b0cf437-9220-433f-964d-068d30dd8732-image_img_acac1dd7d9c8487a9f2b9b844554b45b_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGB",
+    "out": "_Inbox/score-controls-outlined-review-v3/sort-outlined.png",
+    "bytes": 2417764,
+    "sha256": "b5453493eabec38bd3aef612233b377be857671c5e40ed272dcdc5747674bc51"
+  }
+]

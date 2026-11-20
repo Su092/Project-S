@@ -109,6 +109,15 @@ namespace S.App
             UnityEngine.EventSystems.ExecuteEvents.Execute(
                 handler, ped, UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);
 
+            // 起手流程分两步：先打开选枪，再确认出发。两次开始都走 UI 点击派发。
+            if (root.Menu != null && root.Menu.IsOpen && root.Menu.ChoosingGun &&
+                string.IsNullOrEmpty(root.Menu.SelectedGunId))
+            {
+                root.Menu.SelectGun(root.Data.GunOrder[0].Id);
+                Canvas.ForceUpdateCanvases();
+                return TryClickStartButton(root);
+            }
+
             // 回调成功会关闭菜单；用菜单状态做判据，避免「派发了但没人接」也算过
             return root.Menu == null || !root.Menu.IsOpen;
         }

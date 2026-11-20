@@ -1,0 +1,12 @@
+Floor import bounds Center: (2.00, -0.13, -2.00), Extents: (2.00, 0.13, 2.00)
+Axis probe center=(2.00, -0.13, -2.00) expected (2,-0.125,-2)
+Prefabs=51 Instances=1169 SpawnPoints=16
+Movement layer=31 Shot layer=30 Player layer=29
+Spawn capsule overlaps=0
+Ground connected capsule grid=36579/36656 (platform interior not ground route)
+Connected spawn routes=16/16
+Boss radius8 capsule orbit=True
+Ramp/stair movement profile failures=0
+Collision renderers remaining=0
+CharacterController eight ascents failures=0
+Inspection player movement uses layer mask separation; production gameplay integration remains separate.

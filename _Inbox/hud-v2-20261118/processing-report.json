@@ -1,0 +1,475 @@
+{
+  "components": [
+    {
+      "name": "hud_weapon_rail",
+      "category": "Frame",
+      "size": [
+        512,
+        96
+      ],
+      "source": "01_frames",
+      "cell": 0
+    },
+    {
+      "name": "hud_portrait_frame",
+      "category": "Frame",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 1
+    },
+    {
+      "name": "hud_attachment_socket",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 2
+    },
+    {
+      "name": "hud_minimap_bezel",
+      "category": "Frame",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 3
+    },
+    {
+      "name": "hud_pause_button_base",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 4
+    },
+    {
+      "name": "hud_item_slot",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "01_frames",
+      "cell": 5
+    },
+    {
+      "name": "hud_hp_track_frame",
+      "category": "Frame",
+      "size": [
+        512,
+        40
+      ],
+      "source": "02_bars",
+      "cell": 0
+    },
+    {
+      "name": "bar_fill_hp",
+      "category": "Widget",
+      "size": [
+        512,
+        40
+      ],
+      "source": "02_bars",
+      "cell": 1
+    },
+    {
+      "name": "hud_xp_track_frame",
+      "category": "Frame",
+      "size": [
+        512,
+        28
+      ],
+      "source": "02_bars",
+      "cell": 2
+    },
+    {
+      "name": "bar_fill_xp",
+      "category": "Widget",
+      "size": [
+        512,
+        28
+      ],
+      "source": "02_bars",
+      "cell": 3
+    },
+    {
+      "name": "hud_boss_track_frame",
+      "category": "Frame",
+      "size": [
+        512,
+        40
+      ],
+      "source": "02_bars",
+      "cell": 4
+    },
+    {
+      "name": "bar_fill_boss",
+      "category": "Widget",
+      "size": [
+        512,
+        40
+      ],
+      "source": "02_bars",
+      "cell": 5
+    },
+    {
+      "name": "crosshair",
+      "category": "Widget",
+      "size": [
+        128,
+        128
+      ],
+      "source": "03_combat",
+      "cell": 0
+    },
+    {
+      "name": "hud_reload_spinner",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 1
+    },
+    {
+      "name": "hud_ammo_arc_track",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 2
+    },
+    {
+      "name": "hud_ammo_arc_fill",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "03_combat",
+      "cell": 3
+    },
+    {
+      "name": "hud_map_player_heading",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 0
+    },
+    {
+      "name": "hud_map_enemy",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 1
+    },
+    {
+      "name": "hud_map_chest",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 2
+    },
+    {
+      "name": "hud_pause_glyph",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 3
+    },
+    {
+      "name": "hud_weapon_swap",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 4
+    },
+    {
+      "name": "hud_read_cursor",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "04_markers",
+      "cell": 5
+    },
+    {
+      "name": "hud_gun_rifle",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 0
+    },
+    {
+      "name": "hud_gun_smg",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 1
+    },
+    {
+      "name": "hud_gun_shotgun",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 2
+    },
+    {
+      "name": "hud_gun_sniper",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 3
+    },
+    {
+      "name": "hud_gun_beam",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 4
+    },
+    {
+      "name": "hud_gun_launcher",
+      "category": "Icon",
+      "size": [
+        256,
+        256
+      ],
+      "source": "05_weapons",
+      "cell": 5
+    },
+    {
+      "name": "hud_operator_portrait",
+      "category": "Icon",
+      "size": [
+        512,
+        512
+      ],
+      "source": "06_portrait",
+      "cell": 0
+    },
+    {
+      "name": "hud_timer_plate",
+      "category": "Frame",
+      "size": [
+        256,
+        80
+      ],
+      "source": "07_states",
+      "cell": 0
+    },
+    {
+      "name": "hud_weapon_selected_ring",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "07_states",
+      "cell": 1
+    },
+    {
+      "name": "hud_attachment_read_ring",
+      "category": "Widget",
+      "size": [
+        256,
+        256
+      ],
+      "source": "07_states",
+      "cell": 2
+    },
+    {
+      "name": "hud_utility_placeholder",
+      "category": "Icon",
+      "size": [
+        128,
+        128
+      ],
+      "source": "07_states",
+      "cell": 3
+    },
+    {
+      "name": "item_rear_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 0
+    },
+    {
+      "name": "item_twin_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 1
+    },
+    {
+      "name": "item_forward_battery",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 2
+    },
+    {
+      "name": "item_rear_battery",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 3
+    },
+    {
+      "name": "item_crossfire",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 4
+    },
+    {
+      "name": "item_gap_lens",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 5
+    },
+    {
+      "name": "item_rear_frost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 6
+    },
+    {
+      "name": "item_ring_burn",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 7
+    },
+    {
+      "name": "item_gap_bounce",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 8
+    },
+    {
+      "name": "item_rear_blast",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 9
+    },
+    {
+      "name": "item_whole_boost",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 10
+    },
+    {
+      "name": "item_whole_guidance",
+      "category": "Icon/Items",
+      "size": [
+        256,
+        256
+      ],
+      "source": "08_modifiers",
+      "cell": 11
+    }
+  ],
+  "common_replacements": [
+    "Common/panel",
+    "Frame/card_frame",
+    "Frame/card_inner",
+    "Widget/btn_primary",
+    "Widget/slot_empty",
+    "Widget/slot_filled",
+    "Icon/icon_frame",
+    "Widget/btn_primary_hover",
+    "Widget/btn_danger"
+  ],
+  "raw_hashes": {
+    "01_frames.png": "3c7fa837ea6233bc3d7637cd924d21aa26ebe1be0891867e8763de547d36ef56",
+    "02_bars.png": "71d8d2430ad2d4a8d33b43064e262df5b47bbfa6831d90dbbd6828d6628f3332",
+    "03_combat.png": "f965459fae8d310b4441c600c4a05d600e0c185c2b961ac6e4d7f9480c2ad522",
+    "04_markers.png": "76a4a19f37ce682fc7b3443df783ae3de02d0d6dab8eb227ab4b3393fb8471f6",
+    "05_weapons.png": "da6b941a61a94ad938d8403fc4fea1bbe41ee9b31214b8aa838c68481d648986",
+    "06_portrait.png": "f3e8978373ba32ea75540f251ca7e9cabcfb64627a8f5ef9d36e9d673a622f9f",
+    "07_states.png": "b9d254f212b6d35f83f24894773e3b9e81f2b93bc30583f377fa83a60f12f46c",
+    "08_modifiers.png": "8291f6d4a25014165006cd2b30b64169045d34b0b49099a14e35f5ce68a32102"
+  }
+}

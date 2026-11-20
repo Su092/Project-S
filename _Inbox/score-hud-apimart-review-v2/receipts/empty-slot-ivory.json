@@ -1,0 +1,14 @@
+{
+  "id": "s-empty-slot-ivory-review-20261120-v2",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T11:40:41+0800",
+  "task_id": "task_01M7VGNNKWRP891M8NQ0R5TX44",
+  "result_url": "https://getapib.org/image/9998204853925022-46da3712-9239-46d3-b95f-564a1a61f3b7-image_task_01M7VGPEPJ6PB3DAMC19T8R3N0_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/score-hud-apimart-review-v2/empty-slot-ivory.png",
+  "bytes": 759612,
+  "sha256": "a0e8405837363b81261edce9c086c794af41eef63808850aa34c566bafb67aa4"
+}

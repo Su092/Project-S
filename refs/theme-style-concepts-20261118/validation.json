@@ -1,0 +1,88 @@
+{
+  "completed": 8,
+  "model": "gpt-image-2",
+  "resolution_tier": "1k",
+  "images": [
+    {
+      "name": "01_film_cel",
+      "title": "梦境放映 · 复古动漫赛璐璐",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "563275d3ddfaab8d832d0ddf4e28c3edc9cbcac2c6c5e7519c1bf16f5534a9b3",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "02_music_cel",
+      "title": "战斗音律 · 复古动漫赛璐璐",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "a0a22422a3b4148f66ddb03e96831dc3620bc970a22b78fe2528a66e7cd317ca",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "03_film_stopmotion",
+      "title": "梦境放映 · 手工定格童话",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "4bd709a659958e992975528715b2c5220d46095a5673c3f74a380e888515b7de",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "04_music_stopmotion",
+      "title": "战斗音律 · 手工定格童话",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "3e9b735b0a56ad5ddc1f2988c0ea611d673df138ff391e071d7120d00c6a2740",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "05_film_deco",
+      "title": "梦境放映 · 装饰艺术与爵士幻想",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "26d824bd9df0f3de3626a1a7ce24517c0353971fd21febf2e00ae07fc9081e92",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "06_music_deco",
+      "title": "战斗音律 · 装饰艺术与爵士幻想",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "d824a62f310f77d686ff7c118c3087f55253d65bc2e17f463634f2eed8d5ebaa",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "07_film_woodcut",
+      "title": "梦境放映 · 暗黑绘本与版画",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "fff52c49a4e07d0fd19bf136a1cd87aad2526c116298096a68c55640bd64a2ec",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    },
+    {
+      "name": "08_music_woodcut",
+      "title": "战斗音律 · 暗黑绘本与版画",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "854441acccde38321d45c38dcb4ca178f3de8115e3684c191026be70110db448",
+      "visual_review": "first-person scene, themed tool, enemies, attack and HUD present"
+    }
+  ],
+  "scope": "concept references only; no game assets modified"
+}

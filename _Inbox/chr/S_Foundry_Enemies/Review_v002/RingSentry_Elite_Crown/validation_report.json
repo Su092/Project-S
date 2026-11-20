@@ -1,0 +1,125 @@
+{
+  "asset": "RingSentry_Elite_Crown",
+  "checks": {
+    "SM_RingSentry_Elite_Crown_LOD0": {
+      "triangles": 2248,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_RingSentry_Elite_Crown_LOD1": {
+      "triangles": 1600,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "SM_RingSentry_Elite_Crown_LOD2": {
+      "triangles": 784,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "bad_weights": 0,
+      "uv_outside_01": 0,
+      "material_slots": 1,
+      "negative_scale": false
+    },
+    "textures_missing": []
+  },
+  "actions": {
+    "Idle_Hover": {
+      "frames": [
+        1,
+        61
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Aim": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": true,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Fire": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.0,
+      "root_delta": 0.0
+    },
+    "Hit": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 1.32590341689531e-18,
+      "root_delta": 0.0
+    },
+    "Death_Fall": {
+      "frames": [
+        1,
+        46
+      ],
+      "loop": false,
+      "endpoint_max_matrix_delta": 0.689306378364563,
+      "root_delta": 0.0
+    }
+  },
+  "normals_note": "Degenerate triangles / manifold edges measured; visual normals and Unity tangent basis require engine review.",
+  "roundtrip": {
+    "fbx_imported": true,
+    "dimensions": [
+      2.049999952316284,
+      1.1500002145767212,
+      1.6500003337860107
+    ],
+    "dimension_error": [
+      4.7683715642676816e-08,
+      2.145767212802241e-07,
+      3.3378601083100534e-07
+    ],
+    "axis_test": "Blender inverse FBX roundtrip only; Unity +Z must be tested in Unity.",
+    "armatures": 1
+  },
+  "animation_fbx_imports": {
+    "Idle_Hover": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 6
+    },
+    "Aim": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 6
+    },
+    "Fire": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 6
+    },
+    "Hit": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 6
+    },
+    "Death_Fall": {
+      "rigs": 1,
+      "actions": 1,
+      "bones": 6
+    }
+  },
+  "technical_pass": true,
+  "verdict": "NO-SHIP: requires visual animation/LOD/collision and Unity verification; see pending items in qa_metrics.json"
+}

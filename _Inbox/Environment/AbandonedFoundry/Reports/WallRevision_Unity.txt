@@ -1,0 +1,6 @@
+COL_Foundry_Wall_Straight4_00_Both tris=242 uv0=355 uv1=355 bounds=Center: (2.00, 2.00, -0.52), Extents: (2.00, 2.00, 0.52)
+ENV_Foundry_Wall_Straight4_LOD0 tris=242 uv0=355 uv1=355 bounds=Center: (2.00, 2.00, -0.52), Extents: (2.00, 2.00, 0.52)
+ENV_Foundry_Wall_Straight4_LOD1 tris=120 uv0=223 uv1=223 bounds=Center: (2.00, 2.00, -0.51), Extents: (2.00, 2.00, 0.51)
+Visible vs collision sampled rays=2400 mismatches over 1mm=0
+Prefab LODGroup two levels explicitly configured; collider renderer absent; root unit scale.
+Width=4m Height=4m; edited decorative thickness retained (~1.046m).

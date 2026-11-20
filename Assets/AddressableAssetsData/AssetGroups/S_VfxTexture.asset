@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: S_VfxTexture
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: S_VfxTexture
+  m_GUID: a88cb1da58d43d04ebce489b9edfacb1
+  m_SerializeEntries:
+  - m_GUID: 0a138d6c16c21a84eb0abdeb0db79a86
+    m_Address: tex/T_MusicWarningLane
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c64c181911ce4340bf9c9187ee16b49
+    m_Address: tex/T_MusicSpotBeam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbd4f2c50ace2a849859fa203c514e3f
+    m_Address: tex/T_MusicWarningRing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de8c43db61ae2f549813a5107a6c1431
+    m_Address: tex/T_MusicImpact
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_texture
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 822063efaaa2f1249bc7501b8910d190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9db2605dd11975240b399e82d67f53e5, type: 2}
+    - {fileID: 11400000, guid: 92cb9a98111d950489a2a73a152139a2, type: 2}

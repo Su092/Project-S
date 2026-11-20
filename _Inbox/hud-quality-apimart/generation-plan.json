@@ -1,0 +1,16 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "jobs": [
+    {
+      "name": "attachment-frames-thin",
+      "id": "s-hud-attachment-frames-thin-20261120",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/hud-quality-apimart/attachment-frames-thin.png",
+      "reference_local": "_Inbox/hud-quality-apimart/attachment-frames-corrected.png",
+      "no_global_style": true,
+      "prompt": "Edit reference game UI border sheet: the rings are MUCH TOO THICK. Redesign as very thin delicate circular colored outline frames, approximately ONE THIRD of current band thickness. Exactly THREE frames in one horizontal row of equal square cells. Left BLUE, middle GOLD, right RED. Keep identical circular outer diameter across all three and 10 percent cell padding. Main ring thickness only 2 percent of outer diameter (about 1.3 pixels at 68px display). Empty circular hole occupies at least 90 percent of frame diameter. Remove broad filled bands and bulky gold ornament. Use a single clean vivid colored circular stroke with subtle thin highlight, at most two tiny restrained musical curls at top and bottom, no wide double borders. Blue and red must dominate their own rings, no gold rims on blue/red. Elegant flat illustrated theater style, minimal delicate ornament, crisp at small HUD size. Empty centers and background PURE BLACK for alpha extraction. No text, no icons, no labels, no gray green purple rings. Frames fully visible BLUE then GOLD then RED, same size and stroke weight."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "revision": "仅绿蓝金红；绿色为枪械；减少框体色彩面积；强化线谱亮金暗三层",
+  "jobs": [
+    {
+      "name": "01-frames-four-colors",
+      "id": "s-upgrade-apimart-v2-frames",
+      "size": "2:3",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v1/receipts/01-frames-all-colors.json",
+      "prompt": "Revise the referenced music-fantasy UI frame sprite sheet. The reference contains SIX cards; output EXACTLY FOUR tall complete cards in a spacious 2 by 2 grid, NO fifth or sixth card. Remove the white/silver variant and the purple variant completely. Top left GREEN for musical gun/weapon, top right BLUE for default attachment and blue ammo. Bottom left GOLD for gold ammo, bottom right RED for derived attachment. Preserve the reference's elegant treble-clef corner ornament, thin layered border, pale ivory empty reading surface and retro anime illustrated style, but GREATLY REDUCE THE AREA OF EACH CATEGORY COLOR. Replace the broad colored header, footer, side bands and large colored diamond fills with neutral pale ivory/champagne metal. Use the category color ONLY as one very thin inset pinstripe, tiny corner accents, and a small central gem. No big solid green/blue/gold/red patches anywhere. At least 85 percent of the visible border ornament area should be neutral ivory/champagne; category color occupies at most 10-15 percent of BORDER area, and less than 3 percent of the whole card. Gold category recognized by amber-gold thin trim and gem, while neutral metal is much paler. Keep category color visible but restrained. Four cards have exactly matching geometry and dimensions, width to height 0.60. All reading interiors solid pale ivory and totally empty, no words or icons. Complete silhouettes with generous black margins between and outside all cards, no cropping. Flat orthographic 2D sprite-sheet source art. Pure solid BLACK background, no glow outside frames, no shadow, no labels, no letters, no checkerboard. Exactly FOUR variants: green blue gold red. Do NOT include white or purple cards.",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v2/01-frames-four-colors.png",
+      "no_global_style": true
+    },
+    {
+      "name": "03-gold-staff-layered",
+      "id": "s-upgrade-apimart-v2-staff",
+      "size": "3:1",
+      "reference_receipt": "_Inbox/upgrade-ui-apimart-v1/receipts/03b-gold-staff-five-lines.json",
+      "prompt": "Revise the referenced FIVE-LINE golden musical staff texture. Keep EXACTLY FIVE separate perfectly straight parallel horizontal lines and FOUR black gaps. Same line length, same thickness, same spacing, full length visible, centered on pure BLACK background with generous outer margin. Improve each line's visual depth substantially: every single line is a tiny finely beveled golden rail, with a hairline pale champagne specular highlight on its upper lip, a luminous warm rich gold main face, and a narrow deep amber lower bevel/edge. These THREE contiguous tonal bands belong to ONE line, no black splitting inside a line. Strong clear bright-mid-dark layering across the thickness, elegant clean cel-shaded gold, not flat monochrome strokes. Five lines at 30%, 40%, 50%, 60%, 70% of canvas height, extending from x5% to x95%; each line thickness about 1.8% canvas height for readable bevel layers. Uniform appearance along horizontal direction for future curved-mesh deformation, no spotlights. Preserve precise five-line count. NO notes, NO clefs, NO text, NO extra rails, NO fog, NO glitter, NO noisy texture, NO loose sparkles, NO large glow, NO perspective, NO ribbon behind lines, NO gradients in background, NO frame. Pure BLACK background and gaps. This is raw layered staff source art for later deformation, not a finished curved scene.",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v2/03-gold-staff-layered.png",
+      "no_global_style": true
+    }
+  ]
+}

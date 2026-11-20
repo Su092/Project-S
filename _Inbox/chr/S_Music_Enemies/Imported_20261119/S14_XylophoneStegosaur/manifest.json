@@ -1,0 +1,3186 @@
+{
+  "schemaVersion": 1,
+  "assetId": "S14_XylophoneStegosaur",
+  "conceptNumber": "14",
+  "category": "Elite",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 1.8,
+  "measuredBounds": {
+    "min": [
+      -0.7845517992973328,
+      -2.1403002738952637,
+      0.0
+    ],
+    "max": [
+      0.7845517992973328,
+      3.4359092712402344,
+      1.8000000715255737
+    ]
+  },
+  "units": "m",
+  "blenderAxes": "+Z up, -Y forward",
+  "unityAxes": "+Y up, +Z forward (target)",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "addLeafBones": false,
+    "allActions": false
+  },
+  "variants": [
+    "Base",
+    "Redwood",
+    "Ebony"
+  ],
+  "lods": [
+    {
+      "variant": "Base",
+      "level": 0,
+      "file": "Exports/S14_XylophoneStegosaur_Model.fbx",
+      "tris": 8000,
+      "budget": 14000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Body_LOD0",
+        "SM_S14_XylophoneStegosaur_Throat_LOD0",
+        "SM_S14_XylophoneStegosaur_Head_LOD0",
+        "SM_S14_XylophoneStegosaur_Beak_LOD0",
+        "SM_S14_XylophoneStegosaur_EyeSocket_LOD0",
+        "SM_S14_XylophoneStegosaur_Eye_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_LHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_RHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Key_LOD0",
+        "SM_S14_XylophoneStegosaur_Resonator_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_01_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_02_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_03_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_04_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_05_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_06_LOD0",
+        "SM_S14_XylophoneStegosaur_Tail_07_LOD0",
+        "SM_S14_XylophoneStegosaur_TailMallet_LOD0"
+      ],
+      "unityTris": 8000,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Base",
+      "level": 1,
+      "file": "Exports/S14_XylophoneStegosaur_Model.fbx",
+      "tris": 3952,
+      "budget": 7000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Body_LOD1",
+        "SM_S14_XylophoneStegosaur_Throat_LOD1",
+        "SM_S14_XylophoneStegosaur_Head_LOD1",
+        "SM_S14_XylophoneStegosaur_Beak_LOD1",
+        "SM_S14_XylophoneStegosaur_EyeSocket_LOD1",
+        "SM_S14_XylophoneStegosaur_Eye_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_LHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_RHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Key_LOD1",
+        "SM_S14_XylophoneStegosaur_Resonator_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_01_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_02_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_03_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_04_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_05_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_06_LOD1",
+        "SM_S14_XylophoneStegosaur_Tail_07_LOD1",
+        "SM_S14_XylophoneStegosaur_TailMallet_LOD1"
+      ],
+      "unityTris": 3952,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Base",
+      "level": 2,
+      "file": "Exports/S14_XylophoneStegosaur_Model.fbx",
+      "tris": 1192,
+      "budget": 2800,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Body_LOD2",
+        "SM_S14_XylophoneStegosaur_Throat_LOD2",
+        "SM_S14_XylophoneStegosaur_Head_LOD2",
+        "SM_S14_XylophoneStegosaur_Beak_LOD2",
+        "SM_S14_XylophoneStegosaur_EyeSocket_LOD2",
+        "SM_S14_XylophoneStegosaur_Eye_LOD2",
+        "SM_S14_XylophoneStegosaur_LForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_LForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_LForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_LForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_LHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_LHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_LHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_LHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_RForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_RForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_RForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_RForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_RHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_RHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_RHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_RHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Key_LOD2",
+        "SM_S14_XylophoneStegosaur_Resonator_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_01_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_02_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_03_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_04_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_05_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_06_LOD2",
+        "SM_S14_XylophoneStegosaur_Tail_07_LOD2",
+        "SM_S14_XylophoneStegosaur_TailMallet_LOD2"
+      ],
+      "unityTris": 1192,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Redwood",
+      "level": 0,
+      "file": "Exports/S14_XylophoneStegosaur_Redwood_Model.fbx",
+      "tris": 8000,
+      "budget": 14000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Redwood_Body_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Throat_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Head_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Beak_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_EyeSocket_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Eye_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Key_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Resonator_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_01_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_02_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_03_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_04_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_05_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_06_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_07_LOD0",
+        "SM_S14_XylophoneStegosaur_Redwood_TailMallet_LOD0"
+      ],
+      "unityTris": 8000,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Redwood",
+      "level": 1,
+      "file": "Exports/S14_XylophoneStegosaur_Redwood_Model.fbx",
+      "tris": 3952,
+      "budget": 7000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Redwood_Body_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Throat_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Head_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Beak_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_EyeSocket_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Eye_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Key_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Resonator_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_01_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_02_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_03_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_04_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_05_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_06_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_07_LOD1",
+        "SM_S14_XylophoneStegosaur_Redwood_TailMallet_LOD1"
+      ],
+      "unityTris": 3952,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Redwood",
+      "level": 2,
+      "file": "Exports/S14_XylophoneStegosaur_Redwood_Model.fbx",
+      "tris": 1192,
+      "budget": 2800,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Redwood_Body_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Throat_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Head_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Beak_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_EyeSocket_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Eye_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_LHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_RHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Key_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Resonator_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_01_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_02_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_03_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_04_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_05_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_06_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_Tail_07_LOD2",
+        "SM_S14_XylophoneStegosaur_Redwood_TailMallet_LOD2"
+      ],
+      "unityTris": 1192,
+      "unityHeightMeters": 1.8000000715255737
+    },
+    {
+      "variant": "Ebony",
+      "level": 0,
+      "file": "Exports/S14_XylophoneStegosaur_Ebony_Model.fbx",
+      "tris": 10496,
+      "budget": 14000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Ebony_Body_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Throat_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Head_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Beak_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_EyeSocket_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Eye_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindUpper_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindUpperJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindShin_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindShinJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindFoot_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindFootJoint_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindSole_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Key_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_IvoryEnd_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Resonator_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_01_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_02_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_03_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_04_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_05_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_06_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_07_LOD0",
+        "SM_S14_XylophoneStegosaur_Ebony_TailMallet_LOD0"
+      ],
+      "unityTris": 10496,
+      "unityHeightMeters": 1.8139077425003052
+    },
+    {
+      "variant": "Ebony",
+      "level": 1,
+      "file": "Exports/S14_XylophoneStegosaur_Ebony_Model.fbx",
+      "tris": 5168,
+      "budget": 7000,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Ebony_Body_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Throat_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Head_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Beak_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_EyeSocket_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Eye_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindUpper_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindUpperJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindShin_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindShinJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindFoot_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindFootJoint_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindSole_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Key_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_IvoryEnd_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Resonator_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_01_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_02_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_03_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_04_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_05_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_06_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_07_LOD1",
+        "SM_S14_XylophoneStegosaur_Ebony_TailMallet_LOD1"
+      ],
+      "unityTris": 5168,
+      "unityHeightMeters": 1.8139077425003052
+    },
+    {
+      "variant": "Ebony",
+      "level": 2,
+      "file": "Exports/S14_XylophoneStegosaur_Ebony_Model.fbx",
+      "tris": 1704,
+      "budget": 2800,
+      "nodes": [
+        "SM_S14_XylophoneStegosaur_Ebony_Body_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Throat_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Head_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Beak_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_EyeSocket_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Eye_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_LHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RForeSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindUpper_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindShin_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindFoot_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_RHindSole_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Key_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_IvoryEnd_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Resonator_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_01_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_02_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_03_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_04_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_05_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_06_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_Tail_07_LOD2",
+        "SM_S14_XylophoneStegosaur_Ebony_TailMallet_LOD2"
+      ],
+      "unityTris": 1704,
+      "unityHeightMeters": 1.8139077425003052
+    }
+  ],
+  "rootPath": "ARM_S14_XylophoneStegosaur/root",
+  "materials": [
+    "MAT_S14_XylophoneStegosaur_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S14_XylophoneStegosaur_BC.png",
+      "space": "sRGB",
+      "channels": "BaseColor"
+    },
+    {
+      "file": "Textures/T_S14_XylophoneStegosaur_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S14_XylophoneStegosaur_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S14_XylophoneStegosaur/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S14_XylophoneStegosaur/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -1.4901160305669237e-08
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7810810208320618
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "pelvis",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.6478045582771301
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8445912599563599
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "spine",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine",
+      "parent": "pelvis",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.5080820322036743
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.9589096903800964
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "head",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/head",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -1.066972255706787
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.9081015586853027
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "BackPlate_01",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_01",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.6732085943222046
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6626613140106201
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Plate_01",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_01/Socket_Plate_01",
+      "parent": "BackPlate_01",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.6732085943222046
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7388734817504883
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "BackPlate_02",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_02",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.24133902788162231
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.7364898920059204
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Plate_02",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_02/Socket_Plate_02",
+      "parent": "BackPlate_02",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.24133896827697754
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.8127022981643677
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "BackPlate_03",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_03",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.19053074717521667
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.7364898920059204
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Plate_03",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_03/Socket_Plate_03",
+      "parent": "BackPlate_03",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          0.19053074717521667
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.8127022981643677
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "BackPlate_04",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_04",
+      "parent": "spine",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.6224004626274109
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6626613140106201
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Plate_04",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_04/Socket_Plate_04",
+      "parent": "BackPlate_04",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          0.6224004626274109
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7388734817504883
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_01",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01",
+      "parent": "pelvis",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.9526537656784058
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8699953556060791
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_02",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02",
+      "parent": "Tail_01",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          1.270205020904541
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.9385864734649658
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_03",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03",
+      "parent": "Tail_02",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          1.5877562761306763
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.007177472114563
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_04",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04",
+      "parent": "Tail_03",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          1.9053075313568115
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.0757685899734497
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_05",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05",
+      "parent": "Tail_04",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          2.2228589057922363
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.1443597078323364
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_06",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05/Tail_06",
+      "parent": "Tail_05",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          2.540410041809082
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.2129507064819336
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_07",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05/Tail_06/Tail_07",
+      "parent": "Tail_06",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          2.8579611778259277
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.2815418243408203
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "TailMallet",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05/Tail_06/Tail_07/TailMallet",
+      "parent": "Tail_07",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          3.1755125522613525
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3501328229904175
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Mallet",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05/Tail_06/Tail_07/TailMallet/Socket_Mallet",
+      "parent": "TailMallet",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          3.1755125522613525
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.3501328229904175
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeUpper",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.45727381110191345
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.5969963669776917
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8318892121315002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeShin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LForeUpper/LForeShin",
+      "parent": "LForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5334860682487488
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.7621230483055115
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4714049696922302
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForeFoot",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LForeUpper/LForeShin/LForeFoot",
+      "parent": "LForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.584294319152832
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.36835941672325134
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.18637096881866455
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindUpper",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.45727381110191345
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.6859107613563538
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8318892121315002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindShin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LHindUpper/LHindShin",
+      "parent": "LHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5334860682487488
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.8510373830795288
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4714049696922302
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHindFoot",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/LHindUpper/LHindShin/LHindFoot",
+      "parent": "LHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.584294319152832
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.9145476222038269
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.18637096881866455
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeUpper",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RForeUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.45727381110191345
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.5969963669776917
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8318892121315002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeShin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RForeUpper/RForeShin",
+      "parent": "RForeUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.5334860682487488
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.7621230483055115
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4714049696922302
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForeFoot",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RForeUpper/RForeShin/RForeFoot",
+      "parent": "RForeShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.584294319152832
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          -0.36835941672325134
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.18637096881866455
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindUpper",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RHindUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.45727381110191345
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.6859107613563538
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8318892121315002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindShin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RHindUpper/RHindShin",
+      "parent": "RHindUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.5334860682487488
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.8510373830795288
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4714049696922302
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHindFoot",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/RHindUpper/RHindShin/RHindFoot",
+      "parent": "RHindShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.584294319152832
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.9145476222038269
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.18637096881866455
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_ForwardOrigin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_ForwardOrigin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.8417974710464478
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5270399451255798
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.4901160305669237e-08
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7337347269058228
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.4901160305669237e-08
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7810810208320618
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Plate_01",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_01/Socket_Plate_01",
+      "parent": "BackPlate_01",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.6732085943222046
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7388734817504883
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.07621216773986816
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Plate_02",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_02/Socket_Plate_02",
+      "parent": "BackPlate_02",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.24133896827697754
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.8127022981643677
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 4.470348358154297e-08,
+        "z": 0.07621240615844727
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Plate_03",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_03/Socket_Plate_03",
+      "parent": "BackPlate_03",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          0.19053074717521667
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.8127022981643677
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 1.4901161193847656e-08,
+        "z": 0.07621240615844727
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Plate_04",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/spine/BackPlate_04/Socket_Plate_04",
+      "parent": "BackPlate_04",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          0.6224004626274109
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7388734817504883
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.07621216773986816
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Mallet",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/pelvis/Tail_01/Tail_02/Tail_03/Tail_04/Tail_05/Tail_06/Tail_07/TailMallet/Socket_Mallet",
+      "parent": "TailMallet",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          3.1755125522613525
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.3501328229904175
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 2.384185791015625e-07,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_ForwardOrigin",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_ForwardOrigin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.8417974710464478
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5270399451255798
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -1.8417977094650269,
+        "z": -0.25404107570648193
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.4901160305669237e-08
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7337347269058228
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.952653706073761
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S14_XylophoneStegosaur/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -1.4901160305669237e-08
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7810810208320618
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S14_XylophoneStegosaur_Movement_COL",
+      "shape": "convex",
+      "purpose": "Movement",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.7810810208320618
+      ],
+      "size": [
+        0.6276414394378662,
+        2.565056324005127,
+        0.7919999957084656
+      ]
+    },
+    {
+      "node": "SM_S14_XylophoneStegosaur_Hurt_COL",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.7810810208320618
+      ],
+      "size": [
+        0.8786979913711548,
+        3.3457257747650146,
+        1.0080000162124634
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Spawn.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.140456438064575,
+          -0.34786373376846313
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4578258991241455,
+          2.617720603942871
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.1905307173728943,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.1905307173728943
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S14_XylophoneStegosaur_Idle.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 120.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4654932022094727,
+          2.127335548400879
+        ]
+      },
+      "unityCheck": {
+        "duration": 2.0,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 4.553677558898926,
+        "maxBoneTravel": 0.04572737216949463,
+        "loopAngle": 0.0,
+        "loopTravel": 6.617444900424222e-24
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S14_XylophoneStegosaur_Hit.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 15.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.8542429208755493,
+          -2.1408965587615967,
+          -0.3180392384529114
+        ],
+        "max": [
+          0.8467299938201904,
+          3.490643262863159,
+          1.9965952634811401
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.25,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.445205688476562,
+        "maxBoneTravel": 3.622365909450309e-07,
+        "loopAngle": 0.0,
+        "loopTravel": 6.617444900424222e-24
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Walk",
+      "durationSec": 1.0,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.5
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Walk.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.1662631034851074,
+          -2.1403002738952637,
+          -0.017909526824951172
+        ],
+        "max": [
+          1.3233884572982788,
+          3.4439480304718018,
+          2.137519359588623
+        ]
+      },
+      "unityCheck": {
+        "duration": 1.0,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 20.626487731933594,
+        "maxBoneTravel": 0.04572737216949463,
+        "loopAngle": 0.0,
+        "loopTravel": 4.632211430296955e-23
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Cast_Prepare",
+      "durationSec": 0.9,
+      "loop": false,
+      "markersSec": {
+        "WarningStart": 0
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Cast_Prepare.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 54.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.9000000357627869,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 176.72787475585938,
+        "maxBoneTravel": 6.014067253090616e-07,
+        "loopAngle": 59.27094268798828,
+        "loopTravel": 3.5958217381448776e-07
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_01",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHit": 0.2
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Strike_Plate_01.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 53.026187896728516,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_02",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHit": 0.2
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Strike_Plate_02.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 46.450138092041016,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_03",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHit": 0.2
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Strike_Plate_03.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 46.7165641784668,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_04",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHit": 0.2
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Strike_Plate_04.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 82.56542205810547,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_01_02",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_01_02.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 53.026187896728516,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_01_03",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_01_03.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 53.026187896728516,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_01_04",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_01_04.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 62.973812103271484,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_02_01",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_02_01.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 48.355628967285156,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_02_03",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_02_03.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 46.450138092041016,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_02_04",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_02_04.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 62.973812103271484,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_03_01",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_03_01.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 48.355628967285156,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_03_02",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_03_02.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 46.7165641784668,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_03_04",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_03_04.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 62.973812103271484,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_04_01",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_04_01.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 82.56542205810547,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_04_02",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_04_02.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 82.56542205810547,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Double_04_03",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "PlateHitA": 0.2,
+        "PlateHitB": 0.32
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Double_04_03.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 48.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 82.56542205810547,
+        "maxBoneTravel": 0.055889010429382324,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Cast_Recover",
+      "durationSec": 0.7,
+      "loop": false,
+      "markersSec": {
+        "RecoverEnd": 0.7
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Cast_Recover.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 42.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.7845517992973328,
+          -2.1403002738952637,
+          0.0
+        ],
+        "max": [
+          0.7845517992973328,
+          3.4359092712402344,
+          2.5148515701293945
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.7000000476837158,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 163.7622528076172,
+        "maxBoneTravel": 6.575467068614671e-07,
+        "loopAngle": 59.27094268798828,
+        "loopTravel": 3.5958217381448776e-07
+      }
+    },
+    {
+      "clip": "AN_S14_XylophoneStegosaur_Death",
+      "durationSec": 1.4,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 1.4
+      },
+      "file": "Exports/AN_S14_XylophoneStegosaur_Death.fbx",
+      "fps": 60,
+      "frameStart": 0,
+      "frameEnd": 84.0,
+      "fbxSampleRate": 60,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -0.938452959060669,
+          -2.140455961227417,
+          -0.8327538967132568
+        ],
+        "max": [
+          0.882278561592102,
+          3.4359092712402344,
+          2.1921706199645996
+        ]
+      },
+      "unityCheck": {
+        "duration": 1.4000000953674316,
+        "sampleRate": 60.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 50.4202880859375,
+        "maxBoneTravel": 0.567019522190094,
+        "loopAngle": 50.4202880859375,
+        "loopTravel": 0.567019522190094
+      }
+    }
+  ],
+  "derivatives": [
+    "Derivatives/FXM_S14_FallingNote/manifest.json",
+    "Derivatives/FXM_S14_MarchingNote/manifest.json",
+    "Derivatives/Textures/T_S14_LandingCircle.png",
+    "Derivatives/Textures/T_S14_LaneWarning.png",
+    "Derivatives/Textures/T_S14_NoteAtlas.png"
+  ],
+  "validationStatus": {
+    "modelImport": "verified",
+    "heightAndPolyBudgets": "verified",
+    "avatarClipSampling": "verified",
+    "loopEndpoints": "verified",
+    "collisionGeometry": "verified",
+    "conceptBoardComparison": "pending",
+    "targetURPAndCombatReview": "pending"
+  },
+  "unityVersion": "6000.6.4f1",
+  "sourceQA": {
+    "roots": [
+      "root"
+    ],
+    "images": [
+      {
+        "file": "//..\\Textures\\T_S14_XylophoneStegosaur_BC.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S14_XylophoneStegosaur_E.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S14_XylophoneStegosaur_ORM.png",
+        "exists": true
+      }
+    ],
+    "contacts": [
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_01",
+        "plate": 1,
+        "t": 0.2,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_02",
+        "plate": 2,
+        "t": 0.2,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_03",
+        "plate": 3,
+        "t": 0.2,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Strike_Plate_04",
+        "plate": 4,
+        "t": 0.2,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_02",
+        "plate": 1,
+        "t": 0.2,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_02",
+        "plate": 2,
+        "t": 0.32,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_03",
+        "plate": 1,
+        "t": 0.2,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_03",
+        "plate": 3,
+        "t": 0.32,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_04",
+        "plate": 1,
+        "t": 0.2,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_01_04",
+        "plate": 4,
+        "t": 0.32,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_01",
+        "plate": 2,
+        "t": 0.2,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_01",
+        "plate": 1,
+        "t": 0.32,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_03",
+        "plate": 2,
+        "t": 0.2,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_03",
+        "plate": 3,
+        "t": 0.32,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_04",
+        "plate": 2,
+        "t": 0.2,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_02_04",
+        "plate": 4,
+        "t": 0.32,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_01",
+        "plate": 3,
+        "t": 0.2,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_01",
+        "plate": 1,
+        "t": 0.32,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_02",
+        "plate": 3,
+        "t": 0.2,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_02",
+        "plate": 2,
+        "t": 0.32,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_04",
+        "plate": 3,
+        "t": 0.2,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_03_04",
+        "plate": 4,
+        "t": 0.32,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_01",
+        "plate": 4,
+        "t": 0.2,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_01",
+        "plate": 1,
+        "t": 0.32,
+        "centerDistance": 0.20830787733821074,
+        "dz": 0.20830786228179932
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_02",
+        "plate": 4,
+        "t": 0.2,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_02",
+        "plate": 2,
+        "t": 0.32,
+        "centerDistance": 0.20831334594377934,
+        "dz": 0.20831334590911865
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_03",
+        "plate": 4,
+        "t": 0.2,
+        "centerDistance": 0.20831370360583396,
+        "dz": 0.2083137035369873
+      },
+      {
+        "clip": "AN_S14_XylophoneStegosaur_Double_04_03",
+        "plate": 3,
+        "t": 0.32,
+        "centerDistance": 0.20831358736578637,
+        "dz": 0.20831358432769775
+      }
+    ],
+    "variantBody": {},
+    "restBoneCount": 37
+  },
+  "materialNotes": "Shared UV0 atlas with intentional reuse by surface type. Flat tangent normal (0.5,0.5,1). BC sRGB. ORM and E linear. Warm emission tint is controlled separately.",
+  "unityBoundsMeters": {
+    "width": 1.569103717803955,
+    "height": 1.8000000715255737,
+    "depth": 5.5762104988098145
+  }
+}

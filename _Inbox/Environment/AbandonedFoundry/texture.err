@@ -1,0 +1,2 @@
+E:\S\_Inbox\Environment\AbandonedFoundry\Source\texture_refresh.py:53: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('MAT_Foundry_'+key);mat.use_nodes=True;nodes=mat.node_tree.nodes;bs=nodes.get('Principled BSDF')

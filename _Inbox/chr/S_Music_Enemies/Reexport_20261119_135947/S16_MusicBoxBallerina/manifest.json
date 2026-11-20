@@ -1,0 +1,2380 @@
+{
+  "schemaVersion": 2,
+  "assetId": "S16_MusicBoxBallerina",
+  "revision": "v003",
+  "conceptNumber": "16",
+  "category": "Boss",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 2.88,
+  "units": "m",
+  "blenderAxes": "+Z up / -Y front",
+  "unityAxes": "+Y up / +Z front",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "leafBones": false
+  },
+  "rootPath": "ARM_S16_MusicBoxBallerina/root",
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S16_MusicBoxBallerina/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S16_MusicBoxBallerina/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3223689794540405
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegUpper",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LLegUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.14172473549842834
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3716645240783691
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegShin",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LLegUpper/LLegShin",
+      "parent": "LLegUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.07394333928823471
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.13556277751922607
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8294134140014648
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LLegFoot",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LLegUpper/LLegShin/LLegFoot",
+      "parent": "LLegShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.29577335715293884
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.06778138875961304
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.49666836857795715
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Toe_L",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LLegUpper/LLegShin/LLegFoot/Socket_Toe_L",
+      "parent": "LLegFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.40255823731422424
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.09521385282278061
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.2824099063873291
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LArm",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.329047828912735
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.1234219074249268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LForearm",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm",
+      "parent": "LArm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.6654900908470154
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.03080972284078598
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.9015917778015137
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LHand",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm/LHand",
+      "parent": "LForearm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.03520667552948
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.11091500520706177
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.8399723768234253
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LFinger_01",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm/LHand/LFinger_01",
+      "parent": "LHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.140358328819275
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.18135233223438263
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.82926607131958
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LFinger_02",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm/LHand/LFinger_02",
+      "parent": "LHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.1517233848571777
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.1532599776983261
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.8209679126739502
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LFinger_03",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm/LHand/LFinger_03",
+      "parent": "LHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.1512819528579712
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.12243344634771347
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.8149067163467407
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LFinger_04",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LArm/LForearm/LHand/LFinger_04",
+      "parent": "LHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.150840401649475
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.09160690009593964
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.8088456392288208
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegUpper",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RLegUpper",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.14172473549842834
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.3716645240783691
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegShin",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RLegUpper/RLegShin",
+      "parent": "RLegUpper",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.08626722544431686
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.04929555952548981
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7924416661262512
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RLegFoot",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RLegUpper/RLegShin/RLegFoot",
+      "parent": "RLegShin",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.05545750632882118
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.03080972284078598
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.2501905560493469
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Toe_R",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RLegUpper/RLegShin/RLegFoot/Socket_Toe_R",
+      "parent": "RLegFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.06778139621019363
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.11702845990657806
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.004152223467826843
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RArm",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.329047828912735
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.1234219074249268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RForearm",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm",
+      "parent": "RArm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.5915467143058777
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.018485836684703827
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.4068713188171387
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RHand",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm/RHand",
+      "parent": "RForearm",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.7764050364494324
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.09242917597293854
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8135595321655273
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RFinger_01",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm/RHand/RFinger_01",
+      "parent": "RHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.8795812726020813
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.16304638981819153
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.835937023162842
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RFinger_02",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm/RHand/RFinger_02",
+      "parent": "RHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.893019437789917
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.13500919938087463
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.831404685974121
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RFinger_03",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm/RHand/RFinger_03",
+      "parent": "RHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.8945411443710327
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.10421242564916611
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8253672122955322
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RFinger_04",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RArm/RForearm/RHand/RFinger_04",
+      "parent": "RHand",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.896062970161438
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.07341566681861877
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8193297386169434
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "head",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/head",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.0026381774805486202
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.00041065365076065063
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.283339738845825
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_01",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_01",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.25880166888237
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_02",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_02",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.18300043046474457
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.15685750544071198
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_03",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_03",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.5847033531062298e-17
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.22183004021644592
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_04",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_04",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.18300043046474457
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.15685750544071198
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_05",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_05",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.25880166888237
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_06",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_06",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.18300043046474457
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15685749053955078
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_07",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_07",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.7541100593186895e-17
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.22183001041412354
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "SkirtPanel_08",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/SkirtPanel_08",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.18300043046474457
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.15685749053955078
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5072273015975952
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "cylinder",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/cylinder",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.548413097858429
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.0044126510620117
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_WeakPoint",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/cylinder/Socket_WeakPoint",
+      "parent": "cylinder",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.5804551839828491
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0278280973434448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_NoteOrigin",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/cylinder/Socket_NoteOrigin",
+      "parent": "cylinder",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.7505249977111816
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0278280973434448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "winding_key",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/winding_key",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.2341538965702057
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.8276485204696655
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_WindingKey",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/winding_key/Socket_WindingKey",
+      "parent": "winding_key",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6207135319709778
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.1602107435464859
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7537055015563965
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.061802387237549
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.3223689794540405
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Toe_L",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/LLegUpper/LLegShin/LLegFoot/Socket_Toe_L",
+      "parent": "LLegFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.40255823731422424
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.09521385282278061
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.2824099063873291
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.1067848801612854,
+        "y": -0.027432464063167572,
+        "z": -0.21425846219062805
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_Toe_R",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/RLegUpper/RLegShin/RLegFoot/Socket_Toe_R",
+      "parent": "RLegFoot",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.06778139621019363
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.11702845990657806
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.004152223467826843
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": -0.012323889881372452,
+        "y": -0.08621873706579208,
+        "z": -0.24603833258152008
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_WeakPoint",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/cylinder/Socket_WeakPoint",
+      "parent": "cylinder",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.5804551839828491
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0278280973434448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -0.032042086124420166,
+        "z": 0.023415446281433105
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_NoteOrigin",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/cylinder/Socket_NoteOrigin",
+      "parent": "cylinder",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -0.7505249977111816
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0278280973434448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -0.20211189985275269,
+        "z": 0.023415446281433105
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_WindingKey",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/winding_key/Socket_WindingKey",
+      "parent": "winding_key",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6207135319709778
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.1602107435464859
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.7537055015563965
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": -0.6207135319709778,
+        "y": -0.07394315302371979,
+        "z": -0.07394301891326904
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_SpotlightTarget",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/Socket_SpotlightTarget",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.061802387237549
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.7394334077835083
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S16_MusicBoxBallerina/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.3223689794540405
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "variants": [
+    "Base"
+  ],
+  "lods": [
+    {
+      "file": "Exports/S16_MusicBoxBallerina_Model.fbx",
+      "variant": "Base",
+      "level": 0,
+      "tris": 19353,
+      "budget": 20000,
+      "nodes": [
+        "SM_S16_MusicBoxBallerina_LLegFootJoint_LOD0",
+        "SM_S16_MusicBoxBallerina_RLegFootJoint_LOD0",
+        "SM_S16_MusicBoxBallerina_Neck_LOD0",
+        "SM_S16_MusicBoxBallerina_PorcelainFace_LOD0",
+        "SM_S16_MusicBoxBallerina_Lash_LOD0",
+        "SM_S16_MusicBoxBallerina_Brow_LOD0",
+        "SM_S16_MusicBoxBallerina_Nose_LOD0",
+        "SM_S16_MusicBoxBallerina_Rouge_LOD0",
+        "SM_S16_MusicBoxBallerina_Haircap_LOD0",
+        "SM_S16_MusicBoxBallerina_SlipperRibbon_LOD0",
+        "SM_S16_MusicBoxBallerina_WineBodice_LOD0",
+        "SM_S16_MusicBoxBallerina_KeySpindle_LOD0",
+        "SM_S16_MusicBoxBallerina_KeyLoop_LOD0",
+        "SM_S16_MusicBoxBallerina_PorcelainLimb_LOD0",
+        "SM_S16_MusicBoxBallerina_PorcelainJoint_LOD0",
+        "SM_S16_MusicBoxBallerina_PointShoe_LOD0",
+        "SM_S16_MusicBoxBallerina_BrocadeBell_LOD0",
+        "SM_S16_MusicBoxBallerina_RolledHem_LOD0",
+        "SM_S16_MusicBoxBallerina_BorderBraid_LOD0",
+        "SM_S16_MusicBoxBallerina_PrincessSeam_LOD0",
+        "SM_S16_MusicBoxBallerina_EmbroideredVolute_LOD0",
+        "SM_S16_MusicBoxBallerina_PleatedIvoryTier_LOD0",
+        "SM_S16_MusicBoxBallerina_GildedBarrel_LOD0",
+        "SM_S16_MusicBoxBallerina_BarrelWheel_LOD0",
+        "SM_S16_MusicBoxBallerina_Axle_LOD0",
+        "SM_S16_MusicBoxBallerina_BarrelPin_LOD0",
+        "SM_S16_MusicBoxBallerina_CombBridge_LOD0",
+        "SM_S16_MusicBoxBallerina_TunedComb_LOD0",
+        "SM_S16_MusicBoxBallerina_CorsetSeam_LOD0",
+        "SM_S16_MusicBoxBallerina_WaistBow_LOD0",
+        "SM_S16_MusicBoxBallerina_SculptedPalm_LOD0",
+        "SM_S16_MusicBoxBallerina_ArticulatedFingers_LOD0",
+        "SM_S16_MusicBoxBallerina_Thumb_LOD0",
+        "SM_S16_MusicBoxBallerina_CuffLip_LOD0",
+        "SM_S16_MusicBoxBallerina_MarcelWave_LOD0",
+        "SM_S16_MusicBoxBallerina_CoiledBun_LOD0",
+        "SM_S16_MusicBoxBallerina_VelvetPetal_LOD0",
+        "SM_S16_MusicBoxBallerina_HairpinPearl_LOD0",
+        "SM_S16_MusicBoxBallerina_HairRibbon_LOD0",
+        "SM_S16_MusicBoxBallerina_PleatedCap_LOD0",
+        "SM_S16_MusicBoxBallerina_SleeveWelt_LOD0",
+        "SM_S16_MusicBoxBallerina_VelvetChoker_LOD0",
+        "SM_S16_MusicBoxBallerina_Cameo_LOD0",
+        "SM_S16_MusicBoxBallerina_Neckline_LOD0",
+        "SM_S16_MusicBoxBallerina_BodiceSprig_LOD0"
+      ],
+      "unityTris": 19353,
+      "unityHeightMeters": 2.8785367012023926
+    },
+    {
+      "file": "Exports/S16_MusicBoxBallerina_Model.fbx",
+      "variant": "Base",
+      "level": 1,
+      "tris": 9663,
+      "budget": 10000,
+      "nodes": [
+        "SM_S16_MusicBoxBallerina_LLegFootJoint_LOD1",
+        "SM_S16_MusicBoxBallerina_RLegFootJoint_LOD1",
+        "SM_S16_MusicBoxBallerina_Neck_LOD1",
+        "SM_S16_MusicBoxBallerina_PorcelainFace_LOD1",
+        "SM_S16_MusicBoxBallerina_Lash_LOD1",
+        "SM_S16_MusicBoxBallerina_Brow_LOD1",
+        "SM_S16_MusicBoxBallerina_Nose_LOD1",
+        "SM_S16_MusicBoxBallerina_Rouge_LOD1",
+        "SM_S16_MusicBoxBallerina_Haircap_LOD1",
+        "SM_S16_MusicBoxBallerina_SlipperRibbon_LOD1",
+        "SM_S16_MusicBoxBallerina_WineBodice_LOD1",
+        "SM_S16_MusicBoxBallerina_KeySpindle_LOD1",
+        "SM_S16_MusicBoxBallerina_KeyLoop_LOD1",
+        "SM_S16_MusicBoxBallerina_PorcelainLimb_LOD1",
+        "SM_S16_MusicBoxBallerina_PorcelainJoint_LOD1",
+        "SM_S16_MusicBoxBallerina_PointShoe_LOD1",
+        "SM_S16_MusicBoxBallerina_BrocadeBell_LOD1",
+        "SM_S16_MusicBoxBallerina_RolledHem_LOD1",
+        "SM_S16_MusicBoxBallerina_BorderBraid_LOD1",
+        "SM_S16_MusicBoxBallerina_PrincessSeam_LOD1",
+        "SM_S16_MusicBoxBallerina_EmbroideredVolute_LOD1",
+        "SM_S16_MusicBoxBallerina_PleatedIvoryTier_LOD1",
+        "SM_S16_MusicBoxBallerina_GildedBarrel_LOD1",
+        "SM_S16_MusicBoxBallerina_BarrelWheel_LOD1",
+        "SM_S16_MusicBoxBallerina_Axle_LOD1",
+        "SM_S16_MusicBoxBallerina_BarrelPin_LOD1",
+        "SM_S16_MusicBoxBallerina_CombBridge_LOD1",
+        "SM_S16_MusicBoxBallerina_TunedComb_LOD1",
+        "SM_S16_MusicBoxBallerina_CorsetSeam_LOD1",
+        "SM_S16_MusicBoxBallerina_WaistBow_LOD1",
+        "SM_S16_MusicBoxBallerina_SculptedPalm_LOD1",
+        "SM_S16_MusicBoxBallerina_ArticulatedFingers_LOD1",
+        "SM_S16_MusicBoxBallerina_Thumb_LOD1",
+        "SM_S16_MusicBoxBallerina_CuffLip_LOD1",
+        "SM_S16_MusicBoxBallerina_MarcelWave_LOD1",
+        "SM_S16_MusicBoxBallerina_CoiledBun_LOD1",
+        "SM_S16_MusicBoxBallerina_VelvetPetal_LOD1",
+        "SM_S16_MusicBoxBallerina_HairpinPearl_LOD1",
+        "SM_S16_MusicBoxBallerina_HairRibbon_LOD1",
+        "SM_S16_MusicBoxBallerina_PleatedCap_LOD1",
+        "SM_S16_MusicBoxBallerina_SleeveWelt_LOD1",
+        "SM_S16_MusicBoxBallerina_VelvetChoker_LOD1",
+        "SM_S16_MusicBoxBallerina_Cameo_LOD1",
+        "SM_S16_MusicBoxBallerina_Neckline_LOD1",
+        "SM_S16_MusicBoxBallerina_BodiceSprig_LOD1"
+      ],
+      "unityTris": 9663,
+      "unityHeightMeters": 2.8785367012023926
+    },
+    {
+      "file": "Exports/S16_MusicBoxBallerina_Model.fbx",
+      "variant": "Base",
+      "level": 2,
+      "tris": 3931,
+      "budget": 4000,
+      "nodes": [
+        "SM_S16_MusicBoxBallerina_LLegFootJoint_LOD2",
+        "SM_S16_MusicBoxBallerina_RLegFootJoint_LOD2",
+        "SM_S16_MusicBoxBallerina_Neck_LOD2",
+        "SM_S16_MusicBoxBallerina_PorcelainFace_LOD2",
+        "SM_S16_MusicBoxBallerina_Lash_LOD2",
+        "SM_S16_MusicBoxBallerina_Brow_LOD2",
+        "SM_S16_MusicBoxBallerina_Nose_LOD2",
+        "SM_S16_MusicBoxBallerina_Rouge_LOD2",
+        "SM_S16_MusicBoxBallerina_Haircap_LOD2",
+        "SM_S16_MusicBoxBallerina_SlipperRibbon_LOD2",
+        "SM_S16_MusicBoxBallerina_WineBodice_LOD2",
+        "SM_S16_MusicBoxBallerina_KeySpindle_LOD2",
+        "SM_S16_MusicBoxBallerina_KeyLoop_LOD2",
+        "SM_S16_MusicBoxBallerina_PorcelainLimb_LOD2",
+        "SM_S16_MusicBoxBallerina_PorcelainJoint_LOD2",
+        "SM_S16_MusicBoxBallerina_PointShoe_LOD2",
+        "SM_S16_MusicBoxBallerina_BrocadeBell_LOD2",
+        "SM_S16_MusicBoxBallerina_RolledHem_LOD2",
+        "SM_S16_MusicBoxBallerina_BorderBraid_LOD2",
+        "SM_S16_MusicBoxBallerina_PrincessSeam_LOD2",
+        "SM_S16_MusicBoxBallerina_EmbroideredVolute_LOD2",
+        "SM_S16_MusicBoxBallerina_PleatedIvoryTier_LOD2",
+        "SM_S16_MusicBoxBallerina_GildedBarrel_LOD2",
+        "SM_S16_MusicBoxBallerina_BarrelWheel_LOD2",
+        "SM_S16_MusicBoxBallerina_Axle_LOD2",
+        "SM_S16_MusicBoxBallerina_BarrelPin_LOD2",
+        "SM_S16_MusicBoxBallerina_CombBridge_LOD2",
+        "SM_S16_MusicBoxBallerina_TunedComb_LOD2",
+        "SM_S16_MusicBoxBallerina_CorsetSeam_LOD2",
+        "SM_S16_MusicBoxBallerina_WaistBow_LOD2",
+        "SM_S16_MusicBoxBallerina_SculptedPalm_LOD2",
+        "SM_S16_MusicBoxBallerina_ArticulatedFingers_LOD2",
+        "SM_S16_MusicBoxBallerina_Thumb_LOD2",
+        "SM_S16_MusicBoxBallerina_CuffLip_LOD2",
+        "SM_S16_MusicBoxBallerina_MarcelWave_LOD2",
+        "SM_S16_MusicBoxBallerina_CoiledBun_LOD2",
+        "SM_S16_MusicBoxBallerina_VelvetPetal_LOD2",
+        "SM_S16_MusicBoxBallerina_HairpinPearl_LOD2",
+        "SM_S16_MusicBoxBallerina_HairRibbon_LOD2",
+        "SM_S16_MusicBoxBallerina_PleatedCap_LOD2",
+        "SM_S16_MusicBoxBallerina_SleeveWelt_LOD2",
+        "SM_S16_MusicBoxBallerina_VelvetChoker_LOD2",
+        "SM_S16_MusicBoxBallerina_Cameo_LOD2",
+        "SM_S16_MusicBoxBallerina_Neckline_LOD2",
+        "SM_S16_MusicBoxBallerina_BodiceSprig_LOD2"
+      ],
+      "unityTris": 3931,
+      "unityHeightMeters": 2.8785367012023926
+    }
+  ],
+  "materials": [
+    "MAT_S16_MusicBoxBallerina_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S16_MusicBoxBallerina_BC.png",
+      "space": "sRGB",
+      "channels": "Base Color"
+    },
+    {
+      "file": "Textures/T_S16_MusicBoxBallerina_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S16_MusicBoxBallerina_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Spawn.fbx",
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.1499999761581421,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.1499999761581421
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.8305466175079346,
+          -0.1281701922416687
+        ],
+        "max": [
+          1.1594547033309937,
+          0.9321836829185486,
+          2.8802943229675293
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S16_MusicBoxBallerina_Idle.fbx",
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 9.167284965515137,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.8305466175079346,
+          0.001757369958795607
+        ],
+        "max": [
+          1.1596037149429321,
+          0.8802414536476135,
+          2.883044481277466
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S16_MusicBoxBallerina_Hit.fbx",
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.347187042236328,
+        "maxBoneTravel": 4.806057631867588e-07,
+        "loopAngle": 1.1211589574813843,
+        "loopTravel": 1.6543612251060553e-24
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.8762620091438293,
+          0.001757369958795607
+        ],
+        "max": [
+          1.2682864665985107,
+          0.8315590620040894,
+          2.8802943229675293
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Walk",
+      "durationSec": 1.0,
+      "loop": true,
+      "markersSec": {
+        "FootContact_L": 0,
+        "FootContact_R": 0.5
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Walk.fbx",
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 20.625532150268555,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.8592061400413513,
+          0.001757369958795607
+        ],
+        "max": [
+          1.0249202251434326,
+          0.8896598219871521,
+          2.9581727981567383
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Waltz_Windup",
+      "durationSec": 1.0,
+      "loop": false,
+      "markersSec": {
+        "PathPreviewStart": 0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Waltz_Windup.fbx",
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 180.0,
+        "maxBoneTravel": 4.4109702912464854e-07,
+        "loopAngle": 65.89013671875,
+        "loopTravel": 4.4109702912464854e-07
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.284417986869812,
+          -0.8305466175079346,
+          0.001757369958795607
+        ],
+        "max": [
+          1.168991208076477,
+          0.8802414536476135,
+          2.9040441513061523
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Waltz_Loop",
+      "durationSec": 1.0,
+      "loop": true,
+      "markersSec": {
+        "SkirtAttackActive": 0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Waltz_Loop.fbx",
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 180.0,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 3.332000986233652e-08
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2927600145339966,
+          -1.3052308559417725,
+          0.001757369958795607
+        ],
+        "max": [
+          1.3000885248184204,
+          1.2877918481826782,
+          2.9581727981567383
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Waltz_Stop",
+      "durationSec": 0.4,
+      "loop": false,
+      "markersSec": {
+        "AttackEnd": 0.4
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Waltz_Stop.fbx",
+      "frameStart": 0,
+      "frameEnd": 12.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.40000003576278687,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 179.99996948242188,
+        "maxBoneTravel": 4.789860099663201e-07,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.8305466175079346,
+          0.001757369958795607
+        ],
+        "max": [
+          1.1594547033309937,
+          0.8802414536476135,
+          2.8802943229675293
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Pluck_Prepare",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "WarningStart": 0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Pluck_Prepare.fbx",
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 65.89013671875,
+        "maxBoneTravel": 4.4109702912464854e-07,
+        "loopAngle": 65.89013671875,
+        "loopTravel": 4.4109702912464854e-07
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.284309983253479,
+          -1.0313606262207031,
+          0.001757369958795607
+        ],
+        "max": [
+          1.2231135368347168,
+          1.0472781658172607,
+          2.903311252593994
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Pluck_Beat",
+      "durationSec": 0.6,
+      "loop": false,
+      "markersSec": {
+        "FanRelease": 0.3
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Pluck_Beat.fbx",
+      "frameStart": 0,
+      "frameEnd": 18.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.6000000238418579,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 120.00000762939453,
+        "maxBoneTravel": 3.7968732158333296e-07,
+        "loopAngle": 120.00000762939453,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -1.0313606262207031,
+          0.001757369958795607
+        ],
+        "max": [
+          1.2231135368347168,
+          1.0472781658172607,
+          2.9379022121429443
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Curtsey",
+      "durationSec": 1.5,
+      "loop": false,
+      "markersSec": {
+        "WeakOpen": 0.0,
+        "WeakClose": 1.5
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Curtsey.fbx",
+      "frameStart": 0,
+      "frameEnd": 45.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 1.5000001192092896,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 61.35586929321289,
+        "maxBoneTravel": 0.1797807216644287,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -1.06984281539917,
+          -0.052567288279533386
+        ],
+        "max": [
+          1.2546685934066772,
+          1.0727272033691406,
+          2.9379022121429443
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Rewind_Windup",
+      "durationSec": 0.9,
+      "loop": false,
+      "markersSec": {
+        "ReturnPreviewStart": 0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Rewind_Windup.fbx",
+      "frameStart": 0,
+      "frameEnd": 27.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 0.9000000357627869,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 179.99998474121094,
+        "maxBoneTravel": 4.448096433407045e-07,
+        "loopAngle": 65.89013671875,
+        "loopTravel": 4.4109702912464854e-07
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.284443736076355,
+          -0.8305466175079346,
+          0.001757369958795607
+        ],
+        "max": [
+          1.1692767143249512,
+          0.8800837993621826,
+          2.90383243560791
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Rewind_Loop",
+      "durationSec": 1.0,
+      "loop": true,
+      "markersSec": {
+        "SkirtAttackActive": 0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Rewind_Loop.fbx",
+      "frameStart": 0,
+      "frameEnd": 30.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 1.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 180.0,
+        "maxBoneTravel": 0.03600001335144043,
+        "loopAngle": 0.0,
+        "loopTravel": 3.332000986233652e-08
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.3000885248184204,
+          -1.2877918481826782,
+          0.001757369958795607
+        ],
+        "max": [
+          1.2927600145339966,
+          1.3052308559417725,
+          2.9581727981567383
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Curtsey_Long",
+      "durationSec": 2.0,
+      "loop": false,
+      "markersSec": {
+        "WeakOpen": 0.0,
+        "WeakClose": 2.0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Curtsey_Long.fbx",
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 61.35615158081055,
+        "maxBoneTravel": 0.1799999475479126,
+        "loopAngle": 0.0,
+        "loopTravel": 0.0
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -1.0699741840362549,
+          -0.0526028648018837
+        ],
+        "max": [
+          1.2546685934066772,
+          1.0725246667861938,
+          2.9379022121429443
+        ]
+      }
+    },
+    {
+      "clip": "AN_S16_MusicBoxBallerina_Death",
+      "durationSec": 2.0,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 2.0
+      },
+      "file": "Exports/AN_S16_MusicBoxBallerina_Death.fbx",
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fps": 30,
+      "rootMotion": false,
+      "unity": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 50.4202880859375,
+        "maxBoneTravel": 0.9521056413650513,
+        "loopAngle": 50.4202880859375,
+        "loopTravel": 0.9521056413650513
+      },
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2840579748153687,
+          -0.9444864988327026,
+          -0.6629520654678345
+        ],
+        "max": [
+          1.2512588500976562,
+          0.9488850235939026,
+          2.8802943229675293
+        ]
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S16_MusicBoxBallerina_Movement_COL",
+      "bindBone": "body",
+      "shape": "convex",
+      "purpose": "Movement",
+      "center": [
+        0.0,
+        0.0,
+        1.3223689794540405
+      ],
+      "size": [
+        0.7850525379180908,
+        0.6648423075675964,
+        1.208985447883606
+      ]
+    },
+    {
+      "node": "SM_S16_MusicBoxBallerina_Hurt_COL",
+      "bindBone": "body",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "center": [
+        0.0,
+        0.0,
+        1.3223689794540405
+      ],
+      "size": [
+        1.0621299743652344,
+        0.831052839756012,
+        1.6695513725280762
+      ]
+    },
+    {
+      "node": "SM_S16_MusicBoxBallerina_WeakPoint_COL",
+      "bindBone": "cylinder",
+      "shape": "convex",
+      "purpose": "WeakPoint",
+      "center": [
+        0.0,
+        -0.5804551839828491,
+        1.0278280973434448
+      ],
+      "size": [
+        0.6000000238418579,
+        0.30000001192092896,
+        0.2800000011920929
+      ]
+    }
+  ],
+  "derivatives": [
+    "Derivatives/FXM_S16_PluckedNote/manifest.json",
+    "Derivatives/Textures/T_S16_ArcPath.png",
+    "Derivatives/Textures/T_S16_NoteAtlas.png",
+    "Derivatives/Textures/T_S16_WeakPoint.png"
+  ],
+  "validationStatus": {
+    "geometryHeightLodWeightsUv": "verified",
+    "textureAndAvatarImport": "verified",
+    "clipDurationRateBindingsAndRoot": "verified",
+    "colliderMeshCount": "verified",
+    "targetURPPlaytest": "pending"
+  },
+  "measuredBounds": {
+    "min": [
+      -1.2840579748153687,
+      -0.8305466175079346,
+      0.001757369958795607
+    ],
+    "max": [
+      1.0249202251434326,
+      0.8315590620040894,
+      2.8802943229675293
+    ]
+  },
+  "source": "Source/S16_MusicBoxBallerina.blend",
+  "unityVersion": "6000.6.4f1",
+  "unityBoundsMeters": {
+    "height": 2.8785367012023926,
+    "width": 2.3089780807495117,
+    "depth": 1.6621053218841553
+  },
+  "sourceVerification": {
+    "source": "ConceptReview_v003/S16_MusicBoxBallerina/S16_MusicBoxBallerina.blend",
+    "sourceSha256": "c3a9e491b137107a2caefcc7c35cb42ea4920845ceb2adeb2b77c6a494798727",
+    "matchingSourcePartsPerAppearance": {
+      "Base": 45
+    }
+  }
+}

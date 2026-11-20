@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_sw04_cello_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:34:55+0800",
+  "task_id": "task_01M7W1GDWZ2ES1NHK3M2R48PJZ",
+  "result_url": "https://getapib.org/image/9998204836254411-d44253d4-5f5f-40a6-9cb2-08fd897c339f-image_task_01M7W1HTPAC26ZCPMH8HR7WX87_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_SW04_Cello_BC.png",
+  "bytes": 2785653,
+  "sha256": "cdf6d42ee45405dee952e90308bbc4f20b9f9dc9b501798a0d3b842a69327909"
+}

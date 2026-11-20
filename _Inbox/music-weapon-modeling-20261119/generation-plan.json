@@ -1,0 +1,306 @@
+{
+  "groups": [
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW01_Violin-hero",
+        "name": "SW01_Violin_hero",
+        "asset_id": "SW01_Violin",
+        "title": "小提琴",
+        "weapon_id": "rifle",
+        "reference_url": "https://getapib.org/f/image/5677524970745449-6a6c7477-7f04-467f-95eb-46c03753d3ef-image_7Z82YJRCEKTJ7DS7114F78P24T_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW01_Violin/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: chestnut double-waisted violin, exactly four strings and four tuning pegs, two f-holes, ivory score cartridge, navy chin rest, ornate brass rim, separate full-length bow with visible frog and taut hair. Presentation: full soundboard faces the viewer; include the COMPLETE separate bow alongside, with both bow tips visible. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW01_Violin-structure",
+        "name": "SW01_Violin_structure",
+        "asset_id": "SW01_Violin",
+        "title": "小提琴",
+        "weapon_id": "rifle",
+        "reference_from": "SW01_Violin_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW01_Violin/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: chestnut double-waisted violin, exactly four strings and four tuning pegs, two f-holes, ivory score cartridge, navy chin rest, ornate brass rim, separate full-length bow with visible frog and taut hair. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ],
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW02_Kalimba-hero",
+        "name": "SW02_Kalimba_hero",
+        "asset_id": "SW02_Kalimba",
+        "title": "拇指琴",
+        "weapon_id": "smg",
+        "reference_url": "https://getapib.org/f/image/2292016593485807-3df2feff-2e24-41ec-8ef4-da2c7be547f4-image_6QB0ADS1WEHHW72A9DQ4870V80_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW02_Kalimba/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: rounded rectangular walnut thumb-piano body, TWO mirrored groups of spring-metal tines, brass bridge with central tuning cam, clear sound hole, side grip recesses, two wrist straps. Presentation: playing surface faces the viewer with every tine unobstructed, both free tine tips and attachment bridge visible. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW02_Kalimba-structure",
+        "name": "SW02_Kalimba_structure",
+        "asset_id": "SW02_Kalimba",
+        "title": "拇指琴",
+        "weapon_id": "smg",
+        "reference_from": "SW02_Kalimba_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW02_Kalimba/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: rounded rectangular walnut thumb-piano body, TWO mirrored groups of spring-metal tines, brass bridge with central tuning cam, clear sound hole, side grip recesses, two wrist straps. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ],
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW03_FrameDrum-hero",
+        "name": "SW03_FrameDrum_hero",
+        "asset_id": "SW03_FrameDrum",
+        "title": "手鼓",
+        "weapon_id": "shotgun",
+        "reference_url": "https://getapib.org/f/image/1559278442082552-1731f3bf-c9bf-447a-854c-eb49a5f346e4-image_34J661N350JSTTAJSNBSJ8DKT4_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW03_FrameDrum/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: single round ivory membrane drum, burgundy wooden hoop, navy tension wraps, gold studs, two concentric membrane patterns, brass rim tuning ratchet, rear hand grip and forearm strap. Presentation: complete drum face and rim, with the rear grip and strap peeking beyond the rim; no missing drumhead. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW03_FrameDrum-structure",
+        "name": "SW03_FrameDrum_structure",
+        "asset_id": "SW03_FrameDrum",
+        "title": "手鼓",
+        "weapon_id": "shotgun",
+        "reference_from": "SW03_FrameDrum_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW03_FrameDrum/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: single round ivory membrane drum, burgundy wooden hoop, navy tension wraps, gold studs, two concentric membrane patterns, brass rim tuning ratchet, rear hand grip and forearm strap. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ],
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW04_Cello-hero",
+        "name": "SW04_Cello_hero",
+        "asset_id": "SW04_Cello",
+        "title": "大提琴",
+        "weapon_id": "sniper",
+        "reference_url": "https://getapib.org/f/image/1410539115174102-18cb7ca6-a23c-4690-89a8-9b987c2210d4-image_59J5AM352FYCQXPZKMM0Y3S13A_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW04_Cello/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: portable deep mahogany travel cello, four heavy strings, broad lower bout, elongated ebony fingerboard, full scroll and four tuning pegs, small brass alignment ring, tucked endpin, detachable shoulder harness, separate complete bow. Presentation: complete instrument from scroll to bottom endpin, with full length bow alongside and harness laid to the side without obscuring the body. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW04_Cello-structure",
+        "name": "SW04_Cello_structure",
+        "asset_id": "SW04_Cello",
+        "title": "大提琴",
+        "weapon_id": "sniper",
+        "reference_from": "SW04_Cello_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW04_Cello/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: portable deep mahogany travel cello, four heavy strings, broad lower bout, elongated ebony fingerboard, full scroll and four tuning pegs, small brass alignment ring, tucked endpin, detachable shoulder harness, separate complete bow. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ],
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW05_Harp-hero",
+        "name": "SW05_Harp_hero",
+        "asset_id": "SW05_Harp",
+        "title": "竖琴",
+        "weapon_id": "beam",
+        "reference_url": "https://getapib.org/f/image/9201024436400833-f038cbf5-bb58-43ea-9569-21b639abf1b5-image_4XB7RQJDNBBKJ8BAB8WQV18B0T_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW05_Harp/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: compact navy-and-gold triangular lyre-harp with exactly SEVEN strings, complete connected rigid frame, ivory soundboard, upper brass tuning comb and violet insets, padded lower forearm cradle and strap. Presentation: entire triangular harp frame, ALL seven strings separately visible from top pins to bottom anchors, no fingers or effects covering strings. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW05_Harp-structure",
+        "name": "SW05_Harp_structure",
+        "asset_id": "SW05_Harp",
+        "title": "竖琴",
+        "weapon_id": "beam",
+        "reference_from": "SW05_Harp_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW05_Harp/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: compact navy-and-gold triangular lyre-harp with exactly SEVEN strings, complete connected rigid frame, ivory soundboard, upper brass tuning comb and violet insets, padded lower forearm cradle and strap. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ],
+    [
+      {
+        "id": "s-weapon-modelref-20261119-SW06_Accordion-hero",
+        "name": "SW06_Accordion_hero",
+        "asset_id": "SW06_Accordion",
+        "title": "手风琴",
+        "weapon_id": "launcher",
+        "reference_url": "https://getapib.org/f/image/8227157185338285-88fa5f0c-aef9-4251-95a2-dfe64590a95c-image_2QYJWGGKK8RVN801RCR32XFH74_0.png",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW06_Accordion/reference_01_hero.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: compact walnut and midnight-navy accordion, ivory piano keyboard right housing, bass buttons left housing, burgundy pleated bellows joining both housings, antique gold grilles and guards, side straps, ivory perforated score-roll module. Presentation: both end housings and ALL connecting bellows visible in a moderately expanded neutral pose, keyboard and bass controls simultaneously clear. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+      },
+      {
+        "id": "s-weapon-modelref-20261119-SW06_Accordion-structure",
+        "name": "SW06_Accordion_structure",
+        "asset_id": "SW06_Accordion",
+        "title": "手风琴",
+        "weapon_id": "launcher",
+        "reference_from": "SW06_Accordion_hero",
+        "size": "3:2",
+        "resolution": "1k",
+        "out": "_Inbox/music-weapon-modeling-20261119/SW06_Accordion/reference_02_structure.png",
+        "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: compact walnut and midnight-navy accordion, ivory piano keyboard right housing, bass buttons left housing, burgundy pleated bellows joining both housings, antique gold grilles and guards, side straps, ivory perforated score-roll module. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+      }
+    ]
+  ],
+  "jobs": [
+    {
+      "id": "s-weapon-modelref-20261119-SW01_Violin-hero",
+      "name": "SW01_Violin_hero",
+      "asset_id": "SW01_Violin",
+      "title": "小提琴",
+      "weapon_id": "rifle",
+      "reference_url": "https://getapib.org/f/image/5677524970745449-6a6c7477-7f04-467f-95eb-46c03753d3ef-image_7Z82YJRCEKTJ7DS7114F78P24T_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW01_Violin/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: chestnut double-waisted violin, exactly four strings and four tuning pegs, two f-holes, ivory score cartridge, navy chin rest, ornate brass rim, separate full-length bow with visible frog and taut hair. Presentation: full soundboard faces the viewer; include the COMPLETE separate bow alongside, with both bow tips visible. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW01_Violin-structure",
+      "name": "SW01_Violin_structure",
+      "asset_id": "SW01_Violin",
+      "title": "小提琴",
+      "weapon_id": "rifle",
+      "reference_from": "SW01_Violin_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW01_Violin/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: chestnut double-waisted violin, exactly four strings and four tuning pegs, two f-holes, ivory score cartridge, navy chin rest, ornate brass rim, separate full-length bow with visible frog and taut hair. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW02_Kalimba-hero",
+      "name": "SW02_Kalimba_hero",
+      "asset_id": "SW02_Kalimba",
+      "title": "拇指琴",
+      "weapon_id": "smg",
+      "reference_url": "https://getapib.org/f/image/2292016593485807-3df2feff-2e24-41ec-8ef4-da2c7be547f4-image_6QB0ADS1WEHHW72A9DQ4870V80_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW02_Kalimba/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: rounded rectangular walnut thumb-piano body, TWO mirrored groups of spring-metal tines, brass bridge with central tuning cam, clear sound hole, side grip recesses, two wrist straps. Presentation: playing surface faces the viewer with every tine unobstructed, both free tine tips and attachment bridge visible. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW02_Kalimba-structure",
+      "name": "SW02_Kalimba_structure",
+      "asset_id": "SW02_Kalimba",
+      "title": "拇指琴",
+      "weapon_id": "smg",
+      "reference_from": "SW02_Kalimba_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW02_Kalimba/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: rounded rectangular walnut thumb-piano body, TWO mirrored groups of spring-metal tines, brass bridge with central tuning cam, clear sound hole, side grip recesses, two wrist straps. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW03_FrameDrum-hero",
+      "name": "SW03_FrameDrum_hero",
+      "asset_id": "SW03_FrameDrum",
+      "title": "手鼓",
+      "weapon_id": "shotgun",
+      "reference_url": "https://getapib.org/f/image/1559278442082552-1731f3bf-c9bf-447a-854c-eb49a5f346e4-image_34J661N350JSTTAJSNBSJ8DKT4_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW03_FrameDrum/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: single round ivory membrane drum, burgundy wooden hoop, navy tension wraps, gold studs, two concentric membrane patterns, brass rim tuning ratchet, rear hand grip and forearm strap. Presentation: complete drum face and rim, with the rear grip and strap peeking beyond the rim; no missing drumhead. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW03_FrameDrum-structure",
+      "name": "SW03_FrameDrum_structure",
+      "asset_id": "SW03_FrameDrum",
+      "title": "手鼓",
+      "weapon_id": "shotgun",
+      "reference_from": "SW03_FrameDrum_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW03_FrameDrum/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: single round ivory membrane drum, burgundy wooden hoop, navy tension wraps, gold studs, two concentric membrane patterns, brass rim tuning ratchet, rear hand grip and forearm strap. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW04_Cello-hero",
+      "name": "SW04_Cello_hero",
+      "asset_id": "SW04_Cello",
+      "title": "大提琴",
+      "weapon_id": "sniper",
+      "reference_url": "https://getapib.org/f/image/1410539115174102-18cb7ca6-a23c-4690-89a8-9b987c2210d4-image_59J5AM352FYCQXPZKMM0Y3S13A_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW04_Cello/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: portable deep mahogany travel cello, four heavy strings, broad lower bout, elongated ebony fingerboard, full scroll and four tuning pegs, small brass alignment ring, tucked endpin, detachable shoulder harness, separate complete bow. Presentation: complete instrument from scroll to bottom endpin, with full length bow alongside and harness laid to the side without obscuring the body. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW04_Cello-structure",
+      "name": "SW04_Cello_structure",
+      "asset_id": "SW04_Cello",
+      "title": "大提琴",
+      "weapon_id": "sniper",
+      "reference_from": "SW04_Cello_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW04_Cello/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: portable deep mahogany travel cello, four heavy strings, broad lower bout, elongated ebony fingerboard, full scroll and four tuning pegs, small brass alignment ring, tucked endpin, detachable shoulder harness, separate complete bow. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW05_Harp-hero",
+      "name": "SW05_Harp_hero",
+      "asset_id": "SW05_Harp",
+      "title": "竖琴",
+      "weapon_id": "beam",
+      "reference_url": "https://getapib.org/f/image/9201024436400833-f038cbf5-bb58-43ea-9569-21b639abf1b5-image_4XB7RQJDNBBKJ8BAB8WQV18B0T_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW05_Harp/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: compact navy-and-gold triangular lyre-harp with exactly SEVEN strings, complete connected rigid frame, ivory soundboard, upper brass tuning comb and violet insets, padded lower forearm cradle and strap. Presentation: entire triangular harp frame, ALL seven strings separately visible from top pins to bottom anchors, no fingers or effects covering strings. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW05_Harp-structure",
+      "name": "SW05_Harp_structure",
+      "asset_id": "SW05_Harp",
+      "title": "竖琴",
+      "weapon_id": "beam",
+      "reference_from": "SW05_Harp_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW05_Harp/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: compact navy-and-gold triangular lyre-harp with exactly SEVEN strings, complete connected rigid frame, ivory soundboard, upper brass tuning comb and violet insets, padded lower forearm cradle and strap. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW06_Accordion-hero",
+      "name": "SW06_Accordion_hero",
+      "asset_id": "SW06_Accordion",
+      "title": "手风琴",
+      "weapon_id": "launcher",
+      "reference_url": "https://getapib.org/f/image/8227157185338285-88fa5f0c-aef9-4251-95a2-dfe64590a95c-image_2QYJWGGKK8RVN801RCR32XFH74_0.png",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW06_Accordion/reference_01_hero.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nONE large isolated three-quarter front view only, no inset panels. Assembly is intact and all its major parts can be reconstructed from what is visible. Required structure: compact walnut and midnight-navy accordion, ivory piano keyboard right housing, bass buttons left housing, burgundy pleated bellows joining both housings, antique gold grilles and guards, side straps, ivory perforated score-roll module. Presentation: both end housings and ALL connecting bellows visible in a moderately expanded neutral pose, keyboard and bass controls simultaneously clear. Loose bow or straps belong to this same asset and must be entirely within the frame, separated by clear gaps. No duplicate complete instruments."
+    },
+    {
+      "id": "s-weapon-modelref-20261119-SW06_Accordion-structure",
+      "name": "SW06_Accordion_structure",
+      "asset_id": "SW06_Accordion",
+      "title": "手风琴",
+      "weapon_id": "launcher",
+      "reference_from": "SW06_Accordion_hero",
+      "size": "3:2",
+      "resolution": "1k",
+      "out": "_Inbox/music-weapon-modeling-20261119/SW06_Accordion/reference_02_structure.png",
+      "prompt": "Generate a CLEAN MODELING REFERENCE IMAGE of exactly the instrument in the supplied reference. Preserve its identity, silhouette, construction, retro anime cel-shaded finish, warm walnut/mahogany, ivory, antique brass/gold, navy enamel and burgundy straps. This is a production modeling reference, NOT an infographic or concept presentation board. Remove ALL text, titles, numbers, arrows, captions, frames, panel borders, decorative page graphics, weapon-stat tables, characters, hands, scene backgrounds, HUD, attack beams, musical projectiles, bloom and motion blur. Plain uniform very light neutral-gray opaque background. Soft neutral studio lighting, visible dark recesses, no heavy cast shadow, no gradient or vignette. Thin restrained contour outlines and clean 2-3 shading bands. Fully show every necessary component with at least 8 percent image-edge margin. Do not crop, merge, melt or hide connections. No new parts unrelated to the reference. No photorealism, rust or modern gun parts.\nUse the supplied clean hero image as the EXACT SAME design. A clean three-column orthographic technical reference sheet, with generous blank gaps and NO panel lines or labels: left column full front/soundboard view; middle column full back view revealing straps, hand contact surfaces and actual attachment anchors; right column true SIDE PROFILE showing depth and all connecting joints. The three views are at a consistent relative scale and show the same topology and component count. Full uncut silhouettes. Where a view conceals a functional component, add a small close-up of that component beneath the side view with clear blank space, not a caption. Required structure: compact walnut and midnight-navy accordion, ivory piano keyboard right housing, bass buttons left housing, burgundy pleated bellows joining both housings, antique gold grilles and guards, side straps, ivory perforated score-roll module. Keep the same neutral rest pose and scale across views. The back and side must be a mechanically plausible completion of this same instrument, not alternative designs. Show attachment of the bow or removable score cartridge separately at bottom if relevant. Accordion stays moderately expanded in all three views; no detached bellows. Do not add human hands, dimension text or exploded parts floating without clear assembly context."
+    }
+  ]
+}

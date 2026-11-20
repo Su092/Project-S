@@ -1,0 +1,29 @@
+[
+  {
+    "sheet": "02",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "c4aa9e5e5911ee3fb83e7278757afdf99bd4a5d5523a654eda6d0f6c2b5e9d79",
+    "visual_review": "Eight complete designs; correct consecutive numbers; reference style and 4x2 layout retained."
+  },
+  {
+    "sheet": "03",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "6daee96ec933d1764099f9792daae5227bdf24d728ec61febb0477ae2c632a72",
+    "visual_review": "Eight complete designs; correct consecutive numbers; reference style and 4x2 layout retained."
+  },
+  {
+    "sheet": "04",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "bb1822c1882888b7e4ad240da20fb855227fc76f425c38b40ba949ab759a692c",
+    "visual_review": "Eight complete designs; correct consecutive numbers; reference style and 4x2 layout retained."
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_ivory_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:41:12+0800",
+  "task_id": "task_01M7W1VXED470V6ZZZPS8D7W4C",
+  "result_url": "https://getapib.org/image/9998204835876399-db449789-9060-47ed-ac93-136a3c8229ae-image_task_01M7W1XBY9H7563FW09PDSVWJ4_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Ivory_BaseColor.png",
+  "bytes": 1572506,
+  "sha256": "a034d9a47ccbabb0d7e4d3d3c89e9fb7a8702fa3cee3aa45f727d79b77afb285"
+}

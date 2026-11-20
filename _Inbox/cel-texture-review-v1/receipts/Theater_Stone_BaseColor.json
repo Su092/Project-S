@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_stone_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:42:24+0800",
+  "task_id": "task_01M7W1Y3A5V0XC5K6T8H7PYF86",
+  "result_url": "https://getapib.org/image/9998204835793525-852000dc-69e7-4d69-b606-4604c09ee604-image_img_06ba1145f98f40f7ae1e014416cacb34_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Stone_BaseColor.png",
+  "bytes": 2977797,
+  "sha256": "ac938d27d83d1377b5600a509dc833a62480ea56d7ef521d7b70d7fe8c0226c3"
+}

@@ -1,0 +1,612 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "review_only": true,
+  "import_authorized": false,
+  "scope": "All current music-theme model base-color textures; data maps and UI unchanged.",
+  "jobs": [
+    {
+      "name": "T_SW01_Violin_BC",
+      "id": "s-cel-t_sw01_violin_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW01_Violin_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+      "source_sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SW02_Kalimba_BC",
+      "id": "s-cel-t_sw02_kalimba_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW02_Kalimba_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+      "source_sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SW03_FrameDrum_BC",
+      "id": "s-cel-t_sw03_framedrum_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW03_FrameDrum_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+      "source_sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SW04_Cello_BC",
+      "id": "s-cel-t_sw04_cello_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW04_Cello_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+      "source_sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SW05_Harp_BC",
+      "id": "s-cel-t_sw05_harp_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW05_Harp_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+      "source_sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SW06_Accordion_BC",
+      "id": "s-cel-t_sw06_accordion_bc-20261120-v1",
+      "group": "instruments",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SW06_Accordion_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+      "source_sha256": "16ba9c39f844285f14546aebe3c9edf21a4ad2ab5fcf4086dad34e43530d3dea",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": [
+        0,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a tightly packed instrument UV atlas. Precisely match all intricate parts, long strings and rods, instrument-body silhouettes and decorative curls. Keep the unused black/transparent space and all holes unchanged. Simplify dense wood grain to a few clean, restrained graphic streaks WITHIN the original wooden islands. Use warm readable wood with crisp limited darker/lighter paint accents rather than muddy brown or realistic wavy grain. Gold metal should have two clean graphic gold values, ivory should be clean and creamy. Preserve all strings and fine part boundaries. Do not outline the UV islands with new thick black borders; island borders are seams, not object outlines.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S08_BassWave",
+      "id": "s-cel-t_s08_basswave-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S08_BassWave.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "source_sha256": "2297898054c46876b8e0118547826a89e66777f6f6b1c964000eb12acd3c334e",
+      "source_size": [
+        512,
+        512
+      ],
+      "source_alpha_range": [
+        0,
+        254
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a translucent effect color texture. Maintain the exact original effect coverage and original alpha silhouette/falloff, no new design. Retain warm pale gold color in a clean consistent animation fill. Preserve transparent background if supported; never add black outlines, panels, logos, a background scene, extra rings, or extra symbols. Focus on the reference effect itself, not on an illustration of wind or sound.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S14_NoteAtlas",
+      "id": "s-cel-t_s14_noteatlas-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S14_NoteAtlas.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+      "source_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "source_size": [
+        512,
+        512
+      ],
+      "source_alpha_range": [
+        255,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This source is a FOUR-QUADRANT COLOR PALETTE ATLAS. Keep the exact 2x2 four equal rectangles, their dividing lines at 50% width/height and their original positions. Repaint each quadrant as ONE clean uniform cel-animation color close to the reference hue: ivory top-left, brass-gold top-right, burgundy bottom-left, ink-purple bottom-right. No gradients, NO illustrations, NO musical notes, NO texture grain, NO borders, NO shadow bands inside these sampling swatches. Color palette only.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_FXM_S14_NoteGate_BC",
+      "id": "s-cel-t_fxm_s14_notegate_bc-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+      "source_sha256": "06da2786a6a0ca1d2a2e26650dc6a7a51cbe5e6c6c108151fcea97f1d93d15f5",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": [
+        255,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a VERTICAL STRIP MATERIAL COLOR ATLAS. Preserve all vertical stripe widths, exact x positions and color order. Use clean flat animation paint colors with restrained richer midtones. NO gradient within color sampling stripes, NO shapes, NO objects, NO extra subdivisions.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_FXM_S14_NoteGate_Curtain",
+      "id": "s-cel-t_fxm_s14_notegate_curtain-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_Curtain.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+      "source_sha256": "2e82479624334a70b31afa77d3270bd796ecdeba48dbb7743841b3a73c3f217d",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": [
+        56,
+        230
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a translucent red curtain effect base-color texture. Preserve its source layout, relative alpha/coverage pattern and red material identity. Use a clean flat cel-animation red/crimson fill with any original value zones expressed clearly. No drawn stage, curtain folds not in source, new ornaments, labels, or decorative borders.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S16_NoteAtlas",
+      "id": "s-cel-t_s16_noteatlas-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S16_NoteAtlas.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+      "source_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "source_size": [
+        512,
+        512
+      ],
+      "source_alpha_range": [
+        255,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This source is a FOUR-QUADRANT COLOR PALETTE ATLAS. Keep the exact 2x2 four equal rectangles, their dividing lines at 50% width/height and their original positions. Repaint each quadrant as ONE clean uniform cel-animation color close to the reference hue: ivory top-left, brass-gold top-right, burgundy bottom-left, ink-purple bottom-right. No gradients, NO illustrations, NO musical notes, NO texture grain, NO borders, NO shadow bands inside these sampling swatches. Color palette only.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S21_VentGust",
+      "id": "s-cel-t_s21_ventgust-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S21_VentGust.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "source_sha256": "7d3d2a5209f8099118e4db7e290749525379756bd014305b6b7da031de51abd9",
+      "source_size": [
+        512,
+        512
+      ],
+      "source_alpha_range": [
+        0,
+        254
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a translucent effect color texture. Maintain the exact original effect coverage and original alpha silhouette/falloff, no new design. Retain warm pale gold color in a clean consistent animation fill. Preserve transparent background if supported; never add black outlines, panels, logos, a background scene, extra rings, or extra symbols. Focus on the reference effect itself, not on an illustration of wind or sound.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S29_NoteAtlas",
+      "id": "s-cel-t_s29_noteatlas-20261120-v1",
+      "group": "effects",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteAtlas.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+      "source_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "source_size": [
+        512,
+        512
+      ],
+      "source_alpha_range": [
+        255,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This source is a FOUR-QUADRANT COLOR PALETTE ATLAS. Keep the exact 2x2 four equal rectangles, their dividing lines at 50% width/height and their original positions. Repaint each quadrant as ONE clean uniform cel-animation color close to the reference hue: ivory top-left, brass-gold top-right, burgundy bottom-left, ink-purple bottom-right. No gradients, NO illustrations, NO musical notes, NO texture grain, NO borders, NO shadow bands inside these sampling swatches. Color palette only.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S02_DrumBeetle_BC",
+      "id": "s-cel-t_s02_drumbeetle_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S02_DrumBeetle_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+      "source_sha256": "20cccd5271f19bd53fd41168ce9c3d48bad70afc885f683059a7da88f8eaaef2",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S03_HornHound_BC",
+      "id": "s-cel-t_s03_hornhound_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S03_HornHound_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+      "source_sha256": "89f9a4d9b679559b4b8c37917c71b1b1f019ae960f374491327f23238bf8e8c8",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S07_LostScoreGhost_BC",
+      "id": "s-cel-t_s07_lostscoreghost_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S07_LostScoreGhost_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+      "source_sha256": "0f9fcf3a98478798d9ace8bede68643d147f1b5f4b6f08e9fc83043ac9388bc0",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This paper-ghost source has printed music staff/note marks above a bottom palette row. Preserve every staff location, all large sheet regions, and exact bottom color-swatch rectangles. Make parchment clean warm ivory with flat subtle paint zones, retain crisp dark-brown printed staff marks in place; do not add text, new notation blocks, perspective or curled-paper illustrations.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S08_MetronomeGuard_BC",
+      "id": "s-cel-t_s08_metronomeguard_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S08_MetronomeGuard_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+      "source_sha256": "d23e401beab9f325d32cbb5091aadda645567f43572257d4ea9869d059e6d2e1",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S11_CymbalMoth_BC",
+      "id": "s-cel-t_s11_cymbalmoth_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S11_CymbalMoth_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+      "source_sha256": "0312694a61dc5d1617f0799adea4c79047e2c8abfa0de892efe5bc433d9b5bba",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S14_XylophoneStegosaur_BC",
+      "id": "s-cel-t_s14_xylophonestegosaur_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S14_XylophoneStegosaur_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+      "source_sha256": "9039cb229b720dc2be47d11a9100b2adda6ae26f7573a15ce6f8b03a9c6b7b8c",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S16_MusicBoxBallerina_BC",
+      "id": "s-cel-t_s16_musicboxballerina_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S16_MusicBoxBallerina_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+      "source_sha256": "ec48d0a331cd6c8fe2002f9a46ee55aab30d2a6630272b93cb8f255225f00010",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S19_CastanetFish_BC",
+      "id": "s-cel-t_s19_castanetfish_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S19_CastanetFish_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+      "source_sha256": "d38a721250ae4485f4cf6d8ddb647c81437e602ed9730d4d8a6f70bab5babc20",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S21_BagpipeBoar_BC",
+      "id": "s-cel-t_s21_bagpipeboar_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S21_BagpipeBoar_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+      "source_sha256": "eb184c224ceb51684f86964b8d9830199273844d8649a0018f3273047e5aa7d7",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a plaid/tartan material atlas with a bottom color-swatch row. Keep every rectangular panel boundary, line direction, diagonal crosshatch region, original pattern scale and bottom swatch boundary precisely. Simplify plaid into crisp flat graphic lines and clean burgundy/navy/gold blocks. Remove fine noisy fabric weave; NO new pattern, NO relocation or rescaling of checks.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S29_NoteTurret_BC",
+      "id": "s-cel-t_s29_noteturret_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteTurret_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+      "source_sha256": "54c0c28fb0584b15d9a5c4fd9d5cc24b03c948015b847a4501dd5cbf47d64637",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a 4x4 tiled material atlas mixing flat palette, printed staff, plaid and wood patches. Keep every 4x4 cell boundary, each cell's assigned content, staff positions and plaid scale EXACT. Repaint within each existing cell in clean cel-animation colors; wood becomes restrained graphic streaks, cloth becomes crisp graphic plaid, uniform palette tiles remain completely flat.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_S29_WanderingConductor_BC",
+      "id": "s-cel-t_s29_wanderingconductor_bc-20261120-v1",
+      "group": "enemies",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_S29_WanderingConductor_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+      "source_sha256": "66cfb647fdc29cefb025edf43d32d08770163a78e2c5a8af7d922f894a2aefa9",
+      "source_size": [
+        2048,
+        2048
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This enemy model uses a COLOR-SWATCH UV ATLAS, NOT a conventional picture of the enemy. The large muted field and the small row of rectangular color swatches at the bottom MUST stay in exactly the same places, heights, widths and ordering. The large field must remain uniform. Repaint swatches as clean flat cel-animation colors, keep each material hue identity, brighten muddy brown/brass midtones modestly, retain clear ivory versus ink-dark contrast. NO objects, no creature drawing, no face, no armor plates, no hatching, no gradients or highlights inside sampling swatches, no extra boundaries. Only improve the existing palette for use with a cel-lighting shader.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "T_SM_MusicFollowSpot_BC",
+      "id": "s-cel-t_sm_musicfollowspot_bc-20261120-v1",
+      "group": "devices",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/T_SM_MusicFollowSpot_BC.png",
+      "reference_local": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+      "source_sha256": "53a2a36a2693b355a87b1e0eea3c6e0313ecf8e59791b8261d938d6fdf5c3d4e",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": [
+        255,
+        255
+      ],
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SPOTLIGHT DEVICE packed atlas with mostly unused black area and a few small narrow colored islands/strips near the lower half. Preserve exact tiny island positions and proportions, all unused black space, and original strip ordering. Repaint ONLY the existing occupied regions with clear cel-animation ivory, brass, burgundy and dark navy colors. Do not fill empty area with an illustration or enlarge small islands.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Brass_BaseColor",
+      "id": "s-cel-theater_brass_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Brass_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+      "source_sha256": "e276d5aea7afda0760622948c246915982d1d64255fe412e68335520138bc2c2",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Ivory_BaseColor",
+      "id": "s-cel-theater_ivory_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Ivory_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+      "source_sha256": "e54e37283beb6335b8d1bd085474e8bc99727410d0590dc66e72f30e767d3b09",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Lamp_BaseColor",
+      "id": "s-cel-theater_lamp_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Lamp_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+      "source_sha256": "3322677da246fcbdfc53ba4b70fcdb726243f46742f700fbdcda0cde3a6804f0",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow. This is a uniform warm ivory-gold lamp diffuser: keep it flat and uniform, no new pattern or bulb illustration. Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Midnight_BaseColor",
+      "id": "s-cel-theater_midnight_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Midnight_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+      "source_sha256": "2e3a3a6417b1b0dfd927b0d3d90b83702416f94a540083c43a27341ee24147ba",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Stone_BaseColor",
+      "id": "s-cel-theater_stone_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Stone_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+      "source_sha256": "fc97751d97f36481bbb434142caa92ad36325973b5d666f07decfc704910271a",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow. Retain the exact existing stone tile grid and seams. Broad clean ivory-gray stone values, no realistic pores. Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Trim_BaseColor",
+      "id": "s-cel-theater_trim_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Trim_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+      "source_sha256": "32fa2776a119a982e6e9cad9d32be34313f2a56c19f806773ee92fca0384da4b",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a horizontal architectural TRIM SHEET. Keep all horizontal bands at exactly the original y positions and heights; keep all repeating ornamental lines, trim shapes and their scale/register. Use crisp simplified gold ornament strokes and clean large ivory/navy/burgundy/walnut bands, no mottled noisy background. Preserve horizontal seamless repeat across left/right edges. No new design or swapped strips.  Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Walnut_BaseColor",
+      "id": "s-cel-theater_walnut_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Walnut_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+      "source_sha256": "22714b45df2d895914303341d9323766369cff129debe1b71e64840a827296ce",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow. Retain the exact horizontal wood planks and their seam positions. Replace dense wood grain with a few stylized clean long strokes. Return ONLY the edited texture, full square 2048x2048."
+    },
+    {
+      "name": "Theater_Wine_BaseColor",
+      "id": "s-cel-theater_wine_basecolor-20261120-v1",
+      "group": "environment",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/cel-texture-review-v1/generated/Theater_Wine_BaseColor.png",
+      "reference_local": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+      "source_sha256": "15c34b95548ec5ca90b3f13aec8eed6b5bc6570d58bdc4b80218cff2d5e323c2",
+      "source_size": [
+        1024,
+        1024
+      ],
+      "source_alpha_range": null,
+      "no_global_style": true,
+      "prompt": "EDIT THE PROVIDED TEXTURE IMAGE ITSELF. Output one production 2D BASE-COLOR TEXTURE, not a picture of an object. The attached original texture is the exact spatial template. Pixel registration is critical: keep EVERY island silhouette, color-region boundary, swatch, stripe, panel, small part, and unused gap at its identical normalized XY location and identical normalized size. Do not repack, rotate, mirror, move, add, merge or delete UV islands. Maintain the full canvas, no cropping, no padding, no frame, no labels, no text added, no watermark, no checkerboard. Repaint only the existing surfaces toward polished Japanese animation CEL-SHADED visual design: clean deliberate color blocks, limited harmonious palette, clearly separated two or three paint values where surface detail exists, crisp controlled contours, simplified broad stylized material strokes, no photographic grain, no gritty noise, no grunge, no blurry airbrush gradients, no realistic glossy baked lighting, no ambient vignette. Retain original material/color identity and musical-theater palette: warm ivory, readable dark ink navy, burgundy lacquer, warm walnut, restrained brass gold. Improve muddy very-dark painted midtones where appropriate without changing palette assignments. This is albedo; actual light/shadows will be supplied by the existing game shader. Do not draw scene lighting, cast shadows, or a 3D render. This is a SEAMLESS TILEABLE architectural surface BASE-COLOR material. Cover the full canvas edge to edge and ensure opposite edges tile seamlessly in both axes. Preserve original material type, hue family, any original panel/plank/stone seam positions and directions and repeat scale. Simplify mottled grain to broad low-contrast flat paint patches with crisp yet restrained shapes, no noisy stippling. No illustration, no objects, no perspective, no central spotlight, no border, no realistic directional light or baked shadow.  Return ONLY the edited texture, full square 2048x2048."
+    }
+  ]
+}

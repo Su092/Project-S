@@ -20,6 +20,13 @@ UI = os.path.join(PROJ, "Assets", "_Game", "Res", "Texture", "UI")
 # 与 SAssetPostprocessor.BorderFor 保持一致（left, bottom, right, top）
 # 这些值按控件真实像素倒推，不是按贴图尺寸 —— 详见 BorderFor 的注释。
 BORDERS = {
+    "hud_music_resume": (16, 14, 16, 14),
+    "hud_music_banner": (20, 20, 20, 20),
+    "hud_weapon_rail": (46, 8, 46, 8),
+    "hud_timer_plate": (24, 10, 24, 10),
+    "hud_hp_track_frame": (104, 16, 104, 16),
+    "hud_xp_track_frame": (82, 16, 82, 16),
+    "hud_boss_track_frame": (108, 16, 108, 16),
     "btn_primary": (16, 14, 16, 14),
     "btn_primary_hover": (16, 14, 16, 14),
     "btn_danger": (16, 14, 16, 14),
@@ -107,6 +114,7 @@ def parse(path):
                 imgs.setdefault(g.group(1), {
                     "guid": sp.group(1),
                     "type": int(ty.group(1)) if ty else None,
+                    "ppu": float(re.search(r"m_PixelsPerUnitMultiplier: ([\d.eE+-]+)", body).group(1)) if "m_PixelsPerUnitMultiplier:" in body else 1.0,
                 })
 
     # 把 father_rt 翻译成 father_go
@@ -169,7 +177,7 @@ def main():
             w, h = size_of(gofid)
             rows.append({
                 "prefab": f[:-7], "node": names.get(gofid, "?"),
-                "sprite": sprite, "w": w, "h": h, "type": im["type"],
+                "sprite": sprite, "w": w, "h": h, "type": im["type"], "ppu": im.get("ppu",1.0),
             })
 
     def tyname(t):
@@ -196,7 +204,7 @@ def main():
         if not (b and r["type"] == 1):
             continue
         l, bo, rr, t = b
-        need_h, need_v = l + rr, bo + t
+        need_h, need_v = (l + rr)/r["ppu"], (bo + t)/r["ppu"]
         w, h = r["w"], r["h"]
         flag = None
         if need_h >= w or need_v >= h:

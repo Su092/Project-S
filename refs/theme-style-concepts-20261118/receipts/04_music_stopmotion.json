@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-04_music_stopmotion",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/04_music_stopmotion.png",
+  "submitted_at": "2026-11-18T15:40:19+0800",
+  "task_id": "task_01M7PSJYS7PSJYRRGDJWW0Y1R0",
+  "result_url": "https://getapib.org/f/image/2307090810037685-2f06ef33-e15e-4330-9b2d-717f63aadd99-image_0P1ZK7M64NX3HZJDWVXA7TX3P8_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2770734,
+  "sha256": "3e9b735b0a56ad5ddc1f2988c0ea611d673df138ff391e071d7120d00c6a2740",
+  "completed_at": "2026-11-18T15:42:45+0800"
+}

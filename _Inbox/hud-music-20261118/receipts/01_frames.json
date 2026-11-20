@@ -1,0 +1,23 @@
+{
+  "id": "s-hud-music-01_frames",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/01_frames.png",
+  "submitted_at": "2026-11-18T15:55:26+0800",
+  "previous_attempt": {
+    "error": "SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)",
+    "submitted_at": "2026-11-18T15:53:25+0800",
+    "verification": "Logs/python-ssl-handshake-evidence.txt; TLS handshake failed before HTTP bytes"
+  },
+  "task_id": "task_01M7PTEMKQCSZZ006T6CERWB72",
+  "result_url": "https://getapib.org/image/9998205011434540-52c8545f-fa0c-468f-aeb1-3909f2b47f33-image_task_01M7PTFREFEASD92FNKNMFDQ9Z_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 1205706,
+  "sha256": "8b50d2994633bbfbe38fae323d6aa17e7e9ec4914ab802a9dd0d328eaa408002",
+  "completed_at": "2026-11-18T15:56:15+0800"
+}

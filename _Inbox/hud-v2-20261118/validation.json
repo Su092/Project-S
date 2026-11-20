@@ -1,0 +1,104 @@
+{
+  "stage": "raw_generation_complete_no_processing",
+  "images": [
+    {
+      "id": "s-hud-v2-20261118-01_frames",
+      "task_id": "task_01M7PNFTWC7BF4MWEYG8XTH2BZ",
+      "width": 2048,
+      "height": 1360,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 891010,
+      "sha256": "3c7fa837ea6233bc3d7637cd924d21aa26ebe1be0891867e8763de547d36ef56"
+    },
+    {
+      "id": "s-hud-v2-20261118-02_bars",
+      "task_id": "task_01M7PNFTWS2Y1SFA4GX2W0QHDE",
+      "width": 2048,
+      "height": 1360,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 453819,
+      "sha256": "71d8d2430ad2d4a8d33b43064e262df5b47bbfa6831d90dbbd6828d6628f3332"
+    },
+    {
+      "id": "s-hud-v2-20261118-03_combat",
+      "task_id": "task_01M7PNFTY3VFKYS83SZXM300HY",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 582912,
+      "sha256": "f965459fae8d310b4441c600c4a05d600e0c185c2b961ac6e4d7f9480c2ad522"
+    },
+    {
+      "id": "s-hud-v2-20261118-04_markers",
+      "task_id": "task_01M7PNH4TJYZ3X7B4V6Z6D046R",
+      "width": 2048,
+      "height": 1360,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 641136,
+      "sha256": "76a4a19f37ce682fc7b3443df783ae3de02d0d6dab8eb227ab4b3393fb8471f6"
+    },
+    {
+      "id": "s-hud-v2-20261118-05_weapons",
+      "task_id": "task_01M7PNHF1V2TFQCARGVNRHAMBY",
+      "width": 2048,
+      "height": 1360,
+      "format": "PNG",
+      "mode": "RGB",
+      "bytes": 1152003,
+      "sha256": "da6b941a61a94ad938d8403fc4fea1bbe41ee9b31214b8aa838c68481d648986"
+    },
+    {
+      "id": "s-hud-v2-20261118-06_portrait",
+      "task_id": "task_01M7PNHP7XNRY3B7YAZGWE7RCD",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 2881691,
+      "sha256": "f3e8978373ba32ea75540f251ca7e9cabcfb64627a8f5ef9d36e9d673a622f9f"
+    },
+    {
+      "id": "s-hud-v2-20261118-07_states",
+      "task_id": "task_01M7PNJDRREW4H7VWQS03QDZYH",
+      "width": 2048,
+      "height": 2048,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 768126,
+      "sha256": "b9d254f212b6d35f83f24894773e3b9e81f2b93bc30583f377fa83a60f12f46c"
+    },
+    {
+      "id": "s-hud-v2-20261118-08_modifiers",
+      "task_id": "task_01M7PNJQZY8V7ETQW83YB27NV9",
+      "width": 2048,
+      "height": 1536,
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 868705,
+      "sha256": "8291f6d4a25014165006cd2b30b64169045d34b0b49099a14e35f5ce68a32102"
+    }
+  ],
+  "visual_review": {
+    "01_frames": "6 separate frame/base pieces, no baked text, no overlap.",
+    "02_bars": "3 track/fill pairs, red HP/cyan XP/amber Boss, no baked values.",
+    "03_combat": "4 isolated pieces. Ammo arcs rendered as right semicircles (~180 degrees), not the prompted 90-degree span; retain raw source. Final arc span and track/fill alignment must be resolved in later authorized processing. Spinner is a single open-ring image for runtime rotation.",
+    "04_markers": "Player cyan heading arrow, enemy red diamond, chest amber chest; pause/swap/read pointer separate.",
+    "05_weapons": "Six distinct right-facing weapon categories. Details more elaborate than pure silhouette; small-size readability to be checked during later integration.",
+    "06_portrait": "Anonymous sealed helmet portrait; broad industrial silhouette. Surface detail more textured than flat glyphs; raw avatar draft, not a new character model.",
+    "07_states": "Empty timer plate, selected weapon ring, attachment read ring, neutral utility placeholder.",
+    "08_modifiers": "12 distinct glyphs in documented order; front/back arrows point literal right/left. No text or rarity backplate."
+  },
+  "deferred": [
+    "cropping",
+    "background removal",
+    "resizing",
+    "arc geometric alignment",
+    "sprite import",
+    "prefab construction",
+    "runtime HUD implementation"
+  ]
+}

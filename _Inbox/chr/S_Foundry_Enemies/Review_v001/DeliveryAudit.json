@@ -1,0 +1,177 @@
+{
+  "scope": "Delivery copy reopened in independent Blender process. File completeness, portable texture paths and measured budgets only.",
+  "assets": [
+    {
+      "asset": "SlagHound",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1472,
+        1376,
+        344
+      ],
+      "budget_pass": true,
+      "bones": 17,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "FurnaceWarden",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1228,
+        1036,
+        364
+      ],
+      "budget_pass": true,
+      "bones": 12,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "PressureRunner",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1740,
+        1236,
+        580
+      ],
+      "budget_pass": true,
+      "bones": 14,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "RingSentry",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1768,
+        1216,
+        624
+      ],
+      "budget_pass": true,
+      "bones": 6,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "SlagHound_Elite_MoldBreaker",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1692,
+        1596,
+        404
+      ],
+      "budget_pass": true,
+      "bones": 18,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "FurnaceWarden_Elite_TwinGate",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        1360,
+        1168,
+        400
+      ],
+      "budget_pass": true,
+      "bones": 13,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "PressureRunner_Elite_TriplePressure",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        2228,
+        1532,
+        748
+      ],
+      "budget_pass": true,
+      "bones": 16,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "RingSentry_Elite_Crown",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        2248,
+        1600,
+        784
+      ],
+      "budget_pass": true,
+      "bones": 6,
+      "material_slots": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "Boss_CrucibleSovereign",
+      "missing_textures": [],
+      "external_dependencies": [],
+      "missing_deliverables": [],
+      "missing_collections": [],
+      "triangles": [
+        4512,
+        3240,
+        1596
+      ],
+      "budget_pass": true,
+      "bones": 33,
+      "material_slots": [
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,36 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "review_only": true,
+  "import_authorized": false,
+  "jobs": [
+    {
+      "name": "empty-slot-ivory",
+      "id": "s-empty-slot-ivory-review-20261120-v2",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/score-hud-apimart-review-v2/empty-slot-ivory.png",
+      "reference_local": "_Inbox/hud-quality-apimart/attachment-frames-thin.png",
+      "no_global_style": true,
+      "prompt": "A production-ready 2D game UI glyph for an elegant musical theater game, matte warm ivory with a very subtle brass highlight, perfectly crisp restrained flat painted shape. PURE BLACK background for later alpha extraction. Entire glyph centered with generous 12 percent padding. No text, no labels, no watermark, no neon, no background panel, no decorative flourishes. Use reference ONLY to match thin ring stroke thickness and circular geometry. Produce EXACTLY ONE EMPTY CIRCULAR SLOT BORDER, uniform WARM IVORY / OFF-WHITE #EEE8D8. Main stroke width is exactly 2 percent of circle outer diameter, the same delicate weight as reference rings (about 1.3 px at 68px display). Circle interior and outside PURE BLACK. Perfect smooth single continuous circular outline. Absolutely NO patterns, NO musical curls, NO ornaments, NO dot markers, NO double rings, NO bevel, NO glow, NO filled disk. Solid pale ivory, no colored blue gold red sections."
+    },
+    {
+      "name": "sort-recycle",
+      "id": "s-sort-recycle-review-20261120-v2",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/score-hud-apimart-review-v2/sort-recycle.png",
+      "no_global_style": true,
+      "prompt": "A production-ready 2D game UI glyph for an elegant musical theater game, matte warm ivory with a very subtle brass highlight, perfectly crisp restrained flat painted shape. PURE BLACK background for later alpha extraction. Entire glyph centered with generous 12 percent padding. No text, no labels, no watermark, no neon, no background panel, no decorative flourishes. A single ORGANIZE/RECYCLE icon: THREE simple curved arrows following a CIRCULAR clockwise loop, separated by small clear gaps, arrowheads pointing along the circumference. It must read as a circular recycling / refresh symbol, NOT a triangle. All arrows same balanced width, large empty black circular center. Simple flat warm ivory strokes with a very restrained gold edge light. No music notes, no staff, no list, no external circle, no button frame. Strong silhouette readable at 32px."
+    },
+    {
+      "name": "close-ivory",
+      "id": "s-close-ivory-review-20261120-v2",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/score-hud-apimart-review-v2/close-ivory.png",
+      "no_global_style": true,
+      "prompt": "A production-ready 2D game UI glyph for an elegant musical theater game, matte warm ivory with a very subtle brass highlight, perfectly crisp restrained flat painted shape. PURE BLACK background for later alpha extraction. Entire glyph centered with generous 12 percent padding. No text, no labels, no watermark, no neon, no background panel, no decorative flourishes. A single CLOSE icon, a clean symmetrical diagonal X made from two evenly weighted warm ivory strokes, slightly rounded ends, intersection continuous. Simple and elegant, legible at 24px, no outer ring, no box, no button base, no ornament, no shadow. Flat ivory color and only the faintest brass edge highlight. The full X is visible and balanced."
+    }
+  ]
+}

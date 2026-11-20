@@ -1,0 +1,819 @@
+{
+  "schemaVersion": 1,
+  "assetId": "S19_CastanetFish",
+  "conceptNumber": "19",
+  "category": "Common",
+  "humanReferenceMeters": 1.8,
+  "heightMeters": 0.9,
+  "measuredBounds": {
+    "min": [
+      -1.2078946828842163,
+      -0.746052622795105,
+      0.0
+    ],
+    "max": [
+      1.2078946828842163,
+      1.5394736528396606,
+      0.8999999761581421
+    ]
+  },
+  "units": "m",
+  "blenderAxes": "+Z up, -Y forward",
+  "unityAxes": "+Y up, +Z forward (target)",
+  "exportSettings": {
+    "scale": 1,
+    "applyUnit": true,
+    "forward": "-Z",
+    "up": "Y",
+    "addLeafBones": false,
+    "allActions": false
+  },
+  "variants": [
+    "Base"
+  ],
+  "lods": [
+    {
+      "variant": "Base",
+      "level": 0,
+      "file": "Exports/S19_CastanetFish_Model.fbx",
+      "tris": 1660,
+      "budget": 4500,
+      "nodes": [
+        "SM_S19_CastanetFish_UpperShell_LOD0",
+        "SM_S19_CastanetFish_IvoryLip_LOD0",
+        "SM_S19_CastanetFish_LowerShell_LOD0",
+        "SM_S19_CastanetFish_LacquerEye_LOD0",
+        "SM_S19_CastanetFish_AmberEye_LOD0",
+        "SM_S19_CastanetFish_SilkFin_LOD0",
+        "SM_S19_CastanetFish_Tail_01_LOD0",
+        "SM_S19_CastanetFish_Tail_02_LOD0",
+        "SM_S19_CastanetFish_Tail_03_LOD0",
+        "SM_S19_CastanetFish_TailFan_LOD0"
+      ],
+      "unityTris": 1660,
+      "unityHeightMeters": 0.8999998569488525
+    },
+    {
+      "variant": "Base",
+      "level": 1,
+      "file": "Exports/S19_CastanetFish_Model.fbx",
+      "tris": 900,
+      "budget": 2200,
+      "nodes": [
+        "SM_S19_CastanetFish_UpperShell_LOD1",
+        "SM_S19_CastanetFish_IvoryLip_LOD1",
+        "SM_S19_CastanetFish_LowerShell_LOD1",
+        "SM_S19_CastanetFish_LacquerEye_LOD1",
+        "SM_S19_CastanetFish_AmberEye_LOD1",
+        "SM_S19_CastanetFish_SilkFin_LOD1",
+        "SM_S19_CastanetFish_Tail_01_LOD1",
+        "SM_S19_CastanetFish_Tail_02_LOD1",
+        "SM_S19_CastanetFish_Tail_03_LOD1",
+        "SM_S19_CastanetFish_TailFan_LOD1"
+      ],
+      "unityTris": 900,
+      "unityHeightMeters": 0.8999998569488525
+    },
+    {
+      "variant": "Base",
+      "level": 2,
+      "file": "Exports/S19_CastanetFish_Model.fbx",
+      "tris": 468,
+      "budget": 900,
+      "nodes": [
+        "SM_S19_CastanetFish_UpperShell_LOD2",
+        "SM_S19_CastanetFish_IvoryLip_LOD2",
+        "SM_S19_CastanetFish_LowerShell_LOD2",
+        "SM_S19_CastanetFish_LacquerEye_LOD2",
+        "SM_S19_CastanetFish_AmberEye_LOD2",
+        "SM_S19_CastanetFish_SilkFin_LOD2",
+        "SM_S19_CastanetFish_Tail_01_LOD2",
+        "SM_S19_CastanetFish_Tail_02_LOD2",
+        "SM_S19_CastanetFish_Tail_03_LOD2",
+        "SM_S19_CastanetFish_TailFan_LOD2"
+      ],
+      "unityTris": 468,
+      "unityHeightMeters": 0.8999998569488525
+    }
+  ],
+  "rootPath": "ARM_S19_CastanetFish/root",
+  "materials": [
+    "MAT_S19_CastanetFish_Body"
+  ],
+  "textures": [
+    {
+      "file": "Textures/T_S19_CastanetFish_BC.png",
+      "space": "sRGB",
+      "channels": "BaseColor"
+    },
+    {
+      "file": "Textures/T_S19_CastanetFish_ORM.png",
+      "space": "Linear",
+      "channels": "R=AO G=Roughness B=Metallic"
+    },
+    {
+      "file": "Textures/T_S19_CastanetFish_E.png",
+      "space": "Linear",
+      "channels": "Emission mask"
+    }
+  ],
+  "skeleton": [
+    {
+      "name": "root",
+      "path": "ARM_S19_CastanetFish/root",
+      "parent": null,
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "body",
+      "path": "ARM_S19_CastanetFish/root/body",
+      "parent": "root",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6631578803062439
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "jaw",
+      "path": "ARM_S19_CastanetFish/root/body/jaw",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.47368425130844116
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.44999998807907104
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_Mouth",
+      "path": "ARM_S19_CastanetFish/root/body/jaw/Socket_Mouth",
+      "parent": "jaw",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.7223684191703796
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.43815791606903076
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "LFin",
+      "path": "ARM_S19_CastanetFish/root/body/LFin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.3434210419654846
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4736842215061188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RFin",
+      "path": "ARM_S19_CastanetFish/root/body/RFin",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.3434210419654846
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4736842215061188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_01",
+      "path": "ARM_S19_CastanetFish/root/body/Tail_01",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5684210658073425
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4736842215061188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_02",
+      "path": "ARM_S19_CastanetFish/root/body/Tail_01/Tail_02",
+      "parent": "Tail_01",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7342105507850647
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4736842215061188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_03",
+      "path": "ARM_S19_CastanetFish/root/body/Tail_01/Tail_02/Tail_03",
+      "parent": "Tail_02",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.8999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.4736842215061188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S19_CastanetFish/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.6631578803062439
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "name": "Socket_Mouth",
+      "path": "ARM_S19_CastanetFish/root/body/jaw/Socket_Mouth",
+      "parent": "jaw",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999403953552,
+          -0.7223684191703796
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.43815791606903076
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": -1.1960527896881104,
+        "z": -0.011842072010040283
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "Socket_HitCenter",
+      "path": "ARM_S19_CastanetFish/root/body/Socket_HitCenter",
+      "parent": "body",
+      "bindMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.6631578803062439
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unityLocalPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "unityLocalRotation": {
+        "x": 0.7071068286895752,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.7071067094802856
+      },
+      "unityWorldForwardRest": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "colliders": [
+    {
+      "node": "SM_S19_CastanetFish_Movement_COL",
+      "shape": "convex",
+      "purpose": "Movement",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.6631578803062439
+      ],
+      "size": [
+        0.9663158059120178,
+        1.0513421297073364,
+        0.3959999978542328
+      ]
+    },
+    {
+      "node": "SM_S19_CastanetFish_Hurt_COL",
+      "shape": "convex",
+      "purpose": "Hurt",
+      "bindBone": "body",
+      "center": [
+        0.0,
+        0.0,
+        0.6631578803062439
+      ],
+      "size": [
+        1.352842092514038,
+        1.371315836906433,
+        0.5040000081062317
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "clip": "AN_S19_CastanetFish_Spawn",
+      "durationSec": 0.8,
+      "loop": false,
+      "markersSec": {
+        "SpawnReady": 0.8
+      },
+      "file": "Exports/AN_S19_CastanetFish_Spawn.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2331318855285645,
+          -0.746052622795105,
+          -0.21427994966506958
+        ],
+        "max": [
+          1.2331318855285645,
+          1.586957573890686,
+          1.0047879219055176
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 16.61579132080078,
+        "maxBoneTravel": 0.17763158679008484,
+        "loopAngle": 16.61579132080078,
+        "loopTravel": 0.17763158679008484
+      }
+    },
+    {
+      "clip": "AN_S19_CastanetFish_Idle",
+      "durationSec": 2.0,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S19_CastanetFish_Idle.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 60.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2331318855285645,
+          -0.746052622795105,
+          0.0
+        ],
+        "max": [
+          1.2331318855285645,
+          1.5808320045471191,
+          0.9426315426826477
+        ]
+      },
+      "unityCheck": {
+        "duration": 2.0,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 5.729557037353516,
+        "maxBoneTravel": 0.042631566524505615,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      }
+    },
+    {
+      "clip": "AN_S19_CastanetFish_Hit",
+      "durationSec": 0.25,
+      "loop": false,
+      "markersSec": {},
+      "file": "Exports/AN_S19_CastanetFish_Hit.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 7.5,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2366306781768799,
+          -0.835138201713562,
+          -0.139334574341774
+        ],
+        "max": [
+          1.2267305850982666,
+          1.5495359897613525,
+          0.991576075553894
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.25,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 21.347187042236328,
+        "maxBoneTravel": 7.784570499325127e-08,
+        "loopAngle": 2.330329418182373,
+        "loopTravel": 5.551115123125783e-17
+      }
+    },
+    {
+      "clip": "AN_S19_CastanetFish_Move",
+      "durationSec": 0.8,
+      "loop": true,
+      "markersSec": {},
+      "file": "Exports/AN_S19_CastanetFish_Move.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 24.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2571556568145752,
+          -0.746052622795105,
+          0.0
+        ],
+        "max": [
+          1.2571556568145752,
+          1.6194061040878296,
+          1.0974845886230469
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.8000000715255737,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 22.345340728759766,
+        "maxBoneTravel": 0.042631566524505615,
+        "loopAngle": 0.0,
+        "loopTravel": 3.7223127564886245e-24
+      }
+    },
+    {
+      "clip": "AN_S19_CastanetFish_Attack_Primary",
+      "durationSec": 0.7,
+      "loop": false,
+      "markersSec": {
+        "Clap": 0.35
+      },
+      "file": "Exports/AN_S19_CastanetFish_Attack_Primary.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 21.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2078946828842163,
+          -1.064003825187683,
+          -0.6248847842216492
+        ],
+        "max": [
+          1.2078946828842163,
+          1.5481445789337158,
+          1.3476667404174805
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.7000000476837158,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 54.42586898803711,
+        "maxBoneTravel": 0.3179512321949005,
+        "loopAngle": 0.0,
+        "loopTravel": 4.1359030627651384e-25
+      }
+    },
+    {
+      "clip": "AN_S19_CastanetFish_Death",
+      "durationSec": 0.4,
+      "loop": false,
+      "markersSec": {
+        "DeathEnd": 0.4
+      },
+      "file": "Exports/AN_S19_CastanetFish_Death.fbx",
+      "fps": 30,
+      "frameStart": 0,
+      "frameEnd": 12.0,
+      "fbxSampleRate": 30,
+      "rootMotion": false,
+      "measuredBoundsBlender": {
+        "min": [
+          -1.2078946828842163,
+          -0.746052622795105,
+          -0.5103231072425842
+        ],
+        "max": [
+          1.2078946828842163,
+          1.6107255220413208,
+          1.3304871320724487
+        ]
+      },
+      "unityCheck": {
+        "duration": 0.40000003576278687,
+        "sampleRate": 30.0,
+        "bindCompatible": true,
+        "sharedAvatar": true,
+        "rootStable": true,
+        "maxBoneAngle": 58.254337310791016,
+        "maxBoneTravel": 0.5286315679550171,
+        "loopAngle": 58.21699523925781,
+        "loopTravel": 0.5286315679550171
+      }
+    }
+  ],
+  "derivatives": [],
+  "validationStatus": {
+    "modelImport": "verified",
+    "heightAndPolyBudgets": "verified",
+    "avatarClipSampling": "verified",
+    "loopEndpoints": "verified",
+    "collisionGeometry": "verified",
+    "conceptBoardComparison": "pending",
+    "targetURPAndCombatReview": "pending"
+  },
+  "unityVersion": "6000.6.4f1",
+  "sourceQA": {
+    "roots": [
+      "root"
+    ],
+    "images": [
+      {
+        "file": "//..\\Textures\\T_S19_CastanetFish_BC.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S19_CastanetFish_E.png",
+        "exists": true
+      },
+      {
+        "file": "//..\\Textures\\T_S19_CastanetFish_ORM.png",
+        "exists": true
+      }
+    ],
+    "contacts": [],
+    "variantBody": {},
+    "restBoneCount": 10
+  },
+  "materialNotes": "Shared UV0 atlas with intentional reuse by surface type. Flat tangent normal (0.5,0.5,1). BC sRGB. ORM and E linear. Warm emission tint is controlled separately.",
+  "unityBoundsMeters": {
+    "width": 2.4157896041870117,
+    "height": 0.8999998569488525,
+    "depth": 2.2855257987976074
+  }
+}

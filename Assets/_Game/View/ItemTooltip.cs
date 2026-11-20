@@ -229,7 +229,7 @@ namespace S.View
                     ? "放在任意槽位即可被读取"
                     : ScopeHint(item.Mod.Scope));
             if (string.IsNullOrEmpty(_footerOverride))
-                _footer.text += item.Level < ItemFusion.MaxLevel ? "\n同种同级拖到一起合成升级（最高 Lv.5）" : "\n已满级 Lv.5";
+                _footer.text += item.Level < ItemFusion.MaxLevel ? "\n同种同级拖到一起合成升级（最高 Lv.3）" : "\n已满级 Lv.3";
 
             _root.gameObject.SetActive(true);
             Place();

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "s-music-weapons-20261119-smg-v2",
+    "out": "_Inbox/music-weapons-concepts-20261119/revision-02/images/02_kalimba.png",
+    "sha256": "d685eb4e2caa98a69df81d151d9da28bc50a08d70b4e000ae01d85d802933c15",
+    "width": 1536,
+    "height": 1024,
+    "decoded": true,
+    "visually_reviewed": true
+  },
+  {
+    "id": "s-music-weapons-20261119-launcher-v2",
+    "out": "_Inbox/music-weapons-concepts-20261119/revision-02/images/06_accordion.png",
+    "sha256": "0608960fb4ac74f1108d3e397364e1701b14d845e28a694e4d5f0d5bd80bb8d4",
+    "width": 1536,
+    "height": 1024,
+    "decoded": true,
+    "visually_reviewed": true
+  }
+]

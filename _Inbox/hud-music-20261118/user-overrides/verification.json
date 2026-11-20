@@ -1,0 +1,20 @@
+[
+  {
+    "name": "hud_minimap_bezel",
+    "size": [
+      376,
+      420
+    ],
+    "sha256": "4d2a498eef24ac81d7162c49f9f92eb593d13ebf563886d35678569ac58a96e1",
+    "exact_copy": true
+  },
+  {
+    "name": "hud_portrait_frame",
+    "size": [
+      256,
+      256
+    ],
+    "sha256": "3ad949aaa091d949678b487b45d7ba40573b1435cce1f8597e54850329a0940b",
+    "exact_copy": true
+  }
+]

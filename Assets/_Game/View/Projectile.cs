@@ -105,9 +105,13 @@ namespace S.View
             if (step <= 0.0001f) return;
 
             // Collide 而非 Ignore：Boss 与敌人用 Trigger 做受击判定（踩过）
-            if (Physics.SphereCast(transform.position, Mathf.Max(0.025f, _d.Size * 0.5f),
-                    _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
+            var hits = Physics.SphereCastAll(transform.position, Mathf.Max(0.025f, _d.Size * 0.5f),
+                _vel.normalized, step, WorldPhysics.ShotMask, QueryTriggerInteraction.Collide);
+            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+            foreach (var hit in hits)
             {
+                var enemy = hit.collider.GetComponentInParent<Enemy>();
+                if (enemy != null && (!enemy.Alive || _touched.Contains(enemy))) continue;
                 HandleHit(hit);
                 return;
             }
@@ -122,7 +126,7 @@ namespace S.View
             var boss = hit.collider.GetComponentInParent<BossView>();
             if (boss != null)
             {
-                boss.OnHit(_d, hit.point, _d.Damage);
+                boss.OnHit(_d, hit.point, _d.Damage, hit.collider);
                 TriggerPayload(hit.point, hit.normal);
                 if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
@@ -143,6 +147,7 @@ namespace S.View
             var e = hit.collider.GetComponentInParent<Enemy>();
             if (e != null && e.Alive)
             {
+                _touched.Add(e);
                 e.TakeDamage(_d, hit.point, _d.Damage, false);
                 TriggerPayload(hit.point, hit.normal);
 
@@ -192,20 +197,22 @@ namespace S.View
         void FireBeam()
         {
             float range = _d.Range;
-            var hits = Physics.RaycastAll(transform.position, _dir, range, ~0, QueryTriggerInteraction.Collide);
+            var hits = Physics.RaycastAll(transform.position, _dir, range, WorldPhysics.ShotMask, QueryTriggerInteraction.Collide);
             System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
             int allowed = 1 + Mathf.Max(0, _pierceLeft);
             int done = 0;
             Vector3 end = transform.position + _dir * range;
 
+            var seen = new System.Collections.Generic.HashSet<Object>();
             foreach (var h in hits)
             {
                 if (done >= allowed) break;
 
                 var e = h.collider.GetComponentInParent<Enemy>();
-                if (e != null && e.Alive)
+                if (e != null)
                 {
+                    if (!e.Alive || !seen.Add(e)) continue;
                     e.TakeDamage(_d, h.point, _d.Damage, false);
                     GameRoot.Instance?.SpawnHitFx(h.point);
                     done++;
@@ -215,7 +222,8 @@ namespace S.View
                 var boss = h.collider.GetComponentInParent<BossView>();
                 if (boss != null)
                 {
-                    boss.OnHit(_d, h.point, _d.Damage);
+                    if (!seen.Add(boss)) continue;
+                    boss.OnHit(_d, h.point, _d.Damage, h.collider);
                     done++;
                     continue;
                 }
@@ -223,6 +231,7 @@ namespace S.View
                 var pillar = h.collider.GetComponentInParent<Pillar>();
                 if (pillar != null && pillar.Alive)
                 {
+                    if (!seen.Add(pillar)) continue;
                     GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
                     done++;
                     continue;
@@ -293,7 +302,7 @@ namespace S.View
 
                 float step = _vel.magnitude * dt;
                 if (Physics.Raycast(transform.position, _vel.normalized, out var hit,
-                        step + 0.2f, ~0, QueryTriggerInteraction.Ignore))
+                        step + 0.2f, WorldPhysics.ShotMask, QueryTriggerInteraction.Ignore))
                 {
                     transform.position = hit.point + hit.normal * 0.05f;
                     _planted = true;
@@ -332,7 +341,7 @@ namespace S.View
 
                 float step = _vel.magnitude * dt;
                 if (Physics.Raycast(transform.position, _vel.normalized, out var hit,
-                        step + 0.2f, ~0, QueryTriggerInteraction.Ignore))
+                        step + 0.2f, WorldPhysics.ShotMask, QueryTriggerInteraction.Ignore))
                 {
                     transform.position = hit.point + hit.normal * 0.05f;
                     _planted = true;
@@ -425,7 +434,7 @@ namespace S.View
 
             float step = _vel.magnitude * dt;
             if (Physics.SphereCast(transform.position, Mathf.Max(0.1f, _d.Size * 0.5f),
-                    _vel.normalized, out var hit, step, ~0, QueryTriggerInteraction.Collide))
+                    _vel.normalized, out var hit, step, WorldPhysics.ShotMask, QueryTriggerInteraction.Collide))
             {
                 var e = hit.collider.GetComponentInParent<Enemy>();
                 if (e != null && e.Alive && _touched.Add(e))
@@ -438,7 +447,7 @@ namespace S.View
                 var boss = hit.collider.GetComponentInParent<BossView>();
                 if (boss != null)
                 {
-                    boss.OnHit(_d, hit.point, _d.Damage);
+                    boss.OnHit(_d, hit.point, _d.Damage, hit.collider);
                     transform.position += _vel.normalized * 0.4f;
                     return;
                 }

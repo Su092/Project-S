@@ -1,0 +1,18 @@
+{
+  "id": "s-hud-music-04_markers",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "1:1",
+  "resolution": "2k",
+  "out": "Project/S/unity/_Inbox/hud-music-20261118/raw/04_markers.png",
+  "submitted_at": "2026-11-18T15:53:30+0800",
+  "task_id": "task_01M7PTB88KJQYQC2Z48W05SA7P",
+  "result_url": "https://getapib.org/image/9998205011544195-be768c0f-ac1c-458b-bfe9-197c68634ab5-image_task_01M7PTCD2TX1JZ7WXPF7B30V1W_0.png",
+  "width": 2048,
+  "height": 2048,
+  "format": "PNG",
+  "mode": "RGBA",
+  "bytes": 976402,
+  "sha256": "b59e6ae84219ccca5a18b75e9d017c14fe80423e1a1faad8d9b564fff5385839",
+  "completed_at": "2026-11-18T15:54:22+0800"
+}

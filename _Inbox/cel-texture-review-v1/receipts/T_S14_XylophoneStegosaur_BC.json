@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s14_xylophonestegosaur_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:54+0800",
+  "task_id": "task_01M7W1QP352VDKMQ9RWBZFZ1XQ",
+  "result_url": "https://getapib.org/image/9998204836019233-e423b646-0f0f-4d12-ae78-55bfd16704a5-image_task_01M7W1S0EM3XXT5M57DQA53HS7_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S14_XylophoneStegosaur_BC.png",
+  "bytes": 1367344,
+  "sha256": "6600905a2cffebc3171cb54e7e85220b202e6a28d590393bb2e37196dd4c894e"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "s-theme-style-20261118-08_music_woodcut",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "size": "16:9",
+  "resolution": "1k",
+  "out": "Project/S/unity/refs/theme-style-concepts-20261118/images/08_music_woodcut.png",
+  "submitted_at": "2026-11-18T15:41:23+0800",
+  "task_id": "task_01M7PSMWT2GKVWDNSXNE50FYVM",
+  "result_url": "https://getapib.org/f/image/8601389539512388-c6ee656d-b07b-43f7-a070-29cdce8db3da-image_4H4HEZDCYR4G59DGV62XVNYYFR_0.png",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "mode": "RGB",
+  "bytes": 2939801,
+  "sha256": "854441acccde38321d45c38dcb4ca178f3de8115e3684c191026be70110db448",
+  "completed_at": "2026-11-18T15:42:24+0800"
+}

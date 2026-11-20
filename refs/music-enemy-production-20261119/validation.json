@@ -1,0 +1,76 @@
+{
+  "model": "gpt-image-2",
+  "provider": "APIMart",
+  "final_images": [
+    {
+      "file": "01_common.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2446570,
+      "visual_review": true
+    },
+    {
+      "file": "02_elite08.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2260636,
+      "visual_review": true
+    },
+    {
+      "file": "03_elite14.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2632075,
+      "visual_review": true
+    },
+    {
+      "file": "04_elite21.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2652542,
+      "visual_review": true
+    },
+    {
+      "file": "05_boss16.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2423646,
+      "visual_review": true
+    },
+    {
+      "file": "06_boss29_corrected.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2351043,
+      "visual_review": true
+    },
+    {
+      "file": "07_turret.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2533441,
+      "visual_review": true
+    }
+  ],
+  "notes": [
+    "Scale labels reflect locked roster; drawn human silhouettes are schematic and not reliable measurement rulers.",
+    "Turret approx 0.5 human height is a proposal.",
+    "Ballerina each sequential fan needs its own internal safe gap.",
+    "Turret aiming 0.8s total includes final 0.2s direction lock.",
+    "Corrected conductor board used as final, original retained for provenance."
+  ]
+}

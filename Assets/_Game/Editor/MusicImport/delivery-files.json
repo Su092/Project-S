@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Attack_Primary.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Attack_Primary.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Death.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Hit.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Idle.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Move.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Move.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/AN_S02_DrumBeetle_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Animations/AN_S02_DrumBeetle_Spawn.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Exports/S02_DrumBeetle_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S02_DrumBeetle/Models/S02_DrumBeetle_Model.fbx"
+    },
+    {
+      "source": "S02_DrumBeetle/Textures/T_S02_DrumBeetle_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png"
+    },
+    {
+      "source": "S02_DrumBeetle/Textures/T_S02_DrumBeetle_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_E.png"
+    },
+    {
+      "source": "S02_DrumBeetle/Textures/T_S02_DrumBeetle_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_ORM.png"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Attack_Primary.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Attack_Primary.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Death.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Hit.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Idle.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Run.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Run.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Spawn.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/AN_S03_HornHound_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Animations/AN_S03_HornHound_Walk.fbx"
+    },
+    {
+      "source": "S03_HornHound/Exports/S03_HornHound_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S03_HornHound/Models/S03_HornHound_Model.fbx"
+    },
+    {
+      "source": "S03_HornHound/Textures/T_S03_HornHound_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png"
+    },
+    {
+      "source": "S03_HornHound/Textures/T_S03_HornHound_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_E.png"
+    },
+    {
+      "source": "S03_HornHound/Textures/T_S03_HornHound_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_ORM.png"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_Attack_Primary.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_Attack_Primary.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_Death.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_FloatMove.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_FloatMove.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_Hit.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_Idle.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/AN_S07_LostScoreGhost_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Animations/AN_S07_LostScoreGhost_Spawn.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Exports/S07_LostScoreGhost_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S07_LostScoreGhost/Models/S07_LostScoreGhost_Model.fbx"
+    },
+    {
+      "source": "S07_LostScoreGhost/Textures/T_S07_LostScoreGhost_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png"
+    },
+    {
+      "source": "S07_LostScoreGhost/Textures/T_S07_LostScoreGhost_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_E.png"
+    },
+    {
+      "source": "S07_LostScoreGhost/Textures/T_S07_LostScoreGhost_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_ORM.png"
+    },
+    {
+      "source": "S08_MetronomeGuard/Derivatives/FXM_S08_BassWave/FXM_S08_BassWave.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S08_BassWave/Models/FXM_S08_BassWave.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Derivatives/Textures/T_S08_BassWave.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Death.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Hit.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Idle.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Slam_Recover.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Slam_Recover.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Slam_Strike.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Slam_Strike.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Slam_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Slam_Windup.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Spawn.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Sweep_Recover.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Sweep_Recover.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Sweep_Strike.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Sweep_Strike.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Sweep_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Sweep_Windup.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/AN_S08_MetronomeGuard_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Animations/AN_S08_MetronomeGuard_Walk.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/S08_MetronomeGuard_Ceremonial_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Models/S08_MetronomeGuard_Ceremonial_Model.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/S08_MetronomeGuard_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Models/S08_MetronomeGuard_Model.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Exports/S08_MetronomeGuard_Rehearsal_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S08_MetronomeGuard/Models/S08_MetronomeGuard_Rehearsal_Model.fbx"
+    },
+    {
+      "source": "S08_MetronomeGuard/Textures/T_S08_MetronomeGuard_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png"
+    },
+    {
+      "source": "S08_MetronomeGuard/Textures/T_S08_MetronomeGuard_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_E.png"
+    },
+    {
+      "source": "S08_MetronomeGuard/Textures/T_S08_MetronomeGuard_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_ORM.png"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Attack_Primary.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Attack_Primary.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Death.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Fly.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Fly.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Hit.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Idle.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Spawn.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Turn_L.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Turn_L.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/AN_S11_CymbalMoth_Turn_R.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Animations/AN_S11_CymbalMoth_Turn_R.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Exports/S11_CymbalMoth_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S11_CymbalMoth/Models/S11_CymbalMoth_Model.fbx"
+    },
+    {
+      "source": "S11_CymbalMoth/Textures/T_S11_CymbalMoth_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png"
+    },
+    {
+      "source": "S11_CymbalMoth/Textures/T_S11_CymbalMoth_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_E.png"
+    },
+    {
+      "source": "S11_CymbalMoth/Textures/T_S11_CymbalMoth_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_ORM.png"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Derivatives/FXM_S14_FallingNote/FXM_S14_FallingNote.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S14_FallingNote/Models/FXM_S14_FallingNote.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Derivatives/FXM_S14_MarchingNote/FXM_S14_MarchingNote.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S14_MarchingNote/Models/FXM_S14_MarchingNote.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Derivatives/Textures/T_S14_NoteAtlas.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Cast_Prepare.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Cast_Prepare.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Cast_Recover.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Cast_Recover.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Death.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_01_02.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_01_02.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_01_03.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_01_03.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_01_04.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_01_04.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_02_01.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_02_01.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_02_03.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_02_03.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_02_04.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_02_04.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_03_01.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_03_01.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_03_02.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_03_02.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_03_04.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_03_04.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_04_01.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_04_01.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_04_02.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_04_02.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Double_04_03.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Double_04_03.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Hit.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Idle.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Spawn.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Strike_Plate_01.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Strike_Plate_01.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Strike_Plate_02.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Strike_Plate_02.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Strike_Plate_03.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Strike_Plate_03.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Strike_Plate_04.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Strike_Plate_04.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/AN_S14_XylophoneStegosaur_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Animations/AN_S14_XylophoneStegosaur_Walk.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/S14_XylophoneStegosaur_Ebony_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Models/S14_XylophoneStegosaur_Ebony_Model.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/S14_XylophoneStegosaur_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Models/S14_XylophoneStegosaur_Model.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Exports/S14_XylophoneStegosaur_Redwood_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S14_XylophoneStegosaur/Models/S14_XylophoneStegosaur_Redwood_Model.fbx"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Textures/T_S14_XylophoneStegosaur_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Textures/T_S14_XylophoneStegosaur_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_E.png"
+    },
+    {
+      "source": "S14_XylophoneStegosaur/Textures/T_S14_XylophoneStegosaur_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_ORM.png"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Derivatives/FXM_S16_PluckedNote/FXM_S16_PluckedNote.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S16_PluckedNote/Models/FXM_S16_PluckedNote.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Derivatives/Textures/T_S16_NoteAtlas.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Curtsey.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Curtsey.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Curtsey_Long.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Curtsey_Long.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Death.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Hit.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Idle.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Pluck_Beat.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Pluck_Beat.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Pluck_Prepare.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Pluck_Prepare.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Rewind_Loop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Rewind_Loop.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Rewind_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Rewind_Windup.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Spawn.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Walk.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Waltz_Loop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Waltz_Loop.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Waltz_Stop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Waltz_Stop.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/AN_S16_MusicBoxBallerina_Waltz_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Animations/AN_S16_MusicBoxBallerina_Waltz_Windup.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Exports/S16_MusicBoxBallerina_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S16_MusicBoxBallerina/Models/S16_MusicBoxBallerina_Model.fbx"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Textures/T_S16_MusicBoxBallerina_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Textures/T_S16_MusicBoxBallerina_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_E.png"
+    },
+    {
+      "source": "S16_MusicBoxBallerina/Textures/T_S16_MusicBoxBallerina_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_ORM.png"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Attack_Primary.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Attack_Primary.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Death.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Hit.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Idle.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Move.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Move.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/AN_S19_CastanetFish_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Animations/AN_S19_CastanetFish_Spawn.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Exports/S19_CastanetFish_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S19_CastanetFish/Models/S19_CastanetFish_Model.fbx"
+    },
+    {
+      "source": "S19_CastanetFish/Textures/T_S19_CastanetFish_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png"
+    },
+    {
+      "source": "S19_CastanetFish/Textures/T_S19_CastanetFish_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_E.png"
+    },
+    {
+      "source": "S19_CastanetFish/Textures/T_S19_CastanetFish_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_ORM.png"
+    },
+    {
+      "source": "S21_BagpipeBoar/Derivatives/FXM_S21_VentGust/FXM_S21_VentGust.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S21_VentGust/Models/FXM_S21_VentGust.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Derivatives/Textures/T_S21_VentGust.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Charge_Loop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Charge_Loop.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Charge_Stop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Charge_Stop.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Charge_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Charge_Windup.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Death.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_GetUp.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_GetUp.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Hit.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Idle.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Spawn.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Stun.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Stun.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Vent_Burst_L.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Vent_Burst_L.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Vent_Burst_R.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Vent_Burst_R.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Vent_Recover.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Vent_Recover.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Vent_Windup_L.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Vent_Windup_L.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Vent_Windup_R.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Vent_Windup_R.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_Walk.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/AN_S21_BagpipeBoar_WallImpact.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Animations/AN_S21_BagpipeBoar_WallImpact.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/S21_BagpipeBoar_Ceremony_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Models/S21_BagpipeBoar_Ceremony_Model.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/S21_BagpipeBoar_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Models/S21_BagpipeBoar_Model.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Exports/S21_BagpipeBoar_Parade_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S21_BagpipeBoar/Models/S21_BagpipeBoar_Parade_Model.fbx"
+    },
+    {
+      "source": "S21_BagpipeBoar/Textures/T_S21_BagpipeBoar_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png"
+    },
+    {
+      "source": "S21_BagpipeBoar/Textures/T_S21_BagpipeBoar_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_E.png"
+    },
+    {
+      "source": "S21_BagpipeBoar/Textures/T_S21_BagpipeBoar_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_ORM.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/FXM_S29_NoteShot/FXM_S29_NoteShot.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S29_NoteShot/Models/FXM_S29_NoteShot.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Derivatives/FXM_S29_ClampShard/FXM_S29_ClampShard.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S29_ClampShard/Models/FXM_S29_ClampShard.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Derivatives/FXM_S29_CoreShard/FXM_S29_CoreShard.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S29_CoreShard/Models/FXM_S29_CoreShard.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Derivatives/FXM_S29_HornShard/FXM_S29_HornShard.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S29_HornShard/Models/FXM_S29_HornShard.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Derivatives/FXM_S29_HousingShard/FXM_S29_HousingShard.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S29_HousingShard/Models/FXM_S29_HousingShard.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_Destroy.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_Destroy.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_Fire.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_Fire.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_Hit.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_Idle.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_LaserEnd.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_LaserEnd.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_LaserLoop.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_LaserLoop.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_LaserStart.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_LaserStart.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/AN_S29_NoteTurret_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Animations/AN_S29_NoteTurret_Spawn.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Exports/S29_NoteTurret_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_NoteTurret/Models/S29_NoteTurret_Model.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Textures/T_S29_NoteTurret_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Textures/T_S29_NoteTurret_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_E.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/Textures/T_S29_NoteTurret_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_ORM.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/Textures/T_S29_NoteAtlas.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Command_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Command_Idle.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Conduct_Stagger.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Conduct_Stagger.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Death.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Death.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Finale_Recover.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Finale_Recover.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Finale_Windup.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Finale_Windup.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_GunSummon_Cue.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_GunSummon_Cue.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Hit.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Hit.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Idle.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Laser_Cue.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Laser_Cue.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Laser_Hold.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Laser_Hold.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Round_Break.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Round_Break.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Spawn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Spawn.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Summon_Cue.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Summon_Cue.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Teleport_In.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Teleport_In.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Teleport_Out.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Teleport_Out.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/AN_S29_WanderingConductor_Walk.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Animations/AN_S29_WanderingConductor_Walk.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Exports/S29_WanderingConductor_Model.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/S29_WanderingConductor/Models/S29_WanderingConductor_Model.fbx"
+    },
+    {
+      "source": "S29_WanderingConductor/Textures/T_S29_WanderingConductor_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Textures/T_S29_WanderingConductor_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_E.png"
+    },
+    {
+      "source": "S29_WanderingConductor/Textures/T_S29_WanderingConductor_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_ORM.png"
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/Model/FXM_S14_NoteGate.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/FXM_S14_NoteGate/Models/FXM_S14_NoteGate.fbx"
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/Textures/T_FXM_S14_NoteGate_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png"
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/Textures/T_FXM_S14_NoteGate_Curtain.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png"
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/Textures/T_FXM_S14_NoteGate_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_E.png"
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/Textures/T_FXM_S14_NoteGate_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_ORM.png"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_FocusIn.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_FocusIn.fbx"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_FocusOut.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_FocusOut.fbx"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_Idle.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_Idle.fbx"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_RigTest.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/SM_MusicFollowSpot/Animations/SM_MusicFollowSpot_RigTest.fbx"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Model/SM_MusicFollowSpot.fbx",
+      "target": "Assets/_Game/Editor/MusicImport/Sources/SM_MusicFollowSpot/Models/SM_MusicFollowSpot.fbx"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Textures/T_SM_MusicFollowSpot_BC.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Textures/T_SM_MusicFollowSpot_E.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_E.png"
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/Textures/T_SM_MusicFollowSpot_ORM.png",
+      "target": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_ORM.png"
+    }
+  ],
+  "contracts": [
+    {
+      "source": "S02_DrumBeetle/manifest.json",
+      "id": "S02_DrumBeetle",
+      "height": 1.08
+    },
+    {
+      "source": "S03_HornHound/manifest.json",
+      "id": "S03_HornHound",
+      "height": 1.08
+    },
+    {
+      "source": "S07_LostScoreGhost/manifest.json",
+      "id": "S07_LostScoreGhost",
+      "height": 1.62
+    },
+    {
+      "source": "S08_MetronomeGuard/manifest.json",
+      "id": "S08_MetronomeGuard",
+      "height": 2.88
+    },
+    {
+      "source": "S11_CymbalMoth/manifest.json",
+      "id": "S11_CymbalMoth",
+      "height": 1.44
+    },
+    {
+      "source": "S14_XylophoneStegosaur/manifest.json",
+      "id": "S14_XylophoneStegosaur",
+      "height": 1.8
+    },
+    {
+      "source": "S16_MusicBoxBallerina/manifest.json",
+      "id": "S16_MusicBoxBallerina",
+      "height": 2.88
+    },
+    {
+      "source": "S19_CastanetFish/manifest.json",
+      "id": "S19_CastanetFish",
+      "height": 0.9
+    },
+    {
+      "source": "S21_BagpipeBoar/manifest.json",
+      "id": "S21_BagpipeBoar",
+      "height": 2.16
+    },
+    {
+      "source": "S29_WanderingConductor/Derivatives/S29_NoteTurret/manifest.json",
+      "id": "S29_NoteTurret",
+      "height": 0.9
+    },
+    {
+      "source": "S29_WanderingConductor/manifest.json",
+      "id": "S29_WanderingConductor",
+      "height": 2.34
+    },
+    {
+      "source": "SkillSupplements/FXM_S14_NoteGate/manifest.json",
+      "id": "FXM_S14_NoteGate",
+      "height": 0
+    },
+    {
+      "source": "SkillSupplements/SM_MusicFollowSpot/manifest.json",
+      "id": "SM_MusicFollowSpot",
+      "height": 0
+    }
+  ]
+}

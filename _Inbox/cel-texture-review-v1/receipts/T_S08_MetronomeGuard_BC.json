@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s08_metronomeguard_bc-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:38:17+0800",
+  "task_id": "task_01M7W1PHR61H1GS06GMYK3V3Y1",
+  "result_url": "https://getapib.org/image/9998204836062460-e1ecf0b0-18fc-4409-87f9-8dc9f454b768-image_img_b88456ba2898405bb5112c969e74726b_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGB",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S08_MetronomeGuard_BC.png",
+  "bytes": 2522418,
+  "sha256": "dcc97496284d86ca5c89832dd09b3ea9530f4b482c550705ba73afbb1bff64a3"
+}

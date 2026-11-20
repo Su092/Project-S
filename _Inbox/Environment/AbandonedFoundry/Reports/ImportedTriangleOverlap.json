@@ -1,0 +1,14 @@
+[
+  {
+    "mesh": "ENV_Foundry_Wall_Straight4_LOD0",
+    "triangles": 242,
+    "coplanar_overlap_count": 0,
+    "pairs": []
+  },
+  {
+    "mesh": "ENV_Foundry_Wall_Straight4_LOD1",
+    "triangles": 120,
+    "coplanar_overlap_count": 0,
+    "pairs": []
+  }
+]

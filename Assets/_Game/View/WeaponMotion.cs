@@ -11,12 +11,14 @@ namespace S.View
         Vector3 _restPosition;
         Quaternion _restRotation;
         float _kick, _velocity;
+        bool _bound, _music;
         public void Bind(PlayerWeapons owner, GameObject model)
         {
             _owner = owner;
-            if (_rig == null) { _restPosition = transform.localPosition; _restRotation = transform.localRotation; }
+            if (!_bound) { _restPosition = transform.localPosition; _restRotation = transform.localRotation; _bound = true; }
             transform.localPosition = _restPosition; transform.localRotation = _restRotation;
-            _rig = RigidMeshRig.Build(model, true);
+            _music = model.GetComponent<MusicWeaponVisual>() != null;
+            _rig = _music ? null : RigidMeshRig.Build(model, true);
             _kick = _velocity = 0f;
         }
         public void Fire(GunDef gun)
@@ -27,6 +29,13 @@ namespace S.View
         }
         public void Sample(float reload, float recoil)
         {
+            if (_music)
+            {
+                // Imported bones own instrument mechanisms; retain only whole-instrument impulse.
+                transform.localPosition = _restPosition + Vector3.back * (.018f * recoil);
+                transform.localRotation = _restRotation * Quaternion.Euler(-2.5f * recoil, 0, 0);
+                return;
+            }
             float tilt = reload > 0f && reload < 1f ? Mathf.Sin(Mathf.PI * reload) : 0f;
             transform.localPosition = _restPosition + new Vector3(-0.035f * tilt, -0.12f * tilt, -0.06f * recoil);
             transform.localRotation = _restRotation * Quaternion.Euler(-7f * recoil + 12f * tilt, -18f * tilt, -35f * tilt);

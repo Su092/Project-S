@@ -1,0 +1,1343 @@
+﻿InstanceID,ModuleID,ProxyObject,Purpose,Floor,X_m,Y_m,Z_m,RotationY_deg,Note
+GT_Floor_Stone4_0001,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0001,Both,1,-32.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0002,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0002,Both,1,-32.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0003,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0003,Both,1,-32.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0004,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0004,Both,1,-28.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0005,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0005,Both,1,-28.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0006,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0006,Both,1,-28.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0007,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0007,Both,1,-24.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0008,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0008,Both,1,-24.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0009,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0009,Both,1,-24.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0010,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0010,Both,1,-20.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0011,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0011,Both,1,-20.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0012,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0012,Both,1,-20.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0013,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0013,Both,1,-16.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0014,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0014,Both,1,-16.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0015,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0015,Both,1,-16.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0016,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0016,Both,1,-12.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0017,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0017,Both,1,-12.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0018,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0018,Both,1,-12.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0019,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0019,Both,1,-8.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0020,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0020,Both,1,-8.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0021,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0021,Both,1,-8.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0022,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0022,Both,1,-4.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0023,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0023,Both,1,-4.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0024,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0024,Both,1,-4.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0025,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0025,Both,1,0.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0026,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0026,Both,1,0.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0027,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0027,Both,1,0.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0028,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0028,Both,1,4.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0029,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0029,Both,1,4.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0030,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0030,Both,1,4.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0031,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0031,Both,1,8.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0032,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0032,Both,1,8.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0033,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0033,Both,1,8.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0034,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0034,Both,1,12.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0035,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0035,Both,1,12.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0036,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0036,Both,1,12.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0037,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0037,Both,1,16.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0038,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0038,Both,1,16.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0039,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0039,Both,1,16.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0040,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0040,Both,1,20.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0041,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0041,Both,1,20.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0042,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0042,Both,1,20.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0043,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0043,Both,1,24.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0044,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0044,Both,1,24.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0045,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0045,Both,1,24.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0046,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0046,Both,1,28.0,0.0,-36.0,0,Surface-matched solid components
+GT_Floor_Stone4_0047,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0047,Both,1,28.0,0.0,-32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0048,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0048,Both,1,28.0,0.0,-28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0049,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0049,Both,1,-32.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0050,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0050,Both,1,-32.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0051,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0051,Both,1,-32.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0052,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0052,Both,1,-32.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0053,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0053,Both,1,-32.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0054,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0054,Both,1,-32.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0055,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0055,Both,1,-32.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Stone4_0056,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0056,Both,1,-32.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0057,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0057,Both,1,-32.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0058,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0058,Both,1,-32.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0059,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0059,Both,1,-32.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0060,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0060,Both,1,-32.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0061,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0061,Both,1,-32.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0062,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0062,Both,1,-28.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0063,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0063,Both,1,-28.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0064,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0064,Both,1,-28.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0065,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0065,Both,1,-28.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0066,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0066,Both,1,-28.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0067,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0067,Both,1,-28.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0068,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0068,Both,1,-28.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Stone4_0069,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0069,Both,1,-28.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0070,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0070,Both,1,-28.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0071,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0071,Both,1,-28.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0072,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0072,Both,1,-28.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0073,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0073,Both,1,-28.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0074,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0074,Both,1,-28.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0075,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0075,Both,1,24.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0076,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0076,Both,1,24.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0077,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0077,Both,1,24.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0078,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0078,Both,1,24.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0079,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0079,Both,1,24.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0080,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0080,Both,1,24.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0081,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0081,Both,1,24.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Stone4_0082,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0082,Both,1,24.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0083,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0083,Both,1,24.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0084,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0084,Both,1,24.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0085,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0085,Both,1,24.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0086,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0086,Both,1,24.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0087,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0087,Both,1,24.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0088,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0088,Both,1,28.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0089,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0089,Both,1,28.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0090,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0090,Both,1,28.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0091,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0091,Both,1,28.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0092,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0092,Both,1,28.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0093,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0093,Both,1,28.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0094,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0094,Both,1,28.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Stone4_0095,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0095,Both,1,28.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Stone4_0096,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0096,Both,1,28.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Stone4_0097,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0097,Both,1,28.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Stone4_0098,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0098,Both,1,28.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Stone4_0099,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0099,Both,1,28.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Stone4_0100,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0100,Both,1,28.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0001,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0001,Both,1,-24.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0002,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0002,Both,1,-24.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0003,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0003,Both,1,-24.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0004,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0004,Both,1,-24.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0005,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0005,Both,1,-24.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0006,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0006,Both,1,-24.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0007,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0007,Both,1,-24.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0008,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0008,Both,1,-24.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0009,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0009,Both,1,-24.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0010,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0010,Both,1,-20.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0011,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0011,Both,1,-20.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0012,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0012,Both,1,-20.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0013,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0013,Both,1,-20.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0014,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0014,Both,1,-20.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0015,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0015,Both,1,-20.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0016,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0016,Both,1,-20.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0017,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0017,Both,1,-20.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0018,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0018,Both,1,-20.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0019,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0019,Both,1,-16.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0020,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0020,Both,1,-16.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0021,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0021,Both,1,-16.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0022,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0022,Both,1,-16.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0023,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0023,Both,1,-16.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0024,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0024,Both,1,-16.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0025,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0025,Both,1,-16.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0026,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0026,Both,1,-16.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0027,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0027,Both,1,-16.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0028,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0028,Both,1,-12.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0029,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0029,Both,1,-12.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0030,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0030,Both,1,-12.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0031,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0031,Both,1,-12.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0032,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0032,Both,1,-12.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0033,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0033,Both,1,-12.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0034,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0034,Both,1,-12.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0035,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0035,Both,1,-12.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0036,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0036,Both,1,-12.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0037,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0037,Both,1,-8.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0038,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0038,Both,1,-8.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0039,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0039,Both,1,-8.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0040,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0040,Both,1,-8.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0041,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0041,Both,1,-8.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0042,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0042,Both,1,-8.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0043,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0043,Both,1,-8.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0044,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0044,Both,1,-8.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0045,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0045,Both,1,-8.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0046,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0046,Both,1,-4.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0047,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0047,Both,1,-4.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0048,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0048,Both,1,-4.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0049,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0049,Both,1,-4.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0050,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0050,Both,1,-4.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0051,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0051,Both,1,-4.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0052,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0052,Both,1,-4.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0053,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0053,Both,1,-4.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0054,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0054,Both,1,-4.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0055,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0055,Both,1,0.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0056,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0056,Both,1,0.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0057,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0057,Both,1,0.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0058,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0058,Both,1,0.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0059,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0059,Both,1,0.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0060,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0060,Both,1,0.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0061,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0061,Both,1,0.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0062,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0062,Both,1,0.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0063,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0063,Both,1,0.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0064,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0064,Both,1,4.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0065,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0065,Both,1,4.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0066,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0066,Both,1,4.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0067,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0067,Both,1,4.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0068,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0068,Both,1,4.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0069,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0069,Both,1,4.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0070,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0070,Both,1,4.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0071,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0071,Both,1,4.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0072,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0072,Both,1,4.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0073,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0073,Both,1,8.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0074,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0074,Both,1,8.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0075,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0075,Both,1,8.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0076,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0076,Both,1,8.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0077,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0077,Both,1,8.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0078,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0078,Both,1,8.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0079,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0079,Both,1,8.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0080,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0080,Both,1,8.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0081,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0081,Both,1,8.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0082,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0082,Both,1,12.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0083,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0083,Both,1,12.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0084,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0084,Both,1,12.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0085,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0085,Both,1,12.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0086,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0086,Both,1,12.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0087,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0087,Both,1,12.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0088,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0088,Both,1,12.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0089,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0089,Both,1,12.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0090,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0090,Both,1,12.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0091,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0091,Both,1,16.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0092,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0092,Both,1,16.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0093,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0093,Both,1,16.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0094,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0094,Both,1,16.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0095,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0095,Both,1,16.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0096,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0096,Both,1,16.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0097,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0097,Both,1,16.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0098,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0098,Both,1,16.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0099,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0099,Both,1,16.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0100,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0100,Both,1,20.0,0.0,-24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0101,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0101,Both,1,20.0,0.0,-20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0102,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0102,Both,1,20.0,0.0,-16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0103,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0103,Both,1,20.0,0.0,-12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0104,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0104,Both,1,20.0,0.0,-8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0105,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0105,Both,1,20.0,0.0,-4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0106,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0106,Both,1,20.0,0.0,0.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0107,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0107,Both,1,20.0,0.0,4.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0108,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0108,Both,1,20.0,0.0,8.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0109,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0109,Both,1,-24.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0110,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0110,Both,1,-24.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0111,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0111,Both,1,-24.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0112,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0112,Both,1,-24.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0113,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0113,Both,1,-20.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0114,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0114,Both,1,-20.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0115,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0115,Both,1,-20.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0116,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0116,Both,1,-20.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0001,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0001,Both,1,-16.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0002,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0002,Both,1,-16.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0003,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0003,Both,1,-16.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0004,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0004,Both,1,-16.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0117,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0117,Both,1,14.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0118,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0118,Both,1,14.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0119,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0119,Both,1,14.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0120,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0120,Both,1,14.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0121,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0121,Both,1,18.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0122,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0122,Both,1,18.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0123,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0123,Both,1,18.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut4_0124,SM_Theater_Floor_Walnut4,COL_Both_GT_Floor_Walnut4_0124,Both,1,18.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0005,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0005,Both,1,22.0,0.0,12.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0006,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0006,Both,1,22.0,0.0,16.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0007,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0007,Both,1,22.0,0.0,20.0,0,Surface-matched solid components
+GT_Floor_Walnut2_0008,SM_Theater_Floor_Walnut2,COL_Both_GT_Floor_Walnut2_0008,Both,1,22.0,0.0,24.0,0,Surface-matched solid components
+GT_Floor_Stone4_0101,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0101,Both,1,-32.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0102,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0102,Both,1,-32.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0103,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0103,Both,1,-28.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0104,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0104,Both,1,-28.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0105,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0105,Both,1,-24.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0106,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0106,Both,1,-24.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0107,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0107,Both,1,-20.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0108,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0108,Both,1,-20.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0109,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0109,Both,1,-16.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0110,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0110,Both,1,-16.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0111,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0111,Both,1,-12.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0112,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0112,Both,1,-12.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0113,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0113,Both,1,-8.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0114,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0114,Both,1,-8.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0115,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0115,Both,1,-4.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0116,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0116,Both,1,-4.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0117,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0117,Both,1,0.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0118,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0118,Both,1,0.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0119,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0119,Both,1,4.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0120,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0120,Both,1,4.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0121,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0121,Both,1,8.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0122,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0122,Both,1,8.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0123,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0123,Both,1,12.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0124,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0124,Both,1,12.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0125,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0125,Both,1,16.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0126,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0126,Both,1,16.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0127,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0127,Both,1,20.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0128,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0128,Both,1,20.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0129,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0129,Both,1,24.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0130,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0130,Both,1,24.0,0.0,32.0,0,Surface-matched solid components
+GT_Floor_Stone4_0131,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0131,Both,1,28.0,0.0,28.0,0,Surface-matched solid components
+GT_Floor_Stone4_0132,SM_Theater_Floor_Stone4,COL_Both_GT_Floor_Stone4_0132,Both,1,28.0,0.0,32.0,0,Surface-matched solid components
+GT_Stage_Edge2_0001,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0001,Both,1,-14.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Edge2_0002,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0002,Both,1,-14.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Edge2_0003,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0003,Both,1,-14.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Edge2_0004,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0004,Both,1,-14.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0001,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0001,Both,1,-12.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0002,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0002,Both,1,-12.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0003,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0003,Both,1,-12.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0004,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0004,Both,1,-12.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0005,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0005,Both,1,-8.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0006,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0006,Both,1,-8.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0007,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0007,Both,1,-8.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0008,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0008,Both,1,-8.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0009,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0009,Both,1,-4.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0010,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0010,Both,1,-4.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0011,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0011,Both,1,-4.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0012,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0012,Both,1,-4.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0013,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0013,Both,1,0.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0014,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0014,Both,1,0.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0015,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0015,Both,1,0.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0016,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0016,Both,1,0.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0017,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0017,Both,1,4.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0018,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0018,Both,1,4.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0019,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0019,Both,1,4.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0020,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0020,Both,1,4.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Timber4_0021,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0021,Both,1,8.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Timber4_0022,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0022,Both,1,8.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Timber4_0023,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0023,Both,1,8.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Timber4_0024,SM_Theater_Stage_Timber4,COL_Both_GT_Stage_Timber4_0024,Both,1,8.0,1.2,24.0,0,Surface-matched solid components
+GT_Stage_Edge2_0005,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0005,Both,1,12.0,1.2,12.0,0,Surface-matched solid components
+GT_Stage_Edge2_0006,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0006,Both,1,12.0,1.2,16.0,0,Surface-matched solid components
+GT_Stage_Edge2_0007,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0007,Both,1,12.0,1.2,20.0,0,Surface-matched solid components
+GT_Stage_Edge2_0008,SM_Theater_Stage_Edge2,COL_Both_GT_Stage_Edge2_0008,Both,1,12.0,1.2,24.0,0,Surface-matched solid components
+GT_Floor_Runner4_0001,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-36.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0002,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-32.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0003,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-28.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0004,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-24.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0005,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-20.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0006,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-16.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0007,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-12.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0008,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-8.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0009,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,-4.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0010,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,0.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0011,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,4.0,0,Intentional non-blocking thin decorative element
+GT_Floor_Runner4_0012,SM_Theater_Floor_Runner4,,None,1,-2.0,0.012,8.0,0,Intentional non-blocking thin decorative element
+GT_Deck_Gallery4_0001,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0001,Both,2,-24.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0002,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0002,Both,2,-24.0,6.0,-20.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0003,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0003,Both,2,-24.0,6.0,-16.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0004,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0004,Both,2,-24.0,6.0,-12.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0005,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0005,Both,2,-24.0,6.0,-8.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0006,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0006,Both,2,-24.0,6.0,-4.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0007,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0007,Both,2,-24.0,6.0,0.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0008,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0008,Both,2,-24.0,6.0,4.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0009,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0009,Both,2,-24.0,6.0,8.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0010,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0010,Both,2,-24.0,6.0,12.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0011,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0011,Both,2,-24.0,6.0,16.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0012,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0012,Both,2,-24.0,6.0,20.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0013,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0013,Both,2,-24.0,6.0,24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0001,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0001,Both,2,-20.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0002,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0002,Both,2,-20.0,6.0,-20.0,0,Surface-matched solid components
+GT_Deck_Edge2_0003,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0003,Both,2,-20.0,6.0,-16.0,0,Surface-matched solid components
+GT_Deck_Edge2_0004,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0004,Both,2,-20.0,6.0,-12.0,0,Surface-matched solid components
+GT_Deck_Edge2_0005,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0005,Both,2,-20.0,6.0,-8.0,0,Surface-matched solid components
+GT_Deck_Edge2_0006,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0006,Both,2,-20.0,6.0,-4.0,0,Surface-matched solid components
+GT_Deck_Edge2_0007,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0007,Both,2,-20.0,6.0,0.0,0,Surface-matched solid components
+GT_Deck_Edge2_0008,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0008,Both,2,-20.0,6.0,4.0,0,Surface-matched solid components
+GT_Deck_Edge2_0009,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0009,Both,2,-20.0,6.0,8.0,0,Surface-matched solid components
+GT_Deck_Edge2_0010,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0010,Both,2,-20.0,6.0,12.0,0,Surface-matched solid components
+GT_Deck_Edge2_0011,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0011,Both,2,-20.0,6.0,16.0,0,Surface-matched solid components
+GT_Deck_Edge2_0012,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0012,Both,2,-20.0,6.0,20.0,0,Surface-matched solid components
+GT_Deck_Edge2_0013,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0013,Both,2,-20.0,6.0,24.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0014,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0014,Both,2,18.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0015,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0015,Both,2,18.0,6.0,-20.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0016,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0016,Both,2,18.0,6.0,-16.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0017,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0017,Both,2,18.0,6.0,-12.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0018,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0018,Both,2,18.0,6.0,-8.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0019,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0019,Both,2,18.0,6.0,-4.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0020,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0020,Both,2,18.0,6.0,0.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0021,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0021,Both,2,18.0,6.0,4.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0022,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0022,Both,2,18.0,6.0,8.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0023,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0023,Both,2,18.0,6.0,12.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0024,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0024,Both,2,18.0,6.0,16.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0025,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0025,Both,2,18.0,6.0,20.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0026,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0026,Both,2,18.0,6.0,24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0014,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0014,Both,2,22.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0015,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0015,Both,2,22.0,6.0,-20.0,0,Surface-matched solid components
+GT_Deck_Edge2_0016,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0016,Both,2,22.0,6.0,-16.0,0,Surface-matched solid components
+GT_Deck_Edge2_0017,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0017,Both,2,22.0,6.0,-12.0,0,Surface-matched solid components
+GT_Deck_Edge2_0018,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0018,Both,2,22.0,6.0,-8.0,0,Surface-matched solid components
+GT_Deck_Edge2_0019,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0019,Both,2,22.0,6.0,-4.0,0,Surface-matched solid components
+GT_Deck_Edge2_0020,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0020,Both,2,22.0,6.0,0.0,0,Surface-matched solid components
+GT_Deck_Edge2_0021,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0021,Both,2,22.0,6.0,4.0,0,Surface-matched solid components
+GT_Deck_Edge2_0022,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0022,Both,2,22.0,6.0,8.0,0,Surface-matched solid components
+GT_Deck_Edge2_0023,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0023,Both,2,22.0,6.0,12.0,0,Surface-matched solid components
+GT_Deck_Edge2_0024,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0024,Both,2,22.0,6.0,16.0,0,Surface-matched solid components
+GT_Deck_Edge2_0025,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0025,Both,2,22.0,6.0,20.0,0,Surface-matched solid components
+GT_Deck_Edge2_0026,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0026,Both,2,22.0,6.0,24.0,0,Surface-matched solid components
+GT_Deck_Gallery4_0027,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0027,Both,2,-18.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0027,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0027,Both,2,-14.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0028,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0028,Both,2,-14.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0028,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0028,Both,2,-10.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0029,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0029,Both,2,-10.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0029,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0029,Both,2,-6.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0030,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0030,Both,2,-6.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0030,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0030,Both,2,-2.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0031,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0031,Both,2,-2.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0031,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0031,Both,2,2.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0032,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0032,Both,2,2.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0032,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0032,Both,2,6.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0033,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0033,Both,2,6.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0033,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0033,Both,2,10.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0034,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0034,Both,2,10.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0034,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0034,Both,2,14.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Gallery4_0035,SM_Theater_Deck_Gallery4,COL_Both_GT_Deck_Gallery4_0035,Both,2,14.0,6.0,-24.0,0,Surface-matched solid components
+GT_Deck_Edge2_0035,SM_Theater_Deck_Edge2,COL_Both_GT_Deck_Edge2_0035,Both,2,18.0,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_Bridge4_0001,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0001,Both,2,-24.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0002,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0002,Both,2,-24.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0003,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0003,Both,2,-20.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0004,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0004,Both,2,-20.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0005,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0005,Both,2,-16.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0006,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0006,Both,2,-16.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0007,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0007,Both,2,-12.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0008,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0008,Both,2,-12.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0009,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0009,Both,2,-8.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0010,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0010,Both,2,-8.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0011,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0011,Both,2,-4.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0012,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0012,Both,2,-4.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0013,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0013,Both,2,0.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0014,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0014,Both,2,0.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0015,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0015,Both,2,4.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0016,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0016,Both,2,4.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0017,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0017,Both,2,8.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0018,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0018,Both,2,8.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0019,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0019,Both,2,12.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0020,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0020,Both,2,12.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0021,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0021,Both,2,16.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0022,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0022,Both,2,16.0,6.0,32.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0023,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0023,Both,2,20.0,6.0,28.0,0,Surface-matched solid components
+GT_Deck_Bridge4_0024,SM_Theater_Deck_Bridge4,COL_Both_GT_Deck_Bridge4_0024,Both,2,20.0,6.0,32.0,0,Surface-matched solid components
+GT_Wall_Lobby4_0001,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0001,Both,1,-32.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0002,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0002,Both,Roof,-32.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0001,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0001__Left,Both,1,-28.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0001,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0001__Right,Both,1,-28.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0001,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0001__Header,Both,1,-28.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0003,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0003,Both,Roof,-28.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0002,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0002__Left,Both,1,-24.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0002,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0002__Right,Both,1,-24.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0002,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0002__Header,Both,1,-24.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0004,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0004,Both,Roof,-24.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0005,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0005,Both,1,-20.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0006,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0006,Both,Roof,-20.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0003,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0003__Left,Both,1,-16.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0003,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0003__Right,Both,1,-16.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0003,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0003__Header,Both,1,-16.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0007,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0007,Both,Roof,-16.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0004,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0004__Left,Both,1,-12.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0004,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0004__Right,Both,1,-12.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0004,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0004__Header,Both,1,-12.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0008,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0008,Both,Roof,-12.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0009,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0009,Both,1,-8.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0010,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0010,Both,Roof,-8.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Grand8_0001,SM_Theater_Door_Grand8,COL_Both_GT_Door_Grand8_0001__Left,Both,1,-4.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Grand8_0001,SM_Theater_Door_Grand8,COL_Both_GT_Door_Grand8_0001__Right,Both,1,-4.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Grand8_0001,SM_Theater_Door_Grand8,COL_Both_GT_Door_Grand8_0001__Header,Both,1,-4.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0011,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0011,Both,Roof,-4.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0012,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0012,Both,Roof,0.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0013,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0013,Both,1,4.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0014,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0014,Both,Roof,4.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0005,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0005__Left,Both,1,8.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0005,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0005__Right,Both,1,8.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0005,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0005__Header,Both,1,8.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0015,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0015,Both,Roof,8.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0006,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0006__Left,Both,1,12.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0006,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0006__Right,Both,1,12.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0006,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0006__Header,Both,1,12.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0016,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0016,Both,Roof,12.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0017,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0017,Both,1,16.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0018,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0018,Both,Roof,16.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0007,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0007__Left,Both,1,20.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0007,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0007__Right,Both,1,20.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0007,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0007__Header,Both,1,20.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0019,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0019,Both,Roof,20.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Door_Portal4_0008,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0008__Left,Both,1,24.0,0.0,-24.0,0,"Portal left component, clear opening"
+GT_Door_Portal4_0008,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0008__Right,Both,1,24.0,0.0,-24.0,0,"Portal right component, clear opening"
+GT_Door_Portal4_0008,SM_Theater_Door_Portal4,COL_Both_GT_Door_Portal4_0008__Header,Both,1,24.0,0.0,-24.0,0,"Portal header component, clear opening"
+GT_Wall_Lobby4_0020,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0020,Both,Roof,24.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0021,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0021,Both,1,28.0,0.0,-24.0,0,Solid base wall and visible panel trim
+GT_Wall_Lobby4_0022,SM_Theater_Wall_Lobby4,COL_Both_GT_Wall_Lobby4_0022,Both,Roof,28.0,6.0,-24.0,0,Solid base wall and visible panel trim
+GT_Roof_Transom_0001,SM_Theater_Roof_Transom,COL_Shot_GT_Roof_Transom_0001,Shot,Roof,0.0,12.0,-24.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0001,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0001,Both,Shell,-32.0,0.0,-36.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0002,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0002,Both,Shell,-32.0,6.0,-36.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0001,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0001,Shot,Roof,-32.0,12.0,-36.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0003,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0003,Both,Shell,-32.0,0.0,-32.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0004,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0004,Both,Shell,-32.0,6.0,-32.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0002,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0002,Shot,Roof,-32.0,12.0,-32.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0005,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0005,Both,Shell,-32.0,0.0,-28.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0006,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0006,Both,Shell,-32.0,6.0,-28.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0003,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0003,Shot,Roof,-32.0,12.0,-28.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0007,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0007,Both,Shell,-32.0,0.0,-24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0008,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0008,Both,Shell,-32.0,6.0,-24.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0004,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0004,Shot,Roof,-32.0,12.0,-24.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0009,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0009,Both,Shell,-32.0,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0010,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0010,Both,Shell,-32.0,6.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0005,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0005,Shot,Roof,-32.0,12.0,-20.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0011,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0011,Both,Shell,-32.0,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0012,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0012,Both,Shell,-32.0,6.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0006,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0006,Shot,Roof,-32.0,12.0,-16.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0013,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0013,Both,Shell,-32.0,0.0,-12.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0014,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0014,Both,Shell,-32.0,6.0,-12.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0007,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0007,Shot,Roof,-32.0,12.0,-12.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0015,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0015,Both,Shell,-32.0,0.0,-8.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0016,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0016,Both,Shell,-32.0,6.0,-8.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0008,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0008,Shot,Roof,-32.0,12.0,-8.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0017,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0017,Both,Shell,-32.0,0.0,-4.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0018,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0018,Both,Shell,-32.0,6.0,-4.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0009,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0009,Shot,Roof,-32.0,12.0,-4.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0019,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0019,Both,Shell,-32.0,0.0,0.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0020,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0020,Both,Shell,-32.0,6.0,0.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0010,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0010,Shot,Roof,-32.0,12.0,0.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0021,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0021,Both,Shell,-32.0,0.0,4.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0022,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0022,Both,Shell,-32.0,6.0,4.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0011,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0011,Shot,Roof,-32.0,12.0,4.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0023,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0023,Both,Shell,-32.0,0.0,8.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0024,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0024,Both,Shell,-32.0,6.0,8.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0012,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0012,Shot,Roof,-32.0,12.0,8.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0025,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0025,Both,Shell,-32.0,0.0,12.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0026,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0026,Both,Shell,-32.0,6.0,12.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0013,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0013,Shot,Roof,-32.0,12.0,12.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0027,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0027,Both,Shell,-32.0,0.0,16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0028,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0028,Both,Shell,-32.0,6.0,16.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0014,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0014,Shot,Roof,-32.0,12.0,16.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0029,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0029,Both,Shell,-32.0,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0030,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0030,Both,Shell,-32.0,6.0,20.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0015,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0015,Shot,Roof,-32.0,12.0,20.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0031,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0031,Both,Shell,-32.0,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0032,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0032,Both,Shell,-32.0,6.0,24.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0016,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0016,Shot,Roof,-32.0,12.0,24.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0033,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0033,Both,Shell,-32.0,0.0,28.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0034,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0034,Both,Shell,-32.0,6.0,28.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0017,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0017,Shot,Roof,-32.0,12.0,28.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0035,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0035,Both,Shell,-32.0,0.0,32.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0036,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0036,Both,Shell,-32.0,6.0,32.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0018,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0018,Shot,Roof,-32.0,12.0,32.0,0,Surface-matched solid components
+GT_Arch_GalleryLower8_0001,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0001,Both,1,-18.0,0.0,-24.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0001,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0001,Both,2,-18.0,6.0,-24.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0002,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0002,Both,1,-18.0,0.0,-16.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0002,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0002,Both,2,-18.0,6.0,-16.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0003,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0003,Both,1,-18.0,0.0,-8.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0003,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0003,Both,2,-18.0,6.0,-8.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0004,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0004,Both,1,-18.0,0.0,0.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0004,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0004,Both,2,-18.0,6.0,0.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0005,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0005,Both,1,-18.0,0.0,8.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0005,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0005,Both,2,-18.0,6.0,8.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0006,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0006,Both,1,-18.0,0.0,16.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0006,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0006,Both,2,-18.0,6.0,16.0,-90,Surface-matched solid components
+GT_Rail_Gallery4_0001,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0001,Movement,2,-18.26,6.0,-18.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0001,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0001,Shot,2,-18.26,6.0,-18.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0002,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0002,Movement,2,-18.26,6.0,-14.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0002,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0002,Shot,2,-18.26,6.0,-14.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0003,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0003,Movement,2,-18.26,6.0,-10.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0003,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0003,Shot,2,-18.26,6.0,-10.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0004,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0004,Movement,2,-18.26,6.0,-6.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0004,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0004,Shot,2,-18.26,6.0,-6.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0005,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0005,Movement,2,-18.26,6.0,-2.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0005,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0005,Shot,2,-18.26,6.0,-2.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0006,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0006,Movement,2,-18.26,6.0,2.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0006,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0006,Shot,2,-18.26,6.0,2.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0007,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0007,Movement,2,-18.26,6.0,6.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0007,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0007,Shot,2,-18.26,6.0,6.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0008,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0008,Movement,2,-18.26,6.0,10.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0008,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0008,Shot,2,-18.26,6.0,10.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0009,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0009,Movement,2,-18.26,6.0,14.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0009,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0009,Shot,2,-18.26,6.0,14.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0010,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0010,Movement,2,-18.26,6.0,18.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0010,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0010,Shot,2,-18.26,6.0,18.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0011,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0011,Movement,2,-18.26,6.0,22.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0011,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0011,Shot,2,-18.26,6.0,22.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0001,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0001,Movement,2,-18.26,6.0,26.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0001,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0001,Shot,2,-18.26,6.0,26.0,-90,Visible rail components with open spaces
+GT_Deck_BalconyFace_0001,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0001,Both,2,-17.97,6.0,-24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0002,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0002,Both,2,-17.97,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0003,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0003,Both,2,-17.97,6.0,-16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0004,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0004,Both,2,-17.97,6.0,-12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0005,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0005,Both,2,-17.97,6.0,-8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0006,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0006,Both,2,-17.97,6.0,-4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0007,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0007,Both,2,-17.97,6.0,0.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0008,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0008,Both,2,-17.97,6.0,4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0009,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0009,Both,2,-17.97,6.0,8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0010,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0010,Both,2,-17.97,6.0,12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0011,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0011,Both,2,-17.97,6.0,16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0012,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0012,Both,2,-17.97,6.0,20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0013,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0013,Both,2,-17.97,6.0,24.0,-90,Surface-matched solid components
+GT_Rail_Gallery1_0001,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0001,Movement,2,-23.98,6.0,-24.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0001,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0001,Shot,2,-23.98,6.0,-24.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0002,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0002,Movement,2,-23.98,6.0,-23.5,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0002,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0002,Shot,2,-23.98,6.0,-23.5,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0012,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0012,Movement,2,-23.98,6.0,-20.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0012,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0012,Shot,2,-23.98,6.0,-20.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0013,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0013,Movement,2,-23.98,6.0,-16.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0013,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0013,Shot,2,-23.98,6.0,-16.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0014,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0014,Movement,2,-23.98,6.0,-12.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0014,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0014,Shot,2,-23.98,6.0,-12.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0015,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0015,Movement,2,-23.98,6.0,-8.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0015,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0015,Shot,2,-23.98,6.0,-8.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0016,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0016,Movement,2,-23.98,6.0,-4.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0016,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0016,Shot,2,-23.98,6.0,-4.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0017,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0017,Movement,2,-23.98,6.0,0.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0017,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0017,Shot,2,-23.98,6.0,0.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0018,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0018,Movement,2,-23.98,6.0,4.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0018,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0018,Shot,2,-23.98,6.0,4.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0019,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0019,Movement,2,-23.98,6.0,8.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0019,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0019,Shot,2,-23.98,6.0,8.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0020,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0020,Movement,2,-23.98,6.0,12.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0020,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0020,Shot,2,-23.98,6.0,12.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0003,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0003,Movement,2,-23.98,6.0,16.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0003,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0003,Shot,2,-23.98,6.0,16.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0004,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0004,Movement,2,-23.98,6.0,16.5,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0004,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0004,Shot,2,-23.98,6.0,16.5,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0021,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0021,Movement,2,-23.98,6.0,20.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0021,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0021,Shot,2,-23.98,6.0,20.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0022,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0022,Movement,2,-23.98,6.0,24.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0022,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0022,Shot,2,-23.98,6.0,24.0,-90,Visible rail components with open spaces
+GT_Deco_Clerestory_0001,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,-19.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0001,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-18.0,-90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0002,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,-11.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0002,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-10.0,-90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0003,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,-3.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0003,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-2.0,-90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0004,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,4.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0004,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,6.0,-90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0005,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,12.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0005,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,14.0,-90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0006,SM_Theater_Deco_Clerestory,,None,2,-31.72,7.4,20.5,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0006,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,22.0,-90,Intentional non-blocking thin decorative element
+GT_Prop_Bench_0001,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0001,Both,1,-29.4,0.0,-28.0,-90,Surface-matched solid components
+GT_Prop_Bench_0002,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0002,Both,1,-29.4,0.0,-8.0,-90,Surface-matched solid components
+GT_Prop_Bench_0003,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0003,Both,1,-29.4,0.0,8.0,-90,Surface-matched solid components
+GT_Prop_Bench_0004,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0004,Both,1,-29.4,0.0,30.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0014,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0014,Both,Roof,-24.0,12.0,-36.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0015,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0015,Both,Roof,-24.0,12.0,-32.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0016,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0016,Both,Roof,-24.0,12.0,-28.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0017,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0017,Both,Roof,-24.0,12.0,-24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0018,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0018,Both,Roof,-24.0,12.0,-20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0019,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0019,Both,Roof,-24.0,12.0,-16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0020,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0020,Both,Roof,-24.0,12.0,-12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0021,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0021,Both,Roof,-24.0,12.0,-8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0022,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0022,Both,Roof,-24.0,12.0,-4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0023,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0023,Both,Roof,-24.0,12.0,0.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0024,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0024,Both,Roof,-24.0,12.0,4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0025,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0025,Both,Roof,-24.0,12.0,8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0026,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0026,Both,Roof,-24.0,12.0,12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0027,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0027,Both,Roof,-24.0,12.0,16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0028,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0028,Both,Roof,-24.0,12.0,20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0029,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0029,Both,Roof,-24.0,12.0,24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0030,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0030,Both,Roof,-24.0,12.0,28.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0031,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0031,Both,Roof,-24.0,12.0,32.0,-90,Surface-matched solid components
+GT_Wall_Exterior4_0037,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0037,Both,Shell,32.0,0.0,-36.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0038,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0038,Both,Shell,32.0,6.0,-36.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0019,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0019,Shot,Roof,24.0,12.0,-36.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0039,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0039,Both,Shell,32.0,0.0,-32.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0040,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0040,Both,Shell,32.0,6.0,-32.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0020,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0020,Shot,Roof,24.0,12.0,-32.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0041,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0041,Both,Shell,32.0,0.0,-28.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0042,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0042,Both,Shell,32.0,6.0,-28.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0021,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0021,Shot,Roof,24.0,12.0,-28.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0043,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0043,Both,Shell,32.0,0.0,-24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0044,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0044,Both,Shell,32.0,6.0,-24.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0022,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0022,Shot,Roof,24.0,12.0,-24.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0045,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0045,Both,Shell,32.0,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0046,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0046,Both,Shell,32.0,6.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0023,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0023,Shot,Roof,24.0,12.0,-20.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0047,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0047,Both,Shell,32.0,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0048,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0048,Both,Shell,32.0,6.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0024,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0024,Shot,Roof,24.0,12.0,-16.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0049,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0049,Both,Shell,32.0,0.0,-12.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0050,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0050,Both,Shell,32.0,6.0,-12.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0025,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0025,Shot,Roof,24.0,12.0,-12.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0051,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0051,Both,Shell,32.0,0.0,-8.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0052,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0052,Both,Shell,32.0,6.0,-8.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0026,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0026,Shot,Roof,24.0,12.0,-8.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0053,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0053,Both,Shell,32.0,0.0,-4.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0054,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0054,Both,Shell,32.0,6.0,-4.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0027,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0027,Shot,Roof,24.0,12.0,-4.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0055,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0055,Both,Shell,32.0,0.0,0.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0056,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0056,Both,Shell,32.0,6.0,0.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0028,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0028,Shot,Roof,24.0,12.0,0.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0057,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0057,Both,Shell,32.0,0.0,4.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0058,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0058,Both,Shell,32.0,6.0,4.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0029,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0029,Shot,Roof,24.0,12.0,4.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0059,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0059,Both,Shell,32.0,0.0,8.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0060,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0060,Both,Shell,32.0,6.0,8.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0030,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0030,Shot,Roof,24.0,12.0,8.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0061,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0061,Both,Shell,32.0,0.0,12.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0062,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0062,Both,Shell,32.0,6.0,12.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0031,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0031,Shot,Roof,24.0,12.0,12.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0063,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0063,Both,Shell,32.0,0.0,16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0064,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0064,Both,Shell,32.0,6.0,16.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0032,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0032,Shot,Roof,24.0,12.0,16.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0065,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0065,Both,Shell,32.0,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0066,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0066,Both,Shell,32.0,6.0,20.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0033,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0033,Shot,Roof,24.0,12.0,20.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0067,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0067,Both,Shell,32.0,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0068,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0068,Both,Shell,32.0,6.0,24.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0034,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0034,Shot,Roof,24.0,12.0,24.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0069,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0069,Both,Shell,32.0,0.0,28.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0070,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0070,Both,Shell,32.0,6.0,28.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0035,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0035,Shot,Roof,24.0,12.0,28.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0071,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0071,Both,Shell,32.0,0.0,32.0,-90,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0072,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0072,Both,Shell,32.0,6.0,32.0,-90,Solid base wall and visible panel trim
+GT_Roof_Side4_0036,SM_Theater_Roof_Side4,COL_Shot_GT_Roof_Side4_0036,Shot,Roof,24.0,12.0,32.0,0,Surface-matched solid components
+GT_Arch_GalleryLower8_0007,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0007,Both,1,18.0,0.0,-24.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0007,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0007,Both,2,18.0,6.0,-24.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0008,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0008,Both,1,18.0,0.0,-16.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0008,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0008,Both,2,18.0,6.0,-16.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0009,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0009,Both,1,18.0,0.0,-8.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0009,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0009,Both,2,18.0,6.0,-8.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0010,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0010,Both,1,18.0,0.0,0.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0010,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0010,Both,2,18.0,6.0,0.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0011,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0011,Both,1,18.0,0.0,8.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0011,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0011,Both,2,18.0,6.0,8.0,-90,Surface-matched solid components
+GT_Arch_GalleryLower8_0012,SM_Theater_Arch_GalleryLower8,COL_Both_GT_Arch_GalleryLower8_0012,Both,1,18.0,0.0,16.0,-90,Surface-matched solid components
+GT_Arch_GalleryUpper8_0012,SM_Theater_Arch_GalleryUpper8,COL_Both_GT_Arch_GalleryUpper8_0012,Both,2,18.0,6.0,16.0,-90,Surface-matched solid components
+GT_Rail_Gallery4_0023,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0023,Movement,2,18.26,6.0,-18.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0023,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0023,Shot,2,18.26,6.0,-18.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0024,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0024,Movement,2,18.26,6.0,-14.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0024,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0024,Shot,2,18.26,6.0,-14.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0025,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0025,Movement,2,18.26,6.0,-10.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0025,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0025,Shot,2,18.26,6.0,-10.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0026,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0026,Movement,2,18.26,6.0,-6.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0026,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0026,Shot,2,18.26,6.0,-6.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0027,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0027,Movement,2,18.26,6.0,-2.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0027,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0027,Shot,2,18.26,6.0,-2.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0028,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0028,Movement,2,18.26,6.0,2.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0028,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0028,Shot,2,18.26,6.0,2.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0029,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0029,Movement,2,18.26,6.0,6.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0029,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0029,Shot,2,18.26,6.0,6.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0030,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0030,Movement,2,18.26,6.0,10.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0030,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0030,Shot,2,18.26,6.0,10.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0031,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0031,Movement,2,18.26,6.0,14.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0031,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0031,Shot,2,18.26,6.0,14.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0032,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0032,Movement,2,18.26,6.0,18.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0032,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0032,Shot,2,18.26,6.0,18.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0033,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0033,Movement,2,18.26,6.0,22.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0033,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0033,Shot,2,18.26,6.0,22.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0002,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0002,Movement,2,18.26,6.0,26.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0002,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0002,Shot,2,18.26,6.0,26.0,-90,Visible rail components with open spaces
+GT_Deck_BalconyFace_0032,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0032,Both,2,17.97,6.0,-24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0033,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0033,Both,2,17.97,6.0,-20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0034,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0034,Both,2,17.97,6.0,-16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0035,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0035,Both,2,17.97,6.0,-12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0036,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0036,Both,2,17.97,6.0,-8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0037,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0037,Both,2,17.97,6.0,-4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0038,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0038,Both,2,17.97,6.0,0.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0039,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0039,Both,2,17.97,6.0,4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0040,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0040,Both,2,17.97,6.0,8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0041,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0041,Both,2,17.97,6.0,12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0042,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0042,Both,2,17.97,6.0,16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0043,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0043,Both,2,17.97,6.0,20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0044,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0044,Both,2,17.97,6.0,24.0,-90,Surface-matched solid components
+GT_Rail_Gallery1_0005,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0005,Movement,2,23.98,6.0,-24.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0005,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0005,Shot,2,23.98,6.0,-24.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0006,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0006,Movement,2,23.98,6.0,-23.5,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0006,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0006,Shot,2,23.98,6.0,-23.5,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0034,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0034,Movement,2,23.98,6.0,-20.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0034,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0034,Shot,2,23.98,6.0,-20.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0035,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0035,Movement,2,23.98,6.0,-16.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0035,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0035,Shot,2,23.98,6.0,-16.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0036,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0036,Movement,2,23.98,6.0,-12.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0036,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0036,Shot,2,23.98,6.0,-12.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0037,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0037,Movement,2,23.98,6.0,-8.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0037,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0037,Shot,2,23.98,6.0,-8.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0038,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0038,Movement,2,23.98,6.0,-4.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0038,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0038,Shot,2,23.98,6.0,-4.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0039,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0039,Movement,2,23.98,6.0,0.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0039,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0039,Shot,2,23.98,6.0,0.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0040,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0040,Movement,2,23.98,6.0,4.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0040,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0040,Shot,2,23.98,6.0,4.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0041,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0041,Movement,2,23.98,6.0,8.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0041,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0041,Shot,2,23.98,6.0,8.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0042,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0042,Movement,2,23.98,6.0,12.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0042,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0042,Shot,2,23.98,6.0,12.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0007,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0007,Movement,2,23.98,6.0,16.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0007,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0007,Shot,2,23.98,6.0,16.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0008,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0008,Movement,2,23.98,6.0,16.5,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0008,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0008,Shot,2,23.98,6.0,16.5,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0043,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0043,Movement,2,23.98,6.0,20.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0043,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0043,Shot,2,23.98,6.0,20.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0044,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0044,Movement,2,23.98,6.0,24.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0044,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0044,Shot,2,23.98,6.0,24.0,-90,Visible rail components with open spaces
+GT_Deco_Clerestory_0007,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,-16.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0007,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-18.0,90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0008,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,-8.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0008,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-10.0,90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0009,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,-0.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0009,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-2.0,90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0010,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,7.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0010,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,6.0,90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0011,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,15.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0011,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,14.0,90,Intentional non-blocking thin decorative element
+GT_Deco_Clerestory_0012,SM_Theater_Deco_Clerestory,,None,2,31.72,7.4,23.5,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0012,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,22.0,90,Intentional non-blocking thin decorative element
+GT_Prop_Bench_0005,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0005,Both,1,29.4,0.0,-28.0,90,Surface-matched solid components
+GT_Prop_Bench_0006,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0006,Both,1,29.4,0.0,-8.0,90,Surface-matched solid components
+GT_Prop_Bench_0007,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0007,Both,1,29.4,0.0,8.0,90,Surface-matched solid components
+GT_Prop_Bench_0008,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0008,Both,1,29.4,0.0,30.0,90,Surface-matched solid components
+GT_Deck_BalconyFace_0045,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0045,Both,Roof,24.0,12.0,-36.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0046,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0046,Both,Roof,24.0,12.0,-32.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0047,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0047,Both,Roof,24.0,12.0,-28.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0048,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0048,Both,Roof,24.0,12.0,-24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0049,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0049,Both,Roof,24.0,12.0,-20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0050,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0050,Both,Roof,24.0,12.0,-16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0051,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0051,Both,Roof,24.0,12.0,-12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0052,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0052,Both,Roof,24.0,12.0,-8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0053,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0053,Both,Roof,24.0,12.0,-4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0054,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0054,Both,Roof,24.0,12.0,0.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0055,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0055,Both,Roof,24.0,12.0,4.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0056,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0056,Both,Roof,24.0,12.0,8.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0057,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0057,Both,Roof,24.0,12.0,12.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0058,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0058,Both,Roof,24.0,12.0,16.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0059,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0059,Both,Roof,24.0,12.0,20.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0060,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0060,Both,Roof,24.0,12.0,24.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0061,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0061,Both,Roof,24.0,12.0,28.0,-90,Surface-matched solid components
+GT_Deck_BalconyFace_0062,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0062,Both,Roof,24.0,12.0,32.0,-90,Surface-matched solid components
+GT_Roof_Gable_0001,SM_Theater_Roof_Gable,COL_Shot_GT_Roof_Gable_0001,Shot,Roof,0.0,12.0,-36.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0073,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0073,Both,Shell,-32.0,0.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0074,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0074,Both,Shell,-32.0,6.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0075,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0075,Both,Shell,-28.0,0.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0076,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0076,Both,Shell,-28.0,6.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0077,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0077,Both,Shell,24.0,0.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0078,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0078,Both,Shell,24.0,6.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0079,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0079,Both,Shell,28.0,0.0,-36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0080,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0080,Both,Shell,28.0,6.0,-36.0,0,Solid base wall and visible panel trim
+GT_Roof_Gable_0002,SM_Theater_Roof_Gable,COL_Shot_GT_Roof_Gable_0002,Shot,Roof,0.0,12.0,36.0,0,Surface-matched solid components
+GT_Wall_Exterior4_0081,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0081,Both,Shell,-32.0,0.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0082,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0082,Both,Shell,-32.0,6.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0083,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0083,Both,Shell,-28.0,0.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0084,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0084,Both,Shell,-28.0,6.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0085,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0085,Both,Shell,24.0,0.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0086,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0086,Both,Shell,24.0,6.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0087,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0087,Both,Shell,28.0,0.0,36.0,0,Solid base wall and visible panel trim
+GT_Wall_Exterior4_0088,SM_Theater_Wall_Exterior4,COL_Both_GT_Wall_Exterior4_0088,Both,Shell,28.0,6.0,36.0,0,Solid base wall and visible panel trim
+GT_Deck_BalconyFace_0063,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0063,Both,2,-18.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0045,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0045,Movement,2,-18.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0045,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0045,Shot,2,-18.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0064,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0064,Both,2,-14.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0046,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0046,Movement,2,-14.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0046,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0046,Shot,2,-14.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0065,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0065,Both,2,-10.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0047,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0047,Movement,2,-10.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0047,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0047,Shot,2,-10.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0066,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0066,Both,2,-6.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0048,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0048,Movement,2,-6.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0048,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0048,Shot,2,-6.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0067,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0067,Both,2,-2.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0049,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0049,Movement,2,-2.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0049,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0049,Shot,2,-2.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0068,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0068,Both,2,2.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0050,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0050,Movement,2,2.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0050,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0050,Shot,2,2.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0069,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0069,Both,2,6.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0051,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0051,Movement,2,6.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0051,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0051,Shot,2,6.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0070,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0070,Both,2,10.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0052,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0052,Movement,2,10.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0052,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0052,Shot,2,10.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Deck_BalconyFace_0071,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0071,Both,2,14.0,6.0,-18.0,0,Surface-matched solid components
+GT_Rail_Gallery4_0053,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0053,Movement,2,14.0,6.0,-18.15,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0053,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0053,Shot,2,14.0,6.0,-18.15,0,Visible rail components with open spaces
+GT_Rail_Gallery4_0054,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0054,Movement,2,-23.83,6.0,28.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0054,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0054,Shot,2,-23.83,6.0,28.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0055,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0055,Movement,2,-23.83,6.0,32.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0055,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0055,Shot,2,-23.83,6.0,32.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0056,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0056,Movement,2,23.83,6.0,28.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0056,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0056,Shot,2,23.83,6.0,28.0,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0057,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0057,Movement,2,23.83,6.0,32.0,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0057,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0057,Shot,2,23.83,6.0,32.0,-90,Visible rail components with open spaces
+GT_Roof_Vault4_0001,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0001,Shot,Roof,0.0,12.0,-36.0,0,Surface-matched solid components
+GT_Roof_Rib_0001,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0001,Shot,Roof,0.0,12.0,-36.0,0,Surface-matched solid components
+GT_Roof_Vault4_0002,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0002,Shot,Roof,0.0,12.0,-32.0,0,Surface-matched solid components
+GT_Roof_Rib_0002,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0002,Shot,Roof,0.0,12.0,-32.0,0,Surface-matched solid components
+GT_Roof_Vault4_0003,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0003,Shot,Roof,0.0,12.0,-28.0,0,Surface-matched solid components
+GT_Roof_Rib_0003,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0003,Shot,Roof,0.0,12.0,-28.0,0,Surface-matched solid components
+GT_Roof_Vault4_0004,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0004,Shot,Roof,0.0,12.0,-24.0,0,Surface-matched solid components
+GT_Roof_Rib_0004,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0004,Shot,Roof,0.0,12.0,-24.0,0,Surface-matched solid components
+GT_Roof_Vault4_0005,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0005,Shot,Roof,0.0,12.0,-20.0,0,Surface-matched solid components
+GT_Roof_Rib_0005,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0005,Shot,Roof,0.0,12.0,-20.0,0,Surface-matched solid components
+GT_Roof_Vault4_0006,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0006,Shot,Roof,0.0,12.0,-16.0,0,Surface-matched solid components
+GT_Roof_Rib_0006,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0006,Shot,Roof,0.0,12.0,-16.0,0,Surface-matched solid components
+GT_Roof_Vault4_0007,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0007,Shot,Roof,0.0,12.0,-12.0,0,Surface-matched solid components
+GT_Roof_Rib_0007,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0007,Shot,Roof,0.0,12.0,-12.0,0,Surface-matched solid components
+GT_Roof_Vault4_0008,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0008,Shot,Roof,0.0,12.0,-8.0,0,Surface-matched solid components
+GT_Roof_Rib_0008,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0008,Shot,Roof,0.0,12.0,-8.0,0,Surface-matched solid components
+GT_Roof_Vault4_0009,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0009,Shot,Roof,0.0,12.0,-4.0,0,Surface-matched solid components
+GT_Roof_Rib_0009,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0009,Shot,Roof,0.0,12.0,-4.0,0,Surface-matched solid components
+GT_Roof_Vault4_0010,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0010,Shot,Roof,0.0,12.0,0.0,0,Surface-matched solid components
+GT_Roof_Rib_0010,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0010,Shot,Roof,0.0,12.0,0.0,0,Surface-matched solid components
+GT_Roof_Vault4_0011,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0011,Shot,Roof,0.0,12.0,4.0,0,Surface-matched solid components
+GT_Roof_Rib_0011,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0011,Shot,Roof,0.0,12.0,4.0,0,Surface-matched solid components
+GT_Roof_Vault4_0012,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0012,Shot,Roof,0.0,12.0,8.0,0,Surface-matched solid components
+GT_Roof_Rib_0012,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0012,Shot,Roof,0.0,12.0,8.0,0,Surface-matched solid components
+GT_Roof_Vault4_0013,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0013,Shot,Roof,0.0,12.0,12.0,0,Surface-matched solid components
+GT_Roof_Rib_0013,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0013,Shot,Roof,0.0,12.0,12.0,0,Surface-matched solid components
+GT_Roof_Vault4_0014,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0014,Shot,Roof,0.0,12.0,16.0,0,Surface-matched solid components
+GT_Roof_Rib_0014,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0014,Shot,Roof,0.0,12.0,16.0,0,Surface-matched solid components
+GT_Roof_Vault4_0015,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0015,Shot,Roof,0.0,12.0,20.0,0,Surface-matched solid components
+GT_Roof_Rib_0015,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0015,Shot,Roof,0.0,12.0,20.0,0,Surface-matched solid components
+GT_Roof_Vault4_0016,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0016,Shot,Roof,0.0,12.0,24.0,0,Surface-matched solid components
+GT_Roof_Rib_0016,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0016,Shot,Roof,0.0,12.0,24.0,0,Surface-matched solid components
+GT_Roof_Vault4_0017,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0017,Shot,Roof,0.0,12.0,28.0,0,Surface-matched solid components
+GT_Roof_Rib_0017,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0017,Shot,Roof,0.0,12.0,28.0,0,Surface-matched solid components
+GT_Roof_Vault4_0018,SM_Theater_Roof_Vault4,COL_Shot_GT_Roof_Vault4_0018,Shot,Roof,0.0,12.0,32.0,0,Surface-matched solid components
+GT_Roof_Rib_0018,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0018,Shot,Roof,0.0,12.0,32.0,0,Surface-matched solid components
+GT_Roof_Rib_0019,SM_Theater_Roof_Rib,COL_Shot_GT_Roof_Rib_0019,Shot,Roof,0.0,12.0,36.0,0,Surface-matched solid components
+GT_Wall_Scenery4_0001,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0001,Both,Stage,-14.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0002,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0002,Both,Stage,-14.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0003,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0003,Both,Stage,-10.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0004,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0004,Both,Stage,-10.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0005,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0005,Both,Stage,-6.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0006,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0006,Both,Stage,-6.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0007,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0007,Both,Stage,-2.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0008,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0008,Both,Stage,-2.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0009,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0009,Both,Stage,2.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0010,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0010,Both,Stage,2.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0011,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0011,Both,Stage,6.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0012,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0012,Both,Stage,6.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0013,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0013,Both,Stage,10.0,1.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0014,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0014,Both,Stage,10.0,7.2,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0015,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0015,Both,Stage,-14.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0016,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0016,Both,Stage,-10.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0017,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0017,Both,Stage,-6.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0018,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0018,Both,Stage,-2.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0019,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0019,Both,Stage,2.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0020,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0020,Both,Stage,6.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Wall_Scenery4_0021,SM_Theater_Wall_Scenery4,COL_Both_GT_Wall_Scenery4_0021,Both,Stage,10.0,-4.8,28.0,0,Solid base wall and visible panel trim
+GT_Stage_Lip4_0001,SM_Theater_Stage_Lip4,COL_Both_GT_Stage_Lip4_0001,Both,1,-8.0,1.2,11.952,0,Surface-matched solid components
+GT_Stage_Lip4_0002,SM_Theater_Stage_Lip4,COL_Both_GT_Stage_Lip4_0002,Both,1,-4.0,1.2,11.952,0,Surface-matched solid components
+GT_Stage_Lip4_0003,SM_Theater_Stage_Lip4,COL_Both_GT_Stage_Lip4_0003,Both,1,0.0,1.2,11.952,0,Surface-matched solid components
+GT_Stage_Lip4_0004,SM_Theater_Stage_Lip4,COL_Both_GT_Stage_Lip4_0004,Both,1,4.0,1.2,11.952,0,Surface-matched solid components
+GT_Stage_Lip2_0001,SM_Theater_Stage_Lip2,COL_Both_GT_Stage_Lip2_0001,Both,1,-14.0,1.2,11.952,0,Surface-matched solid components
+GT_Stage_Lip2_0002,SM_Theater_Stage_Lip2,COL_Both_GT_Stage_Lip2_0002,Both,1,12.0,1.2,11.952,0,Surface-matched solid components
+GT_Stair_Stage8_0001,SM_Theater_Stair_Stage8,COL_Movement_GT_Stair_Stage8_0001,Movement,1,-12.0,0.0,9.44,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Stage8_0001,SM_Theater_Stair_Stage8,COL_Shot_GT_Stair_Stage8_0001,Shot,1,-12.0,0.0,9.44,0,Exact risers and treads including nosing
+GT_Stair_SideRamp_0001,SM_Theater_Stair_SideRamp,COL_Both_GT_Stair_SideRamp_0001,Both,1,-22.0,0.0,24.0,90,Wedge and visible edge trim
+GT_Stair_Stage8_0002,SM_Theater_Stair_Stage8,COL_Movement_GT_Stair_Stage8_0002,Movement,1,8.0,0.0,9.44,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Stage8_0002,SM_Theater_Stair_Stage8,COL_Shot_GT_Stair_Stage8_0002,Shot,1,8.0,0.0,9.44,0,Exact risers and treads including nosing
+GT_Stair_SideRamp_0002,SM_Theater_Stair_SideRamp,COL_Both_GT_Stair_SideRamp_0002,Both,1,22.0,0.0,20.0,-90,Wedge and visible edge trim
+GT_Deck_BoxPortal_0001,SM_Theater_Deck_BoxPortal,COL_Both_GT_Deck_BoxPortal_0001,Both,2,-16.0,6.0,-20.5,0,Surface-matched solid components
+GT_Deck_BoxPortal_0002,SM_Theater_Deck_BoxPortal,COL_Both_GT_Deck_BoxPortal_0002,Both,2,-12.0,6.0,-20.5,0,Surface-matched solid components
+GT_Rail_Gallery2_0003,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0003,Movement,2,-16.0,6.0,-20.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0003,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0003,Shot,2,-16.0,6.0,-20.45,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0004,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0004,Movement,2,-8.0,6.0,-20.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0004,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0004,Shot,2,-8.0,6.0,-20.45,-90,Visible rail components with open spaces
+GT_Seat_Single_0001,SM_Theater_Seat_Single,COL_Both_GT_Seat_Single_0001,Both,2,-14.99,6.0,-18.69,0,Surface-matched solid components
+GT_Seat_Single_0002,SM_Theater_Seat_Single,COL_Both_GT_Seat_Single_0002,Both,2,-9.01,6.0,-18.69,0,Surface-matched solid components
+GT_Deck_BoxPortal_0003,SM_Theater_Deck_BoxPortal,COL_Both_GT_Deck_BoxPortal_0003,Both,2,8.0,6.0,-20.5,0,Surface-matched solid components
+GT_Deck_BoxPortal_0004,SM_Theater_Deck_BoxPortal,COL_Both_GT_Deck_BoxPortal_0004,Both,2,12.0,6.0,-20.5,0,Surface-matched solid components
+GT_Rail_Gallery2_0005,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0005,Movement,2,8.0,6.0,-20.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0005,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0005,Shot,2,8.0,6.0,-20.45,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0006,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0006,Movement,2,16.0,6.0,-20.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0006,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0006,Shot,2,16.0,6.0,-20.45,-90,Visible rail components with open spaces
+GT_Seat_Single_0003,SM_Theater_Seat_Single,COL_Both_GT_Seat_Single_0003,Both,2,9.01,6.0,-18.69,0,Surface-matched solid components
+GT_Seat_Single_0004,SM_Theater_Seat_Single,COL_Both_GT_Seat_Single_0004,Both,2,14.99,6.0,-18.69,0,Surface-matched solid components
+GT_Stair_Flight20_0001,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0001,Movement,Stair,-31.25,0.0,-20.0,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0001,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0001,Shot,Stair,-31.25,0.0,-20.0,0,Exact risers and treads including nosing
+GT_Stair_Flight20_0002,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0002,Movement,Stair,-24.75,3.0,-13.6,-180,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0002,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0002,Shot,Stair,-24.75,3.0,-13.6,-180,Exact risers and treads including nosing
+GT_Deck_StairTurn_0001,SM_Theater_Deck_StairTurn,COL_Both_GT_Deck_StairTurn_0001,Both,Stair,-31.5,3.0,-13.6,0,Surface-matched solid components
+GT_Deck_StairTop_0001,SM_Theater_Deck_StairTop,COL_Both_GT_Deck_StairTop_0001,Both,2,-28.0,6.0,-22.5,0,Surface-matched solid components
+GT_Rail_StairSlope_0001,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0001,Movement,Stair,-31.175,0.0,-20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0001,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0001,Shot,Stair,-31.175,0.0,-20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0002,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0002,Movement,Stair,-28.325,0.0,-20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0002,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0002,Shot,Stair,-28.325,0.0,-20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0003,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0003,Movement,Stair,-27.675,3.0,-13.6,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0003,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0003,Shot,Stair,-27.675,3.0,-13.6,-180,Visible rail components with open spaces
+GT_Rail_StairSlope_0004,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0004,Movement,Stair,-24.825,3.0,-13.6,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0004,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0004,Shot,Stair,-24.825,3.0,-13.6,-180,Visible rail components with open spaces
+GT_Rail_Gallery4_0058,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0058,Movement,Stair,-31.5,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0058,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0058,Shot,Stair,-31.5,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0007,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0007,Movement,Stair,-27.5,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0007,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0007,Shot,Stair,-27.5,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0009,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0009,Movement,Stair,-25.5,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0009,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0009,Shot,Stair,-25.5,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0010,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0010,Movement,Stair,-25.0,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0010,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0010,Shot,Stair,-25.0,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0008,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0008,Movement,Stair,-31.38,3.0,-13.35,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0008,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0008,Shot,Stair,-31.38,3.0,-13.35,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0009,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0009,Movement,Stair,-24.12,3.0,-13.35,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0009,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0009,Shot,Stair,-24.12,3.0,-13.35,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0059,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0059,Movement,2,-28.0,6.0,-22.37,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0059,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0059,Shot,2,-28.0,6.0,-22.37,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0010,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0010,Movement,2,-27.9,6.0,-22.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0010,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0010,Shot,2,-27.9,6.0,-22.45,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0011,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0011,Movement,2,-27.9,6.0,-21.02,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0011,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0011,Shot,2,-27.9,6.0,-21.02,-90,Visible rail components with open spaces
+GT_Wall_Core4_0001,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0001,Both,1,-24.44,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0002,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0002,Both,1,-31.55,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0003,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0003,Both,1,-24.44,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0004,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0004,Both,1,-31.55,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0005,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0005,Both,1,-31.5,0.0,-11.1,0,Solid base wall and visible panel trim
+GT_Wall_Core4_0006,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0006,Both,1,-28.0,0.0,-11.1,0,Solid base wall and visible panel trim
+GT_Lamp_Wall_0013,SM_Theater_Lamp_Wall,,None,1,-24.25,3.3,-21.7,-90,Intentional non-blocking thin decorative element
+GT_Stair_Flight20_0003,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0003,Movement,Stair,-31.25,0.0,20.0,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0003,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0003,Shot,Stair,-31.25,0.0,20.0,0,Exact risers and treads including nosing
+GT_Stair_Flight20_0004,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0004,Movement,Stair,-24.75,3.0,26.4,-180,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0004,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0004,Shot,Stair,-24.75,3.0,26.4,-180,Exact risers and treads including nosing
+GT_Deck_StairTurn_0002,SM_Theater_Deck_StairTurn,COL_Both_GT_Deck_StairTurn_0002,Both,Stair,-31.5,3.0,26.4,0,Surface-matched solid components
+GT_Deck_StairTop_0002,SM_Theater_Deck_StairTop,COL_Both_GT_Deck_StairTop_0002,Both,2,-28.0,6.0,17.5,0,Surface-matched solid components
+GT_Rail_StairSlope_0005,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0005,Movement,Stair,-31.175,0.0,20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0005,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0005,Shot,Stair,-31.175,0.0,20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0006,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0006,Movement,Stair,-28.325,0.0,20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0006,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0006,Shot,Stair,-28.325,0.0,20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0007,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0007,Movement,Stair,-27.675,3.0,26.4,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0007,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0007,Shot,Stair,-27.675,3.0,26.4,-180,Visible rail components with open spaces
+GT_Rail_StairSlope_0008,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0008,Movement,Stair,-24.825,3.0,26.4,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0008,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0008,Shot,Stair,-24.825,3.0,26.4,-180,Visible rail components with open spaces
+GT_Rail_Gallery4_0060,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0060,Movement,Stair,-31.5,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0060,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0060,Shot,Stair,-31.5,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0011,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0011,Movement,Stair,-27.5,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0011,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0011,Shot,Stair,-27.5,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0012,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0012,Movement,Stair,-25.5,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0012,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0012,Shot,Stair,-25.5,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0013,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0013,Movement,Stair,-25.0,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0013,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0013,Shot,Stair,-25.0,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0012,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0012,Movement,Stair,-31.38,3.0,26.65,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0012,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0012,Shot,Stair,-31.38,3.0,26.65,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0013,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0013,Movement,Stair,-24.12,3.0,26.65,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0013,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0013,Shot,Stair,-24.12,3.0,26.65,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0061,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0061,Movement,2,-28.0,6.0,17.63,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0061,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0061,Shot,2,-28.0,6.0,17.63,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0014,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0014,Movement,2,-27.9,6.0,17.55,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0014,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0014,Shot,2,-27.9,6.0,17.55,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0014,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0014,Movement,2,-27.9,6.0,18.98,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0014,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0014,Shot,2,-27.9,6.0,18.98,-90,Visible rail components with open spaces
+GT_Wall_Core4_0007,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0007,Both,1,-24.44,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0008,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0008,Both,1,-31.55,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0009,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0009,Both,1,-24.44,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0010,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0010,Both,1,-31.55,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0011,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0011,Both,1,-31.5,0.0,28.9,0,Solid base wall and visible panel trim
+GT_Wall_Core4_0012,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0012,Both,1,-28.0,0.0,28.9,0,Solid base wall and visible panel trim
+GT_Lamp_Wall_0014,SM_Theater_Lamp_Wall,,None,1,-24.25,3.3,18.3,-90,Intentional non-blocking thin decorative element
+GT_Stair_Flight20_0005,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0005,Movement,Stair,28.25,0.0,-20.0,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0005,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0005,Shot,Stair,28.25,0.0,-20.0,0,Exact risers and treads including nosing
+GT_Stair_Flight20_0006,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0006,Movement,Stair,27.75,3.0,-13.6,-180,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0006,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0006,Shot,Stair,27.75,3.0,-13.6,-180,Exact risers and treads including nosing
+GT_Deck_StairTurn_0003,SM_Theater_Deck_StairTurn,COL_Both_GT_Deck_StairTurn_0003,Both,Stair,24.0,3.0,-13.6,0,Surface-matched solid components
+GT_Deck_StairTop_0003,SM_Theater_Deck_StairTop,COL_Both_GT_Deck_StairTop_0003,Both,2,24.0,6.0,-22.5,0,Surface-matched solid components
+GT_Rail_StairSlope_0009,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0009,Movement,Stair,28.325,0.0,-20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0009,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0009,Shot,Stair,28.325,0.0,-20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0010,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0010,Movement,Stair,31.175,0.0,-20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0010,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0010,Shot,Stair,31.175,0.0,-20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0011,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0011,Movement,Stair,24.825,3.0,-13.6,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0011,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0011,Shot,Stair,24.825,3.0,-13.6,-180,Visible rail components with open spaces
+GT_Rail_StairSlope_0012,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0012,Movement,Stair,27.675,3.0,-13.6,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0012,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0012,Shot,Stair,27.675,3.0,-13.6,-180,Visible rail components with open spaces
+GT_Rail_Gallery4_0062,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0062,Movement,Stair,24.0,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0062,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0062,Shot,Stair,24.0,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0015,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0015,Movement,Stair,28.0,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0015,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0015,Shot,Stair,28.0,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0015,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0015,Movement,Stair,30.0,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0015,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0015,Shot,Stair,30.0,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0016,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0016,Movement,Stair,30.5,3.0,-11.26,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0016,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0016,Shot,Stair,30.5,3.0,-11.26,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0016,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0016,Movement,Stair,24.12,3.0,-13.35,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0016,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0016,Shot,Stair,24.12,3.0,-13.35,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0017,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0017,Movement,Stair,31.38,3.0,-13.35,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0017,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0017,Shot,Stair,31.38,3.0,-13.35,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0063,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0063,Movement,2,24.0,6.0,-22.37,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0063,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0063,Shot,2,24.0,6.0,-22.37,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0018,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0018,Movement,2,27.9,6.0,-22.45,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0018,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0018,Shot,2,27.9,6.0,-22.45,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0017,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0017,Movement,2,27.9,6.0,-21.02,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0017,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0017,Shot,2,27.9,6.0,-21.02,-90,Visible rail components with open spaces
+GT_Wall_Core4_0013,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0013,Both,1,24.44,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0014,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0014,Both,1,31.55,0.0,-20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0015,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0015,Both,1,24.44,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0016,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0016,Both,1,31.55,0.0,-16.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0017,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0017,Both,1,24.0,0.0,-11.1,0,Solid base wall and visible panel trim
+GT_Wall_Core4_0018,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0018,Both,1,27.5,0.0,-11.1,0,Solid base wall and visible panel trim
+GT_Lamp_Wall_0015,SM_Theater_Lamp_Wall,,None,1,24.25,3.3,-21.7,90,Intentional non-blocking thin decorative element
+GT_Stair_Flight20_0007,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0007,Movement,Stair,28.25,0.0,20.0,0,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0007,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0007,Shot,Stair,28.25,0.0,20.0,0,Exact risers and treads including nosing
+GT_Stair_Flight20_0008,SM_Theater_Stair_Flight20,COL_Movement_GT_Stair_Flight20_0008,Movement,Stair,27.75,3.0,26.4,-180,Continuous slope; Shot excludes this mesh
+GT_Stair_Flight20_0008,SM_Theater_Stair_Flight20,COL_Shot_GT_Stair_Flight20_0008,Shot,Stair,27.75,3.0,26.4,-180,Exact risers and treads including nosing
+GT_Deck_StairTurn_0004,SM_Theater_Deck_StairTurn,COL_Both_GT_Deck_StairTurn_0004,Both,Stair,24.0,3.0,26.4,0,Surface-matched solid components
+GT_Deck_StairTop_0004,SM_Theater_Deck_StairTop,COL_Both_GT_Deck_StairTop_0004,Both,2,24.0,6.0,17.5,0,Surface-matched solid components
+GT_Rail_StairSlope_0013,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0013,Movement,Stair,28.325,0.0,20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0013,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0013,Shot,Stair,28.325,0.0,20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0014,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0014,Movement,Stair,31.175,0.0,20.0,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0014,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0014,Shot,Stair,31.175,0.0,20.0,0,Visible rail components with open spaces
+GT_Rail_StairSlope_0015,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0015,Movement,Stair,24.825,3.0,26.4,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0015,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0015,Shot,Stair,24.825,3.0,26.4,-180,Visible rail components with open spaces
+GT_Rail_StairSlope_0016,SM_Theater_Rail_StairSlope,COL_Movement_GT_Rail_StairSlope_0016,Movement,Stair,27.675,3.0,26.4,-180,Continuous safety rail; Shot excludes this mesh
+GT_Rail_StairSlope_0016,SM_Theater_Rail_StairSlope,COL_Shot_GT_Rail_StairSlope_0016,Shot,Stair,27.675,3.0,26.4,-180,Visible rail components with open spaces
+GT_Rail_Gallery4_0064,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0064,Movement,Stair,24.0,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0064,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0064,Shot,Stair,24.0,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0019,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0019,Movement,Stair,28.0,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0019,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0019,Shot,Stair,28.0,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0018,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0018,Movement,Stair,30.0,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0018,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0018,Shot,Stair,30.0,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery1_0019,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0019,Movement,Stair,30.5,3.0,28.74,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0019,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0019,Shot,Stair,30.5,3.0,28.74,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0020,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0020,Movement,Stair,24.12,3.0,26.65,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0020,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0020,Shot,Stair,24.12,3.0,26.65,-90,Visible rail components with open spaces
+GT_Rail_Gallery2_0021,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0021,Movement,Stair,31.38,3.0,26.65,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0021,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0021,Shot,Stair,31.38,3.0,26.65,-90,Visible rail components with open spaces
+GT_Rail_Gallery4_0065,SM_Theater_Rail_Gallery4,COL_Movement_GT_Rail_Gallery4_0065,Movement,2,24.0,6.0,17.63,0,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery4_0065,SM_Theater_Rail_Gallery4,COL_Shot_GT_Rail_Gallery4_0065,Shot,2,24.0,6.0,17.63,0,Visible rail components with open spaces
+GT_Rail_Gallery2_0022,SM_Theater_Rail_Gallery2,COL_Movement_GT_Rail_Gallery2_0022,Movement,2,27.9,6.0,17.55,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery2_0022,SM_Theater_Rail_Gallery2,COL_Shot_GT_Rail_Gallery2_0022,Shot,2,27.9,6.0,17.55,-90,Visible rail components with open spaces
+GT_Rail_Gallery1_0020,SM_Theater_Rail_Gallery1,COL_Movement_GT_Rail_Gallery1_0020,Movement,2,27.9,6.0,18.98,-90,Continuous safety rail; Shot excludes this mesh
+GT_Rail_Gallery1_0020,SM_Theater_Rail_Gallery1,COL_Shot_GT_Rail_Gallery1_0020,Shot,2,27.9,6.0,18.98,-90,Visible rail components with open spaces
+GT_Wall_Core4_0019,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0019,Both,1,24.44,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0020,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0020,Both,1,31.55,0.0,20.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0021,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0021,Both,1,24.44,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0022,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0022,Both,1,31.55,0.0,24.0,-90,Solid base wall and visible panel trim
+GT_Wall_Core4_0023,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0023,Both,1,24.0,0.0,28.9,0,Solid base wall and visible panel trim
+GT_Wall_Core4_0024,SM_Theater_Wall_Core4,COL_Both_GT_Wall_Core4_0024,Both,1,27.5,0.0,28.9,0,Solid base wall and visible panel trim
+GT_Lamp_Wall_0016,SM_Theater_Lamp_Wall,,None,1,24.25,3.3,18.3,90,Intentional non-blocking thin decorative element
+GT_Seat_Group4_0001,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0001,Both,1,-9.12,0.0,-16.6,0,Surface-matched solid components
+GT_Seat_Group4_0002,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0002,Both,1,-12.48,0.0,-16.6,0,Surface-matched solid components
+GT_Seat_Group4_0003,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0003,Both,1,-9.12,0.0,-14.89,0,Surface-matched solid components
+GT_Seat_Group4_0004,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0004,Both,1,-12.48,0.0,-14.89,0,Surface-matched solid components
+GT_Seat_Group4_0005,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0005,Both,1,-9.12,0.0,-13.18,0,Surface-matched solid components
+GT_Seat_Group4_0006,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0006,Both,1,-12.48,0.0,-13.18,0,Surface-matched solid components
+GT_Seat_Group4_0007,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0007,Both,1,-9.12,0.0,-11.47,0,Surface-matched solid components
+GT_Seat_Group4_0008,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0008,Both,1,-12.48,0.0,-11.47,0,Surface-matched solid components
+GT_Seat_Group4_0009,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0009,Both,1,-9.12,0.0,-9.76,0,Surface-matched solid components
+GT_Seat_Group4_0010,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0010,Both,1,-12.48,0.0,-9.76,0,Surface-matched solid components
+GT_Seat_Group4_0011,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0011,Both,1,-9.12,0.0,-5.6,0,Surface-matched solid components
+GT_Seat_Group4_0012,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0012,Both,1,-12.48,0.0,-5.6,0,Surface-matched solid components
+GT_Seat_Group4_0013,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0013,Both,1,-9.12,0.0,-3.89,0,Surface-matched solid components
+GT_Seat_Group4_0014,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0014,Both,1,-12.48,0.0,-3.89,0,Surface-matched solid components
+GT_Seat_Group4_0015,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0015,Both,1,-9.12,0.0,-2.18,0,Surface-matched solid components
+GT_Seat_Group4_0016,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0016,Both,1,-12.48,0.0,-2.18,0,Surface-matched solid components
+GT_Seat_Group4_0017,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0017,Both,1,-9.12,0.0,-0.47,0,Surface-matched solid components
+GT_Seat_Group4_0018,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0018,Both,1,-12.48,0.0,-0.47,0,Surface-matched solid components
+GT_Seat_Group4_0019,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0019,Both,1,-9.12,0.0,1.24,0,Surface-matched solid components
+GT_Seat_Group4_0020,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0020,Both,1,-12.48,0.0,1.24,0,Surface-matched solid components
+GT_Seat_EndDivider_0001,SM_Theater_Seat_EndDivider,COL_Both_GT_Seat_EndDivider_0001,Both,1,-9.85,0.0,-8.05,0,Surface-matched solid components
+GT_Seat_EndDivider_0002,SM_Theater_Seat_EndDivider,COL_Both_GT_Seat_EndDivider_0002,Both,1,-13.85,0.0,-8.05,0,Surface-matched solid components
+GT_Lamp_Lantern_0001,SM_Theater_Lamp_Lantern,,None,1,-17.2,0.0,-19.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0002,SM_Theater_Lamp_Lantern,,None,1,-17.2,0.0,-11.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0003,SM_Theater_Lamp_Lantern,,None,1,-17.2,0.0,-3.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0004,SM_Theater_Lamp_Lantern,,None,1,-17.2,0.0,5.0,0,Intentional non-blocking thin decorative element
+GT_Seat_Group4_0021,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0021,Both,1,9.12,0.0,-16.6,0,Surface-matched solid components
+GT_Seat_Group4_0022,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0022,Both,1,12.48,0.0,-16.6,0,Surface-matched solid components
+GT_Seat_Group4_0023,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0023,Both,1,9.12,0.0,-14.89,0,Surface-matched solid components
+GT_Seat_Group4_0024,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0024,Both,1,12.48,0.0,-14.89,0,Surface-matched solid components
+GT_Seat_Group4_0025,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0025,Both,1,9.12,0.0,-13.18,0,Surface-matched solid components
+GT_Seat_Group4_0026,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0026,Both,1,12.48,0.0,-13.18,0,Surface-matched solid components
+GT_Seat_Group4_0027,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0027,Both,1,9.12,0.0,-11.47,0,Surface-matched solid components
+GT_Seat_Group4_0028,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0028,Both,1,12.48,0.0,-11.47,0,Surface-matched solid components
+GT_Seat_Group4_0029,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0029,Both,1,9.12,0.0,-9.76,0,Surface-matched solid components
+GT_Seat_Group4_0030,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0030,Both,1,12.48,0.0,-9.76,0,Surface-matched solid components
+GT_Seat_Group4_0031,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0031,Both,1,9.12,0.0,-5.6,0,Surface-matched solid components
+GT_Seat_Group4_0032,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0032,Both,1,12.48,0.0,-5.6,0,Surface-matched solid components
+GT_Seat_Group4_0033,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0033,Both,1,9.12,0.0,-3.89,0,Surface-matched solid components
+GT_Seat_Group4_0034,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0034,Both,1,12.48,0.0,-3.89,0,Surface-matched solid components
+GT_Seat_Group4_0035,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0035,Both,1,9.12,0.0,-2.18,0,Surface-matched solid components
+GT_Seat_Group4_0036,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0036,Both,1,12.48,0.0,-2.18,0,Surface-matched solid components
+GT_Seat_Group4_0037,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0037,Both,1,9.12,0.0,-0.47,0,Surface-matched solid components
+GT_Seat_Group4_0038,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0038,Both,1,12.48,0.0,-0.47,0,Surface-matched solid components
+GT_Seat_Group4_0039,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0039,Both,1,9.12,0.0,1.24,0,Surface-matched solid components
+GT_Seat_Group4_0040,SM_Theater_Seat_Group4,COL_Both_GT_Seat_Group4_0040,Both,1,12.48,0.0,1.24,0,Surface-matched solid components
+GT_Seat_EndDivider_0003,SM_Theater_Seat_EndDivider,COL_Both_GT_Seat_EndDivider_0003,Both,1,6.15,0.0,-8.05,0,Surface-matched solid components
+GT_Seat_EndDivider_0004,SM_Theater_Seat_EndDivider,COL_Both_GT_Seat_EndDivider_0004,Both,1,10.15,0.0,-8.05,0,Surface-matched solid components
+GT_Lamp_Lantern_0005,SM_Theater_Lamp_Lantern,,None,1,17.2,0.0,-19.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0006,SM_Theater_Lamp_Lantern,,None,1,17.2,0.0,-11.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0007,SM_Theater_Lamp_Lantern,,None,1,17.2,0.0,-3.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0008,SM_Theater_Lamp_Lantern,,None,1,17.2,0.0,5.0,0,Intentional non-blocking thin decorative element
+GT_Door_ClosedDouble_0001,SM_Theater_Door_ClosedDouble,COL_Both_GT_Door_ClosedDouble_0001,Both,1,-16.0,0.0,-35.7,0,Surface-matched solid components
+GT_Deco_Banner_0001,SM_Theater_Deco_Banner,,None,1,-14.0,6.7,-35.55,-180,Intentional non-blocking thin decorative element
+GT_Door_ClosedDouble_0002,SM_Theater_Door_ClosedDouble,COL_Both_GT_Door_ClosedDouble_0002,Both,1,-10.0,0.0,-35.7,0,Surface-matched solid components
+GT_Deco_Banner_0002,SM_Theater_Deco_Banner,,None,1,-8.0,6.7,-35.55,-180,Intentional non-blocking thin decorative element
+GT_Door_ClosedDouble_0003,SM_Theater_Door_ClosedDouble,COL_Both_GT_Door_ClosedDouble_0003,Both,1,-2.0,0.0,-35.7,0,Surface-matched solid components
+GT_Deco_Banner_0003,SM_Theater_Deco_Banner,,None,1,0.0,6.7,-35.55,-180,Intentional non-blocking thin decorative element
+GT_Door_ClosedDouble_0004,SM_Theater_Door_ClosedDouble,COL_Both_GT_Door_ClosedDouble_0004,Both,1,6.0,0.0,-35.7,0,Surface-matched solid components
+GT_Deco_Banner_0004,SM_Theater_Deco_Banner,,None,1,8.0,6.7,-35.55,-180,Intentional non-blocking thin decorative element
+GT_Door_ClosedDouble_0005,SM_Theater_Door_ClosedDouble,COL_Both_GT_Door_ClosedDouble_0005,Both,1,12.0,0.0,-35.7,0,Surface-matched solid components
+GT_Deco_Banner_0005,SM_Theater_Deco_Banner,,None,1,14.0,6.7,-35.55,-180,Intentional non-blocking thin decorative element
+GT_Prop_TicketCounter_0001,SM_Theater_Prop_TicketCounter,COL_Both_GT_Prop_TicketCounter_0001,Both,1,-15.5,0.0,-31.0,0,Surface-matched solid components
+GT_Prop_ProgramFrame_0001,SM_Theater_Prop_ProgramFrame,,None,1,-15.5,1.36,-35.49,-180,Intentional non-blocking thin decorative element
+GT_Prop_ProgramFrame_0002,SM_Theater_Prop_ProgramFrame,,None,1,-8.0,1.1,-24.43,0,Intentional non-blocking thin decorative element
+GT_Prop_Bench_0009,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0009,Both,1,-12.0,0.0,-33.7,0,Surface-matched solid components
+GT_Column_Pilaster_0001,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0001,Both,1,-4.5,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0017,SM_Theater_Lamp_Wall,,None,1,-4.5,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Column_Pilaster_0002,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0002,Both,1,-16.75,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0018,SM_Theater_Lamp_Wall,,None,1,-16.75,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Column_Pilaster_0003,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0003,Both,1,-22.4,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0019,SM_Theater_Lamp_Wall,,None,1,-22.4,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0020,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-33.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0021,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-28.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0022,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-22.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0023,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-14.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0024,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,-6.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0025,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,2.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0026,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,10.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0027,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,18.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0028,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,26.0,-90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0029,SM_Theater_Lamp_Wall,,None,1,-31.36,3.15,33.0,-90,Intentional non-blocking thin decorative element
+GT_Prop_TicketCounter_0002,SM_Theater_Prop_TicketCounter,COL_Both_GT_Prop_TicketCounter_0002,Both,1,15.5,0.0,-31.0,0,Surface-matched solid components
+GT_Prop_ProgramFrame_0003,SM_Theater_Prop_ProgramFrame,,None,1,15.5,1.36,-35.49,-180,Intentional non-blocking thin decorative element
+GT_Prop_ProgramFrame_0004,SM_Theater_Prop_ProgramFrame,,None,1,8.0,1.1,-24.43,0,Intentional non-blocking thin decorative element
+GT_Prop_Bench_0010,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0010,Both,1,12.0,0.0,-33.7,0,Surface-matched solid components
+GT_Column_Pilaster_0004,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0004,Both,1,4.5,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0030,SM_Theater_Lamp_Wall,,None,1,4.5,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Column_Pilaster_0005,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0005,Both,1,16.75,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0031,SM_Theater_Lamp_Wall,,None,1,16.75,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Column_Pilaster_0006,SM_Theater_Column_Pilaster,COL_Both_GT_Column_Pilaster_0006,Both,1,22.4,0.0,-24.48,0,Surface-matched solid components
+GT_Lamp_Wall_0032,SM_Theater_Lamp_Wall,,None,1,22.4,2.65,-25.08,0,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0033,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-33.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0034,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-28.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0035,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-22.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0036,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-14.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0037,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,-6.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0038,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,2.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0039,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,10.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0040,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,18.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0041,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,26.0,90,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0042,SM_Theater_Lamp_Wall,,None,1,31.36,3.15,33.0,90,Intentional non-blocking thin decorative element
+GT_Stage_ProsceniumPost_0001,SM_Theater_Stage_ProsceniumPost,COL_Both_GT_Stage_ProsceniumPost_0001,Both,Stage,-13.15,1.2,13.28,0,Surface-matched solid components
+GT_Curtain_MainL_0001,SM_Theater_Curtain_MainL,,None,Stage,-11.1,1.23,14.12,0,Intentional non-blocking thin decorative element
+GT_Curtain_Side_0001,SM_Theater_Curtain_Side,,None,Stage,-12.8,1.23,18.1,78,Intentional non-blocking thin decorative element
+GT_Curtain_Side_0002,SM_Theater_Curtain_Side,,None,Stage,-12.8,1.23,25.8,78,Intentional non-blocking thin decorative element
+GT_Organ_PipesSide_0001,SM_Theater_Organ_PipesSide,COL_Shot_GT_Organ_PipesSide_0001,Shot,Stage,-3.75,2.0,25.35,0,Surface-matched solid components
+GT_Deco_Banner_0006,SM_Theater_Deco_Banner,,None,Stage,-10.0,6.3,27.64,0,Intentional non-blocking thin decorative element
+GT_Deck_BalconyFace_0072,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0072,Both,Stage,-4.0,10.48,27.65,0,Surface-matched solid components
+GT_Deck_BalconyFace_0073,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0073,Both,Stage,-4.0,12.04,27.65,0,Surface-matched solid components
+GT_Prop_Piano_0001,SM_Theater_Prop_Piano,COL_Both_GT_Prop_Piano_0001,Both,1,-17.2,0.0,16.9,18,Surface-matched solid components
+GT_Prop_Stand_0001,SM_Theater_Prop_Stand,,None,1,-16.8,0.0,15.55,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0001,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0001,Both,1,-26.25,0.0,14.7,18,Surface-matched solid components
+GT_Prop_CaseWide_0001,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0001,Both,1,-28.8,0.0,14.9,18,Surface-matched solid components
+GT_Prop_CaseWide_0002,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0002,Both,1,-27.6,0.0,31.4,18,Surface-matched solid components
+GT_Prop_CaseWide_0003,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0003,Both,1,-29.4,0.0,33.2,18,Surface-matched solid components
+GT_Prop_CaseSmall_0002,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0002,Both,1,-18.0,0.0,34.1,18,Surface-matched solid components
+GT_Prop_InstrumentRack_0001,SM_Theater_Prop_InstrumentRack,COL_Both_GT_Prop_InstrumentRack_0001,Both,1,-11.25,0.0,34.76,-180,Surface-matched solid components
+GT_Prop_Bench_0011,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0011,Both,1,-7.2,0.0,34.8,-180,Surface-matched solid components
+GT_Lamp_Wall_0043,SM_Theater_Lamp_Wall,,None,Backstage,-13.5,2.5,28.4,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0044,SM_Theater_Lamp_Wall,,None,Backstage,-13.5,8.1,28.4,-180,Intentional non-blocking thin decorative element
+GT_Stage_ProsceniumPost_0002,SM_Theater_Stage_ProsceniumPost,COL_Both_GT_Stage_ProsceniumPost_0002,Both,Stage,13.15,1.2,13.28,0,Surface-matched solid components
+GT_Curtain_MainR_0001,SM_Theater_Curtain_MainR,,None,Stage,11.1,1.23,14.12,0,Intentional non-blocking thin decorative element
+GT_Curtain_Side_0003,SM_Theater_Curtain_Side,,None,Stage,12.8,1.23,18.1,-78,Intentional non-blocking thin decorative element
+GT_Curtain_Side_0004,SM_Theater_Curtain_Side,,None,Stage,12.8,1.23,25.8,-78,Intentional non-blocking thin decorative element
+GT_Organ_PipesSide_0002,SM_Theater_Organ_PipesSide,COL_Shot_GT_Organ_PipesSide_0002,Shot,Stage,3.75,2.0,25.35,0,Surface-matched solid components
+GT_Deco_Banner_0007,SM_Theater_Deco_Banner,,None,Stage,10.0,6.3,27.64,0,Intentional non-blocking thin decorative element
+GT_Deck_BalconyFace_0074,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0074,Both,Stage,0.0,10.48,27.65,0,Surface-matched solid components
+GT_Deck_BalconyFace_0075,SM_Theater_Deck_BalconyFace,COL_Both_GT_Deck_BalconyFace_0075,Both,Stage,0.0,12.04,27.65,0,Surface-matched solid components
+GT_Prop_Piano_0002,SM_Theater_Prop_Piano,COL_Both_GT_Prop_Piano_0002,Both,1,17.2,0.0,16.9,-18,Surface-matched solid components
+GT_Prop_Stand_0002,SM_Theater_Prop_Stand,,None,1,16.8,0.0,15.55,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0003,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0003,Both,1,26.25,0.0,14.7,-18,Surface-matched solid components
+GT_Prop_CaseWide_0004,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0004,Both,1,28.8,0.0,14.9,-18,Surface-matched solid components
+GT_Prop_CaseWide_0005,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0005,Both,1,27.6,0.0,31.4,-18,Surface-matched solid components
+GT_Prop_CaseWide_0006,SM_Theater_Prop_CaseWide,COL_Both_GT_Prop_CaseWide_0006,Both,1,29.4,0.0,33.2,-18,Surface-matched solid components
+GT_Prop_CaseSmall_0004,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0004,Both,1,18.0,0.0,34.1,-18,Surface-matched solid components
+GT_Prop_InstrumentRack_0002,SM_Theater_Prop_InstrumentRack,COL_Both_GT_Prop_InstrumentRack_0002,Both,1,11.25,0.0,34.76,-180,Surface-matched solid components
+GT_Prop_Bench_0012,SM_Theater_Prop_Bench,COL_Both_GT_Prop_Bench_0012,Both,1,7.2,0.0,34.8,-180,Surface-matched solid components
+GT_Lamp_Wall_0045,SM_Theater_Lamp_Wall,,None,Backstage,13.5,2.5,28.4,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Wall_0046,SM_Theater_Lamp_Wall,,None,Backstage,13.5,8.1,28.4,-180,Intentional non-blocking thin decorative element
+GT_Stage_ProsceniumArc_0001,SM_Theater_Stage_ProsceniumArc,COL_Both_GT_Stage_ProsceniumArc_0001,Both,Stage,0.0,7.75,13.28,0,Surface-matched solid components
+GT_Deco_Lyre_0001,SM_Theater_Deco_Lyre,,None,Stage,0.0,12.13,12.51,0,Intentional non-blocking thin decorative element
+GT_Curtain_Valance8_0001,SM_Theater_Curtain_Valance8,,None,Stage,-12.0,10.47,14.05,0,Intentional non-blocking thin decorative element
+GT_Curtain_Valance8_0002,SM_Theater_Curtain_Valance8,,None,Stage,-4.0,10.47,14.05,0,Intentional non-blocking thin decorative element
+GT_Curtain_Valance8_0003,SM_Theater_Curtain_Valance8,,None,Stage,4.0,10.47,14.05,0,Intentional non-blocking thin decorative element
+GT_Organ_Plinth_0001,SM_Theater_Organ_Plinth,COL_Both_GT_Organ_Plinth_0001,Both,Stage,0.0,1.2,26.17,0,Surface-matched solid components
+GT_Organ_Body_0001,SM_Theater_Organ_Body,COL_Both_GT_Organ_Body_0001,Both,Stage,0.0,1.99,26.78,0,Surface-matched solid components
+GT_Organ_Crown_0001,SM_Theater_Organ_Crown,COL_Shot_GT_Organ_Crown_0001,Shot,Stage,0.0,8.79,26.78,0,Surface-matched solid components
+GT_Organ_PipesCenter_0001,SM_Theater_Organ_PipesCenter,COL_Shot_GT_Organ_PipesCenter_0001,Shot,Stage,0.0,2.0,24.97,0,Surface-matched solid components
+GT_Deco_Lyre_0002,SM_Theater_Deco_Lyre,,None,Stage,0.0,9.5,26.11,0,Intentional non-blocking thin decorative element
+GT_Organ_Console_0001,SM_Theater_Organ_Console,COL_Both_GT_Organ_Console_0001,Both,Stage,0.0,1.2,23.5,0,Surface-matched solid components
+GT_Prop_Conductor_0001,SM_Theater_Prop_Conductor,COL_Both_GT_Prop_Conductor_0001,Both,Stage,7.6,1.2,25.55,0,Surface-matched solid components
+GT_Prop_Stand_0003,SM_Theater_Prop_Stand,,None,Stage,7.6,1.2,25.99,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0005,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0005,Both,1,-14.0,0.0,30.0,0,Surface-matched solid components
+GT_Lamp_Wall_0047,SM_Theater_Lamp_Wall,,None,1,-14.0,2.85,35.55,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0006,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0006,Both,1,-6.0,0.0,30.0,0,Surface-matched solid components
+GT_Lamp_Wall_0048,SM_Theater_Lamp_Wall,,None,1,-6.0,2.85,35.55,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0007,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0007,Both,1,6.0,0.0,30.0,0,Surface-matched solid components
+GT_Lamp_Wall_0049,SM_Theater_Lamp_Wall,,None,1,6.0,2.85,35.55,0,Intentional non-blocking thin decorative element
+GT_Prop_CaseSmall_0008,SM_Theater_Prop_CaseSmall,COL_Both_GT_Prop_CaseSmall_0008,Both,1,14.0,0.0,30.0,0,Surface-matched solid components
+GT_Lamp_Wall_0050,SM_Theater_Lamp_Wall,,None,1,14.0,2.85,35.55,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0001,SM_Theater_Lamp_ChandelierHub,,None,Roof,0.0,10.7,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0001,SM_Theater_Lamp_ChandelierRing,,None,Roof,0.0,10.98,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0001,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,17.06,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0002,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,16.06,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0003,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,15.06,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0004,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,14.06,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0001,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0009,SM_Theater_Lamp_Lantern,,None,Roof,1.72,11.23,-30.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0002,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0010,SM_Theater_Lamp_Lantern,,None,Roof,0.86,11.23,-28.51044,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0003,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0011,SM_Theater_Lamp_Lantern,,None,Roof,-0.86,11.23,-28.51044,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0004,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0012,SM_Theater_Lamp_Lantern,,None,Roof,-1.72,11.23,-30.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0005,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0013,SM_Theater_Lamp_Lantern,,None,Roof,-0.86,11.23,-31.48956,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0006,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,11.19,-30.0,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0014,SM_Theater_Lamp_Lantern,,None,Roof,0.86,11.23,-31.48956,-300,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0002,SM_Theater_Lamp_ChandelierHub,,None,Roof,-8.0,12.2,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0002,SM_Theater_Lamp_ChandelierRing,,None,Roof,-8.0,12.48,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0005,SM_Theater_Lamp_HangerStem,,None,Roof,-8.0,16.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0006,SM_Theater_Lamp_HangerStem,,None,Roof,-8.0,15.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0007,SM_Theater_Lamp_HangerStem,,None,Roof,-8.0,14.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0007,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0015,SM_Theater_Lamp_Lantern,,None,Roof,-6.28,12.73,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0008,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0016,SM_Theater_Lamp_Lantern,,None,Roof,-7.14,12.73,-13.81044,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0009,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0017,SM_Theater_Lamp_Lantern,,None,Roof,-8.86,12.73,-13.81044,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0010,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0018,SM_Theater_Lamp_Lantern,,None,Roof,-9.72,12.73,-15.3,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0011,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0019,SM_Theater_Lamp_Lantern,,None,Roof,-8.86,12.73,-16.78956,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0012,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.69,-15.3,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0020,SM_Theater_Lamp_Lantern,,None,Roof,-7.14,12.73,-16.78956,-300,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0003,SM_Theater_Lamp_ChandelierHub,,None,Roof,8.0,12.2,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0003,SM_Theater_Lamp_ChandelierRing,,None,Roof,8.0,12.48,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0008,SM_Theater_Lamp_HangerStem,,None,Roof,8.0,16.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0009,SM_Theater_Lamp_HangerStem,,None,Roof,8.0,15.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0010,SM_Theater_Lamp_HangerStem,,None,Roof,8.0,14.71685,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0013,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0021,SM_Theater_Lamp_Lantern,,None,Roof,9.72,12.73,-15.3,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0014,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0022,SM_Theater_Lamp_Lantern,,None,Roof,8.86,12.73,-13.81044,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0015,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0023,SM_Theater_Lamp_Lantern,,None,Roof,7.14,12.73,-13.81044,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0016,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0024,SM_Theater_Lamp_Lantern,,None,Roof,6.28,12.73,-15.3,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0017,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0025,SM_Theater_Lamp_Lantern,,None,Roof,7.14,12.73,-16.78956,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0018,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.69,-15.3,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0026,SM_Theater_Lamp_Lantern,,None,Roof,8.86,12.73,-16.78956,-300,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0004,SM_Theater_Lamp_ChandelierHub,,None,Roof,-8.0,12.4,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0004,SM_Theater_Lamp_ChandelierRing,,None,Roof,-8.0,12.68,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0011,SM_Theater_Lamp_HangerStem,,None,Roof,-8.0,16.71685,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0012,SM_Theater_Lamp_HangerStem,,None,Roof,-8.0,15.71685,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0019,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0027,SM_Theater_Lamp_Lantern,,None,Roof,-6.28,12.93,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0020,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0028,SM_Theater_Lamp_Lantern,,None,Roof,-7.14,12.93,1.48956,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0021,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0029,SM_Theater_Lamp_Lantern,,None,Roof,-8.86,12.93,1.48956,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0022,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0030,SM_Theater_Lamp_Lantern,,None,Roof,-9.72,12.93,0.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0023,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0031,SM_Theater_Lamp_Lantern,,None,Roof,-8.86,12.93,-1.48956,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0024,SM_Theater_Lamp_ChandelierArm,,None,Roof,-8.0,12.89,0.0,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0032,SM_Theater_Lamp_Lantern,,None,Roof,-7.14,12.93,-1.48956,-300,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0005,SM_Theater_Lamp_ChandelierHub,,None,Roof,8.0,12.4,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0005,SM_Theater_Lamp_ChandelierRing,,None,Roof,8.0,12.68,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0013,SM_Theater_Lamp_HangerStem,,None,Roof,8.0,16.71685,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0014,SM_Theater_Lamp_HangerStem,,None,Roof,8.0,15.71685,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0025,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0033,SM_Theater_Lamp_Lantern,,None,Roof,9.72,12.93,0.0,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0026,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0034,SM_Theater_Lamp_Lantern,,None,Roof,8.86,12.93,1.48956,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0027,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0035,SM_Theater_Lamp_Lantern,,None,Roof,7.14,12.93,1.48956,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0028,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0036,SM_Theater_Lamp_Lantern,,None,Roof,6.28,12.93,0.0,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0029,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0037,SM_Theater_Lamp_Lantern,,None,Roof,7.14,12.93,-1.48956,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0030,SM_Theater_Lamp_ChandelierArm,,None,Roof,8.0,12.89,0.0,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0038,SM_Theater_Lamp_Lantern,,None,Roof,8.86,12.93,-1.48956,-300,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierHub_0006,SM_Theater_Lamp_ChandelierHub,,None,Roof,0.0,12.85,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierRing_0006,SM_Theater_Lamp_ChandelierRing,,None,Roof,0.0,13.13,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0015,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,17.06,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_HangerStem_0016,SM_Theater_Lamp_HangerStem,,None,Roof,0.0,16.06,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0031,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0039,SM_Theater_Lamp_Lantern,,None,Roof,1.72,13.38,8.1,0,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0032,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,-60,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0040,SM_Theater_Lamp_Lantern,,None,Roof,0.86,13.38,9.58956,-60,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0033,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,-120,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0041,SM_Theater_Lamp_Lantern,,None,Roof,-0.86,13.38,9.58956,-120,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0034,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,-180,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0042,SM_Theater_Lamp_Lantern,,None,Roof,-1.72,13.38,8.1,-180,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0035,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,-240,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0043,SM_Theater_Lamp_Lantern,,None,Roof,-0.86,13.38,6.61044,-240,Intentional non-blocking thin decorative element
+GT_Lamp_ChandelierArm_0036,SM_Theater_Lamp_ChandelierArm,,None,Roof,0.0,13.34,8.1,-300,Intentional non-blocking thin decorative element
+GT_Lamp_Lantern_0044,SM_Theater_Lamp_Lantern,,None,Roof,0.86,13.38,6.61044,-300,Intentional non-blocking thin decorative element

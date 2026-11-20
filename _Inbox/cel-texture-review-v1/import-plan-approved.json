@@ -1,0 +1,1645 @@
+{
+  "authorized": true,
+  "records": [
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW01_Violin_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW01_Violin_BC.png",
+      "original_sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943",
+      "prepared_sha256": "891df6ec126615eab1a9a248884f94e2266d2926533dd5fd23302fc80e5b031b",
+      "meta_sha256": "1c1f7472bc7308a5f8a4a508c3101269426fa4453f38afee0234df6ee0ec70db",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW02_Kalimba_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW02_Kalimba_BC.png",
+      "original_sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7",
+      "prepared_sha256": "99d5e7e745bebd7d0a2e8f66d91975166cca2a0a0b2d84345d94611a73bcdafb",
+      "meta_sha256": "6a4a3772a091c4869b44c1bc0bf3daf036921082bf15b6f74801c860590bd4fb",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW03_FrameDrum_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW03_FrameDrum_BC.png",
+      "original_sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36",
+      "prepared_sha256": "4b5c9ef1b98a47853524b182f94fed6de0f0fa1fc3b76106c5989950ef1334a8",
+      "meta_sha256": "f9544caa1c18edcca491d341bf2f4542c546a2ec491785985f1c4ebf4360b51e",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW04_Cello_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW04_Cello_BC.png",
+      "original_sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9",
+      "prepared_sha256": "58db8c81e62d6a904a63758a7c4ac4246bb806b6de2012ef1aa68a7868741c04",
+      "meta_sha256": "15e6b6c3fab98e1e33e141d40e0f7fd2b2660df7627576f67b8434774cf4cc8f",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW05_Harp_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW05_Harp_BC.png",
+      "original_sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f",
+      "prepared_sha256": "cf5e41572209cc5648a1e225bd97942ce9652cbc43627a6a331b99ff860700d9",
+      "meta_sha256": "db077e10db77adaff884f90a86690c157c23e314f9cbdc4ea51310af79c5030c",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW06_Accordion_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW06_Accordion_BC.png",
+      "original_sha256": "16ba9c39f844285f14546aebe3c9edf21a4ad2ab5fcf4086dad34e43530d3dea",
+      "prepared_sha256": "3ee1a72b4fdc62cfeae47ac7d176d39b81af0f65b31157a7e7e213dc0af6b87a",
+      "meta_sha256": "de2e4950ab63aaef88e56a9896c2b27e1eec6a84b4c22cbd2bee11c08e44bfa1",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S08_BassWave.png",
+      "original_sha256": "2297898054c46876b8e0118547826a89e66777f6f6b1c964000eb12acd3c334e",
+      "prepared_sha256": "ff098bfa4da458a667a749095cce0aa286d5ed521fc2efe7fb3920b1af138f0d",
+      "meta_sha256": "1aa479cf7c5a211b6628c4dbc96f84a509bdd67b89092a7270598f2762f1d73d",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S14_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "124ddbf95500d53efea391b15608fd377b48ed799e1aa1a6b2ad697fd45795a5",
+      "meta_sha256": "af61cab7659f3037cf536d64160631c0b3bd21d84df618190f2896ac9af3aa7b",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_FXM_S14_NoteGate_BC.png",
+      "original_sha256": "06da2786a6a0ca1d2a2e26650dc6a7a51cbe5e6c6c108151fcea97f1d93d15f5",
+      "prepared_sha256": "4086e1c03ea9aab72807cfddbf2a81f7fe649b2ead826c1eab4aa487241ae71e",
+      "meta_sha256": "2e98f43f8e235175fa388a18f61fa2716b647fbfb4d34fc01dc5b0ec8638294a",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_Curtain.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_FXM_S14_NoteGate_Curtain.png",
+      "original_sha256": "2e82479624334a70b31afa77d3270bd796ecdeba48dbb7743841b3a73c3f217d",
+      "prepared_sha256": "a1b637d216be1ff2d83b8495ae55ca9eb7eade173f046c64fcd0bf616a6165c5",
+      "meta_sha256": "1c90d0e17d0620bb5aa3d36e04e385a70ab324e8fbcb532fb2a0386259a62d23",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S16_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "ec5d7382bf24bd9bb4afd40e910f23b40cfdcdef23cc9999f216f4cccad69851",
+      "meta_sha256": "da9be8ad77d2177e4bc36e4fe3e63c028924fa5c15e7508dbf1c6ab2bcc5074c",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S21_VentGust.png",
+      "original_sha256": "7d3d2a5209f8099118e4db7e290749525379756bd014305b6b7da031de51abd9",
+      "prepared_sha256": "eab008fdeb027967adcc1e45627c813aefe0c790172a5c2e1ddbb155e06d7253",
+      "meta_sha256": "e294a4dd4dc1fb46c992849cfb5ad7b8f659075995e0c29766bab4c2bc2450ae",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "b942babeb8ca27f86c0d321c1fabe0b9d4ccf093a8566d8f38e30d82c2ebe44b",
+      "meta_sha256": "91613f689e492d7a191cd7a11b4c58544cabc59c665808f125ef56bdf6dd08e1",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S02_DrumBeetle_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S02_DrumBeetle_BC.png",
+      "original_sha256": "20cccd5271f19bd53fd41168ce9c3d48bad70afc885f683059a7da88f8eaaef2",
+      "prepared_sha256": "a32f987ef742ac4dfc0b5fd1e95432753a0f78acbce81b2ce793e79ce603fe2d",
+      "meta_sha256": "7fc5d5e5e77cd33827e3ee3da007eb27118661d5f3c837d39a401fe95f2b44a4",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S03_HornHound_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S03_HornHound_BC.png",
+      "original_sha256": "89f9a4d9b679559b4b8c37917c71b1b1f019ae960f374491327f23238bf8e8c8",
+      "prepared_sha256": "c7a1f30a60a734e2b2c5493ecae10c5e544bb67f9c404968d65a0706c21d71f5",
+      "meta_sha256": "3df3b3e23ba4d8304b8bae71936b9cacfed17c20ea302523627344b5e386a792",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S07_LostScoreGhost_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S07_LostScoreGhost_BC.png",
+      "original_sha256": "0f9fcf3a98478798d9ace8bede68643d147f1b5f4b6f08e9fc83043ac9388bc0",
+      "prepared_sha256": "02785f5599a17e445506fe2f84e7ab5fe6f43c57d69e053cd89c3c6229285b11",
+      "meta_sha256": "460718cc7d9ebbe6fd38c5cb52fc5e72a92897a605492d2baab719dc86093e18",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S08_MetronomeGuard_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S08_MetronomeGuard_BC.png",
+      "original_sha256": "d23e401beab9f325d32cbb5091aadda645567f43572257d4ea9869d059e6d2e1",
+      "prepared_sha256": "948d6d1ed558e881026894bb5aed1363aacc48b4b1611434b200a8718ce0264f",
+      "meta_sha256": "65f4d7d1a3f6b2e05e0b894a9eb3bf211191d30736a294c54852f19a02be2acc",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S11_CymbalMoth_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S11_CymbalMoth_BC.png",
+      "original_sha256": "0312694a61dc5d1617f0799adea4c79047e2c8abfa0de892efe5bc433d9b5bba",
+      "prepared_sha256": "23c2001470fc9c644f85a81271f922bc43c04c6cb901a2eed9f37e1509180214",
+      "meta_sha256": "a57a550f2222faff4c1bf8d17db3f80bed1302b76226f12af88572063a494aa2",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_XylophoneStegosaur_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S14_XylophoneStegosaur_BC.png",
+      "original_sha256": "9039cb229b720dc2be47d11a9100b2adda6ae26f7573a15ce6f8b03a9c6b7b8c",
+      "prepared_sha256": "eb4680b2646b42bc9f25cf33b00b987496d6e27abdfd0fbad352c6b9f29073f5",
+      "meta_sha256": "ec627caaa86c54f8396da3f4de8ba11692a790e3d688eb0de398f4877174ea72",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_MusicBoxBallerina_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S16_MusicBoxBallerina_BC.png",
+      "original_sha256": "ec48d0a331cd6c8fe2002f9a46ee55aab30d2a6630272b93cb8f255225f00010",
+      "prepared_sha256": "ac3f01c3dd95739946c32fb95d330a968ec7651a804b1100ac44154a8d06f8b1",
+      "meta_sha256": "624d21b2a36c970b4322d903984736f79bba8b8617bfbf283c8d04331f04983b",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S19_CastanetFish_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S19_CastanetFish_BC.png",
+      "original_sha256": "d38a721250ae4485f4cf6d8ddb647c81437e602ed9730d4d8a6f70bab5babc20",
+      "prepared_sha256": "84fe592a125fa442d8e7608f26926674f531a5936a99c289ddff7f3daabddbcc",
+      "meta_sha256": "9ac075cce3989d46b6efa6097f16e05ed793b96993d548b596b179a1d556cc8b",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S21_BagpipeBoar_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S21_BagpipeBoar_BC.png",
+      "original_sha256": "eb184c224ceb51684f86964b8d9830199273844d8649a0018f3273047e5aa7d7",
+      "prepared_sha256": "b445108f21f61a1492e07be7ca99f6af6b8576523c438b65b3e67bcfe4184afc",
+      "meta_sha256": "f4b5d20a7f94ed2a73ca289601d23c81710b07ad288ec673166699346353f237",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteTurret_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_NoteTurret_BC.png",
+      "original_sha256": "54c0c28fb0584b15d9a5c4fd9d5cc24b03c948015b847a4501dd5cbf47d64637",
+      "prepared_sha256": "756a1e7d242647101c0b2421810134f3fe6706bdbd3b4acc526a37f63a8d1d5d",
+      "meta_sha256": "a7e00e5911d7b7820ec70aed7169cccaf9f43fbdeb29ae3fc4e9ac53dd1202df",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_WanderingConductor_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_WanderingConductor_BC.png",
+      "original_sha256": "66cfb647fdc29cefb025edf43d32d08770163a78e2c5a8af7d922f894a2aefa9",
+      "prepared_sha256": "d86adc7957183e93cdec6ec50673e58f0fc0c2fcb02119e217d88fd20cff4969",
+      "meta_sha256": "bb35290a48b4aeeeb095f75349ef8d52e5c8a6fba82e12dcd6d64fa542c29a73",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SM_MusicFollowSpot_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SM_MusicFollowSpot_BC.png",
+      "original_sha256": "53a2a36a2693b355a87b1e0eea3c6e0313ecf8e59791b8261d938d6fdf5c3d4e",
+      "prepared_sha256": "52ef070ee0d8844db4e5e74c9f37ac8abc28f0a8b049cd77cac7c8d5fd4aad2d",
+      "meta_sha256": "52de0fe1f35d7073ae1f40a657853429df4b64ea6bd39504e82fecb5bc7c3220",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Brass_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Brass_BaseColor.png",
+      "original_sha256": "e276d5aea7afda0760622948c246915982d1d64255fe412e68335520138bc2c2",
+      "prepared_sha256": "49ecb3b65a5cfb64a7b4b414afe2360a9ba76b67a6b7d99ce0323688c6f6eb8b",
+      "meta_sha256": "2d069b8647a635c0481108cd01f9e29e8e976b4a3cef56bc2becb673603a689f",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Ivory_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Ivory_BaseColor.png",
+      "original_sha256": "e54e37283beb6335b8d1bd085474e8bc99727410d0590dc66e72f30e767d3b09",
+      "prepared_sha256": "6821353b7a7604564af78e466e069995fe64f0ace3c5e7147128e628a5a89e57",
+      "meta_sha256": "486fb3c98fa3c8405237a2480bc6a0cbf5d9437e7256476ea6a56278b782be84",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Lamp_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Lamp_BaseColor.png",
+      "original_sha256": "3322677da246fcbdfc53ba4b70fcdb726243f46742f700fbdcda0cde3a6804f0",
+      "prepared_sha256": "5f35366a0c8e01d7f93ac5dc8de5af4d0475f8680bff507cf41dc087c35da39c",
+      "meta_sha256": "9704aef6bd9c0a4f6da815363358da8f493df9d23a206114f6d91bc345404d14",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Midnight_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Midnight_BaseColor.png",
+      "original_sha256": "2e3a3a6417b1b0dfd927b0d3d90b83702416f94a540083c43a27341ee24147ba",
+      "prepared_sha256": "5c628c4c1a8591fccbaee787c873c214b4b93a238fcec1923760890b55b160e0",
+      "meta_sha256": "5b579a8f60b7812ca6ca39ee011ee2cf7808bf9ab4a823d8b8caf19111226ab6",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Stone_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Stone_BaseColor.png",
+      "original_sha256": "fc97751d97f36481bbb434142caa92ad36325973b5d666f07decfc704910271a",
+      "prepared_sha256": "52637662ef0f317052e9362e4cadfc28210e8c163417c00bde42558f763c2a94",
+      "meta_sha256": "b6265ef45d153fe86e38c461a62b25606cc50d7be16706a2a8dc8f43acfba6d6",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Trim_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Trim_BaseColor.png",
+      "original_sha256": "32fa2776a119a982e6e9cad9d32be34313f2a56c19f806773ee92fca0384da4b",
+      "prepared_sha256": "6da437a428a96e66896f8dd93406f0c29406bcee7fa17915a551ecf86d21ecd3",
+      "meta_sha256": "0b9ca8bdc30f6268de562bff0dc4ab60ec9bad3aa870aacaa75f41e4a598d7c7",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Walnut_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Walnut_BaseColor.png",
+      "original_sha256": "22714b45df2d895914303341d9323766369cff129debe1b71e64840a827296ce",
+      "prepared_sha256": "b09e139a8e8af194d105871f5863ed57174971e41fc8fe6ba050be0589702f1c",
+      "meta_sha256": "dd0962a54adb55e368e352de61f7b54e7cc9dde579486d1b9e7dc55fc467edb0",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Wine_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Wine_BaseColor.png",
+      "original_sha256": "15c34b95548ec5ca90b3f13aec8eed6b5bc6570d58bdc4b80218cff2d5e323c2",
+      "prepared_sha256": "86bf2cd30c816753021e0d1f3abadfe06e4e6b4c6d722cf36fd33c1a00bd8d27",
+      "meta_sha256": "19df812f0a5e5640122c5e61e3c93b56de77a215e3bb1451dc25817988342e40",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_E.png",
+      "sha256": "39e8c3f3269ee48865ca1439b4851d5f9db92965b2e861752d2f4505f4384162"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_ORM.png",
+      "sha256": "7595a73fb21b6363c5e01a34886a8ade65f76d3f687cd162ab6b5f2836997617"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_E.png",
+      "sha256": "b26ce9c02424849ea5390ba556082ca038de53aa23a6e0472ff900240ded5854"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_ORM.png",
+      "sha256": "a48289c4f21d8dbc5ba37a55972ddbecd9432023cd0ec313706e2650d7f1947a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_E.png",
+      "sha256": "3732e44570b951b4dd54dd7c303449f213994f1512b98342dfdfb7b11802444b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_ORM.png",
+      "sha256": "9edb83e460830d3d0104aede473622c6305d3478ea7d6c0fe52067d170d7a854"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_E.png",
+      "sha256": "eeb1df170ce43268aa4fe2978b4c27e5fdf7aecc423186c9062e3cc95e6b8aeb"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_ORM.png",
+      "sha256": "fa5800bc40687e464a3b9f76879e064ce45b9fba5a88fd45abbffadad1884f72"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_E.png",
+      "sha256": "b1708f0611ff391eba53e75d91964c9deb01a7af8bfb35228bdb01cc2ca2e881"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_ORM.png",
+      "sha256": "7c57423de878c5bcfabc2297bbe1ea8b996d2167a817c6cf83ae4d976d55c3b8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_E.png",
+      "sha256": "b24ae244ec9219c1cf55960afe570a79b53f258042e31bc22138760656f8bf27"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_ORM.png",
+      "sha256": "e4ec648899772f8600d3ddcd80e22dc9a62f0b5e5e0335bcfaa8b0f99eb269c8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/VFX/Music/T_MusicImpact.png",
+      "sha256": "5fbc08b01aa8c94d1f6cbee6ea22d00b0317c13fffa9f9e9c72bae80f3042dc0"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/VFX/Music/T_MusicSpotBeam.png",
+      "sha256": "2a0abd185b2ca61655069f1a17bb95c7387edb98c8e62a9d9f5db0cf1a8aafd7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/VFX/Music/T_MusicWarningLane.png",
+      "sha256": "c3df9dab14c275875badba3cba2a8df297763a4ddd3feedd32fcb6d9094e5270"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/VFX/Music/T_MusicWarningRing.png",
+      "sha256": "8011aa513eb798b55ca4a9b4573e2e1423c6e07d5315be2d7a893246e3cb5dda"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Common/banner.png",
+      "sha256": "9656fd0161362a3f59239f8daa457597c89b15ead58173cb3431a4908f0a1750"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Common/divider.png",
+      "sha256": "a49b850968f672ba6f7336000adbad565d66c04a9b8428af44f61611223888a3"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Common/panel.png",
+      "sha256": "2e980def3ae74826eae4f4c0a9226945d16bef79d98b7c018a4d100bc6e0cdbc"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Common/vignette.png",
+      "sha256": "d068b2bf3d03960a2b67835228e07b73f62091976c14a83a76bd2418dcc30803"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Common/vignette_damage.png",
+      "sha256": "5155b5a102d4da37a1ffe9c956b772964dd494dedffcb0843db11fcedf4fa116"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/bar_frame.png",
+      "sha256": "2e3895ab4665a81672bf160b3eb00cf8f1df52c242c5c7dbca4e9400760b86cd"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/card_frame.png",
+      "sha256": "9c07e7e38662cc6fe9f26991297f0c23dabdbc11f84284cf17bd41a8e6638bb4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/card_inner.png",
+      "sha256": "2a50f9e87079d43cdf6a5095872eda9116c134988796b62826ee496a143b4138"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_boss_track_frame.png",
+      "sha256": "7c673465afcaafc6b7b6790d009079bb29088f39667323e017b00ef2cda13269"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_hp_track_frame.png",
+      "sha256": "296e8de583d146ae6a25337242f0972188bde7518cd17829003e320e60ee3b7c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_minimap_bezel.png",
+      "sha256": "4d2a498eef24ac81d7162c49f9f92eb593d13ebf563886d35678569ac58a96e1"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_music_banner.png",
+      "sha256": "fb9589deb291e04954029c19d60b074b81adf91d85b8011d62b2785ef6538718"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_portrait_frame.png",
+      "sha256": "3ad949aaa091d949678b487b45d7ba40573b1435cce1f8597e54850329a0940b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_quality_blue.png",
+      "sha256": "b19cf57e28144982f7d981c61988083d42674aaa19d742b0238b47b7d9a814e7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_quality_gold.png",
+      "sha256": "25b59437b4dfb66ab44beef6cc24f688eee99f6000ea172c79f0f80fa375409a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_quality_red.png",
+      "sha256": "3ec2beb450d47777c9e4509c62069e9e6b070661fdd0f3f042ab0a80db08f1c6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_timer_plate.png",
+      "sha256": "c787a5539128b82a4414aca6207ad170f4bcc463696c707328cdc9f180688f94"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_weapon_rail.png",
+      "sha256": "52ed4029c526da00ae674f3ffe38c64d9d733e401ad5bb223831cbb76b036120"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/hud_xp_track_frame.png",
+      "sha256": "96eee35f61669677ab6c46fbf3feb15455952ca40105d141bd1d94fe6682fe63"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/offer_frame_blue.png",
+      "sha256": "1816c6af3f8f17aab6bf8367ce02585f806fbdfa1b8276312af4a2b3f30a5427"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/offer_frame_gold.png",
+      "sha256": "3cd453f5ed03f3d82f3bcf79b35797c76d149b7c262cd7dfd634ea28650e305a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/offer_frame_green.png",
+      "sha256": "ca6a4143f3bc0e7c83feb169b3a71d40393e76e3b1c24c694d79a2dcbb1cd862"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/offer_frame_red.png",
+      "sha256": "2aa4984bdb0304c880501cef2c70f3dceb4cefa1b9ae29bdd491fe83333bdffb"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/score_page.png",
+      "sha256": "1ee5913e0d8339d39978ee8c54a274ce1a5dc1adad0239aa36d207db78f55d92"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/score_preview_rail.png",
+      "sha256": "d335a183542dfa5e25fd945c359be498fef9376187f3ca4ef74613c7fa4c9c75"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Frame/score_slot_empty.png",
+      "sha256": "e2aea094aac496e226f662a92cae18272ddd751d0d61888d0dd26706c7e01349"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_beam.png",
+      "sha256": "ef88e2c1f31557ce59dd282c0824c822bb420eb1c3c6e1b094d1ad08e1996cea"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_launcher.png",
+      "sha256": "44b3e9e220525f5dc1ce7d7307f3632143ec1f6ac869e3a825c268494024dce6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_rifle.png",
+      "sha256": "69f1d0ee00ea5da596643a7cdacfc883f4313725edb7ca1d810745f97ed134f8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_shotgun.png",
+      "sha256": "5284c6010f159244d101eec5f456cfaab582233aff5bc13536f64b0bb869f148"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_smg.png",
+      "sha256": "b5e0c61a05e88214632f5ef26846522c33bd63cfeaba30649ef9052ebeb91005"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_gun_sniper.png",
+      "sha256": "7c6256f5759d0c8e4fe6aed65b04a52a731b97a2622e774e5f99e1384d6bcde3"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_map_chest.png",
+      "sha256": "45e1bcd68bdcc21e53b25ac05921845c4a405e1ec90893f18f09786f35783840"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_map_enemy.png",
+      "sha256": "18a8602c89fede6ea2b7dc0151dfb3a3f3df970a5e909694d3f3235a4dd1b294"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_map_player_heading.png",
+      "sha256": "07c277ab741331f8e1f884c5924c557ae3b77520e11230da9f031dc0d5cd26b3"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_operator_portrait.png",
+      "sha256": "c60aee459128a6b46a6bd305053250577a698c6b24ed8aacd7d9e087ef1c7069"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_pause_glyph.png",
+      "sha256": "e14c0ec0c3553e12777d6497c19a87597ed1849601267551d2eb688fba29c110"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_read_cursor.png",
+      "sha256": "4a70ca4fdb0eb56266d7fe7c6fecd5083276c4bda38236a81fe14235e05d784e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_utility_placeholder.png",
+      "sha256": "e27a7c61255133a20f2ead837cde7ae24e8fe3c0a68a7485fcbff90d206b2b64"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/hud_weapon_swap.png",
+      "sha256": "75b83c74ae9d7250965eaa8d3f5fdb282799a2605b0492ab6487c2529a4f49df"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_after.png",
+      "sha256": "3e9f267a7bb46f0219745c460ca5047444f5e321991b995e8a5afcbb13715d33"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_arrow.png",
+      "sha256": "4d5f3768b6f47e043096dd5fb3e2ea03004193d1ff6ddce7a37484afeb95418e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_bullet.png",
+      "sha256": "d7140c1260ef79b98fb9db182055b4731d882dd4f27729b1c02d257b57579884"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_check.png",
+      "sha256": "352f213b77a301f180eeef3f8a59cbe669cc95925527bfff26165f165597c035"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_frame.png",
+      "sha256": "74b01c4f3d23a1428330d25eaff2afa0ebecb5df38934102164936a20b62608a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_gun.png",
+      "sha256": "4caff42d26a45c5def157577d49d2e835245579113ac406c8a9767e7ba693bcd"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_lock.png",
+      "sha256": "cafc7733d978cf09c24c1ecf148c05d0447b4d8f32fa0261b4cc9a4ec0979557"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/icon_whole.png",
+      "sha256": "d9b5259500efd37332d4532635d915644697c257b5166e5a95a2677cc043153b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_0.png",
+      "sha256": "96873348fcfff2f916079ad81b31573af5ddd446d5dfaf68f167691444ffea8b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_1.png",
+      "sha256": "ed94563e7c6f6bcf6b202bc3223a422070f32f12c6953e09aaffde05542af159"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_2.png",
+      "sha256": "0ca433803b03dab38bbe4bfa35252689c9ed1e2a6b5db98b60e7e2988039b99e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_3.png",
+      "sha256": "13b030c2c7af6931cb396e9201fe4a405b77dd6116af48808069d9a00d9c16ca"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_4.png",
+      "sha256": "6294f5f3cbd929d434557b2e742157af744f5502236dd10a6adecc679c51e6da"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_5.png",
+      "sha256": "8f63b5aa46c40e17bcfccc830765f615c0d07101d71592514866783d7467b109"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_0.png",
+      "sha256": "9b90754f0b2df5774ced905250cadb4cf12a23b5589b8f900235fc510c5581ac"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_1.png",
+      "sha256": "631e6073f62b13bb90090f8b676d4fe832698cb27ed51c8aae73239d24f86f54"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_2.png",
+      "sha256": "f40d491f1e79f752584dc4cedfcbee905ba3bf8c9a20131b549f98d968b30b66"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_3.png",
+      "sha256": "301cbd62c43c672f1755b92047257bdb14d77019b14c9181119356ec588aa203"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_4.png",
+      "sha256": "69dcc063f3df1faaea0170b264631dc20a2c76a41dd93ea0d9db9d177991eb9c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/offer_note_glow_5.png",
+      "sha256": "31e4160299d95c52da9e5cbf22989be2dee823754bdecc72c040773309a3017e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/score_bag_icon.png",
+      "sha256": "77cbf5ce4e88b39f0e7e2ebe37f8aaf296cfd56452f08bf314d077756350aaed"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/score_close.png",
+      "sha256": "669beba99c84d89d54280146076882bddbb31b0d36f3d340e44ca90dc040a03e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/score_sort.png",
+      "sha256": "ce0293b6a1524cd2c0a9cbd0e9cd1b83c91df58247c55958c0896fe04ced3439"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Tag/tag_common.png",
+      "sha256": "44cebe54df267c3b28e3f99d4799089f72250a33413f02590de47312fa1a3419"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Tag/tag_epic.png",
+      "sha256": "55d94634fe41963c9ae840ed8ab93585db92f06295708126754a79ac5d7e8a1f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Tag/tag_rare.png",
+      "sha256": "8f8a0a7ddea0cd3d197e1945514cd5f37cd17ee1893143643c70e204e314451d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Tag/tag_starter.png",
+      "sha256": "a82f49ef562fd41fd403d745810995dee1c63166e5932d58f7a0d6d0e59c2f09"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/bar_bg.png",
+      "sha256": "62e661cd031b98ac38e8fe5687b61efae68e0c16932a9385a76f94711ac58e71"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/bar_fill_boss.png",
+      "sha256": "59737391085f12a19dea08a728eb83edd7e8216cfd30b4ff67cf44470c0abc27"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/bar_fill_hp.png",
+      "sha256": "b68cffce1a99e48d6475ce891d609ec1f6b2cbc0ead4104a9f81e6d52bd8e2a0"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/bar_fill_threat.png",
+      "sha256": "0de1e9a33d3cab55be05f7d27372a1f26e861912b04f6bd557246cd27a6fae47"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/bar_fill_xp.png",
+      "sha256": "a43f65b6a4ebd0014c3c59896c2f0ebcc9feea11a889fdf1acdee1cc49d714f2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/btn_danger.png",
+      "sha256": "2de12425e2bfe88df8b15ac5cf8a7884a7d809f4d6bf52de00fed4c71dc418a4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/btn_primary.png",
+      "sha256": "2de12425e2bfe88df8b15ac5cf8a7884a7d809f4d6bf52de00fed4c71dc418a4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/btn_primary_hover.png",
+      "sha256": "eed91c8fafb41e0c7843558c33b41e390a7422935a8baa0d4aa7c45fddfd32d7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/crosshair.png",
+      "sha256": "a2c78f7cbec2fb1e589b872d4eccd23e255443c44c21273aac3fe3a839e73f2b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hit_marker.png",
+      "sha256": "f8ec747f374b906e05fc38d93411d63b72a462c9463213c6d2a2a6c0182687a5"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_ammo_arc_fill.png",
+      "sha256": "739b94fe44ed387ab2b6d3c404c9a70e8350b88c0c12fe3beb95dbab3a11b4b0"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_ammo_arc_track.png",
+      "sha256": "eaddb9c138cee9dc5e028ff072072f60f6500e81513864968e231fee4071cd73"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_attachment_read_ring.png",
+      "sha256": "25b59437b4dfb66ab44beef6cc24f688eee99f6000ea172c79f0f80fa375409a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_item_slot.png",
+      "sha256": "397b2daf6af42b6ebf7a24412763a3e58d20a81f4310cd6d17ddef5d2b0c78ef"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_map_mask.png",
+      "sha256": "c78eb14ab52d944afccab6f6fe270da16a7b55945faf51f5b7ed2fc6edba6ac1"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_badge_mask.png",
+      "sha256": "7c4caaa23f80c0d3194f203d198a9a7cc5295a0413f16ec1990f87fa9f94a4ea"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_boss_fill.png",
+      "sha256": "decd6f9c0e83c3741e6682a74188f83d48c167d0d04e6176991cb0da6f260991"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_crosshair.png",
+      "sha256": "1c36803ee7cc4fa1a56fd9a85e2812a9877bd88e334c0e581ce0b5ea1343d4e4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_hp_fill.png",
+      "sha256": "02a5e5bc79be9e0965a9e935b6280a1f6836b436f3f65b0102e9eed0729ed69f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_resume.png",
+      "sha256": "90ccd5491c46ea31dffc4f8ccd3728621c74f0319a6b85b1f258957828f92059"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_music_xp_fill.png",
+      "sha256": "05882d862914fa0cc64bf56f81e686d5883e62983550b3f64fc7856c8b26af17"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_pause_button_base.png",
+      "sha256": "0649944dcf28292aff5a4875b4196c4f7cf580abb386cb6e9771b6d343d1b68a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_reload_spinner.png",
+      "sha256": "8ecf49ab64729a61989e063577ba3704286ebffcf2a978afc9b7969f81df2005"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/hud_weapon_selected_ring.png",
+      "sha256": "2e1fc071b139729ddf2ddc00d4c578b0ed8e091e3d6e6aa5f1f79fc063390208"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/keycap.png",
+      "sha256": "df1628fb8370d17149a05398caf078b7578ca36c390df2d3e94c6afc975d793f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/offer_staff.png",
+      "sha256": "3cd609e32568a91d6cdf07f14fc8fd086c9b069139286ad83c57fd3108b62667"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/offer_staff_glow.png",
+      "sha256": "a51b2d23ad1705d60428389a4a7fc21f556fac78eeaf0b8f7c5400ce08659ee4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/slot_empty.png",
+      "sha256": "b513b8afa52fc36b49bed2800f6759842c184d7d0d69a185c502342dfd294724"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Widget/slot_filled.png",
+      "sha256": "42dbcecf0dd828a8a822c7bb82c403e41133f5ae12fb50ec10d7afc865f2a202"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_ap.png",
+      "sha256": "82bb240ebd67221af9d047a475e6a1eaed0a5fa9908a6e0a1591a146ca94706b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_bounce.png",
+      "sha256": "a666a8f722cf5d6c02513194a7edf98f6298d2810673715eca0932662eb1b386"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_bouncer.png",
+      "sha256": "231ed16c6ec0e072256887d84840e00a29354328329b37751f8694ded8187cc2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_burn.png",
+      "sha256": "b2fe090d2c8498c8ed0dcb5556415c59590a565263024ae3424f0f05c24f9227"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_chain.png",
+      "sha256": "b0b64bdddabd15a198d2068fc6e30f19649be8549a399e463d339b79c54a2a4f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_crit.png",
+      "sha256": "5d42f599611c58b92188766a8246b300bc25919857812dd798eb29b8c952c25b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_crossfire.png",
+      "sha256": "960a245059a2f022d923499dd32be20b2d8efaf622db0a2a377393af66744e1a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_dmg.png",
+      "sha256": "f989b9df3032b8e0c5c7a793481b05d7b41f7e459e58fc7e1eb123089f648978"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_expire.png",
+      "sha256": "01fa06891488eeac04af2743f752f289b31c5f59cd6b4476b48a8982e1063447"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_explode.png",
+      "sha256": "0a5435944a7098e6d52292a7c98637b6d16a58c44ca81d68fda0470ad42b9dc7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_flame.png",
+      "sha256": "7dc767a425ebba9e58960ad1e5931835079057991701ce55be1b588111ffe9c8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_forward_battery.png",
+      "sha256": "486d2119ada439f2f98eaa7b0b66a2c2bef51dc2febb5460854d344ca0a1f4dd"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_frost.png",
+      "sha256": "16cc6e92466964c4af2c971a82360aaa209edf88f1aaec929d52b8756cba2e94"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_gap_bounce.png",
+      "sha256": "9ae6519dc8a9f0cc050ce73d0a4cc335d1e703b0dbc00962d763df4dd42931be"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_gap_lens.png",
+      "sha256": "1f9210a3c253a05fcff78173d8c7258e068c0dda3aac10d52ea0cdd5976c3b5d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_giant.png",
+      "sha256": "0810cfce15db7d236df33d68c736d1e418ba187942512cc479e55d7490e59484"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_grenade.png",
+      "sha256": "536320e645fe7e407d84ceac64573019d09c1749c0afc099957029eb29bee70b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_double.png",
+      "sha256": "1ca633ddefc9fd23a23f17f216e0d20b5d87a8368c2fa8a7e6a404e0af58f1ca"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_leech.png",
+      "sha256": "47797833c328f72811fa771659431ef588a9a993bb6d52a4059418762bf333fc"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_mag.png",
+      "sha256": "ee64ba88014957542ae246c0aa8791d7affe28d71f6b8e8d8adfe5da5a22e6d2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_parallel.png",
+      "sha256": "c60db85f3889d3b73d97e9989d9281e6a3f6d8285b4ec8958bf54d7e2bd7766b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_rapid.png",
+      "sha256": "e9e16a45aa6c7733aefe6533ab6c42ff69f0ed1b964f88d040179f0e88a6dea2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_recycle.png",
+      "sha256": "ff24f54ef800ede0334c170339e1e7de36852105645724d19674cb4f601d7c6f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_reload.png",
+      "sha256": "6d48b746b3d0bad3b002a2b234d0f98e8b5fe5985b6d3028f0e8aec26cedf1ba"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_stable.png",
+      "sha256": "3fbf4f46ce9e89fcd4665c94fc8888d30de9782428eb81e2aed4e5f2a1d2f45c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_g_triple.png",
+      "sha256": "86e0fbb09ffe5eab704cb8782421ed0da62b2ad49715ad2b890e3023afcd89ed"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_heavy.png",
+      "sha256": "b053cae5e9709207204c77113dd003a8d9a36fffd5445fef28e739218cb07ca6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_hole.png",
+      "sha256": "90fb561dbae93e42a8c9416a507768e454a26b13c939107eb52521f357edc26f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_homing.png",
+      "sha256": "906ea885f162580fa98f51aa288b41ed6035c62b96d2aad00ccc3ab1c6119068"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_laser.png",
+      "sha256": "29fa482aa3c8aaf5064286391be95adcef250e75611e123d824798416651da0a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_light.png",
+      "sha256": "4aad65c71a168b205f18ad9cdbd482f7bc2d49d3b9e11f008fc9426646ce0adf"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_mine.png",
+      "sha256": "29ea98adb8b41c109b2ccd6b303c8f851061fa50542894693eb2f86f62c761ac"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_missile.png",
+      "sha256": "efb176f2cb12ee64a731163b78044137c2fb176e2c1ab0b5339aeebe55e9caac"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_pellet.png",
+      "sha256": "f2c313e50585d10515c8d3f47b01540a84edaa8754dcc50f14726b2697107110"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_pierce.png",
+      "sha256": "f345ce5c7f43139c13701823ea38e16cde1c338ffe040c127a97379d1a13ac1d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_rear_battery.png",
+      "sha256": "013379f005441af26f2408adb3974697fdf5d3cbcb649a36cbbe71f90ce0e87d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_rear_blast.png",
+      "sha256": "2e9b2bc3ef82a748ff4e2df9505ca6ba53cd7938f1a21149dc4d4fb9680d9baa"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_rear_boost.png",
+      "sha256": "4ddcefefb14b21d5781871740cc3b848675b0af2461cebabe0215b5f483a3198"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_rear_frost.png",
+      "sha256": "a0413f0188a47ee8199f9d86008a2c177d5030decd70158f40e8a39b864ed5a8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_ring_burn.png",
+      "sha256": "e20d982b84560dbe35cbf650592f141e0712cad0513845293bb481220367842a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_saw.png",
+      "sha256": "e5c689a9434ad7dd59430194a6d1a7bb5dbffd8eed167771668c58f45a9c40fb"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_scatter.png",
+      "sha256": "85e577f5302318cbdf7e0ebc7385851185e78e6e576c5ed4330f25433024dbc9"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_shock.png",
+      "sha256": "18bfb5b7e5c1aa0b97379afdc953bb650bfd2ff8e55215a9b8bd79071f7d22c4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_speed.png",
+      "sha256": "b11a53968d6a9fbe8d1e09f00013d34355b11e281ef06d65003ec452e9a3e6fa"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_std.png",
+      "sha256": "2a82a628f8cd699ed9b5e7a043a427c31256e0f722d17d8d403227a09f78a1dc"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_thrift.png",
+      "sha256": "6fe507b6a5903de13c69d675cdc09d49e887e2ca5798bcd3030c2eaf7a1a037b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_timer.png",
+      "sha256": "41d0fe031761746236c59f4b2dfa31f294d8cf99492c85a66f14af02e717ae92"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_trigger.png",
+      "sha256": "5a29620f02e277933a1fd695ec92d238dc05d40205f2073bcd847a1c3228bfcf"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_twin_boost.png",
+      "sha256": "17dd44b787f33a8c6c71a9ad1473ef89cd66e9b712844872168fecef3f3dd7fa"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_whole_boost.png",
+      "sha256": "118d95a9f412ebf47b2138b5a8f9d347523173e41fefb232395963e24597448b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/item_whole_guidance.png",
+      "sha256": "ef4a1a794297b8f08d050f3a5ffbfb6a6f73e94ec4f8118eac71c5a0be276d86"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_ap.png",
+      "sha256": "8a9ee0fa9665bbc70231e301ea525b3a5eec7563d971e928ec2967afb913a57e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_bounce.png",
+      "sha256": "5547798aff2a06047a633098aee96ee4d15d953bfbd3b3b3e49277a7806b2d52"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_bouncer.png",
+      "sha256": "3f509705805db11717974a21cdef488f6eff2329c665908cd2d786e7bd6be342"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_burn.png",
+      "sha256": "711afa44659d5bf3eed3000ac6b299d88200c1b159b4cb2c2dd98732db259816"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_chain.png",
+      "sha256": "962ecde2a3724be10db1999c3b4b36ed6bd3355afd247d837e97f02f8910e306"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_crit.png",
+      "sha256": "b6018c57b836d8c3a48efcb040b027d4fd2c44383e556ef37039b89b8ef8ae42"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_crossfire.png",
+      "sha256": "9c2b7a6ecda01b935b7ccd79b4685153517fa158d5649e6d7a55af02daadb1e6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_dmg.png",
+      "sha256": "597d31668ae0013d5f1e8686732cd62d7944e9bec3f09a1f3a2f447cf0b5f781"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_expire.png",
+      "sha256": "749c8c5b1bb4200e0dc2cb6f5341d377f231f1a62f63fe1083a24f94755c1e30"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_explode.png",
+      "sha256": "a0888e8f7e65bb7e07781e189914329f81cb068fb00ac66edac6d43eb84f0f86"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_flame.png",
+      "sha256": "cbcdcaf77d8a43419862a34325d8491753a37da6fbd501e59c9a972a11151f21"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_forward_battery.png",
+      "sha256": "9da48109c92ece87941233f9a116bbc5ce9d469e0159eedee8c6a0747b9c072b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_frost.png",
+      "sha256": "91df2339b59d05c9357c5cdbccce44ee248e39379ddd2549a64fabfb83726154"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_gap_bounce.png",
+      "sha256": "26691772fd821d34cb21585e7fa3448208e918549773f414633d51a6f588404e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_gap_lens.png",
+      "sha256": "60d81d61fdd8bbbccb92f837270a8869fd063624e9e41aa2733f6d9e7915367a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_giant.png",
+      "sha256": "6bffd79edc9b9119c7b837fd16672d4b5054a184f41bab3794de7adbcb4dd274"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_grenade.png",
+      "sha256": "d0b2a7d6676e3c991c182e63d05fe6279859b3093e8dddb21903e82f78a257c4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_double.png",
+      "sha256": "efa0e31ce29205d5309399077c760624426cb22ab5465eeabb694e9c437dde71"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_leech.png",
+      "sha256": "744c9e87364e5393b207773d9c4f0984f9e3c523383e8835845d65c527aaca59"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_mag.png",
+      "sha256": "5c63ea24287842342aa6a2943e5c3cb8895fc7a21de3f60ebecd7a4c719e289d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_parallel.png",
+      "sha256": "508ddada44f2c0944993b1f221adf4681db8428aaae2142126761749846de9da"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_rapid.png",
+      "sha256": "ff13edd9c8db9a830f26acc44834e451eedd14a5f6c27b076a8211dd14dadf03"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_recycle.png",
+      "sha256": "8ccb48b84083acd0a1648a4a48e65228d89457078b4a8b7dadfac40c6c3cb3e6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_reload.png",
+      "sha256": "937fef614e9d3481018153a356b62fd7e78f902397e53699beeef66ec19734c1"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_stable.png",
+      "sha256": "fd5282111dd6c383d490518e60dfce1ff9bbde9306acc34f2dd82af37bab09a8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_g_triple.png",
+      "sha256": "656543fab5d455174a675d78b81c7a2bf9eb84c7b5d0c9046f32e26bdccd9ba1"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_heavy.png",
+      "sha256": "7bc9d1a18919546b6a7c5bc0a95975d5c87de534dd32188eb243575b16c06b90"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_hole.png",
+      "sha256": "a9fd74207204927408109338bf10b8891663cb40ce9299e8caa20cd20bcc61d3"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_homing.png",
+      "sha256": "657287e82a0df76acb5fdd09f09e4cabb184dc3b33fb688cd964a71237c3bd09"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_laser.png",
+      "sha256": "d6ca9d4db451f8a6d69ee9b5467ccc1a8738b791f038a25ff795fc7f46bf74c6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_light.png",
+      "sha256": "65b4737cf7d34743b9d8d710a98703b09a256ff5b40ef1719cddabaf431e8e65"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_mine.png",
+      "sha256": "5df9eb324c72e2efafa926829a47870faf81293974d525f400e13bbeebf89f0c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_missile.png",
+      "sha256": "3c1ddb7d9f2bd2b02ee9f73825fac027d3bdb278fac9d1a88ebcc184c7b7b484"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_pellet.png",
+      "sha256": "64f7800a9348a9c032d3c8ec8faa2dd918476d7d0b4b8dc323a2dde31525e02d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_pierce.png",
+      "sha256": "34c72bb629d618c8faca203dd75efa56a5c7f1c4f2abf364474798e6a4c94fc6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_rear_battery.png",
+      "sha256": "79050357191c93e78d4d841662d5ca0b5679c70cba4b8c86e3ff8b19811088da"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_rear_blast.png",
+      "sha256": "318294333182a75b307045a5f53b7e9dc8649590d5acbbe88563accd00d6c421"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_rear_boost.png",
+      "sha256": "6b94e25f990bc22ba5aec71257237a7d0b3003cbae7d1d2047c5b9acf7ad7a11"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_rear_frost.png",
+      "sha256": "bb38afe763d50f36700734aaf806eb70e9b6b774fd489050c14c0d45a8963e6e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_ring_burn.png",
+      "sha256": "ccff88d3a5d532fb51aa15024030930a7f9b628f9e415e90b3abc9b49adc0fa6"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_saw.png",
+      "sha256": "2115dc09cd341c23add1907dcdd78a22f895c7287e2b5d06b3d47cb4eb2630a5"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_scatter.png",
+      "sha256": "ff622adddf05ef1887a7114b54d04e3683f06a5989e1df032134074175b6afbd"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_shock.png",
+      "sha256": "5a1297fe8851ece0e02d7d572edb4e5e94b5f516719790f7026a41b945af891a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_speed.png",
+      "sha256": "e2bf02bdc4f62eeccf9297fd6060baf6e9296dd8c369a3c8947d9f1af413d022"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_std.png",
+      "sha256": "d82d76caea17039a1cb278983191a8791b92ae878d6f127da01ef8b4e754db67"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_thrift.png",
+      "sha256": "2a170bb1d6172b9afd25e346c3b08f28b3266dbec95cfec7bd22b9a66ac38510"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_timer.png",
+      "sha256": "5563099a17393e21974b34cea4c2019ca4e2dac3cd3369cd714caf04bee7096c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_trigger.png",
+      "sha256": "c2f78b5be0ac7898fe2b1a6ec874d03ac35d184316fd67a2d9bdcf26b00a42b7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_twin_boost.png",
+      "sha256": "c8c9b5a33872ba3d8601a94d3977205809f7ecee598050df5ffa73e34b9104d9"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_whole_boost.png",
+      "sha256": "d07de5aeadc2659c564ce3bb29fc03946c4381b208282575175ed9cdef676acc"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/UI/Icon/Items/offer_item_whole_guidance.png",
+      "sha256": "5791cdfbc88fdf96bdd515f9064a332d55cf77d8627313b1450eef51cf9d9ce5"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_Mask.png",
+      "sha256": "1b28638c4a2be4ad9c25a61225dfa6b1fbe54ffdc90c2d4e7a3ff7a29c74b02c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_Normal.png",
+      "sha256": "71c954a8f652fedc27a2ba67eba5b91298a90ab627bc91aac023439ed67509ca"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_Mask.png",
+      "sha256": "1caa6ecb4f40f15974f9187439c24ec2d3f7c95b3ee9d846330c2413a2a4cfec"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_Normal.png",
+      "sha256": "7ecffa3a6e49be4cd6c20ae92c88ee88efadacf538643920fdbb95e0f0732659"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_Mask.png",
+      "sha256": "edf1b9c5387034e13553f331156c62c24c89e78c5ebce06ba0cdafeb3dc325bb"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_Normal.png",
+      "sha256": "3d873d67af1870e686e3e1b2aa7589f594d94b0c2775f71f2aaa88fe88fc4bab"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_Mask.png",
+      "sha256": "be09a47b26648c400792fcf3b7481f6a3674340b019c1978d314a942780caf92"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_Normal.png",
+      "sha256": "4bd3f2812ad2a38763f3d50071d28a9fecdaa5321cfccef2e55cb92dd6c31990"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_Mask.png",
+      "sha256": "61a07673f438ad50659bdce7f7001a25ad2c1f32335d429c481490044c54c041"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_Normal.png",
+      "sha256": "c9729cf8eca572171bfb0e174848f8aed378c267255a702a97912ec7bb4882f4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_Mask.png",
+      "sha256": "42ea4cb98f55c865cb220fa4a892ba073594c3a008ed818d1c0ebf7f7b5304ce"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_Normal.png",
+      "sha256": "84023f1c60c1a34f4cddf5cd5bc4f047be08e6e0d682e1c716b7c83cde50d0e0"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_Mask.png",
+      "sha256": "77c70071bf51108615418680ac7ef10533f6689e4a499b1857a55e327bda884b"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_Normal.png",
+      "sha256": "2fe0314281d0d6a8f80f17c3b193d2b69b2b00f0ed2c798f4f23e7c1c949531c"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_Mask.png",
+      "sha256": "051c3b9a8128b5696364d61c95f0278c33d109f4983948f1d7453bd98735577f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_Normal.png",
+      "sha256": "621ba25e17e1d0ade6756869eb24c1aa3a46866b87c67b9c56f7635a63704716"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_E.png",
+      "sha256": "cce8e83e8f15a53cb7bbc81a44c4386aa21040c6060332f1cac739029e67ebba"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_ORM.png",
+      "sha256": "a9a5feed79d19eecc54f72aacade776ec55d9d49c000d63ff463112fad3727e2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_E.png",
+      "sha256": "7abfc6c10eb42945e3d31d1682f4f3fb6b29a4a71270d6202a08e396caf21eaa"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_ORM.png",
+      "sha256": "e72cd17cda5f5e957930a81f6422912c484c7b0499bec061b76f4adfc3d6b3a7"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_E.png",
+      "sha256": "ff84550525aa04ac345c2ca03e28910ac86204f22cd3c2d12fb96ce39ec5d0c8"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_ORM.png",
+      "sha256": "a0fd2ccc8653a0fc15487a34588e5b2680de5058774bd00c21475cf931b38755"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_E.png",
+      "sha256": "7dd1a16d17540275de456fb8b8143512d0c75864d3d5d0930559b0f83e902026"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_ORM.png",
+      "sha256": "bb5fb2a7cc526e86445b473c3fd5d00dadbec32ea517aceaafe3509690ff09b4"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_E.png",
+      "sha256": "abc4f0945e189c3d9bd9144e7b38f9fa767ee648445530c3d9220dea1ff54dff"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_ORM.png",
+      "sha256": "163421657355cb5f187e9c34f69580f19f120f7a61f2a3c0148515fcc9eb4764"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_E.png",
+      "sha256": "7fa6cb07feeea4c838e9ed31d6364f438fa3c20e987db2e3522f0d54bb5a488a"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_ORM.png",
+      "sha256": "164eee0f2e210c1bf14973c734c2a4570fa75becffdc89c6d7f5d7e548b0bc9f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_E.png",
+      "sha256": "c9ef604a619c3d4cb0ff102c2ef12354f1ba2ec335ace197f8da28aea73a0a8f"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_ORM.png",
+      "sha256": "403b737a65dbf427fd6effcf573c78a16e4c9f913b15a9bf4f70061348a44ac2"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_E.png",
+      "sha256": "abc4f0945e189c3d9bd9144e7b38f9fa767ee648445530c3d9220dea1ff54dff"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_ORM.png",
+      "sha256": "a9853dddaf3914bddba9d11d8107d737431010045bd8c4d267e4e6744d6cc87d"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_E.png",
+      "sha256": "6a7e2f3fd014dabe7b00ad6c17773f3211494f1a67d3738da8bc93ee19d72f75"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_ORM.png",
+      "sha256": "b5285dca5eee55dedb63bc1e6be49e0ddc15ae07feec230e81e3b0968ba3c751"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_E.png",
+      "sha256": "5143ff166f485cc328c99c02a1eff7d44c81be77a5d80adbdafaaeed6c37f359"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_ORM.png",
+      "sha256": "828bc71878424e83e3d5a8b2a873613eef2639753ec5720f8d09ec84f1f5f7cf"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_E.png",
+      "sha256": "65b6490fe66c350b80a1e5558ad42d0ec0aeba7e1c742ea44843651296b8b8f3"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_ORM.png",
+      "sha256": "550fa2ba67ff756ea1fa58434e9c33f241bdd0f7c0fd607e0223a7c68e71ef77"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_E.png",
+      "sha256": "abc4f0945e189c3d9bd9144e7b38f9fa767ee648445530c3d9220dea1ff54dff"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_ORM.png",
+      "sha256": "975c8017445a907c70d8b3296b6b14c3aa0ff79e82bd0854a321d3aab3bcd6af"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_E.png",
+      "sha256": "8c235a6a986e29878ebf59ea04764cfc43f8e8cabff9d093de58216da20f457e"
+    },
+    {
+      "path": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_ORM.png",
+      "sha256": "1b00c3243372a673def24b1fc5c90a5206c3d12dbb45bf3484dbe73951757951"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S08_BassWave/MAT_FXM_S08_BassWave.mat",
+      "sha256": "885f13f6be049948c28a340681a66c4a8626b9d9da0d73ef4644b504be2ae47a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_FallingNote/MAT_FXM_S14_FallingNote.mat",
+      "sha256": "3c8c9a1fcbe0638ac22193c585922d41245168ccdb27d770e027bfa4f9e8dfe9"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_MarchingNote/MAT_FXM_S14_MarchingNote.mat",
+      "sha256": "3c8c9a1fcbe0638ac22193c585922d41245168ccdb27d770e027bfa4f9e8dfe9"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_NoteGate/MAT_FXM_S14_NoteGate.mat",
+      "sha256": "4a67dda4008749fd9df3fe0e5adb684dbbe444cbae7da9fa2bfbd273d90edaa8"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S14_NoteGate/MAT_FXM_S14_NoteGate_Accent.mat",
+      "sha256": "f74f7c65fe90ec863e2d2b59ea9fa1c4acdc06f09074c1ed3a98922ab87d9f6f"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S16_PluckedNote/MAT_FXM_S16_PluckedNote.mat",
+      "sha256": "b8aa776a0b15f7644813db2d083558b3c32a9cd7becc4744654f6f237849fbcc"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S21_VentGust/MAT_FXM_S21_VentGust.mat",
+      "sha256": "b3c9847a40b120f01f447029fd118b9e69f24cd7ed0be589878171ece810c08a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_ClampShard/MAT_FXM_S29_ClampShard.mat",
+      "sha256": "cf6b7134e068087f5d40446d22a26b0d1c983a2ca404761d366bcd0d0d6f9c9a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_CoreShard/MAT_FXM_S29_CoreShard.mat",
+      "sha256": "cf6b7134e068087f5d40446d22a26b0d1c983a2ca404761d366bcd0d0d6f9c9a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_HornShard/MAT_FXM_S29_HornShard.mat",
+      "sha256": "cf6b7134e068087f5d40446d22a26b0d1c983a2ca404761d366bcd0d0d6f9c9a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_HousingShard/MAT_FXM_S29_HousingShard.mat",
+      "sha256": "cf6b7134e068087f5d40446d22a26b0d1c983a2ca404761d366bcd0d0d6f9c9a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/FXM_S29_NoteShot/MAT_FXM_S29_NoteShot.mat",
+      "sha256": "cf6b7134e068087f5d40446d22a26b0d1c983a2ca404761d366bcd0d0d6f9c9a"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S02_DrumBeetle/MAT_S02_DrumBeetle.mat",
+      "sha256": "d058c0003881f1b144a56029d2bb56c560cc0eb77fe0540f83d0f1a9a15a26d6"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S03_HornHound/MAT_S03_HornHound.mat",
+      "sha256": "1d5e3c907eecc807efe562725e704725b3bf8d880f909e4e7529a345283a0f13"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S07_LostScoreGhost/MAT_S07_LostScoreGhost.mat",
+      "sha256": "e34a85ba1334a06fb1e54590f66bcf5f033e217bb6f65154cc45127fd086c5b0"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S08_MetronomeGuard/MAT_S08_MetronomeGuard.mat",
+      "sha256": "bbff90591bc46a4fc45d310e390fddb6dcc0d4971a06a13f01c795edff129166"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S11_CymbalMoth/MAT_S11_CymbalMoth.mat",
+      "sha256": "02dfef32ddbdf459af5398d67bc1bc845e28bd7405882c149023c2249ad04e89"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S14_XylophoneStegosaur/MAT_S14_XylophoneStegosaur.mat",
+      "sha256": "8b211998ece25305474332335935f24a924e0288223c1bdc73e31c8e1e13ae9e"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S16_MusicBoxBallerina/MAT_S16_MusicBoxBallerina.mat",
+      "sha256": "02ce8cd837ed13d40a328ed8876abe822d796199358017b910cabbfac5380ada"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S19_CastanetFish/MAT_S19_CastanetFish.mat",
+      "sha256": "846895a389e1542dfcdbc24dfc68820351bfd4a55da7fe14392a4e934abd8b2d"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S21_BagpipeBoar/MAT_S21_BagpipeBoar.mat",
+      "sha256": "f7c02ac9328eeb9ce6a77c3d905fb75c93dd7912a58ae55742981a1c4cdfdcc6"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S29_NoteTurret/MAT_S29_NoteTurret.mat",
+      "sha256": "8124c7c205346f7ab8686a9f0abe9796a5e8c4a8be1ed24a2ca16d085da7448f"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/S29_WanderingConductor/MAT_S29_WanderingConductor.mat",
+      "sha256": "40bdcc79db4fb7cfd27223f6aeeca29bf272eccc9aa68672b0388748ee8d5bc2"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Enemies/Music/SM_MusicFollowSpot/MAT_SM_MusicFollowSpot.mat",
+      "sha256": "68f802d21174eff536c26602368f70f2cb83e30636e150968fe3b0d25356457e"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Brass.mat",
+      "sha256": "f20ca10e5f6db5625316cb0f835f627e118b1279d6618753bf814f875b9cc0e6"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Ivory.mat",
+      "sha256": "8ba0cbfba67b2d74db62d178238031e028b56bef3bbed6289df00bd7d2262b13"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Lamp.mat",
+      "sha256": "ec9a3e96c5515d28c5723272a70b66af42f37238777e0e503295339423c02dce"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Midnight.mat",
+      "sha256": "2f3858286fdc90a1b03b0296e9d75c76cf139fdbb28e1dd0d8d638ca9b66ac40"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Stone.mat",
+      "sha256": "f6d098890805e471a918f6ac084a382028299d33c24ccaf17f8b4a6c41f4ad9c"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Trim.mat",
+      "sha256": "3c58ee8b529adebce5789226f18cd8d957bcd77cf4503ab386e2fe33239b3c05"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Walnut.mat",
+      "sha256": "bccbf6263d63e57a1b0cbb33c8a86d5179c3c1f9231100ab6efc2281a17c277f"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Environment/GrandTheater/MAT_Theater_Wine.mat",
+      "sha256": "e2367d1fa5708efdf432d309906354af9836270ccd56c9d0e3d3c1202895d471"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW01_Violin/MAT_SW01_Violin.mat",
+      "sha256": "d5250eb6f5360537b0714492cb9b073ef17df40db71383b1c3bfe2a04b10b640"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW02_Kalimba/MAT_SW02_Kalimba.mat",
+      "sha256": "6f82d38148ac00dee9da8cc1ff6a216c7a45a4d768af750286dae55e361381bb"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW03_FrameDrum/MAT_SW03_FrameDrum.mat",
+      "sha256": "438323e600409f1f860b03cf1f53073871af316cef61ac22259c0939d7a592cf"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW04_Cello/MAT_SW04_Cello.mat",
+      "sha256": "04a6c195ae4e37c3c176287caa0a72b07bc2babebf7467b432cc69b57902c728"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW05_Harp/MAT_SW05_Harp.mat",
+      "sha256": "074376701677ae4cfa70190f96ee4f309b21d0c338ed0ae6415b9ef8806d91cc"
+    },
+    {
+      "path": "Assets/_Game/Res/Material/Weapons/Music/SW06_Accordion/MAT_SW06_Accordion.mat",
+      "sha256": "bac7df19134252eaf5ef38947ee9ff33c968882a914929ba9354218c4f0f85e3"
+    }
+  ]
+}

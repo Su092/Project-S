@@ -108,7 +108,7 @@ namespace S.EditorTools
                 gun.Slots.Cells[2]=small;root.Run.Bag.Add(large);inv.OpenBag();Drop(inv,small,large);
                 Check("等级不一致保持原位置、不卸下来源",gun.Slots.Cells[2]==small && root.Run.Bag.Single()==large);
                 Reset(root,inv);
-                var maxA=Level(data,"dmg",5);var maxB=Level(data,"dmg",5);
+                var maxA=Level(data,"dmg",3);var maxB=Level(data,"dmg",3);
                 root.Run.Bag.Add(maxA);root.Run.Bag.Add(maxB);inv.OpenBag();Drop(inv,maxA,maxB);
                 Check("满级拖放不消耗配件",root.Run.Bag.Count==2 && root.Run.Bag.Contains(maxA) && root.Run.Bag.Contains(maxB));
                 Reset(root,inv);

@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-t_s16_noteatlas-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:36:53+0800",
+  "task_id": "task_01M7W1M00PSD66WW8S498Q2MQW",
+  "result_url": "https://getapib.org/image/9998204836157062-2717cacb-eddc-4d7b-a22a-f99fef484036-image_task_01M7W1MSSXPM1MY8R34YJG7RBW_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/T_S16_NoteAtlas.png",
+  "bytes": 1338463,
+  "sha256": "dbfea56b7f5b5629146c58d5f4701f8d6095c4ac7a480aee5e6696164d87abeb"
+}

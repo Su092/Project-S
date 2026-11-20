@@ -1,0 +1,43 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "colorAssumption": "白绿蓝紫金，红色衍生；品质规则尚未实施",
+  "jobs": [
+    {
+      "name": "01-frames-all-colors",
+      "id": "s-upgrade-apimart-v1-frames",
+      "size": "3:2",
+      "prompt": "Refined retro anime cel-shaded musical fantasy game UI, restrained ornament, clean flat front-facing 2D art, consistent sharp outlines, no perspective, no letters, no labels, no watermark. Production raw source art, not an in-game screenshot. Create a sprite sheet with exactly SIX full tall portrait information-card frames arranged as a precise 3-column by 2-row grid, ample blank separation. Each card aspect ratio width:height 0.60. All six cards have EXACTLY identical geometry, dimensions and ornament shapes. Top row left to right: pearl WHITE/SILVER border, emerald GREEN border, sapphire BLUE border. Bottom row left to right: amethyst PURPLE border, warm GOLD border, ruby RED border. Change border and decorative header/footer strip colors ONLY. Each card has the same opaque pale ivory totally EMPTY interior for future item icon and text. Thin double-line borders, gently clipped corners, small elegant musical curl corners, symmetrical header and footer ornament strips. Avoid ornate bulky designs. NO text, no item icon, no quality symbols, no notes inside the blank panel. No shadows, no glow, no texture outside cards, no checkerboard, no objects between cards. Pure flat black #000000 exterior background so the raw unprocessed source can be cut out later. Keep every frame complete and fully inside the canvas, same size and aligned. This sheet contains all six future quality/type color variants; no extra panels.",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v1/01-frames-all-colors.png",
+      "no_global_style": true
+    },
+    {
+      "name": "02-gold-notes",
+      "id": "s-upgrade-apimart-v1-notes",
+      "size": "3:2",
+      "prompt": "Refined retro anime cel-shaded musical fantasy game UI, restrained ornament, clean flat front-facing 2D art, consistent sharp outlines, no perspective, no letters, no labels, no watermark. Production raw source art, not an in-game screenshot. Six independent SMALL GOLD MUSICAL NOTE decorations arranged in a spacious 3-column by 2-row raw sprite sheet. Top row: quarter note, single eighth note, paired eighth notes. Bottom row: single sixteenth note, paired sixteenth notes, treble clef. Uniform champagne-gold face with amber-gold outlines and minimal pale-gold highlights, clear clean recognizable silhouettes. Each symbol centered in its own invisible cell with wide empty margin and no overlap. NO glow halo, NO fog, NO shadows, NO pedestal, NO badge or background plate, NO staff lines, NO motion trails. Pure flat black #000000 background for later cutout, no gradients or grain. Elements will be cut out and animated independently later; this is an unprocessed static original.",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v1/02-gold-notes.png",
+      "no_global_style": true
+    },
+    {
+      "name": "03-gold-staff",
+      "id": "s-upgrade-apimart-v1-staff",
+      "size": "3:1",
+      "prompt": "Refined retro anime cel-shaded musical fantasy game UI, restrained ornament, clean flat front-facing 2D art, consistent sharp outlines, no perspective, no letters, no labels, no watermark. Production raw source art, not an in-game screenshot. Extremely simple musical staff source texture: EXACTLY FIVE perfectly STRAIGHT horizontal parallel thin golden lines. Equal width, identical thickness, equal spacing, perfectly aligned left and right ends. Lines cover 90 percent of canvas width, five-line group centered vertically and occupying 25 percent canvas height. Uniform champagne gold fill with subtle amber edges, crisp clean smooth continuous lines, constant appearance across horizontal axis. Pure flat black #000000 background and gaps. NO notes, no clefs, no extra lines, no gold noise, no glitter, no sparkles, no curves, no glow, no shadow, no ribbon backing. The lines will be deformed into lively curved staff paths by runtime mesh later; this is the straight raw source texture only.",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v1/03-gold-staff.png",
+      "no_global_style": true
+    },
+    {
+      "name": "03b-gold-staff-five-lines",
+      "id": "s-upgrade-apimart-v1-staff-corrected",
+      "size": "3:1",
+      "resolution": "2k",
+      "out": "_Inbox/upgrade-ui-apimart-v1/03b-gold-staff-five-lines.png",
+      "no_global_style": true,
+      "prompt": "A precise minimal flat 2D diagram texture on pure BLACK background: FIVE GOLD HORIZONTAL BARS, no more and no fewer. Bar 1 centered at 30 percent of image height. Bar 2 centered at 40 percent of image height. Bar 3 centered at 50 percent of image height. Bar 4 centered at 60 percent of image height. Bar 5 centered at 70 percent of image height. All FIVE bars extend from x=5 percent to x=95 percent image width, perfectly straight, parallel, identical thin thickness of 0.8 percent canvas height. There must be FOUR black gaps between the FIVE gold lines. Flat warm gold #D7B64C. Crisp smooth edges. The complete five-line music staff fully visible centered in image. No symbols, NO text or numerals, NO music notes, NO decorations, NO gradient, NO glow, NO shadows, NO additional border, NO white edges. Only FIVE thin horizontal golden lines on black. Count carefully: one, two, three, four, five."
+    }
+  ]
+}

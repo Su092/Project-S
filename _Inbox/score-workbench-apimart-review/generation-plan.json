@@ -1,0 +1,35 @@
+{
+  "provider": "APIMart",
+  "model": "gpt-image-2",
+  "review_only": true,
+  "import_authorized": false,
+  "jobs": [
+    {
+      "name": "score-bag-icon",
+      "id": "s-score-bag-icon-review-20261120",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/score-workbench-apimart-review/score-bag-icon.png",
+      "no_global_style": true,
+      "prompt": "Polished hand-painted 2D game UI asset for an elegant musical theater fantasy game. Antique ivory paper, restrained warm brass-gold, deep midnight navy ink, clean readable silhouettes, subtle music engraving, consistent with an ornate blue and gold concert theater HUD. No science fiction, no neon, no holograms, no text, no letters, no watermark. A SINGLE standalone HUD inventory icon: a small open sheet music folio, two lightly curved cream pages with visible short dark musical staves and a few elegant notes, a tiny dark-blue binding. Front-facing with minimal depth, readable at 80 pixels. The PAPER SILHOUETTE ITSELF is the icon. Absolutely NO enclosing circle, NO border, NO badge, NO ring, NO frame, NO pedestal, NO backing plate. Centered, entire folio fits with 14 percent empty padding. Pure solid BLACK surrounding background for later extraction, no cast shadow outside the paper, no glow."
+    },
+    {
+      "name": "score-page",
+      "id": "s-score-page-review-20261120",
+      "size": "3:2",
+      "resolution": "2k",
+      "out": "_Inbox/score-workbench-apimart-review/score-page.png",
+      "no_global_style": true,
+      "prompt": "Polished hand-painted 2D game UI asset for an elegant musical theater fantasy game. Antique ivory paper, restrained warm brass-gold, deep midnight navy ink, clean readable silhouettes, subtle music engraving, consistent with an ornate blue and gold concert theater HUD. No science fiction, no neon, no holograms, no text, no letters, no watermark. A SINGLE landscape rectangular sheet-music inventory panel background, straight-on flat view. One broad ivory manuscript sheet, almost rectangular with barely curled paper corners and a very thin antique-gold perimeter line, understated corner musical flourish. LARGE CLEAR CONTENT AREA. Within the paper, five evenly distributed groups of five very faint thin horizontal staff lines, no printed notes in the content area, no cells, no slots, no icons, no card illustrations, no labels, no title, no buttons, no divider into left-right halves. Keep top header and bottom footer quiet and open. All decoration confined to the outermost 3 percent. Entire panel fully visible, centered with 4 percent pure BLACK padding outside the paper. Premium refined light parchment, readable as sheet music, not an ornate picture frame."
+    },
+    {
+      "name": "score-sort-icon",
+      "id": "s-score-sort-icon-review-20261120",
+      "size": "1:1",
+      "resolution": "2k",
+      "out": "_Inbox/score-workbench-apimart-review/score-sort-icon.png",
+      "no_global_style": true,
+      "prompt": "Polished hand-painted 2D game UI asset for an elegant musical theater fantasy game. Antique ivory paper, restrained warm brass-gold, deep midnight navy ink, clean readable silhouettes, subtle music engraving, consistent with an ornate blue and gold concert theater HUD. No science fiction, no neon, no holograms, no text, no letters, no watermark. A SINGLE standalone compact UI action icon for ORGANIZE / SORT sheet-music inventory: three clearly aligned horizontal musical staff fragments of progressively increasing length, three small ivory notes aligned neatly, and one simple warm gold downward arrow to their right. Strong simple graphic silhouette and crisp light strokes readable at 36 pixels. NO button base, NO enclosing circle, NO frame, NO border, NO R letter or other typography. Centered with 18 percent padding. Pure solid BLACK background, no glow, no ground shadow."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "asset": "SlagHound_Elite_MoldBreaker",
+  "target_dimensions": [
+    1.35,
+    1.95,
+    1
+  ],
+  "triangles": [
+    1692,
+    1596,
+    404
+  ],
+  "bone_count": 18,
+  "materials": 1,
+  "texture_resolution": 1024,
+  "clips": [
+    "Idle",
+    "Run",
+    "Attack_Clamp",
+    "Hit",
+    "Death"
+  ],
+  "axis_blender": "Z up, -Y forward",
+  "root": [
+    0,
+    0,
+    0
+  ],
+  "flight_pivot": false,
+  "status": "TECHNICAL_PASS_PENDING_VISUAL_AND_UNITY_QA",
+  "unverified": [
+    "Unity URP import/axes/normal map/Animator",
+    "joint intersections over every frame",
+    "foot contact under gameplay movement",
+    "LOD popping in engine",
+    "unique texel density: shared construction trim UVs",
+    "platform occupancy in actual skill states"
+  ],
+  "proxy_count": 31,
+  "actual_dimensions": [
+    1.35,
+    1.95,
+    1.0
+  ]
+}

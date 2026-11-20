@@ -79,7 +79,7 @@ namespace S.View
             bool replace = _guns.Count >= Capacity;
             var old = replace ? Active : null;
             if (old != null && run.Bag.Count + old.Slots.FilledCount > run.BagCapacity)
-            { reason = $"需要腾出 {old.Slots.FilledCount} 格背包，才能收回旧枪配件（按 Tab 整理）"; return false; }
+            { reason = $"需要腾出 {old.Slots.FilledCount} 格背包，才能收回旧枪配件（前往调律谱架整理）"; return false; }
             var gun = new GunRuntime(def, _data.BuildStarterSlots(id));
             CancelAll();
             if (replace)
@@ -108,6 +108,7 @@ namespace S.View
 
         public Transform GunModelRoot;
         WeaponMotion _motion;
+        public MusicWeaponVisual MusicVisual { get; private set; }
 
         float NextRng()
         {
@@ -144,12 +145,12 @@ namespace S.View
             g = Active; // 切枪输入后，换弹与开火使用新枪
             if (kb.rKey.wasPressedThisFrame) { g.StartReload(); CancelAll(); }
 
-            if (mouse.leftButton.isPressed && !IsSwitching)
+            if (mouse.leftButton.isPressed && !IsSwitching && !(GameRoot.Instance != null && GameRoot.Instance.HudPointerHeld))
             {
                 var cast = g.TryFire(out string reason, NextRng);
                 if (cast != null) BeginCast(cast);
                 else if (reason == "no-bullet" && Time.frameCount % 30 == 0)
-                    GameRoot.Instance?.HudToast("枪里没有子弹配件 · Tab 打开改装台装一颗");
+                    GameRoot.Instance?.HudToast("乐器没有子弹配件 · 前往调律谱架装配");
             }
         }
 
@@ -166,6 +167,7 @@ namespace S.View
 
             var g = Active;
             Vector3 origin = MuzzlePoint != null ? MuzzlePoint.position : transform.position;
+            MusicVisual?.Shot(g != null ? g.Stats.ShotInterval(cast.DelayAdd) : .2f);
             Quaternion aim = Camera.main != null ? Camera.main.transform.rotation : transform.rotation;
 
             for (int i = 0; i < cast.Projectiles.Count; i++)
@@ -272,8 +274,22 @@ namespace S.View
             var modelName = ActiveGunModel;
             if (modelName == null) return;
 
-            var vis = SAssets.SpawnFit(modelName, GunModelRoot, Vector3.zero,
-                0.62f, Color.white, 0.55f, null, true, groundAlign: false);
+            var prefab = SAssets.Model(modelName);
+            GameObject vis;
+            if (prefab != null && prefab.GetComponent<MusicWeaponVisual>() != null)
+            {
+                vis = Instantiate(prefab, GunModelRoot, false);
+                MusicVisual = vis.GetComponent<MusicWeaponVisual>();
+                MusicVisual.Bind(this);
+                vis.GetComponent<LODGroup>()?.ForceLOD(0);
+                SAssets.RemoveColliders(vis);
+            }
+            else
+            {
+                MusicVisual = null;
+                vis = SAssets.SpawnFit(modelName, GunModelRoot, Vector3.zero,
+                    0.62f, Color.white, 0.55f, null, true, groundAlign: false);
+            }
             vis.name = "GunVisual";
             _motion = GunModelRoot.GetComponent<WeaponMotion>();
             if (_motion == null) _motion = GunModelRoot.gameObject.AddComponent<WeaponMotion>();

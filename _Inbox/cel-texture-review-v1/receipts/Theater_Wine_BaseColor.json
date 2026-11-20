@@ -1,0 +1,14 @@
+{
+  "id": "s-cel-theater_wine_basecolor-20261120-v1",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-20T16:43:26+0800",
+  "task_id": "task_01M7W200A6TDMYDJFF9XRNTCM6",
+  "result_url": "https://getapib.org/image/9998204835761704-024ceca4-9cbd-468b-b604-44dfaeaae263-image_task_01M7W20VZN06A7KRVJCT3G4ME4_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/cel-texture-review-v1/generated/Theater_Wine_BaseColor.png",
+  "bytes": 1640475,
+  "sha256": "9383d837e5beb22d3835c28ba1c8b8e8427ecf6fba3e9eed650fbcab37b20e62"
+}

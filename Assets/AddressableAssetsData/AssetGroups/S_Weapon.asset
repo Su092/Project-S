@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: S_Weapon
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: S_Weapon
+  m_GUID: a3829ec83d3d4da4a9d10c27e7348b76
+  m_SerializeEntries:
+  - m_GUID: 11d10d8340dc1134da1fea49cd768adb
+    m_Address: model/SW01_Violin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46a76810685c00e4cbaadf063704b64a
+    m_Address: model/SW03_FrameDrum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89b8d08fcfdfad545bfeee19242b2a4a
+    m_Address: model/SW02_Kalimba
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e4754126d9b98645b7350968885fb22
+    m_Address: model/SW06_Accordion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0ef9ed7bbe5eda4ab633651dbf1a9be
+    m_Address: model/SW05_Harp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d422c764bf6466744aeccb80075edbe0
+    m_Address: model/SW04_Cello
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - s_model
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 822063efaaa2f1249bc7501b8910d190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 877f39dd043bc5b4993bee24117e1d71, type: 2}
+    - {fileID: 11400000, guid: 44a461edbdc53f54286ad64523268fd2, type: 2}

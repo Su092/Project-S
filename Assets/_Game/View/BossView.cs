@@ -32,61 +32,40 @@ namespace S.View
         /// <summary>Boss 累计触发的地刺预警次数。</summary>
         public int BossSpikeCount { get; private set; }
 
-        public Vector3 AimPoint => transform.position + Vector3.up * 1.6f;
+        public EnemyVisual Visual { get; private set; }
+        public MusicBossBrain Music {get;private set;}
+        public string DisplayName => Visual && Visual.AssetId==MusicEnemyAssets.Conductor?"游吟指挥家":Visual && Visual.AssetId==MusicEnemyAssets.Ballerina?"八音盒舞姬":"铸造核心";
+        public Vector3 AimPoint => Visual ? Visual.AimPoint : transform.position + Vector3.up * 1.6f;
+        Vector3 FirePoint => Visual && Visual.Muzzle ? Visual.Muzzle.position : AimPoint;
 
-        public void Init(float hp, BossDef def = null)
+        public void Init(float hp, BossDef def = null, string musicAsset = null)
         {
             if (def != null) _def = def;
-            State = new BossState(hp, _def);
+            State = new BossState(hp, _def, GameRoot.Instance?.Zones?.Map?.EnergyPillars?.Length);
 
-            // 真实模型（缺件时回退到球体占位）
-            var visual = SAssets.SpawnFit("Modle_Boss_ForgeCore", transform, Vector3.zero,
-                3.23f, new Color(0.70f, 0.36f, 0.88f), 0.45f);
-            visual.name = "Body";
-
-            // 兜底：模型缺失时用球体，并保留 _body 引用以便破防变色
-            _body = visual.GetComponentInChildren<Renderer>();
-            if (_body == null)
-            {
-                var body = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                body.name = "BodyFallback";
-                body.transform.SetParent(transform, false);
-                body.transform.localPosition = new Vector3(0f, 2.2f, 0f);
-                body.transform.localScale = new Vector3(3.6f, 2.6f, 3.6f);
-                SAssets.RemoveColliders(body);
-                _body = body.GetComponent<Renderer>();
-                SMat.Apply(_body, SMat.Lit(new Color(0.70f, 0.36f, 0.88f), 0.45f));
-            }
-
-            // 护盾球（P2 起显示）
-            _shieldGo = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            _shieldGo.name = "Shield";
-            _shieldGo.transform.SetParent(transform, false);
-            _shieldGo.transform.localPosition = new Vector3(0f, 2.2f, 0f);
-            _shieldGo.transform.localScale = Vector3.one * 6.6f;
-            SAssets.RemoveColliders(_shieldGo);
-            _shieldR = _shieldGo.GetComponent<Renderer>();
-            SMat.Apply(_shieldR, SMat.Unlit(new Color(0.35f, 0.70f, 1f, 0.16f)));
-            _shieldGo.SetActive(false);
-
-            // 受击判定：用 Trigger 球，不挡玩家移动
-            var col = gameObject.AddComponent<SphereCollider>();
-            col.radius = 2.6f;
-            col.center = new Vector3(0f, 2.2f, 0f);
-            col.isTrigger = true;
-
+            Visual = EnemyAssets.Spawn(musicAsset??MusicEnemyAssets.SelectBoss(), transform);
+            if (MusicCombatWorld.Ground(transform.position, out var ground, 2f))
+                Visual.transform.localPosition = Vector3.up * (ground.y - transform.position.y);
+            _body = Visual.GetComponentInChildren<Renderer>();
             var hitbox = gameObject.AddComponent<BossHitbox>();
             hitbox.Owner = this;
 
+            if(Visual.AssetId==MusicEnemyAssets.Ballerina||Visual.AssetId==MusicEnemyAssets.Conductor)
+            {
+                transform.position+=Visual.transform.localPosition;Visual.transform.localPosition=Vector3.zero;
+                Music=gameObject.AddComponent<MusicBossBrain>();Music.Init(this);return;
+            }
             _target = transform.position;
             PickNewTarget();
         }
 
         void Update()
         {
-            if (State == null) return;
+            if (State == null || !State.Alive) return;
             float dt = Time.deltaTime;
             if (dt <= 0f) return;
+
+            if(Music){State.TickMusic(dt);Music.Tick(dt);return;}
 
             // 规则推进
             var events = State.Tick(dt);
@@ -102,17 +81,20 @@ namespace S.View
                 : State.Phase == BossPhase.P3
                     ? new Color(1f, 0.55f, 0.62f)
                     : Color.white;
-            ApplyTint(tint);
+            if (Visual) Visual.BossState(State.ShieldUp, State.IsBreached, (int)State.Phase);
+            else ApplyTint(tint);
 
             // 缓慢移动（P3 加速）。基础速度来自 Boss.tsv 的 moveSpeed。
             float speed = _def.MoveSpeed * (State.Phase == BossPhase.P3 ? 1.6f : 1f);
             _moveTimer -= dt;
             if (_moveTimer <= 0f) PickNewTarget();
+            var movementStart=transform.position;
             transform.position = Vector3.MoveTowards(transform.position, _target, speed * dt);
+            bool moved=ActorFacing.AlongMovement(transform,transform.position-movementStart);
 
-            // 面向玩家
+            // 静止时面向玩家，移动时保持实际行进方向。
             var root = GameRoot.Instance;
-            if (root != null && root.PlayerTransform != null)
+            if (!moved && root != null && root.PlayerTransform != null)
             {
                 var flat = root.PlayerTransform.position - transform.position;
                 flat.y = 0f;
@@ -158,7 +140,7 @@ namespace S.View
                 else
                 {
                     _volleyCd = _def.VolleyInterval;
-                    BossFanVolley(transform.position + Vector3.up * 2.0f,
+                    BossFanVolley(FirePoint,
                         root.PlayerAimPoint, _def.VolleyCount);
                 }
             }
@@ -182,9 +164,9 @@ namespace S.View
         public void BossFanVolley(Vector3 origin, Vector3 aimPoint, int count)
         {
             BossFanVolleyCount += count;
+            if (Visual) Visual.Action("Volley", .65f, 2);
 
             Vector3 baseDir = aimPoint - origin;
-            baseDir.y = 0f;
             if (baseDir.sqrMagnitude < 0.01f) baseDir = transform.forward;
             baseDir.Normalize();
 
@@ -212,13 +194,13 @@ namespace S.View
         void FireTrackVolley(GameRoot root)
         {
             BossFanVolleyCount += 3;
+            if (Visual) Visual.Action("TrackingFire", .65f, 2);
             const float spread = 12f;
 
             for (int i = 0; i < 3; i++)
             {
-                Vector3 origin = transform.position + Vector3.up * 2.0f;
+                Vector3 origin = FirePoint;
                 Vector3 dir = root.PlayerAimPoint - origin;
-                dir.y = 0f;
                 if (dir.sqrMagnitude < 0.01f) dir = transform.forward;
                 dir = Quaternion.Euler(0f, (i - 1) * spread, 0f) * dir.normalized;
 
@@ -236,9 +218,11 @@ namespace S.View
         void SpawnSpikeTelegraph(GameRoot root)
         {
             BossSpikeCount++;
+            if (Visual) Visual.Action("SpikeCast", _def.SpikeTelegraphTime, 2);
 
             Vector3 at = root.PlayerTransform.position;
-            at.y = 0.02f;
+            if (Physics.Raycast(at + Vector3.up * .2f, Vector3.down, out var floor, 4f, WorldPhysics.GroundMask, QueryTriggerInteraction.Ignore))
+                at.y = floor.point.y + .02f;
 
             var go = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             go.name = "SpikeTelegraph";
@@ -253,8 +237,17 @@ namespace S.View
 
         void PickNewTarget()
         {
+            var map = GameRoot.Instance?.Zones?.Map;
+            if (map && map.IsTheater)
+            {
+                _target = map.BossSpawn.position + new Vector3(Random.Range(-3f,3f),0,Random.Range(-1f,1f));
+                _moveTimer = Random.Range(2.5f,4.5f);
+                return;
+            }
             float ang = Random.Range(0f, Mathf.PI * 2f);
-            float rad = Random.Range(3f, 8f);
+            // Keep all six feet on the authored 9 m radius central platform.
+            float maxRadius = Visual ? Mathf.Max(3f, 9f - Mathf.Max(Visual.Dimensions.x, Visual.Dimensions.z) * .5f - .25f) : 8f;
+            float rad = Random.Range(3f, maxRadius);
             _target = new Vector3(Mathf.Cos(ang) * rad, transform.position.y, Mathf.Sin(ang) * rad);
             _moveTimer = Random.Range(2.5f, 4.5f);
         }
@@ -302,22 +295,27 @@ namespace S.View
             switch (e.Kind)
             {
                 case BossEventKind.PhaseChange:
+                    if (Visual) Visual.Action("PhaseTransition", .8f, 4);
                     SfxBank.Instance?.PlayBossPhase();
                     root?.BossToast($"铸造核心 · 阶段 {(int)e.Value}");
                     break;
                 case BossEventKind.ShieldOn:
+                    if (Visual) Visual.Action("Shield_Close", .45f, 4);
                     SfxBank.Instance?.PlayShield();
                     root?.BossToast("护盾开启 · 绕后或打碎能量柱");
                     break;
                 case BossEventKind.ShieldOff:
+                    if (Visual) Visual.Action("Shield_Open", .45f, 4);
                     break;
                 case BossEventKind.SummonAdds:
+                    if (Visual) Visual.Action("Summon", .8f, 2);
                     root?.BossSummonAdds(e.Value);
                     break;
                 case BossEventKind.Shockwave:
                     if (_shockCd <= 0f)
                     {
                         _shockCd = 1.5f;
+                        if (Visual) Visual.Action("Shockwave", .65f, 3);
                         root?.BossShockwave(transform.position);
                     }
                     break;
@@ -325,14 +323,14 @@ namespace S.View
         }
 
         /// <summary>被子弹命中。返回实际伤害（0 表示被护盾挡下）。</summary>
-        public float OnHit(ProjectileDesc desc, Vector3 point, float amount)
+        public float OnHit(ProjectileDesc desc, Vector3 point, float amount, Collider hitCollider = null)
         {
             if (State == null || !State.Alive) return 0f;
 
             bool ignoreArmor = desc != null && desc.Source != null && desc.Source.Pierce > 0;
 
             // 护盾：正面挡下（破防期无效）
-            if (State.ShieldUp && !State.IsBreached)
+            if (!Music && State.ShieldUp && !State.IsBreached)
             {
                 var toSrc = point - transform.position;
                 toSrc.y = 0f;
@@ -344,11 +342,15 @@ namespace S.View
                 }
             }
 
-            float dealt = State.TakeDamage(amount, false);
+            float dealt = State.TakeDamage(amount*(Music?Music.HitMultiplier(hitCollider):1), false);
             GameRoot.Instance?.SpawnDamageNumber(point, dealt);
 
             if (!State.Alive)
+            {
+                Music?.Cancel();
+                if (Visual) Visual.Die();
                 GameRoot.Instance?.OnBossKilled();
+            }
             return dealt;
         }
     }

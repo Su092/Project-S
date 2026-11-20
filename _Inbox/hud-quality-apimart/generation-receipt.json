@@ -1,0 +1,44 @@
+[
+  {
+    "id": "s-hud-attachment-frames-corrected-20261120",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T10:29:10+0800",
+    "task_id": "task_01M7VCJNKKGPVP2NBBVYX0CCZM",
+    "result_url": "https://getapib.org/image/9998204858211906-7bea181b-5115-4b27-b9f7-0c2edb948456-image_img_6799f6d8afb34401aa4cabb38f379f9b_0.png",
+    "width": 2560,
+    "height": 864,
+    "mode": "RGB",
+    "out": "_Inbox/hud-quality-apimart/attachment-frames-corrected.png",
+    "bytes": 1749466,
+    "sha256": "9079c5ea3822620ea3c5b24a70d149bb95361fccc0a5ee3717d6eb828e5e496b"
+  },
+  {
+    "id": "s-hud-attachment-frames-thin-20261120",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T10:33:18+0800",
+    "task_id": "task_01M7VCT9DQT5TRQSS9H57S824B",
+    "result_url": "https://getapib.org/image/9998204857965832-36025a20-ff94-451e-946c-4f11f423c93b-image_img_8db15b768bd643b485247c1e8982010d_0.png",
+    "width": 2560,
+    "height": 864,
+    "mode": "RGB",
+    "out": "_Inbox/hud-quality-apimart/attachment-frames-thin.png",
+    "bytes": 721532,
+    "sha256": "05e33bbc44d1648ba7e02ec1ff22c49ea26b61e6497dbcfb66444c5ecba89e2b"
+  },
+  {
+    "id": "s-hud-quality-frames-20261120",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-20T10:12:34+0800",
+    "task_id": "task_01M7VBM97PV2P30NMPME7QEGBF",
+    "result_url": "https://getapib.org/image/9998204859199573-d9245823-6562-4f78-a94b-917138285477-image_img_1a06db9d0224418d9397b49ba52c6bfd_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGB",
+    "out": "_Inbox/hud-quality-apimart/quality-frames.png",
+    "bytes": 2388831,
+    "sha256": "9fce23ac4cfb292435b7d8e104d69c850be615158397df7b4b214f15946d744c"
+  }
+]

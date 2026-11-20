@@ -1,0 +1,468 @@
+{
+  "count": 33,
+  "backup": "_Inbox/cel-texture-review-v1/backup-original",
+  "records": [
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW01_Violin/T_SW01_Violin_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW01_Violin_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW01_Violin_BC.png",
+      "original_sha256": "26a3a3afbe22bc0a10926030c1523f2a2569fa9e3d1b912e8b4d34d2f590a943",
+      "prepared_sha256": "891df6ec126615eab1a9a248884f94e2266d2926533dd5fd23302fc80e5b031b",
+      "meta_sha256": "1c1f7472bc7308a5f8a4a508c3101269426fa4453f38afee0234df6ee0ec70db",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW02_Kalimba/T_SW02_Kalimba_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW02_Kalimba_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW02_Kalimba_BC.png",
+      "original_sha256": "6b4375bee5738b30352d7ffee02de40799892584c3a71436d90c5f83c80ee2b7",
+      "prepared_sha256": "99d5e7e745bebd7d0a2e8f66d91975166cca2a0a0b2d84345d94611a73bcdafb",
+      "meta_sha256": "6a4a3772a091c4869b44c1bc0bf3daf036921082bf15b6f74801c860590bd4fb",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW03_FrameDrum/T_SW03_FrameDrum_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW03_FrameDrum_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW03_FrameDrum_BC.png",
+      "original_sha256": "fab6d4742ff3ac0f7b3a3c4839a616924eeb4ebcb88ff7beb45dcf054311ba36",
+      "prepared_sha256": "4b5c9ef1b98a47853524b182f94fed6de0f0fa1fc3b76106c5989950ef1334a8",
+      "meta_sha256": "f9544caa1c18edcca491d341bf2f4542c546a2ec491785985f1c4ebf4360b51e",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW04_Cello/T_SW04_Cello_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW04_Cello_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW04_Cello_BC.png",
+      "original_sha256": "d2f38ea4d339780ab811eaa6527c6888c4436740313450157e6e3d792cb21fa9",
+      "prepared_sha256": "58db8c81e62d6a904a63758a7c4ac4246bb806b6de2012ef1aa68a7868741c04",
+      "meta_sha256": "15e6b6c3fab98e1e33e141d40e0f7fd2b2660df7627576f67b8434774cf4cc8f",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW05_Harp/T_SW05_Harp_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW05_Harp_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW05_Harp_BC.png",
+      "original_sha256": "c99f2cfa398979f79eebb4de4397f9f244aa019a933b70c8a135f0c5c2f5623f",
+      "prepared_sha256": "cf5e41572209cc5648a1e225bd97942ce9652cbc43627a6a331b99ff860700d9",
+      "meta_sha256": "db077e10db77adaff884f90a86690c157c23e314f9cbdc4ea51310af79c5030c",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Weapons/Music/SW06_Accordion/T_SW06_Accordion_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SW06_Accordion_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SW06_Accordion_BC.png",
+      "original_sha256": "16ba9c39f844285f14546aebe3c9edf21a4ad2ab5fcf4086dad34e43530d3dea",
+      "prepared_sha256": "3ee1a72b4fdc62cfeae47ac7d176d39b81af0f65b31157a7e7e213dc0af6b87a",
+      "meta_sha256": "de2e4950ab63aaef88e56a9896c2b27e1eec6a84b4c22cbd2bee11c08e44bfa1",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S08_BassWave.png",
+      "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S08_BassWave.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S08_BassWave.png",
+      "original_sha256": "2297898054c46876b8e0118547826a89e66777f6f6b1c964000eb12acd3c334e",
+      "prepared_sha256": "ff098bfa4da458a667a749095cce0aa286d5ed521fc2efe7fb3920b1af138f0d",
+      "meta_sha256": "1aa479cf7c5a211b6628c4dbc96f84a509bdd67b89092a7270598f2762f1d73d",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S14_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S14_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "124ddbf95500d53efea391b15608fd377b48ed799e1aa1a6b2ad697fd45795a5",
+      "meta_sha256": "af61cab7659f3037cf536d64160631c0b3bd21d84df618190f2896ac9af3aa7b",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_FXM_S14_NoteGate_BC.png",
+      "original_sha256": "06da2786a6a0ca1d2a2e26650dc6a7a51cbe5e6c6c108151fcea97f1d93d15f5",
+      "prepared_sha256": "4086e1c03ea9aab72807cfddbf2a81f7fe649b2ead826c1eab4aa487241ae71e",
+      "meta_sha256": "2e98f43f8e235175fa388a18f61fa2716b647fbfb4d34fc01dc5b0ec8638294a",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/FXM_S14_NoteGate/T_FXM_S14_NoteGate_Curtain.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_FXM_S14_NoteGate_Curtain.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_FXM_S14_NoteGate_Curtain.png",
+      "original_sha256": "2e82479624334a70b31afa77d3270bd796ecdeba48dbb7743841b3a73c3f217d",
+      "prepared_sha256": "a1b637d216be1ff2d83b8495ae55ca9eb7eade173f046c64fcd0bf616a6165c5",
+      "meta_sha256": "1c90d0e17d0620bb5aa3d36e04e385a70ab324e8fbcb532fb2a0386259a62d23",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S16_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S16_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "ec5d7382bf24bd9bb4afd40e910f23b40cfdcdef23cc9999f216f4cccad69851",
+      "meta_sha256": "da9be8ad77d2177e4bc36e4fe3e63c028924fa5c15e7508dbf1c6ab2bcc5074c",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S21_VentGust.png",
+      "generated": "_Inbox/cel-texture-review-v1/fx-color-revision/generated/T_S21_VentGust.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S21_VentGust.png",
+      "original_sha256": "7d3d2a5209f8099118e4db7e290749525379756bd014305b6b7da031de51abd9",
+      "prepared_sha256": "eab008fdeb027967adcc1e45627c813aefe0c790172a5c2e1ddbb155e06d7253",
+      "meta_sha256": "e294a4dd4dc1fb46c992849cfb5ad7b8f659075995e0c29766bab4c2bc2450ae",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/Shared/T_S29_NoteAtlas.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteAtlas.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_NoteAtlas.png",
+      "original_sha256": "1f4f68caacf8c3e799a93e4b8d566df6c30a9a9b1ad46015bce548825d1d5c84",
+      "prepared_sha256": "b942babeb8ca27f86c0d321c1fabe0b9d4ccf093a8566d8f38e30d82c2ebe44b",
+      "meta_sha256": "91613f689e492d7a191cd7a11b4c58544cabc59c665808f125ef56bdf6dd08e1",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S02_DrumBeetle/T_S02_DrumBeetle_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S02_DrumBeetle_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S02_DrumBeetle_BC.png",
+      "original_sha256": "20cccd5271f19bd53fd41168ce9c3d48bad70afc885f683059a7da88f8eaaef2",
+      "prepared_sha256": "a32f987ef742ac4dfc0b5fd1e95432753a0f78acbce81b2ce793e79ce603fe2d",
+      "meta_sha256": "7fc5d5e5e77cd33827e3ee3da007eb27118661d5f3c837d39a401fe95f2b44a4",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S03_HornHound/T_S03_HornHound_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S03_HornHound_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S03_HornHound_BC.png",
+      "original_sha256": "89f9a4d9b679559b4b8c37917c71b1b1f019ae960f374491327f23238bf8e8c8",
+      "prepared_sha256": "c7a1f30a60a734e2b2c5493ecae10c5e544bb67f9c404968d65a0706c21d71f5",
+      "meta_sha256": "3df3b3e23ba4d8304b8bae71936b9cacfed17c20ea302523627344b5e386a792",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S07_LostScoreGhost/T_S07_LostScoreGhost_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S07_LostScoreGhost_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S07_LostScoreGhost_BC.png",
+      "original_sha256": "0f9fcf3a98478798d9ace8bede68643d147f1b5f4b6f08e9fc83043ac9388bc0",
+      "prepared_sha256": "02785f5599a17e445506fe2f84e7ab5fe6f43c57d69e053cd89c3c6229285b11",
+      "meta_sha256": "460718cc7d9ebbe6fd38c5cb52fc5e72a92897a605492d2baab719dc86093e18",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S08_MetronomeGuard/T_S08_MetronomeGuard_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S08_MetronomeGuard_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S08_MetronomeGuard_BC.png",
+      "original_sha256": "d23e401beab9f325d32cbb5091aadda645567f43572257d4ea9869d059e6d2e1",
+      "prepared_sha256": "948d6d1ed558e881026894bb5aed1363aacc48b4b1611434b200a8718ce0264f",
+      "meta_sha256": "65f4d7d1a3f6b2e05e0b894a9eb3bf211191d30736a294c54852f19a02be2acc",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S11_CymbalMoth/T_S11_CymbalMoth_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S11_CymbalMoth_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S11_CymbalMoth_BC.png",
+      "original_sha256": "0312694a61dc5d1617f0799adea4c79047e2c8abfa0de892efe5bc433d9b5bba",
+      "prepared_sha256": "23c2001470fc9c644f85a81271f922bc43c04c6cb901a2eed9f37e1509180214",
+      "meta_sha256": "a57a550f2222faff4c1bf8d17db3f80bed1302b76226f12af88572063a494aa2",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S14_XylophoneStegosaur/T_S14_XylophoneStegosaur_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S14_XylophoneStegosaur_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S14_XylophoneStegosaur_BC.png",
+      "original_sha256": "9039cb229b720dc2be47d11a9100b2adda6ae26f7573a15ce6f8b03a9c6b7b8c",
+      "prepared_sha256": "eb4680b2646b42bc9f25cf33b00b987496d6e27abdfd0fbad352c6b9f29073f5",
+      "meta_sha256": "ec627caaa86c54f8396da3f4de8ba11692a790e3d688eb0de398f4877174ea72",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S16_MusicBoxBallerina/T_S16_MusicBoxBallerina_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S16_MusicBoxBallerina_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S16_MusicBoxBallerina_BC.png",
+      "original_sha256": "ec48d0a331cd6c8fe2002f9a46ee55aab30d2a6630272b93cb8f255225f00010",
+      "prepared_sha256": "ac3f01c3dd95739946c32fb95d330a968ec7651a804b1100ac44154a8d06f8b1",
+      "meta_sha256": "624d21b2a36c970b4322d903984736f79bba8b8617bfbf283c8d04331f04983b",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S19_CastanetFish/T_S19_CastanetFish_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S19_CastanetFish_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S19_CastanetFish_BC.png",
+      "original_sha256": "d38a721250ae4485f4cf6d8ddb647c81437e602ed9730d4d8a6f70bab5babc20",
+      "prepared_sha256": "84fe592a125fa442d8e7608f26926674f531a5936a99c289ddff7f3daabddbcc",
+      "meta_sha256": "9ac075cce3989d46b6efa6097f16e05ed793b96993d548b596b179a1d556cc8b",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S21_BagpipeBoar/T_S21_BagpipeBoar_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S21_BagpipeBoar_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S21_BagpipeBoar_BC.png",
+      "original_sha256": "eb184c224ceb51684f86964b8d9830199273844d8649a0018f3273047e5aa7d7",
+      "prepared_sha256": "b445108f21f61a1492e07be7ca99f6af6b8576523c438b65b3e67bcfe4184afc",
+      "meta_sha256": "f4b5d20a7f94ed2a73ca289601d23c81710b07ad288ec673166699346353f237",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_NoteTurret/T_S29_NoteTurret_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_NoteTurret_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_NoteTurret_BC.png",
+      "original_sha256": "54c0c28fb0584b15d9a5c4fd9d5cc24b03c948015b847a4501dd5cbf47d64637",
+      "prepared_sha256": "756a1e7d242647101c0b2421810134f3fe6706bdbd3b4acc526a37f63a8d1d5d",
+      "meta_sha256": "a7e00e5911d7b7820ec70aed7169cccaf9f43fbdeb29ae3fc4e9ac53dd1202df",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/S29_WanderingConductor/T_S29_WanderingConductor_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_S29_WanderingConductor_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_S29_WanderingConductor_BC.png",
+      "original_sha256": "66cfb647fdc29cefb025edf43d32d08770163a78e2c5a8af7d922f894a2aefa9",
+      "prepared_sha256": "d86adc7957183e93cdec6ec50673e58f0fc0c2fcb02119e217d88fd20cff4969",
+      "meta_sha256": "bb35290a48b4aeeeb095f75349ef8d52e5c8a6fba82e12dcd6d64fa542c29a73",
+      "size": [
+        2048,
+        2048
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Enemies/Music/SM_MusicFollowSpot/T_SM_MusicFollowSpot_BC.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/T_SM_MusicFollowSpot_BC.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/T_SM_MusicFollowSpot_BC.png",
+      "original_sha256": "53a2a36a2693b355a87b1e0eea3c6e0313ecf8e59791b8261d938d6fdf5c3d4e",
+      "prepared_sha256": "52ef070ee0d8844db4e5e74c9f37ac8abc28f0a8b049cd77cac7c8d5fd4aad2d",
+      "meta_sha256": "52de0fe1f35d7073ae1f40a657853429df4b64ea6bd39504e82fecb5bc7c3220",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Brass_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Brass_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Brass_BaseColor.png",
+      "original_sha256": "e276d5aea7afda0760622948c246915982d1d64255fe412e68335520138bc2c2",
+      "prepared_sha256": "49ecb3b65a5cfb64a7b4b414afe2360a9ba76b67a6b7d99ce0323688c6f6eb8b",
+      "meta_sha256": "2d069b8647a635c0481108cd01f9e29e8e976b4a3cef56bc2becb673603a689f",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Ivory_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Ivory_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Ivory_BaseColor.png",
+      "original_sha256": "e54e37283beb6335b8d1bd085474e8bc99727410d0590dc66e72f30e767d3b09",
+      "prepared_sha256": "6821353b7a7604564af78e466e069995fe64f0ace3c5e7147128e628a5a89e57",
+      "meta_sha256": "486fb3c98fa3c8405237a2480bc6a0cbf5d9437e7256476ea6a56278b782be84",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Lamp_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Lamp_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Lamp_BaseColor.png",
+      "original_sha256": "3322677da246fcbdfc53ba4b70fcdb726243f46742f700fbdcda0cde3a6804f0",
+      "prepared_sha256": "5f35366a0c8e01d7f93ac5dc8de5af4d0475f8680bff507cf41dc087c35da39c",
+      "meta_sha256": "9704aef6bd9c0a4f6da815363358da8f493df9d23a206114f6d91bc345404d14",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Midnight_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Midnight_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Midnight_BaseColor.png",
+      "original_sha256": "2e3a3a6417b1b0dfd927b0d3d90b83702416f94a540083c43a27341ee24147ba",
+      "prepared_sha256": "5c628c4c1a8591fccbaee787c873c214b4b93a238fcec1923760890b55b160e0",
+      "meta_sha256": "5b579a8f60b7812ca6ca39ee011ee2cf7808bf9ab4a823d8b8caf19111226ab6",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Stone_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Stone_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Stone_BaseColor.png",
+      "original_sha256": "fc97751d97f36481bbb434142caa92ad36325973b5d666f07decfc704910271a",
+      "prepared_sha256": "52637662ef0f317052e9362e4cadfc28210e8c163417c00bde42558f763c2a94",
+      "meta_sha256": "b6265ef45d153fe86e38c461a62b25606cc50d7be16706a2a8dc8f43acfba6d6",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Trim/Theater_Trim_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Trim_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Trim_BaseColor.png",
+      "original_sha256": "32fa2776a119a982e6e9cad9d32be34313f2a56c19f806773ee92fca0384da4b",
+      "prepared_sha256": "6da437a428a96e66896f8dd93406f0c29406bcee7fa17915a551ecf86d21ecd3",
+      "meta_sha256": "0b9ca8bdc30f6268de562bff0dc4ab60ec9bad3aa870aacaa75f41e4a598d7c7",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Walnut_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Walnut_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Walnut_BaseColor.png",
+      "original_sha256": "22714b45df2d895914303341d9323766369cff129debe1b71e64840a827296ce",
+      "prepared_sha256": "b09e139a8e8af194d105871f5863ed57174971e41fc8fe6ba050be0589702f1c",
+      "meta_sha256": "dd0962a54adb55e368e352de61f7b54e7cc9dde579486d1b9e7dc55fc467edb0",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    },
+    {
+      "source": "Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+      "backup": "_Inbox/cel-texture-review-v1/backup-original/Assets/_Game/Res/Texture/Environment/GrandTheater/Tile/Theater_Wine_BaseColor.png",
+      "generated": "_Inbox/cel-texture-review-v1/generated/Theater_Wine_BaseColor.png",
+      "prepared": "_Inbox/cel-texture-review-v1/prepared/Theater_Wine_BaseColor.png",
+      "original_sha256": "15c34b95548ec5ca90b3f13aec8eed6b5bc6570d58bdc4b80218cff2d5e323c2",
+      "prepared_sha256": "86bf2cd30c816753021e0d1f3abadfe06e4e6b4c6d722cf36fd33c1a00bd8d27",
+      "meta_sha256": "19df812f0a5e5640122c5e61e3c93b56de77a215e3bb1451dc25817988342e40",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_preserved": true
+    }
+  ]
+}

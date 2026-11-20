@@ -1,0 +1,13 @@
+{
+  "id": "s-weapon-modelref-20261119-SW01_Violin-structure",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-19T15:24:51+0800",
+  "task_id": "task_01M7SB3B7WRE73CPBHTSAQDZB0",
+  "result_url": "https://getapib.org/f/image/1164882596044000-0de07486-5cce-4b57-97d7-d8559c855e64-image_041SEFX834BER960CKCYQPER61_0.png",
+  "width": 1536,
+  "height": 1024,
+  "out": "_Inbox/music-weapon-modeling-20261119/SW01_Violin/reference_02_structure.png",
+  "bytes": 1517362,
+  "sha256": "567c010de8b8dc5968fcc81ec677aa1b42f264ce47d54a1b1365c1fe223b45b4"
+}
