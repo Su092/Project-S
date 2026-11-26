@@ -179,6 +179,10 @@ namespace S.View
             }
         }
 
+        int _xpRank;
+        int _xpRemainder;
+        float _pickupRange = ExperiencePickup.PickupRadius;
+        public int LastReward { get; private set; }
         bool _runStarted;
         bool _runEnded;
         bool _hudPointerWasHeld;
@@ -191,6 +195,12 @@ namespace S.View
             if (_runStarted) return;
             string id = _menu != null ? _menu.SelectedGunId : null;
             if (!Weapons.StartWith(string.IsNullOrEmpty(id) ? Data.GunOrder[0].Id : id)) return;
+            var progress = MetaSave.Load();
+            MaxHp = Data.PlayerHp + 10 * progress.Training[0];
+            Hp = MaxHp;
+            _xpRank = progress.Training[1];
+            _pickupRange = ExperiencePickup.PickupRadius + .3f * progress.Training[2];
+            if (Player) BackstageWorld.DressPlayer(Player, progress.Performer);
             _runStarted = true;
             SetPaused(false);
             _hud?.Toast(Zones.Map.IsTheater ? "进入鸣奏大剧院" : "进入竞技场 · 撑住并摧毁铸造核心");
@@ -546,6 +556,7 @@ namespace S.View
             _enemies.Remove(e);
             AliveEnemies = Mathf.Max(0, AliveEnemies - 1);
             if(e && e.CombatAuxiliary)return;
+            if (e && e.IsElite) Run.OnEliteDefeated();
             Run.Kills++;
 
             // 精英回血：单图无限刷怪下没有「清区补给」，这是中期唯一的续航来源。
@@ -609,7 +620,7 @@ namespace S.View
                 Time.timeScale <= 0f || pickup == null || pickup.Owner != this ||
                 !pickup.gameObject.activeInHierarchy) return false;
             if ((PlayerTransform.position - pickup.transform.position).sqrMagnitude >
-                ExperiencePickup.PickupRadius * ExperiencePickup.PickupRadius) return false;
+                _pickupRange * _pickupRange) return false;
             if (!_experiencePickups.Remove(pickup)) return false;
 
             int amount = pickup.Amount;
@@ -629,13 +640,15 @@ namespace S.View
             }
             if (!Weapons.AcquireGun(offer.Id, Run, out string reason))
             { HudToast(reason); return false; }
-            HudToast("获得枪械：" + Weapons.Active.Base.Name);
+            HudToast("获得乐器 · " + HudV2View.InstrumentName(offer.Id, Weapons.Active.Base.Name));
             return true;
         }
 
         void GrantExperience(int amount)
         {
-            int ups = Run.AddXp(amount);
+            int tenths = amount * _xpRank + _xpRemainder;
+            _xpRemainder = tenths % 10;
+            int ups = Run.AddXp(amount + tenths / 10);
             for (int i = 0; i < ups; i++)
             {
                 var offers = Run.Roll(3, Weapons.OwnedGunIds);
@@ -681,9 +694,8 @@ namespace S.View
             SetPaused(true);
             _music?.UpdateMix(Run.Threat, true, false, 0.2f);
 
-            // 局外成长的唯一来源（gameplay-spec §8）：只有通关给 shard。
             var meta = MetaSave.Load();
-            meta.FinishRun(true, 0f);
+            LastReward = meta.FinishRun(true, 0f, RunElapsed, Run.Level);
             MetaSave.Save(meta);
 
             _telemetry?.Finish(RunElapsed, true);
@@ -697,7 +709,7 @@ namespace S.View
             MusicCombatWorld.EndEncounter();
             SetPaused(true);
             var meta = MetaSave.Load();
-            meta.FinishRun(false, 0f);
+            LastReward = meta.FinishRun(false, 0f, RunElapsed, Run.Level);
             MetaSave.Save(meta);
 
             _telemetry?.Finish(RunElapsed, false);
@@ -890,7 +902,7 @@ namespace S.View
                 || (_menu != null && _menu.IsOpen)
                 || (_inv != null && _inv.IsOfferVisible);
 
-            PlayerController.LockCursor(!uiNeedsMouse);
+            PlayerController.LockCursor((_menu != null && _menu.WalkingBackstage) || !uiNeedsMouse);
         }
 
         /// <summary>背包关闭后，若还有排队的三选一则继续弹。</summary>

@@ -22,7 +22,7 @@ namespace S.View
         public void Init(ProjectileDesc desc)
         {
             _desc = desc;
-            StyleId = desc.Source != null ? desc.Source.Id : desc.ModuleId ?? "std";
+            StyleId = desc.ModuleId ?? desc.Source?.Id ?? "std";
             _color = PlayerWeapons.ParseColor(desc.Source != null ? desc.Source.Color : "#ffd25a");
             _model = new GameObject("BulletModel_" + StyleId).transform;
             _model.SetParent(transform, false);
@@ -30,7 +30,14 @@ namespace S.View
             _model.localScale = Vector3.one * size;
             if (desc.Kind == BulletKind.Beam || desc.Kind == BulletKind.Chain) return;
             var metal = new Color(0.12f, 0.16f, 0.21f);
-            switch (StyleId)
+            var artwork = OrchestraProps.InstantiateModel(StyleId, _model);
+            if (artwork)
+            {
+                _model.localScale = Vector3.one * Mathf.Max(.16f, size * 1.8f);
+                if (StyleId == "mine" || StyleId == "shock" || StyleId == "bouncer")
+                    _rings.Add(CombatFx.Ring(_model, _color * 1.6f, .58f, .04f).transform);
+            }
+            else switch (StyleId)
             {
                 case "pellet":
                     Part(PrimitiveType.Sphere, "Shot", Vector3.zero, Vector3.one * 0.85f, _color, false);

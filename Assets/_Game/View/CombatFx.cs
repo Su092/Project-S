@@ -142,7 +142,7 @@ namespace S.View
         {
             var fx = Create(lightning ? "LightningFx" : "LaserFx", from, lightning ? 0.22f : 0.15f);
             if (fx == null) return;
-            int count = lightning ? 13 : 2;
+            int count = lightning ? 13 : 17;
             var points = new Vector3[count];
             var direction = (to - from).normalized;
             var right = Vector3.Cross(direction, Vector3.up).normalized;
@@ -154,8 +154,20 @@ namespace S.View
             {
                 float t = i / (float)(count - 1);
                 points[i] = Vector3.Lerp(from, to, t);
-                if (i > 0 && i < count - 1)
+                if (!lightning) points[i] += up * (Mathf.Sin(t * Mathf.PI * 4) * Mathf.Sin(t * Mathf.PI) * jitter * .26f);
+                else if (i > 0 && i < count - 1)
                     points[i] += (right * ((float)random.NextDouble() - 0.5f) + up * ((float)random.NextDouble() - 0.5f)) * jitter;
+            }
+            if (!lightning)
+            {
+                var stringLine = Line(fx.transform, "HarpString", Color.Lerp(color, Color.white, .25f), .018f, true);
+                stringLine.positionCount = count;
+                for (int i = 0; i < count; i++)
+                {
+                    float t = i / (float)(count - 1);
+                    stringLine.SetPosition(i, points[i] + right * (.16f * Mathf.Sin(Mathf.PI*t)));
+                }
+                fx._lines.Add(stringLine); fx._widths.Add(.018f);
             }
             for (int layer = 0; layer < 2; layer++)
             {

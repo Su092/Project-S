@@ -19,7 +19,7 @@ namespace S.View
         public EnemyAi Ai = EnemyAi.Chaser;
 
         /// <summary>数据定义。HUD/遥测取名字与 id 都从这里读。</summary>
-        public EnemyDef Def;
+        [System.NonSerialized] public EnemyDef Def;
 
         public float MaxHp = 60f;
         public float Hp = 60f;
@@ -275,10 +275,12 @@ namespace S.View
         }
 
         /// <summary>命中判定入口。desc 携带所有配件结算结果。</summary>
-        public void TakeDamage(ProjectileDesc desc, Vector3 point, float amount, bool splash)
+        public void TakeDamage(ProjectileDesc desc, Vector3 point, float amount, bool splash, bool direct = true)
         {
             if (!Alive) return;
 
+            if (direct && !splash && desc != null)
+                amount += OrchestraMark.DirectBonus(this, point, desc, GameRoot.Instance ? GameRoot.Instance.Weapons : null);
             float final = amount;
 
             // 盾面减伤（穿甲弹减轻减免）。阈值与两种系数都来自 Enemy.tsv，

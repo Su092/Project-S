@@ -47,7 +47,7 @@ namespace S.EditorTools
                 foreach (var def in data.BulletOrder)
                 {
                     int column = index % 6, row = index / 6;
-                    var pos = new Vector3((column - 2.5f) * 2.8f, 4.5f - row * 2.3f, 0f);
+                    var pos = new Vector3((column - 2.5f) * 2.8f, 5.3f - row * 2.2f, 0f);
                     var go = new GameObject(def.Id);
                     go.transform.SetParent(host.transform, false);
                     go.transform.localPosition = pos;
@@ -59,6 +59,9 @@ namespace S.EditorTools
                     if (def.Kind == BulletKind.Beam || def.Kind == BulletKind.Chain)
                         CombatFx.Beam(go.transform.position - Vector3.right * 0.8f, go.transform.position + Vector3.right * 0.8f,
                             PlayerWeapons.ParseColor(def.Color), def.Kind == BulletKind.Chain);
+                    if (def.Kind != BulletKind.Beam && def.Kind != BulletKind.Chain && def.Id != "flame" && def.Id != "hole")
+                        Check(def.Id + " uses imported orchestra mesh", Array.Exists(go.GetComponentsInChildren<MeshFilter>(),
+                            mesh => mesh.sharedMesh && AssetDatabase.GetAssetPath(mesh.sharedMesh).StartsWith("Assets/_Game/Resources/Orchestra/")));
                     Check(def.Id + " correct style", visual.StyleId == def.Id);
                     Check(def.Id + " no solid collider", Array.TrueForAll(go.GetComponentsInChildren<Collider>(), c => !c.enabled));
                     Check(def.Id + " visible geometry", def.Kind == BulletKind.Beam || def.Kind == BulletKind.Chain ||
@@ -75,13 +78,13 @@ namespace S.EditorTools
                     }
                     index++;
                 }
-                Check("all 17 bullets covered", index == 17);
+                Check("all 21 bullets covered", index == 21);
                 // 三个爆炸时刻，使用同一组粒子种子，便于判断膨胀和消散。
                 for (int i = 0; i < 3; i++)
                 {
-                    Vector3 pos = host.transform.position + new Vector3((i - 1) * 5f, -3.4f, 0f);
+                    Vector3 pos = host.transform.position + new Vector3((i - 1) * 5f, -3.9f, 0f);
                     CombatFx.Explosion(pos, 0.85f, new Color(1f, 0.65f, 0.1f));
-                    Label(host.transform, new Vector3((i - 1) * 5f, -5.2f, 0f), new[] { "BLAST / 0.08s", "BLAST / 0.25s", "BLAST / 0.65s" }[i]);
+                    Label(host.transform, new Vector3((i - 1) * 5f, -5.7f, 0f), new[] { "BLAST / 0.08s", "BLAST / 0.25s", "BLAST / 0.65s" }[i]);
                 }
                 foreach (var fx in UnityEngine.Object.FindObjectsByType<CombatFx>())
                 {

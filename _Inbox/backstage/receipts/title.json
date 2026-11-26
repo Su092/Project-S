@@ -1,0 +1,14 @@
+{
+  "id": "s-backstage-title",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-26T10:00:17+0800",
+  "task_id": "task_01M8ASA2Q3GNBXEG5YG2156QGJ",
+  "result_url": "https://getapib.org/image/9998204341537342-ac24b33f-8ec7-41a2-8561-eeb71a330a2f-image_img_853a4c7b0ec945d1952b9a7d102484a0_0.png",
+  "width": 2048,
+  "height": 1152,
+  "mode": "RGB",
+  "out": "Assets/_Game/Resources/Backstage/Overture.png",
+  "bytes": 2851534,
+  "sha256": "2c4f96152c1d5d50743b5da8248b1125d842986e5f5ce998c8a856b37a430675"
+}

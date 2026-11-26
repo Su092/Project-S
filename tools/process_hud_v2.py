@@ -56,7 +56,7 @@ def main():
      a[:,:,:3]=color;a[:,:,3]=np.uint8(mask)*255;im=Image.fromarray(a,"RGBA")
     else:im=fit(im,512 if name=="operator_portrait" else 128 if name in SMALL or name=="crosshair" else 256,4)
    images[name]=im
-   if name=="attachment_socket":continue
+   if name in {"attachment_socket","read_cursor","weapon_selected_ring"}:continue
    dest=OUT/cat/(key+".png");dest.parent.mkdir(parents=True,exist_ok=True);im.save(dest);im.save(STAGE/(key+".png"))
    if cat!="Icon/Items":catalog[key]=cat
    rows.append({"name":key,"category":cat,"size":im.size,"source":job["name"],"cell":idx})

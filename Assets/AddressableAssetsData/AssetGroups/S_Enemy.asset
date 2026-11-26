@@ -21,20 +21,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04533292e75715c49b4c27536d79396e
-    m_Address: enemy/SlagHound_Elite_MoldBreaker
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a65be4d9bdf893429cb2309944dc138
     m_Address: enemy/S19_CastanetFish
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0e11568f656d1e146916652badfe50db
-    m_Address: enemy/RingSentry_Elite_Crown
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_enemy
@@ -129,24 +117,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 70f52f1e727c049458985b94d62cb373
-    m_Address: enemy/PressureRunner
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 71356dd5c2b50674181e242308a4b791
-    m_Address: enemy/PressureRunner_Elite_TriplePressure
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 83da2fe60ae77d14cacb0c3948546a28
-    m_Address: enemy/SlagHound
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8687b0c14863e9541a0b436338b67a05
     m_Address: enemy/FXM_S29_NoteShot
     m_ReadOnly: 0
@@ -165,32 +135,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8f3b88ba53411d441a1d5079cdd6e98f
-    m_Address: enemy/RingSentry
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abd169a590362f142af82d03bcf39345
     m_Address: enemy/S29_NoteTurret
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aede9f1aab5719c4f85d33c8fb1a9278
-    m_Address: enemy/FurnaceWarden_Elite_TwinGate
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c02b0725d830d4248b68600067721cb5
     m_Address: enemy/S14_XylophoneStegosaur
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c651102414dc1984ea1a89059a438ad1
-    m_Address: enemy/Boss_CrucibleSovereign
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_enemy
@@ -221,12 +173,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4279ae85b7aff44ea99faad023f80bc
     m_Address: enemy/FXM_S29_CoreShard
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f4e3e7035718be44c9cfa0e5bc698592
-    m_Address: enemy/FurnaceWarden
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_enemy

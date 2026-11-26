@@ -101,6 +101,10 @@ namespace S.View
             { "offer_item_shock", "Items" },
             { "offer_item_speed", "Items" },
             { "offer_item_std", "Items" },
+            { "offer_item_barrelroll", "Items" },
+            { "offer_item_bellmark", "Items" },
+            { "offer_item_ripple", "Items" },
+            { "offer_item_answer", "Items" },
             { "offer_item_thrift", "Items" },
             { "offer_item_timer", "Items" },
             { "offer_item_trigger", "Items" },
@@ -147,8 +151,11 @@ namespace S.View
             { "hud_map_chest", "Icon" },
             { "hud_pause_glyph", "Icon" },
             { "hud_weapon_swap", "Icon" },
-            { "hud_read_cursor", "Icon" },
             { "hud_gun_rifle", "Icon" },
+            { "hud_gun_musicbox", "Icon" },
+            { "hud_gun_handbells", "Icon" },
+            { "hud_gun_handpan", "Icon" },
+            { "hud_gun_castanets", "Icon" },
             { "hud_gun_smg", "Icon" },
             { "hud_gun_shotgun", "Icon" },
             { "hud_gun_sniper", "Icon" },
@@ -156,7 +163,6 @@ namespace S.View
             { "hud_gun_launcher", "Icon" },
             { "hud_operator_portrait", "Icon" },
             { "hud_timer_plate", "Frame" },
-            { "hud_weapon_selected_ring", "Widget" },
             { "hud_attachment_read_ring", "Widget" },
             { "hud_utility_placeholder", "Icon" },
             { "hud_map_mask", "Widget" },
@@ -174,7 +180,6 @@ namespace S.View
 
             // ---- Widget 交互控件（13）----
             { "btn_primary", "Widget" },
-            { "btn_primary_hover", "Widget" },
             { "btn_danger", "Widget" },
             { "slot_empty", "Widget" },
             { "slot_filled", "Widget" },
@@ -187,17 +192,11 @@ namespace S.View
             { "hit_marker", "Widget" },
             { "keycap", "Widget" },
 
-            // ---- Tag 语义标签（4）----
-            { "tag_starter", "Tag" },
-            { "tag_common", "Tag" },
-            { "tag_rare", "Tag" },
-            { "tag_epic", "Tag" },
 
             // ---- Icon 静态图标（8）----
             { "icon_bullet", "Icon" },
             { "icon_whole", "Icon" },
             { "icon_after", "Icon" },
-            { "icon_gun", "Icon" },
             { "icon_frame", "Icon" },
             { "icon_lock", "Icon" },
             { "icon_check", "Icon" },
@@ -229,13 +228,12 @@ namespace S.View
 
         static readonly Dictionary<string, Sprite> s_sprites = new Dictionary<string, Sprite>();
         static Sprite s_crosshair, s_panel, s_card, s_cardInner, s_bar, s_banner, s_vignette, s_keycap;
-        static Sprite s_iconBullet, s_iconWhole, s_iconAfter, s_iconGun;
+        static Sprite s_iconBullet, s_iconWhole, s_iconAfter;
         // 第二批：按钮 / 槽位 / 条 / 标签（由 tools/gen_ui_assets_ai.py 合成 AI 材质产出）
-        static Sprite s_btnPrimary, s_btnPrimaryHover, s_btnDanger;
+        static Sprite s_btnPrimary, s_btnDanger;
         static Sprite s_slotEmpty, s_slotFilled;
         static Sprite s_barBg, s_barHp, s_barXp, s_barBoss, s_barThreat;
         static Sprite s_iconFrame, s_divider, s_hitMarker, s_vignetteDamage;
-        static Sprite s_tagStarter, s_tagCommon, s_tagRare, s_tagEpic;
         static Sprite s_iconLock, s_iconCheck, s_iconArrow;
 
         /// <summary>按素材名加载：目录由 <see cref="Catalog"/> 决定，调用处不再写路径。</summary>
@@ -268,13 +266,11 @@ namespace S.View
         public static Sprite IconBullet => Load("icon_bullet", ref s_iconBullet);
         public static Sprite IconWhole => Load("icon_whole", ref s_iconWhole);
         public static Sprite IconAfter => Load("icon_after", ref s_iconAfter);
-        public static Sprite IconGun => Load("icon_gun", ref s_iconGun);
 
         // ---- 第二批素材 ----
 
         /// <summary>主按钮（青色强调）。9-slice 用，见 <see cref="ApplySliced"/>。</summary>
         public static Sprite BtnPrimary => Load("btn_primary", ref s_btnPrimary);
-        public static Sprite BtnPrimaryHover => Load("btn_primary_hover", ref s_btnPrimaryHover);
         public static Sprite BtnDanger => Load("btn_danger", ref s_btnDanger);
 
         /// <summary>配件槽：空槽 / 已占用。</summary>
@@ -299,33 +295,6 @@ namespace S.View
 
         /// <summary>受击晕影（比 <see cref="Vignette"/> 更收敛，不糊画面）。</summary>
         public static Sprite VignetteDamage => Load("vignette_damage", ref s_vignetteDamage);
-
-        /// <summary>按稀有度取标签条（颜色即 art-style §2.3 的编码）。</summary>
-        public static Sprite TagForRarity(Core.Rarity r)
-        {
-            switch (r)
-            {
-                case Core.Rarity.Rare: return Load("tag_rare", ref s_tagRare);
-                case Core.Rarity.Epic: return Load("tag_epic", ref s_tagEpic);
-                case Core.Rarity.Common: return Load("tag_common", ref s_tagCommon);
-                default: return Load("tag_starter", ref s_tagStarter);
-            }
-        }
-
-        /// <summary>
-        /// 把按钮外观套上。拿不到素材返回 false，调用方保留原纯色（缺图不能崩）。
-        /// 悬停态用 <paramref name="hover"/> 决定选哪张。
-        /// </summary>
-        public static bool ApplyButton(Image img, bool hover = false, bool danger = false)
-        {
-            if (img == null) return false;
-            var sp = danger ? BtnDanger : (hover ? BtnPrimaryHover : BtnPrimary);
-            if (sp == null) return false;
-            img.sprite = sp;
-            img.type = Image.Type.Sliced;
-            img.pixelsPerUnitMultiplier = 1f;
-            return true;
-        }
 
         /// <summary>
         /// 按作用域取图标。7 种作用域归到现有 4 张图标上：
@@ -432,14 +401,12 @@ namespace S.View
             Sprite[] all =
             {
                 Panel, CardFrame, CardInner, BarFrame, Banner, Vignette, Keycap, Crosshair,
-                IconBullet, IconWhole, IconAfter, IconGun,
-                BtnPrimary, BtnPrimaryHover, BtnDanger,
+                IconBullet, IconWhole, IconAfter,
+                BtnPrimary, BtnDanger,
                 SlotEmpty, SlotFilled,
                 BarBg, BarHp, BarXp, BarBoss, BarThreat,
                 IconFrame, Divider, HitMarker, VignetteDamage,
                 IconLock, IconCheck, IconArrow,
-                TagForRarity(Core.Rarity.Starter), TagForRarity(Core.Rarity.Common),
-                TagForRarity(Core.Rarity.Rare), TagForRarity(Core.Rarity.Epic),
             };
             int n = 0;
             foreach (var s in all) if (s != null) n++;

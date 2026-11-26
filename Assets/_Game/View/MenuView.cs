@@ -34,7 +34,10 @@ namespace S.View
         float[] _volValues;
         Text[] _volValueTexts;
 
-        public bool IsOpen => _refs != null && _refs.Root != null && _refs.Root.activeSelf;
+        BackstageMenu _backstage;
+        public bool WalkingBackstage => _backstage && _backstage.Walking;
+        public BackstageMenu Backstage => _backstage;
+        public bool IsOpen => (_backstage && _backstage.Visible) || _refs != null && _refs.Root != null && _refs.Root.activeSelf;
 
         public void Init(MetaProgress meta, System.Action onStart, SData data = null)
         {
@@ -44,6 +47,8 @@ namespace S.View
 
             BuildCanvas();
             BuildMenu();
+            _backstage = gameObject.AddComponent<BackstageMenu>();
+            _backstage.Init(_canvas, _meta, _data, id => { SelectedGunId = id; Close(); _onStart?.Invoke(); }, StepVolume, ShowArchive);
             Close();
         }
 
@@ -81,12 +86,14 @@ namespace S.View
             _refs.StartButton.onClick.AddListener(() =>
             {
                 SfxBank.Instance?.PlayUiClick();
-                StartOrChoose();
+                if (_backstage && _backstage.Archive) { _refs.Root.SetActive(false); _backstage.OpenScore(); }
+                else StartOrChoose();
             });
 
             _refs.QuitButton.onClick.AddListener(() =>
             {
                 SfxBank.Instance?.PlayUiClick();
+                if (_backstage && _backstage.Archive) { _refs.Root.SetActive(false); _backstage.OpenScore(); return; }
                 if (_choosingGun) { _choosingGun = false; SelectedGunId = null; Refresh(); return; }
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
@@ -147,6 +154,13 @@ namespace S.View
         public void Open()
         {
             if (_refs == null) return;
+            _backstage.OpenTitle();
+            GameRoot.Instance?.SyncCursorToState();
+        }
+
+        void ShowArchive()
+        {
+            _choosingGun = false;
             _refs.Root.SetActive(true);
             Refresh();
             RefreshVolume();
@@ -156,6 +170,7 @@ namespace S.View
 
         public void Close()
         {
+            if (_backstage) _backstage.Hide();
             if (_refs != null && _refs.Root != null) _refs.Root.SetActive(false);
             // 关菜单后把光标交回玩家控制。这里不直接 LockCursor(true)，
             // 而是让 GameRoot 统一裁决 —— 它知道是否还有排队的三选一/背包要处理。
@@ -171,11 +186,11 @@ namespace S.View
             if (_choosingGun) { RefreshGunChoices(); return; }
             _refs.StartButton.interactable = true;
             if (_refs.PanelTitle != null) _refs.PanelTitle.text = "局 外 解 锁";
-            _refs.StartButton.GetComponentInChildren<Text>().text = "选择初始武器";
-            _refs.QuitButton.GetComponentInChildren<Text>().text = "退出";
+            _refs.StartButton.GetComponentInChildren<Text>().text = "返回乐谱";
+            _refs.QuitButton.GetComponentInChildren<Text>().text = "返回";
 
             if (_refs.ShardText != null)
-                _refs.ShardText.text = $"shard  {_meta.Shard}    ·    通关 {_meta.Clears}";
+                _refs.ShardText.text = $"乐章碎片  {_meta.Shard}    ·    通关 {_meta.Clears}";
             if (_refs.StatsText != null)
                 _refs.StatsText.text = $"历史最高单发 {_meta.BestSingleHit:0.#}\n图鉴已记录 {_meta.Codex.Count} 种配件";
 
@@ -262,14 +277,14 @@ namespace S.View
 
             // 图标内容：起手枪用枪图标，起始配件用子弹图标。
             // 注意这里**不用** ApplyIcon：那个方法挂的是加色材质，适合黑底图标；
-            // 而 icon_gun / icon_bullet 本身是带透明度的彩色图，直接 Simple + tint 更准。
+            // 而 乐器 / 子弹图标 本身是带透明度的彩色图，直接 Simple + tint 更准。
             if (r.Icon != null)
             {
-                var catSpr = u.Id == "gun_third" ? UiAssets.IconGun
+                var catSpr = u.Id == "gun_third" ? _backstage.StartingInstrumentIcon
                            : u.Id.Contains("start_") ? UiAssets.IconBullet
                            : UiAssets.IconWhole;
                 r.Icon.sprite = catSpr;
-                r.Icon.color = owned ? new Color(0.62f, 0.95f, 0.70f, 0.95f)
+                r.Icon.color = u.Id == "gun_third" ? Color.white : owned ? new Color(0.62f, 0.95f, 0.70f, 0.95f)
                                      : new Color(0.62f, 0.78f, 0.95f, 0.90f);
                 r.Icon.enabled = catSpr != null;
             }
@@ -311,7 +326,7 @@ namespace S.View
 
                     if (r.BuyLabel != null)
                     {
-                        r.BuyLabel.text = $"{u.Cost} shard";
+                        r.BuyLabel.text = $"{u.Cost} 碎片";
                         r.BuyLabel.color = afford ? Color.white : new Color(0.68f, 0.70f, 0.74f);
                     }
 
@@ -328,6 +343,7 @@ namespace S.View
 
         public void StartOrChoose()
         {
+            if (_backstage && _backstage.Visible) { _backstage.Hide(); _refs.Root.SetActive(true); }
             if (!_choosingGun) { _choosingGun = true; Refresh(); return; }
             if (string.IsNullOrEmpty(SelectedGunId)) return;
             Close(); _onStart?.Invoke();
@@ -335,7 +351,7 @@ namespace S.View
 
         public void SelectGun(string id)
         {
-            if (!_choosingGun || !_data.Guns.ContainsKey(id)) return;
+            if (!_choosingGun || !_data.Guns.TryGetValue(id, out var gun) || RunState.IsSignature(gun.BaseBullet)) return;
             SelectedGunId = id;
             SfxBank.Instance?.PlayUiClick();
             RefreshGunChoices();
@@ -345,7 +361,7 @@ namespace S.View
         {
             foreach (var old in _rows) if (old != null) { old.SetActive(false); if (Application.isPlaying) Destroy(old); else DestroyImmediate(old); }
             _rows.Clear();
-            var guns = _data.GunOrder;
+            var guns = _data.GunOrder.FindAll(g => !RunState.IsSignature(g.BaseBullet));
             if (_refs.PanelTitle != null) _refs.PanelTitle.text = "选 择 初 始 武 器";
             float height = Mathf.Clamp((_refs.UnlockList.rect.height - 8f * guns.Count) / guns.Count, 60f, 92f);
             for (int i = 0; i < guns.Count; i++)
@@ -361,7 +377,7 @@ namespace S.View
                 bool selected = SelectedGunId == gun.Id;
                 if (row.Name != null) row.Name.text = gun.Name;
                 if (row.Desc != null) row.Desc.text = $"{gun.Desc}  槽位 {gun.SlotCount} · 弹匣 {gun.MagSize}";
-                if (row.Icon != null) { row.Icon.sprite = UiAssets.IconGun; row.Icon.color = PlayerWeapons.ParseColor(gun.Color); }
+                if (row.Icon != null) { row.Icon.sprite = UiAssets.Named("hud_gun_" + gun.Id); row.Icon.color = Color.white; }
                 if (row.Badge != null) { row.Badge.sprite = UiAssets.IconCheck; row.Badge.enabled = selected; }
                 if (row.BadgeBack != null) row.BadgeBack.enabled = selected;
                 if (row.Background != null) row.Background.color = selected ? new Color(0.12f, 0.3f, 0.32f) : new Color(0.1f, 0.13f, 0.18f);
@@ -369,7 +385,7 @@ namespace S.View
                 if (row.BuyButton != null)
                 { row.BuyButton.interactable = true; row.BuyButton.onClick.RemoveAllListeners(); row.BuyButton.onClick.AddListener(() => SelectGun(gun.Id)); }
             }
-            if (_refs.Hint != null) _refs.Hint.text = "从全部武器中选 1 把进入 · 升级有小概率获得其他枪械";
+            if (_refs.Hint != null) _refs.Hint.text = "选择起始乐器 · 其余乐器可在关卡内获得";
             _refs.StartButton.interactable = !string.IsNullOrEmpty(SelectedGunId);
             _refs.StartButton.GetComponentInChildren<Text>().text = "携带所选武器出发";
             _refs.QuitButton.GetComponentInChildren<Text>().text = "返回";
@@ -387,7 +403,7 @@ namespace S.View
                 {
                     null => $"已解锁：{MetaProgress.FindUnlock(id).Name}",
                     "already" => "该项已解锁",
-                    "poor" => "shard 不足 —— 通关一次可获得 1 shard",
+                    "poor" => "碎片不足 —— 完成关卡或推进局内进度可获得碎片",
                     "bad-id" => "无效的解锁项",
                     _ => "无法解锁：" + code,
                 };
@@ -404,7 +420,7 @@ namespace S.View
 
         void Update()
         {
-            if (!IsOpen) return;
+            if (!IsOpen || (_backstage && _backstage.Visible)) return;
             var kb = UnityEngine.InputSystem.Keyboard.current;
             if (kb == null) return;
 

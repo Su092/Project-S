@@ -77,7 +77,13 @@ def validate(plan=None):
         with Image.open(ROOT/r['backup']) as original, Image.open(ROOT/r['source']) as new:
             assert new.size==original.size
             if 'A' in original.getbands():assert ImageChops.difference(original.getchannel('A'),new.getchannel('A')).getbbox() is None
-    for r in plan['protected_files']:assert sha(ROOT/r['path'])==r['sha256'],'Protected file changed: '+r['path']
+    # The original receipt predates the retirement of these two unused HUD sprites.
+    retired={'Assets/_Game/Res/Texture/UI/Icon/hud_read_cursor.png',
+             'Assets/_Game/Res/Texture/UI/Widget/hud_weapon_selected_ring.png'}
+    for r in plan['protected_files']:
+        path=ROOT/r['path']
+        if r['path'] in retired and not path.exists() and (BASE/'import-completed.json').exists():continue
+        assert sha(path)==r['sha256'],'Protected file changed: '+r['path']
     print('PASS: replacement hashes, sizes, original alpha, meta/GUID, materials and',len(plan['protected_files']),'protected files.')
 if __name__=='__main__':
     {'prepare':prepare,'install':install,'validate':validate}[sys.argv[1]]()

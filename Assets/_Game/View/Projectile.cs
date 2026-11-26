@@ -18,7 +18,7 @@ namespace S.View
     ///   Saw     飞出后返回玩家，路径上无限穿透
     ///   Hole    缓慢飞行并持续吸引/伤害周围敌人，结束时坍缩爆炸
     /// </summary>
-    public sealed class Projectile : MonoBehaviour
+    public sealed partial class Projectile : MonoBehaviour
     {
         ProjectileDesc _d;
         Vector3 _dir;
@@ -44,6 +44,7 @@ namespace S.View
         public void Init(ProjectileDesc desc, Vector3 dir)
         {
             _d = desc;
+            if (_d.Read == null) _d.BindRead(new NoteRead());
             _dir = dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector3.forward;
             _life = desc.Lifetime;
             _pierceLeft = desc.Pierce;
@@ -69,8 +70,11 @@ namespace S.View
             float dt = Time.deltaTime;
             if (dt <= 0f) return;
 
+            if (GameRoot.Instance && GameRoot.Instance.RunEnded) { Destroy(gameObject); return; }
             switch (_d.Kind)
             {
+                case BulletKind.Ripple:
+                case BulletKind.MusicBox: TickGroundNote(dt); return;
                 case BulletKind.Mine: TickMine(dt); return;
                 case BulletKind.Field: TickField(dt); return;
                 case BulletKind.Hole: TickHole(dt); return;
@@ -85,6 +89,8 @@ namespace S.View
         void TickFlight(float dt)
         {
             _life -= dt;
+            if (_d.Trigger == TriggerKind.Timer && !_triggered && _d.Lifetime - _life >= .4f)
+                TriggerPayload(transform.position, _dir, TriggerKind.Timer);
             if (_life <= 0f) { Expire(); return; }
 
             if (_d.Homing > 0f && GameRoot.Instance != null)
@@ -128,6 +134,7 @@ namespace S.View
             {
                 boss.OnHit(_d, hit.point, _d.Damage, hit.collider);
                 TriggerPayload(hit.point, hit.normal);
+                TriggerPayload(hit.point, hit.normal, TriggerKind.Expire);
                 if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
@@ -138,7 +145,9 @@ namespace S.View
             {
                 GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
                 GameRoot.Instance?.SpawnHitFx(hit.point);
+                TriggerPayload(hit.point, hit.normal);
                 if (_pierceLeft > 0) { _pierceLeft--; transform.position += _vel.normalized * 0.4f; return; }
+                TriggerPayload(hit.point, hit.normal, TriggerKind.Expire);
                 if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
@@ -159,6 +168,7 @@ namespace S.View
                     return;
                 }
 
+                TriggerPayload(hit.point, hit.normal, TriggerKind.Expire);
                 if (_d.ExplodeR > 0f) Explode(hit.point);
                 Destroy(gameObject);
                 return;
@@ -176,13 +186,14 @@ namespace S.View
                 return;
             }
 
+            TriggerPayload(hit.point, hit.normal, TriggerKind.Expire);
             if (_d.ExplodeR > 0f) Explode(hit.point);
             Destroy(gameObject);
         }
 
         void Expire()
         {
-            if (_d.Trigger == TriggerKind.Expire) TriggerPayload(transform.position, Vector3.up);
+            TriggerPayload(transform.position, Vector3.up, TriggerKind.Expire);
             if (_d.ExplodeR > 0f) Explode(transform.position);
             Destroy(gameObject);
         }
@@ -196,56 +207,56 @@ namespace S.View
         /// </summary>
         void FireBeam()
         {
-            float range = _d.Range;
-            var hits = Physics.RaycastAll(transform.position, _dir, range, WorldPhysics.ShotMask, QueryTriggerInteraction.Collide);
-            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-
-            int allowed = 1 + Mathf.Max(0, _pierceLeft);
-            int done = 0;
-            Vector3 end = transform.position + _dir * range;
-
+            Vector3 start = transform.position, dir = _dir, end = start;
+            float remaining = _d.Range;
+            int contacts = 1 + Mathf.Max(0, _pierceLeft);
             var seen = new System.Collections.Generic.HashSet<Object>();
-            foreach (var h in hits)
+            Color color = PlayerWeapons.ParseColor(_d.Source?.Color ?? "#ff4fd8");
+            for (int segment = 0; segment <= _bounceLeft && contacts > 0 && remaining > .01f; segment++)
             {
-                if (done >= allowed) break;
-
-                var e = h.collider.GetComponentInParent<Enemy>();
-                if (e != null)
+                var hits = Physics.RaycastAll(start, dir, remaining, WorldPhysics.ShotMask, QueryTriggerInteraction.Collide);
+                System.Array.Sort(hits, (a,b) => a.distance.CompareTo(b.distance));
+                bool reflect = false;
+                Vector3 normal = Vector3.zero;
+                end = start + dir * remaining;
+                foreach (var hit in hits)
                 {
-                    if (!e.Alive || !seen.Add(e)) continue;
-                    e.TakeDamage(_d, h.point, _d.Damage, false);
-                    GameRoot.Instance?.SpawnHitFx(h.point);
-                    done++;
-                    continue;
+                    var e = hit.collider.GetComponentInParent<Enemy>();
+                    var boss = hit.collider.GetComponentInParent<BossView>();
+                    var pillar = hit.collider.GetComponentInParent<Pillar>();
+                    if (e)
+                    {
+                        if (!e.Alive || !seen.Add(e)) continue;
+                        e.TakeDamage(_d, hit.point, _d.Damage, false);
+                    }
+                    else if (boss)
+                    {
+                        if (!seen.Add(boss)) continue;
+                        boss.OnHit(_d, hit.point, _d.Damage, hit.collider);
+                    }
+                    else if (pillar && pillar.Alive)
+                    {
+                        if (!seen.Add(pillar)) continue;
+                        GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
+                    }
+                    else
+                    {
+                        if (hit.collider.GetComponentInParent<PlayerController>()) continue;
+                        normal = hit.normal;
+                        end = hit.point;
+                        CombatFx.Impact(end, color, normal);
+                        reflect = true;
+                        break;
+                    }
+                    if (--contacts == 0) { end = hit.point; break; }
                 }
-
-                var boss = h.collider.GetComponentInParent<BossView>();
-                if (boss != null)
-                {
-                    if (!seen.Add(boss)) continue;
-                    boss.OnHit(_d, h.point, _d.Damage, h.collider);
-                    done++;
-                    continue;
-                }
-
-                var pillar = h.collider.GetComponentInParent<Pillar>();
-                if (pillar != null && pillar.Alive)
-                {
-                    if (!seen.Add(pillar)) continue;
-                    GameRoot.Instance?.OnPillarHit(pillar, _d.Damage);
-                    done++;
-                    continue;
-                }
-
-                // 撞到地形就截断，并留下接触火花。
-                CombatFx.Impact(h.point, PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ff4fd8"), h.normal);
-                end = h.point;
-                break;
+                CombatFx.Beam(start, end, color);
+                if (!reflect) break;
+                remaining -= Vector3.Distance(start, end) + .02f;
+                dir = Vector3.Reflect(dir, normal);
+                start = end + normal * .02f;
             }
-
-            GameRoot.Instance?.SpawnBeamFx(transform.position, end,
-                PlayerWeapons.ParseColor(_d.Source != null ? _d.Source.Color : "#ff4fd8"));
-            TriggerPayload(end, -_dir);
+            TriggerPayload(end, -dir);
             Destroy(gameObject);
         }
 
@@ -275,7 +286,7 @@ namespace S.View
 
             for (int i = 0; i <= jumps && cur != null; i++)
             {
-                cur.TakeDamage(_d, cur.AimPoint, _d.Damage, false);
+                cur.TakeDamage(_d, cur.AimPoint, _d.Damage, false, i == 0);
                 hitSet.Add(cur);
 
                 CombatFx.Beam(from, cur.AimPoint,
@@ -474,9 +485,9 @@ namespace S.View
         /// 触发载荷：命中 / 定时 / 消散三种条件都会走到这里。
         /// 只触发一次 —— 穿透弹连续命中多个敌人时，载荷不应重复施放（会指数爆炸）。
         /// </summary>
-        void TriggerPayload(Vector3 at, Vector3 normal)
+        void TriggerPayload(Vector3 at, Vector3 normal, TriggerKind when = TriggerKind.Hit)
         {
-            if (_d.Trigger == TriggerKind.None) return;
+            if (_d.Trigger != when) return;
             if (_d.Payload == null || _d.Payload.Count == 0) return;
             if (_triggered) return;
             _triggered = true;

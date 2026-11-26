@@ -1,0 +1,58 @@
+[
+  {
+    "id": "orchestra-instruments",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-26T10:49:16+0800",
+    "task_id": "task_01M8AW3RX5XVYPYA92NDG1HX48",
+    "result_url": "https://getapib.org/image/9998204338619454-6671d0cb-6051-499c-b3ce-3ddd3cd2ee16-image_task_01M8AW4E2NF41H7MW4F7D9Y1QH_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "out": "_Inbox\\orchestra-notes\\instruments.png",
+    "bytes": 3582514,
+    "sha256": "ef28c7fa13a86b7861ece23b8dbabe7562995f0cada2dfae8ba8c7e1c21afc85"
+  },
+  {
+    "id": "orchestra-mechanism",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-26T10:49:48+0800",
+    "task_id": "task_01M8AW4QX8BA697XPQ8XB7ZKJ2",
+    "result_url": "https://getapib.org/image/9998204338527083-274bed96-a745-4224-a9ae-2f45e64de79a-image_img_a03ed4e7be924387a0017b46dcd7a6d1_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGB",
+    "out": "_Inbox\\orchestra-notes\\mechanism.png",
+    "bytes": 3681323,
+    "sha256": "874ea204f374bcf5b13fa7cb1eb25c3b8f14a51b07c8b258758c2715698a804a"
+  },
+  {
+    "id": "orchestra-notes",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-26T10:49:16+0800",
+    "task_id": "task_01M8AW3RX72C3P03NTRZ1ZKEFG",
+    "result_url": "https://getapib.org/image/9998204338600223-d57ec73b-69b6-48bf-bae5-d4c507bef750-image_task_01M8AW516S3PMMX4KFVWNM2VW7_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "out": "_Inbox\\orchestra-notes\\notes.png",
+    "bytes": 3355870,
+    "sha256": "6bbeec0ca470aad1ebcff27e134ecb29cc43e00db7bb81e7d3bf5c555aaf741c"
+  },
+  {
+    "id": "orchestra-phrasing",
+    "status": "completed",
+    "model": "gpt-image-2",
+    "submitted_at": "2026-11-26T10:49:16+0800",
+    "task_id": "task_01M8AW3RXGZ54GJR6NFMSDVF93",
+    "result_url": "https://getapib.org/image/9998204338618011-41c8b22e-6290-4071-a81a-a97c3ac2951e-image_task_01M8AW4FR1BGFR2FJWFT3P3ZQP_0.png",
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "out": "_Inbox\\orchestra-notes\\phrasing.png",
+    "bytes": 3082626,
+    "sha256": "c24803fab1fb11055b48c420df769cd2eb72e6c2d4e4fb3609e6c635bf8c17e6"
+  }
+]

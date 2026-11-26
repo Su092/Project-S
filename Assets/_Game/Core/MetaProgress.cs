@@ -5,9 +5,7 @@ namespace S.Core
     /// <summary>
     /// 局外成长存档：`shard` 货币 + 已解锁项 + 图鉴。
     ///
-    /// 设计纪律（docs/gameplay-spec.md §8）：**不设永久属性加成**。
-    /// 局外只解锁「更多选择」而不是「更强数值」，否则数值外挂会压过构筑深度 ——
-    /// 而构筑深度是本作唯一的核心。
+    /// 谱桌等级由所有角色共享。
     ///
     /// 序列化用极简 key=value 文本，不引 JSON 库（Core 需零 Unity 依赖，
     /// 且存档结构简单，手写读写比引第三方更可控）。
@@ -18,8 +16,23 @@ namespace S.Core
         public const string UnlockPrefix = "unlock.";
         public const string CodexPrefix = "codex.";
 
-        /// <summary>局外货币。只能从通关获得（1/局）。</summary>
+        /// <summary>局外货币。按每局进度结算。</summary>
         public int Shard;
+        public int Performer;
+        public const int MaxTraining = 5;
+        public readonly int[] Training = new int[3];
+
+        public int TrainingCost(int track) => 2 + Training[track] * 2;
+
+        public bool Train(int track)
+        {
+            if (track < 0 || track >= Training.Length || Training[track] >= MaxTraining) return false;
+            int price = TrainingCost(track);
+            if (Shard < price) return false;
+            Shard -= price;
+            Training[track]++;
+            return true;
+        }
 
         /// <summary>已解锁项 id 集合。</summary>
         public readonly HashSet<string> Unlocked = new HashSet<string>();
@@ -88,16 +101,15 @@ namespace S.Core
         // ---------------- 经济 ----------------
 
         /// <summary>
-        /// 通关奖励：shard +1，Clears +1。死亡/放弃调用时传 reward=false。
+        /// 按完整存活分钟和提升等级结算，通关额外奖励一枚。
         /// </summary>
-        public void FinishRun(bool won, float bestHit)
+        public int FinishRun(bool won, float bestHit, float seconds = 0, int level = 1)
         {
-            if (won)
-            {
-                Shard += 1;
-                Clears += 1;
-            }
+            int reward = System.Math.Max(0, (int)(seconds / 60)) + System.Math.Max(0, level - 1) + (won ? 1 : 0);
+            Shard += reward;
+            if (won) Clears++;
             if (bestHit > BestSingleHit) BestSingleHit = bestHit;
+            return reward;
         }
 
         public bool CanAfford(string unlockId)
@@ -164,6 +176,8 @@ namespace S.Core
             var sb = new System.Text.StringBuilder();
             sb.AppendLine($"{ShardKey}={Shard}");
             sb.AppendLine($"clears={Clears}");
+            sb.AppendLine($"performer={Performer}");
+            for (int i = 0; i < Training.Length; i++) sb.AppendLine($"training.{i}={Training[i]}");
             sb.AppendLine($"bestHit={BestSingleHit.ToString("0.###", System.Globalization.CultureInfo.InvariantCulture)}");
 
             foreach (var u in Unlocked)
@@ -192,6 +206,11 @@ namespace S.Core
 
                 if (k == ShardKey)
                     int.TryParse(v, out m.Shard);
+                else if (k == "performer" && int.TryParse(v, out int performer))
+                    m.Performer = System.Math.Clamp(performer, 0, 5);
+                else if (k.StartsWith("training.") && int.TryParse(k.Substring(9), out int track) &&
+                    track >= 0 && track < m.Training.Length && int.TryParse(v, out int rank))
+                    m.Training[track] = System.Math.Clamp(rank, 0, MaxTraining);
                 else if (k == "clears")
                     int.TryParse(v, out m.Clears);
                 else if (k == "bestHit")

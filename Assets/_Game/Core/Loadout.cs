@@ -417,6 +417,11 @@ namespace S.Core
             d.Spread = Math.Max(0f, d.Spread);
             if (d.Count < 1) d.Count = 1;
             if (d.Count > MaxCount) d.Count = MaxCount;
+            if (d.Kind == BulletKind.Ripple || d.Kind == BulletKind.MusicBox)
+            {
+                d.Count = 1;
+                d.Homing = 0f;
+            }
 
             // 触发弹：递归读 1 个载荷
             if (d.Trigger != TriggerKind.None && generation < MaxRecursion)

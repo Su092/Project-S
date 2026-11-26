@@ -76,12 +76,7 @@ namespace S.App
             if (es == null || root == null || root.Menu == null) return false;
 
             // 找到按钮：它在某个 Canvas 下的 "StartBtn"
-            Transform btn = null;
-            foreach (var c in Object.FindObjectsByType<Canvas>(FindObjectsInactive.Include))
-            {
-                btn = FindDeep(c.transform, "StartBtn");
-                if (btn != null) break;
-            }
+            Transform btn = root.Menu.Backstage.StartButton;
             if (btn == null) return false;
 
             var rt = btn as RectTransform;
@@ -109,17 +104,9 @@ namespace S.App
             UnityEngine.EventSystems.ExecuteEvents.Execute(
                 handler, ped, UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);
 
-            // 起手流程分两步：先打开选枪，再确认出发。两次开始都走 UI 点击派发。
-            if (root.Menu != null && root.Menu.IsOpen && root.Menu.ChoosingGun &&
-                string.IsNullOrEmpty(root.Menu.SelectedGunId))
-            {
-                root.Menu.SelectGun(root.Data.GunOrder[0].Id);
-                Canvas.ForceUpdateCanvases();
-                return TryClickStartButton(root);
-            }
-
-            // 回调成功会关闭菜单；用菜单状态做判据，避免「派发了但没人接」也算过
-            return root.Menu == null || !root.Menu.IsOpen;
+            if (!root.Menu.WalkingBackstage || root.RunStarted) return false;
+            root.Menu.Backstage.UseStation(S.View.BackstageWorld.Station.Door);
+            return root.RunStarted && !root.Menu.IsOpen;
         }
 
         /// <summary>
@@ -156,58 +143,12 @@ namespace S.App
         /// </summary>
         void CheckMenuLayout(S.View.GameRoot root)
         {
-            Transform panel = null;
-            foreach (var c in Object.FindObjectsByType<Canvas>(FindObjectsInactive.Include))
-            {
-                panel = FindDeep(c.transform, "UnlockPanel");
-                if (panel != null) break;
-            }
-            if (panel == null)
-            {
-                _fail++;
-                _log.Add("  FAIL 菜单布局：UnlockPanel 未找到");
-                return;
-            }
-
-            var list = FindDeep(panel, "List");
-            var row = FindDeep(panel, "Row_gun_third");
-            if (list == null || row == null)
-            {
-                _fail++;
-                _log.Add("  FAIL 菜单布局：List 或 Row 未找到");
-                return;
-            }
-
-            var pr = ((RectTransform)panel).rect;
-            var lr = ((RectTransform)list).rect;
-            var rr = ((RectTransform)row).rect;
-
-            // 判据 1：行宽不超过列表宽（容差 1px）
-            bool rowFits = rr.width <= lr.width + 1f;
-            Check("行条不超出列表", rowFits,
-                $"行宽={rr.width:F1} 列表宽={lr.width:F1}");
-
-            // 判据 1b：行的**世界坐标**必须在面板的世界范围之内。
-            // 只比 rect.width 不够 —— 若两者锚点/父级不同，宽度相同也可能整体偏移出去。
-            var pc = new Vector3[4]; ((RectTransform)panel).GetWorldCorners(pc);
-            var rc = new Vector3[4]; ((RectTransform)row).GetWorldCorners(rc);
-            bool insideX = rc[0].x >= pc[0].x - 1f && rc[2].x <= pc[2].x + 1f;
-            bool insideY = rc[0].y >= pc[0].y - 1f && rc[2].y <= pc[2].y + 1f;
-            Check("行条在面板世界范围内", insideX && insideY,
-                $"行 x=[{rc[0].x:F1},{rc[2].x:F1}] y=[{rc[0].y:F1},{rc[2].y:F1}] " +
-                $"面板 x=[{pc[0].x:F1},{pc[2].x:F1}] y=[{pc[0].y:F1},{pc[2].y:F1}]");
-
-            // 判据 2：列表在面板内
-            bool listFits = lr.width <= pr.width - 8f && lr.height <= pr.height - 8f;
-            Check("列表在面板内", listFits,
-                $"列表={lr.width:F1}x{lr.height:F1} 面板={pr.width:F1}x{pr.height:F1}");
-
-            // 判据 3：行高足够容纳两行文字（名称 19px + 描述 14px + 间距）
-            bool rowTall = rr.height >= 60f;
-            Check("行高足够", rowTall, $"行高={rr.height:F1}（需 ≥60）");
-
-            _log.Add($"  INFO 布局：面板 {pr.width:F0}x{pr.height:F0} / " +
-                     $"列表 {lr.width:F0}x{lr.height:F0} / 行 {rr.width:F0}x{rr.height:F0}");
+            var button=(RectTransform)root.Menu.Backstage.StartButton;
+            var bounds=new Vector3[4];
+            button.GetWorldCorners(bounds);
+            Check("开始按钮位于可点击区域", button.gameObject.activeInHierarchy &&
+                bounds[0].x >= 0 && bounds[2].x <= Screen.width &&
+                bounds[0].y >= 0 && bounds[2].y <= Screen.height, button.name);
         }
 
         static IEnumerator WaitUnscaled(float s)
@@ -246,7 +187,7 @@ namespace S.App
             yield return WaitUnscaled(0.3f);
             Check("正常启动显示主菜单", root.Menu != null && root.Menu.IsOpen,
                 root.Menu == null ? "Menu 未创建" : $"IsOpen={root.Menu.IsOpen}");
-            Check("菜单显示解锁项", root.Menu != null && root.Menu.RowCount > 0,
+            Check("菜单显示解锁项", root.Menu != null && root.Menu.Backstage.StartButton.gameObject.activeInHierarchy,
                 $"rows={root.Menu?.RowCount}");
 
             // 结构必须来自预制体：这条防的是「以后又有人在代码里拼菜单」。

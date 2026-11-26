@@ -134,18 +134,6 @@ namespace S.View
 
     public static class EnemyAssets
     {
-        public const string Boss = "Boss_CrucibleSovereign";
-        public static string Name(string kind, bool elite)
-        {
-            switch (kind)
-            {
-                case "Crawler": return elite ? "SlagHound_Elite_MoldBreaker" : "SlagHound";
-                case "Brute": return elite ? "FurnaceWarden_Elite_TwinGate" : "FurnaceWarden";
-                case "Bomber": return elite ? "PressureRunner_Elite_TriplePressure" : "PressureRunner";
-                case "Turret": return elite ? "RingSentry_Elite_Crown" : "RingSentry";
-                default: throw new ArgumentException("Unknown enemy kind: " + kind);
-            }
-        }
         public static EnemyVisual Spawn(string asset, Transform parent)
         {
             var prefab = SRes.Get<GameObject>(asset);

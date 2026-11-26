@@ -239,7 +239,13 @@ namespace S.EditorTools
             }
             finally{UnityEngine.Object.DestroyImmediate(root);}
         }
-        public static Bounds BoundsOf(SkinnedMeshRenderer r)=>SEnemyImporter.MeshBounds(r);
+        public static Bounds BoundsOf(SkinnedMeshRenderer r)
+        {
+            var mesh=new Mesh();r.BakeMesh(mesh);
+            var v=mesh.vertices;var b=new Bounds(r.transform.TransformPoint(v[0]),Vector3.zero);
+            foreach(var p in v)b.Encapsulate(r.transform.TransformPoint(p));
+            UnityEngine.Object.DestroyImmediate(mesh);return b;
+        }
         [MenuItem("S/Enemies/Validate Music Delivery")]
         public static void Validate()
         {

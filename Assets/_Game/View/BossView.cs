@@ -342,6 +342,8 @@ namespace S.View
                 }
             }
 
+            if (desc != null && desc.Kind != BulletKind.Ripple && desc.Kind != BulletKind.Field && desc.Kind != BulletKind.Hole && desc.Kind != BulletKind.Mine)
+                amount += OrchestraMark.DirectBonus(this, point, desc, GameRoot.Instance ? GameRoot.Instance.Weapons : null);
             float dealt = State.TakeDamage(amount*(Music?Music.HitMultiplier(hitCollider):1), false);
             GameRoot.Instance?.SpawnDamageNumber(point, dealt);
 

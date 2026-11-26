@@ -131,34 +131,18 @@ namespace S.App
             // 自检全程免伤：否则战斗段玩家猝死会触发 Lose → SetPaused(true)，
             // 后续所有断言都在暂停态下跑，失败原因被完全掩盖（踩过两次）。
             root.InvulnerableForTest = true;
-            Check("数据: 6 把枪", data != null && data.GunOrder.Count == 6, $"{data?.GunOrder.Count}");
-            Check("数据: 17 种子弹", data != null && data.BulletOrder.Count == 17, $"{data?.BulletOrder.Count}");
+            Check("数据: 10 把乐器", data != null && data.GunOrder.Count == 10, $"{data?.GunOrder.Count}");
+            Check("数据: 21 种子弹", data != null && data.BulletOrder.Count == 21, $"{data?.BulletOrder.Count}");
             Check("数据: 34 种衍生", data != null && data.ModifierOrder.Count == 34, $"{data?.ModifierOrder.Count}");
 
             // ---- 美术资产接入：模型与贴图必须真的加载到 ----
             {
-                string[] models = {
-                    "SlagHound", "PressureRunner", "FurnaceWarden",
-                    "RingSentry", EnemyAssets.Boss,
-                    "Modle_Gun_Auto", "Modle_Gun_Grenade", "Modle_Gun_Single",
-                    "Modle_Prop_Crate", "Modle_Prop_Barrel", "Modle_Prop_Pillar", "Modle_Prop_Wall",
-                };
-                int missing = 0;
-                var missNames = new List<string>();
-                foreach (var m in models)
+                foreach (var instrument in data.GunOrder)
                 {
-                    if (S.View.SAssets.Model(m) == null) { missing++; missNames.Add(m); }
+                    var model = instrument.Model.StartsWith("Orchestra/") ? Resources.Load<GameObject>(instrument.Model) : SAssets.Model(instrument.Model);
+                    Check("乐器模型可加载 " + instrument.Id, model != null, instrument.Model);
                 }
-                Check("12 个模型全部加载", missing == 0,
-                    $"缺失 {missing}: {string.Join(",", missNames)}");
-
-                var characters = new List<string> { EnemyAssets.Boss };
-                foreach (var enemy in data.EnemyOrder)
-                {
-                    characters.Add(EnemyAssets.Name(enemy.Id, false));
-                    characters.Add(EnemyAssets.Name(enemy.Id, true));
-                }
-                foreach (var name in characters)
+                foreach (var name in MusicEnemyAssets.AllCharacters)
                 {
                     var prefab = SRes.Get<GameObject>(name);
                     var visual = prefab ? prefab.GetComponent<EnemyVisual>() : null;
@@ -221,10 +205,10 @@ namespace S.App
                 Need("icon_bullet", S.View.UiAssets.IconBullet);
                 Need("icon_whole", S.View.UiAssets.IconWhole);
                 Need("icon_after", S.View.UiAssets.IconAfter);
-                Need("icon_gun", S.View.UiAssets.IconGun);
+                foreach (var instrument in data.GunOrder)
+                    Need("hud_gun_" + instrument.Id, UiAssets.Named("hud_gun_" + instrument.Id));
                 // 第二批
                 Need("btn_primary", S.View.UiAssets.BtnPrimary);
-                Need("btn_primary_hover", S.View.UiAssets.BtnPrimaryHover);
                 Need("btn_danger", S.View.UiAssets.BtnDanger);
                 Need("slot_empty", S.View.UiAssets.SlotEmpty);
                 Need("slot_filled", S.View.UiAssets.SlotFilled);
@@ -237,17 +221,13 @@ namespace S.App
                 Need("divider", S.View.UiAssets.Divider);
                 Need("hit_marker", S.View.UiAssets.HitMarker);
                 Need("vignette_damage", S.View.UiAssets.VignetteDamage);
-                Need("tag_starter", S.View.UiAssets.TagForRarity(S.Core.Rarity.Starter));
-                Need("tag_common", S.View.UiAssets.TagForRarity(S.Core.Rarity.Common));
-                Need("tag_rare", S.View.UiAssets.TagForRarity(S.Core.Rarity.Rare));
-                Need("tag_epic", S.View.UiAssets.TagForRarity(S.Core.Rarity.Epic));
                 Need("icon_lock", S.View.UiAssets.IconLock);
                 Need("icon_check", S.View.UiAssets.IconCheck);
                 Need("icon_arrow", S.View.UiAssets.IconArrow);
 
                 Check("UI 素材全部加载", uiMissing.Count == 0,
                     $"缺失 {uiMissing.Count}: {string.Join(",", uiMissing)}");
-                _log.Add($"  INFO UI 素材已加载 {uiLoaded}/32");
+                _log.Add($"  INFO UI 素材已加载 {uiLoaded}");
 
                 // ---- 统一字体 ----
                 // 字体缺失时 UiKit.Font 会静默回退内置 Arial（界面能读但不统一），
@@ -339,10 +319,6 @@ namespace S.App
                 Check("槽位边距合法", S.View.UiAssets.SlotFilled == null ||
                     SpriteBorderFits(S.View.UiAssets.SlotFilled, new Vector2(20f, 20f)),
                     "slot_filled 边距吃光 20×20 的徽章底");
-                Check("标签边距合法", S.View.UiAssets.TagForRarity(S.Core.Rarity.Common) == null ||
-                    SpriteBorderFits(S.View.UiAssets.TagForRarity(S.Core.Rarity.Common),
-                        new Vector2(272f, 16f)),
-                    "tag 边距吃光 272×16 的稀有度标签");
 
                 // 图标必须走加色材质（黑底才不会显示成黑方块）
                 if (S.View.UiAssets.IconWhole != null)

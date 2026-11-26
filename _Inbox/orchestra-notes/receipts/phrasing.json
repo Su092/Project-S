@@ -1,0 +1,14 @@
+{
+  "id": "orchestra-phrasing",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-26T10:49:16+0800",
+  "task_id": "task_01M8AW3RXGZ54GJR6NFMSDVF93",
+  "result_url": "https://getapib.org/image/9998204338618011-41c8b22e-6290-4071-a81a-a97c3ac2951e-image_task_01M8AW4FR1BGFR2FJWFT3P3ZQP_0.png",
+  "width": 2048,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox\\orchestra-notes\\phrasing.png",
+  "bytes": 3082626,
+  "sha256": "c24803fab1fb11055b48c420df769cd2eb72e6c2d4e4fb3609e6c635bf8c17e6"
+}

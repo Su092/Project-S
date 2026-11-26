@@ -17,7 +17,7 @@ namespace S.View
             _owner = owner;
             if (!_bound) { _restPosition = transform.localPosition; _restRotation = transform.localRotation; _bound = true; }
             transform.localPosition = _restPosition; transform.localRotation = _restRotation;
-            _music = model.GetComponent<MusicWeaponVisual>() != null;
+            _music = model.GetComponent<MusicWeaponVisual>() != null || (owner?.Active?.Base.Model?.StartsWith("Orchestra/") ?? false);
             _rig = _music ? null : RigidMeshRig.Build(model, true);
             _kick = _velocity = 0f;
         }

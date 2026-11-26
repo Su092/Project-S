@@ -250,6 +250,35 @@ namespace S.View
                 Play(_hitWall, "explode", 0.25f, 0.8f);
         }
 
+        readonly Dictionary<string,AudioClip> noteSounds = new();
+        public bool PlayNote(string id, bool resolution = false)
+        {
+            float hz, decay, harmonic;
+            switch (id)
+            {
+                case "std": hz = 440; decay = 18; harmonic = 3; break;
+                case "ap": hz = 147; decay = 9; harmonic = 3; break;
+                case "laser": hz = 784; decay = 12; harmonic = 2; break;
+                case "pellet": hz = 120; decay = 29; harmonic = 1.58f; break;
+                case "light": hz = 660; decay = 28; harmonic = 3; break;
+                case "grenade": hz = 196; decay = 13; harmonic = 1.01f; break;
+                case "answer": hz = 420; decay = 68; harmonic = 2.62f; break;
+                case "ripple": hz = 196; decay = 6; harmonic = 2.99f; break;
+                case "bellmark": hz = 740; decay = 8; harmonic = 2.76f; break;
+                case "barrelroll": case "reed": hz = 523; decay = 17; harmonic = 2; break;
+                default: return false;
+            }
+            if (!noteSounds.TryGetValue(id, out var clip))
+            {
+                float omega = 2f * Mathf.PI * hz;
+                noteSounds[id] = clip = MakeClip("Note_" + id, Mathf.Min(.65f, 5f / decay), t =>
+                    Mathf.Min(t * 700f, 1f) * Mathf.Exp(-t * decay) *
+                    (.68f * Mathf.Sin(omega * t) + .32f * Mathf.Sin(omega * harmonic * t)));
+            }
+            Play(clip, resolution ? "hit" : "shoot", resolution ? .66f : .43f, resolution ? 1.5f : 1f, .018f);
+            return true;
+        }
+
         public void PlayHit(bool onEnemy) =>
             Play(onEnemy ? _hitSoft : _hitWall, "hit", onEnemy ? 0.35f : 0.22f, 1f, 0.14f);
 

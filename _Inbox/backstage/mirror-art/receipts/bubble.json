@@ -1,0 +1,14 @@
+{
+  "id": "mirror-bubble",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-26T10:39:40+0800",
+  "task_id": "task_01M8AVJ6FSKF1W84EFZG63CFS3",
+  "result_url": "https://getapib.org/f/image/3039979866462005-45f36462-1ece-4061-a4ca-c229a8fd9e16-image_5V10DQJKZ2NBAKPC6SBK361JY3_0.png",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGB",
+  "out": "_Inbox/backstage/mirror-art/bubble.png",
+  "bytes": 1419833,
+  "sha256": "de01647156ef92071dfe408cf20bcaab2ca8be1e3d421fafc5d7feef71a0d11f"
+}

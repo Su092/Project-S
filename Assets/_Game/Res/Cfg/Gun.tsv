@@ -7,3 +7,7 @@ shotgun	战术霰弹枪	每次射击读取 2 个子弹配件。	6	10	1.9	0.6	2	2
 sniper	精确射手步枪	零散布，右键高倍瞄准。	6	9	2.2	0.85	0	1	ap	#4a6fa5	28	SW04_Cello	0
 beam	光束发射器	能量弹匣容量大，射速极高。	8	80	2	0.06	0.6	1	laser	#c94fd8	55	SW05_Harp	0
 launcher	多功能发射器	槽位最多，适合构筑复杂连锁。	12	14	2.4	0.7	1	1	grenade	#5f8a5f	55	SW06_Accordion	0
+castanets	响板	双击分两次读谱，每次独立耗能。	6	24	1.6	0.55	0.6	1	answer	#ff8362	55	Orchestra/castanets	0
+handpan	手碟	重敲手碟，以落点截击地面敌群。	8	20	1.9	0.75	0	1	ripple	#56e4d8	55	Orchestra/handpan	0
+handbells	双音手铃	交替演奏两种音符，敲响目标上的铃记。	8	26	1.7	0.38	0.4	1	bellmark	#ffcb64	55	Orchestra/handbells	0
+musicbox	手摇八音盒	摇动音筒，让簧片沿同一条路线依次弹出。	10	18	2.1	0.95	0	1	barrelroll	#c89bff	55	Orchestra/musicbox	0

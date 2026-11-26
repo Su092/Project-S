@@ -1,0 +1,16 @@
+{
+  "id": "Performer5",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-26T11:36:11+0800",
+  "task_id": "task_01M8AYSQC59N6AZFYJKB4KD4VR",
+  "result_url": "https://getapib.org/image/9998204335791539-ca97fb76-c57b-48b7-a36f-6a23d5ea93ae-image_task_01M8AYTQSD4X05KX39PJ3EGD7W_0.png",
+  "width": 1360,
+  "height": 2048,
+  "mode": "RGBA",
+  "out": "_Inbox/backstage/mirror-art/portrait-edition/Performer5.png",
+  "bytes": 4083696,
+  "sha256": "2572e85d66fc2123e670b704891e01697c99dc5efb0a01c6b08d628f0c9eb8cf",
+  "style_reference": "Assets/_Game/Res/Texture/UI/Icon/hud_operator_portrait.png",
+  "identity_reference": "prior mirror portrait from trio-a or trio-b: Performer5"
+}

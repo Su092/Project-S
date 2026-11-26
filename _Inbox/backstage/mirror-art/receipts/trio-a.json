@@ -1,0 +1,14 @@
+{
+  "id": "trio-a",
+  "status": "completed",
+  "model": "gpt-image-2",
+  "submitted_at": "2026-11-26T10:38:28+0800",
+  "task_id": "task_01M8AVG02KW3JVMY3C3MG3A1XJ",
+  "result_url": "https://getapib.org/image/9998204339219787-f2a3552a-6a4f-41bf-8f44-901dedcc9b50-image_img_c681dffdc70847549637fc60ca443140_0.png",
+  "width": 2048,
+  "height": 1152,
+  "mode": "RGB",
+  "out": "_Inbox\\backstage\\mirror-art\\trio-a.png",
+  "bytes": 3440933,
+  "sha256": "7e622c0e1555682002e8d2fe8c6f9de432d9641bc44293a456d7ed8d8841b26b"
+}

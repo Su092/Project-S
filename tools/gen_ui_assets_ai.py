@@ -80,13 +80,11 @@ for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
     CATEGORY[_n] = "Common"
 for _n in ("card_frame", "card_inner", "bar_frame"):
     CATEGORY[_n] = "Frame"
-for _n in ("btn_primary", "btn_primary_hover", "btn_danger", "slot_empty", "slot_filled",
+for _n in ("btn_primary", "btn_danger", "slot_empty", "slot_filled",
            "bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat",
            "crosshair", "hit_marker", "keycap"):
     CATEGORY[_n] = "Widget"
-for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
-    CATEGORY[_n] = "Tag"
-for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
+for _n in ("icon_bullet", "icon_whole", "icon_after",
            "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
     CATEGORY[_n] = "Icon"
 
@@ -111,15 +109,10 @@ WHITE = (240, 244, 250, 255)
 # Unity 钳制后圆角变直角、描边糊成一条。贴图 512x96 再大也救不了。
 BORDERS = {
     "btn_primary": (16, 14, 16, 14),        # 最小控件 108x40（背包 BuyButton）
-    "btn_primary_hover": (16, 14, 16, 14),
     "btn_danger": (16, 14, 16, 14),
     "bar_bg": (3, 3, 3, 3),                 # 最小控件 360x14（HUD 的 XP 条）
     "slot_empty": (18, 18, 18, 18),         # 最小控件 60x84（ChainRow.Tail）
     "slot_filled": (6, 6, 6, 6),            # 最小控件 20x20（Menu.BadgeBack）
-    "tag_starter": (1, 1, 1, 1),            # 最小控件 6x84（ItemCard.Tag 细竖条）
-    "tag_common": (1, 1, 1, 1),
-    "tag_rare": (1, 1, 1, 1),
-    "tag_epic": (1, 1, 1, 1),
     "panel": (20, 20, 20, 20),              # 最小控件 380x228（VolumePanel）
     # ---- 老素材：预处理直接产出最终图，边距同样必须在两边对齐 ----
     "card_frame": (10, 10, 10, 10),         # 最小控件 150x84（ItemCard），圆角 6
@@ -132,15 +125,10 @@ BORDERS = {
 # 每个素材在 prefab 里的最小控件尺寸（宽,高）。改 prefab 布局时要同步改这里。
 MIN_RECT = {
     "btn_primary": (108, 40),
-    "btn_primary_hover": (108, 40),
     "btn_danger": (340, 70),
     "bar_bg": (360, 14),
     "slot_empty": (60, 84),
     "slot_filled": (20, 20),
-    "tag_starter": (272, 16),
-    "tag_common": (272, 16),
-    "tag_rare": (272, 16),
-    "tag_epic": (272, 16),
     "panel": (380, 228),
     "card_frame": (150, 84),
     "card_inner": (142, 76),
@@ -456,27 +444,6 @@ def make_slot(name, filled):
     return img
 
 
-def make_rarity_tag(name, color):
-    """稀有度标签条：左端方块 + 横条，底色淡染稀有度色。
-
-    ⚠ 最小控件是 OfferCard.TagTop 272x16。边距 8 ⇒ 圆角必须 ≤8，取 6。
-    左端方块的左边界要 >8（否则拉伸时被切一半），取 10。
-    """
-    w, h = 256, 64
-    r = RADIUS["tag"]
-
-    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    # 底：淡染（alpha 很低，避免抢文字）
-    ImageDraw.Draw(img).rounded_rectangle([0, 0, w - 1, h - 1], radius=r,
-                                          fill=color[:3] + (34,))
-    hard_line(img, [0, 0, w - 1, h - 1], r, color[:3] + (170,), 2)
-    # 左端方块：放在左边距(8)之外一点，避免被 9-slice 拉到中间
-    ImageDraw.Draw(img).rounded_rectangle([10, h // 2 - 7, 24, h // 2 + 7],
-                                          radius=3, fill=color)
-    img.save(os.path.join(cat_dir(name), name + ".png"))
-    return img
-
-
 def make_divider(name):
     """分隔线：两端淡出的青色细线。"""
     w, h = 256, 16
@@ -746,10 +713,9 @@ def make_item_icon(name, glyph_src_name):
 # ---------------- 主流程 ----------------
 
 GROUPS = {
-    "btn": ["btn_primary", "btn_primary_hover", "btn_danger"],
+    "btn": ["btn_primary", "btn_danger"],
     "bar": ["bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat"],
     "slot": ["slot_empty", "slot_filled"],
-    "tag": ["tag_starter", "tag_common", "tag_rare", "tag_epic"],
     "icon": ["icon_frame", "icon_lock", "icon_check", "icon_arrow"],
     "misc": ["divider", "hit_marker", "vignette_damage", "crosshair"],
     "card": ["card_inner"],
@@ -761,8 +727,6 @@ GROUPS = {
 def build(name):
     if name == "btn_primary":
         return make_btn(name, CYAN, light=False)
-    if name == "btn_primary_hover":
-        return make_btn(name, CYAN_HI, light=True)
     if name == "btn_danger":
         return make_btn(name, RED, light=False)
     if name == "bar_bg":
@@ -779,14 +743,6 @@ def build(name):
         return make_slot(name, filled=False)
     if name == "slot_filled":
         return make_slot(name, filled=True)
-    if name == "tag_starter":
-        return make_rarity_tag(name, (115, 122, 130))
-    if name == "tag_common":
-        return make_rarity_tag(name, (107, 142, 107))
-    if name == "tag_rare":
-        return make_rarity_tag(name, (90, 166, 240))
-    if name == "tag_epic":
-        return make_rarity_tag(name, (199, 107, 242))
     if name == "icon_frame":
         return make_icon_frame(name)
     if name == "icon_lock":

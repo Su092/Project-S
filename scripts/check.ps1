@@ -459,10 +459,10 @@ function Task-Shots {
 }
 
 function Task-Enemies {
-    Write-Section "enemies - Foundry character prefab validation"
-    $r = Invoke-UnityMethod "S.EditorTools.SEnemyImporter.Validate" "enemy-import-batch.log"
-    $report = Join-Path $LogDir "enemy-import-check.log"
-    $result = if (Test-Path $report) { Select-String -Path $report -Pattern "RESULT Enemy import ([0-9]+)/([0-9]+) passed" | Select-Object -Last 1 }
+    Write-Section "enemies - music character prefab validation"
+    $r = Invoke-UnityMethod "S.EditorTools.SMusicEnemyImporter.Validate" "enemy-import-batch.log"
+    $report = Join-Path $LogDir "music-enemy-validation.log"
+    $result = if (Test-Path $report) { Select-String -Path $report -Pattern "RESULT ([0-9]+)/([0-9]+) passed" | Select-Object -Last 1 }
     if ($r.Exit -eq 0 -and $result -and $result.Matches[0].Groups[1].Value -eq $result.Matches[0].Groups[2].Value) {
         Write-Host $result.Line
     } else {

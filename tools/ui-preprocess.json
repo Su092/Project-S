@@ -91,17 +91,6 @@
     "pad_ratio": 0.04,
     "src_sha256": "7da7140fa75bc640fce412ae1672acc54111fb9d3e75ac880b12e4377321859c"
   },
-  "icon_gun": {
-    "mode": "icon",
-    "size": [
-      128,
-      128
-    ],
-    "trim": true,
-    "final": true,
-    "pad_ratio": 0.04,
-    "src_sha256": "bbb060e1045bcb66d8254aceeb0465f145616e5d10c7b3483b6f4fb442dd1084"
-  },
   "keycap": {
     "mode": "icon",
     "size": [

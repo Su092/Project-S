@@ -103,7 +103,6 @@ namespace S.EditorTools
                 // 圆角 12 ⇒ 边距必须 ≥12 才能包住圆角，同时 40 高要留出可拉伸区。
                 // 取 14：12 圆角 + 2px 余量，40-28=12px 可拉伸区。原来的 22 直接吃光 40 高。
                 case "btn_primary":
-                case "btn_primary_hover":
                 case "btn_danger":
                     return new Vector4(16f, 14f, 16f, 14f);
 
@@ -124,15 +123,6 @@ namespace S.EditorTools
                 // 圆角随之只能 6 —— 20px 的方框上，6 已经是能看出来的极限。
                 case "slot_filled":
                     return new Vector4(6f, 6f, 6f, 6f);
-
-                // 稀有度标签：OfferCard.TagTop 272×16，ItemCard.Tag 只有 6×84（细竖条）。
-                // 6px 宽是硬约束，边距合计必须 ≤2 才有可拉伸区，取 1。
-                // 代价最大的一处：标签在两处都不是"药丸"，圆角退化为 1~2px 的微倒角。
-                case "tag_starter":
-                case "tag_common":
-                case "tag_rare":
-                case "tag_epic":
-                    return new Vector4(1f, 1f, 1f, 1f);
 
                 // 面板：VolumePanel 最小 380×228，圆角 12 ⇒ 20 绰绰有余。
                 // ⚠ 这里 20 是按贴图 512 时的圆角(约 12)给的余量；预处理量得

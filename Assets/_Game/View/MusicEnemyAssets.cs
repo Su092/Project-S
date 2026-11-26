@@ -17,6 +17,18 @@ namespace S.View
             "S14_XylophoneStegosaur", "S14_XylophoneStegosaur_Redwood", "S14_XylophoneStegosaur_Ebony",
             "S21_BagpipeBoar", "S21_BagpipeBoar_Parade", "S21_BagpipeBoar_Ceremony"
         };
+        public static System.Collections.Generic.IEnumerable<string> AllCharacters
+        {
+            get
+            {
+                foreach (var id in Commons) yield return id;
+                foreach (var id in Elites) yield return id;
+                yield return Ballerina;
+                yield return Conductor;
+                yield return "S29_NoteTurret";
+            }
+        }
+
         public static string Select(string kind, bool elite)
         {
             if (elite) return Elites[Random.Range(0, Elites.Length)];

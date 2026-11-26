@@ -60,6 +60,14 @@ namespace LoadoutTests
             TimelineCases();
             RestartCases();
             BossCases();
+            var practice = MetaProgress.Deserialize("shard=3\nunlock.start_mag=1");
+            Check("old progress loads shared practice at zero", practice.Training[0] == 0 && practice.IsUnlocked("start_mag"));
+            Check("loss rewards completed minutes and earned levels", practice.FinishRun(false, 0, 125, 3) == 4 && practice.Shard == 7);
+            Check("practice charges increasing prices", practice.Train(1) && practice.Train(1) && practice.Shard == 1);
+            Check("failed purchase does not change progress", !practice.Train(1) && practice.Training[1] == 2 && practice.Shard == 1);
+            practice.Performer = 5;
+            var restored = MetaProgress.Deserialize(practice.Serialize());
+            Check("appearance and practice survive reload", restored.Performer == 5 && restored.Training[1] == 2 && restored.Shard == 1);
             MusicCombatCases.Run(Check);
             D = SCfgLoader.Load(new SCfgDirectorySource(dir));
             FusionCases.Run(D, Check);
@@ -86,6 +94,36 @@ namespace LoadoutTests
         {
             Section("枪械奖励");
             var owned = new HashSet<string> { "rifle", "smg" };
+            var themed = new RunState(D, 1992);
+            themed.OnEliteDefeated();
+            var guarantee = themed.Roll(3, owned);
+            Check("首次精英保底一把局内乐器", guarantee.Count == 3 && guarantee[0].IsGun &&
+                RunState.IsSignature(D.Guns[guarantee[0].Id].BaseBullet));
+            var signature = D.Guns[guarantee[0].Id];
+            bool locked = true, unlocked = false, otherLocked = true;
+            for (int n = 0; n < 400; n++)
+                foreach (var o in themed.Roll()) locked &= !RunState.IsSignature(o.Id);
+            themed.UnlockInstrument(signature);
+            for (int n = 0; n < 400; n++)
+                foreach (var o in themed.Roll())
+                {
+                    unlocked |= o.Id == signature.BaseBullet;
+                    otherLocked &= !RunState.IsSignature(o.Id) || o.Id == signature.BaseBullet;
+                }
+            Check("招牌音符随对应乐器单独入池", locked && unlocked && otherLocked);
+            var rhythm = new GunRuntime(D.Guns["castanets"], D.BuildStarterSlots("castanets"));
+            int startingAmmo = rhythm.Ammo;
+            var first = rhythm.TryFire(out _);
+            bool firstBeat = first != null && rhythm.SecondBeatPending && Near(rhythm.FireCooldown, .18f);
+            rhythm.Tick(.181f);
+            var second = rhythm.TryFire(out _);
+            Check("响板双击独立读谱扣能", firstBeat && second != null && !rhythm.SecondBeatPending &&
+                rhythm.Ammo == startingAmmo - 2 && Near(rhythm.FireCooldown, .55f));
+            var read = new NoteRead();
+            Check("同次读谱逐目标记拍", read.TryAnswer(42) && !read.TryAnswer(42) && read.TryAnswer(43));
+            Check("四把局内乐器起手均配专属音符", D.GunOrder.FindAll(g => RunState.IsSignature(g.BaseBullet)).TrueForAll(
+                g => D.BuildStarterSlots(g.Id).Cells[0]?.Id == g.BaseBullet && !g.Starter));
+
             var a = new RunState(D, 417);
             var b = new RunState(D, 417);
             int gunRolls = 0;
@@ -130,8 +168,8 @@ namespace LoadoutTests
         {
             Section("数据契约（data-schema.md）");
 
-            Check("6 把枪", D.GunOrder.Count == 6, $"{D.GunOrder.Count}");
-            Check("17 个子弹配件", D.BulletOrder.Count == 17, $"{D.BulletOrder.Count}");
+            Check("10 把乐器", D.GunOrder.Count == 10, $"{D.GunOrder.Count}");
+            Check("21 个子弹配件", D.BulletOrder.Count == 21, $"{D.BulletOrder.Count}");
             Check("34 个衍生配件", D.ModifierOrder.Count == 34, $"{D.ModifierOrder.Count}");
 
             Check("步枪 8 槽", D.Guns["rifle"].SlotCount == 8, $"{D.Guns["rifle"].SlotCount}");

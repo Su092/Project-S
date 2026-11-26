@@ -46,6 +46,8 @@ namespace S.Core
         Chain = 4,
         Saw = 5,
         Hole = 6,
+        Ripple = 7,
+        MusicBox = 8,
     }
 
     /// <summary>触发条件：命中 / 定时 / 消散。触发弹会把下一个子弹作为载荷施放。</summary>
@@ -55,6 +57,13 @@ namespace S.Core
         Hit = 1,
         Timer = 2,
         Expire = 3,
+    }
+
+    /// <summary>一次读谱共享的命中记录，同一目标每拍只可响应一次。</summary>
+    public sealed class NoteRead
+    {
+        HashSet<object> answered;
+        public bool TryAnswer(object target) => (answered ??= new HashSet<object>()).Add(target);
     }
 
     /// <summary>
@@ -92,6 +101,14 @@ namespace S.Core
 
         /// <summary>来源配件 id（UI 与统计用）。</summary>
         public string ModuleId;
+        public NoteRead Read;
+
+        public void BindRead(NoteRead read)
+        {
+            Read = read;
+            if (Payload != null)
+                foreach (var child in Payload) child.BindRead(read);
+        }
 
         /// <summary>来源子弹定义（表现层取色/命名）。</summary>
         public BulletDef Source;
@@ -112,7 +129,7 @@ namespace S.Core
                 float payload = 0f;
                 if (Payload != null)
                     for (int i = 0; i < Payload.Count; i++) payload += Payload[i].ExpectedDamage;
-                return (per + ExplodeDmg) * Count + payload;
+                return (per + ExplodeDmg) * Count * (Kind == BulletKind.MusicBox ? 3 : 1) + payload;
             }
         }
 

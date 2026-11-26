@@ -45,9 +45,9 @@ namespace S.EditorTools
 
             // 3) 逐类抽查：每类至少取到一件，缺哪类一眼能看出
             Check("正式地图可取", S.View.SRes.Get<GameObject>(S.View.FoundryArena.ActiveAssetName) != null);
-            foreach (var name in SEnemyImporter.Names)
+            foreach (var name in S.View.MusicEnemyAssets.AllCharacters)
                 Check("敌人预制体可取 "+name, S.View.SRes.Get<GameObject>(name) != null);
-            Check("模型可取", S.View.SRes.Get<GameObject>("Modle_Enemy_Crawler") != null, "Modle_Enemy_Crawler");
+            Check("模型可取", S.View.SRes.Get<GameObject>("SW01_Violin") != null, "SW01_Violin");
             Check("贴图可取", S.View.SRes.Get<Texture2D>("tex_floor_concrete") != null, "tex_floor_concrete");
             Check("UI 素材可取", S.View.SRes.Get<Sprite>("panel") != null, "panel");
             Check("配件图标可取", S.View.SRes.Get<Sprite>("item_pierce") != null, "item_pierce");

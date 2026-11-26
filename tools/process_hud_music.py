@@ -59,7 +59,7 @@ def main():
  previous=json.loads((SOURCE/"processing-report.json").read_text(encoding="utf-8")) if selected else {"components":[]}
  rows=[];images={};catalog=json.loads((R/"tools/hud-v2-catalog.json").read_text())
  def save(key,category,im,source,cell,bounds=None):
-  if key=="hud_attachment_socket":return
+  if key in {"hud_attachment_socket","hud_read_cursor","hud_weapon_selected_ring"}:return
   if selected and key not in selected:return
   assert im.mode=="RGBA" and im.getchannel("A").getextrema()[1]==255,key
   dest=OUT/category/(key+".png")
@@ -111,22 +111,28 @@ def main():
  if selected:
   updates={r["name"]:r for r in rows}
   rows=[updates.pop(r["name"],r) for r in previous["components"]]+list(updates.values())
- rows=[r for r in rows if r["name"]!="hud_attachment_socket"]
+ rows=[r for r in rows if r["name"] not in {"hud_attachment_socket","hud_read_cursor","hud_weapon_selected_ring"}]
+ # A selective rebuild can follow a cleanup of the optional staging directory.
+ # Read unchanged sprites from the installed UI for validation and the contact sheet.
+ def processed(row):
+  staged=STAGE/(row["name"]+".png")
+  return staged if staged.is_file() else OUT/row["category"]/(row["name"]+".png")
  # Integrity + transparency checks catch black rectangular backgrounds before import.
  for row in rows:
-  p=STAGE/(row["name"]+".png");im=Image.open(p)
+  p=processed(row);im=Image.open(p)
   assert im.getchannel("A").getbbox(),p
   if row["category"]=="Icon/Items":
    a=np.array(im)[:,:,3];assert a[0,0]==0 and a[-1,-1]==0 and a[128,128]>250,p
  for name in ["hud_portrait_frame","hud_minimap_bezel","hud_attachment_read_ring"]:
-  im=Image.open(STAGE/(name+".png"));assert im.getpixel((im.width//2,im.height//2))[3]==0,name
+  row=next(r for r in rows if r["name"]==name)
+  im=Image.open(processed(row));assert im.getpixel((im.width//2,im.height//2))[3]==0,name
  report=dict(components=rows,raw_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (SOURCE/"raw").glob("*.png")},notes=["Existing GUIDs retained; user replacement aspect/circle alignment and bar content insets updated","Ammo arc geometrically registered at 256x256 pivot128 radius96..112; fill99..109","New HUD-only fills, reticle and overlays; other shared panels unchanged"])
  (SOURCE/"processing-report.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
  # Contact sheet for actual processed alpha inspection.
  tiles=rows;w=1024;h=((len(tiles)+7)//8)*150
  sheet=Image.new("RGB",(w,h),(26,36,50));d=ImageDraw.Draw(sheet)
  for i,row in enumerate(tiles):
-  im=Image.open(STAGE/(row["name"]+".png"));im.thumbnail((118,118),RESAMPLE)
+  im=Image.open(processed(row));im.thumbnail((118,118),RESAMPLE)
   x=(i%8)*128;y=(i//8)*150;sheet.paste(im,(x+(128-im.width)//2,y+(120-im.height)//2),im)
   d.text((x+3,y+123),row["name"].removeprefix("hud_")[:20],fill=(245,218,173))
  sheet.save(SOURCE/"processed-contact.png")

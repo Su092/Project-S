@@ -14,6 +14,21 @@ namespace S.View
     /// </summary>
     public sealed class PlayerWeapons : MonoBehaviour
     {
+        internal OrchestraMark RingingTarget;
+        readonly List<Projectile> playingBoxes = new List<Projectile>(2);
+
+        internal void RegisterBox(Projectile box)
+        {
+            if (playingBoxes.Count == 2)
+            {
+                var oldest = playingBoxes[0];
+                playingBoxes.RemoveAt(0);
+                if (oldest) { oldest.enabled = false; Destroy(oldest.gameObject); }
+            }
+            playingBoxes.Add(box);
+        }
+        internal void UnregisterBox(Projectile box) => playingBoxes.Remove(box);
+
         public Transform MuzzlePoint;
         public PlayerController Player;
 
@@ -89,6 +104,7 @@ namespace S.View
             }
             else
             { _guns.Add(gun); AllGuns.Add(gun); _active = _guns.Count - 1; }
+            run.UnlockInstrument(def);
             _switchCooldown = 0.3f;
             RefreshGunModel();
             return true;
@@ -145,7 +161,7 @@ namespace S.View
             g = Active; // 切枪输入后，换弹与开火使用新枪
             if (kb.rKey.wasPressedThisFrame) { g.StartReload(); CancelAll(); }
 
-            if (mouse.leftButton.isPressed && !IsSwitching && !(GameRoot.Instance != null && GameRoot.Instance.HudPointerHeld))
+            if ((mouse.leftButton.isPressed || g.SecondBeatPending) && !IsSwitching && !(GameRoot.Instance != null && GameRoot.Instance.HudPointerHeld))
             {
                 var cast = g.TryFire(out string reason, NextRng);
                 if (cast != null) BeginCast(cast);
@@ -170,8 +186,10 @@ namespace S.View
             MusicVisual?.Shot(g != null ? g.Stats.ShotInterval(cast.DelayAdd) : .2f);
             Quaternion aim = Camera.main != null ? Camera.main.transform.rotation : transform.rotation;
 
+            var read = new NoteRead();
             for (int i = 0; i < cast.Projectiles.Count; i++)
             {
+                cast.Projectiles[i].BindRead(read);
                 _pending.Add(new PendingShot
                 {
                     Desc = cast.Projectiles[i],
@@ -235,6 +253,7 @@ namespace S.View
         void CancelAll()
         {
             _pending.Clear();
+            foreach (var gun in _guns) gun.CancelSecondBeat();
         }
 
         void PlayCastSfx(CastResult cast)
@@ -244,6 +263,7 @@ namespace S.View
             if (cast.Projectiles.Count > 0)
             {
                 var d0 = cast.Projectiles[0];
+                if (SfxBank.Instance && SfxBank.Instance.PlayNote(d0.ModuleId)) return;
                 speedMul = Mathf.Clamp(d0.Speed / 90f, 0.4f, 2.5f);
                 lifetime = d0.Lifetime;
                 splash = d0.ExplodeR > 0f;
@@ -274,9 +294,17 @@ namespace S.View
             var modelName = ActiveGunModel;
             if (modelName == null) return;
 
-            var prefab = SAssets.Model(modelName);
+            bool orchestra = modelName.StartsWith("Orchestra/");
+            var prefab = orchestra ? null : SAssets.Model(modelName);
             GameObject vis;
-            if (prefab != null && prefab.GetComponent<MusicWeaponVisual>() != null)
+            if (orchestra)
+            {
+                MusicVisual = null;
+                vis = OrchestraProps.InstantiateModel(Active.Base.Id, GunModelRoot);
+                if (!vis) return;
+                vis.transform.localScale = Vector3.one * .52f;
+            }
+            else if (prefab != null && prefab.GetComponent<MusicWeaponVisual>() != null)
             {
                 vis = Instantiate(prefab, GunModelRoot, false);
                 MusicVisual = vis.GetComponent<MusicWeaponVisual>();

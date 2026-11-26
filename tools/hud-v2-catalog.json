@@ -19,7 +19,6 @@
   "hud_map_chest": "Icon",
   "hud_pause_glyph": "Icon",
   "hud_weapon_swap": "Icon",
-  "hud_read_cursor": "Icon",
   "hud_gun_rifle": "Icon",
   "hud_gun_smg": "Icon",
   "hud_gun_shotgun": "Icon",
@@ -28,7 +27,6 @@
   "hud_gun_launcher": "Icon",
   "hud_operator_portrait": "Icon",
   "hud_timer_plate": "Frame",
-  "hud_weapon_selected_ring": "Widget",
   "hud_attachment_read_ring": "Widget",
   "hud_utility_placeholder": "Icon",
   "hud_map_mask": "Widget",
@@ -113,5 +111,13 @@
   "score_sort": "Icon",
   "score_page": "Frame",
   "score_preview_rail": "Frame",
-  "score_slot_empty": "Frame"
+  "score_slot_empty": "Frame",
+  "offer_item_answer": "Items",
+  "offer_item_ripple": "Items",
+  "offer_item_bellmark": "Items",
+  "offer_item_barrelroll": "Items",
+  "hud_gun_castanets": "Icon",
+  "hud_gun_handpan": "Icon",
+  "hud_gun_handbells": "Icon",
+  "hud_gun_musicbox": "Icon"
 }

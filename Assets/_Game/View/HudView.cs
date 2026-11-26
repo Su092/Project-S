@@ -558,8 +558,8 @@ namespace S.View
             if (_refs.BannerPlate != null) _refs.BannerPlate.gameObject.SetActive(true);
 
             _refs.CenterBig.text = win
-                ? $"通关\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}</size>"
-                : $"阵亡\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}\n按 R 重开</size>";
+                ? $"通关\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}\n乐章碎片 +{_root.LastReward} · 按 R 重开</size>"
+                : $"阵亡\n<size=26>存活 {Clock(_root.RunElapsed)} · 击杀 {_root.Run.Kills} · 等级 {_root.Run.Level}\n乐章碎片 +{_root.LastReward} · 按 R 重开</size>";
             _refs.CenterBig.color = win ? new Color(0.6f, 1f, 0.7f) : new Color(1f, 0.4f, 0.4f);
 
             _endAwaitingRestart = true;

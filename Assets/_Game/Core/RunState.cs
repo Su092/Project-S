@@ -170,6 +170,23 @@ namespace S.Core
         /// <summary>
         /// 生成一次三选一。不重复同一个 id；史诗允许跨轮重复，以支持合成。
         /// </summary>
+        readonly HashSet<string> unlockedNotes = new HashSet<string>();
+        bool eliteSeen, eliteOffer;
+
+        public static bool IsSignature(string id) =>
+            id == "answer" || id == "ripple" || id == "bellmark" || id == "barrelroll";
+
+        public void UnlockInstrument(GunDef gun)
+        {
+            if (IsSignature(gun.BaseBullet)) unlockedNotes.Add(gun.BaseBullet);
+        }
+
+        public void OnEliteDefeated()
+        {
+            if (eliteSeen) return;
+            eliteSeen = eliteOffer = true;
+        }
+
         public const float GunOfferChance = 0.10f;
 
         public List<Offer> Roll(int count = 3, ISet<string> ownedGuns = null)
@@ -178,9 +195,10 @@ namespace S.Core
             var picked = new HashSet<string>();
             if (count > 0 && ownedGuns != null)
             {
-                var guns = _data.GunOrder.FindAll(g => !ownedGuns.Contains(g.Id));
-                if (guns.Count > 0 && NextFloat() < GunOfferChance)
+                var guns = _data.GunOrder.FindAll(g => !ownedGuns.Contains(g.Id) && (!eliteOffer || IsSignature(g.BaseBullet)));
+                if (guns.Count > 0 && (eliteOffer || NextFloat() < GunOfferChance))
                     offers.Add(new Offer { Id = guns[NextInt(guns.Count)].Id, IsGun = true, Rarity = Rarity.Rare });
+                eliteOffer = false;
             }
 
             for (int attempt = 0; attempt < count * 16 && offers.Count < count; attempt++)
@@ -224,7 +242,7 @@ namespace S.Core
             for (int i = 0; i < _data.BulletOrder.Count; i++)
             {
                 var b = _data.BulletOrder[i];
-                if (exclude.Contains(b.Id)) continue;
+                if (exclude.Contains(b.Id) || (IsSignature(b.Id) && !unlockedNotes.Contains(b.Id))) continue;
                 list.Add(new PoolEntry
                 {
                     Offer = new Offer { Id = b.Id, IsBullet = true, Rarity = b.Rarity },

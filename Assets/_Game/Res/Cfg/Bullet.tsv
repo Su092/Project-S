@@ -1,20 +1,24 @@
 id	name	icon	desc	rarity	cost	delay	kind	damage	count	spread	speed	lifetime	size	pierce	bounce	homing	gravity	explodeR	explodeDmg	burn	slow	crit	critMul	knock	chainCount	range	radius	duration	trigger	color
 配件编号	名称	角标字	效果描述	稀有度	耗弹	击发修正	形态	伤害	数量	散射	初速	存活	体积	穿透	反弹	追踪	重力	爆炸半径	爆炸伤害	燃烧	减速	暴击率	暴击倍率	击退	连锁数	射程	范围半径	持续	触发	颜色
 string,unique	string	string	string	Common|Rare|Epic	int	float	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string	enum|float|int|string
-std	标准弹	标	均衡的高速投射物。	Common	1	0		12			95	1.4																		#ffd25a
-light	轻型弹	轻	伤害较低但射击间隔更短，略有散布。	Common	1	-0.03		7		2.5	110	1.2	0.09																	#fff3a0
-pellet	霰弹	霰	一次射出 6 枚弹丸，近距离威力巨大。	Common	2	0.05		6	6	9	85	0.45	0.08																	#ffb347
-ap	穿甲弹	穿	极高速度，可贯穿 4 名敌人。	Rare	3	0.15		42			230	1.2	0.1	4										2.5						#7df9ff
-laser	激光束	光	瞬间命中的光束。穿透/弹跳对其同样生效。	Common	1	0	Beam	9																		70				#ff4fd8
-grenade	榴弹	榴	受重力影响的抛射榴弹，碰撞后爆炸。	Common	3	0.2		10			34	3	0.2				22	4	38											#9cff57
-bouncer	弹跳弹	跳	在墙壁与地面间反弹 4 次。	Common	1	0		11			70	3	0.13		4															#5affc8
-missile	追踪飞弹	追	自动追踪敌人，命中时小范围爆炸。	Rare	3	0.15		14			38	4	0.18			7		2.2	16											#ff7a45
-mine	感应地雷	雷	陷阱：抛出后吸附在表面，敌人靠近时爆炸，持续 25 秒。	Rare	4	0.25	Mine	0			22	3	0.22				25	4.5	70									25		#ff3b3b
-shock	电网陷阱	网	陷阱：落地展开电网 5 秒，持续伤害并减速范围内敌人。	Rare	4	0.25	Field	22			22	3	0.2				25				0.4						4	5		#58a6ff
-chain	连锁闪电	链	锁定准星附近的敌人，并在敌人之间弹跳 4 次。	Rare	2	0.05	Chain	14																	4	32				#b7a6ff
-saw	回旋锯	锯	无限穿透，飞出后返回玩家。	Rare	2	0.1	Saw	9			42	2.4	0.35	999										0.5						#e0e0e0
-flame	火焰喷射	火	短程火焰，穿透并点燃敌人。	Common	1	-0.05		3	3	12	24	0.4	0.25	3						8				0.2						#ff6a00
-hole	奇点	奇	缓慢飞行的引力奇点，吸引并持续伤害周围敌人，结束时坍缩爆炸。	Epic	6	0.5	Hole	6			10	4	0.45	999				3.5	40								7			#9b5cff
-trigger	触发弹	触	【命中触发】首次命中敌人或表面时，在命中点施放下一个子弹配件（连同其衍生配件）。	Rare	2	0		8			80	1.5																	Hit	#ffffff
-timer	定时触发弹	时	【定时触发】飞行 0.4 秒后，在当前位置施放下一个子弹配件。	Rare	2	0		8			60	1.5																	Timer	#ffe9a8
-expire	消散触发弹	散	【消散触发】可穿透 2 名敌人、反弹 2 次，彻底消失时施放下一个子弹配件。	Epic	2	0.05		9			70	1.6		2	2														Expire	#d4b8ff
+std	弓音弹	弓	一道金色弓痕沿准星直飞，适合持续点奏。	Common	1	0		12			95	1.4																		#ffd25a
+light	拨片弹	拨	拨片化作轻快音粒，射击间隔略短，远距离略有散布。	Common	1	-0.03		7		2.5	110	1.2	0.09																	#fff3a0
+pellet	碎拍弹	碎	一记鼓击扇形散出六枚碎拍，贴近时可集中命中。	Common	2	0.05		6	6	9	85	0.45	0.08																	#ffb347
+ap	长弓贯音	贯	低音弦迹沿直线高速飞行，可贯穿四名敌人。	Rare	3	0.15		42			230	1.2	0.1	4										2.5						#7df9ff
+laser	泛音束	束	拨弦即命中，光弦可受穿奏与折返效果修饰。	Common	1	0	Beam	9																		70				#ff4fd8
+grenade	风箱重音	箱	抛出缓慢下坠的风箱重音，碰撞时在周围炸响。	Common	3	0.2		10			34	3	0.2				22	4	38											#9cff57
+bouncer	折返音	折	折返音碰到墙面或地板最多回弹四次。	Common	1	0		11			70	3	0.13		4															#5affc8
+missile	寻调音	寻	寻调音向附近敌人转向，命中时产生小范围爆音。	Rare	3	0.15		14			38	4	0.18			7		2.2	16											#ff7a45
+mine	伏拍	伏	抛出伏拍，接触表面后埋伏，敌人靠近或等待 25 秒时炸响。	Rare	4	0.25	Mine	0			22	3	0.22				25	4.5	70									25		#ff3b3b
+shock	延音区	延	落地展开持续 5 秒的延音区，对区内敌人造成伤害并减速。	Rare	4	0.25	Field	22			22	3	0.2				25				0.4						4	5		#58a6ff
+chain	连奏音	连	连奏音从附近目标起奏，最多再跳转四次。	Rare	2	0.05	Chain	14																	4	32				#b7a6ff
+saw	回旋铙片	铙	铙片飞出后返回演奏者，沿路可穿过多个目标。	Rare	2	0.1	Saw	9			42	2.4	0.35	999										0.5						#e0e0e0
+flame	灼音	灼	向前喷出一簇短程灼音，穿过并点燃敌人。	Common	1	-0.05		3	3	12	24	0.4	0.25	3						8				0.2						#ff6a00
+hole	低频涡流	涡	低频涡流缓慢移动，吸引并持续伤害附近敌人，结束时坍缩。	Epic	6	0.5	Hole	6			10	4	0.45	999				3.5	40								7			#9b5cff
+trigger	击发引子	击	首次命中敌人或表面时，在命中点演奏下一格音符及其修饰。	Rare	2	0		8			80	1.5																	Hit	#ffffff
+timer	延时引子	时	飞行 0.4 秒后，在当前位置演奏下一格音符及其修饰。	Rare	2	0		8			60	1.5																	Timer	#ffe9a8
+expire	收尾引子	尾	可穿透两个目标、回弹两次，在弹体消失处演奏下一格音符及其修饰。	Epic	2	0.05		9			70	1.6		2	2														Expire	#d4b8ff
+answer	问答拍弹	拍	直击留下 1.2 秒拍记。另一次读谱的问答拍命中可合拍，追加 60% 伤害。	Rare	1	0	Proj	13			75	1.4	0.2				0									60	0	1.2		#ff8362
+ripple	涟漪音	环	落地后在 0.45 秒内扩出 3 米音环，每个接地目标只受击一次。	Rare	2	0	Ripple	26			25	4	0.32				25									60	3	0.45		#56e4d8
+bellmark	引铃音	铃	直击挂铃 3 秒。另一种音符直击可响铃，追加挂铃伤害的 50%。	Rare	1	0	Proj	14			84	1.5	0.21				0									60	0	3		#ffcb64
+barrelroll	齿轮音盒弹	齿	落地后每 0.6 秒沿投掷方向弹出一枚短程簧片，共三枚。最多同时放置两个音筒。	Rare	3	0	MusicBox	12			23	4	0.32				25									9	0	0.6		#c89bff

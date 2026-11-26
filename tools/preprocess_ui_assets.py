@@ -74,13 +74,11 @@ for _n in ("panel", "banner", "vignette", "vignette_damage", "divider"):
     CATEGORY[_n] = "Common"
 for _n in ("card_frame", "card_inner", "bar_frame"):
     CATEGORY[_n] = "Frame"
-for _n in ("btn_primary", "btn_primary_hover", "btn_danger", "slot_empty", "slot_filled",
+for _n in ("btn_primary", "btn_danger", "slot_empty", "slot_filled",
            "bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat",
            "crosshair", "hit_marker", "keycap"):
     CATEGORY[_n] = "Widget"
-for _n in ("tag_starter", "tag_common", "tag_rare", "tag_epic"):
-    CATEGORY[_n] = "Tag"
-for _n in ("icon_bullet", "icon_whole", "icon_after", "icon_gun",
+for _n in ("icon_bullet", "icon_whole", "icon_after",
            "icon_frame", "icon_lock", "icon_check", "icon_arrow"):
     CATEGORY[_n] = "Icon"
 
@@ -152,7 +150,6 @@ SPECS = {
     "icon_bullet": dict(mode="icon", size=(128, 128), trim=True, final=True, pad_ratio=0.04),
     "icon_whole":  dict(mode="icon", size=(128, 128), trim=True, final=True, pad_ratio=0.04),
     "icon_after":  dict(mode="icon", size=(128, 128), trim=True, final=True, pad_ratio=0.04),
-    "icon_gun":    dict(mode="icon", size=(128, 128), trim=True, final=True, pad_ratio=0.04),
     # vignette：全屏 1600×900 的外缘光晕（不是径向暗角：中心是纯黑，亮度集中在四条边带）。
     # 原图为「纯黑底 + 冷灰光环」且无 alpha，当 Simple 铺满全屏会把整块画面压黑；
     # 必须转成 alpha 遮罩（RGB 归白），颜色与强度交给 HudView 逐帧控制。
@@ -196,17 +193,16 @@ GROUPS = {
     "card": ["card_inner"],
     "icon": ["icon_lock", "icon_check", "icon_arrow"],
     "panel": ["panel", "card_frame", "banner", "bar_frame"],
-    "glyph_icon": ["keycap", "icon_bullet", "icon_whole", "icon_after", "icon_gun"],
+    "glyph_icon": ["keycap", "icon_bullet", "icon_whole", "icon_after"],
     "fx": ["vignette"],
     "items": ["item_" + s for s in ITEM_IDS],
 }
 
 # 合成器（gen_ui_assets_ai.py）产出的 21 张，由它自己管，不算"绕过流水线"。
 MANAGED_BY_COMPOSITOR = {
-    "btn_primary", "btn_primary_hover", "btn_danger",
+    "btn_primary", "btn_danger",
     "bar_bg", "bar_fill_hp", "bar_fill_xp", "bar_fill_boss", "bar_fill_threat",
     "slot_empty", "slot_filled",
-    "tag_starter", "tag_common", "tag_rare", "tag_epic",
     "icon_frame", "icon_lock", "icon_check", "icon_arrow",
     "divider", "hit_marker", "vignette_damage",
     # 准星由合成器精确绘制（AI 出图在 16~130px 下看不出细节，对称性也没法保证）

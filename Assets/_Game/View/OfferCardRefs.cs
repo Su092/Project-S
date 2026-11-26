@@ -42,9 +42,9 @@ namespace S.View
                 {
                     IconNode.Icon.enabled = true;
                     IconNode.Icon.type = Image.Type.Simple;
-                    IconNode.Icon.sprite = UiAssets.IconGun;
+                    IconNode.Icon.sprite = UiAssets.Named("hud_gun_" + gun.Id);
                     IconNode.Icon.material = null;
-                    IconNode.Icon.color = PlayerWeapons.ParseColor(gun.Color);
+                    IconNode.Icon.color = Color.white;
                     IconNode.Icon.preserveAspect = true;
                 }
                 if (IconNode.ScopeMark != null) IconNode.ScopeMark.enabled = false;

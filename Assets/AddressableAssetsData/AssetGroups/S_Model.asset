@@ -63,12 +63,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1970296356766df4c9f989d391cd5bae
-    m_Address: model/SM_Theater_Rail_Corner2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fbb2e65f6fc3d745a439d1fea431936
     m_Address: model/GrandTheater_Collisions
     m_ReadOnly: 0
@@ -225,12 +219,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7fed2ce66a00fee4caa93d495e4f9d92
-    m_Address: model/SM_Theater_Floor_Stone2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8000c21521c3fd644b513c47efe22322
     m_Address: model/SM_Theater_Floor_Walnut4
     m_ReadOnly: 0
@@ -255,20 +243,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - s_model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c0b3420cfbcd4a4cabc6ea972bc6a05
-    m_Address: model/SM_Theater_Deck_Return2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c8c787d5a80c5041b447f93470af753
     m_Address: model/SM_Theater_Stage_Timber4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 971327216765f75498b933a112d366ca
-    m_Address: model/SM_Theater_Door_Side4
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
@@ -287,12 +263,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a53cc4b299480f842849a391799f5a6f
     m_Address: model/SM_Theater_Prop_ProgramFrame
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a61273982b41b294486ec16cbf9d0e9b
-    m_Address: model/SM_Theater_Wall_Lobby1
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model
@@ -449,12 +419,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef75b8a581d1a9443a22654af46423fb
     m_Address: model/SM_Theater_Organ_Crown
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - s_model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef932a44eab3e1d45a30261d142a9839
-    m_Address: model/SM_Theater_Wall_Wainscot4
     m_ReadOnly: 0
     m_SerializedLabels:
     - s_model

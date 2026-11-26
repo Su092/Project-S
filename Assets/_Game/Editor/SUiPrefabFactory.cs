@@ -874,7 +874,7 @@ namespace S.EditorTools
 
             refs.TagTop = Pic("TagTop", root.transform, Color.white,
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
-                new Vector2(14f, -22f), new Vector2(-14f, -6f), Sp("tag_common"), true);
+                new Vector2(14f, -22f), new Vector2(-14f, -6f), null, false);
 
             refs.RarityName = Label("RarityName", root.transform, "", 15, TextAnchor.UpperRight,
                 Color.white, new Vector2(1f, 1f), new Vector2(1f, 1f),

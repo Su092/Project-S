@@ -1,31 +1,14 @@
-# _Inbox — 未处理资产暂存区
+# S 项目资产原料
 
-**本目录入库**（换机 `git pull` 就能拿到原料，不用重新生图）。放进来的东西是**原料**，不是交付件。
+Unity 使用的正式资产位于 `Assets/_Game/Res/` 和 `Assets/_Game/Resources/`。本目录保存重建这些资产所需的原料、源工程和交付记录。导入器按相对路径读取模型、贴图和清单。
 
-> 只有运行产物（`Shots/`、中间渲染）才 gitignore。
+| 内容 | 位置与用途 |
+|---|---|
+| 开始场景与选角 | `backstage/` 保存 Blender 工程和镜中角色的二维原图。 |
+| 乐器与音符 | `weapons/MusicWeapons_v001/` 是六把起始乐器的导入源。`orchestra-notes/` 保存新增音符、乐器及规划中配件的 APIMart 图集。 |
+| 敌人 | `chr/S_Music_Enemies/Reexport_20261119_135947/` 是音乐敌人的重导入交付。`Imported_20261119/` 中保留可编辑的 Blender 源文件和贴图。铸造厂敌人导入器读取 `chr/S_Foundry_Enemies/Review_v002/`。 |
+| 场景 | `Environment/` 保存场景源工程、布局、导出件和制作记录。大剧院地图构建器从 `GrandTheater/Layout/` 读取布局与标记。 |
+| 赛璐璐贴图 | `cel-texture-review-v1/` 保存采用的重绘原图、33 张替换前贴图及对应的 Unity meta、材质映射和校验清单。 |
+| HUD、谱架与奖励界面 | `ui-ai-raw/`、`ui-ai-src/`、各 HUD 和曲谱目录保存分层原图、用户修订和加工输入。升级卡框取自 APIMart v2，谱线取自 v7，音符取自 v8。早期回执也用于追溯参考图。 |
 
-## 为什么单独放这里
-
-工程里的 `Assets/` 只应该有「能直接进引擎」的东西。AI 原图、参考图、预览渲染这些原料混在里面会有三个问题：
-
-1. Unity 会给每张图生成 `.meta` 和无用导入，拖慢首次打开
-2. 分不清「这张抠过图没有」，流水线容易读错输入
-3. 仓库里塞几十 MB 可再生的大图
-
-## 现有子目录（S 工程）
-
-| 目录 | 内容 | 下游 |
-|------|------|------|
-| `ui-ai-raw/` | APIMart 原始下载，未抠图未规范化 | `tools/preprocess_ui_assets.py` 的输入 |
-| `ui-ai-src/` | 前期处理产物（已抠图 / 尺寸规范） | `tools/gen_ui_assets_ai.py` 的输入 |
-| `art-refs/` | 3D 建模参考图（1k，仅对照用） | 人眼 + `blender_s_build_assets.py` |
-| `art-preview/` | 模型预览渲染（`blender_s_preview.py` 产物） | 人眼核对 |
-
-UI 流水线：`_Inbox/ui-ai-raw/` → `_Inbox/ui-ai-src/` → `Assets/Resources/UI/`
-
-## 纪律
-
-- **只有最终进引擎的产物才落到 `Assets/`**；中间态一律留在本目录。
-- 本目录已入库：删掉某项就等于从所有机器删除，**不要**随手 `git clean`。
-- 需要长期留存的参考图放本目录；要写进文档的只是**结论**（表格/文字），大图不进枢纽 `docs/`。
-- 新建游戏时同样在工程根建 `_Inbox/`（含本 README）；`.gitignore` **不要**加 `/_Inbox/`。
+`Shots/` 用来输出新一轮游戏截图。历史预览、逐帧动作图及重复加工件已经清理。重新出图时，沿用各自的 Blender、APIMart 和 Unity 工具即可。

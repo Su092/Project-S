@@ -15,6 +15,10 @@ namespace S.Core
         public SlotState Slots;
         public GunStats Stats;
 
+        public bool SecondBeatPending { get; private set; }
+
+        public void CancelSecondBeat() => SecondBeatPending = false;
+
         public int Cursor;
         public int Ammo;
         public float FireCooldown;
@@ -111,6 +115,7 @@ namespace S.Core
         {
             if (Reloading) return;
             if (Ammo >= Stats.Mag) return;
+            CancelSecondBeat();
             ReloadLeft = Stats.Reload;
         }
 
@@ -149,6 +154,11 @@ namespace S.Core
             }
 
             FireCooldown = Stats.ShotInterval(cast.DelayAdd);
+            if (Base.Id == "castanets")
+            {
+                SecondBeatPending = !SecondBeatPending;
+                if (SecondBeatPending) FireCooldown *= .18f / Base.FireInterval;
+            }
             Cursor = cast.NextPointer % Slots.Length;
 
             if (Ammo <= 0) StartReload();
